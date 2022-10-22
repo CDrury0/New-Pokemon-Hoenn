@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: ShroomishReference
+  m_EditorClassIdentifier: 
+  baseStats: 3c000000280000003c000000280000003c00000023000000
+  cry: {fileID: 8300000, guid: 21f509cf7403e584bac86a04c571f85d, type: 3}
+  pokemonName: Shroomish
+  species: Mushroom
+  height: 0.4
+  weight: 4.5
+  IDNumber: 34
+  type1: 5
+  type2: 0
+  friendship: 70
+  baseExperience: 59
+  growthRate: 0
+  catchRate: 255
+  genderRatio: 0.5
+  eggGroup1: 5
+  eggGroup2: 6
+  eggCycles: 15
+  childPokemon: {fileID: 11400000}
+  evolvesInto1: {fileID: 11400000, guid: ff1c1a2468c58524d96f4ed63094edfc, type: 2}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: It spouts poison spores from the top of its head. These spores cause
+    pain all over if inhaled.
+  ability1: 25
+  ability2: 79
+  normalFront: {fileID: 21300000, guid: dc843e0da04b2ca4aab3e88801bc3e78, type: 3}
+  normalBack: {fileID: 21300000, guid: 2fc8e2d4e390f704da4fb5037cdfbcd7, type: 3}
+  shinyFront: {fileID: 21300000, guid: af3d259d224767c4bae9d5836380c5bf, type: 3}
+  shinyBack: {fileID: 21300000, guid: f4fa2aae8b6c4a941a802c1cf34cdf7c, type: 3}
+  evolutionLevel: 23
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: 8d467852a20bba14bbef19c71ec468ab, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: 9a33f2c408a77304f887d184860639cf, type: 3}
+  naturallyHeldItem: {fileID: 11400000, guid: 8653bcf9b5bf1d849855012649a954af, type: 2}
+  lastSeen: 0
+  evYield: 010000000000000000000000000000000000000000000000
+  learnedMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

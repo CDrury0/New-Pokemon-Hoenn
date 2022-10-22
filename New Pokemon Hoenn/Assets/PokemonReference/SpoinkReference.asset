@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: SpoinkReference
+  m_EditorClassIdentifier: 
+  baseStats: 3c000000190000002300000046000000500000003c000000
+  cry: {fileID: 8300000, guid: 1be94d6a40086a041a60e418b52e3f3e, type: 3}
+  pokemonName: Spoink
+  species: Bounce
+  height: 0.7
+  weight: 30.6
+  IDNumber: 114
+  type1: 11
+  type2: 0
+  friendship: 70
+  baseExperience: 85
+  growthRate: 2
+  catchRate: 255
+  genderRatio: 0.5
+  eggGroup1: 4
+  eggGroup2: 13
+  eggCycles: 20
+  childPokemon: {fileID: 11400000}
+  evolvesInto1: {fileID: 11400000, guid: 9a9acf12bf2ab9e4898a3144ff2a627e, type: 2}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: It bounces constantly, using its tail like a spring. The shock of
+    bouncing keeps its heart beating.
+  ability1: 45
+  ability2: 18
+  normalFront: {fileID: 21300000, guid: 6a6ec823b8492f741bca4ec93f504ca5, type: 3}
+  normalBack: {fileID: 21300000, guid: 9d807af104e7e4e4484ffee5444d6ca8, type: 3}
+  shinyFront: {fileID: 21300000, guid: 19de78462736ba349aa75bbc047a8391, type: 3}
+  shinyBack: {fileID: 21300000, guid: 853b79e68d94fe34c9fc890082a206b2, type: 3}
+  evolutionLevel: 32
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: 71eca27a48f1ff24b9d8c420bee33eb8, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: 3f85463212109d64d9b27ed6c9d6cbe7, type: 3}
+  naturallyHeldItem: {fileID: 11400000, guid: 27c1fc22c254b7d4699ec20d6fd3df99, type: 2}
+  lastSeen: 0
+  evYield: 000000000000000000000000000000000100000000000000
+  learnedMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

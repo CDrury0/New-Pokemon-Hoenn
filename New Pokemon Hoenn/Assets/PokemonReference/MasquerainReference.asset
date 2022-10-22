@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: MasquerainReference
+  m_EditorClassIdentifier: 
+  baseStats: 460000003c0000003e000000640000005200000050000000
+  cry: {fileID: 8300000, guid: 08b1cbbc123c9614e8d098fd3f55791d, type: 3}
+  pokemonName: Masquerain
+  species: Eyeball
+  height: 0.8
+  weight: 3.6
+  IDNumber: 33
+  type1: 12
+  type2: 10
+  friendship: 70
+  baseExperience: 159
+  growthRate: 1
+  catchRate: 75
+  genderRatio: 0.5
+  eggGroup1: 2
+  eggGroup2: 1
+  eggCycles: 15
+  childPokemon: {fileID: 11400000, guid: 9a9ad05f5101898449ab5d9922d6aacd, type: 2}
+  evolvesInto1: {fileID: 0}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: "It intimidates foes with the large eyelike patterns on its antennae.
+    Because it can\u2019t fly if its wings get wet, it shelters itself from rain
+    under large trees and eaves."
+  ability1: 20
+  ability2: 66
+  normalFront: {fileID: 21300000, guid: 7a1fe7b1f1c1e6b43bf6ca5735f7b30e, type: 3}
+  normalBack: {fileID: 21300000, guid: 246e14be2065a7642a203288bd87f4e0, type: 3}
+  shinyFront: {fileID: 21300000, guid: 89edb6c13b4d9c84486cc004820ef08f, type: 3}
+  shinyBack: {fileID: 21300000, guid: a786d1e053d39e6418838b73361add68, type: 3}
+  evolutionLevel: 101
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: f0443b680e6b34e46bfaae606d351a36, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: 12ca801f66e8b8144aea46b78e471ebf, type: 3}
+  naturallyHeldItem: {fileID: 0}
+  lastSeen: 0
+  evYield: 000000000000000000000000010000000100000000000000
+  learnedMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: ChimechoReference
+  m_EditorClassIdentifier: 
+  baseStats: 4b000000320000005a000000640000005f00000041000000
+  cry: {fileID: 8300000, guid: 6de8654e099b2ac44b6da4a55af80738, type: 3}
+  pokemonName: Chimecho
+  species: Wind Chime
+  height: 0.6
+  weight: 1
+  IDNumber: 156
+  type1: 11
+  type2: 0
+  friendship: 70
+  baseExperience: 155
+  growthRate: 2
+  catchRate: 45
+  genderRatio: 0.5
+  eggGroup1: 10
+  eggGroup2: 13
+  eggCycles: 25
+  childPokemon: {fileID: 11400000}
+  evolvesInto1: {fileID: 0}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: They fly about very actively when the hot season arrives. They communicate
+    among themselves using various ringing patterns.
+  ability1: 24
+  ability2: 24
+  normalFront: {fileID: 21300000, guid: 133239e69ba47c840af232119a6113a9, type: 3}
+  normalBack: {fileID: 21300000, guid: 1ec1f78eb3a7f7248a0d08d1c4db0970, type: 3}
+  shinyFront: {fileID: 21300000, guid: 52418564c259b7c4c9aebe971272cf80, type: 3}
+  shinyBack: {fileID: 21300000, guid: c5feb18b42d27454d829ad679223e59c, type: 3}
+  evolutionLevel: 101
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: 9d750dae82c6122468c71a5ea9b578da, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: ad6969ef80eef344e85dce85298d61d2, type: 3}
+  naturallyHeldItem: {fileID: 0}
+  lastSeen: 0
+  evYield: 000000000000000000000000010000000100000000000000
+  learnedMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

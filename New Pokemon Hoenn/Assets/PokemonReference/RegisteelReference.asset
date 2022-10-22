@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: RegisteelReference
+  m_EditorClassIdentifier: 
+  baseStats: 500000004b000000960000004b0000009600000032000000
+  cry: {fileID: 8300000, guid: 6a99bcd95a3a7c447a225e7e63c49fe7, type: 3}
+  pokemonName: Registeel
+  species: Metal Titan
+  height: 1.9
+  weight: 205
+  IDNumber: 207
+  type1: 17
+  type2: 0
+  friendship: 35
+  baseExperience: 260
+  growthRate: 0
+  catchRate: 3
+  genderRatio: -1
+  eggGroup1: 13
+  eggGroup2: 13
+  eggCycles: 0
+  childPokemon: {fileID: 0}
+  evolvesInto1: {fileID: 0}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: Its body is harder than any other kind of metal. The body metal is
+    composed of a mysterious substance. Not only is it hard, it shrinks and stretches
+    flexibly.
+  ability1: 27
+  ability2: 27
+  normalFront: {fileID: 21300000, guid: 683ed4cadf5f64a4790389f2ba952c95, type: 3}
+  normalBack: {fileID: 21300000, guid: 37101e978ac7b0e41825cc7376287981, type: 3}
+  shinyFront: {fileID: 21300000, guid: e2c67107777c7c841b86affb6959836a, type: 3}
+  shinyBack: {fileID: 21300000, guid: a47e751c7d5d65e479990801579d7d87, type: 3}
+  evolutionLevel: 101
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: 8254c6703b9dcd24b95acf6f676b095a, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: 0b466990a2587fd4784163be189ddd32, type: 3}
+  naturallyHeldItem: {fileID: 0}
+  lastSeen: 0
+  evYield: 000000000000000002000000000000000100000000000000
+  learnedMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

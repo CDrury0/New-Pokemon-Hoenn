@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
+  m_Name: NestBall
+  m_EditorClassIdentifier: 
+  itemIdentifier: 8
+  itemName: Nest Ball
+  itemDescription: "A ball that works better the weaker the target Pok\xE9mon is."
+  itemSprite: {fileID: 21300000, guid: 3cbccba524f7032438e5b6192f656470, type: 3}
+  itemPocket: 3
+  heldItem: 0
+  usedDuringBattle: 1
+  usedOutsideBattle: 0
+  cannotBeDiscarded: 0
+  itemPrice: 1000

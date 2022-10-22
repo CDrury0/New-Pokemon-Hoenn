@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: ElectrikeReference
+  m_EditorClassIdentifier: 
+  baseStats: 280000002d00000028000000410000002800000041000000
+  cry: {fileID: 8300000, guid: 6298a664f2f614948b6851df192bf06b, type: 3}
+  pokemonName: Electrike
+  species: Lightning
+  height: 0.6
+  weight: 15.2
+  IDNumber: 79
+  type1: 4
+  type2: 0
+  friendship: 70
+  baseExperience: 75
+  growthRate: 0
+  catchRate: 120
+  genderRatio: 0.5
+  eggGroup1: 4
+  eggGroup2: 13
+  eggCycles: 20
+  childPokemon: {fileID: 11400000}
+  evolvesInto1: {fileID: 11400000, guid: e7adaab98f3df61439a016a9958393a2, type: 2}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: It stores static electricity in its fur for discharging. It gives
+    off sparks if a storm approaches.
+  ability1: 7
+  ability2: 8
+  normalFront: {fileID: 21300000, guid: c1b9cec4da1d19e43b234a2c4bf30f61, type: 3}
+  normalBack: {fileID: 21300000, guid: 5d257e0f98c470a4eb9527b033dd61e8, type: 3}
+  shinyFront: {fileID: 21300000, guid: 82a0412de56860047800abacf8d1247e, type: 3}
+  shinyBack: {fileID: 21300000, guid: 584b0b643a9894e4b98ddd6bf4ab8caf, type: 3}
+  evolutionLevel: 26
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: c3d3aeb510a8d0e4f9e30840a9440486, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: 467fc790773201a42aae266d0886e94d, type: 3}
+  naturallyHeldItem: {fileID: 0}
+  lastSeen: 0
+  evYield: 000000000000000000000000000000000000000001000000
+  learnedMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

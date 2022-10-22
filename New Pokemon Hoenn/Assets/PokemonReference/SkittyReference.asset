@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: SkittyReference
+  m_EditorClassIdentifier: 
+  baseStats: 320000002d0000002d000000230000002300000032000000
+  cry: {fileID: 8300000, guid: 8370f74c34e502e47b0668ff35dbfc5d, type: 3}
+  pokemonName: Skitty
+  species: Kitten
+  height: 0.6
+  weight: 11
+  IDNumber: 62
+  type1: 1
+  type2: 0
+  friendship: 70
+  baseExperience: 55
+  growthRate: 2
+  catchRate: 255
+  genderRatio: 0.25
+  eggGroup1: 5
+  eggGroup2: 4
+  eggCycles: 15
+  childPokemon: {fileID: 11400000}
+  evolvesInto1: {fileID: 11400000, guid: 1b7542ff1628bdc43aa99e3db4bc3a75, type: 2}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: It uncontrollably chases moving objects.
+  ability1: 54
+  ability2: 54
+  normalFront: {fileID: 21300000, guid: f01c91a5ca91b4b418ecf45052fb1393, type: 3}
+  normalBack: {fileID: 21300000, guid: 9dc6927ea1eec5b45b42f60210d53f0f, type: 3}
+  shinyFront: {fileID: 21300000, guid: bb9c35ded24e25a45ae2d0af2bb60f3e, type: 3}
+  shinyBack: {fileID: 21300000, guid: d847e71c61119dc42a3910cb8e2d69df, type: 3}
+  evolutionLevel: 101
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: 0e6c18249e32e5b468dca119229293ca, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: f9bac0335faaef842a3b2a50a3fa2729, type: 3}
+  naturallyHeldItem: {fileID: 11400000, guid: 282c08528c90dc64d9d8a4ec5e283458, type: 2}
+  lastSeen: 0
+  evYield: 000000000000000000000000000000000000000001000000
+  learnedMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

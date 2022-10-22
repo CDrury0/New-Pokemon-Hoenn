@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: NumelReference
+  m_EditorClassIdentifier: 
+  baseStats: 3c0000003c00000028000000410000002d00000023000000
+  cry: {fileID: 8300000, guid: ac9f78e8f34bb3e458babb0dbf1240c2, type: 3}
+  pokemonName: Numel
+  species: Numb
+  height: 0.7
+  weight: 24
+  IDNumber: 105
+  type1: 2
+  type2: 9
+  friendship: 70
+  baseExperience: 80
+  growthRate: 1
+  catchRate: 255
+  genderRatio: 0.5
+  eggGroup1: 4
+  eggGroup2: 13
+  eggCycles: 20
+  childPokemon: {fileID: 11400000}
+  evolvesInto1: {fileID: 11400000, guid: 0b8a6478edeb53a4ca82fb0d0fe9516f, type: 2}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: Its humped back stores intensely hot magma. In rain, the magma cools,
+    slowing its movement.
+  ability1: 10
+  ability2: 10
+  normalFront: {fileID: 21300000, guid: 53be1d5626ba455479f1d0324fd07538, type: 3}
+  normalBack: {fileID: 21300000, guid: ee97ce0aad930ae4cb0f133dd458aa3f, type: 3}
+  shinyFront: {fileID: 21300000, guid: 55bc699bb13c0104ebd14d4956857d2d, type: 3}
+  shinyBack: {fileID: 21300000, guid: a1e25fe695fd9654b8018ba834e3b40d, type: 3}
+  evolutionLevel: 33
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: 7ae99ca57f327984fa9c5ade264ebe10, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: bf4b63740f822184db1ad4d8759faec9, type: 3}
+  naturallyHeldItem: {fileID: 11400000, guid: d553c7d3850e2c84abd209f948608bf9, type: 2}
+  lastSeen: 0
+  evYield: 000000000000000000000000010000000000000000000000
+  learnedMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

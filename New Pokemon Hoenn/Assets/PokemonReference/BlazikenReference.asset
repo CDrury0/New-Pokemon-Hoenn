@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: BlazikenReference
+  m_EditorClassIdentifier: 
+  baseStats: 5000000078000000460000006e0000004600000050000000
+  cry: {fileID: 8300000, guid: 53681f5345cec5f4bb7a0eb9038e7a7b, type: 3}
+  pokemonName: Blaziken
+  species: Blaze
+  height: 1.9
+  weight: 52
+  IDNumber: 6
+  type1: 2
+  type2: 7
+  friendship: 70
+  baseExperience: 239
+  growthRate: 1
+  catchRate: 45
+  genderRatio: 0.875
+  eggGroup1: 4
+  eggGroup2: 13
+  eggCycles: 20
+  childPokemon: {fileID: 11400000, guid: 00524eca11e18a64eaf8dbfcc90dba36, type: 2}
+  evolvesInto1: {fileID: 0}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: "Blaziken has incredibly strong legs - it can easily clear a 30-story
+    building in one leap. This Pok\xE9mon\u2019s blazing punches leave its foes scorched
+    and blackened."
+  ability1: 64
+  ability2: 64
+  normalFront: {fileID: 21300000, guid: 8f08454f354fd7a48b9a6c93c56502f9, type: 3}
+  normalBack: {fileID: 21300000, guid: 81f5ad11ee2a6e740b514923dde53f61, type: 3}
+  shinyFront: {fileID: 21300000, guid: 998586b4c9b0756448994bb2d827895c, type: 3}
+  shinyBack: {fileID: 21300000, guid: 7ea7f842c4371f34aa56dbede0b0f3aa, type: 3}
+  evolutionLevel: 101
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: 6742539abd51d5f44ad68d80c546d5ea, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: ff18a8cc340959b4487d22493c841ff4, type: 3}
+  naturallyHeldItem: {fileID: 0}
+  lastSeen: 0
+  evYield: 000000000300000000000000000000000000000000000000
+  learnedMoves:
+  - {fileID: 11400000, guid: 9cabc424007ca7f49a57c0421ebcdc3f, type: 2}
+  - {fileID: 11400000, guid: a9b8732ca234e1a49882f8356f2a8e09, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 67cfbaa58f979894fa747930a78ea733, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 242e5f732a0096b42889f35b863676f7, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 54bea0289ec0dc94ba073ff00dd2be8d, type: 2}
+  - {fileID: 11400000, guid: 505ce956c034f6045b41b7bf3595fd1c, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: ac43065e815209a47843a3efb3fdf136, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 79e7d5880c79b6c4f9a85b466236f715, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 36e3008b0d3e28a4bba45fd8299be22d, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: ded1d626266e56c47857b993b3ebb72d, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 4a7f4e40bd894c64793d787f95ae4c6a, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: eff6e228fe770ad4193188a0ac36ade9, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves:
+  - {fileID: 11400000, guid: d00bc889f3db61f48a15fbf243751340, type: 2}

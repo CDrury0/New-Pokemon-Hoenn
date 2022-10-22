@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: RoseliaReference
+  m_EditorClassIdentifier: 
+  baseStats: 320000003c0000002d000000640000005000000041000000
+  cry: {fileID: 8300000, guid: 1222e74929b48974aa0935987c29f9b0, type: 3}
+  pokemonName: Roselia
+  species: Thorn
+  height: 0.3
+  weight: 2
+  IDNumber: 97
+  type1: 5
+  type2: 8
+  friendship: 70
+  baseExperience: 120
+  growthRate: 1
+  catchRate: 150
+  genderRatio: 0.5
+  eggGroup1: 5
+  eggGroup2: 6
+  eggCycles: 20
+  childPokemon: {fileID: 11400000}
+  evolvesInto1: {fileID: 11400000, guid: 665b716bf7560a64388aac45baf661c4, type: 2}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: "The beautiful flowers on its arms have toxic thorns. Don\u2019t
+    even think about picking those flowers."
+  ability1: 28
+  ability2: 36
+  normalFront: {fileID: 21300000, guid: 65d6242f3a6a51143ad7bebdf6393e74, type: 3}
+  normalBack: {fileID: 21300000, guid: f4837d15c0b9fab43bbbf02863a3eca6, type: 3}
+  shinyFront: {fileID: 21300000, guid: 110c981574e560646ada67ee6f9cbb5c, type: 3}
+  shinyBack: {fileID: 21300000, guid: 56ed3d9a4468404478a027d4ed48ec41, type: 3}
+  evolutionLevel: 101
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: 313b10f6c778a794b9e0f64712a1f5a6, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: 3537dc576f68ab740be42f960c8c0838, type: 3}
+  naturallyHeldItem: {fileID: 11400000, guid: 3b85444acfb107e41ae3c25bbdcf54ea, type: 2}
+  lastSeen: 0
+  evYield: 000000000000000000000000020000000000000000000000
+  learnedMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

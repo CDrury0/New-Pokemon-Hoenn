@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: MedititeReference
+  m_EditorClassIdentifier: 
+  baseStats: 1e000000280000003700000028000000370000003c000000
+  cry: {fileID: 8300000, guid: d190061f535315f45bda58cdeebce8f2, type: 3}
+  pokemonName: Meditite
+  species: Meditate
+  height: 0.6
+  weight: 11.2
+  IDNumber: 77
+  type1: 7
+  type2: 11
+  friendship: 70
+  baseExperience: 74
+  growthRate: 1
+  catchRate: 180
+  genderRatio: 0.5
+  eggGroup1: 7
+  eggGroup2: 13
+  eggCycles: 20
+  childPokemon: {fileID: 11400000}
+  evolvesInto1: {fileID: 11400000, guid: 1e88e7dc97c2ed94da0023b5cf5ffa64, type: 2}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: It never skips leg day. By enduring intentional hunger, its spirit
+    is tempered.
+  ability1: 72
+  ability2: 72
+  normalFront: {fileID: 21300000, guid: 004bffb06fe13484686706153f9606ea, type: 3}
+  normalBack: {fileID: 21300000, guid: f999090c84a6301458b50b9743fa1acc, type: 3}
+  shinyFront: {fileID: 21300000, guid: 798a1bf42b019c646869fc5ca538014d, type: 3}
+  shinyBack: {fileID: 21300000, guid: 7ed2661423935cc44b17a5f4558bc950, type: 3}
+  evolutionLevel: 37
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: 45b61663b410f634fa1162528c6ca39c, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: 758bfdf7e08323d4fae7b159829a97b9, type: 3}
+  naturallyHeldItem: {fileID: 11400000, guid: 36b90087da6a1144bb553d4b3f42aea5, type: 2}
+  lastSeen: 0
+  evYield: 000000000000000000000000000000000000000001000000
+  learnedMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

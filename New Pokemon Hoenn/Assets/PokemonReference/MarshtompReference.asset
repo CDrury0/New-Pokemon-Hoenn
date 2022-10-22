@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: MarshtompReference
+  m_EditorClassIdentifier: 
+  baseStats: 4600000055000000460000003c0000004600000032000000
+  cry: {fileID: 8300000, guid: 2e5ff3d9c0e4b6f4aa069481e17d32a2, type: 3}
+  pokemonName: Marshtomp
+  species: Mud Fish
+  height: 0.7
+  weight: 28
+  IDNumber: 8
+  type1: 3
+  type2: 9
+  friendship: 70
+  baseExperience: 142
+  growthRate: 1
+  catchRate: 45
+  genderRatio: 0.875
+  eggGroup1: 0
+  eggGroup2: 1
+  eggCycles: 20
+  childPokemon: {fileID: 11400000, guid: fce991b11773b7c4c990d57b9348700f, type: 2}
+  evolvesInto1: {fileID: 11400000, guid: 1615885bd1ed0274198175318f10ee53, type: 2}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: Marshtomp excels at moving and fighting in mud, a unique characteristic
+    that it uses against its foes.
+  ability1: 65
+  ability2: 65
+  normalFront: {fileID: 21300000, guid: b776f696f04738f49b496b94e96156f3, type: 3}
+  normalBack: {fileID: 21300000, guid: 7c65cf05bc0e6354099a035a5468eda3, type: 3}
+  shinyFront: {fileID: 21300000, guid: dd7986a832c78f24eacf5d3ffd0287c6, type: 3}
+  shinyBack: {fileID: 21300000, guid: a455008b235f0224b841e3f57042d64b, type: 3}
+  evolutionLevel: 36
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: 1259d2aaaa9ac0145b038e0419594a81, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: e08741904b85df544be614bd69fd9682, type: 3}
+  naturallyHeldItem: {fileID: 0}
+  lastSeen: 0
+  evYield: 000000000200000000000000000000000000000000000000
+  learnedMoves:
+  - {fileID: 11400000, guid: 9cabc424007ca7f49a57c0421ebcdc3f, type: 2}
+  - {fileID: 11400000, guid: 2e498aabe338230478f6e6849159276f, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 7b7d600c23a1c514f984f7129eb49493, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 84faf5c59ebe1f64f9f07aa68bc88097, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 9d897c55a25b82d48bfb64a1715e2033, type: 2}
+  - {fileID: 11400000, guid: 9377d1f53ae199d4da0452b5689b6d16, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 97dab22079a72b443900f68fa6c5411e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 0b4b840f94c525e49aa3f175ee5dff8e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 47b2711f4d0cd4746888c187fd814ac8, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 58645d3b04acf7a49b2477365d61bbf0, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 469f95272ae893948a4ee3fc834d4a0c, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: eba2ca11a858c074887f85cff99bcf49, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: ed59d9b599b23214099cb3884736dff2, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

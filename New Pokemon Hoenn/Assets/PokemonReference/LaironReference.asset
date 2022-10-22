@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: LaironReference
+  m_EditorClassIdentifier: 
+  baseStats: 3c0000005a0000008c000000320000003200000028000000
+  cry: {fileID: 8300000, guid: 82569b30461b52d44960e01654347e40, type: 3}
+  pokemonName: Lairon
+  species: Iron Armor
+  height: 0.9
+  weight: 120
+  IDNumber: 72
+  type1: 17
+  type2: 13
+  friendship: 35
+  baseExperience: 150
+  growthRate: 0
+  catchRate: 90
+  genderRatio: 0.5
+  eggGroup1: 0
+  eggGroup2: 13
+  eggCycles: 35
+  childPokemon: {fileID: 11400000, guid: 7a0128c0e29c19a4c97fff845ab499fb, type: 2}
+  evolvesInto1: {fileID: 11400000, guid: 0b538c75e01f81e4ca9fd3cee67c6ccd, type: 2}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: It habitually shows off its strength with the size of sparks it creates
+    by ramming its steel body into boulders.
+  ability1: 4
+  ability2: 67
+  normalFront: {fileID: 21300000, guid: 79be003c0ad5f414fb4da318577803d1, type: 3}
+  normalBack: {fileID: 21300000, guid: c9d2413a3fc1c924bbadf5ec2051dc68, type: 3}
+  shinyFront: {fileID: 21300000, guid: 86cd80bbeffa1594aaeb566db44398a8, type: 3}
+  shinyBack: {fileID: 21300000, guid: bbeffe507ee7ee74c9996a538fdeca14, type: 3}
+  evolutionLevel: 45
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: 3bec166c30e84f144b321249fbbc5384, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: 0f751102912d95e48b19fd38b7b603da, type: 3}
+  naturallyHeldItem: {fileID: 11400000, guid: 1716f5e36bb678d439d74a870f1d73cd, type: 2}
+  lastSeen: 0
+  evYield: 000000000000000002000000000000000000000000000000
+  learnedMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

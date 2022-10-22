@@ -1,0 +1,31 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ReferenceLib : MonoBehaviour
+{
+    public static ReferenceLib Instance {get; private set;}
+    public PokemonDefault[] pokemonDefaultLib;
+    public List<TypeMatchupList> typeEffectivenessMatchups;  //first index is attacking type, second is defending
+    public AreaData activeArea;
+
+    void Awake(){
+        if(Instance != null){
+            Debug.Log("PokemonReferenceLib exists");
+            return;
+        }
+        Instance = this;
+    }
+
+    [System.Serializable]
+    public class TypeMatchupList{
+        public StatLib.Type attackingType;
+        public List<TypeMatchupValues> matchup;
+    }
+
+    [System.Serializable]
+    public class TypeMatchupValues{
+        public StatLib.Type defendingType;
+        public StatLib.Matchup effectiveness;
+    }
+}

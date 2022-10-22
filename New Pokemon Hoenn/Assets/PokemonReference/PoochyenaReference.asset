@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: PoochyenaReference
+  m_EditorClassIdentifier: 
+  baseStats: 2300000037000000230000001e0000001e00000023000000
+  cry: {fileID: 8300000, guid: 4b063b0d4230639439b496f76aafdc52, type: 3}
+  pokemonName: Poochyena
+  species: Bite
+  height: 0.5
+  weight: 13.6
+  IDNumber: 10
+  type1: 16
+  type2: 0
+  friendship: 70
+  baseExperience: 56
+  growthRate: 1
+  catchRate: 255
+  genderRatio: 0.5
+  eggGroup1: 4
+  eggGroup2: 13
+  eggCycles: 15
+  childPokemon: {fileID: 11400000}
+  evolvesInto1: {fileID: 11400000, guid: 8640411e45b409d4685e02cc66d2c9ba, type: 2}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: It savagely threatens foes with bared fangs. It chases after fleeing
+    targets tenaciously. It turns tail and runs, however, if the foe strikes back.
+  ability1: 48
+  ability2: 78
+  normalFront: {fileID: 21300000, guid: e49e3ca8fb1f03c4ab4320ee360012ec, type: 3}
+  normalBack: {fileID: 21300000, guid: 72dd683ad37db874fa92f817111ca709, type: 3}
+  shinyFront: {fileID: 21300000, guid: 85f33b576e637cf42baf2d5262f6adf0, type: 3}
+  shinyBack: {fileID: 21300000, guid: f2c9f480c4908bc4db024e91e2692000, type: 3}
+  evolutionLevel: 18
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: 2b55d049ded06654fa784b3d98dc2dbf, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: 60a5ebfcc0014c745823ad6b6f852c1b, type: 3}
+  naturallyHeldItem: {fileID: 11400000, guid: 035f79a7c84274842a0980ab9b5ed21b, type: 2}
+  lastSeen: 0
+  evYield: 000000000100000000000000000000000000000000000000
+  learnedMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

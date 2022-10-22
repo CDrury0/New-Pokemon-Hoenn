@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: CombuskenReference
+  m_EditorClassIdentifier: 
+  baseStats: 3c000000550000003c000000550000003c00000037000000
+  cry: {fileID: 8300000, guid: bbe927018da19484c86ef7fc80bb69ed, type: 3}
+  pokemonName: Combusken
+  species: Young Fowl
+  height: 0.9
+  weight: 19.5
+  IDNumber: 5
+  type1: 2
+  type2: 7
+  friendship: 70
+  baseExperience: 142
+  growthRate: 1
+  catchRate: 45
+  genderRatio: 0.875
+  eggGroup1: 4
+  eggGroup2: 13
+  eggCycles: 20
+  childPokemon: {fileID: 11400000, guid: 00524eca11e18a64eaf8dbfcc90dba36, type: 2}
+  evolvesInto1: {fileID: 11400000, guid: 304267c47a566e64dbc05406c89954ef, type: 2}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: It boosts its concentration by emitting harsh cries. Its kicks have
+    outstanding destructive power.
+  ability1: 64
+  ability2: 64
+  normalFront: {fileID: 21300000, guid: 7c20d3de8756a064bb75ce91f1fbc996, type: 3}
+  normalBack: {fileID: 21300000, guid: 5a5be76b1fbf23c47a2733aed8f99273, type: 3}
+  shinyFront: {fileID: 21300000, guid: 2ee4356de16bb5d48ba7e48d4d7b2fdc, type: 3}
+  shinyBack: {fileID: 21300000, guid: 1172fceb5d8ec5f419e7fbead6cf1e06, type: 3}
+  evolutionLevel: 36
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: f080345d2bdf19149a5e627c462a017a, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: 2d4e00f552600ce40919f74908ae9ec5, type: 3}
+  naturallyHeldItem: {fileID: 0}
+  lastSeen: 0
+  evYield: 000000000200000000000000000000000000000000000000
+  learnedMoves:
+  - {fileID: 11400000, guid: 9cabc424007ca7f49a57c0421ebcdc3f, type: 2}
+  - {fileID: 11400000, guid: a9b8732ca234e1a49882f8356f2a8e09, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 67cfbaa58f979894fa747930a78ea733, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 242e5f732a0096b42889f35b863676f7, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 54bea0289ec0dc94ba073ff00dd2be8d, type: 2}
+  - {fileID: 11400000, guid: 505ce956c034f6045b41b7bf3595fd1c, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: ac43065e815209a47843a3efb3fdf136, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 79e7d5880c79b6c4f9a85b466236f715, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 36e3008b0d3e28a4bba45fd8299be22d, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 4a7f4e40bd894c64793d787f95ae4c6a, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: eff6e228fe770ad4193188a0ac36ade9, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

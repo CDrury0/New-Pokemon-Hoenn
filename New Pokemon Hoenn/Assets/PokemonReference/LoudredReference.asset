@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: LoudredReference
+  m_EditorClassIdentifier: 
+  baseStats: 54000000470000002b000000470000002b00000030000000
+  cry: {fileID: 8300000, guid: c6db8ed032ea83746a245721a0bc4de5, type: 3}
+  pokemonName: Loudred
+  species: Big Voice
+  height: 1
+  weight: 40.5
+  IDNumber: 46
+  type1: 1
+  type2: 0
+  friendship: 70
+  baseExperience: 126
+  growthRate: 1
+  catchRate: 120
+  genderRatio: 0.5
+  eggGroup1: 4
+  eggGroup2: 0
+  eggCycles: 20
+  childPokemon: {fileID: 11400000, guid: 24029e51c3e51d54798f521a448aed56, type: 2}
+  evolvesInto1: {fileID: 11400000, guid: 998ad752262719b4f8a854908c8e78d9, type: 2}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: It positions the round speakers on its head to assail foes with ultrasonic
+    waves at massive volume. It builds power by stomping the ground.
+  ability1: 41
+  ability2: 41
+  normalFront: {fileID: 21300000, guid: fef1420e83d5fef4d846e22a45f0e0f2, type: 3}
+  normalBack: {fileID: 21300000, guid: c798ad26962d92e4a94a6189fb05d282, type: 3}
+  shinyFront: {fileID: 21300000, guid: 0241ae810401e0f49ac5395a3bbd6a1b, type: 3}
+  shinyBack: {fileID: 21300000, guid: 9b39a0194a9e22347b1154c64ffaa72a, type: 3}
+  evolutionLevel: 40
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: 2e48f0cfe94ffc643b8d5b4ed55e8934, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: d244fac545393ea4b811a789db3bcd5b, type: 3}
+  naturallyHeldItem: {fileID: 11400000, guid: cb96a0e39b95ef442988630806737b1b, type: 2}
+  lastSeen: 0
+  evYield: 000000000000000000000000000000000000000000000000
+  learnedMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

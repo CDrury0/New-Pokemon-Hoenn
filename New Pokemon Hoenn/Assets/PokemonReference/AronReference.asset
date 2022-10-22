@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: AronReference
+  m_EditorClassIdentifier: 
+  baseStats: 32000000460000006400000028000000280000001e000000
+  cry: {fileID: 8300000, guid: 27c35501076dc3949b95a23bbfb28fe0, type: 3}
+  pokemonName: Aron
+  species: Iron Armor
+  height: 0.4
+  weight: 60
+  IDNumber: 71
+  type1: 17
+  type2: 13
+  friendship: 35
+  baseExperience: 80
+  growthRate: 0
+  catchRate: 180
+  genderRatio: 0.5
+  eggGroup1: 0
+  eggGroup2: 13
+  eggCycles: 35
+  childPokemon: {fileID: 11400000}
+  evolvesInto1: {fileID: 11400000, guid: 857305a486e15ff46b3aaf045ec821bd, type: 2}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: It usually lives deep in mountains. However, hunger may drive it
+    to eat railroad tracks and cars. When it evolves, it sheds the steel carapace
+    that covered its whole body and develops a new one.
+  ability1: 4
+  ability2: 67
+  normalFront: {fileID: 21300000, guid: 30e303b49dc21d44188c3c87a4e99cc9, type: 3}
+  normalBack: {fileID: 21300000, guid: 227b0a65e63cebf459ae898adbeb6dbd, type: 3}
+  shinyFront: {fileID: 21300000, guid: b945b9e00fbd4aa47b9cbd2c51a31748, type: 3}
+  shinyBack: {fileID: 21300000, guid: 45a3645cad8791547bf9ce876309cd9f, type: 3}
+  evolutionLevel: 32
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: 8b73b26dbae94714d9e49764dea92f3f, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: cab12a798f2e0cb4daa5c40fb338f435, type: 3}
+  naturallyHeldItem: {fileID: 11400000, guid: 1716f5e36bb678d439d74a870f1d73cd, type: 2}
+  lastSeen: 0
+  evYield: 000000000000000001000000000000000000000000000000
+  learnedMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

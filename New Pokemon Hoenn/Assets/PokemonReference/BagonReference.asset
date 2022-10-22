@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: BagonReference
+  m_EditorClassIdentifier: 
+  baseStats: 2d0000004b0000003c000000280000001e00000032000000
+  cry: {fileID: 8300000, guid: 3a98644123ce2314abc64aeb56e18784, type: 3}
+  pokemonName: Bagon
+  species: Rock Head
+  height: 0.6
+  weight: 42.1
+  IDNumber: 199
+  type1: 15
+  type2: 0
+  friendship: 35
+  baseExperience: 80
+  growthRate: 0
+  catchRate: 45
+  genderRatio: 0.5
+  eggGroup1: 12
+  eggGroup2: 13
+  eggCycles: 40
+  childPokemon: {fileID: 11400000}
+  evolvesInto1: {fileID: 11400000, guid: 136c65f22f3988140b0758c9a350b097, type: 2}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: "This pok\xE9mon is strong in its own right, bashing things with
+    its steel-hard head, but it wishes to fly above all else."
+  ability1: 67
+  ability2: 67
+  normalFront: {fileID: 21300000, guid: 3fb952aaca8e45c40866901f467bcdac, type: 3}
+  normalBack: {fileID: 21300000, guid: b91c3ba317c1549438b9ec8b8093c722, type: 3}
+  shinyFront: {fileID: 21300000, guid: fed040260234c8544a601e93f9a48b25, type: 3}
+  shinyBack: {fileID: 21300000, guid: 0d253da91bfe94b44859cff4d172c3d7, type: 3}
+  evolutionLevel: 30
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: efabf53e99357954998166397b0c8f4b, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: a4370297af0396b45b6f646dfaf83ad2, type: 3}
+  naturallyHeldItem: {fileID: 11400000, guid: 15988c3f2a3f2ff45971c1aa1ec3f662, type: 2}
+  lastSeen: 0
+  evYield: 000000000100000000000000000000000000000000000000
+  learnedMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

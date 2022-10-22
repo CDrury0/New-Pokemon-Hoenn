@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: SwampertReference
+  m_EditorClassIdentifier: 
+  baseStats: 640000006e0000005a000000550000005a0000003c000000
+  cry: {fileID: 8300000, guid: f653c8bf191440e45992696409cd74e4, type: 3}
+  pokemonName: Swampert
+  species: Mud Fish
+  height: 1.5
+  weight: 81.9
+  IDNumber: 9
+  type1: 3
+  type2: 9
+  friendship: 70
+  baseExperience: 241
+  growthRate: 1
+  catchRate: 45
+  genderRatio: 0.875
+  eggGroup1: 0
+  eggGroup2: 1
+  eggCycles: 20
+  childPokemon: {fileID: 11400000, guid: fce991b11773b7c4c990d57b9348700f, type: 2}
+  evolvesInto1: {fileID: 0}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: Swampert defends its beachside nest by piling boulders to block waves.
+    It is also capable of towing a ship while swimming.
+  ability1: 65
+  ability2: 65
+  normalFront: {fileID: 21300000, guid: 3cb17584b23f3284c9e97c0d478567ae, type: 3}
+  normalBack: {fileID: 21300000, guid: 865e98b0df40fc74ea4168737f6db968, type: 3}
+  shinyFront: {fileID: 21300000, guid: c8857ed30988f1741b4034ab1746cde5, type: 3}
+  shinyBack: {fileID: 21300000, guid: 840da45d2aba2d3439a22f03688303c1, type: 3}
+  evolutionLevel: 101
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: 5d379627a04ed9c448cc04c10bc6df86, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: 6eaac60c75ab7f344bace0db9568159f, type: 3}
+  naturallyHeldItem: {fileID: 0}
+  lastSeen: 0
+  evYield: 000000000300000000000000000000000000000000000000
+  learnedMoves:
+  - {fileID: 11400000, guid: 9cabc424007ca7f49a57c0421ebcdc3f, type: 2}
+  - {fileID: 11400000, guid: 2e498aabe338230478f6e6849159276f, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 7b7d600c23a1c514f984f7129eb49493, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 84faf5c59ebe1f64f9f07aa68bc88097, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 9d897c55a25b82d48bfb64a1715e2033, type: 2}
+  - {fileID: 11400000, guid: 9377d1f53ae199d4da0452b5689b6d16, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 97dab22079a72b443900f68fa6c5411e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 0b4b840f94c525e49aa3f175ee5dff8e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 47b2711f4d0cd4746888c187fd814ac8, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 58645d3b04acf7a49b2477365d61bbf0, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 469f95272ae893948a4ee3fc834d4a0c, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: eba2ca11a858c074887f85cff99bcf49, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: ed59d9b599b23214099cb3884736dff2, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

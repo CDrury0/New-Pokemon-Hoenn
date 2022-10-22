@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Obstacles
+  - Spawn Tiles
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 4233504957
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 192603149
+    locked: 0
+  - name: Paths
+    uniqueID: 1931701805
+    locked: 0
+  - name: Obstacles
+    uniqueID: 130069897
+    locked: 0
+  - name: PlayerBody
+    uniqueID: 2126517495
+    locked: 0
+  - name: Tips
+    uniqueID: 2407804525
+    locked: 0
+  - name: PlayerHead
+    uniqueID: 3445044507
+    locked: 0
+  - name: UI
+    uniqueID: 2539916647
+    locked: 0

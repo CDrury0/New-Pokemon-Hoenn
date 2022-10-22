@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: GravelerReference
+  m_EditorClassIdentifier: 
+  baseStats: 370000005f000000730000002d0000002d00000023000000
+  cry: {fileID: 8300000, guid: 0ee32124fb24db24b93a7262f6fad262, type: 3}
+  pokemonName: Graveler
+  species: Rock
+  height: 1
+  weight: 105
+  IDNumber: 58
+  type1: 13
+  type2: 9
+  friendship: 70
+  baseExperience: 137
+  growthRate: 1
+  catchRate: 120
+  genderRatio: 0.5
+  eggGroup1: 9
+  eggGroup2: 13
+  eggCycles: 15
+  childPokemon: {fileID: 11400000, guid: ae252f9ace18e7c49bad84542fe6c944, type: 2}
+  evolvesInto1: {fileID: 11400000, guid: fcd615134ae95b54ea1060ee31868f55, type: 2}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: Still a rock.
+  ability1: 67
+  ability2: 4
+  normalFront: {fileID: 21300000, guid: 3fdb69265af1ce44baeac9af6e876288, type: 3}
+  normalBack: {fileID: 21300000, guid: 921b619dd62379b4088a208dd98fa42a, type: 3}
+  shinyFront: {fileID: 21300000, guid: b5a376b6444e4714e8f6e5232ec97669, type: 3}
+  shinyBack: {fileID: 21300000, guid: 903a94d1f24b64045908880eb3faf91c, type: 3}
+  evolutionLevel: 40
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: 3de0000114ec1004784193ab6b1fc56b, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: da750e3f9941d1f468311b2544e3b429, type: 3}
+  naturallyHeldItem: {fileID: 11400000, guid: a8d5a124fe8e86c41867d0527c47a3e1, type: 2}
+  lastSeen: 0
+  evYield: 000000000000000002000000000000000000000000000000
+  learnedMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorMoves: []

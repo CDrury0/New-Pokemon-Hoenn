@@ -1,0 +1,162 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
+  m_Name: MudkipReference
+  m_EditorClassIdentifier: 
+  baseStats: 320000004600000032000000320000003200000028000000
+  cry: {fileID: 8300000, guid: d7a47a9502f5e734aa852bfea9f17000, type: 3}
+  pokemonName: Mudkip
+  species: Mud Fish
+  height: 0.4
+  weight: 7.6
+  IDNumber: 7
+  type1: 3
+  type2: 0
+  friendship: 70
+  baseExperience: 62
+  growthRate: 1
+  catchRate: 45
+  genderRatio: 0.875
+  eggGroup1: 0
+  eggGroup2: 1
+  eggCycles: 20
+  childPokemon: {fileID: 11400000}
+  evolvesInto1: {fileID: 11400000, guid: fdd02ed2d7837654e8dd892a63f4ea72, type: 2}
+  evolvesInto2: {fileID: 0}
+  pokedexEntry: The fin on its head is highly sensitive. Despite its looks, it is
+    capable of lifting rocks several times its size.
+  ability1: 65
+  ability2: 65
+  normalFront: {fileID: 21300000, guid: d949d299e3db79a45971003298b3045e, type: 3}
+  normalBack: {fileID: 21300000, guid: 291686323a7d0d74d8e0196eadee0803, type: 3}
+  shinyFront: {fileID: 21300000, guid: f175790cf04802448b80dd0a67258bc1, type: 3}
+  shinyBack: {fileID: 21300000, guid: 0caf631b73f5e1143b08ab0e7ee374f7, type: 3}
+  evolutionLevel: 16
+  evoDetails:
+    evolvesWithItem: {fileID: 0}
+    evolvesWithFriendship: 0
+    evolvesFromGender: 0
+    evolvesRandom: 0
+  boxSprite: {fileID: 21300000, guid: a687d34e2e6221f4fb793c91a02e6af7, type: 3}
+  shinyBoxSprite: {fileID: 21300000, guid: 8c776cb2ab6f80a4a865e279990e8d0c, type: 3}
+  naturallyHeldItem: {fileID: 0}
+  lastSeen: 0
+  evYield: 000000000100000000000000000000000000000000000000
+  learnedMoves:
+  - {fileID: 11400000, guid: 9cabc424007ca7f49a57c0421ebcdc3f, type: 2}
+  - {fileID: 11400000, guid: 2e498aabe338230478f6e6849159276f, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 7b7d600c23a1c514f984f7129eb49493, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 84faf5c59ebe1f64f9f07aa68bc88097, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 9d897c55a25b82d48bfb64a1715e2033, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 97dab22079a72b443900f68fa6c5411e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 0b4b840f94c525e49aa3f175ee5dff8e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 47b2711f4d0cd4746888c187fd814ac8, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: ad06eb0df9faa62439c8c1c0fc57b6c0, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 469f95272ae893948a4ee3fc834d4a0c, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: ce6c00dac2af07f4cb42d5fa1d18d01b, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: ed59d9b599b23214099cb3884736dff2, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eggMoves:
+  - {fileID: 11400000, guid: 3263a168efb64264da0b6c0ce634daac, type: 2}
+  - {fileID: 11400000, guid: f23c53e790993c54e94c3db6c9173ff0, type: 2}
+  - {fileID: 11400000, guid: 0581c60f83b2066478c4538c8c5e7553, type: 2}
+  - {fileID: 11400000, guid: 53c37a4ab75fa3e45b1e4e8744793c5f, type: 2}
+  - {fileID: 11400000, guid: 72287484ec29217419328fb5d8eea9b0, type: 2}
+  tutorMoves: []

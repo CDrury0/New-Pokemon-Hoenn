@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
+  m_Name: HM02
+  m_EditorClassIdentifier: 
+  itemIdentifier: 224
+  itemName: HM02 - Fly
+  itemDescription: "A hidden machine used to teach a move to a Pok\xE9mon. Can be
+    used more than once."
+  itemSprite: {fileID: 21300000, guid: f3660c326d5187f469a6e59e00d7e6d6, type: 3}
+  itemPocket: 4
+  heldItem: 0
+  usedDuringBattle: 0
+  usedOutsideBattle: 1
+  cannotBeDiscarded: 1
+  itemPrice: 0
+  worksOn:
+  - {fileID: 11400000, guid: 66c0ed8a414074947b011929c55e6a32, type: 2}
+  - {fileID: 11400000, guid: 9e0564f110e68dd4ca3a1de7c53203ca, type: 2}
+  - {fileID: 11400000, guid: f63909029106bb24ab2aebf2a218f5e2, type: 2}
+  - {fileID: 11400000, guid: 28d7c89485cc17b4db5931d6170d5cd5, type: 2}
+  - {fileID: 11400000, guid: 1672c5d9bdce9ac40af75b347288d4a1, type: 2}
+  - {fileID: 11400000, guid: 0f21f9dae7c185a4fbd1c2cb4a76bb09, type: 2}
+  - {fileID: 11400000, guid: 9958eccfdeaa8ce49a07c542a8b487e7, type: 2}
+  - {fileID: 11400000, guid: 02fea53068851ad4ca7ee42026093bcb, type: 2}
+  - {fileID: 11400000, guid: ae7777a2273a535498e8eb566d2b2046, type: 2}
+  - {fileID: 11400000, guid: 9bea3b1b104798d4c9d417de062dbb2c, type: 2}
+  - {fileID: 11400000, guid: fac35c60433217b4c8d09911ee8fa6f7, type: 2}
+  - {fileID: 11400000, guid: aa06a5ed001cade4684376b04fe22869, type: 2}
+  - {fileID: 11400000, guid: fe7598f7417a62144a0abdf3f8f8d498, type: 2}
+  - {fileID: 11400000, guid: 209ab5eefb62d4642a0b101f558dcb7e, type: 2}
+  - {fileID: 11400000, guid: ffa9942a6e2fa364c9e6d73b73a098cb, type: 2}
+  - {fileID: 11400000, guid: b5e323008d1411a4395f9ba0f5595a01, type: 2}
+  - {fileID: 11400000, guid: fc41740c2b9dee1448c2255007d69660, type: 2}
+  - {fileID: 11400000, guid: bcabd906014ed924b8aab9497cf540c9, type: 2}
+  - {fileID: 11400000, guid: 9e0564f110e68dd4ca3a1de7c53203ca, type: 2}
