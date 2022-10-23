@@ -6,11 +6,9 @@ using TMPro;
 
 public class HealthBar : MonoBehaviour
 {
-    public TextMeshProUGUI healthText;
-    public Image healthBar;
-    public Color redHealth;
-    public Color yellowHealth;
-    public Color greenHealth;
+    [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private Image healthBar;
+    [SerializeField] private ColorSO colorList;
 
     public IEnumerator SetHealthBar(int startingHealth, int targetHealth, int maxHealth){
         int healthDif = startingHealth - targetHealth;
@@ -37,13 +35,13 @@ public class HealthBar : MonoBehaviour
 
     private void SetColor(){
         if(healthBar.fillAmount >= 0.5f){
-            healthBar.color = greenHealth;
+            healthBar.color = colorList.colors[2];
         }
         else if(healthBar.fillAmount >= 0.15f){
-            healthBar.color = yellowHealth;
+            healthBar.color = colorList.colors[1];
         }
         else{
-            healthBar.color = redHealth;
+            healthBar.color = colorList.colors[0];
         }
     }
 }

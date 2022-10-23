@@ -7,7 +7,6 @@ using System.Security.Cryptography;
 
 public class StartupFunctions : MonoBehaviour
 {
-    public HealthBar hp;
     public int intToSave;
     private void Start()
     { 
@@ -18,7 +17,6 @@ public class StartupFunctions : MonoBehaviour
             GlobalGameEvents.globalDexProgress[i] = DexStatus.Caught;
         }
 
-        //StartCoroutine(hp.SetHealthBar(400, 40, 400));
         //LoadSave();
     }
 

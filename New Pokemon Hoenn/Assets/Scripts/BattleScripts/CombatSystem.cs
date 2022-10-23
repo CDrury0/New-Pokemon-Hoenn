@@ -20,7 +20,8 @@ public class CombatSystem : MonoBehaviour
     [SerializeField] private BattleTarget player2;
     [SerializeField] private BattleTarget enemy1;
     [SerializeField] private BattleTarget enemy2;
-    private List<BattleTarget> participants;
+    private List<BattleTarget> monsInBattle;
+    private List<Pokemon> expParticipants;
     private List<BattleTarget> turnOrder;
 
     public void StartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI){
@@ -37,6 +38,8 @@ public class CombatSystem : MonoBehaviour
     }
 
     public void EndBattle(){
-        
+        foreach(Pokemon p in playerParty.party){
+            p.inBattle = false;
+        }
     }
 }

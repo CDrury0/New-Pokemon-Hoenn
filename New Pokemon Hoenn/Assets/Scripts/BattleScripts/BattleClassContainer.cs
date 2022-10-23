@@ -110,20 +110,13 @@ public class IndividualBattleModifier
     //add overloaded constructor to account for passed effects via baton pass
 }
 
-//holds UI objects that display data for 1 pokemon
-[System.Serializable]
-public class BattleHUD
-{
-    public HealthBar hpBar;
-}
-
 [System.Serializable]
 public class BattleTarget
 {
     [HideInInspector] public Pokemon pokemon;
     public TeamBattleModifier teamBattleModifier;
     public IndividualBattleModifier individualBattleModifier;
-    public BattleHUD battleHUD;
+    //public BattleHUD battleHUD;
     [HideInInspector] public GameObject turnAction;
 
     public BattleTarget(TeamBattleModifier tbm, IndividualBattleModifier ibm, Pokemon pokemon){
