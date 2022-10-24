@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 //holds data relevant to one team that is reset when a battle starts
 public class TeamBattleModifier
@@ -110,19 +111,19 @@ public class IndividualBattleModifier
     //add overloaded constructor to account for passed effects via baton pass
 }
 
-[System.Serializable]
 public class BattleTarget
 {
     [HideInInspector] public Pokemon pokemon;
     public TeamBattleModifier teamBattleModifier;
     public IndividualBattleModifier individualBattleModifier;
-    //public BattleHUD battleHUD;
+    public BattleHUD battleHUD;
     [HideInInspector] public GameObject turnAction;
 
-    public BattleTarget(TeamBattleModifier tbm, IndividualBattleModifier ibm, Pokemon pokemon){
+    public BattleTarget(TeamBattleModifier tbm, IndividualBattleModifier ibm, Pokemon pokemon, BattleHUD hud){
         this.teamBattleModifier = tbm;
         this.individualBattleModifier = ibm;
         this.pokemon = pokemon;
+        this.battleHUD = hud;
         this.pokemon.inBattle = true;
     }
 }

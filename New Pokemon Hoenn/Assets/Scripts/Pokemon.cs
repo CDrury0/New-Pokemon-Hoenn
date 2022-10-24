@@ -74,6 +74,7 @@ public class Pokemon
     //create a usable copy of an existing pokemon from a trainer party
     public Pokemon(Pokemon p){
         this.assigned = true;
+        this.pokemonDefault = p.pokemonDefault;
         this.ability = p.ability;
         this.isShiny = p.isShiny;
         FillSprites(this);
@@ -100,7 +101,6 @@ public class Pokemon
         this.movePP = new int[] {this.moveMaxPP[0], this.moveMaxPP[1], this.moveMaxPP[2], this.moveMaxPP[3]};
         this.nature = p.nature;
         this.nickName = p.nickName;
-        this.pokemonDefault = p.pokemonDefault;
         this.primaryStatus = PrimaryStatus.None;
         UpdateStats();
         this.type1 = this.pokemonDefault.type1;

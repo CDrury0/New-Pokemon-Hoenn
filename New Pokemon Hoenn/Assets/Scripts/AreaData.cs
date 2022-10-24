@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TerrainType {Normal, Desert}
 [CreateAssetMenu]
 public class AreaData : ScriptableObject
 {
     public string areaName;
-    public TerrainType terrainType;
+    public TerrainDataSO terrainData;
     public Weather weather;
     public GenerationValues generationValues;
     public AudioClip musicIntro;

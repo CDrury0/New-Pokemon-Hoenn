@@ -13,14 +13,19 @@ public class Party
 
     public Party(Party partyToCopy){
         for(int i = 0; i < party.Length; i++){
-            party[i] = new Pokemon(partyToCopy.party[i]);
+            if(partyToCopy.party[i] != null && !partyToCopy.party[i].assigned){
+                party[i] = new Pokemon(partyToCopy.party[i]);
+            }
+            else{
+                party[i] = null;
+            }
         }
     }
 
     //add methods to retrieve info e.g. leader ability
     public Pokemon GetFirstAvailable(){
         foreach (Pokemon p in party){
-            if(p.assigned && p.primaryStatus != PrimaryStatus.Fainted && !p.inBattle){
+            if(p != null && p.assigned && p.primaryStatus != PrimaryStatus.Fainted && !p.inBattle){
                 return p;
             }
         }
