@@ -53,8 +53,12 @@ public class CombatSystem : MonoBehaviour
         enemy2 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(), enemyParty.GetFirstAvailable(), combatScreen.enemy2hud, combatScreen.enemy2Object);
 
         if(doubleBattle){
-            player2.pokemon.inBattle = true;
-            enemy2.pokemon.inBattle = true;
+            if(player2.pokemon != null){
+                player2.pokemon.inBattle = true;
+            }
+            if(enemy2.pokemon != null){
+                enemy2.pokemon.inBattle = true;
+            }
         }
         else{
             player2.pokemon = null;

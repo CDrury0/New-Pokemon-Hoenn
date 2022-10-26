@@ -276,7 +276,7 @@ public class Pokemon
         individualValues = MakeRandomIVS();
         isShiny = Random.Range(0, 1000) == 0;
         FillSprites(this);
-        hiddenPowerType = (StatLib.Type)Random.Range(0, 18);
+        hiddenPowerType = (StatLib.Type)Random.Range(1, 18);
         friendship = pokemonDefault.friendship;
         experience = StatLib.CalculateExperienceAtLevel(pokemonDefault.growthRate, level);
         height = MakeHeight(pokemonDefault);

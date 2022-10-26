@@ -19,6 +19,16 @@ public class CombatScreen : MonoBehaviour
     public BattleHUD enemy2hud;
 
     public void SetBattleSpriteFormat(bool isDoubleBattle){
+        player1hud.gameObject.SetActive(false);
+        player2hud.gameObject.SetActive(false);
+        enemy1hud.gameObject.SetActive(false);
+        enemy2hud.gameObject.SetActive(false);
+
+        player1Object.SetActive(false);
+        player2Object.SetActive(false);
+        enemy1Object.SetActive(false);
+        enemy2Object.SetActive(false);
+
         player1Object.GetComponent<RectTransform>().anchoredPosition = playerSingleTransform.anchoredPosition;
         enemy1Object.GetComponent<RectTransform>().anchoredPosition = enemySingleTransform.anchoredPosition;
 
