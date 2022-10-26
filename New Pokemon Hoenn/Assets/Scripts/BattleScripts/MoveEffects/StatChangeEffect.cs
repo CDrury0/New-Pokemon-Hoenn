@@ -7,7 +7,7 @@ public class StatChangeEffect : MoveEffect
     public bool affectSelf;
     public float chance;
     public int[] statChanges = new int[8];
-    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    public override IEnumerator DoEffect(BattleTarget user, MoveData moveData)
     {
         throw new System.NotImplementedException();
     }

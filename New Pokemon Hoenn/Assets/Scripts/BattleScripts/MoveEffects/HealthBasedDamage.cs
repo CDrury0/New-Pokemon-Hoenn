@@ -11,7 +11,7 @@ public class PiecewiseDamagePair
 public class HealthBasedDamage : EffectDamage
 {
     public PiecewiseDamagePair[] piecewiseDamage;
-    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    public override IEnumerator DoEffect(BattleTarget user, MoveData moveData)
     {
         throw new System.NotImplementedException();
     }

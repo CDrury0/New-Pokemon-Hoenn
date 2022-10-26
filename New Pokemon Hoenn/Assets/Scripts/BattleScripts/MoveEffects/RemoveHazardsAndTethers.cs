@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RemoveHazardsAndTethers : MoveEffect
 {
-    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    public override IEnumerator DoEffect(BattleTarget user, MoveData moveData)
     {
         throw new System.NotImplementedException();
     }

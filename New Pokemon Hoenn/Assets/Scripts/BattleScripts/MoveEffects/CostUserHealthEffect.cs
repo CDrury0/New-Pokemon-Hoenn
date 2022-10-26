@@ -5,7 +5,7 @@ using UnityEngine;
 public class CostUserHealthEffect : MoveEffect
 {
     public bool canKillSelf;
-    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    public override IEnumerator DoEffect(BattleTarget user, MoveData moveData)
     {
         throw new System.NotImplementedException();
     }

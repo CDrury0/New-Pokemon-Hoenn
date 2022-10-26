@@ -11,34 +11,26 @@ public class CombatSystem : MonoBehaviour
 {
     public static Weather Weather {get; private set;}
     public static int TurnCount {get; private set;}
-    public GameObject battleScreenTempObject;
-    public GameObject player2SpriteTemp;
-    public GameObject enemy2SpriteTemp;
-    public GameObject player1SpriteTemp;
-    public GameObject enemy1SpriteTemp;
-    public RectTransform playerDoubleTransform;
-    public RectTransform playerSingleTransform;
-    public RectTransform enemyDoubleTransform;
-    public RectTransform enemySingleTransform;
+    public CombatScreen combatScreen;
     private int weatherTimer;
     private bool doubleBattle;
     private Party playerParty;
     private Party enemyParty;
     private EnemyAI enemyAI;
-    [SerializeField] private BattleHUD player1hud;
-    [SerializeField] private BattleHUD player2hud;
-    [SerializeField] private BattleHUD enemy1hud;
-    [SerializeField] private BattleHUD enemy2hud;
-    //add references to pokemon sprite animator?
     private BattleTarget player1;
     private BattleTarget player2;
     private BattleTarget enemy1;
     private BattleTarget enemy2;
-    private List<BattleTarget> monsInBattle;
+    private List<BattleTarget> battleTargets;
     private List<Pokemon> expParticipants;
     private List<BattleTarget> turnOrder;
 
+    //must start the coroutine from this monobehaviour so it doesn't matter if originating gameobject is set to inactive
     public void StartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI){
+        StartCoroutine(RealStartBattle(enemyParty, trainerBattle, doubleBattle, enemyAI));
+    }
+
+    private IEnumerator RealStartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI){
         TurnCount = 0;
         Weather = ReferenceLib.Instance.activeArea.weather;
         weatherTimer = 0;
@@ -47,34 +39,42 @@ public class CombatSystem : MonoBehaviour
         this.enemyParty = new Party(enemyParty);
         this.enemyAI = enemyAI;
 
-        player1 = new BattleTarget(new TeamBattleModifier(trainerBattle, true), new IndividualBattleModifier(), playerParty.GetFirstAvailable(), player1hud);
-        enemy1 = new BattleTarget(new TeamBattleModifier(trainerBattle, false), new IndividualBattleModifier(), enemyParty.GetFirstAvailable(), enemy1hud);
+        combatScreen.SetBattleSpriteFormat(doubleBattle);
 
-        player1SpriteTemp.GetComponent<RectTransform>().anchoredPosition = playerSingleTransform.anchoredPosition;
-        enemy1SpriteTemp.GetComponent<RectTransform>().anchoredPosition = enemySingleTransform.anchoredPosition;
+        //add created battletargets to monsInBattle, e.g. for each in monsInBattle, battleTarget.battleHud.setActive(true);
+        TeamBattleModifier playerTeamModifier = new TeamBattleModifier(trainerBattle, true);
+        TeamBattleModifier enemyTeamModifier = new TeamBattleModifier(trainerBattle, false);
+        player1 = new BattleTarget(playerTeamModifier, new IndividualBattleModifier(), playerParty.GetFirstAvailable(), combatScreen.player1hud, combatScreen.player1Object);
+        player1.pokemon.inBattle = true;
+        enemy1 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(), enemyParty.GetFirstAvailable(), combatScreen.enemy1hud, combatScreen.enemy1Object);
+        enemy1.pokemon.inBattle = true;
 
-        player2SpriteTemp.SetActive(false);
-        enemy2SpriteTemp.SetActive(false);
-        player2hud.gameObject.SetActive(false);
-        enemy2hud.gameObject.SetActive(false);
+        player2 = new BattleTarget(playerTeamModifier, new IndividualBattleModifier(), playerParty.GetFirstAvailable(), combatScreen.player2hud, combatScreen.player2Object);
+        enemy2 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(), enemyParty.GetFirstAvailable(), combatScreen.enemy2hud, combatScreen.enemy2Object);
 
         if(doubleBattle){
-            player1SpriteTemp.GetComponent<RectTransform>().anchoredPosition = playerDoubleTransform.anchoredPosition;
-            enemy1SpriteTemp.GetComponent<RectTransform>().anchoredPosition = enemyDoubleTransform.anchoredPosition;
-
-            if(playerParty.GetFirstAvailable() != null){
-                player2hud.gameObject.SetActive(true);
-                player2SpriteTemp.gameObject.SetActive(true);
-            }
-
-            if(enemyParty.GetFirstAvailable() != null){
-                enemy2hud.gameObject.SetActive(true);
-                enemy2SpriteTemp.gameObject.SetActive(true);
-            }
+            player2.pokemon.inBattle = true;
+            enemy2.pokemon.inBattle = true;
+        }
+        else{
+            player2.pokemon = null;
+            enemy2.pokemon = null;
         }
 
-        battleScreenTempObject.SetActive(true);
+        battleTargets = new List<BattleTarget>(){player1, enemy1, player2, enemy2};
+        battleTargets.RemoveAll(b => b.pokemon == null);
+        
+        //replace with proper animations
+        combatScreen.SetStartingGraphics(battleTargets);
+        combatScreen.gameObject.SetActive(true);
+
+        //check tag-in effects like intimidate, trace, etc.
+
+        
+        yield break;
     }
+
+    
 
     private void EndBattle(){
         foreach(Pokemon p in playerParty.party){

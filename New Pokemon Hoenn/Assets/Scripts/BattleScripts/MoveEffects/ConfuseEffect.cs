@@ -6,7 +6,7 @@ public class ConfuseEffect : MoveEffect
 {
     public float chance;
     public bool confuseSelf;
-    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    public override IEnumerator DoEffect(BattleTarget user, MoveData moveData)
     {
         throw new System.NotImplementedException();
     }

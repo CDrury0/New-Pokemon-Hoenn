@@ -10,6 +10,7 @@ public class TeamBattleModifier
     public const string ALLY_PREFIX = "";
     public const string ENEMY_PREFIX = "Foe ";
     public const string WILD_PREFIX = "Wild ";
+    public bool isPlayerTeam;
     public string teamPrefix;
     public string teamPossessive;
     public List<TeamDurationEffectInfo> teamEffects;
@@ -19,6 +20,7 @@ public class TeamBattleModifier
     public TeamBattleModifier(bool isTrainerBattle, bool isPlayerTeam){
         
         teamEffects = new List<TeamDurationEffectInfo>();
+        this.isPlayerTeam = isPlayerTeam;
 
         if(isPlayerTeam){
             teamPossessive = ALLY_POS;
@@ -81,6 +83,7 @@ public class IndividualBattleModifier
     public List<TimedEffectInfo> timedEffects; //timed effects are not overwritten on switch
     public List<GameObject> movesLastUsedAgainstThis;
     public List<GameObject> movesBlockedByImprison;
+    public List<BattleTarget> targets;
     public ApplyEffect onFaintEffect; //destiny bond or grudge
     public BattleTarget lastAttacker;
     public int[] statStages;
@@ -105,6 +108,7 @@ public class IndividualBattleModifier
         timedEffects = new List<TimedEffectInfo>();
         movesLastUsedAgainstThis = new List<GameObject>();
         movesBlockedByImprison = new List<GameObject>();
+        targets = new List<BattleTarget>();
         statStages = new int[8];
     }
 
@@ -117,14 +121,15 @@ public class BattleTarget
     public TeamBattleModifier teamBattleModifier;
     public IndividualBattleModifier individualBattleModifier;
     public BattleHUD battleHUD;
+    public GameObject monSpriteObject;
     [HideInInspector] public GameObject turnAction;
 
-    public BattleTarget(TeamBattleModifier tbm, IndividualBattleModifier ibm, Pokemon pokemon, BattleHUD hud){
+    public BattleTarget(TeamBattleModifier tbm, IndividualBattleModifier ibm, Pokemon pokemon, BattleHUD hud, GameObject monSpriteObject){
         this.teamBattleModifier = tbm;
         this.individualBattleModifier = ibm;
         this.pokemon = pokemon;
         this.battleHUD = hud;
-        this.pokemon.inBattle = true;
+        this.monSpriteObject = monSpriteObject;
     }
 }
 

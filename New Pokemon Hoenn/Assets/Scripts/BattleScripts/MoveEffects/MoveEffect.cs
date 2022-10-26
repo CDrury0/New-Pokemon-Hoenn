@@ -6,5 +6,5 @@ using UnityEngine;
 public abstract class MoveEffect : MonoBehaviour
 {
     public string message;
-    public abstract IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData);
+    public abstract IEnumerator DoEffect(BattleTarget user, MoveData moveData);
 }

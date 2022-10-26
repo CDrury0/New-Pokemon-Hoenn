@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeightBasedDamage : EffectDamage
 {
-    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    public override IEnumerator DoEffect(BattleTarget user, MoveData moveData)
     {
         throw new System.NotImplementedException();
     }

@@ -20,7 +20,7 @@ public class NormalDamage : EffectDamage
     public bool curesBonusStatus;
     public bool payback;
 
-    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    public override IEnumerator DoEffect(BattleTarget user, MoveData moveData)
     {
         //get damage from damage formula
         //movefunctions.ApplyDamage()
