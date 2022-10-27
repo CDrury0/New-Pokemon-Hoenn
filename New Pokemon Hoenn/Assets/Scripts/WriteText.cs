@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class WriteText : MonoBehaviour, IPointerClickHandler
 {
-    public Text text;
+    public TextMeshProUGUI text;
     private bool skip;
     private IEnumerator wait;
 

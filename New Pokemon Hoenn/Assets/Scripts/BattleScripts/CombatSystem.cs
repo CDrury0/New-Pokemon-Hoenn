@@ -74,7 +74,21 @@ public class CombatSystem : MonoBehaviour
 
         //check tag-in effects like intimidate, trace, etc.
 
-        
+        StartCoroutine(GetTurnActions());
+        yield break;
+    }
+
+    private IEnumerator GetTurnActions(){
+        foreach(BattleTarget b in battleTargets){
+            if(!b.teamBattleModifier.isPlayerTeam){
+                //get enemyAI selection
+            }
+            else{
+                //if GetRequiredAction != null (player is locked into action from previous turn), make that the action and do not allow manual selection
+
+                //else allow player to select an action manually
+            }
+        }
         yield break;
     }
 

@@ -9,6 +9,7 @@ public class CombatScreen : MonoBehaviour
     [SerializeField] private RectTransform enemySingleTransform;
     [SerializeField] private RectTransform playerDoubleTransform;
     [SerializeField] private RectTransform enemyDoubleTransform;
+    public WriteText battleText;
     public GameObject player1Object;
     public GameObject enemy1Object;
     public GameObject player2Object;
