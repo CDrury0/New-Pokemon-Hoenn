@@ -1,11 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using TMPro;
 
-public class WriteText : MonoBehaviour, IPointerClickHandler
+public class WriteText : MonoBehaviour
 {
     public TextMeshProUGUI text;
     private bool skip;
@@ -17,7 +14,7 @@ public class WriteText : MonoBehaviour, IPointerClickHandler
         skip = true;
     }
 
-    public void OnPointerClick(PointerEventData e)
+    public void Skip()
     {
         if (wait != null)
         {
