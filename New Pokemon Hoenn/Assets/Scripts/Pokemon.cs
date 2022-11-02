@@ -295,7 +295,7 @@ public class Pokemon
         type1 = pokemonDefault.type1;
         type2 = pokemonDefault.type2;
         numberID = Random.Range(100, 10000000);
-        moves = new List<GameObject>(4);
+        moves = new List<GameObject>{null, null, null, null}; //must put 4 nulls in to reserve the space so Capacity will report the correct value
         assigned = true;
     }
 

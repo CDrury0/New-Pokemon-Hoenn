@@ -11,6 +11,7 @@ public class CombatSystem : MonoBehaviour
 {
     public static Weather Weather {get; private set;}
     public static int TurnCount {get; private set;}
+    public static BattleTarget ActiveTarget {get; private set;}
     public CombatScreen combatScreen;
     private int weatherTimer;
     private bool doubleBattle;
@@ -24,6 +25,19 @@ public class CombatSystem : MonoBehaviour
     private List<BattleTarget> battleTargets;
     private List<Pokemon> expParticipants;
     private List<BattleTarget> turnOrder;
+    private bool _proceed;
+    private bool Proceed {
+        get{
+            if(_proceed){
+                _proceed = false;
+                return true;
+            }
+            return false;
+        }
+        set{
+            _proceed = value;
+        }
+    }
 
     //must start the coroutine from this monobehaviour so it doesn't matter if originating gameobject is set to inactive
     public void StartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI){
@@ -80,6 +94,7 @@ public class CombatSystem : MonoBehaviour
 
     private IEnumerator GetTurnActions(){
         foreach(BattleTarget b in battleTargets){
+            ActiveTarget = b;
             if(!b.teamBattleModifier.isPlayerTeam){
                 //get enemyAI selection
             }
@@ -87,12 +102,21 @@ public class CombatSystem : MonoBehaviour
                 //if GetRequiredAction != null (player is locked into action from previous turn), make that the action and do not allow manual selection
 
                 //else allow player to select an action manually
+                combatScreen.battleOptionsLayoutObject.SetActive(true);
+                //set Proceed = true on move selection (unless target selection is necessary)
+                yield return new WaitUntil(() => Proceed);
             }
         }
         yield break;
     }
 
-    
+    public void FightButtonFunction(){
+        //if choosing fight forces move selection (struggle, etc.)
+
+        //else
+        combatScreen.battleOptionsLayoutObject.SetActive(false);
+        combatScreen.ShowMoveButtons(ActiveTarget);
+    }
 
     private void EndBattle(){
         foreach(Pokemon p in playerParty.party){

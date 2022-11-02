@@ -104,8 +104,8 @@ public class BattleTestMenu : MonoBehaviour
     public void ApplyMoves(){
         if(selectedMoves.Count > 0){
             Pokemon activeMon = isEnemyParty ? enemyParty.party[partySlot] : PlayerParty.Instance.playerParty.party[partySlot];
-            activeMon.moves = new List<GameObject>(selectedMoves);
-            for(int i = 0; i < activeMon.moves.Count; i++){
+            for(int i = 0; i < selectedMoves.Count; i++){
+                activeMon.moves[i] = selectedMoves[i];
                 activeMon.FillPP(i);
             }
         }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CombatScreen : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class CombatScreen : MonoBehaviour
     [SerializeField] private RectTransform enemySingleTransform;
     [SerializeField] private RectTransform playerDoubleTransform;
     [SerializeField] private RectTransform enemyDoubleTransform;
+    [SerializeField] private Button[] moveButtons;
+    public GameObject battleOptionsLayoutObject;
+    public GameObject moveButtonLayoutObject;
+    public GameObject moveBackButton;
+    public ColorSO typeColors;
     public WriteText battleText;
     public GameObject player1Object;
     public GameObject enemy1Object;
@@ -46,5 +52,24 @@ public class CombatScreen : MonoBehaviour
             b.battleHUD.gameObject.SetActive(true);
             b.monSpriteObject.SetActive(true);
         }
+    }
+
+    public void ShowMoveButtons(BattleTarget b){
+        for(int i = 0; i < b.pokemon.moves.Capacity; i++){
+            if(b.pokemon.moves[i] != null){
+                moveButtons[i].GetComponent<Image>().color = typeColors.colors[(int)b.pokemon.moves[i].GetComponent<MoveData>().moveType];
+                TextMeshProUGUI text = moveButtons[i].GetComponentInChildren<TextMeshProUGUI>();
+                text.text = b.pokemon.moves[i].GetComponent<MoveData>().moveName;
+                text.text += "  " + b.pokemon.movePP[i] + " / " + b.pokemon.moveMaxPP[i];
+                moveButtons[i].interactable = true;
+            }
+            else{
+                moveButtons[i].GetComponent<Image>().color = new Color(typeColors.colors[0].r, typeColors.colors[0].g, typeColors.colors[0].b, 127);
+                moveButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = "---";
+                moveButtons[i].interactable = false;
+            }
+        }
+        moveButtonLayoutObject.SetActive(true);
+        moveBackButton.SetActive(true);
     }
 }
