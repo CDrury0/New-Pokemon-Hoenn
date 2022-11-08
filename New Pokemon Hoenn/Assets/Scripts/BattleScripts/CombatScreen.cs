@@ -72,4 +72,9 @@ public class CombatScreen : MonoBehaviour
         moveButtonLayoutObject.SetActive(true);
         moveBackButton.SetActive(true);
     }
+
+    public void HideMoveButtons(){
+        moveButtonLayoutObject.SetActive(false);
+        moveBackButton.SetActive(false);
+    }
 }

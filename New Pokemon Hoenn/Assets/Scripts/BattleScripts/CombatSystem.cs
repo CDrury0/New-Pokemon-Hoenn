@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using System;
+using System.Linq;
 
 public enum Weather { None, Rain, Sunlight, Hail, Sandstorm}
 public enum SemiInvulnerable { None, Airborne, Underground, Underwater }
@@ -103,7 +103,6 @@ public class CombatSystem : MonoBehaviour
 
                 //else allow player to select an action manually
                 combatScreen.battleOptionsLayoutObject.SetActive(true);
-                //set Proceed = true on move selection (unless target selection is necessary)
                 yield return new WaitUntil(() => Proceed);
             }
         }
@@ -116,6 +115,23 @@ public class CombatSystem : MonoBehaviour
         //else
         combatScreen.battleOptionsLayoutObject.SetActive(false);
         combatScreen.ShowMoveButtons(ActiveTarget);
+    }
+
+    public void MoveButtonFunction(int whichMove){
+        ActiveTarget.turnAction = ActiveTarget.pokemon.moves[whichMove];
+        combatScreen.HideMoveButtons();
+        if(CombatLib.Instance.moveFunctions.MustChooseTarget(ActiveTarget.pokemon.moves[whichMove].GetComponent<MoveData>().targetType, ActiveTarget, battleTargets, doubleBattle)){
+            GetPlayerTarget();
+        }
+        else{
+            Proceed = true;
+        }
+    }
+
+    private void GetPlayerTarget(){
+        StartCoroutine(combatScreen.battleText.WriteMessage("Select a target"));
+        //enable target select "back button"
+        //make button components interactable on each monSprite
     }
 
     private void EndBattle(){
