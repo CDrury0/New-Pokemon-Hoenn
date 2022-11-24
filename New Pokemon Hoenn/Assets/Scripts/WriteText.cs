@@ -8,6 +8,10 @@ public class WriteText : MonoBehaviour
     private bool skip;
     private IEnumerator wait;
 
+    void OnDisable(){
+        Skip();
+    }
+
     private IEnumerator Wait(float time)
     {
         yield return new WaitForSeconds(time);
@@ -44,6 +48,11 @@ public class WriteText : MonoBehaviour
         StartCoroutine(wait);
         yield return new WaitUntil(() => { return skip; });
         skip = false;
+    }
+
+    public void WriteMessageInstant(string message){
+        text.text = message;
+        gameObject.SetActive(true);
     }
 
     public IEnumerator WriteMessageConfirm(string message)

@@ -55,7 +55,6 @@ public class CombatSystem : MonoBehaviour
 
         combatScreen.SetBattleSpriteFormat(doubleBattle);
 
-        //add created battletargets to monsInBattle, e.g. for each in monsInBattle, battleTarget.battleHud.setActive(true);
         TeamBattleModifier playerTeamModifier = new TeamBattleModifier(trainerBattle, true);
         TeamBattleModifier enemyTeamModifier = new TeamBattleModifier(trainerBattle, false);
         player1 = new BattleTarget(playerTeamModifier, new IndividualBattleModifier(), playerParty.GetFirstAvailable(), combatScreen.player1hud, combatScreen.player1Object);
@@ -106,7 +105,7 @@ public class CombatSystem : MonoBehaviour
                 yield return new WaitUntil(() => Proceed);
             }
         }
-        yield break;
+        //call IEnumerator BattleTurn --START HERE--
     }
 
     public void FightButtonFunction(){
@@ -121,17 +120,27 @@ public class CombatSystem : MonoBehaviour
         ActiveTarget.turnAction = ActiveTarget.pokemon.moves[whichMove];
         combatScreen.HideMoveButtons();
         if(CombatLib.Instance.moveFunctions.MustChooseTarget(ActiveTarget.pokemon.moves[whichMove].GetComponent<MoveData>().targetType, ActiveTarget, battleTargets, doubleBattle)){
-            GetPlayerTarget();
+            EnableTargetButtons();
         }
         else{
             Proceed = true;
         }
     }
 
-    private void GetPlayerTarget(){
-        StartCoroutine(combatScreen.battleText.WriteMessage("Select a target"));
-        //enable target select "back button"
-        //make button components interactable on each monSprite
+    private void EnableTargetButtons(){
+        combatScreen.battleText.WriteMessageInstant("Select a target");
+        combatScreen.targetBackButton.SetActive(true);
+        foreach(BattleTarget b in battleTargets){
+            if(b != ActiveTarget){
+                b.monSpriteObject.GetComponent<Button>().interactable = true;
+            }
+        }
+    }
+
+    public void TargetButtonFunction(GameObject spriteClicked){
+        combatScreen.HideTargetButtons();
+        ActiveTarget.individualBattleModifier.targets = new List<BattleTarget>(){battleTargets.First(b => b.monSpriteObject == spriteClicked)};
+        Proceed = true;
     }
 
     private void EndBattle(){

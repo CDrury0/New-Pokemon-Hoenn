@@ -14,6 +14,7 @@ public class CombatScreen : MonoBehaviour
     public GameObject battleOptionsLayoutObject;
     public GameObject moveButtonLayoutObject;
     public GameObject moveBackButton;
+    public GameObject targetBackButton;
     public ColorSO typeColors;
     public WriteText battleText;
     public GameObject player1Object;
@@ -60,7 +61,7 @@ public class CombatScreen : MonoBehaviour
                 moveButtons[i].GetComponent<Image>().color = typeColors.colors[(int)b.pokemon.moves[i].GetComponent<MoveData>().moveType];
                 TextMeshProUGUI text = moveButtons[i].GetComponentInChildren<TextMeshProUGUI>();
                 text.text = b.pokemon.moves[i].GetComponent<MoveData>().moveName;
-                text.text += "  " + b.pokemon.movePP[i] + " / " + b.pokemon.moveMaxPP[i];
+                text.text += "  " + b.pokemon.movePP[i] + "/" + b.pokemon.moveMaxPP[i];
                 moveButtons[i].interactable = true;
             }
             else{
@@ -76,5 +77,14 @@ public class CombatScreen : MonoBehaviour
     public void HideMoveButtons(){
         moveButtonLayoutObject.SetActive(false);
         moveBackButton.SetActive(false);
+    }
+
+    public void HideTargetButtons(){
+        player1Object.GetComponent<Button>().interactable = false;
+        player2Object.GetComponent<Button>().interactable = false;
+        enemy1Object.GetComponent<Button>().interactable = false;
+        enemy2Object.GetComponent<Button>().interactable = false;
+        targetBackButton.SetActive(false);
+        battleText.gameObject.SetActive(false);
     }
 }
