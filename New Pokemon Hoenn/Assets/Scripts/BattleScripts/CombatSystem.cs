@@ -96,6 +96,8 @@ public class CombatSystem : MonoBehaviour
             ActiveTarget = b;
             if(!b.teamBattleModifier.isPlayerTeam){
                 //get enemyAI selection
+                ActiveTarget.turnAction = ActiveTarget.pokemon.moves[0];
+                ActiveTarget.individualBattleModifier.targets = new List<BattleTarget>(){player1};
             }
             else{
                 //if GetRequiredAction != null (player is locked into action from previous turn), make that the action and do not allow manual selection
@@ -105,7 +107,7 @@ public class CombatSystem : MonoBehaviour
                 yield return new WaitUntil(() => Proceed);
             }
         }
-        //call IEnumerator BattleTurn --START HERE--
+        StartCoroutine(BattleTurn());
     }
 
     public void FightButtonFunction(){
@@ -141,6 +143,14 @@ public class CombatSystem : MonoBehaviour
         combatScreen.HideTargetButtons();
         ActiveTarget.individualBattleModifier.targets = new List<BattleTarget>(){battleTargets.First(b => b.monSpriteObject == spriteClicked)};
         Proceed = true;
+    }
+
+    private IEnumerator BattleTurn(){
+        //increment turn count, reset damage taken this turn, other cleanup things
+
+        List<int> turnOrder = CombatLib.Instance.moveFunctions.GetTurnOrder(battleTargets);
+        //use the value of each element of turnOrder as the index of battleTargets (for(int i = 0...){battleTargets[turnOrder[i]].DoMove()})
+        yield break;
     }
 
     private void EndBattle(){

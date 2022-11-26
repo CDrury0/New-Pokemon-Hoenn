@@ -5,7 +5,7 @@ using UnityEngine;
 public class ResetStatEffect : MoveEffect
 {
     public bool[] statsReset = new bool[8];
-    public override IEnumerator DoEffect(BattleTarget user, MoveData moveData)
+    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         throw new System.NotImplementedException();
     }

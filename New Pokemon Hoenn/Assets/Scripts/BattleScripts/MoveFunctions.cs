@@ -83,4 +83,42 @@ public class MoveFunctions : MonoBehaviour
         }
         return false;
     }
+
+    //account for quick claw later
+    public List<int> GetTurnOrder(List<BattleTarget> battleTargets){
+        List<int> order = new List<int>(battleTargets.Count);
+        order.Add(0);
+        int[] priorities = new int[battleTargets.Count];
+        for(int i = 0; i < battleTargets.Count; i++){
+            if(battleTargets[i].turnAction.GetComponent<MoveData>().pursuit && battleTargets[i].individualBattleModifier.targets[0].turnAction.GetComponent<MoveData>().priority == 6){
+                priorities[i] = 7;
+            }
+            else{
+                priorities[i] = battleTargets[i].turnAction.GetComponent<MoveData>().priority;
+            }
+        }
+        for(int i = 1; i < battleTargets.Count; i++){
+            for(int j = 0; j < order.Count; j++){
+                if(priorities[i] > priorities[order[j]]){
+                    order.Insert(j, i);
+                    break;
+                }
+                else if(priorities[i] < priorities[order[j]]){
+                    continue;
+                }
+                else if(battleTargets[i].pokemon.stats[5] * battleTargets[i].individualBattleModifier.statMultipliers[4] > battleTargets[order[j]].pokemon.stats[5] * battleTargets[order[j]].individualBattleModifier.statMultipliers[4]){
+                    order.Insert(j, i);
+                    break;
+                }
+                else if(battleTargets[i].pokemon.stats[5] * battleTargets[i].individualBattleModifier.statMultipliers[4] == battleTargets[order[j]].pokemon.stats[5] * battleTargets[order[j]].individualBattleModifier.statMultipliers[4] && !battleTargets[i].teamBattleModifier.isPlayerTeam){
+                    order.Insert(j, i);
+                    break;
+                }
+            }
+            if(!order.Contains(i)){
+                order.Add(i);
+            }
+        }
+        return order;
+    }
 }

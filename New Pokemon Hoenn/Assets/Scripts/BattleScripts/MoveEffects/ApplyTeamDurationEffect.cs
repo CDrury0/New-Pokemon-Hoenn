@@ -8,7 +8,7 @@ public class ApplyTeamDurationEffect : MoveEffect
     public TeamDurationEffect durationEffect;
     public Weather weatherSet;
 
-    public override IEnumerator DoEffect(BattleTarget user, MoveData moveData)
+    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         throw new System.NotImplementedException();
     }

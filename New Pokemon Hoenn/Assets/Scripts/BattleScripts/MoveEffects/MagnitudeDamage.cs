@@ -5,7 +5,7 @@ using UnityEngine;
 public class MagnitudeDamage : EffectDamage
 {
     public PiecewiseDamagePair[] piecewiseDamage;
-    public override IEnumerator DoEffect(BattleTarget user, MoveData moveData)
+    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         throw new System.NotImplementedException();
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class HardKillEffect : MoveEffect
 {
     //for use with destiny bond, perish song, etc.
-    public override IEnumerator DoEffect(BattleTarget user, MoveData moveData)
+    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         throw new System.NotImplementedException();
     }

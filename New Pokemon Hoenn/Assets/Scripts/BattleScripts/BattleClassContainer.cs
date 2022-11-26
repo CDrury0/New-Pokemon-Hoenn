@@ -87,6 +87,7 @@ public class IndividualBattleModifier
     public ApplyEffect onFaintEffect; //destiny bond or grudge
     public BattleTarget lastAttacker;
     public int[] statStages;
+    public float[] statMultipliers;
     public int physicalDamageTakenThisTurn;
     public int specialDamageTakenThisTurn;
     public int bideDamage;
@@ -100,6 +101,27 @@ public class IndividualBattleModifier
     public GameObject mimicMove;
     public int mimicPP;
 
+    public void CalculateStatMultipliers(){
+        for(int i = 0; i < 5; i++)
+        {
+            statMultipliers[i] = (float)(Mathf.Abs(statStages[i]) + 3f) / 3f;
+            if(statStages[i] < 0)
+            {
+                statMultipliers[i] = 1f / statMultipliers[i];
+            }
+        }
+    }
+
+    public float AccuracyMult(int userAccStages, int targetEvaStages) 
+    {
+        int accMod = userAccStages - targetEvaStages;
+        float accMult = (float)(Mathf.Abs(accMod) + 5f) / 5f;
+        if (accMod < 0)
+        {
+            accMult = 1f / accMult;
+        }
+        return accMult;
+    }
 
     public IndividualBattleModifier(){
         inflictingTetherEffects = new List<AppliedEffectInfo>();
@@ -110,6 +132,7 @@ public class IndividualBattleModifier
         movesBlockedByImprison = new List<GameObject>();
         targets = new List<BattleTarget>();
         statStages = new int[8];
+        statMultipliers = new float[5]{1,1,1,1,1};
     }
 
     //add overloaded constructor to account for passed effects via baton pass
