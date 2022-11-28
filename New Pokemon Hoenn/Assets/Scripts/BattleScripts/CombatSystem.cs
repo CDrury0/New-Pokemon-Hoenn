@@ -149,8 +149,17 @@ public class CombatSystem : MonoBehaviour
         //increment turn count, reset damage taken this turn, other cleanup things
 
         List<int> turnOrder = CombatLib.Instance.moveFunctions.GetTurnOrder(battleTargets);
-        //use the value of each element of turnOrder as the index of battleTargets (for(int i = 0...){battleTargets[turnOrder[i]].DoMove()})
-        yield break;
+
+        for(int i = 0; i < battleTargets.Count; i++){
+            BattleTarget user = battleTargets[turnOrder[i]];
+            for(int j = 0; j < user.individualBattleModifier.targets.Count; j++){
+                //if move does not fail
+                Debug.Log(user.pokemon.nickName + " used " + user.turnAction.GetComponent<MoveData>().moveName + " on " + user.individualBattleModifier.targets[j].pokemon.nickName);
+                foreach(MoveEffect effect in user.turnAction.GetComponents<MoveEffect>()){
+                    yield return StartCoroutine(effect.DoEffect(user, user.individualBattleModifier.targets[j], user.turnAction.GetComponent<MoveData>()));
+                }
+            }
+        }
     }
 
     private void EndBattle(){
