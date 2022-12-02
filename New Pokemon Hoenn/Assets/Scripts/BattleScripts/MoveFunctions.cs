@@ -10,8 +10,8 @@ public class MoveFunctions : MonoBehaviour
     private const float RESIST = 0.58f;
 
     public float GetTypeMatchup(StatLib.Type moveType, StatLib.Type defType1, StatLib.Type defType2){
-        float ef1 = GetTypeEffectiveness(moveType, defType1);
-        float ef2 = GetTypeEffectiveness(moveType, defType2);
+        float ef1 = GetTypeEffectivenessPrivate(moveType, defType1);
+        float ef2 = GetTypeEffectivenessPrivate(moveType, defType2);
         if(ef1 == WEAKNESS && ef2 == RESIST || ef1 == RESIST && ef2 == WEAKNESS){
             return 1f;
         }
@@ -20,7 +20,7 @@ public class MoveFunctions : MonoBehaviour
         }
     }
 
-    private float GetTypeEffectiveness(StatLib.Type offensiveType, StatLib.Type defensiveType){
+    private float GetTypeEffectivenessPrivate(StatLib.Type offensiveType, StatLib.Type defensiveType){
         if(offensiveType == StatLib.Type.None){
             return 1;
         }
@@ -120,5 +120,33 @@ public class MoveFunctions : MonoBehaviour
             }
         }
         return order;
+    }
+
+    public int NormalDamageFormula(int power, BattleTarget user, BattleTarget target){
+        MoveData moveData = user.turnAction.GetComponent<MoveData>();
+        float workingDamage;
+        float defenseRatio;
+        float modifier = 1f;
+
+        workingDamage = user.pokemon.level * 2;
+        workingDamage /= 5;
+        workingDamage += 2;
+        workingDamage *= power;
+
+        defenseRatio = moveData.category == MoveData.Category.Physical ?
+            (user.pokemon.stats[1] * user.individualBattleModifier.statMultipliers[0]) / (target.pokemon.stats[2] * target.individualBattleModifier.statMultipliers[1]) :
+            (user.pokemon.stats[3] * user.individualBattleModifier.statMultipliers[2]) / (target.pokemon.stats[4] * target.individualBattleModifier.statMultipliers[3]);
+
+        workingDamage /= 50;
+        workingDamage += 2;
+
+        modifier *= GetTypeMatchup(moveData.moveType, target.pokemon.type1, target.pokemon.type2);
+
+        modifier *= moveData.moveType == user.pokemon.type1 || moveData.moveType == user.pokemon.type2 ? 1.5f : 1f;
+
+        //add other modifiers like weather, charge, etc.
+
+        workingDamage *= modifier;
+        return workingDamage > 1 ? (int)workingDamage : 1;
     }
 }
