@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApplyTimedEffect : ApplyEffect
+public class ApplyTimedEffect : MoveEffect, IApplyEffect
 {
-    public MoveEffect latentEffect;
+    public int timer;
+    public GameObject moveUsed;
 
-    public override IEnumerator DoAppliedEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    public IEnumerator DoAppliedEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         throw new System.NotImplementedException();
     }

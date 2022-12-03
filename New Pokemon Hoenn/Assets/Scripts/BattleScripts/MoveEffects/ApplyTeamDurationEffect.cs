@@ -7,6 +7,7 @@ public class ApplyTeamDurationEffect : MoveEffect
 {
     public TeamDurationEffect durationEffect;
     public Weather weatherSet;
+    public int timer;
 
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {

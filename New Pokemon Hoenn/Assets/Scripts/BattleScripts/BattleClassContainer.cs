@@ -49,11 +49,11 @@ public class TeamDurationEffectInfo{
 
 //if the target.individualmodifier contains a tethereffect and inflictor.individual.inflictingTetherEffects doesn't, release at end of turn
 public class AppliedEffectInfo{
-    public ApplyEffect effect;
+    public ApplyIndividualDurationEffect effect;
     public int timer;
     public BattleTarget inflictor;
 
-    public AppliedEffectInfo(ApplyEffect effect, int timer, BattleTarget inflictor){
+    public AppliedEffectInfo(ApplyIndividualDurationEffect effect, int timer, BattleTarget inflictor){
         this.effect = effect;
         this.timer = timer;
         this.inflictor = inflictor;
@@ -84,7 +84,7 @@ public class IndividualBattleModifier
     public List<GameObject> movesLastUsedAgainstThis;
     public List<GameObject> movesBlockedByImprison;
     public List<BattleTarget> targets;
-    public ApplyEffect onFaintEffect; //destiny bond or grudge
+    public OnFaintEffect onFaintEffect; //destiny bond or grudge
     public BattleTarget lastAttacker;
     public int[] statStages;
     public float[] statMultipliers;
@@ -95,6 +95,7 @@ public class IndividualBattleModifier
     public Pokemon switchingIn;
     public bool recharging;
     public int stockpileCount;
+    public SemiInvulnerable semiInvulnerable;
     public GameObject lastUsedMove;
     public int consecutiveMoveCounter; //how many times a move has been used consecutively
     public int forcedToUseUntilCounter; //the number of times the move must be used to allow selection of a new action (e.g. 2 or 3 at random for thrash)

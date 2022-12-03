@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum OnFaintEffect {DestinyBond, Grudge}
-public class ApplyOnFaintEffect : ApplyEffect
+public class ApplyOnFaintEffect : MoveEffect, IApplyEffect
 {
     public OnFaintEffect onFaintEffect;
-    public override IEnumerator DoAppliedEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    public IEnumerator DoAppliedEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         throw new System.NotImplementedException();
     }
