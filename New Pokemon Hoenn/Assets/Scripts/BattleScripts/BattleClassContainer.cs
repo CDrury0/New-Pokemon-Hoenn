@@ -49,11 +49,11 @@ public class TeamDurationEffectInfo{
 
 //if the target.individualmodifier contains a tethereffect and inflictor.individual.inflictingTetherEffects doesn't, release at end of turn
 public class AppliedEffectInfo{
-    public ApplyIndividualDurationEffect effect;
+    public ApplyIndividualEffect effect;
     public int timer;
     public BattleTarget inflictor;
 
-    public AppliedEffectInfo(ApplyIndividualDurationEffect effect, int timer, BattleTarget inflictor){
+    public AppliedEffectInfo(ApplyIndividualEffect effect, int timer, BattleTarget inflictor){
         this.effect = effect;
         this.timer = timer;
         this.inflictor = inflictor;

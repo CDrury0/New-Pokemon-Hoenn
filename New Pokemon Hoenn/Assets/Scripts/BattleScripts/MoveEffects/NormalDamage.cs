@@ -6,6 +6,7 @@ public class NormalDamage : EffectDamage
 {
     public float recoilDamage;
     public float absorbHealth;
+    public int damageDealt; //needed for absorbHealth and recoilDamage calculations
     public bool spitUp;
     public bool facade;
     public bool revenge;
@@ -22,8 +23,6 @@ public class NormalDamage : EffectDamage
 
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        //get damage from damage formula
-        //movefunctions.ApplyDamage()
-        yield break;
+        yield return StartCoroutine(base.NormalDamageMethod(user, target, moveData, 10 /*replace with power*/));
     }
 }

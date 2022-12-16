@@ -122,7 +122,7 @@ public class MoveFunctions : MonoBehaviour
         return order;
     }
 
-    public int NormalDamageFormula(int power, NormalDamage damageComponent, BattleTarget user, BattleTarget target){
+    public int NormalDamageFormula(int power, NormalDamage damageComponent, BattleTarget user, BattleTarget target, bool crit){
         Debug.Log("Power: " + power);
         MoveData moveData = user.turnAction.GetComponent<MoveData>();
         float workingDamage;
@@ -159,7 +159,7 @@ public class MoveFunctions : MonoBehaviour
         }
 
         //modifiers like minimize, etc.
-        if(damageComponent.bonusAgainstMinimize && target.individualBattleModifier.appliedIndividualEffects.FirstOrDefault(e => e.effect.individualEffect == IndividualDurationEffect.Minimize) != null){
+        if(damageComponent.bonusAgainstMinimize && target.individualBattleModifier.appliedIndividualEffects.OfType<ApplyMinimize>().Any()){
             modifier *= 2f;
         }
 
