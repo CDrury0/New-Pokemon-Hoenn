@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeatUpDamage : EffectDamage
+public class BeatUpDamage : NormalDamage
 {
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {

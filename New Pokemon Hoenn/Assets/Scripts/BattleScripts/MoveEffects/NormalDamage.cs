@@ -23,6 +23,6 @@ public class NormalDamage : EffectDamage
 
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        yield return StartCoroutine(base.NormalDamageMethod(user, target, moveData, 10 /*replace with power*/));
+        yield return StartCoroutine(base.NormalDamageMethod(user, target, this, moveData, moveData.displayPower, highCritRate));
     }
 }

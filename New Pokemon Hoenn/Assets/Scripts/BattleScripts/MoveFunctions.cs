@@ -122,8 +122,15 @@ public class MoveFunctions : MonoBehaviour
         return order;
     }
 
+    public bool RollCrit(BattleTarget user, bool highCritRate){
+        int critStages = user.individualBattleModifier.statStages[7] + 1;
+        critStages += highCritRate ? 1 : 0;
+        //add to critStages for scope lens and other crit boosters
+        float critRatio = 1f / (16f / (float)critStages);
+        return Random.Range(0f, 0.99f) < critRatio;
+    }
+
     public int NormalDamageFormula(int power, NormalDamage damageComponent, BattleTarget user, BattleTarget target, bool crit){
-        Debug.Log("Power: " + power);
         MoveData moveData = user.turnAction.GetComponent<MoveData>();
         float workingDamage;
         float defenseRatio;
@@ -134,10 +141,30 @@ public class MoveFunctions : MonoBehaviour
         workingDamage += 2;
         workingDamage *= power;
 
-        defenseRatio = moveData.category == MoveData.Category.Physical ?
-            (user.pokemon.stats[1] * user.individualBattleModifier.statMultipliers[0]) / (target.pokemon.stats[2] * target.individualBattleModifier.statMultipliers[1]) :
-            (user.pokemon.stats[3] * user.individualBattleModifier.statMultipliers[2]) / (target.pokemon.stats[4] * target.individualBattleModifier.statMultipliers[3]);
+        float offensiveMultiplier;
+        float defensiveMultiplier;
+        int offensiveStat;
+        int defensiveStat;
+        if(moveData.category == MoveData.Category.Physical){
+            offensiveMultiplier = user.individualBattleModifier.statMultipliers[0];
+            offensiveStat = user.pokemon.stats[1];
+            defensiveMultiplier = target.individualBattleModifier.statMultipliers[1];
+            defensiveStat = target.pokemon.stats[2];
+        }
+        else{
+            offensiveMultiplier = user.individualBattleModifier.statMultipliers[2];
+            offensiveStat = user.pokemon.stats[3];
+            defensiveMultiplier = target.individualBattleModifier.statMultipliers[3];
+            defensiveStat = target.pokemon.stats[4];
+        }
 
+        if(crit && offensiveMultiplier < 1f){
+            offensiveMultiplier = 1f;
+        }
+        
+        defenseRatio = (offensiveStat * offensiveMultiplier) / (defensiveStat * defensiveMultiplier);
+
+        workingDamage *= defenseRatio;
         workingDamage /= 50;
         workingDamage += 2;
 
@@ -173,6 +200,10 @@ public class MoveFunctions : MonoBehaviour
 
         if(moveData.category == MoveData.Category.Special && target.teamBattleModifier.teamEffects.FirstOrDefault(e => e.effect == TeamDurationEffect.LightScreen) != null && moveData.gameObject.GetComponent<BreaksWalls>() == null){
             modifier *= 0.5f;
+        }
+
+        if(crit){
+            modifier *= 1.5f;
         }
 
         workingDamage *= modifier;

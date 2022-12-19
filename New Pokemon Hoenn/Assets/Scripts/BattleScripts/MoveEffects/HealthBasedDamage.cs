@@ -8,7 +8,7 @@ public class PiecewiseDamagePair
     public float key; //hp
     public int powerValue;
 }
-public class HealthBasedDamage : EffectDamage
+public class HealthBasedDamage : NormalDamage
 {
     public PiecewiseDamagePair[] piecewiseDamage;
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)

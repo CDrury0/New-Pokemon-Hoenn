@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3375296063947716759}
   - component: {fileID: -5949412149799713671}
   - component: {fileID: 7082716058086859509}
-  - component: {fileID: 1855196476297964676}
   m_Layer: 0
   m_Name: Absorb
   m_TagString: Untagged
@@ -50,7 +49,7 @@ MonoBehaviour:
   moveDescription: Bruhbsorb
   moveType: 5
   typeFromWeather: 0
-  displayPower: 0
+  displayPower: 25
   category: 1
   targetType: 1
   maxPP: 20
@@ -91,11 +90,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: 
-  _power: 20
   hitsMaxTimes: 0
   makesContact: 1
   recoilDamage: 0
   absorbHealth: 0.5
+  damageDealt: 0
   spitUp: 0
   facade: 0
   revenge: 0
@@ -109,25 +108,3 @@ MonoBehaviour:
   bonusAgainstStatus: 0
   curesBonusStatus: 0
   payback: 0
---- !u!114 &1855196476297964676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3076910217884505032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c72aeb37c76c26c40bc1d85f5546ef3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: 
-  endTurnEffect: {fileID: 0}
-  timer: 10000
-  statusInflicted: 1
-  toxic: 0
-  chance: 0
-  powder: 0
-  ignoresExistingCondition: 0
-  triAttack: 0
-  duration: 0

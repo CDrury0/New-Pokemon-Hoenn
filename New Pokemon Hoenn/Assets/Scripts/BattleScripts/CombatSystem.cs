@@ -152,11 +152,12 @@ public class CombatSystem : MonoBehaviour
 
         for(int i = 0; i < battleTargets.Count; i++){
             BattleTarget user = battleTargets[turnOrder[i]];
+            GameObject action = Instantiate(user.turnAction);
             for(int j = 0; j < user.individualBattleModifier.targets.Count; j++){
                 //if move does not fail
-                Debug.Log(user.pokemon.nickName + " used " + user.turnAction.GetComponent<MoveData>().moveName + " on " + user.individualBattleModifier.targets[j].pokemon.nickName);
-                foreach(MoveEffect effect in user.turnAction.GetComponents<MoveEffect>()){
-                    yield return StartCoroutine(effect.DoEffect(user, user.individualBattleModifier.targets[j], user.turnAction.GetComponent<MoveData>()));
+                
+                foreach(MoveEffect effect in action.GetComponents<MoveEffect>()){
+                    yield return StartCoroutine(effect.DoEffect(user, user.individualBattleModifier.targets[j], action.GetComponent<MoveData>()));
                 }
             }
         }
