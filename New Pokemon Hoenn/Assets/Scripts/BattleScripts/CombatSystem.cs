@@ -92,6 +92,8 @@ public class CombatSystem : MonoBehaviour
     }
 
     private IEnumerator GetTurnActions(){
+        combatScreen.battleText.gameObject.SetActive(false);
+
         foreach(BattleTarget b in battleTargets){
             ActiveTarget = b;
             if(!b.teamBattleModifier.isPlayerTeam){
@@ -146,24 +148,31 @@ public class CombatSystem : MonoBehaviour
     }
 
     private IEnumerator BattleTurn(){
-        //increment turn count, reset damage taken this turn, other cleanup things
+        //increment turn count, reset damage taken this turn, destroy instantiated turnAction gameobjects, other cleanup things
 
         List<int> turnOrder = CombatLib.Instance.moveFunctions.GetTurnOrder(battleTargets);
 
         for(int i = 0; i < battleTargets.Count; i++){
             BattleTarget user = battleTargets[turnOrder[i]];
             GameObject action = Instantiate(user.turnAction);
-            yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.pokemon.nickName + " used " + action.GetComponent<MoveData>().moveName));
+
+            if(action.CompareTag("Move")){
+                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.pokemon.nickName + " used " + action.GetComponent<MoveData>().moveName));
+            }
 
             //if move does not fail
             for(int j = 0; j < user.individualBattleModifier.targets.Count; j++){
-                
                 
                 foreach(MoveEffect effect in action.GetComponents<MoveEffect>()){
                     yield return StartCoroutine(effect.DoEffect(user, user.individualBattleModifier.targets[j], action.GetComponent<MoveData>()));
                 }
             }
         }
+
+        //end of turn effects
+        //check for fainting, etc.
+
+        StartCoroutine(GetTurnActions());
     }
 
     private void EndBattle(){

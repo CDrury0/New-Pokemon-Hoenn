@@ -25,6 +25,7 @@ public class HealthBar : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
         SetHealthBarInstant(targetHealth, maxHealth);
+        yield return new WaitForSeconds(0.4f);
     }
 
     public void SetHealthBarInstant(int targetHealth, int maxHealth){

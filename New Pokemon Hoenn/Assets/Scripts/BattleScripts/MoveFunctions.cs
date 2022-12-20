@@ -90,7 +90,7 @@ public class MoveFunctions : MonoBehaviour
         order.Add(0);
         int[] priorities = new int[battleTargets.Count];
         for(int i = 0; i < battleTargets.Count; i++){
-            if(battleTargets[i].turnAction.GetComponent<MoveData>().pursuit && battleTargets[i].individualBattleModifier.targets[0].turnAction.GetComponent<MoveData>().priority == 6){
+            if(battleTargets[i].turnAction.GetComponent<MoveData>().pursuit && battleTargets[i].individualBattleModifier.targets[0].turnAction.CompareTag("Switch")){
                 priorities[i] = 7;
             }
             else{
@@ -125,7 +125,13 @@ public class MoveFunctions : MonoBehaviour
     public IEnumerator ApplyDamage(MoveData moveData, BattleTarget user, BattleTarget target, int damage){
         yield return StartCoroutine(target.battleHUD.healthBar.SetHealthBar(target.pokemon.currentHealth, target.pokemon.currentHealth - damage, target.pokemon.stats[0]));
         target.pokemon.currentHealth -= damage;
-        yield return StartCoroutine(WriteEffectivenessText(moveData, target));
+        if(moveData.category == MoveData.Category.Physical){
+            target.individualBattleModifier.physicalDamageTakenThisTurn += damage;
+        }
+        else{
+            target.individualBattleModifier.specialDamageTakenThisTurn += damage;
+        }
+        //try setting NormalDamage.damageDealt?
     }
 
     public bool RollCrit(BattleTarget user, bool highCritRate){
@@ -136,7 +142,7 @@ public class MoveFunctions : MonoBehaviour
         return Random.Range(0f, 0.99f) < critRatio;
     }
 
-    public int NormalDamageFormula(int power, NormalDamage damageComponent, BattleTarget user, BattleTarget target, bool crit){
+    public int NormalDamageFormula(int power, BattleTarget user, BattleTarget target, bool crit, bool cannotKO){
         MoveData moveData = user.turnAction.GetComponent<MoveData>();
         float workingDamage;
         float defenseRatio;
@@ -187,17 +193,8 @@ public class MoveFunctions : MonoBehaviour
         }
 
         //add condition for guts
-        if(user.pokemon.primaryStatus == PrimaryStatus.Burned && moveData.category == MoveData.Category.Physical && !damageComponent.facade){
+        if(user.pokemon.primaryStatus == PrimaryStatus.Burned && moveData.category == MoveData.Category.Physical){
             modifier *= 0.5f;
-        }
-
-        //modifiers like minimize, etc.
-        if(damageComponent.bonusAgainstMinimize && target.individualBattleModifier.appliedIndividualEffects.OfType<ApplyMinimize>().Any()){
-            modifier *= 2f;
-        }
-
-        if(damageComponent.bonusAgainstSemiInvulnerable != SemiInvulnerable.None && damageComponent.bonusAgainstSemiInvulnerable == target.individualBattleModifier.semiInvulnerable){
-            modifier *= 2f;
         }
 
         if(moveData.category == MoveData.Category.Physical && target.teamBattleModifier.teamEffects.FirstOrDefault(e => e.effect == TeamDurationEffect.Reflect) != null && moveData.gameObject.GetComponent<BreaksWalls>() == null){
@@ -209,20 +206,7 @@ public class MoveFunctions : MonoBehaviour
         }
 
         //if user selected pursuit and target is switching out
-        if(moveData.pursuit && target.turnAction.GetComponent<MoveData>().priority == 6){
-            modifier *= 2f;
-        }
-
-        //if facade and user has poison, burn, or paralyze
-        if(damageComponent.facade && ((int)user.pokemon.primaryStatus >= 1 && (int)user.pokemon.primaryStatus <= 3)){
-            modifier *= 2f;
-        }
-
-        if(damageComponent.revenge && (user.individualBattleModifier.specialDamageTakenThisTurn > 0 || user.individualBattleModifier.physicalDamageTakenThisTurn > 0)){
-            modifier *= 2f;
-        }
-
-        if(damageComponent.bonusAgainstStatus != PrimaryStatus.None && damageComponent.bonusAgainstStatus == target.pokemon.primaryStatus){
+        if(moveData.pursuit && target.turnAction.CompareTag("Switch")){
             modifier *= 2f;
         }
 
@@ -237,13 +221,13 @@ public class MoveFunctions : MonoBehaviour
         if(damage > target.pokemon.currentHealth){
             damage = target.pokemon.currentHealth;
         }
-        if(damageComponent.cannotKO && damage >= target.pokemon.currentHealth){
+        if(cannotKO && damage >= target.pokemon.currentHealth){
             damage = target.pokemon.currentHealth - 1;
         }
         return damage;
     }
 
-    private IEnumerator WriteEffectivenessText(MoveData moveData, BattleTarget target){
+    public IEnumerator WriteEffectivenessText(MoveData moveData, BattleTarget target){
         float matchup = GetTypeMatchup(GetEffectiveMoveType(moveData), target.pokemon.type1, target.pokemon.type2);
         if(matchup > 1){
             yield return StartCoroutine(combatScreen.battleText.WriteMessage("It's super effective!"));
