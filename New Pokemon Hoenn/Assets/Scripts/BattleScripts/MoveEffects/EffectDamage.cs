@@ -9,8 +9,11 @@ public abstract class EffectDamage : MoveEffect
     public bool makesContact;
 
     public virtual IEnumerator NormalDamageMethod(BattleTarget user, BattleTarget target, NormalDamage damageComponent, MoveData moveData, int power, bool highCritRate){
-        int damage = CombatLib.Instance.moveFunctions.NormalDamageFormula(power, damageComponent, user, target, CombatLib.Instance.moveFunctions.RollCrit(user, highCritRate));
-        //yield return StartCoroutine(moveFunctions.ApplyDamage(damage))
-        yield break;
+        bool crit = CombatLib.Instance.moveFunctions.RollCrit(user, highCritRate);
+        int damage = CombatLib.Instance.moveFunctions.NormalDamageFormula(power, damageComponent, user, target, crit);
+        if(crit){
+            yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage("A critical hit!"));
+        }
+        yield return StartCoroutine(CombatLib.Instance.moveFunctions.ApplyDamage(moveData, user, target, damage));
     }
 }
