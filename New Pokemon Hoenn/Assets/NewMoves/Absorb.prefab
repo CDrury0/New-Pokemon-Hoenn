@@ -90,9 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: 
-  hitsMaxTimes: 0
   makesContact: 1
-  recoilDamage: 0
+  hitsMaxTimes: 0
+  recoilDamage: 0.3
   absorbHealth: 0.5
   damageDealt: 0
   spitUp: 0

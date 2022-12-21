@@ -10,8 +10,8 @@ public class MoveFunctions : MonoBehaviour
     private const float TYPE_RESIST = 0.58f;
 
     public float GetTypeMatchup(StatLib.Type moveType, StatLib.Type defType1, StatLib.Type defType2){
-        float ef1 = GetTypeEffectivenessPrivate(moveType, defType1);
-        float ef2 = GetTypeEffectivenessPrivate(moveType, defType2);
+        float ef1 = GetSingleTypeEffectiveness(moveType, defType1);
+        float ef2 = GetSingleTypeEffectiveness(moveType, defType2);
         if(ef1 == TYPE_WEAKNESS && ef2 == TYPE_RESIST || ef1 == TYPE_RESIST && ef2 == TYPE_WEAKNESS){
             return 1f;
         }
@@ -20,7 +20,7 @@ public class MoveFunctions : MonoBehaviour
         }
     }
 
-    private float GetTypeEffectivenessPrivate(StatLib.Type offensiveType, StatLib.Type defensiveType){
+    private float GetSingleTypeEffectiveness(StatLib.Type offensiveType, StatLib.Type defensiveType){
         if(offensiveType == StatLib.Type.None){
             return 1;
         }
@@ -122,18 +122,6 @@ public class MoveFunctions : MonoBehaviour
         return order;
     }
 
-    public IEnumerator ApplyDamage(MoveData moveData, BattleTarget user, BattleTarget target, int damage){
-        yield return StartCoroutine(target.battleHUD.healthBar.SetHealthBar(target.pokemon.currentHealth, target.pokemon.currentHealth - damage, target.pokemon.stats[0]));
-        target.pokemon.currentHealth -= damage;
-        if(moveData.category == MoveData.Category.Physical){
-            target.individualBattleModifier.physicalDamageTakenThisTurn += damage;
-        }
-        else{
-            target.individualBattleModifier.specialDamageTakenThisTurn += damage;
-        }
-        //try setting NormalDamage.damageDealt?
-    }
-
     public bool RollCrit(BattleTarget user, bool highCritRate){
         int critStages = user.individualBattleModifier.statStages[7] + 1;
         critStages += highCritRate ? 1 : 0;
@@ -142,142 +130,13 @@ public class MoveFunctions : MonoBehaviour
         return Random.Range(0f, 0.99f) < critRatio;
     }
 
-    public int NormalDamageFormula(int power, BattleTarget user, BattleTarget target, bool crit, bool cannotKO){
-        MoveData moveData = user.turnAction.GetComponent<MoveData>();
-        float workingDamage;
-        float defenseRatio;
-        float modifier = 1f;
-
-        workingDamage = user.pokemon.level * 2;
-        workingDamage /= 5;
-        workingDamage += 2;
-        workingDamage *= power;
-
-        float offensiveMultiplier;
-        float defensiveMultiplier;
-        int offensiveStat;
-        int defensiveStat;
-        if(moveData.category == MoveData.Category.Physical){
-            offensiveMultiplier = user.individualBattleModifier.statMultipliers[0];
-            offensiveStat = user.pokemon.stats[1];
-            defensiveMultiplier = target.individualBattleModifier.statMultipliers[1];
-            defensiveStat = target.pokemon.stats[2];
-        }
-        else{
-            offensiveMultiplier = user.individualBattleModifier.statMultipliers[2];
-            offensiveStat = user.pokemon.stats[3];
-            defensiveMultiplier = target.individualBattleModifier.statMultipliers[3];
-            defensiveStat = target.pokemon.stats[4];
-        }
-
-        if(crit && offensiveMultiplier < 1f){
-            offensiveMultiplier = 1f;
-        }
-        
-        defenseRatio = (offensiveStat * offensiveMultiplier) / (defensiveStat * defensiveMultiplier);
-
-        workingDamage *= defenseRatio;
-        workingDamage /= 50;
-        workingDamage += 2;
-
-        StatLib.Type localType = GetEffectiveMoveType(moveData);
-
-        modifier *= GetTypeMatchup(localType, target.pokemon.type1, target.pokemon.type2);
-
-        modifier *= localType == user.pokemon.type1 || moveData.moveType == user.pokemon.type2 ? 1.5f : 1f;
-
-        modifier *= GetWeatherDamageModifier(localType, CombatSystem.Weather);
-
-        if(user.individualBattleModifier.targets.Count > 1){
-            modifier *= 0.75f;
-        }
-
-        //add condition for guts
-        if(user.pokemon.primaryStatus == PrimaryStatus.Burned && moveData.category == MoveData.Category.Physical){
-            modifier *= 0.5f;
-        }
-
-        if(moveData.category == MoveData.Category.Physical && target.teamBattleModifier.teamEffects.FirstOrDefault(e => e.effect == TeamDurationEffect.Reflect) != null && moveData.gameObject.GetComponent<BreaksWalls>() == null){
-            modifier *= 0.5f;
-        }
-
-        if(moveData.category == MoveData.Category.Special && target.teamBattleModifier.teamEffects.FirstOrDefault(e => e.effect == TeamDurationEffect.LightScreen) != null && moveData.gameObject.GetComponent<BreaksWalls>() == null){
-            modifier *= 0.5f;
-        }
-
-        //if user selected pursuit and target is switching out
-        if(moveData.pursuit && target.turnAction.CompareTag("Switch")){
-            modifier *= 2f;
-        }
-
-        if(crit){ //if ability is sniper, 2.25
-            modifier *= 1.5f;
-        }
-
-        workingDamage *= modifier;
-        workingDamage *= Random.Range(0.9f, 1f);
-
-        int damage = workingDamage > 1 ? (int)workingDamage : 1;
-        if(damage > target.pokemon.currentHealth){
-            damage = target.pokemon.currentHealth;
-        }
-        if(cannotKO && damage >= target.pokemon.currentHealth){
-            damage = target.pokemon.currentHealth - 1;
-        }
-        return damage;
-    }
-
-    public IEnumerator WriteEffectivenessText(MoveData moveData, BattleTarget target){
-        float matchup = GetTypeMatchup(GetEffectiveMoveType(moveData), target.pokemon.type1, target.pokemon.type2);
+    public IEnumerator WriteEffectivenessText(BattleTarget target, StatLib.Type effectiveMoveType){
+        float matchup = GetTypeMatchup(effectiveMoveType, target.pokemon.type1, target.pokemon.type2);
         if(matchup > 1){
             yield return StartCoroutine(combatScreen.battleText.WriteMessage("It's super effective!"));
         }
         else if(matchup < 1){
             yield return StartCoroutine(combatScreen.battleText.WriteMessage("It's not very effective..."));
-        }
-    }
-
-    private StatLib.Type GetEffectiveMoveType(MoveData moveData){
-        return moveData.typeFromWeather ? GetMoveTypeFromWeather(CombatSystem.Weather) : moveData.moveType;
-    }
-
-    private float GetWeatherDamageModifier(StatLib.Type moveType, Weather weather){
-        const float WEATHER_BONUS = 1.4f;
-        const float WEATHER_PENALTY = 0.6f;
-        if(weather == Weather.Rain){
-            if(moveType == StatLib.Type.Water){
-                return WEATHER_BONUS;
-            }
-            else if(moveType == StatLib.Type.Fire){
-                return WEATHER_PENALTY;
-            }
-        }
-        else if(weather == Weather.Sunlight){
-            if(moveType == StatLib.Type.Water){
-                return WEATHER_PENALTY;
-            }
-            else if(moveType == StatLib.Type.Fire){
-                return WEATHER_BONUS;
-            }
-        }
-        return 1f;
-    }
-
-    private StatLib.Type GetMoveTypeFromWeather(Weather weather){
-        switch(weather){
-            case Weather.None:
-            return StatLib.Type.Normal;
-            case Weather.Hail:
-            return StatLib.Type.Ice;
-            case Weather.Rain:
-            return StatLib.Type.Water;
-            case Weather.Sunlight:
-            return StatLib.Type.Fire;
-            case Weather.Sandstorm:
-            return StatLib.Type.Rock;
-            default:
-            Debug.Log("Weather bugged");
-            return StatLib.Type.None;
         }
     }
 }

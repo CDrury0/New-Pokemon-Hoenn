@@ -13,6 +13,7 @@ public class CombatSystem : MonoBehaviour
     public static int TurnCount {get; private set;}
     public static BattleTarget ActiveTarget {get; private set;}
     public CombatScreen combatScreen;
+    public MoveFunctions moveFunctions;
     private int weatherTimer;
     private bool doubleBattle;
     private Party playerParty;
@@ -123,7 +124,7 @@ public class CombatSystem : MonoBehaviour
     public void MoveButtonFunction(int whichMove){
         ActiveTarget.turnAction = ActiveTarget.pokemon.moves[whichMove];
         combatScreen.HideMoveButtons();
-        if(CombatLib.Instance.moveFunctions.MustChooseTarget(ActiveTarget.pokemon.moves[whichMove].GetComponent<MoveData>().targetType, ActiveTarget, battleTargets, doubleBattle)){
+        if(moveFunctions.MustChooseTarget(ActiveTarget.pokemon.moves[whichMove].GetComponent<MoveData>().targetType, ActiveTarget, battleTargets, doubleBattle)){
             EnableTargetButtons();
         }
         else{
@@ -160,7 +161,7 @@ public class CombatSystem : MonoBehaviour
                 yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.pokemon.nickName + " used " + action.GetComponent<MoveData>().moveName));
             }
 
-            //if move does not fail
+            
             for(int j = 0; j < user.individualBattleModifier.targets.Count; j++){
                 
                 foreach(MoveEffect effect in action.GetComponents<MoveEffect>()){

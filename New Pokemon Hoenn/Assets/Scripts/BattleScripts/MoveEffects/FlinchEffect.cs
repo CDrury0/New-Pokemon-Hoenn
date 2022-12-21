@@ -7,6 +7,18 @@ public class FlinchEffect : MoveEffect
     public float chance;
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        throw new System.NotImplementedException();
+        bool immuneToFlinch = ImmuneToFlinch(target);
+        if(chance == 1f && (immuneToFlinch || target.individualBattleModifier.flinched)){
+            yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage(target.pokemon.nickName + " didn't flinch!"));
+        }
+        else if(Random.Range(0f, 1f) <= chance && !immuneToFlinch){
+            target.individualBattleModifier.flinched = true;
+            yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage(target.pokemon.nickName + " flinched!"));
+        }
+    }
+
+    private bool ImmuneToFlinch(BattleTarget target){
+        //if opponent has inner focus, etc.
+        return false;
     }
 }

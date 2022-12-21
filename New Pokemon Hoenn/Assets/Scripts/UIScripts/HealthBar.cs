@@ -11,21 +11,26 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private ColorSO colorList;
 
     public IEnumerator SetHealthBar(int startingHealth, int targetHealth, int maxHealth){
+        if(targetHealth > maxHealth){
+            targetHealth = maxHealth;
+        } 
         int healthDif = startingHealth - targetHealth;
-        float healthRatio = maxHealth < 100 ? 100f / (float)maxHealth : 1f;
-        int numSteps = (int)(Mathf.Abs(healthDif) * healthRatio);
-        int direction = healthDif / Mathf.Abs(healthDif);
-        float oneHealthWorthOfFill = 1f / (float)maxHealth;
-        float howMuchOfOneHealthWorthOfFillPerStep = 1 / healthRatio;
+        if(healthDif != 0){
+            float healthRatio = maxHealth < 100 ? 100f / (float)maxHealth : 1f;
+            int numSteps = (int)(Mathf.Abs(healthDif) * healthRatio);
+            int direction = healthDif / Mathf.Abs(healthDif);
+            float oneHealthWorthOfFill = 1f / (float)maxHealth;
+            float howMuchOfOneHealthWorthOfFillPerStep = 1 / healthRatio;
 
-        for(int i = 0; i < numSteps; i++){
-            healthText.text = (int)(healthBar.fillAmount * maxHealth) + " / " + maxHealth;
-            healthBar.fillAmount -= direction * howMuchOfOneHealthWorthOfFillPerStep * oneHealthWorthOfFill;
-            SetColor();
-            yield return new WaitForSeconds(0.01f);
+            for(int i = 0; i < numSteps; i++){
+                healthText.text = (int)(healthBar.fillAmount * maxHealth) + " / " + maxHealth;
+                healthBar.fillAmount -= direction * howMuchOfOneHealthWorthOfFillPerStep * oneHealthWorthOfFill;
+                SetColor();
+                yield return new WaitForSeconds(0.01f);
+            }
+            SetHealthBarInstant(targetHealth, maxHealth);
+            yield return new WaitForSeconds(0.4f);
         }
-        SetHealthBarInstant(targetHealth, maxHealth);
-        yield return new WaitForSeconds(0.4f);
     }
 
     public void SetHealthBarInstant(int targetHealth, int maxHealth){

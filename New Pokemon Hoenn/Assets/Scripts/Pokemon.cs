@@ -38,7 +38,17 @@ public class Pokemon
     public int metLevel;
     public string metArea;
     public int[] stats = new int[6];
-    public int currentHealth;
+    private int _currentHealth;
+    public int CurrentHealth {get{return _currentHealth;}set{
+        if(value < 0){
+            _currentHealth = 0;
+        }
+        else if(value > stats[0]){
+            _currentHealth = stats[0];
+        }
+        else{
+            _currentHealth = value;
+        }}}
     public int numberID;
     public int sleepCounter = 0;
     public bool toxic;
@@ -79,7 +89,7 @@ public class Pokemon
         this.isShiny = p.isShiny;
         FillSprites(this);
         this.ballUsed = p.ballUsed;
-        this.currentHealth = p.currentHealth;
+        this.CurrentHealth = p.CurrentHealth;
         this.effortValues = p.effortValues;
         this.experience = p.experience;
         this.friendship = p.friendship;
@@ -145,7 +155,7 @@ public class Pokemon
         stats = newStats;
         if(primaryStatus != PrimaryStatus.Fainted)
         {
-            currentHealth += stats[0] - oldMaxHp;
+            CurrentHealth += stats[0] - oldMaxHp;
         }
     }
 
@@ -287,7 +297,7 @@ public class Pokemon
         abilitySlot = Random.Range(1, 3);
         ability = abilitySlot == 1 ? pokemonDefault.ability1 : pokemonDefault.ability2;
         UpdateStats();
-        currentHealth = stats[0];
+        CurrentHealth = stats[0];
         heldItem = MakeHeldItem(pokemonDefault.naturallyHeldItem);
         nickName = pokemonName;
         metArea = ReferenceLib.Instance.activeArea.areaName;

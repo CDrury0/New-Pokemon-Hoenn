@@ -101,6 +101,7 @@ public class IndividualBattleModifier
     public int forcedToUseUntilCounter; //the number of times the move must be used to allow selection of a new action (e.g. 2 or 3 at random for thrash)
     public GameObject mimicMove;
     public int mimicPP;
+    public bool flinched;
 
     public void CalculateStatMultipliers(){
         for(int i = 0; i < 5; i++)

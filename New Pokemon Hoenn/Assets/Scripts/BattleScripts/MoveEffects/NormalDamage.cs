@@ -5,6 +5,7 @@ using System.Linq;
 
 public class NormalDamage : EffectDamage
 {
+    public int hitsMaxTimes;
     public float recoilDamage;
     public float absorbHealth;
     public int damageDealt; //needed for absorbHealth and recoilDamage calculations
@@ -54,10 +55,196 @@ public class NormalDamage : EffectDamage
         }
         //payback
 
-        yield return StartCoroutine(base.NormalDamageMethod(user, target, moveData, power, highCritRate, cannotKO));
+        int timesToHit = 1;
+        if(hitsMaxTimes != 0){
+            timesToHit++;
+            for(int i = timesToHit; i < hitsMaxTimes; i++){
+                if(Random.Range(0, 10) < 5){
+                    timesToHit++;
+                }
+            }
+        }
+        int timesHit = 0;
+        while(timesHit < timesToHit){
+            timesHit++;
+            yield return StartCoroutine(NormalDamageMethod(user, target, moveData, power));
+            yield return StartCoroutine(base.DoHitEffects());
+        }
+        if(hitsMaxTimes != 0){
+            yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage("Hit " + timesHit + " time(s)!"));
+        }
+        yield return StartCoroutine(CombatLib.Instance.moveFunctions.WriteEffectivenessText(target, GetEffectiveMoveType(moveData)));
 
-        //recoil, absorb, cure target status
+        if(recoilDamage != 0f){
+            yield return StartCoroutine(DoRecoilDamage(user));
+        }
+        if(absorbHealth != 0f){
+            yield return StartCoroutine(DoAbsorb(user, target));
+        }
+        if(curesBonusStatus && bonusAgainstStatus == target.pokemon.primaryStatus){
+            yield return StartCoroutine(CureEnemyStatus(target));
+        }
 
         damageDealt = 0;
+    }
+
+    private IEnumerator CureEnemyStatus(BattleTarget target){
+        target.pokemon.primaryStatus = PrimaryStatus.None;
+        target.battleHUD.SetBattleHUD(target.pokemon);
+        yield return StartCoroutine(target.pokemon.nickName + " was cured!");
+    }
+
+    //add exception for liquid ooze
+    private IEnumerator DoAbsorb(BattleTarget user, BattleTarget target){
+        int actualAbsorbHealth = (int)(damageDealt * absorbHealth);
+        yield return StartCoroutine(user.battleHUD.healthBar.SetHealthBar(user.pokemon.CurrentHealth, user.pokemon.CurrentHealth + actualAbsorbHealth, user.pokemon.stats[0]));
+        user.pokemon.CurrentHealth += actualAbsorbHealth;
+        yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage(target.pokemon.nickName + " had its energy drained!"));
+    }
+
+    private IEnumerator DoRecoilDamage(BattleTarget user){
+        int actualRecoilDamage = (int)(damageDealt * recoilDamage);
+        yield return StartCoroutine(user.battleHUD.healthBar.SetHealthBar(user.pokemon.CurrentHealth, user.pokemon.CurrentHealth - actualRecoilDamage, user.pokemon.stats[0]));
+        user.pokemon.CurrentHealth -= actualRecoilDamage;
+        yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage(user.pokemon.nickName + " is damaged by recoil!"));
+    }
+
+    protected IEnumerator NormalDamageMethod(BattleTarget user, BattleTarget target, MoveData moveData, int power){
+        bool crit = CombatLib.Instance.moveFunctions.RollCrit(user, highCritRate);
+        int damage = NormalDamageFormula(power, user, target, crit);
+        damageDealt += damage;
+        yield return StartCoroutine(base.ApplyDamage(moveData, user, target, damage));
+        if(crit){
+            yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage("A critical hit!"));
+        }
+    }
+
+    protected int NormalDamageFormula(int power, BattleTarget user, BattleTarget target, bool crit){
+        MoveData moveData = user.turnAction.GetComponent<MoveData>();
+        float workingDamage;
+        float defenseRatio;
+        float modifier = 1f;
+
+        workingDamage = user.pokemon.level * 2;
+        workingDamage /= 5;
+        workingDamage += 2;
+        workingDamage *= power;
+
+        float offensiveMultiplier;
+        float defensiveMultiplier;
+        int offensiveStat;
+        int defensiveStat;
+        if(moveData.category == MoveData.Category.Physical){
+            offensiveMultiplier = user.individualBattleModifier.statMultipliers[0];
+            offensiveStat = user.pokemon.stats[1];
+            defensiveMultiplier = target.individualBattleModifier.statMultipliers[1];
+            defensiveStat = target.pokemon.stats[2];
+        }
+        else{
+            offensiveMultiplier = user.individualBattleModifier.statMultipliers[2];
+            offensiveStat = user.pokemon.stats[3];
+            defensiveMultiplier = target.individualBattleModifier.statMultipliers[3];
+            defensiveStat = target.pokemon.stats[4];
+        }
+
+        if(crit && offensiveMultiplier < 1f){
+            offensiveMultiplier = 1f;
+        }
+        
+        defenseRatio = (offensiveStat * offensiveMultiplier) / (defensiveStat * defensiveMultiplier);
+
+        workingDamage *= defenseRatio;
+        workingDamage /= 50;
+        workingDamage += 2;
+
+        StatLib.Type localType = GetEffectiveMoveType(moveData);
+
+        modifier *= CombatLib.Instance.moveFunctions.GetTypeMatchup(localType, target.pokemon.type1, target.pokemon.type2);
+
+        modifier *= localType == user.pokemon.type1 || moveData.moveType == user.pokemon.type2 ? 1.5f : 1f;
+
+        modifier *= GetWeatherDamageModifier(localType, CombatSystem.Weather);
+
+        if(user.individualBattleModifier.targets.Count > 1){
+            modifier *= 0.75f;
+        }
+
+        //add condition for guts
+        if(user.pokemon.primaryStatus == PrimaryStatus.Burned && moveData.category == MoveData.Category.Physical){
+            modifier *= 0.5f;
+        }
+
+        if(moveData.category == MoveData.Category.Physical && target.teamBattleModifier.teamEffects.FirstOrDefault(e => e.effect == TeamDurationEffect.Reflect) != null && moveData.gameObject.GetComponent<BreaksWalls>() == null){
+            modifier *= 0.5f;
+        }
+
+        if(moveData.category == MoveData.Category.Special && target.teamBattleModifier.teamEffects.FirstOrDefault(e => e.effect == TeamDurationEffect.LightScreen) != null && moveData.gameObject.GetComponent<BreaksWalls>() == null){
+            modifier *= 0.5f;
+        }
+
+        //if user selected pursuit and target is switching out
+        if(moveData.pursuit && target.turnAction.CompareTag("Switch")){
+            modifier *= 2f;
+        }
+
+        if(crit){ //if ability is sniper, 2.25
+            modifier *= 1.5f;
+        }
+
+        workingDamage *= modifier;
+        workingDamage *= Random.Range(0.9f, 1f);
+
+        int damage = workingDamage > 1 ? (int)workingDamage : 1;
+        if(damage > target.pokemon.CurrentHealth){
+            damage = target.pokemon.CurrentHealth;
+        }
+        if(cannotKO && damage >= target.pokemon.CurrentHealth){
+            damage = target.pokemon.CurrentHealth - 1;
+        }
+        return damage;
+    }
+
+    private StatLib.Type GetEffectiveMoveType(MoveData moveData){
+        return moveData.typeFromWeather ? GetMoveTypeFromWeather(CombatSystem.Weather) : moveData.moveType;
+    }
+
+    private StatLib.Type GetMoveTypeFromWeather(Weather weather){
+        switch(weather){
+            case Weather.None:
+            return StatLib.Type.Normal;
+            case Weather.Hail:
+            return StatLib.Type.Ice;
+            case Weather.Rain:
+            return StatLib.Type.Water;
+            case Weather.Sunlight:
+            return StatLib.Type.Fire;
+            case Weather.Sandstorm:
+            return StatLib.Type.Rock;
+            default:
+            Debug.Log("Weather bugged");
+            return StatLib.Type.None;
+        }
+    }
+
+    private float GetWeatherDamageModifier(StatLib.Type moveType, Weather weather){
+        const float WEATHER_BONUS = 1.4f;
+        const float WEATHER_PENALTY = 0.6f;
+        if(weather == Weather.Rain){
+            if(moveType == StatLib.Type.Water){
+                return WEATHER_BONUS;
+            }
+            else if(moveType == StatLib.Type.Fire){
+                return WEATHER_PENALTY;
+            }
+        }
+        else if(weather == Weather.Sunlight){
+            if(moveType == StatLib.Type.Water){
+                return WEATHER_PENALTY;
+            }
+            else if(moveType == StatLib.Type.Fire){
+                return WEATHER_BONUS;
+            }
+        }
+        return 1f;
     }
 }

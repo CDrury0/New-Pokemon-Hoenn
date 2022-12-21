@@ -157,7 +157,7 @@ public class BattleTestMenu : MonoBehaviour
             if(p != null && p.assigned){
                 p.primaryStatus = PrimaryStatus.None;
                 p.toxic = false;
-                p.currentHealth = p.stats[0];
+                p.CurrentHealth = p.stats[0];
                 for(int i = 0; i < p.moves.Count; i++){
                     p.movePP[i] = p.moveMaxPP[i];
                 }
