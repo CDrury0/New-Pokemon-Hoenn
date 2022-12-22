@@ -9,7 +9,7 @@ public abstract class EffectDamage : MoveEffect
 
     //rough skin, effect spore, etc.
     protected IEnumerator DoHitEffects(){
-        Debug.Log("bruh");
+        Debug.Log("hit effects");
         yield break;
     }
 

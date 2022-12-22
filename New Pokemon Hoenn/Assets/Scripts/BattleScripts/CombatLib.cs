@@ -7,6 +7,7 @@ public class CombatLib : MonoBehaviour
     public static CombatLib Instance {get; private set;}
     public MoveFunctions moveFunctions;
     public CombatSystem combatSystem;
+    public CombatScreen combatScreen;
 
     void Awake(){
         if(Instance != null){
@@ -14,5 +15,9 @@ public class CombatLib : MonoBehaviour
             return;
         }
         Instance = this;
+    }
+
+    public IEnumerator WriteBattleMessage(string message){
+        yield return StartCoroutine(combatScreen.battleText.WriteMessage(message));
     }
 }

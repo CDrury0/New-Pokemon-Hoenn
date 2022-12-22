@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3076910217884505032
+--- !u!1 &8186923607369605032
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3375296063947716759}
-  - component: {fileID: -5949412149799713671}
-  - component: {fileID: 7082716058086859509}
+  - component: {fileID: 506294117729526098}
+  - component: {fileID: -4674548060272772880}
+  - component: {fileID: 4843544809928094083}
   m_Layer: 0
   m_Name: Absorb
   m_TagString: Move
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3375296063947716759
+--- !u!4 &506294117729526098
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3076910217884505032}
+  m_GameObject: {fileID: 8186923607369605032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -33,26 +33,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-5949412149799713671
+--- !u!114 &-4674548060272772880
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3076910217884505032}
+  m_GameObject: {fileID: 8186923607369605032}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8017aeb4b8f9175468925e2a21b528c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveName: Absorb
-  moveDescription: Bruhbsorb
+  moveDescription: Bruh Tackle
   moveType: 5
   typeFromWeather: 0
   displayPower: 25
   category: 1
   targetType: 1
-  maxPP: 20
+  maxPP: 35
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -73,28 +73,27 @@ MonoBehaviour:
     confuseOnEnd: 0
     mustRechargeAfter: 0
   accuracyData:
-    accuracy: 1
+    accuracy: 0.95
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
---- !u!114 &7082716058086859509
+--- !u!114 &4843544809928094083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3076910217884505032}
+  m_GameObject: {fileID: 8186923607369605032}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4718a26df09fa1479726839ba709dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: 
+  applyToSelf: 0
   makesContact: 1
   hitsMaxTimes: 0
   recoilDamage: 0
   absorbHealth: 0.5
-  damageDealt: 0
   spitUp: 0
   facade: 0
   revenge: 0

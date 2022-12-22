@@ -8,7 +8,7 @@ public class NormalDamage : EffectDamage
     public int hitsMaxTimes;
     public float recoilDamage;
     public float absorbHealth;
-    public int damageDealt; //needed for absorbHealth and recoilDamage calculations
+    protected int damageDealt; //needed for absorbHealth and recoilDamage calculations
     public bool spitUp;
     public bool facade;
     public bool revenge;
@@ -73,7 +73,7 @@ public class NormalDamage : EffectDamage
         if(hitsMaxTimes != 0){
             yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage("Hit " + timesHit + " time(s)!"));
         }
-        yield return StartCoroutine(CombatLib.Instance.moveFunctions.WriteEffectivenessText(target, GetEffectiveMoveType(moveData)));
+        yield return StartCoroutine(CombatLib.Instance.moveFunctions.WriteEffectivenessText(target, CombatLib.Instance.moveFunctions.GetEffectiveMoveType(moveData)));
 
         if(recoilDamage != 0f){
             yield return StartCoroutine(DoRecoilDamage(user));
@@ -157,7 +157,7 @@ public class NormalDamage : EffectDamage
         workingDamage /= 50;
         workingDamage += 2;
 
-        StatLib.Type localType = GetEffectiveMoveType(moveData);
+        StatLib.Type localType = CombatLib.Instance.moveFunctions.GetEffectiveMoveType(moveData);
 
         modifier *= CombatLib.Instance.moveFunctions.GetTypeMatchup(localType, target.pokemon.type1, target.pokemon.type2);
 
@@ -202,28 +202,6 @@ public class NormalDamage : EffectDamage
             damage = target.pokemon.CurrentHealth - 1;
         }
         return damage;
-    }
-
-    private StatLib.Type GetEffectiveMoveType(MoveData moveData){
-        return moveData.typeFromWeather ? GetMoveTypeFromWeather(CombatSystem.Weather) : moveData.moveType;
-    }
-
-    private StatLib.Type GetMoveTypeFromWeather(Weather weather){
-        switch(weather){
-            case Weather.None:
-            return StatLib.Type.Normal;
-            case Weather.Hail:
-            return StatLib.Type.Ice;
-            case Weather.Rain:
-            return StatLib.Type.Water;
-            case Weather.Sunlight:
-            return StatLib.Type.Fire;
-            case Weather.Sandstorm:
-            return StatLib.Type.Rock;
-            default:
-            Debug.Log("Weather bugged");
-            return StatLib.Type.None;
-        }
     }
 
     private float GetWeatherDamageModifier(StatLib.Type moveType, Weather weather){

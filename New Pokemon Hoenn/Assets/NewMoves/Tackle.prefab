@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 506294117729526098}
   - component: {fileID: -4674548060272772880}
   - component: {fileID: 4843544809928094083}
+  - component: {fileID: 9160897151885220018}
   m_Layer: 0
   m_Name: Tackle
   m_TagString: Move
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8017aeb4b8f9175468925e2a21b528c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveName: Tackle
+  moveName: Area Tackle
   moveDescription: Bruh Tackle
   moveType: 1
   typeFromWeather: 0
@@ -90,11 +91,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: 
-  hitsMaxTimes: 0
   makesContact: 1
+  hitsMaxTimes: 0
   recoilDamage: 0
   absorbHealth: 0
-  damageDealt: 0
   spitUp: 0
   facade: 0
   revenge: 0
@@ -108,3 +108,22 @@ MonoBehaviour:
   bonusAgainstStatus: 0
   curesBonusStatus: 0
   payback: 0
+--- !u!114 &9160897151885220018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8186923607369605032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72aeb37c76c26c40bc1d85f5546ef3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: 
+  statusInflicted: 0
+  toxic: 0
+  chance: 0
+  powder: 0
+  ignoresExistingCondition: 0
+  triAttack: 0

@@ -13,6 +13,89 @@ public class ApplyPrimaryStatusEffect : MoveEffect
 
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        throw new System.NotImplementedException();
+        PrimaryStatus status = statusInflicted;
+        if(triAttack){
+            int rand = Random.Range(1, 4);
+            switch(rand){
+                case 1:
+                status = PrimaryStatus.Frozen;
+                break;
+                case 2:
+                status = PrimaryStatus.Burned;
+                break;
+                case 3:
+                status = PrimaryStatus.Paralyzed;
+                break;
+            }
+        }
+
+        bool immuneToStatus = ImmuneToStatus(status, target);
+        if(chance == 1f && immuneToStatus){                
+            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage("It doesn't affect " + target.GetName() + "..."));
+            yield break;
+        }
+
+        if(Random.Range(0f, 1f) <= chance){
+            if(!ignoresExistingCondition && target.pokemon.primaryStatus != PrimaryStatus.None){
+                yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " is already " + target.pokemon.primaryStatus.ToString() + "!"));
+            }
+            else{
+                target.pokemon.primaryStatus = status;
+                target.pokemon.toxic = toxic;
+                SetSleepCounter(status, target);
+                yield return StartCoroutine(PrintStatusMessage(status, target));
+                target.battleHUD.SetBattleHUD(target.pokemon);
+            }
+        }
+    }
+
+    private void SetSleepCounter(PrimaryStatus status, BattleTarget target){
+        if(status == PrimaryStatus.Asleep){
+            target.pokemon.sleepCounter = applyToSelf ? 2 : Random.Range(1, 5);
+        }
+    }
+
+    private IEnumerator PrintStatusMessage(PrimaryStatus status, BattleTarget target){
+        string message = target.GetName();
+        if(status == PrimaryStatus.Asleep){
+            message += " was put to Sleep!";
+        }
+        else if(toxic){
+            message += " was badly Poisoned!";
+        }
+        else{
+            message += " was " + status.ToString() + "!";
+        }
+        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(message));
+    }
+
+    private bool ImmuneToStatus(PrimaryStatus status, BattleTarget target){
+        if(powder && target.pokemon.IsThisType(StatLib.Type.Grass)){
+            return true;
+        }
+        if(status == PrimaryStatus.Poisoned){
+            if(target.pokemon.IsThisType(StatLib.Type.Poison) || target.pokemon.IsThisType(StatLib.Type.Steel)){
+                return true;
+            }
+        }
+        else if(status == PrimaryStatus.Paralyzed){
+            if(target.pokemon.IsThisType(StatLib.Type.Electric)){
+                return true;
+            }
+        }
+        else if(status == PrimaryStatus.Asleep){
+            //check for vital spirit, insomnia
+        }
+        else if(status == PrimaryStatus.Burned){
+            if(target.pokemon.IsThisType(StatLib.Type.Fire)){
+                return true;
+            }
+        }
+        else if(status == PrimaryStatus.Frozen){
+            if(target.pokemon.IsThisType(StatLib.Type.Ice)){
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -181,6 +181,10 @@ public class Pokemon
         }
     }
 
+    public bool IsThisType(StatLib.Type type){
+        return type1 == type || type2 == type;
+    }
+
     private float[] NatureMultiplier()
     {
         float[] natureMultiplier = new float[6] { 0, 1, 1, 1, 1, 1 };

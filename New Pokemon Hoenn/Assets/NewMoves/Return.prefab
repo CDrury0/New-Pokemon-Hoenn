@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 506294117729526098}
   - component: {fileID: -4674548060272772880}
-  - component: {fileID: -7061312106461328820}
+  - component: {fileID: -43892796184076740}
   m_Layer: 0
   m_Name: Return
   m_TagString: Move
@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveName: Return
-  moveDescription: Bruhturn
+  moveDescription: Bruh Tackle
   moveType: 1
   typeFromWeather: 0
-  displayPower: 35
+  displayPower: 0
   category: 0
   targetType: 1
   maxPP: 35
@@ -73,11 +73,11 @@ MonoBehaviour:
     confuseOnEnd: 0
     mustRechargeAfter: 0
   accuracyData:
-    accuracy: 1
+    accuracy: 0.95
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
---- !u!114 &-7061312106461328820
+--- !u!114 &-43892796184076740
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,7 +94,6 @@ MonoBehaviour:
   hitsMaxTimes: 0
   recoilDamage: 0
   absorbHealth: 0
-  damageDealt: 0
   spitUp: 0
   facade: 0
   revenge: 0
@@ -108,6 +107,4 @@ MonoBehaviour:
   bonusAgainstStatus: 0
   curesBonusStatus: 0
   payback: 0
-  piecewiseDamage:
-  - key: 0
-    powerValue: 0
+  frustration: 0

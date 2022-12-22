@@ -8,4 +8,9 @@ public class ApplyIdentify : ApplyIndividualEffect
     {
         throw new System.NotImplementedException();
     }
+
+    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    {
+        throw new System.NotImplementedException();
+    }
 }

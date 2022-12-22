@@ -160,22 +160,30 @@ public class CombatSystem : MonoBehaviour
             BattleTarget user = battleTargets[turnOrder[i]];
             GameObject action = Instantiate(user.turnAction);
 
-            WrappedBool moveFailed = new WrappedBool();
             if(action.CompareTag("Move")){
+                WrappedBool moveFailed = new WrappedBool();
                 yield return StartCoroutine(moveFunctions.CheckMoveFailedToBeUsed(moveFailed, user));
-            }
-            if(!moveFailed.failed){
-                if(action.CompareTag("Move")){
-                    yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " used " + action.GetComponent<MoveData>().moveName));
-                }
 
-                for(int j = 0; j < user.individualBattleModifier.targets.Count; j++){
-                    
-                    foreach(MoveEffect effect in action.GetComponents<MoveEffect>()){
-                        yield return StartCoroutine(effect.DoEffect(user, user.individualBattleModifier.targets[j], action.GetComponent<MoveData>()));
+                if(!moveFailed.failed){
+                    MoveData moveData = action.GetComponent<MoveData>();
+                    user.pokemon.movePP[user.pokemon.moves.IndexOf(user.turnAction)]--;
+                    yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " used " + moveData.moveName));
+                
+                    for(int j = 0; j < user.individualBattleModifier.targets.Count; j++){
+                        moveFailed = new WrappedBool();
+                        yield return StartCoroutine(moveFunctions.CheckMoveFailedAgainstTarget(moveFailed, moveData, user, user.individualBattleModifier.targets[j]));
+
+                        if(!moveFailed.failed){
+                            //play move animation only the first time it is successfully used on a target
+                            foreach(MoveEffect effect in action.GetComponents<MoveEffect>()){
+                                BattleTarget target = effect.applyToSelf ? user : user.individualBattleModifier.targets[j];
+                                yield return StartCoroutine(effect.DoEffect(user, target, moveData));
+                            }
+                        }
                     }
                 }
             }
+            //else if switch, item, etc.
         }
 
         //end of turn effects

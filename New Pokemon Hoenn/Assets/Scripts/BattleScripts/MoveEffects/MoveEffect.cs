@@ -5,6 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(MoveData))]
 public abstract class MoveEffect : MonoBehaviour
 {
-    public string message;
+    public bool applyToSelf;
     public abstract IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData);
 }

@@ -39,6 +39,28 @@ public class MoveFunctions : MonoBehaviour
                 return 0;
         }
     }
+
+    public StatLib.Type GetEffectiveMoveType(MoveData moveData){
+        return moveData.typeFromWeather ? GetMoveTypeFromWeather(CombatSystem.Weather) : moveData.moveType;
+    }
+
+    public StatLib.Type GetMoveTypeFromWeather(Weather weather){
+        switch(weather){
+            case Weather.None:
+            return StatLib.Type.Normal;
+            case Weather.Hail:
+            return StatLib.Type.Ice;
+            case Weather.Rain:
+            return StatLib.Type.Water;
+            case Weather.Sunlight:
+            return StatLib.Type.Fire;
+            case Weather.Sandstorm:
+            return StatLib.Type.Rock;
+            default:
+            Debug.Log("Weather bugged");
+            return StatLib.Type.None;
+        }
+    }
     
     public bool MustChooseTarget(TargetType targetType, BattleTarget target, List<BattleTarget> battleTargets, bool doubleBattle){
         if(targetType == TargetType.Self){
@@ -154,11 +176,13 @@ public class MoveFunctions : MonoBehaviour
             }
             else{
                 yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " woke up!"));
+                user.pokemon.primaryStatus = PrimaryStatus.None;
             }
         }
         else if(user.pokemon.primaryStatus == PrimaryStatus.Frozen){
             if(Random.Range(0f, 1f) < 0.25f){
                 yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " thawed out!"));
+                user.pokemon.primaryStatus = PrimaryStatus.None;
             }
             else{
                 yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " is frozen solid!"));
@@ -183,6 +207,20 @@ public class MoveFunctions : MonoBehaviour
                 }
             }
 
+        }
+        user.battleHUD.SetBattleHUD(user.pokemon);
+        moveFailed.failed = false;
+    }
+
+    public IEnumerator CheckMoveFailedAgainstTarget(CombatSystem.WrappedBool moveFailed, MoveData moveData, BattleTarget user, BattleTarget target){
+        moveFailed.failed = true;
+        if(moveData.category != MoveData.Category.Status && GetTypeMatchup(GetEffectiveMoveType(moveData), target.pokemon.type1, target.pokemon.type2) == 0){
+            yield return StartCoroutine(combatScreen.battleText.WriteMessage("It doesn't affect " + target.GetName() + "..."));
+            yield break;
+        }
+        if(moveData.moveName == "Thunder Wave" && target.pokemon.IsThisType(StatLib.Type.Ground)){
+            yield return StartCoroutine(combatScreen.battleText.WriteMessage("It doesn't affect " + target.GetName() + "..."));
+            yield break;
         }
         moveFailed.failed = false;
     }
