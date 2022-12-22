@@ -13,6 +13,9 @@ public class HealthBar : MonoBehaviour
     public IEnumerator SetHealthBar(int startingHealth, int targetHealth, int maxHealth){
         if(targetHealth > maxHealth){
             targetHealth = maxHealth;
+        }
+        else if(targetHealth < 0){
+            targetHealth = 0;
         } 
         int healthDif = startingHealth - targetHealth;
         if(healthDif != 0){

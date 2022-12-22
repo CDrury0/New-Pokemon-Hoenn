@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 public enum Weather { None, Rain, Sunlight, Hail, Sandstorm}
 public enum SemiInvulnerable { None, Airborne, Underground, Underwater }
@@ -148,24 +149,31 @@ public class CombatSystem : MonoBehaviour
         Proceed = true;
     }
 
+    public class WrappedBool{ public bool failed;}
+
     private IEnumerator BattleTurn(){
         //increment turn count, reset damage taken this turn, destroy instantiated turnAction gameobjects, other cleanup things
-
-        List<int> turnOrder = CombatLib.Instance.moveFunctions.GetTurnOrder(battleTargets);
+        
+        List<int> turnOrder = moveFunctions.GetTurnOrder(battleTargets);
 
         for(int i = 0; i < battleTargets.Count; i++){
             BattleTarget user = battleTargets[turnOrder[i]];
             GameObject action = Instantiate(user.turnAction);
 
+            WrappedBool moveFailed = new WrappedBool();
             if(action.CompareTag("Move")){
-                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.pokemon.nickName + " used " + action.GetComponent<MoveData>().moveName));
+                yield return StartCoroutine(moveFunctions.CheckMoveFailedToBeUsed(moveFailed, user));
             }
+            if(!moveFailed.failed){
+                if(action.CompareTag("Move")){
+                    yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.pokemon.nickName + " used " + action.GetComponent<MoveData>().moveName));
+                }
 
-            
-            for(int j = 0; j < user.individualBattleModifier.targets.Count; j++){
-                
-                foreach(MoveEffect effect in action.GetComponents<MoveEffect>()){
-                    yield return StartCoroutine(effect.DoEffect(user, user.individualBattleModifier.targets[j], action.GetComponent<MoveData>()));
+                for(int j = 0; j < user.individualBattleModifier.targets.Count; j++){
+                    
+                    foreach(MoveEffect effect in action.GetComponents<MoveEffect>()){
+                        yield return StartCoroutine(effect.DoEffect(user, user.individualBattleModifier.targets[j], action.GetComponent<MoveData>()));
+                    }
                 }
             }
         }
