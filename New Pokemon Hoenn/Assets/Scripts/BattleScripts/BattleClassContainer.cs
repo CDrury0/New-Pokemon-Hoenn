@@ -156,5 +156,9 @@ public class BattleTarget
         this.battleHUD = hud;
         this.monSpriteObject = monSpriteObject;
     }
+
+    public string GetName(){
+        return teamBattleModifier.teamPrefix + pokemon.nickName;
+    }
 }
 

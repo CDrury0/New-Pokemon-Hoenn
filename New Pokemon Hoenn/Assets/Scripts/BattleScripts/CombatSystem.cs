@@ -166,7 +166,7 @@ public class CombatSystem : MonoBehaviour
             }
             if(!moveFailed.failed){
                 if(action.CompareTag("Move")){
-                    yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.pokemon.nickName + " used " + action.GetComponent<MoveData>().moveName));
+                    yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " used " + action.GetComponent<MoveData>().moveName));
                 }
 
                 for(int j = 0; j < user.individualBattleModifier.targets.Count; j++){

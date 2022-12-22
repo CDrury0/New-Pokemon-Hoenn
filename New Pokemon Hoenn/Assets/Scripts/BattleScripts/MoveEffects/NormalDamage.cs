@@ -91,7 +91,7 @@ public class NormalDamage : EffectDamage
     private IEnumerator CureEnemyStatus(BattleTarget target){
         target.pokemon.primaryStatus = PrimaryStatus.None;
         target.battleHUD.SetBattleHUD(target.pokemon);
-        yield return StartCoroutine(target.pokemon.nickName + " was cured!");
+        yield return StartCoroutine(target.GetName() + " was cured!");
     }
 
     //add exception for liquid ooze
@@ -99,14 +99,14 @@ public class NormalDamage : EffectDamage
         int actualAbsorbHealth = (int)(damageDealt * absorbHealth);
         yield return StartCoroutine(user.battleHUD.healthBar.SetHealthBar(user.pokemon.CurrentHealth, user.pokemon.CurrentHealth + actualAbsorbHealth, user.pokemon.stats[0]));
         user.pokemon.CurrentHealth += actualAbsorbHealth;
-        yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage(target.pokemon.nickName + " had its energy drained!"));
+        yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage(target.GetName() + " had its energy drained!"));
     }
 
     private IEnumerator DoRecoilDamage(BattleTarget user){
         int actualRecoilDamage = (int)(damageDealt * recoilDamage);
         yield return StartCoroutine(user.battleHUD.healthBar.SetHealthBar(user.pokemon.CurrentHealth, user.pokemon.CurrentHealth - actualRecoilDamage, user.pokemon.stats[0]));
         user.pokemon.CurrentHealth -= actualRecoilDamage;
-        yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage(user.pokemon.nickName + " is damaged by recoil!"));
+        yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage(user.GetName() + " is damaged by recoil!"));
     }
 
     protected IEnumerator NormalDamageMethod(BattleTarget user, BattleTarget target, MoveData moveData, int power){

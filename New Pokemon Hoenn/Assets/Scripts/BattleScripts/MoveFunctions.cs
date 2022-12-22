@@ -143,40 +143,40 @@ public class MoveFunctions : MonoBehaviour
     public IEnumerator CheckMoveFailedToBeUsed(CombatSystem.WrappedBool moveFailed, BattleTarget user){
         moveFailed.failed = true;
         if(user.pokemon.primaryStatus == PrimaryStatus.Paralyzed && Random.Range(0f, 1f) < 0.2f){
-            yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.pokemon.nickName + " is paralyzed! It can't move!"));
+            yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " is paralyzed! It can't move!"));
             yield break;
         }
         else if(user.pokemon.primaryStatus == PrimaryStatus.Asleep){
             if(user.pokemon.sleepCounter > 0){
                 user.pokemon.sleepCounter--;
-                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.pokemon.nickName + " is fast asleep"));
+                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " is fast asleep"));
                 yield break;
             }
             else{
-                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.pokemon.nickName + " woke up!"));
+                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " woke up!"));
             }
         }
         else if(user.pokemon.primaryStatus == PrimaryStatus.Frozen){
             if(Random.Range(0f, 1f) < 0.25f){
-                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.pokemon.nickName + " thawed out!"));
+                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " thawed out!"));
             }
             else{
-                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.pokemon.nickName + " is frozen solid!"));
+                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " is frozen solid!"));
                 yield break;
             }
         }
         if(user.individualBattleModifier.flinched){
-            yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.pokemon.nickName + " flinched!"));
+            yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " flinched!"));
             yield break;
         }
         AppliedEffectInfo confuseEffect = user.individualBattleModifier.appliedIndividualEffects.FirstOrDefault(e => e.effect is ApplyConfuse);
         if(confuseEffect != null){
             if(confuseEffect.timer == 0){
                 user.individualBattleModifier.appliedIndividualEffects.Remove(confuseEffect);
-                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.pokemon.nickName + " snapped out of confusion"));
+                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " snapped out of confusion"));
             }
             else{
-                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.pokemon.nickName + " is confused!"));
+                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " is confused!"));
                 if(Random.Range(0f, 1f) < 0.4f){
                     //self hit on confusion
                     yield break;

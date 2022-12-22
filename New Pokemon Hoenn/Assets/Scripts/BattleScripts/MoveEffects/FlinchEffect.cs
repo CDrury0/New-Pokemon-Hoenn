@@ -9,11 +9,11 @@ public class FlinchEffect : MoveEffect
     {
         bool immuneToFlinch = ImmuneToFlinch(target);
         if(chance == 1f && (immuneToFlinch || target.individualBattleModifier.flinched)){
-            yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage(target.pokemon.nickName + " didn't flinch!"));
+            yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage(target.GetName() + " didn't flinch!"));
         }
-        else if(Random.Range(0f, 1f) <= chance && !immuneToFlinch){
+        else if(Random.Range(0f, 1f) < chance && !immuneToFlinch){
             target.individualBattleModifier.flinched = true;
-            yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage(target.pokemon.nickName + " flinched!"));
+            yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage(target.GetName() + " flinched!"));
         }
     }
 
