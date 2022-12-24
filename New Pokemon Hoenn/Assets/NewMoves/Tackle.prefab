@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8017aeb4b8f9175468925e2a21b528c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveName: Area Tackle
+  moveName: Tackle
   moveDescription: Bruh Tackle
   moveType: 1
   typeFromWeather: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4718a26df09fa1479726839ba709dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: 
+  applyToSelf: 0
   makesContact: 1
   hitsMaxTimes: 0
   recoilDamage: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c72aeb37c76c26c40bc1d85f5546ef3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: 
+  applyToSelf: 0
   statusInflicted: 0
   toxic: 0
   chance: 0

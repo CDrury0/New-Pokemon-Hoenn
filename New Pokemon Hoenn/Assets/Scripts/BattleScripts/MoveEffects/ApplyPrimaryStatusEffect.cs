@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApplyPrimaryStatusEffect : MoveEffect
+public class ApplyPrimaryStatusEffect : MoveEffect, ICheckMoveFail
 {
     public PrimaryStatus statusInflicted;
     public bool toxic;
@@ -97,5 +97,13 @@ public class ApplyPrimaryStatusEffect : MoveEffect
             }
         }
         return false;
+    }
+
+    public string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
+    {
+        if(moveData.category == MoveData.Category.Status && chance == 1f && ImmuneToStatus(statusInflicted, target)){
+            return "It doesn't affect " + target.GetName() + "...";
+        }
+        return null;
     }
 }

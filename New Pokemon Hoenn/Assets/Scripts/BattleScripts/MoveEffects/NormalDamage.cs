@@ -73,7 +73,7 @@ public class NormalDamage : EffectDamage
         if(hitsMaxTimes != 0){
             yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage("Hit " + timesHit + " time(s)!"));
         }
-        yield return StartCoroutine(CombatLib.Instance.moveFunctions.WriteEffectivenessText(target, CombatLib.Instance.moveFunctions.GetEffectiveMoveType(moveData)));
+        yield return StartCoroutine(CombatLib.Instance.moveFunctions.WriteEffectivenessText(target, moveData.GetEffectiveMoveType()));
 
         if(recoilDamage != 0f){
             yield return StartCoroutine(DoRecoilDamage(user));
@@ -157,11 +157,11 @@ public class NormalDamage : EffectDamage
         workingDamage /= 50;
         workingDamage += 2;
 
-        StatLib.Type localType = CombatLib.Instance.moveFunctions.GetEffectiveMoveType(moveData);
+        StatLib.Type localType = moveData.GetEffectiveMoveType();
 
         modifier *= CombatLib.Instance.moveFunctions.GetTypeMatchup(localType, target.pokemon.type1, target.pokemon.type2);
 
-        modifier *= localType == user.pokemon.type1 || moveData.moveType == user.pokemon.type2 ? 1.5f : 1f;
+        modifier *= user.pokemon.IsThisType(localType) ? 1.5f : 1f;
 
         modifier *= GetWeatherDamageModifier(localType, CombatSystem.Weather);
 
@@ -175,11 +175,11 @@ public class NormalDamage : EffectDamage
         }
 
         if(moveData.category == MoveData.Category.Physical && target.teamBattleModifier.teamEffects.FirstOrDefault(e => e.effect == TeamDurationEffect.Reflect) != null && moveData.gameObject.GetComponent<BreaksWalls>() == null){
-            modifier *= 0.5f;
+            modifier *= 0.67f;
         }
 
         if(moveData.category == MoveData.Category.Special && target.teamBattleModifier.teamEffects.FirstOrDefault(e => e.effect == TeamDurationEffect.LightScreen) != null && moveData.gameObject.GetComponent<BreaksWalls>() == null){
-            modifier *= 0.5f;
+            modifier *= 0.67f;
         }
 
         //if user selected pursuit and target is switching out

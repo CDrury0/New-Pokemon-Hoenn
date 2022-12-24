@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public abstract class EffectDamage : MoveEffect
+public abstract class EffectDamage : MoveEffect, ICheckMoveFail
 {
     public bool makesContact;
 
@@ -22,5 +22,13 @@ public abstract class EffectDamage : MoveEffect
         else{
             target.individualBattleModifier.specialDamageTakenThisTurn += damage;
         }
+    }
+
+    public string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
+    {
+        if(moveData.category != MoveData.Category.Status && CombatLib.Instance.moveFunctions.GetTypeMatchup(moveData.GetEffectiveMoveType(), target.pokemon.type1, target.pokemon.type2) == 0){
+            return "It doesn't affect " + target.GetName() + "...";
+        }
+        return null;
     }
 }

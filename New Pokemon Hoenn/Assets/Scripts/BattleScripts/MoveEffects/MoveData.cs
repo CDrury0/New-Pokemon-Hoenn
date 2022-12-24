@@ -7,7 +7,7 @@ public class MoveData : MonoBehaviour
 {
     public string moveName;
     [TextArea(3,3)] public string moveDescription;
-    public StatLib.Type moveType;
+    [SerializeField] private StatLib.Type moveType;
     public bool typeFromWeather;
     public int displayPower; //the power value shown in UI
     public enum Category{Physical, Special, Status};
@@ -26,6 +26,10 @@ public class MoveData : MonoBehaviour
     public MultiTurnData multiTurnData;
     public MoveVisualData visualData;
     public MoveAccuracyData accuracyData;
+
+    public StatLib.Type GetEffectiveMoveType(){
+        return typeFromWeather ? CombatLib.Instance.moveFunctions.GetMoveTypeFromWeather(CombatSystem.Weather) : moveType;
+    }
 }
 
 [System.Serializable]

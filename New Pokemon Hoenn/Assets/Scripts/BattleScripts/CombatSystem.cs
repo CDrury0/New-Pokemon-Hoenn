@@ -10,12 +10,12 @@ public enum SemiInvulnerable { None, Airborne, Underground, Underwater }
 public enum TargetType {Self, Single, Foes, Ally, RandomFoe, All}
 public class CombatSystem : MonoBehaviour
 {
-    public static Weather Weather {get; private set;}
+    public static Weather Weather {get; set;}
+    public static int weatherTimer;
     public static int TurnCount {get; private set;}
     public static BattleTarget ActiveTarget {get; private set;}
     public CombatScreen combatScreen;
     public MoveFunctions moveFunctions;
-    private int weatherTimer;
     private bool doubleBattle;
     private Party playerParty;
     private Party enemyParty;
@@ -163,23 +163,26 @@ public class CombatSystem : MonoBehaviour
             if(action.CompareTag("Move")){
                 WrappedBool moveFailed = new WrappedBool();
                 yield return StartCoroutine(moveFunctions.CheckMoveFailedToBeUsed(moveFailed, user));
+                //check for any valid target
+                if(moveFailed.failed){
+                    continue;
+                }
 
-                if(!moveFailed.failed){
-                    MoveData moveData = action.GetComponent<MoveData>();
-                    user.pokemon.movePP[user.pokemon.moves.IndexOf(user.turnAction)]--;
-                    yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " used " + moveData.moveName));
-                
-                    for(int j = 0; j < user.individualBattleModifier.targets.Count; j++){
-                        moveFailed = new WrappedBool();
-                        yield return StartCoroutine(moveFunctions.CheckMoveFailedAgainstTarget(moveFailed, moveData, user, user.individualBattleModifier.targets[j]));
+                MoveData moveData = action.GetComponent<MoveData>();
+                user.pokemon.movePP[user.pokemon.moves.IndexOf(user.turnAction)]--; //replace with deductPP method
+                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " used " + moveData.moveName));
+            
+                for(int j = 0; j < user.individualBattleModifier.targets.Count; j++){
+                    moveFailed = new WrappedBool();
+                    yield return StartCoroutine(moveFunctions.CheckMoveFailedAgainstTarget(moveFailed, action, user, user.individualBattleModifier.targets[j]));
+                    if(moveFailed.failed){
+                        continue;
+                    }
 
-                        if(!moveFailed.failed){
-                            //play move animation only the first time it is successfully used on a target
-                            foreach(MoveEffect effect in action.GetComponents<MoveEffect>()){
-                                BattleTarget target = effect.applyToSelf ? user : user.individualBattleModifier.targets[j];
-                                yield return StartCoroutine(effect.DoEffect(user, target, moveData));
-                            }
-                        }
+                    //play move animation only the first time it is successfully used on a target
+                    foreach(MoveEffect effect in action.GetComponents<MoveEffect>()){
+                        BattleTarget target = effect.applyToSelf ? user : user.individualBattleModifier.targets[j];
+                        yield return StartCoroutine(effect.DoEffect(user, target, moveData));
                     }
                 }
             }

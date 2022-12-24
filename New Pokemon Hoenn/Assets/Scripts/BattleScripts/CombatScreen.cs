@@ -58,7 +58,7 @@ public class CombatScreen : MonoBehaviour
     public void ShowMoveButtons(BattleTarget b){
         for(int i = 0; i < b.pokemon.moves.Capacity; i++){
             if(b.pokemon.moves[i] != null){
-                moveButtons[i].GetComponent<Image>().color = typeColors.colors[(int)b.pokemon.moves[i].GetComponent<MoveData>().moveType];
+                moveButtons[i].GetComponent<Image>().color = typeColors.colors[(int)b.pokemon.moves[i].GetComponent<MoveData>().GetEffectiveMoveType()];
                 TextMeshProUGUI text = moveButtons[i].GetComponentInChildren<TextMeshProUGUI>();
                 text.text = b.pokemon.moves[i].GetComponent<MoveData>().moveName;
                 text.text += "  " + b.pokemon.movePP[i] + "/" + b.pokemon.moveMaxPP[i];

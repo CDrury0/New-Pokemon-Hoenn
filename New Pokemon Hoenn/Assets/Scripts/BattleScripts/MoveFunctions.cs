@@ -40,10 +40,6 @@ public class MoveFunctions : MonoBehaviour
         }
     }
 
-    public StatLib.Type GetEffectiveMoveType(MoveData moveData){
-        return moveData.typeFromWeather ? GetMoveTypeFromWeather(CombatSystem.Weather) : moveData.moveType;
-    }
-
     public StatLib.Type GetMoveTypeFromWeather(Weather weather){
         switch(weather){
             case Weather.None:
@@ -212,17 +208,24 @@ public class MoveFunctions : MonoBehaviour
         moveFailed.failed = false;
     }
 
-    public IEnumerator CheckMoveFailedAgainstTarget(CombatSystem.WrappedBool moveFailed, MoveData moveData, BattleTarget user, BattleTarget target){
+    public IEnumerator CheckMoveFailedAgainstTarget(CombatSystem.WrappedBool moveFailed, GameObject turnAction, BattleTarget user, BattleTarget target){
         moveFailed.failed = true;
-        if(moveData.category != MoveData.Category.Status && GetTypeMatchup(GetEffectiveMoveType(moveData), target.pokemon.type1, target.pokemon.type2) == 0){
-            yield return StartCoroutine(combatScreen.battleText.WriteMessage("It doesn't affect " + target.GetName() + "..."));
-            yield break;
-        }
+        MoveData moveData = turnAction.GetComponent<MoveData>();
+
         if(moveData.moveName == "Thunder Wave" && target.pokemon.IsThisType(StatLib.Type.Ground)){
             yield return StartCoroutine(combatScreen.battleText.WriteMessage("It doesn't affect " + target.GetName() + "..."));
             yield break;
         }
+
+        ICheckMoveFail[] componentsToCheck = turnAction.GetComponents<ICheckMoveFail>();
+        foreach(ICheckMoveFail c in componentsToCheck){
+            string failureMessage = c.CheckMoveFail(user, target, moveData);
+            if(failureMessage != null){
+                yield return StartCoroutine(combatScreen.battleText.WriteMessage(failureMessage));
+                yield break;
+            }
+        }
+
         moveFailed.failed = false;
     }
 }
-//test webhook
