@@ -1,2 +1,2 @@
 # New-Pokemon-Hoenn
-Remake of the Hoenn games
+A fan remake of the Hoenn games
