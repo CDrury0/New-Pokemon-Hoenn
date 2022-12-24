@@ -58,36 +58,36 @@ public class MoveFunctions : MonoBehaviour
         }
     }
     
-    public bool MustChooseTarget(TargetType targetType, BattleTarget target, List<BattleTarget> battleTargets, bool doubleBattle){
+    public bool MustChooseTarget(TargetType targetType, BattleTarget user, List<BattleTarget> battleTargets, bool doubleBattle){
         if(targetType == TargetType.Self){
-            target.individualBattleModifier.targets = new List<BattleTarget>(){target};
+            user.individualBattleModifier.targets = new List<BattleTarget>(){user};
             return false;
         }
         if(!doubleBattle){
             if(targetType == TargetType.Ally){
-                target.individualBattleModifier.targets = new List<BattleTarget>(){null};
+                user.individualBattleModifier.targets = new List<BattleTarget>(){null};
             }
             else{
-                target.individualBattleModifier.targets = new List<BattleTarget>(){battleTargets.First(b => b.teamBattleModifier.isPlayerTeam != target.teamBattleModifier.isPlayerTeam)};
+                user.individualBattleModifier.targets = new List<BattleTarget>(){battleTargets.First(b => b.teamBattleModifier.isPlayerTeam != user.teamBattleModifier.isPlayerTeam)};
             }
             return false;
         }
-        List<BattleTarget> moveTargets = battleTargets.Where(b => b != target).ToList();
+        List<BattleTarget> moveTargets = battleTargets.Where(b => b != user).ToList();
         if(targetType == TargetType.Ally){
-            target.individualBattleModifier.targets = new List<BattleTarget>(){moveTargets.FirstOrDefault(b => b.teamBattleModifier.isPlayerTeam == target.teamBattleModifier.isPlayerTeam)};
+            user.individualBattleModifier.targets = new List<BattleTarget>(){moveTargets.FirstOrDefault(b => b.teamBattleModifier.isPlayerTeam == user.teamBattleModifier.isPlayerTeam)};
             return false;
         }
         if(targetType == TargetType.Foes){
-            target.individualBattleModifier.targets = new List<BattleTarget>(moveTargets.Where(b => b.teamBattleModifier.isPlayerTeam != target.teamBattleModifier.isPlayerTeam).ToList());
+            user.individualBattleModifier.targets = new List<BattleTarget>(moveTargets.Where(b => b.teamBattleModifier.isPlayerTeam != user.teamBattleModifier.isPlayerTeam).ToList());
             return false;
         }
         if(targetType == TargetType.RandomFoe){
-            List<BattleTarget> enemies = moveTargets.Where(b => b.teamBattleModifier.isPlayerTeam != target.teamBattleModifier.isPlayerTeam).ToList();
-            target.individualBattleModifier.targets = new List<BattleTarget>(){enemies[Random.Range(0, enemies.Count)]};
+            List<BattleTarget> enemies = moveTargets.Where(b => b.teamBattleModifier.isPlayerTeam != user.teamBattleModifier.isPlayerTeam).ToList();
+            user.individualBattleModifier.targets = new List<BattleTarget>(){enemies[Random.Range(0, enemies.Count)]};
             return false;
         }
         if(targetType == TargetType.All){
-            target.individualBattleModifier.targets = new List<BattleTarget>(moveTargets);
+            user.individualBattleModifier.targets = new List<BattleTarget>(moveTargets);
             return false;
         }
         if(targetType == TargetType.Single){    //add conditions for encore, follow me, etc.
@@ -95,7 +95,7 @@ public class MoveFunctions : MonoBehaviour
                 return true;
             }
             else{
-                target.individualBattleModifier.targets = new List<BattleTarget>(){moveTargets[0]};
+                user.individualBattleModifier.targets = new List<BattleTarget>(){moveTargets[0]};
                 return false;
             }
         }

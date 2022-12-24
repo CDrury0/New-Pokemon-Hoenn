@@ -29,13 +29,11 @@ public class ApplyPrimaryStatusEffect : MoveEffect, ICheckMoveFail
             }
         }
 
-        bool immuneToStatus = ImmuneToStatus(status, target);
-        if(chance == 1f && immuneToStatus){                
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage("It doesn't affect " + target.GetName() + "..."));
-            yield break;
-        }
-
         if(Random.Range(0f, 1f) <= chance){
+            if(ImmuneToStatus(status, target)){
+                yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " is immune to the status condition!"));
+                yield break;
+            }
             if(!ignoresExistingCondition && target.pokemon.primaryStatus != PrimaryStatus.None){
                 yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " is already " + target.pokemon.primaryStatus.ToString() + "!"));
             }
@@ -71,6 +69,9 @@ public class ApplyPrimaryStatusEffect : MoveEffect, ICheckMoveFail
 
     private bool ImmuneToStatus(PrimaryStatus status, BattleTarget target){
         if(powder && target.pokemon.IsThisType(StatLib.Type.Grass)){
+            return true;
+        }
+        if(target.teamBattleModifier.teamEffects.Find(e => e.effect == TeamDurationEffect.Safeguard) != null){
             return true;
         }
         if(status == PrimaryStatus.Poisoned){

@@ -100,8 +100,10 @@ public class CombatSystem : MonoBehaviour
             ActiveTarget = b;
             if(!b.teamBattleModifier.isPlayerTeam){
                 //get enemyAI selection
-                ActiveTarget.turnAction = ActiveTarget.pokemon.moves[0];
-                ActiveTarget.individualBattleModifier.targets = new List<BattleTarget>(){player1};
+                ActiveTarget.turnAction = ActiveTarget.pokemon.moves[UnityEngine.Random.Range(0, ActiveTarget.pokemon.moves.Count)];
+                if(moveFunctions.MustChooseTarget(ActiveTarget.turnAction.GetComponent<MoveData>().targetType, ActiveTarget, battleTargets, doubleBattle)){
+                    ActiveTarget.individualBattleModifier.targets = new List<BattleTarget>(){player1};
+                }
             }
             else{
                 //if GetRequiredAction != null (player is locked into action from previous turn), make that the action and do not allow manual selection

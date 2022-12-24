@@ -5,8 +5,8 @@ using UnityEngine.UI;
 //holds data relevant to one team that is reset when a battle starts
 public class TeamBattleModifier
 {
-    public const string ALLY_POS = "Ally's ";
-    public const string ENEMY_POS = "Foe's ";
+    public const string ALLY_POS = "Ally's";
+    public const string ENEMY_POS = "Foe's";
     public const string ALLY_PREFIX = "";
     public const string ENEMY_PREFIX = "Foe ";
     public const string WILD_PREFIX = "Wild ";
