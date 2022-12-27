@@ -154,7 +154,7 @@ public class BattleTestMenu : MonoBehaviour
 
     private void HealParty(Party party){
         foreach(Pokemon p in party.party){
-            if(p != null && p.assigned){
+            if(p != null){
                 p.primaryStatus = PrimaryStatus.None;
                 p.toxic = false;
                 p.CurrentHealth = p.stats[0];

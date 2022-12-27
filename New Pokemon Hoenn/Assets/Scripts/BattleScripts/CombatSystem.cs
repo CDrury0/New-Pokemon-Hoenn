@@ -42,6 +42,10 @@ public class CombatSystem : MonoBehaviour
     }
 
     //must start the coroutine from this monobehaviour so it doesn't matter if originating gameobject is set to inactive
+    public void StartBattle(SerializablePokemon[] enemyPartyTemplate, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI){
+        StartCoroutine(RealStartBattle(new Party(enemyPartyTemplate), trainerBattle, doubleBattle, enemyAI));
+    }
+
     public void StartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI){
         StartCoroutine(RealStartBattle(enemyParty, trainerBattle, doubleBattle, enemyAI));
     }
@@ -52,7 +56,7 @@ public class CombatSystem : MonoBehaviour
         weatherTimer = 0;
         playerParty = PlayerParty.Instance.playerParty;
         this.doubleBattle = doubleBattle;
-        this.enemyParty = new Party(enemyParty);
+        this.enemyParty = enemyParty;
         this.enemyAI = enemyAI;
 
         combatScreen.SetBattleSpriteFormat(doubleBattle);
@@ -61,11 +65,11 @@ public class CombatSystem : MonoBehaviour
         TeamBattleModifier enemyTeamModifier = new TeamBattleModifier(trainerBattle, false);
         player1 = new BattleTarget(playerTeamModifier, new IndividualBattleModifier(), playerParty.GetFirstAvailable(), combatScreen.player1hud, combatScreen.player1Object);
         player1.pokemon.inBattle = true;
-        enemy1 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(), enemyParty.GetFirstAvailable(), combatScreen.enemy1hud, combatScreen.enemy1Object);
+        enemy1 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(), this.enemyParty.GetFirstAvailable(), combatScreen.enemy1hud, combatScreen.enemy1Object);
         enemy1.pokemon.inBattle = true;
 
         player2 = new BattleTarget(playerTeamModifier, new IndividualBattleModifier(), playerParty.GetFirstAvailable(), combatScreen.player2hud, combatScreen.player2Object);
-        enemy2 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(), enemyParty.GetFirstAvailable(), combatScreen.enemy2hud, combatScreen.enemy2Object);
+        enemy2 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(), this.enemyParty.GetFirstAvailable(), combatScreen.enemy2hud, combatScreen.enemy2Object);
 
         if(doubleBattle){
             if(player2.pokemon != null){

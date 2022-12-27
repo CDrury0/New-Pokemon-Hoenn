@@ -5,7 +5,6 @@ public enum PrimaryStatus {None, Poisoned, Burned, Paralyzed, Asleep, Frozen, Fa
 public enum Gender {None, Male, Female}
 public enum Nature {Hardy, Lonely, Brave, Adamant, Naughty, Bold, Docile, Relaxed, Impish, Lax, Timid, Hasty, Serious, Jolly, Naive, Modest, Mild, Quiet, Rash, Calm, Gentle, Sassy, Careful}
 
-[System.Serializable]
 public class Pokemon
 {
     public PokemonDefault pokemonDefault;
@@ -53,7 +52,6 @@ public class Pokemon
     public int sleepCounter = 0;
     public bool toxic;
     public bool inBattle;
-    public bool assigned;
 
     //used in BattleTestMenu
     public Pokemon(PokemonDefault pokemonDefault, int level)
@@ -82,22 +80,21 @@ public class Pokemon
     }
 
     //create a usable copy of an existing pokemon from a trainer party
-    public Pokemon(Pokemon p){
-        this.assigned = true;
+    public Pokemon(SerializablePokemon p){
         this.pokemonDefault = p.pokemonDefault;
         this.ability = p.ability;
         this.isShiny = p.isShiny;
         FillSprites(this);
         this.ballUsed = p.ballUsed;
-        this.CurrentHealth = p.CurrentHealth;
         this.effortValues = p.effortValues;
-        this.experience = p.experience;
+        this.individualValues = p.individualValues;
+        this.level = p.level;
+        UpdateStats();
+        this.CurrentHealth = stats[0];
         this.friendship = p.friendship;
         this.gender = p.gender;
         this.height = p.height;
         this.heldItem = p.heldItem;
-        this.individualValues = p.individualValues;
-        this.level = p.level;
         this.moves = new List<GameObject>(p.moves);
         if(p.moveMaxPP[0] == 0){
             this.moveMaxPP = new int[4];
@@ -110,9 +107,8 @@ public class Pokemon
         }
         this.movePP = new int[] {this.moveMaxPP[0], this.moveMaxPP[1], this.moveMaxPP[2], this.moveMaxPP[3]};
         this.nature = p.nature;
-        this.nickName = p.nickName;
+        this.nickName = p.pokemonDefault.pokemonName;
         this.primaryStatus = PrimaryStatus.None;
-        UpdateStats();
         this.type1 = this.pokemonDefault.type1;
         this.type2 = this.pokemonDefault.type2;
         this.weight = p.weight;
@@ -310,7 +306,6 @@ public class Pokemon
         type2 = pokemonDefault.type2;
         numberID = Random.Range(100, 10000000);
         moves = new List<GameObject>{null, null, null, null}; //must put 4 nulls in to reserve the space so Capacity will report the correct value
-        assigned = true;
     }
 
     private void WildPokemonLearnMoves(PokemonDefault pokemonDefault, int level)
