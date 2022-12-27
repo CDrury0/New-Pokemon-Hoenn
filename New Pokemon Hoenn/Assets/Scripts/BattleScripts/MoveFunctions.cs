@@ -212,6 +212,11 @@ public class MoveFunctions : MonoBehaviour
         moveFailed.failed = true;
         MoveData moveData = turnAction.GetComponent<MoveData>();
 
+        if(!moveData.accuracyData.CheckMoveHit(moveData, user, target, CombatSystem.Weather)){
+            yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + "'s attack missed"));
+            yield break;
+        }
+
         if(moveData.moveName == "Thunder Wave" && target.pokemon.IsThisType(StatLib.Type.Ground)){
             yield return StartCoroutine(combatScreen.battleText.WriteMessage("It doesn't affect " + target.GetName() + "..."));
             yield break;

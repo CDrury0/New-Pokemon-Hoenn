@@ -114,17 +114,6 @@ public class IndividualBattleModifier
         }
     }
 
-    public float AccuracyMult(int userAccStages, int targetEvaStages) 
-    {
-        int accMod = userAccStages - targetEvaStages;
-        float accMult = (float)(Mathf.Abs(accMod) + 5f) / 5f;
-        if (accMod < 0)
-        {
-            accMult = 1f / accMult;
-        }
-        return accMult;
-    }
-
     public IndividualBattleModifier(){
         inflictingTetherEffects = new List<AppliedEffectInfo>();
         affectedTetherEffects = new List<AppliedEffectInfo>();

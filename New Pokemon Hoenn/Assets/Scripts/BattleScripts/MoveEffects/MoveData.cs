@@ -64,7 +64,32 @@ public class MoveAccuracyData
     public SemiInvulnerable hitsSemiInvulnerable;
     public Weather bypassOnWeather;
 
-    public bool CheckMoveHit(MoveData data, BattleTarget user, BattleTarget target, Weather weather){ 
-        return true;
+    public bool CheckMoveHit(MoveData moveData, BattleTarget user, BattleTarget target, Weather weather){
+        AppliedEffectInfo lockOnEffect = target.individualBattleModifier.appliedIndividualEffects.Find(e => e.effect is ApplyLockOn);
+        if(lockOnEffect != null){
+            target.individualBattleModifier.appliedIndividualEffects.Remove(lockOnEffect);
+            return true;
+        } 
+        if(cannotMissVulnerable && target.individualBattleModifier.semiInvulnerable == SemiInvulnerable.None){
+            return true;
+        }
+        if(bypassOnWeather != Weather.None && bypassOnWeather == weather){
+            return true;
+        }
+        if(Random.Range(0f, 1f) * AccuracyMult(user.individualBattleModifier.statStages[5], target.individualBattleModifier.statStages[6]) <= accuracy){
+            return true;
+        }
+        return false;
+    }
+
+    private float AccuracyMult(int userAccStages, int targetEvaStages) 
+    {
+        int accMod = userAccStages - targetEvaStages;
+        float accMult = (float)(Mathf.Abs(accMod) + 5f) / 5f;
+        if (accMod < 0)
+        {
+            accMult = 1f / accMult;
+        }
+        return accMult;
     }
 }
