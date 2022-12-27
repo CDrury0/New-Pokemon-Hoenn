@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CurseEffect : MoveEffect
 {
-    //applies IndividualEffect.Curse
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         throw new System.NotImplementedException();

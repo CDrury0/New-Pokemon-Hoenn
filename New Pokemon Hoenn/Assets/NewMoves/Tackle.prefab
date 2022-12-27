@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 506294117729526098}
   - component: {fileID: -4674548060272772880}
   - component: {fileID: 4843544809928094083}
-  - component: {fileID: 9160897151885220018}
+  - component: {fileID: -7249094651055906270}
   m_Layer: 0
   m_Name: Tackle
   m_TagString: Move
@@ -109,7 +109,7 @@ MonoBehaviour:
   bonusAgainstStatus: 0
   curesBonusStatus: 0
   payback: 0
---- !u!114 &9160897151885220018
+--- !u!114 &-7249094651055906270
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,14 +118,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8186923607369605032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c72aeb37c76c26c40bc1d85f5546ef3f, type: 3}
+  m_Script: {fileID: 11500000, guid: 09722111948b9ba47831130df6172d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  applyToSelf: 0
+  applyToSelf: 1
   message: 
-  statusInflicted: 0
-  toxic: 0
-  chance: 0
-  powder: 0
-  ignoresExistingCondition: 0
-  triAttack: 0
+  chance: 1
+  statChanges: 0200000000000000000000000000000000000000000000000000000000000000

@@ -4,9 +4,31 @@ using UnityEngine;
 
 public class MagnitudeDamage : NormalDamage
 {
-    public PiecewiseDamagePair[] piecewiseDamage;
+    public PiecewiseDamageData piecewiseDamage;
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        throw new System.NotImplementedException();
+        int roll = GetMagnitude(Random.Range(0f, 1f));
+        int power = piecewiseDamage.GetPower(roll);
+        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(moveData.moveName + " " + roll));
+        yield return StartCoroutine(NormalDamageMethod(user, target, moveData, power));
+    }
+
+    private int GetMagnitude(float rand){
+        switch(rand){
+            case float i when i < 0.05:
+            return 4;
+            case float i when i < 0.15:
+            return 5;
+            case float i when i < 0.35:
+            return 6;
+            case float i when i < 0.65:
+            return 7;
+            case float i when i < 0.85:
+            return 8;
+            case float i when i < 0.95:
+            return 9;
+            default:
+            return 10;
+        }
     }
 }

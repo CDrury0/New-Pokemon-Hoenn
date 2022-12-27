@@ -68,7 +68,6 @@ public class NormalDamage : EffectDamage
         while(timesHit < timesToHit){
             timesHit++;
             yield return StartCoroutine(NormalDamageMethod(user, target, moveData, power));
-            yield return StartCoroutine(base.DoHitEffects());
         }
         if(hitsMaxTimes != 0){
             yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage("Hit " + timesHit + " time(s)!"));

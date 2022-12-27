@@ -6,6 +6,10 @@ public class PsychUpEffect : MoveEffect
 {
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        throw new System.NotImplementedException();
+        for(int i = 0; i < target.individualBattleModifier.statStages.Length; i++){
+            user.individualBattleModifier.statStages[i] = target.individualBattleModifier.statStages[i];
+        }
+        user.individualBattleModifier.CalculateStatMultipliers();
+        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(user.GetName() + " copied " + target.GetName() + "'s stat changes!"));
     }
 }

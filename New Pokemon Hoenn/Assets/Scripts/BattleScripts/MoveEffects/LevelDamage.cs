@@ -6,6 +6,6 @@ public class LevelDamage : EffectDamage
 {
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        throw new System.NotImplementedException();
+        yield return StartCoroutine(ApplyDamage(moveData, user, target, user.pokemon.level));
     }
 }
