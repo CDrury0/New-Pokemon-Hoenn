@@ -66,7 +66,7 @@ MonoBehaviour:
     specialText: 
     skipChargingTurn: 0
     useNext: {fileID: 0}
-    baseMove: {fileID: 0}
+    baseMove: {fileID: 8186923607369605032}
     givesSemiInvulnerable: 0
     forcedToUseMax: 0
     bideCharge: 0
@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   applyToSelf: 0
+  message: 
   makesContact: 1
   hitsMaxTimes: 0
   recoilDamage: 0

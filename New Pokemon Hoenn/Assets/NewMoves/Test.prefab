@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 506294117729526098}
   - component: {fileID: -4674548060272772880}
-  - component: {fileID: 3513066854808362676}
   m_Layer: 0
   m_Name: Test
   m_TagString: Move
@@ -45,13 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8017aeb4b8f9175468925e2a21b528c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveName: Test
+  moveName: Growl
   moveDescription: Test
   moveType: 1
   typeFromWeather: 0
   displayPower: 0
   category: 2
-  targetType: 0
+  targetType: 1
   maxPP: 35
   priority: 0
   pursuit: 0
@@ -65,7 +64,7 @@ MonoBehaviour:
   multiTurnData:
     specialText: 
     skipChargingTurn: 0
-    useNext: {fileID: 0}
+    useNext: {fileID: 8186923607369605032, guid: 478c67a7d471a144a8808183fef4005e, type: 3}
     baseMove: {fileID: 0}
     givesSemiInvulnerable: 0
     forcedToUseMax: 0
@@ -77,23 +76,3 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
---- !u!114 &3513066854808362676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8186923607369605032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c72aeb37c76c26c40bc1d85f5546ef3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  applyToSelf: 0
-  message: 
-  statusInflicted: 4
-  toxic: 0
-  chance: 1
-  powder: 0
-  ignoresExistingCondition: 1
-  triAttack: 0

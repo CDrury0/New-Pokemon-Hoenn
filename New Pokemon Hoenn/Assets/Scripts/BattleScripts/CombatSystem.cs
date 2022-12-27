@@ -187,6 +187,8 @@ public class CombatSystem : MonoBehaviour
                         yield return StartCoroutine(effect.DoEffect(user, target, moveData));
                     }
                 }
+
+                //effects after move usage?
             }
             //else if switch, item, etc.
         }

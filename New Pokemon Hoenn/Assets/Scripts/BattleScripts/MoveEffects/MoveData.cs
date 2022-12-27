@@ -33,17 +33,21 @@ public class MoveData : MonoBehaviour
 }
 
 [System.Serializable]
-public class MultiTurnData 
+public class MultiTurnData
 {
     public string specialText;
     public Weather skipChargingTurn;
     public GameObject useNext;
-    public GameObject baseMove;
+    [SerializeField] private GameObject baseMove;
     public SemiInvulnerable givesSemiInvulnerable;
     public int forcedToUseMax;
     public bool bideCharge;
     public bool confuseOnEnd;
     public bool mustRechargeAfter;
+
+    public static GameObject GetBaseMove(MoveData data){
+        return data.multiTurnData.baseMove != null ? data.multiTurnData.baseMove : data.gameObject;
+    }
 }
 
 [System.Serializable]
