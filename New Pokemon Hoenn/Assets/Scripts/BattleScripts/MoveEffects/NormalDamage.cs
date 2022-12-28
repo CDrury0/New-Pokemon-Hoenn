@@ -28,6 +28,7 @@ public class NormalDamage : EffectDamage
         int power = moveData.displayPower;
         if(spitUp){
             power *= user.individualBattleModifier.stockpileCount;
+            user.individualBattleModifier.stockpileCount = 0;
         }
         if(facade && (int)user.pokemon.primaryStatus >= 1 && (int)user.pokemon.primaryStatus <= 3){
             power *= 2;

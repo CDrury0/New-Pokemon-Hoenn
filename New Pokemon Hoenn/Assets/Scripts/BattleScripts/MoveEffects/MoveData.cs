@@ -65,6 +65,9 @@ public class MoveAccuracyData
     public Weather bypassOnWeather;
 
     public bool CheckMoveHit(MoveData moveData, BattleTarget user, BattleTarget target, Weather weather){
+        if(moveData.targetType == TargetType.Self || moveData.targetType == TargetType.Ally){
+            return true;
+        }
         AppliedEffectInfo lockOnEffect = target.individualBattleModifier.appliedIndividualEffects.Find(e => e.effect is ApplyLockOn);
         if(lockOnEffect != null){
             target.individualBattleModifier.appliedIndividualEffects.Remove(lockOnEffect);

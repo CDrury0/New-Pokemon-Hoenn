@@ -8,6 +8,25 @@ public class HealEffect : MoveEffect
     public bool swallow;
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        throw new System.NotImplementedException();
+        float healPercent = 0.5f;
+        if(healChangesWithWeather){
+            switch(CombatSystem.Weather){
+                case Weather.None:
+                break;
+                case Weather.Sunlight:
+                healPercent = 0.66f;
+                break;
+                default:
+                healPercent = 0.33f;
+                break;
+            }
+        }
+        if(swallow){
+            healPercent = 0.33f * user.individualBattleModifier.stockpileCount;
+        }
+        int healAmount = (int)(target.pokemon.stats[0] * healPercent);
+        yield return StartCoroutine(target.battleHUD.healthBar.SetHealthBar(target.pokemon.CurrentHealth, target.pokemon.CurrentHealth + healAmount, target.pokemon.stats[0]));
+        target.pokemon.CurrentHealth += healAmount;
+        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(ReplaceBattleMessage(user, target)));
     }
 }
