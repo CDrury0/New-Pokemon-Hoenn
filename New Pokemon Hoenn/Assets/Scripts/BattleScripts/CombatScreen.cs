@@ -11,6 +11,7 @@ public class CombatScreen : MonoBehaviour
     [SerializeField] private RectTransform playerDoubleTransform;
     [SerializeField] private RectTransform enemyDoubleTransform;
     [SerializeField] private Button[] moveButtons;
+    [SerializeField] private TextMeshProUGUI actionPromptText;
     public GameObject battleOptionsLayoutObject;
     public GameObject moveButtonLayoutObject;
     public GameObject moveBackButton;
@@ -86,5 +87,9 @@ public class CombatScreen : MonoBehaviour
         enemy2Object.GetComponent<Button>().interactable = false;
         targetBackButton.SetActive(false);
         battleText.gameObject.SetActive(false);
+    }
+
+    public void SetActionPromptText(){
+        actionPromptText.text = "What should " + CombatSystem.ActiveTarget.GetName() + " do?";
     }
 }

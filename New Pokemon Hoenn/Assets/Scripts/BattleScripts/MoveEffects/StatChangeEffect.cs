@@ -19,7 +19,17 @@ public class StatChangeEffect : MoveEffect, ICheckMoveFail
     {
         if(Random.Range(0f, 1f) <= chance && !ImmuneToStatChanges(target)){
             for(int i = 0; i < target.individualBattleModifier.statStages.Length; i++){
+                if(StatChangeOutOfBounds(i, target)){
+                    string statChangeString = statChanges[i] > 0 ? " won't go higher!" : " won't go lower!";
+                    yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + "'s " + GetStatName(i) + statChangeString));
+                    continue;
+                }
+
+                int max = GetStatMax(i);
                 target.individualBattleModifier.statStages[i] += statChanges[i];
+                if(target.individualBattleModifier.statStages[i] > max){
+                    target.individualBattleModifier.statStages[i] = max;
+                }
                 target.individualBattleModifier.CalculateStatMultipliers();
 
                 if(statChanges[i] != 0){
@@ -28,6 +38,23 @@ public class StatChangeEffect : MoveEffect, ICheckMoveFail
                 }
             }
         }
+    }
+
+    private int GetStatMax(int stat){
+        if(stat <= 4){
+            return IndividualBattleModifier.MAX_STAT_STAGES;
+        }
+        else if(stat <= 6){
+            return IndividualBattleModifier.MAX_ACCURACY_STAGES;
+        }
+        return IndividualBattleModifier.MAX_CRIT_STAGES;
+    }
+
+    private bool StatChangeOutOfBounds(int i, BattleTarget target){
+        if(target.individualBattleModifier.statStages[i] == GetStatMax(i)){
+            return true;
+        }
+        return false;
     }
 
     private string GetStatName(int statNum){

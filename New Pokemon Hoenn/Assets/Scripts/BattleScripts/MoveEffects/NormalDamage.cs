@@ -42,17 +42,17 @@ public class NormalDamage : EffectDamage
         if(revenge && (user.individualBattleModifier.specialDamageTakenThisTurn > 0 || user.individualBattleModifier.physicalDamageTakenThisTurn > 0)){
             power *= 2;
         }
-        if(bonusAgainstMinimize && target.individualBattleModifier.appliedIndividualEffects.OfType<ApplyMinimize>().Any()){
+        if(bonusAgainstMinimize && target.individualBattleModifier.appliedIndividualEffects.Find(e => e.effect is ApplyMinimize) != null){
             power *= 2;
         }
-        if(bonusFromCurl && user.individualBattleModifier.appliedIndividualEffects.OfType<ApplyCurl>().Any()){
+        if(bonusFromCurl && user.individualBattleModifier.appliedIndividualEffects.Find(e => e.effect is ApplyCurl) != null){
             power *= 2;
         }
         if(furyCutter){
             power *= 1 + user.individualBattleModifier.consecutiveMoveCounter <= 3 ? user.individualBattleModifier.consecutiveMoveCounter : 3;
         }
         if(bonusLikeRollout){
-            power *= 1 + user.individualBattleModifier.consecutiveMoveCounter <= 5 ? user.individualBattleModifier.consecutiveMoveCounter : 5;
+            power *= 1 + user.individualBattleModifier.consecutiveMoveCounter;
         }
         //payback
 

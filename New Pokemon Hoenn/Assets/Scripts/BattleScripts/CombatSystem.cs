@@ -46,7 +46,7 @@ public class CombatSystem : MonoBehaviour
         StartCoroutine(RealStartBattle(new Party(enemyPartyTemplate), trainerBattle, doubleBattle, enemyAI));
     }
 
-    public void StartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI){
+    public void StartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI){  //no not use this except with battleTestMenu
         StartCoroutine(RealStartBattle(enemyParty, trainerBattle, doubleBattle, enemyAI));
     }
 
@@ -113,6 +113,7 @@ public class CombatSystem : MonoBehaviour
                 //if GetRequiredAction != null (player is locked into action from previous turn), make that the action and do not allow manual selection
 
                 //else allow player to select an action manually
+                combatScreen.SetActionPromptText();
                 combatScreen.battleOptionsLayoutObject.SetActive(true);
                 yield return new WaitUntil(() => Proceed);
             }
@@ -197,6 +198,7 @@ public class CombatSystem : MonoBehaviour
             //else if switch, item, etc.
         }
 
+        yield return StartCoroutine(moveFunctions.EndOfTurnEffects(battleTargets));
         //end of turn effects
         //check for fainting, etc.
 

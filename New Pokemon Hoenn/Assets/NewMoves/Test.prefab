@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 506294117729526098}
   - component: {fileID: -4674548060272772880}
-  - component: {fileID: -1333395147981830743}
+  - component: {fileID: 5663765913918319515}
   m_Layer: 0
   m_Name: Test
   m_TagString: Move
@@ -47,12 +47,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Test
   moveDescription: Test
-  moveType: 4
+  moveType: 1
   typeFromWeather: 0
-  displayPower: 20
-  category: 1
-  targetType: 1
-  maxPP: 35
+  displayPower: 0
+  category: 2
+  targetType: 0
+  maxPP: 10
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -69,6 +69,7 @@ MonoBehaviour:
     baseMove: {fileID: 0}
     givesSemiInvulnerable: 0
     forcedToUseMax: 0
+    alwaysUseMaxTurns: 0
     bideCharge: 0
     confuseOnEnd: 0
     mustRechargeAfter: 0
@@ -77,7 +78,7 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
---- !u!114 &-1333395147981830743
+--- !u!114 &5663765913918319515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,10 +87,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8186923607369605032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e2658981370d0440a1834716077e55b, type: 3}
+  m_Script: {fileID: 11500000, guid: d6e044995aaf1e648b4ecc563de92fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   applyToSelf: 0
-  message: 
-  makesContact: 0
-  bideRelease: 0
+  message: '&userName curled up!'
+  chance: 1
+  timerMin: 0
+  timerMax: 0

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //info common to every move
-public class MoveData : MonoBehaviour
+public class MoveData : MonoBehaviour, ICheckMoveFail
 {
     public string moveName;
     [TextArea(3,3)] public string moveDescription;
@@ -26,10 +26,26 @@ public class MoveData : MonoBehaviour
     public MultiTurnData multiTurnData;
     public MoveVisualData visualData;
     public MoveAccuracyData accuracyData;
+    public const string FAIL = "But it failed!";
 
     public StatLib.Type GetEffectiveMoveType(){
         return typeFromWeather ? CombatLib.Instance.moveFunctions.GetMoveTypeFromWeather(CombatSystem.Weather) : moveType;
     }
+
+    public string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
+    {
+        if(onlyUsableFirstTurn && user.individualBattleModifier.lastUsedMove != null){
+            return FAIL;
+        }
+        if(worksOnAsleep && target.pokemon.primaryStatus != PrimaryStatus.Asleep){
+            return FAIL;
+        }
+        if(worksWhileAsleep && user.pokemon.primaryStatus != PrimaryStatus.Asleep){
+            return FAIL;
+        }
+        //fail if sound based move is used on soundproof target
+        return null;
+    } 
 }
 
 [System.Serializable]
@@ -41,6 +57,7 @@ public class MultiTurnData
     [SerializeField] private GameObject baseMove;
     public SemiInvulnerable givesSemiInvulnerable;
     public int forcedToUseMax;
+    public bool alwaysUseMaxTurns;
     public bool bideCharge;
     public bool confuseOnEnd;
     public bool mustRechargeAfter;

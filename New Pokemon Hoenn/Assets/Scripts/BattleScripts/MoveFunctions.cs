@@ -6,6 +6,7 @@ using System.Linq;
 public class MoveFunctions : MonoBehaviour
 {
     public CombatScreen combatScreen;
+    public GameObject confuseAttack;
     private const float TYPE_WEAKNESS = 1.75f;
     private const float TYPE_RESIST = 0.58f;
 
@@ -90,14 +91,12 @@ public class MoveFunctions : MonoBehaviour
             user.individualBattleModifier.targets = new List<BattleTarget>(moveTargets);
             return false;
         }
-        if(targetType == TargetType.Single){    //add conditions for encore, follow me, etc.
+        if(targetType == TargetType.Single){    //add conditions for encore, etc.
             if(moveTargets.Count > 1){
                 return true;
             }
-            else{
-                user.individualBattleModifier.targets = new List<BattleTarget>(){moveTargets[0]};
-                return false;
-            }
+            user.individualBattleModifier.targets = new List<BattleTarget>(){moveTargets[0]};
+            return false;
         }
         return false;
     }
@@ -196,13 +195,17 @@ public class MoveFunctions : MonoBehaviour
                 yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " snapped out of confusion"));
             }
             else{
+                confuseEffect.timer--;
                 yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " is confused!"));
                 if(Random.Range(0f, 1f) < 0.4f){
-                    //self hit on confusion
+                    yield return StartCoroutine(combatScreen.battleText.WriteMessage("It hurt itself in its confusion!"));
+                    GameObject action = Instantiate(confuseAttack);
+                    foreach(MoveEffect e in action.GetComponents<MoveEffect>()){
+                        yield return StartCoroutine(e.DoEffect(user, user, action.GetComponent<MoveData>()));
+                    }
                     yield break;
                 }
             }
-
         }
         user.battleHUD.SetBattleHUD(user.pokemon);
         moveFailed.failed = false;
@@ -232,5 +235,12 @@ public class MoveFunctions : MonoBehaviour
         }
 
         moveFailed.failed = false;
+    }
+
+    public IEnumerator EndOfTurnEffects(List<BattleTarget> battleTargets){
+        //all hail reflection
+        List<System.Type> list = System.Reflection.Assembly.GetExecutingAssembly().GetTypes().Where(e => e.GetInterfaces().Contains(typeof(IApplyEffect))).ToList();
+        
+        yield break;
     }
 }

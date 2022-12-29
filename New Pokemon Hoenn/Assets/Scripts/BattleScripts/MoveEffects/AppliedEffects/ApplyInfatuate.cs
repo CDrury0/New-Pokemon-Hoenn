@@ -1,16 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class ApplyInfatuate : ApplyIndividualEffect
 {
-    public override IEnumerator DoAppliedEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    public override string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        throw new System.NotImplementedException();
-    }
-
-    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
-    {
-        throw new System.NotImplementedException();
+        return base.CheckMoveFail(user, target, moveData);
     }
 }

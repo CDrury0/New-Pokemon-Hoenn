@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApplyLeechSeed : ApplyIndividualEffect
+public class ApplyLeechSeed : ApplyIndividualEffect, IApplyEffect
 {
-    public override IEnumerator DoAppliedEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    public IEnumerator DoAppliedEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         throw new System.NotImplementedException();
     }
@@ -12,5 +12,10 @@ public class ApplyLeechSeed : ApplyIndividualEffect
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         throw new System.NotImplementedException();
+    }
+
+    public override bool ImmuneToEffect(BattleTarget target, MoveData moveData)
+    {
+        return base.ImmuneToEffect(target, moveData);
     }
 }

@@ -1,15 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApplyDisable : ApplyIndividualEffect
+public class ApplyDisable : ApplyIndividualEffect, ICheckMoveSelectable
 {
-    public override IEnumerator DoAppliedEffect(BattleTarget user, BattleTarget target, MoveData moveData)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    public List<GameObject> GetUnusableMoves(BattleTarget target)
     {
         throw new System.NotImplementedException();
     }

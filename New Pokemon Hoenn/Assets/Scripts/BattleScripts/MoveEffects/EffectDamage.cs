@@ -27,6 +27,9 @@ public abstract class EffectDamage : MoveEffect, ICheckMoveFail
 
     public virtual string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
     {
+        if(moveData.focusPunch && (user.individualBattleModifier.specialDamageTakenThisTurn > 0 || user.individualBattleModifier.physicalDamageTakenThisTurn > 0)){
+            return user.GetName() + " lost its focus and couldn't move!";
+        }
         if(moveData.category != MoveData.Category.Status && CombatLib.Instance.moveFunctions.GetTypeMatchup(moveData.GetEffectiveMoveType(), target.pokemon.type1, target.pokemon.type2) == 0){
             return "It doesn't affect " + target.GetName() + "...";
         }

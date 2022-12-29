@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8017aeb4b8f9175468925e2a21b528c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveName: Tackle
+  moveName: Rollout
   moveDescription: Bruh Tackle
-  moveType: 1
+  moveType: 13
   typeFromWeather: 0
   displayPower: 35
   category: 0
@@ -69,11 +69,12 @@ MonoBehaviour:
     baseMove: {fileID: 8186923607369605032}
     givesSemiInvulnerable: 0
     forcedToUseMax: 0
+    alwaysUseMaxTurns: 0
     bideCharge: 0
     confuseOnEnd: 0
     mustRechargeAfter: 0
   accuracyData:
-    accuracy: 0.95
+    accuracy: 1
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
@@ -91,7 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyToSelf: 0
   message: 
-  makesContact: 1
+  makesContact: 0
   hitsMaxTimes: 0
   recoilDamage: 0
   absorbHealth: 0
@@ -100,7 +101,7 @@ MonoBehaviour:
   revenge: 0
   furyCutter: 0
   highCritRate: 0
-  bonusFromCurl: 0
+  bonusFromCurl: 1
   bonusLikeRollout: 0
   cannotKO: 0
   bonusAgainstMinimize: 0

@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class ApplyConfuse : ApplyIndividualEffect
 {
-    public override IEnumerator DoAppliedEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    public override bool ImmuneToEffect(BattleTarget target, MoveData moveData)
     {
-        throw new System.NotImplementedException();
-    }
-
-    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
-    {
-        throw new System.NotImplementedException();
+        if(target.pokemon.IsThisType(StatLib.Type.Bug)){
+            return true;
+        }
+        return false;
     }
 }

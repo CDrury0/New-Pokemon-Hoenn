@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApplyDrowsy : ApplyIndividualEffect
+public class ApplyDrowsy : ApplyIndividualEffect, IApplyEffect
 {
-    public override IEnumerator DoAppliedEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    public IEnumerator DoAppliedEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         throw new System.NotImplementedException();
     }
 
-    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    public override bool ImmuneToEffect(BattleTarget target, MoveData moveData)
     {
-        throw new System.NotImplementedException();
+        return base.ImmuneToEffect(target, moveData);
     }
 }

@@ -77,6 +77,7 @@ public class IndividualBattleModifier
 {
     public const int MAX_STAT_STAGES = 6;
     public const int MAX_ACCURACY_STAGES = 5;
+    public const int MAX_CRIT_STAGES = 10;
     public List<AppliedEffectInfo> inflictingTetherEffects;
     public List<AppliedEffectInfo> affectedTetherEffects;
     public List<AppliedEffectInfo> appliedIndividualEffects;
