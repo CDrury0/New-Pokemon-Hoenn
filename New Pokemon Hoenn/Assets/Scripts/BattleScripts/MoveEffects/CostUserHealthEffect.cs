@@ -18,7 +18,7 @@ public class CostUserHealthEffect : MoveEffect, ICheckMoveFail
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         int healthToRemove = Mathf.RoundToInt(percentHealthCost * user.pokemon.stats[0]);
-        yield return StartCoroutine(user.battleHUD.healthBar.SetHealthBar(user.pokemon.CurrentHealth, user.pokemon.CurrentHealth - healthToRemove, user.pokemon.stats[0]));
+        yield return StartCoroutine(user.battleHUD.healthBar.SetHealthBar(user.pokemon, -healthToRemove));
         user.pokemon.CurrentHealth -= healthToRemove;
     }
 }

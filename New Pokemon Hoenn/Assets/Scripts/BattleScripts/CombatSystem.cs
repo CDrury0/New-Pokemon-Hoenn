@@ -161,10 +161,10 @@ public class CombatSystem : MonoBehaviour
     private IEnumerator BattleTurn(){
         //increment turn count, reset damage taken this turn, destroy instantiated turnAction gameobjects, other cleanup things
         
-        List<int> turnOrder = moveFunctions.GetTurnOrder(battleTargets);
+        List<BattleTarget> orderedTargets = moveFunctions.GetTurnOrder(battleTargets);
 
-        for(int i = 0; i < battleTargets.Count; i++){
-            BattleTarget user = battleTargets[turnOrder[i]];
+        for(int i = 0; i < orderedTargets.Count; i++){
+            BattleTarget user = orderedTargets[i];
             GameObject action = Instantiate(user.turnAction);
 
             if(action.CompareTag("Move")){
@@ -198,7 +198,7 @@ public class CombatSystem : MonoBehaviour
             //else if switch, item, etc.
         }
 
-        yield return StartCoroutine(moveFunctions.EndOfTurnEffects(battleTargets));
+        yield return StartCoroutine(moveFunctions.EndOfTurnEffects(orderedTargets));
         //end of turn effects
         //check for fainting, etc.
 

@@ -78,9 +78,8 @@ public class IndividualBattleModifier
     public const int MAX_STAT_STAGES = 6;
     public const int MAX_ACCURACY_STAGES = 5;
     public const int MAX_CRIT_STAGES = 10;
-    public List<AppliedEffectInfo> inflictingTetherEffects;
-    public List<AppliedEffectInfo> affectedTetherEffects;
-    public List<AppliedEffectInfo> appliedIndividualEffects;
+    public List<AppliedEffectInfo> inflictingEffects;
+    public List<AppliedEffectInfo> appliedEffects;
     public List<TimedEffectInfo> timedEffects; //timed effects are not overwritten on switch
     public List<GameObject> movesLastUsedAgainstThis;
     public List<GameObject> movesBlockedByImprison;
@@ -103,6 +102,7 @@ public class IndividualBattleModifier
     public GameObject mimicMove;
     public int mimicPP;
     public bool flinched;
+    public int toxicCounter; //resets when switching out
 
     public void CalculateStatMultipliers(){
         for(int i = 0; i < 5; i++)
@@ -116,9 +116,8 @@ public class IndividualBattleModifier
     }
 
     public IndividualBattleModifier(){
-        inflictingTetherEffects = new List<AppliedEffectInfo>();
-        affectedTetherEffects = new List<AppliedEffectInfo>();
-        appliedIndividualEffects = new List<AppliedEffectInfo>();
+        inflictingEffects = new List<AppliedEffectInfo>();
+        appliedEffects = new List<AppliedEffectInfo>();
         timedEffects = new List<TimedEffectInfo>();
         movesLastUsedAgainstThis = new List<GameObject>();
         movesBlockedByImprison = new List<GameObject>();

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ApplyNightmare : ApplyIndividualEffect, IApplyEffect
 {
-    public IEnumerator DoAppliedEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    public IEnumerator DoAppliedEffect(BattleTarget user, AppliedEffectInfo effectInfo)
     {
         throw new System.NotImplementedException();
     }

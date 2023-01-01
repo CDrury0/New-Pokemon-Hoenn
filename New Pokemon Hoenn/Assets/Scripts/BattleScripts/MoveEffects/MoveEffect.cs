@@ -13,6 +13,7 @@ public abstract class MoveEffect : MonoBehaviour
         outputMessage = outputMessage.Replace("&targetName", target.GetName());
         outputMessage = outputMessage.Replace("&userPossessive", user.teamBattleModifier.teamPossessive);
         outputMessage = outputMessage.Replace("&targetPossessive", target.teamBattleModifier.teamPossessive);
+        outputMessage = outputMessage.Replace("&moveName", user.turnAction.GetComponent<MoveData>().moveName);
         return outputMessage;
     }
 }

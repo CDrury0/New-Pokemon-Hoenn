@@ -85,9 +85,9 @@ public class MoveAccuracyData
         if(moveData.targetType == TargetType.Self || moveData.targetType == TargetType.Ally){
             return true;
         }
-        AppliedEffectInfo lockOnEffect = target.individualBattleModifier.appliedIndividualEffects.Find(e => e.effect is ApplyLockOn);
+        AppliedEffectInfo lockOnEffect = target.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyLockOn);
         if(lockOnEffect != null){
-            target.individualBattleModifier.appliedIndividualEffects.Remove(lockOnEffect);
+            target.individualBattleModifier.appliedEffects.Remove(lockOnEffect);
             return true;
         } 
         if(cannotMissVulnerable && target.individualBattleModifier.semiInvulnerable == SemiInvulnerable.None){

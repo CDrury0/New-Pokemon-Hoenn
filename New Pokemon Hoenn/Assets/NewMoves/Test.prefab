@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 506294117729526098}
   - component: {fileID: -4674548060272772880}
-  - component: {fileID: 5663765913918319515}
+  - component: {fileID: 762610412953862326}
   m_Layer: 0
   m_Name: Test
   m_TagString: Move
@@ -51,7 +51,7 @@ MonoBehaviour:
   typeFromWeather: 0
   displayPower: 0
   category: 2
-  targetType: 0
+  targetType: 1
   maxPP: 10
   priority: 0
   pursuit: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
---- !u!114 &5663765913918319515
+--- !u!114 &762610412953862326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,11 +87,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8186923607369605032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6e044995aaf1e648b4ecc563de92fb6, type: 3}
+  m_Script: {fileID: 11500000, guid: 409f377dfa6178e459aefb09ce0fa737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   applyToSelf: 0
-  message: '&userName curled up!'
+  message: '&targetName is trapped by &moveName!'
   chance: 1
-  timerMin: 0
-  timerMax: 0
+  timerMin: 2
+  timerMax: 5

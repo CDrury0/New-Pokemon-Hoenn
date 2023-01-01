@@ -42,10 +42,10 @@ public class NormalDamage : EffectDamage
         if(revenge && (user.individualBattleModifier.specialDamageTakenThisTurn > 0 || user.individualBattleModifier.physicalDamageTakenThisTurn > 0)){
             power *= 2;
         }
-        if(bonusAgainstMinimize && target.individualBattleModifier.appliedIndividualEffects.Find(e => e.effect is ApplyMinimize) != null){
+        if(bonusAgainstMinimize && target.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyMinimize) != null){
             power *= 2;
         }
-        if(bonusFromCurl && user.individualBattleModifier.appliedIndividualEffects.Find(e => e.effect is ApplyCurl) != null){
+        if(bonusFromCurl && user.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyCurl) != null){
             power *= 2;
         }
         if(furyCutter){
@@ -97,14 +97,14 @@ public class NormalDamage : EffectDamage
     //add exception for liquid ooze
     private IEnumerator DoAbsorb(BattleTarget user, BattleTarget target){
         int actualAbsorbHealth = (int)(damageDealt * absorbHealth);
-        yield return StartCoroutine(user.battleHUD.healthBar.SetHealthBar(user.pokemon.CurrentHealth, user.pokemon.CurrentHealth + actualAbsorbHealth, user.pokemon.stats[0]));
+        yield return StartCoroutine(user.battleHUD.healthBar.SetHealthBar(user.pokemon, actualAbsorbHealth));
         user.pokemon.CurrentHealth += actualAbsorbHealth;
         yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage(target.GetName() + " had its energy drained!"));
     }
 
     private IEnumerator DoRecoilDamage(BattleTarget user){
         int actualRecoilDamage = (int)(damageDealt * recoilDamage);
-        yield return StartCoroutine(user.battleHUD.healthBar.SetHealthBar(user.pokemon.CurrentHealth, user.pokemon.CurrentHealth - actualRecoilDamage, user.pokemon.stats[0]));
+        yield return StartCoroutine(user.battleHUD.healthBar.SetHealthBar(user.pokemon, -actualRecoilDamage));
         user.pokemon.CurrentHealth -= actualRecoilDamage;
         yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage(user.GetName() + " is damaged by recoil!"));
     }

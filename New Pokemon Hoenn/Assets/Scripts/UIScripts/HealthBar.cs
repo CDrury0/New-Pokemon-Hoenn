@@ -10,7 +10,10 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Image healthBar;
     [SerializeField] private ColorSO colorList;
 
-    public IEnumerator SetHealthBar(int startingHealth, int targetHealth, int maxHealth){
+    public IEnumerator SetHealthBar(Pokemon p, int healthChange){
+        int startingHealth = p.CurrentHealth;
+        int targetHealth = startingHealth + healthChange;
+        int maxHealth = p.stats[0];
         if(targetHealth > maxHealth){
             targetHealth = maxHealth;
         }

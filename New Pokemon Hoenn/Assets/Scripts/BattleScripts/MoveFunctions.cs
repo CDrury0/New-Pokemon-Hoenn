@@ -102,7 +102,7 @@ public class MoveFunctions : MonoBehaviour
     }
 
     //account for quick claw later
-    public List<int> GetTurnOrder(List<BattleTarget> battleTargets){
+    public List<BattleTarget> GetTurnOrder(List<BattleTarget> battleTargets){
         List<int> order = new List<int>(battleTargets.Count);
         order.Add(0);
         int[] priorities = new int[battleTargets.Count];
@@ -136,7 +136,11 @@ public class MoveFunctions : MonoBehaviour
                 order.Add(i);
             }
         }
-        return order;
+        List<BattleTarget> orderedTargets = new List<BattleTarget>();
+        for(int i = 0; i < battleTargets.Count; i++){
+            orderedTargets.Add(battleTargets[order[i]]);
+        }
+        return orderedTargets;
     }
 
     public bool RollCrit(BattleTarget user, bool highCritRate){
@@ -188,10 +192,10 @@ public class MoveFunctions : MonoBehaviour
             yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " flinched!"));
             yield break;
         }
-        AppliedEffectInfo confuseEffect = user.individualBattleModifier.appliedIndividualEffects.FirstOrDefault(e => e.effect is ApplyConfuse);
+        AppliedEffectInfo confuseEffect = user.individualBattleModifier.appliedEffects.FirstOrDefault(e => e.effect is ApplyConfuse);
         if(confuseEffect != null){
             if(confuseEffect.timer == 0){
-                user.individualBattleModifier.appliedIndividualEffects.Remove(confuseEffect);
+                user.individualBattleModifier.appliedEffects.Remove(confuseEffect);
                 yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " snapped out of confusion"));
             }
             else{
@@ -238,9 +242,94 @@ public class MoveFunctions : MonoBehaviour
     }
 
     public IEnumerator EndOfTurnEffects(List<BattleTarget> battleTargets){
-        //all hail reflection
-        List<System.Type> list = System.Reflection.Assembly.GetExecutingAssembly().GetTypes().Where(e => e.GetInterfaces().Contains(typeof(IApplyEffect))).ToList();
+        //weather
+        if(CombatSystem.Weather != Weather.None){
+            yield return StartCoroutine(HandleWeather(battleTargets));
+        }
         
-        yield break;
+        //where do bind effects go?
+        foreach(BattleTarget b in battleTargets){
+            AppliedEffectInfo effectInfo = b.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyBind);
+            if(effectInfo != null){
+                ApplyBind bind = (ApplyBind)effectInfo.effect;
+                yield return StartCoroutine(bind.DoAppliedEffect(b, effectInfo));
+            }
+        }
+
+        //timed effects
+
+        //shed skin, rain dish, etc. (healing abilities)
+
+        //held item healing
+
+        //leech seed
+
+        //primary status
+        for(int i = 0; i < battleTargets.Count; i++){
+            yield return StartCoroutine(HandleEndTurnStatus(battleTargets[i]));
+        }
+
+        //encore/taunt/disable check
+
+        //yawn
+
+        //perish song
+
+        //reflect/light screen/safeguard/mist
+
+        //uproar
+
+        //abilities that boost (speed boost)
+    }
+
+    private IEnumerator HandleWeather(List<BattleTarget> battleTargets){
+        string subsidedMessage = CombatSystem.weatherTimer == 0 ? " subsided" : " continues";
+        yield return StartCoroutine(combatScreen.battleText.WriteMessage("The " + CombatSystem.Weather + subsidedMessage));
+        if(CombatSystem.Weather == Weather.Hail){
+            foreach(BattleTarget b in battleTargets){
+                if(!b.pokemon.IsThisType(StatLib.Type.Ice)){
+                    int damage = (int)(0.0625f * b.pokemon.stats[0]);
+                    yield return StartCoroutine(b.battleHUD.healthBar.SetHealthBar(b.pokemon, -damage));
+                    b.pokemon.CurrentHealth -= damage;
+                    yield return StartCoroutine(combatScreen.battleText.WriteMessage(b.GetName() + " is stricken by hail!"));
+                }
+            }
+        }
+        else if(CombatSystem.Weather == Weather.Sandstorm){
+            foreach(BattleTarget b in battleTargets){
+                if(!b.pokemon.IsThisType(StatLib.Type.Ground) && !b.pokemon.IsThisType(StatLib.Type.Rock) && !b.pokemon.IsThisType(StatLib.Type.Steel)){
+                    int damage = (int)(0.0625f * b.pokemon.stats[0]);
+                    yield return StartCoroutine(b.battleHUD.healthBar.SetHealthBar(b.pokemon, -damage));
+                    b.pokemon.CurrentHealth -= damage;
+                    yield return StartCoroutine(combatScreen.battleText.WriteMessage(b.GetName() + " is buffeted by the sandstorm!"));
+                }
+            }
+        }
+        CombatSystem.weatherTimer--;
+    }
+
+    private IEnumerator HandleEndTurnStatus(BattleTarget b){
+        if(b.pokemon.primaryStatus == PrimaryStatus.Poisoned){
+            int poisonDamage;
+            string poisonMessage;
+            if(b.pokemon.toxic){
+                b.individualBattleModifier.toxicCounter++;
+                poisonDamage = (int)(0.0625f * b.individualBattleModifier.toxicCounter * b.pokemon.stats[0]);
+                poisonMessage = b.GetName() + " is badly poisoned!";
+            }
+            else{
+                poisonDamage = (int)(0.125f * b.pokemon.stats[0]);
+                poisonMessage = b.GetName() + " is hurt by poison";
+            }
+            yield return StartCoroutine(b.battleHUD.healthBar.SetHealthBar(b.pokemon, -poisonDamage));
+            yield return StartCoroutine(combatScreen.battleText.WriteMessage(poisonMessage));
+            b.pokemon.CurrentHealth -= poisonDamage;
+        }
+        else if(b.pokemon.primaryStatus == PrimaryStatus.Burned){
+            int burnDamage = (int)(0.1f * b.pokemon.stats[0]);
+            yield return StartCoroutine(b.battleHUD.healthBar.SetHealthBar(b.pokemon, -burnDamage));
+            yield return StartCoroutine(combatScreen.battleText.WriteMessage(b.GetName() + " is hurt by its burn!"));
+            b.pokemon.CurrentHealth -= burnDamage;
+        }
     }
 }

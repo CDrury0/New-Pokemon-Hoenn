@@ -25,7 +25,7 @@ public class HealEffect : MoveEffect
             healPercent = 0.33f * user.individualBattleModifier.stockpileCount;
         }
         int healAmount = (int)(target.pokemon.stats[0] * healPercent);
-        yield return StartCoroutine(target.battleHUD.healthBar.SetHealthBar(target.pokemon.CurrentHealth, target.pokemon.CurrentHealth + healAmount, target.pokemon.stats[0]));
+        yield return StartCoroutine(target.battleHUD.healthBar.SetHealthBar(target.pokemon, healAmount));
         target.pokemon.CurrentHealth += healAmount;
         yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(ReplaceBattleMessage(user, target)));
     }

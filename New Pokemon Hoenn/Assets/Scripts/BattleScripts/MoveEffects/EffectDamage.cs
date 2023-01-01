@@ -8,7 +8,7 @@ public abstract class EffectDamage : MoveEffect, ICheckMoveFail
     public bool makesContact;
 
     protected IEnumerator ApplyDamage(MoveData moveData, BattleTarget user, BattleTarget target, int damage){
-        yield return StartCoroutine(target.battleHUD.healthBar.SetHealthBar(target.pokemon.CurrentHealth, target.pokemon.CurrentHealth - damage, target.pokemon.stats[0]));
+        yield return StartCoroutine(target.battleHUD.healthBar.SetHealthBar(target.pokemon, -damage));
         target.pokemon.CurrentHealth -= damage;
         if(moveData.category == MoveData.Category.Physical){
             target.individualBattleModifier.physicalDamageTakenThisTurn += damage;
