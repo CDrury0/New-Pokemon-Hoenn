@@ -9,8 +9,8 @@ public class ApplyDrowsy : ApplyIndividualEffect, IApplyEffect
         throw new System.NotImplementedException();
     }
 
-    public override bool ImmuneToEffect(BattleTarget target, MoveData moveData)
+    public override bool ImmuneToEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        return base.ImmuneToEffect(target, moveData);
+        return base.ImmuneToEffect(user, target, moveData);
     }
 }

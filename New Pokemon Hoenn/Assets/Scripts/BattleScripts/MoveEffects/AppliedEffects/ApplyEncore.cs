@@ -1,4 +1,10 @@
-public class ApplyEncore : ApplyIndividualEffect
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ApplyEncore : ApplyIndividualEffect, ICheckMoveSelectable
 {
-    //bruh
+    public List<GameObject> GetUnusableMoves(BattleTarget target)
+    {
+        throw new System.NotImplementedException();
+    }
 }

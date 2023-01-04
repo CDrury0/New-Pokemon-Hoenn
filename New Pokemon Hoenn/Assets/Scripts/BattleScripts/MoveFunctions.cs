@@ -241,45 +241,53 @@ public class MoveFunctions : MonoBehaviour
         moveFailed.failed = false;
     }
 
+    //TEST END OF TURN EFFECTS
     public IEnumerator EndOfTurnEffects(List<BattleTarget> battleTargets){
         //weather
         if(CombatSystem.Weather != Weather.None){
             yield return StartCoroutine(HandleWeather(battleTargets));
         }
         
-        //where do bind effects go?
-        foreach(BattleTarget b in battleTargets){
-            AppliedEffectInfo effectInfo = b.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyBind);
-            if(effectInfo != null){
-                ApplyBind bind = (ApplyBind)effectInfo.effect;
-                yield return StartCoroutine(bind.DoAppliedEffect(b, effectInfo));
-            }
-        }
+        //bind effects
+        yield return StartCoroutine(DoAppliedEffectOfType<ApplyBind>(battleTargets));
 
         //timed effects
+        yield return StartCoroutine(DoAppliedEffectOfType<ApplyTimedEffect>(battleTargets));
 
         //shed skin, rain dish, etc. (healing abilities)
 
         //held item healing
 
         //leech seed
+        yield return StartCoroutine(DoAppliedEffectOfType<ApplyLeechSeed>(battleTargets));
 
         //primary status
-        for(int i = 0; i < battleTargets.Count; i++){
-            yield return StartCoroutine(HandleEndTurnStatus(battleTargets[i]));
-        }
+        yield return StartCoroutine(HandleEndTurnStatus(battleTargets));
 
         //encore/taunt/disable check
 
         //yawn
+        yield return StartCoroutine(DoAppliedEffectOfType<ApplyDrowsy>(battleTargets));
 
         //perish song
-
+        yield return StartCoroutine(DoAppliedEffectOfType<ApplyPerishSong>(battleTargets));
         //reflect/light screen/safeguard/mist
 
         //uproar
 
         //abilities that boost (speed boost)
+    }
+
+    private IEnumerator DoAppliedEffectOfType <T> (List<BattleTarget> battleTargets) where T : IApplyEffect{
+        for(int i = 0; i < battleTargets.Count; i++){
+            List<AppliedEffectInfo> effectInfo = battleTargets[i].individualBattleModifier.appliedEffects.FindAll(e => e.effect is T);
+            foreach(AppliedEffectInfo a in effectInfo){
+                if(a != null){
+                    IApplyEffect effect = (IApplyEffect)a.effect;
+                    yield return StartCoroutine(effect.DoAppliedEffect(battleTargets[i], a));
+                }
+            }
+        }
     }
 
     private IEnumerator HandleWeather(List<BattleTarget> battleTargets){
@@ -308,28 +316,30 @@ public class MoveFunctions : MonoBehaviour
         CombatSystem.weatherTimer--;
     }
 
-    private IEnumerator HandleEndTurnStatus(BattleTarget b){
-        if(b.pokemon.primaryStatus == PrimaryStatus.Poisoned){
-            int poisonDamage;
-            string poisonMessage;
-            if(b.pokemon.toxic){
-                b.individualBattleModifier.toxicCounter++;
-                poisonDamage = (int)(0.0625f * b.individualBattleModifier.toxicCounter * b.pokemon.stats[0]);
-                poisonMessage = b.GetName() + " is badly poisoned!";
+    private IEnumerator HandleEndTurnStatus(List<BattleTarget> battleTargets){
+        foreach(BattleTarget b in battleTargets){
+            if(b.pokemon.primaryStatus == PrimaryStatus.Poisoned){
+                int poisonDamage;
+                string poisonMessage;
+                if(b.pokemon.toxic){
+                    b.individualBattleModifier.toxicCounter++;
+                    poisonDamage = (int)(0.0625f * b.individualBattleModifier.toxicCounter * b.pokemon.stats[0]);
+                    poisonMessage = b.GetName() + " is badly poisoned!";
+                }
+                else{
+                    poisonDamage = (int)(0.125f * b.pokemon.stats[0]);
+                    poisonMessage = b.GetName() + " is hurt by poison";
+                }
+                yield return StartCoroutine(b.battleHUD.healthBar.SetHealthBar(b.pokemon, -poisonDamage));
+                yield return StartCoroutine(combatScreen.battleText.WriteMessage(poisonMessage));
+                b.pokemon.CurrentHealth -= poisonDamage;
             }
-            else{
-                poisonDamage = (int)(0.125f * b.pokemon.stats[0]);
-                poisonMessage = b.GetName() + " is hurt by poison";
+            else if(b.pokemon.primaryStatus == PrimaryStatus.Burned){
+                int burnDamage = (int)(0.1f * b.pokemon.stats[0]);
+                yield return StartCoroutine(b.battleHUD.healthBar.SetHealthBar(b.pokemon, -burnDamage));
+                yield return StartCoroutine(combatScreen.battleText.WriteMessage(b.GetName() + " is hurt by its burn!"));
+                b.pokemon.CurrentHealth -= burnDamage;
             }
-            yield return StartCoroutine(b.battleHUD.healthBar.SetHealthBar(b.pokemon, -poisonDamage));
-            yield return StartCoroutine(combatScreen.battleText.WriteMessage(poisonMessage));
-            b.pokemon.CurrentHealth -= poisonDamage;
-        }
-        else if(b.pokemon.primaryStatus == PrimaryStatus.Burned){
-            int burnDamage = (int)(0.1f * b.pokemon.stats[0]);
-            yield return StartCoroutine(b.battleHUD.healthBar.SetHealthBar(b.pokemon, -burnDamage));
-            yield return StartCoroutine(combatScreen.battleText.WriteMessage(b.GetName() + " is hurt by its burn!"));
-            b.pokemon.CurrentHealth -= burnDamage;
         }
     }
 }

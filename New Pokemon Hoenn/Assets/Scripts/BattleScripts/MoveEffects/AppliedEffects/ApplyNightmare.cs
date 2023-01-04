@@ -9,8 +9,8 @@ public class ApplyNightmare : ApplyIndividualEffect, IApplyEffect
         throw new System.NotImplementedException();
     }
 
-    public override string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
+    public override bool ImmuneToEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        return base.CheckMoveFail(user, target, moveData);
+        return base.ImmuneToEffect(user, target, moveData);
     }
 }
