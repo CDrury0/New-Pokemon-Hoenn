@@ -159,7 +159,7 @@ public class NormalDamage : EffectDamage
 
         StatLib.Type localType = moveData.GetEffectiveMoveType();
 
-        modifier *= CombatLib.Instance.moveFunctions.GetTypeMatchup(localType, target.pokemon.type1, target.pokemon.type2);
+        modifier *= CombatLib.Instance.moveFunctions.GetTypeMatchup(localType, target);
 
         modifier *= user.pokemon.IsThisType(localType) ? 1.5f : 1f;
 

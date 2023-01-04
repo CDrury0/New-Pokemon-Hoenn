@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class ApplyDrowsy : ApplyIndividualEffect, IApplyEffect
 {
-    public IEnumerator DoAppliedEffect(BattleTarget user, AppliedEffectInfo effectInfo)
+    public IEnumerator DoAppliedEffect(BattleTarget target, AppliedEffectInfo effectInfo)
     {
-        throw new System.NotImplementedException();
-    }
-
-    public override bool ImmuneToEffect(BattleTarget user, BattleTarget target, MoveData moveData)
-    {
-        return base.ImmuneToEffect(user, target, moveData);
+        if(effectInfo.timer == 0){
+            if(target.pokemon.primaryStatus == PrimaryStatus.None && !ApplyPrimaryStatusEffect.ImmuneToStatus(PrimaryStatus.Asleep, target, false)){
+                target.pokemon.primaryStatus = PrimaryStatus.Asleep;
+                target.pokemon.sleepCounter = Random.Range(1, 5);
+                yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " fell Asleep!"));
+                target.battleHUD.SetBattleHUD(target.pokemon);
+            }
+            else{
+                yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " resisted Sleep!"));
+            }
+            RemoveEffect(target, effectInfo);
+        }
+        else{
+            effectInfo.timer--;
+        }
     }
 }

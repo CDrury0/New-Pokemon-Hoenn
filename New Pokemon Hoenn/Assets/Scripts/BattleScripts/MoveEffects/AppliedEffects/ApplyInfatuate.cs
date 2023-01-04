@@ -2,6 +2,10 @@ public class ApplyInfatuate : ApplyIndividualEffect
 {
     public override bool ImmuneToEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        return base.ImmuneToEffect(user, target, moveData);
+        if(target.pokemon.gender == Gender.None || target.pokemon.gender == user.pokemon.gender){
+            return true;
+        }
+        //oblivious?
+        return false;
     }
 }

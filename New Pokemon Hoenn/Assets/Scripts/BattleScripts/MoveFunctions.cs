@@ -10,9 +10,12 @@ public class MoveFunctions : MonoBehaviour
     private const float TYPE_WEAKNESS = 1.75f;
     private const float TYPE_RESIST = 0.58f;
 
-    public float GetTypeMatchup(StatLib.Type moveType, StatLib.Type defType1, StatLib.Type defType2){
-        float ef1 = GetSingleTypeEffectiveness(moveType, defType1);
-        float ef2 = GetSingleTypeEffectiveness(moveType, defType2);
+    public float GetTypeMatchup(StatLib.Type moveType, BattleTarget defender){
+        if(defender.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyIdentify) != null){
+            return 1f;
+        }
+        float ef1 = GetSingleTypeEffectiveness(moveType, defender.pokemon.type1);
+        float ef2 = GetSingleTypeEffectiveness(moveType, defender.pokemon.type2);
         if(ef1 == TYPE_WEAKNESS && ef2 == TYPE_RESIST || ef1 == TYPE_RESIST && ef2 == TYPE_WEAKNESS){
             return 1f;
         }
@@ -152,7 +155,7 @@ public class MoveFunctions : MonoBehaviour
     }
 
     public IEnumerator WriteEffectivenessText(BattleTarget target, StatLib.Type effectiveMoveType){
-        float matchup = GetTypeMatchup(effectiveMoveType, target.pokemon.type1, target.pokemon.type2);
+        float matchup = GetTypeMatchup(effectiveMoveType, target);
         if(matchup > 1){
             yield return StartCoroutine(combatScreen.battleText.WriteMessage("It's super effective!"));
         }
@@ -185,6 +188,14 @@ public class MoveFunctions : MonoBehaviour
             }
             else{
                 yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " is frozen solid!"));
+                yield break;
+            }
+        }
+        AppliedEffectInfo infatuationEffect = user.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyInfatuate);
+        if(infatuationEffect != null && user.individualBattleModifier.targets.Contains(infatuationEffect.inflictor)){
+            yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " is in love with " + infatuationEffect.inflictor.GetName()));
+            if(Random.Range(0, 2) == 0){
+                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " is immobilized by love!"));
                 yield break;
             }
         }
@@ -230,9 +241,16 @@ public class MoveFunctions : MonoBehaviour
         }
 
         ICheckMoveFail[] componentsToCheck = turnAction.GetComponents<ICheckMoveFail>();
-        foreach(ICheckMoveFail c in componentsToCheck){
-            string failureMessage = c.CheckMoveFail(user, target, moveData);
-            if(failureMessage != null){
+        if(componentsToCheck.Length > 0){
+            int failCount = 0;
+            string failureMessage = "";
+            foreach(ICheckMoveFail c in componentsToCheck){
+                failureMessage = c.CheckMoveFail(user, target, moveData);
+                if(failureMessage != null){
+                    failCount++;
+                }
+            }
+            if(failCount == componentsToCheck.Length){
                 yield return StartCoroutine(combatScreen.battleText.WriteMessage(failureMessage));
                 yield break;
             }
@@ -265,12 +283,17 @@ public class MoveFunctions : MonoBehaviour
         yield return StartCoroutine(HandleEndTurnStatus(battleTargets));
 
         //encore/taunt/disable check
+        yield return StartCoroutine(DoAppliedEffectOfType<ApplyEncore>(battleTargets));
+        yield return StartCoroutine(DoAppliedEffectOfType<ApplyDisable>(battleTargets));
+        yield return StartCoroutine(DoAppliedEffectOfType<ApplyTaunt>(battleTargets));
+        yield return StartCoroutine(DoAppliedEffectOfType<ApplyTorment>(battleTargets));
 
         //yawn
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyDrowsy>(battleTargets));
 
         //perish song
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyPerishSong>(battleTargets));
+
         //reflect/light screen/safeguard/mist
 
         //uproar
@@ -291,8 +314,15 @@ public class MoveFunctions : MonoBehaviour
     }
 
     private IEnumerator HandleWeather(List<BattleTarget> battleTargets){
-        string subsidedMessage = CombatSystem.weatherTimer == 0 ? " subsided" : " continues";
-        yield return StartCoroutine(combatScreen.battleText.WriteMessage("The " + CombatSystem.Weather + subsidedMessage));
+        if(CombatSystem.weatherTimer == 0){
+            yield return StartCoroutine(combatScreen.battleText.WriteMessage("The " + CombatSystem.Weather + " subsided"));
+            CombatSystem.Weather = Weather.None;
+            yield break;
+        }
+
+        CombatSystem.weatherTimer--;
+        yield return StartCoroutine(combatScreen.battleText.WriteMessage("The " + CombatSystem.Weather + " continues"));
+
         if(CombatSystem.Weather == Weather.Hail){
             foreach(BattleTarget b in battleTargets){
                 if(!b.pokemon.IsThisType(StatLib.Type.Ice)){
@@ -313,7 +343,6 @@ public class MoveFunctions : MonoBehaviour
                 }
             }
         }
-        CombatSystem.weatherTimer--;
     }
 
     private IEnumerator HandleEndTurnStatus(List<BattleTarget> battleTargets){

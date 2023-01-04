@@ -30,7 +30,7 @@ public abstract class EffectDamage : MoveEffect, ICheckMoveFail
         if(moveData.focusPunch && (user.individualBattleModifier.specialDamageTakenThisTurn > 0 || user.individualBattleModifier.physicalDamageTakenThisTurn > 0)){
             return user.GetName() + " lost its focus and couldn't move!";
         }
-        if(moveData.category != MoveData.Category.Status && CombatLib.Instance.moveFunctions.GetTypeMatchup(moveData.GetEffectiveMoveType(), target.pokemon.type1, target.pokemon.type2) == 0){
+        if(moveData.category != MoveData.Category.Status && CombatLib.Instance.moveFunctions.GetTypeMatchup(moveData.GetEffectiveMoveType(), target) == 0){
             return "It doesn't affect " + target.GetName() + "...";
         }
         return null;

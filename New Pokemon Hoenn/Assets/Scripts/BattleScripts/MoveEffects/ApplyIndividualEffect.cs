@@ -34,8 +34,8 @@ public abstract class ApplyIndividualEffect : MoveEffect, ICheckMoveFail
         }
     }
 
-    protected void RemoveEffect(BattleTarget user, AppliedEffectInfo effectInfo){
+    public virtual void RemoveEffect(BattleTarget target, AppliedEffectInfo effectInfo){
         effectInfo.inflictor.individualBattleModifier.inflictingEffects.Remove(effectInfo);
-        user.individualBattleModifier.appliedEffects.Remove(effectInfo);
+        target.individualBattleModifier.appliedEffects.Remove(effectInfo);
     }
 }

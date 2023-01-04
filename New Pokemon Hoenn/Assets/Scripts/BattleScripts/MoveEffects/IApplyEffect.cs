@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IApplyEffect
 {
-    public abstract IEnumerator DoAppliedEffect(BattleTarget user, AppliedEffectInfo effectInfo);
+    public abstract IEnumerator DoAppliedEffect(BattleTarget target, AppliedEffectInfo effectInfo);
 }

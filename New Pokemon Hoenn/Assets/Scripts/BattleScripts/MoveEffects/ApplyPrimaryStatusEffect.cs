@@ -30,7 +30,7 @@ public class ApplyPrimaryStatusEffect : MoveEffect, ICheckMoveFail
         }
 
         if(Random.Range(0f, 1f) <= chance){
-            if(ImmuneToStatus(status, target)){
+            if(ImmuneToStatus(status, target, powder)){
                 yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " is immune to the status condition!"));
                 yield break;
             }
@@ -67,7 +67,7 @@ public class ApplyPrimaryStatusEffect : MoveEffect, ICheckMoveFail
         yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(message));
     }
 
-    private bool ImmuneToStatus(PrimaryStatus status, BattleTarget target){
+    public static bool ImmuneToStatus(PrimaryStatus status, BattleTarget target, bool powder){
         if(powder && target.pokemon.IsThisType(StatLib.Type.Grass)){
             return true;
         }
@@ -102,7 +102,7 @@ public class ApplyPrimaryStatusEffect : MoveEffect, ICheckMoveFail
 
     public string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        if(moveData.category == MoveData.Category.Status && chance == 1f && ImmuneToStatus(statusInflicted, target)){
+        if(moveData.category == MoveData.Category.Status && chance == 1f && ImmuneToStatus(statusInflicted, target, powder)){
             return "It doesn't affect " + target.GetName() + "...";
         }
         return null;

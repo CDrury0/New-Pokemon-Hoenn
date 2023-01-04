@@ -97,6 +97,7 @@ public class IndividualBattleModifier
     public int stockpileCount;
     public SemiInvulnerable semiInvulnerable;
     public GameObject lastUsedMove;
+    public GameObject disabledMove;
     public int consecutiveMoveCounter; //how many times a move has been used consecutively
     public int forcedToUseUntilCounter; //the number of times the move must be used to allow selection of a new action (e.g. 2 or 3 at random for thrash)
     public GameObject mimicMove;
