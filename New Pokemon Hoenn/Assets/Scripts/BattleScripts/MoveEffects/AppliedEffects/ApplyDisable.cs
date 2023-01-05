@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class ApplyDisable : ApplyIndividualEffect, ICheckMoveSelectable, IApplyEffect
 {
+    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    {
+        target.individualBattleModifier.disabledMove = MultiTurnData.GetBaseMove(target.individualBattleModifier.lastUsedMove.GetComponent<MoveData>());
+        yield return StartCoroutine(base.DoEffect(user, target, moveData));
+    }
+    
     public IEnumerator DoAppliedEffect(BattleTarget target, AppliedEffectInfo effectInfo)
     {
         if(effectInfo.timer == 0){

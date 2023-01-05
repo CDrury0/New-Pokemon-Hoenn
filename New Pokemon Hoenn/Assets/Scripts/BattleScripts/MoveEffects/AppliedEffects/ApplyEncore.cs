@@ -17,7 +17,7 @@ public class ApplyEncore : ApplyIndividualEffect, ICheckMoveSelectable, IApplyEf
     public List<GameObject> GetUnusableMoves(BattleTarget target)
     {
         List<GameObject> unusableMoves = new List<GameObject>(target.pokemon.moves);
-        unusableMoves.Remove(target.individualBattleModifier.lastUsedMove);
+        unusableMoves.Remove(MultiTurnData.GetBaseMove(target.individualBattleModifier.lastUsedMove.GetComponent<MoveData>()));
         return unusableMoves;
     }
 }

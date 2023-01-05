@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class ApplyTrap : ApplyIndividualEffect, IApplyEffect
 {
-    public IEnumerator DoAppliedEffect(BattleTarget user, AppliedEffectInfo effectInfo)
+    public IEnumerator DoAppliedEffect(BattleTarget target, AppliedEffectInfo effectInfo)
     {
-        throw new System.NotImplementedException();
+        if(!effectInfo.inflictor.individualBattleModifier.inflictingEffects.Contains(effectInfo)){
+            RemoveEffect(target, effectInfo);
+            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " is no longer trapped!"));
+        }
     }
 }

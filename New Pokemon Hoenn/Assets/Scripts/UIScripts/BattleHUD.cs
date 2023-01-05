@@ -13,6 +13,7 @@ public class BattleHUD : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI levelText;
     public ColorSO typeColors;
+    public Sprite[] genderSprites;
 
     public void SetBattleHUD(Pokemon p){
         healthBar.SetHealthBarInstant(p.CurrentHealth, p.stats[0]);
@@ -35,7 +36,12 @@ public class BattleHUD : MonoBehaviour
     }
 
     private void SetGenderIcon(Gender gender){
-
+        if(gender == Gender.None){
+            genderIcon.enabled = false;
+            return;
+        }
+        genderIcon.sprite = genderSprites[(int)gender - 1];
+        genderIcon.enabled = true;
     }
 
     private int GetStatusTypeNumber(PrimaryStatus status){

@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatChangeEffect : MoveEffect, ICheckMoveFail
+public class StatChangeEffect : MoveEffect, ICheckMoveEffectFail
 {
     public float chance;
     public int[] statChanges = new int[8];
 
-    public string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
+    public bool CheckMoveEffectFail(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        if(moveData.category == MoveData.Category.Status && chance == 1f && ImmuneToStatChanges(target) && user != target){
-            return "It doesn't affect " + target.GetName() + "...";
+        if(ImmuneToStatChanges(target) && user != target){
+            return true;
         }
-        return null;
+        return false;
     }
 
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)

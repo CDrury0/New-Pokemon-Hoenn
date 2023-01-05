@@ -189,6 +189,12 @@ public class CombatSystem : MonoBehaviour
                     //play move animation only the first time it is successfully used on a target
                     foreach(MoveEffect effect in action.GetComponents<MoveEffect>()){
                         BattleTarget target = effect.applyToSelf ? user : user.individualBattleModifier.targets[j];
+                        if(effect is ICheckMoveEffectFail){
+                            ICheckMoveEffectFail effectThatMayFail = (ICheckMoveEffectFail)effect;
+                            if(effectThatMayFail.CheckMoveEffectFail(user, target, moveData)){
+                                continue;
+                            }
+                        }
                         yield return StartCoroutine(effect.DoEffect(user, target, moveData));
                     }
                 }

@@ -240,18 +240,27 @@ public class MoveFunctions : MonoBehaviour
             yield break;
         }
 
-        ICheckMoveFail[] componentsToCheck = turnAction.GetComponents<ICheckMoveFail>();
-        if(componentsToCheck.Length > 0){
+        //if any of these fail, the move fails altogether
+        ICheckMoveFail[] componentsCausingMoveToFail = turnAction.GetComponents<ICheckMoveFail>();
+        foreach(ICheckMoveFail c in componentsCausingMoveToFail){
+            string failureMessage = c.CheckMoveFail(user, target, moveData);
+            if(failureMessage != null){
+                yield return StartCoroutine(combatScreen.battleText.WriteMessage(failureMessage));
+                yield break;
+            }
+        }
+
+        //if ALL of these fail, the move fails
+        ICheckMoveEffectFail[] componentsCausingEffectToFail = turnAction.GetComponents<ICheckMoveEffectFail>();
+        if(componentsCausingEffectToFail.Length > 0){
             int failCount = 0;
-            string failureMessage = "";
-            foreach(ICheckMoveFail c in componentsToCheck){
-                failureMessage = c.CheckMoveFail(user, target, moveData);
-                if(failureMessage != null){
+            foreach(ICheckMoveEffectFail effectThatMayFail in componentsCausingEffectToFail){
+                if(effectThatMayFail.CheckMoveEffectFail(user, target, moveData)){
                     failCount++;
                 }
             }
-            if(failCount == componentsToCheck.Length){
-                yield return StartCoroutine(combatScreen.battleText.WriteMessage(failureMessage));
+            if(failCount == componentsCausingEffectToFail.Length){
+                yield return StartCoroutine(combatScreen.battleText.WriteMessage(MoveData.FAIL));
                 yield break;
             }
         }

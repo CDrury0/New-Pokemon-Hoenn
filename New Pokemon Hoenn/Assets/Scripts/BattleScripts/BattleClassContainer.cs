@@ -100,6 +100,7 @@ public class IndividualBattleModifier
     public GameObject disabledMove;
     public int consecutiveMoveCounter; //how many times a move has been used consecutively
     public int forcedToUseUntilCounter; //the number of times the move must be used to allow selection of a new action (e.g. 2 or 3 at random for thrash)
+    public int protectCounter;
     public GameObject mimicMove;
     public int mimicPP;
     public bool flinched;

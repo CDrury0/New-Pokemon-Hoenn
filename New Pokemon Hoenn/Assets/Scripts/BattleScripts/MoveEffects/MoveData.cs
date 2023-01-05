@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //info common to every move
-public class MoveData : MonoBehaviour, ICheckMoveFail
+public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
 {
     public string moveName;
     [TextArea(3,3)] public string moveDescription;
@@ -30,6 +30,14 @@ public class MoveData : MonoBehaviour, ICheckMoveFail
 
     public StatLib.Type GetEffectiveMoveType(){
         return typeFromWeather ? CombatLib.Instance.moveFunctions.GetMoveTypeFromWeather(CombatSystem.Weather) : moveType;
+    }
+
+    public List<GameObject> GetUnusableMoves(BattleTarget target){
+        List<GameObject> unusableMoves = new List<GameObject>();
+        if(target.pokemon.movePP[target.pokemon.moves.IndexOf(gameObject)] == 0){
+            unusableMoves.Add(gameObject);
+        }
+        return unusableMoves;
     }
 
     public string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)

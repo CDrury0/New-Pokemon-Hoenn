@@ -6,11 +6,22 @@ public class ApplyTaunt : ApplyIndividualEffect, ICheckMoveSelectable, IApplyEff
 {
     public IEnumerator DoAppliedEffect(BattleTarget target, AppliedEffectInfo effectInfo)
     {
-        throw new System.NotImplementedException();
+        if(effectInfo.timer == 0){
+            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " is no longer taunted!"));
+            RemoveEffect(target, effectInfo);
+            yield break;
+        }
+        effectInfo.timer--;
     }
 
     public List<GameObject> GetUnusableMoves(BattleTarget target)
     {
-        throw new System.NotImplementedException();
+        List<GameObject> unusableMoves = new List<GameObject>();
+        foreach(GameObject move in target.pokemon.moves){
+            if(move.GetComponent<MoveData>().category == MoveData.Category.Status){
+                unusableMoves.Add(move);
+            }
+        }
+        return unusableMoves;
     }
 }

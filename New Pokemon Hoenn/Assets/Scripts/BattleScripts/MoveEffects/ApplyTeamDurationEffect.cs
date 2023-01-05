@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum TeamDurationEffect{None, Safeguard, StatChangeImmune, Reflect, LightScreen} 
-public class ApplyTeamDurationEffect : MoveEffect, ICheckMoveFail
+public class ApplyTeamDurationEffect : MoveEffect, ICheckMoveEffectFail
 {
     public TeamDurationEffect durationEffect;
     public Weather weatherSet;
     public int timer;
 
-    public string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
+    public bool CheckMoveEffectFail(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         if(target.teamBattleModifier.teamEffects.Find(e => e.effect == durationEffect) != null){
-            return "But it failed!";
+            return true;
         }
         //check for weather immunity (cloud nine / air lock)
-        return null;
+        return false;
     }
 
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)

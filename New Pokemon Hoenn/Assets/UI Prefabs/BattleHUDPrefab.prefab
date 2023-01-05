@@ -934,6 +934,9 @@ MonoBehaviour:
   nameText: {fileID: 2456657365764040708}
   levelText: {fileID: 2456657365892609360}
   typeColors: {fileID: 11400000, guid: 1926c8337e79a51499663875c17a3120, type: 2}
+  genderSprites:
+  - {fileID: 21300000, guid: 572fb196d7800b14787e38f479633131, type: 3}
+  - {fileID: 21300000, guid: efcdf3031e2ec0a40b6d1f836818ecb0, type: 3}
 --- !u!1 &2456657366556701308
 GameObject:
   m_ObjectHideFlags: 0

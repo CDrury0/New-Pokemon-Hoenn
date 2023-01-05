@@ -57,6 +57,7 @@ public class CombatScreen : MonoBehaviour
     }
 
     public void ShowMoveButtons(BattleTarget b){
+        //check against ICheckMoveSelectable
         for(int i = 0; i < b.pokemon.moves.Capacity; i++){
             if(b.pokemon.moves[i] != null){
                 moveButtons[i].GetComponent<Image>().color = typeColors.colors[(int)b.pokemon.moves[i].GetComponent<MoveData>().GetEffectiveMoveType()];
