@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Party
 {
-    public Pokemon[] party = new Pokemon[6];
+    public Pokemon[] party;
 
     public Party(){
         party = new Pokemon[6];

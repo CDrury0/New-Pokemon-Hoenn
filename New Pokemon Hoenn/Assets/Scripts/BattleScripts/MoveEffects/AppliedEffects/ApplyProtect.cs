@@ -1,8 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-public class ApplyProtect : ApplyIndividualEffect
+public class ApplyProtect : ApplyIndividualEffect, IApplyEffect
 {
+    public IEnumerator DoAppliedEffect(BattleTarget target, AppliedEffectInfo effectInfo)
+    {
+        effectInfo.effect.RemoveEffect(target, effectInfo);
+        yield break;
+    }
+
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         user.individualBattleModifier.protectCounter++;

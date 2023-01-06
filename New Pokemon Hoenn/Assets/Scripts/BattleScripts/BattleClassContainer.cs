@@ -81,11 +81,9 @@ public class IndividualBattleModifier
     public List<AppliedEffectInfo> inflictingEffects;
     public List<AppliedEffectInfo> appliedEffects;
     public List<TimedEffectInfo> timedEffects; //timed effects are not overwritten on switch
-    public List<GameObject> movesLastUsedAgainstThis;
     public List<GameObject> movesBlockedByImprison;
     public List<BattleTarget> targets;
     public OnFaintEffect onFaintEffect; //destiny bond or grudge
-    public BattleTarget lastAttacker;
     public int[] statStages;
     public float[] statMultipliers;
     public int physicalDamageTakenThisTurn;
@@ -96,7 +94,6 @@ public class IndividualBattleModifier
     public bool recharging;
     public int stockpileCount;
     public SemiInvulnerable semiInvulnerable;
-    public GameObject lastUsedMove;
     public GameObject disabledMove;
     public int consecutiveMoveCounter; //how many times a move has been used consecutively
     public int forcedToUseUntilCounter; //the number of times the move must be used to allow selection of a new action (e.g. 2 or 3 at random for thrash)
@@ -105,6 +102,18 @@ public class IndividualBattleModifier
     public int mimicPP;
     public bool flinched;
     public int toxicCounter; //resets when switching out
+
+    public IndividualBattleModifier(){
+        inflictingEffects = new List<AppliedEffectInfo>();
+        appliedEffects = new List<AppliedEffectInfo>();
+        timedEffects = new List<TimedEffectInfo>();
+        movesBlockedByImprison = new List<GameObject>();
+        targets = new List<BattleTarget>();
+        statStages = new int[8];
+        statMultipliers = new float[5]{1,1,1,1,1};
+    }
+
+    //add overloaded constructor to account for passed effects via baton pass
 
     public void CalculateStatMultipliers(){
         for(int i = 0; i < 5; i++)
@@ -116,19 +125,6 @@ public class IndividualBattleModifier
             }
         }
     }
-
-    public IndividualBattleModifier(){
-        inflictingEffects = new List<AppliedEffectInfo>();
-        appliedEffects = new List<AppliedEffectInfo>();
-        timedEffects = new List<TimedEffectInfo>();
-        movesLastUsedAgainstThis = new List<GameObject>();
-        movesBlockedByImprison = new List<GameObject>();
-        targets = new List<BattleTarget>();
-        statStages = new int[8];
-        statMultipliers = new float[5]{1,1,1,1,1};
-    }
-
-    //add overloaded constructor to account for passed effects via baton pass
 }
 
 public class BattleTarget

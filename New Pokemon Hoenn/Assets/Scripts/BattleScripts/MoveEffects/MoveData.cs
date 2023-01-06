@@ -42,7 +42,7 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
 
     public string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        if(onlyUsableFirstTurn && user.individualBattleModifier.lastUsedMove != null){
+        if(onlyUsableFirstTurn && CombatSystem.MoveRecordList.Find(record => record.user == user.pokemon) != null){
             return FAIL;
         }
         if(worksOnAsleep && target.pokemon.primaryStatus != PrimaryStatus.Asleep){
@@ -95,7 +95,7 @@ public class MoveAccuracyData
         }
         AppliedEffectInfo lockOnEffect = target.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyLockOn);
         if(lockOnEffect != null){
-            target.individualBattleModifier.appliedEffects.Remove(lockOnEffect);
+            lockOnEffect.effect.RemoveEffect(target, lockOnEffect);
             return true;
         } 
         if(cannotMissVulnerable && target.individualBattleModifier.semiInvulnerable == SemiInvulnerable.None){

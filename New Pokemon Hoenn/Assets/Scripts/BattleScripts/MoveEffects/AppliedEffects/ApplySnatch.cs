@@ -1,4 +1,10 @@
-public class ApplySnatch : ApplyIndividualEffect
+using System.Collections;
+
+public class ApplySnatch : ApplyIndividualEffect, IApplyEffect
 {
-    //bruh
+    public IEnumerator DoAppliedEffect(BattleTarget target, AppliedEffectInfo effectInfo)
+    {
+        effectInfo.effect.RemoveEffect(target, effectInfo);
+        yield break;
+    }
 }

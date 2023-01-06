@@ -6,8 +6,15 @@ public class ApplyDisable : ApplyIndividualEffect, ICheckMoveSelectable, IApplyE
 {
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        target.individualBattleModifier.disabledMove = MultiTurnData.GetBaseMove(target.individualBattleModifier.lastUsedMove.GetComponent<MoveData>());
+        target.individualBattleModifier.disabledMove = MultiTurnData.GetBaseMove(CombatSystem.MoveRecordList.FindLast(record => record.user == target.pokemon).moveUsed.GetComponent<MoveData>());
         yield return StartCoroutine(base.DoEffect(user, target, moveData));
+    }
+
+    public override bool CheckMoveEffectFail(BattleTarget user, BattleTarget target, MoveData moveData){
+        if(CombatSystem.MoveRecordList.FindLast(record => record.user == target.pokemon) == null){
+            return true;
+        }
+        return base.CheckMoveEffectFail(user, target, moveData);
     }
     
     public IEnumerator DoAppliedEffect(BattleTarget target, AppliedEffectInfo effectInfo)

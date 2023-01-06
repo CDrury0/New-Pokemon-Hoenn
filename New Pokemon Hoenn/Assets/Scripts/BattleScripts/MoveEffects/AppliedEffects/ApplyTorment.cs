@@ -16,6 +16,6 @@ public class ApplyTorment : ApplyIndividualEffect, ICheckMoveSelectable, IApplyE
 
     public List<GameObject> GetUnusableMoves(BattleTarget target)
     {
-        return new List<GameObject>(){MultiTurnData.GetBaseMove(target.individualBattleModifier.lastUsedMove.GetComponent<MoveData>())};
+        return new List<GameObject>(){MultiTurnData.GetBaseMove(CombatSystem.MoveRecordList.FindLast(record => record.user == target.pokemon)?.moveUsed.GetComponent<MoveData>())};
     }
 }

@@ -286,6 +286,7 @@ public class MoveFunctions : MonoBehaviour
         //held item healing
 
         //leech seed
+        yield return StartCoroutine(DoAppliedEffectOfType<ApplyIngrain>(battleTargets));
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyLeechSeed>(battleTargets));
 
         //primary status
@@ -305,7 +306,15 @@ public class MoveFunctions : MonoBehaviour
 
         //reflect/light screen/safeguard/mist
 
-        //uproar
+        //protect, endure, trap
+        yield return StartCoroutine(DoAppliedEffectOfType<ApplyTrap>(battleTargets));
+        yield return StartCoroutine(DoAppliedEffectOfType<ApplyProtect>(battleTargets));
+        yield return StartCoroutine(DoAppliedEffectOfType<ApplyEndure>(battleTargets));
+        yield return StartCoroutine(DoAppliedEffectOfType<ApplyMagicCoat>(battleTargets));
+        yield return StartCoroutine(DoAppliedEffectOfType<ApplySnatch>(battleTargets));
+        yield return StartCoroutine(DoAppliedEffectOfType<ApplyInfatuate>(battleTargets));
+
+        //multi-turn move resolution
 
         //abilities that boost (speed boost)
     }

@@ -14,10 +14,18 @@ public class ApplyEncore : ApplyIndividualEffect, ICheckMoveSelectable, IApplyEf
         effectInfo.timer--;
     }
 
+    public override bool CheckMoveEffectFail(BattleTarget user, BattleTarget target, MoveData moveData)
+    {
+        if(CombatSystem.MoveRecordList.FindLast(record => record.user == target.pokemon) == null){
+            return true;
+        }
+        return base.CheckMoveEffectFail(user, target, moveData);
+    }
+
     public List<GameObject> GetUnusableMoves(BattleTarget target)
     {
         List<GameObject> unusableMoves = new List<GameObject>(target.pokemon.moves);
-        unusableMoves.Remove(MultiTurnData.GetBaseMove(target.individualBattleModifier.lastUsedMove.GetComponent<MoveData>()));
+        unusableMoves.Remove(MultiTurnData.GetBaseMove(CombatSystem.MoveRecordList.FindLast(record => record.user == target.pokemon).moveUsed.GetComponent<MoveData>()));
         return unusableMoves;
     }
 }

@@ -14,15 +14,15 @@ public class HealEffect : MoveEffect
                 case Weather.None:
                 break;
                 case Weather.Sunlight:
-                healPercent = 0.66f;
+                healPercent = 0.75f;
                 break;
                 default:
-                healPercent = 0.33f;
+                healPercent = 0.25f;
                 break;
             }
         }
         if(swallow){
-            healPercent = 0.33f * user.individualBattleModifier.stockpileCount;
+            healPercent = 0.333f * user.individualBattleModifier.stockpileCount;
         }
         int healAmount = (int)(target.pokemon.stats[0] * healPercent);
         yield return StartCoroutine(target.battleHUD.healthBar.SetHealthBar(target.pokemon, healAmount));

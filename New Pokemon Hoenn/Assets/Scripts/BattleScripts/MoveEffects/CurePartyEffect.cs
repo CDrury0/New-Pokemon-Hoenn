@@ -6,6 +6,13 @@ public class CurePartyEffect : MoveEffect
 {
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        throw new System.NotImplementedException();
+        Pokemon[] userParty = CombatLib.Instance.combatSystem.GetTeamParty(user);
+        for(int i = 0; i < userParty.Length; i++){
+            //check for soundproof on heal bell
+            if(userParty[i].primaryStatus != PrimaryStatus.Fainted){
+                userParty[i].primaryStatus = PrimaryStatus.None;
+            }
+        }
+        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(user.GetName() + "'s party was cured of status conditions!"));
     }
 }

@@ -1,4 +1,10 @@
-public class ApplyMagicCoat : ApplyIndividualEffect
+using System.Collections;
+
+public class ApplyMagicCoat : ApplyIndividualEffect, IApplyEffect
 {
-    //bruh
+    public IEnumerator DoAppliedEffect(BattleTarget target, AppliedEffectInfo effectInfo)
+    {
+        effectInfo.effect.RemoveEffect(target, effectInfo);
+        yield break;
+    }
 }

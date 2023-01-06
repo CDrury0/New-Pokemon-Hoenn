@@ -10,13 +10,25 @@ public enum SemiInvulnerable { None, Airborne, Underground, Underwater }
 public enum TargetType {Self, Single, Foes, Ally, RandomFoe, All}
 public class CombatSystem : MonoBehaviour
 {
+    public class MoveRecord{
+        public Pokemon user;
+        public Pokemon target;
+        public GameObject moveUsed;
+
+        public MoveRecord(Pokemon user, Pokemon target, GameObject moveUsed){
+            this.user = user;
+            this.target = target;
+            this.moveUsed = moveUsed;
+        }
+    }
     public static Weather Weather {get; set;}
     public static int weatherTimer;
     public static int TurnCount {get; private set;}
     public static BattleTarget ActiveTarget {get; private set;}
+    public static List<MoveRecord> MoveRecordList {get; private set;}
     public CombatScreen combatScreen;
     public MoveFunctions moveFunctions;
-    private bool doubleBattle;
+    public bool DoubleBattle {get; private set;}
     private Party playerParty;
     private Party enemyParty;
     private EnemyAI enemyAI;
@@ -24,7 +36,7 @@ public class CombatSystem : MonoBehaviour
     private BattleTarget player2;
     private BattleTarget enemy1;
     private BattleTarget enemy2;
-    private List<BattleTarget> battleTargets;
+    public List<BattleTarget> BattleTargets {get; private set;}
     private List<Pokemon> expParticipants;
     private List<BattleTarget> turnOrder;
     private bool _proceed;
@@ -54,8 +66,9 @@ public class CombatSystem : MonoBehaviour
         TurnCount = 0;
         Weather = ReferenceLib.Instance.activeArea.weather;
         weatherTimer = 0;
+        MoveRecordList = new List<MoveRecord>();
         playerParty = PlayerParty.Instance.playerParty;
-        this.doubleBattle = doubleBattle;
+        this.DoubleBattle = doubleBattle;
         this.enemyParty = enemyParty;
         this.enemyAI = enemyAI;
 
@@ -84,11 +97,11 @@ public class CombatSystem : MonoBehaviour
             enemy2.pokemon = null;
         }
 
-        battleTargets = new List<BattleTarget>(){player1, enemy1, player2, enemy2};
-        battleTargets.RemoveAll(b => b.pokemon == null);
+        BattleTargets = new List<BattleTarget>(){player1, enemy1, player2, enemy2};
+        BattleTargets.RemoveAll(b => b.pokemon == null);
         
         //replace with proper animations
-        combatScreen.SetStartingGraphics(battleTargets);
+        combatScreen.SetStartingGraphics(BattleTargets);
         combatScreen.gameObject.SetActive(true);
 
         //check tag-in effects like intimidate, trace, etc.
@@ -97,15 +110,19 @@ public class CombatSystem : MonoBehaviour
         yield break;
     }
 
+    public Pokemon[] GetTeamParty(BattleTarget whoseTeam){
+        return whoseTeam.teamBattleModifier.isPlayerTeam ? playerParty.party : enemyParty.party;
+    }
+
     private IEnumerator GetTurnActions(){
         combatScreen.battleText.gameObject.SetActive(false);
 
-        foreach(BattleTarget b in battleTargets){
+        foreach(BattleTarget b in BattleTargets){
             ActiveTarget = b;
             if(!b.teamBattleModifier.isPlayerTeam){
                 //get enemyAI selection
                 ActiveTarget.turnAction = ActiveTarget.pokemon.moves[UnityEngine.Random.Range(0, ActiveTarget.pokemon.moves.Count)];
-                if(moveFunctions.MustChooseTarget(ActiveTarget.turnAction.GetComponent<MoveData>().targetType, ActiveTarget, battleTargets, doubleBattle)){
+                if(moveFunctions.MustChooseTarget(ActiveTarget.turnAction.GetComponent<MoveData>().targetType, ActiveTarget, BattleTargets, DoubleBattle)){
                     ActiveTarget.individualBattleModifier.targets = new List<BattleTarget>(){player1};
                 }
             }
@@ -132,7 +149,7 @@ public class CombatSystem : MonoBehaviour
     public void MoveButtonFunction(int whichMove){
         ActiveTarget.turnAction = ActiveTarget.pokemon.moves[whichMove];
         combatScreen.HideMoveButtons();
-        if(moveFunctions.MustChooseTarget(ActiveTarget.pokemon.moves[whichMove].GetComponent<MoveData>().targetType, ActiveTarget, battleTargets, doubleBattle)){
+        if(moveFunctions.MustChooseTarget(ActiveTarget.pokemon.moves[whichMove].GetComponent<MoveData>().targetType, ActiveTarget, BattleTargets, DoubleBattle)){
             EnableTargetButtons();
         }
         else{
@@ -143,7 +160,7 @@ public class CombatSystem : MonoBehaviour
     private void EnableTargetButtons(){
         combatScreen.battleText.WriteMessageInstant("Select a target");
         combatScreen.targetBackButton.SetActive(true);
-        foreach(BattleTarget b in battleTargets){
+        foreach(BattleTarget b in BattleTargets){
             if(b != ActiveTarget){
                 b.monSpriteObject.GetComponent<Button>().interactable = true;
             }
@@ -152,59 +169,68 @@ public class CombatSystem : MonoBehaviour
 
     public void TargetButtonFunction(GameObject spriteClicked){
         combatScreen.HideTargetButtons();
-        ActiveTarget.individualBattleModifier.targets = new List<BattleTarget>(){battleTargets.First(b => b.monSpriteObject == spriteClicked)};
+        ActiveTarget.individualBattleModifier.targets = new List<BattleTarget>(){BattleTargets.First(b => b.monSpriteObject == spriteClicked)};
         Proceed = true;
     }
 
     public class WrappedBool{ public bool failed;}
 
+    public IEnumerator UseMove(BattleTarget user, GameObject move, bool skipMoveFailureCheck){
+        if(!skipMoveFailureCheck){
+            WrappedBool moveFailed = new WrappedBool();
+            yield return StartCoroutine(moveFunctions.CheckMoveFailedToBeUsed(moveFailed, user));
+            //check for any valid target
+            if(moveFailed.failed){
+                yield break;
+            }
+        }
+
+        MoveData moveData = move.GetComponent<MoveData>();
+        user.pokemon.movePP[user.pokemon.moves.IndexOf(user.turnAction)]--; //replace with deductPP method
+        yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " used " + moveData.moveName));
+    
+        int targetCount = user.individualBattleModifier.targets.Count;  //must save value of target count or calling moves may activate multiple times during double battles
+        for(int j = 0; j < targetCount; j++){
+            MoveRecordList.Add(new MoveRecord(user.pokemon, user.individualBattleModifier.targets[j].pokemon, move));
+
+            WrappedBool moveFailed = new WrappedBool();
+            yield return StartCoroutine(moveFunctions.CheckMoveFailedAgainstTarget(moveFailed, move, user, user.individualBattleModifier.targets[j]));
+            if(moveFailed.failed){
+                continue;
+            }
+
+            //play move animation only the first time it is successfully used on a target
+            foreach(MoveEffect effect in move.GetComponents<MoveEffect>()){
+                BattleTarget target = effect.applyToSelf ? user : user.individualBattleModifier.targets[j];
+                if(effect is ICheckMoveEffectFail){
+                    ICheckMoveEffectFail effectThatMayFail = (ICheckMoveEffectFail)effect;
+                    if(effectThatMayFail.CheckMoveEffectFail(user, target, moveData)){
+                        continue;
+                    }
+                }
+                yield return StartCoroutine(effect.DoEffect(user, target, moveData));
+            }
+        }
+    }
+
     private IEnumerator BattleTurn(){
         //increment turn count, reset damage taken this turn, destroy instantiated turnAction gameobjects, other cleanup things
         
-        List<BattleTarget> orderedTargets = moveFunctions.GetTurnOrder(battleTargets);
+        List<BattleTarget> orderedUsers = moveFunctions.GetTurnOrder(BattleTargets);
 
-        for(int i = 0; i < orderedTargets.Count; i++){
-            BattleTarget user = orderedTargets[i];
+        for(int i = 0; i < orderedUsers.Count; i++){
+            BattleTarget user = orderedUsers[i];
             GameObject action = Instantiate(user.turnAction);
 
             if(action.CompareTag("Move")){
-                WrappedBool moveFailed = new WrappedBool();
-                yield return StartCoroutine(moveFunctions.CheckMoveFailedToBeUsed(moveFailed, user));
-                //check for any valid target
-                if(moveFailed.failed){
-                    continue;
-                }
-
-                MoveData moveData = action.GetComponent<MoveData>();
-                user.pokemon.movePP[user.pokemon.moves.IndexOf(user.turnAction)]--; //replace with deductPP method
-                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " used " + moveData.moveName));
-            
-                for(int j = 0; j < user.individualBattleModifier.targets.Count; j++){
-                    moveFailed = new WrappedBool();
-                    yield return StartCoroutine(moveFunctions.CheckMoveFailedAgainstTarget(moveFailed, action, user, user.individualBattleModifier.targets[j]));
-                    if(moveFailed.failed){
-                        continue;
-                    }
-
-                    //play move animation only the first time it is successfully used on a target
-                    foreach(MoveEffect effect in action.GetComponents<MoveEffect>()){
-                        BattleTarget target = effect.applyToSelf ? user : user.individualBattleModifier.targets[j];
-                        if(effect is ICheckMoveEffectFail){
-                            ICheckMoveEffectFail effectThatMayFail = (ICheckMoveEffectFail)effect;
-                            if(effectThatMayFail.CheckMoveEffectFail(user, target, moveData)){
-                                continue;
-                            }
-                        }
-                        yield return StartCoroutine(effect.DoEffect(user, target, moveData));
-                    }
-                }
-
+                yield return StartCoroutine(UseMove(user, action, false));
+                
                 //effects after move usage?
             }
             //else if switch, item, etc.
         }
 
-        yield return StartCoroutine(moveFunctions.EndOfTurnEffects(orderedTargets));
+        yield return StartCoroutine(moveFunctions.EndOfTurnEffects(orderedUsers));
         //end of turn effects
         //check for fainting, etc.
 
@@ -214,6 +240,10 @@ public class CombatSystem : MonoBehaviour
     private void EndBattle(){
         foreach(Pokemon p in playerParty.party){
             p.inBattle = false;
+        }
+
+        foreach(GameObject oldTurnAction in GameObject.FindGameObjectsWithTag("Move")){
+            Destroy(oldTurnAction);
         }
     }
 }
