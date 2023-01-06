@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Attract
   moveDescription: The target falls under a spell of love, sometimes losing the ability
-    to move. Only works on the opposite gender.
+    to attack the user. Only works on the opposite gender.
   moveType: 1
   typeFromWeather: 0
   displayPower: 0

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: -8506485383305350488}
+  - component: {fileID: 8764058099964965179}
   m_Layer: 0
   m_Name: Air Cutter
   m_TagString: Move
@@ -45,14 +46,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveName: Air Cutter
-  moveDescription: Pulses of air slice the target from afar. Has a high critical
-    hit chance.
+  moveDescription: Pulses of air slice foes from afar. Has a high critical hit chance.
   moveType: 10
   typeFromWeather: 0
-  displayPower: 0
-  category: 0
-  targetType: 0
-  maxPP: 0
+  displayPower: 60
+  category: 1
+  targetType: 2
+  maxPP: 25
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -78,3 +78,34 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+--- !u!114 &8764058099964965179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4718a26df09fa1479726839ba709dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  makesContact: 0
+  hitsMaxTimes: 0
+  recoilDamage: 0
+  absorbHealth: 0
+  spitUp: 0
+  facade: 0
+  revenge: 0
+  furyCutter: 0
+  highCritRate: 1
+  bonusFromCurl: 0
+  bonusLikeRollout: 0
+  cannotKO: 0
+  bonusAgainstMinimize: 0
+  bonusAgainstSemiInvulnerable: 0
+  bonusAgainstStatus: 0
+  curesBonusStatus: 0
+  payback: 0
