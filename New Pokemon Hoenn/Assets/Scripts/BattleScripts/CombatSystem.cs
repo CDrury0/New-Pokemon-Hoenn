@@ -175,8 +175,8 @@ public class CombatSystem : MonoBehaviour
 
     public class WrappedBool{ public bool failed;}
 
-    public IEnumerator UseMove(BattleTarget user, GameObject move, bool skipMoveFailureCheck){
-        if(!skipMoveFailureCheck){
+    public IEnumerator UseMove(BattleTarget user, GameObject move, bool calledFromOtherMove, bool doDeductPP){
+        if(!calledFromOtherMove){
             WrappedBool moveFailed = new WrappedBool();
             yield return StartCoroutine(moveFunctions.CheckMoveFailedToBeUsed(moveFailed, user));
             //check for any valid target
@@ -186,7 +186,9 @@ public class CombatSystem : MonoBehaviour
         }
 
         MoveData moveData = move.GetComponent<MoveData>();
-        user.pokemon.movePP[user.pokemon.moves.IndexOf(user.turnAction)]--; //replace with deductPP method
+        if(doDeductPP){
+            moveFunctions.DeductPP(user);
+        }
         yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " used " + moveData.moveName));
     
         int targetCount = user.individualBattleModifier.targets.Count;  //must save value of target count or calling moves may activate multiple times during double battles
@@ -223,7 +225,7 @@ public class CombatSystem : MonoBehaviour
             GameObject action = Instantiate(user.turnAction);
 
             if(action.CompareTag("Move")){
-                yield return StartCoroutine(UseMove(user, action, false));
+                yield return StartCoroutine(UseMove(user, action, false, true));
                 
                 //effects after move usage?
             }

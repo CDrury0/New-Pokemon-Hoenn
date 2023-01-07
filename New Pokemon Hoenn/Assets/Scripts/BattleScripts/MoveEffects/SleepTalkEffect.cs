@@ -2,10 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SleepTalkEffect : CallMoveEffect
+public class SleepTalkEffect : CallMoveEffect, ICheckMoveFail
 {
+    public string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
+    {
+        List<GameObject> usableMoves = GetUsableMoves(user);
+        if(usableMoves.Count > 0){
+            return null;
+        }
+        return MoveData.FAIL;
+    }
+
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        throw new System.NotImplementedException();
+        List<GameObject> usableMoves = GetUsableMoves(user);
+        GameObject selectedMove = Instantiate(usableMoves[Random.Range(0, usableMoves.Count)]);
+        if(CombatLib.Instance.moveFunctions.MustChooseTarget(selectedMove.GetComponent<MoveData>().targetType, user, CombatLib.Instance.combatSystem.BattleTargets, CombatLib.Instance.combatSystem.DoubleBattle)){
+            CombatLib.Instance.moveFunctions.MustChooseTarget(TargetType.RandomFoe, user, CombatLib.Instance.combatSystem.BattleTargets, CombatLib.Instance.combatSystem.DoubleBattle);
+        }
+        yield return StartCoroutine(CombatLib.Instance.combatSystem.UseMove(user, selectedMove, true, true));
+    }
+
+    private List<GameObject> GetUsableMoves(BattleTarget user){
+        List<GameObject> usableMoves = new List<GameObject>(user.pokemon.moves);
+        usableMoves.Remove(usableMoves.Find(move => move.GetComponent<MoveData>().moveName == gameObject.GetComponent<MoveData>().moveName));
+        usableMoves.RemoveAll(move => prohibitedMoves.Contains(move));
+        usableMoves.RemoveAll(move => user.pokemon.movePP[usableMoves.IndexOf(move)] == 0);
+        return usableMoves;
     }
 }

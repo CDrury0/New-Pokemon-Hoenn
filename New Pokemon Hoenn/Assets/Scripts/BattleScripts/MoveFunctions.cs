@@ -173,8 +173,10 @@ public class MoveFunctions : MonoBehaviour
         else if(user.pokemon.primaryStatus == PrimaryStatus.Asleep){
             if(user.pokemon.sleepCounter > 0){
                 user.pokemon.sleepCounter--;
-                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " is fast asleep"));
-                yield break;
+                if(!user.turnAction.GetComponent<MoveData>().worksWhileAsleep){
+                    yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " is fast asleep"));
+                    yield break;
+                }
             }
             else{
                 yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " woke up!"));
@@ -266,6 +268,11 @@ public class MoveFunctions : MonoBehaviour
         }
 
         moveFailed.failed = false;
+    }
+
+    public void DeductPP(BattleTarget user){
+        //account for pressure
+        user.pokemon.movePP[user.pokemon.moves.IndexOf(user.turnAction)]--;
     }
 
     //TEST END OF TURN EFFECTS
