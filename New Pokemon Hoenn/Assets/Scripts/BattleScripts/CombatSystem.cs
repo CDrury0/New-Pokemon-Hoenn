@@ -121,6 +121,8 @@ public class CombatSystem : MonoBehaviour
             ActiveTarget = b;
             if(!b.teamBattleModifier.isPlayerTeam){
                 //get enemyAI selection
+                List<GameObject> possibleMoves = new List<GameObject>(ActiveTarget.pokemon.moves);
+                possibleMoves.RemoveAll(move => move == null);
                 ActiveTarget.turnAction = ActiveTarget.pokemon.moves[UnityEngine.Random.Range(0, ActiveTarget.pokemon.moves.Count)];
                 if(moveFunctions.MustChooseTarget(ActiveTarget.turnAction.GetComponent<MoveData>().targetType, ActiveTarget, BattleTargets, DoubleBattle)){
                     ActiveTarget.individualBattleModifier.targets = new List<BattleTarget>(){player1};
@@ -193,7 +195,7 @@ public class CombatSystem : MonoBehaviour
     
         int targetCount = user.individualBattleModifier.targets.Count;  //must save value of target count or calling moves may activate multiple times during double battles
         for(int j = 0; j < targetCount; j++){
-            MoveRecordList.Add(new MoveRecord(user.pokemon, user.individualBattleModifier.targets[j].pokemon, move));
+            MoveRecordList.Add(new MoveRecord(user.pokemon, user.individualBattleModifier.targets[j].pokemon, user.turnAction));
 
             WrappedBool moveFailed = new WrappedBool();
             yield return StartCoroutine(moveFunctions.CheckMoveFailedAgainstTarget(moveFailed, move, user, user.individualBattleModifier.targets[j]));
@@ -244,7 +246,8 @@ public class CombatSystem : MonoBehaviour
             p.inBattle = false;
         }
 
-        foreach(GameObject oldTurnAction in GameObject.FindGameObjectsWithTag("Move")){
+        GameObject[] instantiatedMoves = GameObject.FindGameObjectsWithTag("Move");
+        foreach(GameObject oldTurnAction in instantiatedMoves){
             Destroy(oldTurnAction);
         }
     }
