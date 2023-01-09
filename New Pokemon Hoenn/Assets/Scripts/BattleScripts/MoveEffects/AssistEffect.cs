@@ -29,8 +29,7 @@ public class AssistEffect : CallMoveEffect, ICheckMoveFail
                 usableMoves.AddRange(allies[i].moves);
             }
         }
-        usableMoves.RemoveAll(move => move.GetComponent<MoveData>().moveName == gameObject.GetComponent<MoveData>().moveName);
-        usableMoves.RemoveAll(move => prohibitedMoves.Contains(move));
+        RemoveIllegalMoves(usableMoves);
         return usableMoves;
     }
 }

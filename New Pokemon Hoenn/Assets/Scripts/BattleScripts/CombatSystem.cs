@@ -193,27 +193,26 @@ public class CombatSystem : MonoBehaviour
         }
         yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " used " + moveData.moveName));
     
-        int targetCount = user.individualBattleModifier.targets.Count;  //must save value of target count or calling moves may activate multiple times during double battles
+        int targetCount = user.individualBattleModifier.targets.Count;  //must save value of target count or calling moves like mirror move may activate multiple times during double battles
         for(int j = 0; j < targetCount; j++){
-            MoveRecordList.Add(new MoveRecord(user.pokemon, user.individualBattleModifier.targets[j].pokemon, user.turnAction));
-
             WrappedBool moveFailed = new WrappedBool();
             yield return StartCoroutine(moveFunctions.CheckMoveFailedAgainstTarget(moveFailed, move, user, user.individualBattleModifier.targets[j]));
-            if(moveFailed.failed){
-                continue;
-            }
 
             //play move animation only the first time it is successfully used on a target
-            foreach(MoveEffect effect in move.GetComponents<MoveEffect>()){
-                BattleTarget target = effect.applyToSelf ? user : user.individualBattleModifier.targets[j];
-                if(effect is ICheckMoveEffectFail){
-                    ICheckMoveEffectFail effectThatMayFail = (ICheckMoveEffectFail)effect;
-                    if(effectThatMayFail.CheckMoveEffectFail(user, target, moveData)){
-                        continue;
+            if(!moveFailed.failed){
+                foreach(MoveEffect effect in move.GetComponents<MoveEffect>()){
+                    BattleTarget target = effect.applyToSelf ? user : user.individualBattleModifier.targets[j];
+                    if(effect is ICheckMoveEffectFail){
+                        ICheckMoveEffectFail effectThatMayFail = (ICheckMoveEffectFail)effect;
+                        if(effectThatMayFail.CheckMoveEffectFail(user, target, moveData)){
+                            continue;
+                        }
                     }
+                    yield return StartCoroutine(effect.DoEffect(user, target, moveData));
                 }
-                yield return StartCoroutine(effect.DoEffect(user, target, moveData));
             }
+
+            MoveRecordList.Add(new MoveRecord(user.pokemon, user.individualBattleModifier.targets[j].pokemon, user.turnAction));
         }
     }
 
@@ -227,6 +226,11 @@ public class CombatSystem : MonoBehaviour
             GameObject action = Instantiate(user.turnAction);
 
             if(action.CompareTag("Move")){
+                //curse needs a special exception
+                if(action.GetComponent<ApplyCurse>() != null && user.pokemon.IsThisType(StatLib.Type.Ghost)){
+                    moveFunctions.MustChooseTarget(TargetType.RandomFoe, user, BattleTargets, DoubleBattle);
+                }
+
                 yield return StartCoroutine(UseMove(user, action, false, true));
                 
                 //effects after move usage?
@@ -250,5 +254,7 @@ public class CombatSystem : MonoBehaviour
         foreach(GameObject oldTurnAction in instantiatedMoves){
             Destroy(oldTurnAction);
         }
+
+        MoveRecordList = new List<MoveRecord>();
     }
 }

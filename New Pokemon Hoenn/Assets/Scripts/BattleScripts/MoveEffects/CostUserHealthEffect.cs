@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CostUserHealthEffect : MoveEffect, ICheckMoveFail
+public class CostUserHealthEffect : MoveEffect, ICheckMoveFail, ICheckMoveEffectFail
 {
+    public bool curse;
     public bool canKillSelf;
     public float percentHealthCost;
+
+    public bool CheckMoveEffectFail(BattleTarget user, BattleTarget target, MoveData moveData)
+    {
+        return curse && !user.pokemon.IsThisType(StatLib.Type.Ghost);
+    }
 
     public string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
     {

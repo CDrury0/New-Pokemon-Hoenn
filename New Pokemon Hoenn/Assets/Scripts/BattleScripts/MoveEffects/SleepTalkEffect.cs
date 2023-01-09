@@ -25,9 +25,8 @@ public class SleepTalkEffect : CallMoveEffect, ICheckMoveFail
 
     private List<GameObject> GetUsableMoves(BattleTarget user){
         List<GameObject> usableMoves = new List<GameObject>(user.pokemon.moves);
-        usableMoves.Remove(usableMoves.Find(move => move.GetComponent<MoveData>().moveName == gameObject.GetComponent<MoveData>().moveName));
-        usableMoves.RemoveAll(move => prohibitedMoves.Contains(move));
-        usableMoves.RemoveAll(move => user.pokemon.movePP[usableMoves.IndexOf(move)] == 0);
+        RemoveIllegalMoves(usableMoves);
+        usableMoves.RemoveAll(move => user.pokemon.movePP[usableMoves.IndexOf(move)] == 0); //sleep talk considers PP
         return usableMoves;
     }
 }

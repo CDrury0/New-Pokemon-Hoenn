@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class StatChangeEffect : MoveEffect, ICheckMoveEffectFail
 {
+    public bool curse;
     public float chance;
     public int[] statChanges = new int[8];
 
     public bool CheckMoveEffectFail(BattleTarget user, BattleTarget target, MoveData moveData)
     {
+        if(curse && user.pokemon.IsThisType(StatLib.Type.Ghost)){
+            return true;
+        }
         if(ImmuneToStatChanges(target) && user != target){
             return true;
         }

@@ -4,9 +4,27 @@ using UnityEngine;
 
 public class ResetStatEffect : MoveEffect
 {
+    public bool haze;
     public bool[] statsReset = new bool[8];
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        throw new System.NotImplementedException();
+        if(haze){
+            for(int i = 0; i < CombatLib.Instance.combatSystem.BattleTargets.Count; i++){
+                ResetStats(CombatLib.Instance.combatSystem.BattleTargets[i]);
+            }
+            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage("All stat stages were reset!"));
+        }
+        else{
+            ResetStats(target);
+        }
+    }
+
+    private void ResetStats(BattleTarget target){
+        for(int i = 0; i < statsReset.Length; i++){
+            if(statsReset[i]){
+                target.individualBattleModifier.statStages[i] = 0;
+            }
+        }
+        target.individualBattleModifier.CalculateStatMultipliers();
     }
 }

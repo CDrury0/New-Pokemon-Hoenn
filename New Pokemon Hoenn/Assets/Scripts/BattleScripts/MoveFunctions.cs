@@ -285,6 +285,9 @@ public class MoveFunctions : MonoBehaviour
         //bind effects
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyBind>(battleTargets));
 
+        //curse
+        yield return StartCoroutine(DoAppliedEffectOfType<ApplyCurse>(battleTargets));
+
         //timed effects
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyTimedEffect>(battleTargets));
 
