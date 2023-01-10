@@ -92,4 +92,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyToSelf: 0
   message: 
-  prohibitedMoves: []
+  prohibitedMoves:
+  - {fileID: 1682630347, guid: 798cf59dd56f94e4a8709a83f664e31e, type: 3}
+  - {fileID: 1682630347, guid: e49ebea53ef374a498526f654ece44b0, type: 3}
+  - {fileID: 5322628292312570297, guid: ab3c02b77ffeb5e429ce1a4a933d1944, type: 3}
+  - {fileID: 1682630347, guid: f5fb4e4993dce3f4bbef37daee5f35fa, type: 3}
+  - {fileID: 1682630347, guid: 42ae7a0a27c4bec49b1b8e547e2ec66f, type: 3}
+  - {fileID: 1682630347, guid: c19f6379901e77149af61b18a2fc7f3f, type: 3}
+  - {fileID: 1682630347, guid: 25a7ae0659e33594f9b1cab6d90f7082, type: 3}
+  - {fileID: 5642945152840528678, guid: 038ef067a029ebe41857b3a26b28a050, type: 3}
+  - {fileID: 1682630347, guid: 94fc64cde1336d848a3f00c48b720e1f, type: 3}
+  - {fileID: 1682630347, guid: 3bb2dda68d885464aa21813c2da60b84, type: 3}
+  - {fileID: 1682630347, guid: 94e4163b6e665a04089f81c06a06067c, type: 3}
+  - {fileID: 1682630347, guid: 2b4d696d31d24a444870040118fe55b6, type: 3}
+  - {fileID: 6968786551850499149, guid: f88dee2551f332c4480165fe529f717d, type: 3}
+  - {fileID: 1682630347, guid: aa2250b11e7afea40abe57da45ce284a, type: 3}
+  - {fileID: 5577835600589612960, guid: 47de0ce56b3cf6f478e9c0b39ecb12f6, type: 3}
+  - {fileID: 5577835600589612960, guid: cf6f520f7d6afcb47875601bb31db6e3, type: 3}
+  - {fileID: 1682630347, guid: a243612a42e05ab4990c9effdb0de9e8, type: 3}

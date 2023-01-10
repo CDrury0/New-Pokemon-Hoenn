@@ -9,7 +9,7 @@ public class DirectDamage : EffectDamage
     {
         int damage = moveData.displayPower;
         if(bideRelease){
-            damage = user.individualBattleModifier.bideDamage;
+            damage = user.individualBattleModifier.bideDamage * 2;
             user.individualBattleModifier.bideDamage = 0;
         }
         yield return StartCoroutine(ApplyDamage(moveData, user, target, damage));

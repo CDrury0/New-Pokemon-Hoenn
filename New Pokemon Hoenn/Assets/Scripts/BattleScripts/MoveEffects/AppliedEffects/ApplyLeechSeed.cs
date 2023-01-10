@@ -8,12 +8,10 @@ public class ApplyLeechSeed : ApplyIndividualEffect, IApplyEffect
     {
         if(effectInfo.inflictor.pokemon.primaryStatus != PrimaryStatus.Fainted){
             int leechSeedHealth = (int)(target.pokemon.stats[0] * 0.1f);
-            yield return StartCoroutine(target.battleHUD.healthBar.SetHealthBar(target.pokemon, -leechSeedHealth));
-            target.pokemon.CurrentHealth -= leechSeedHealth;
+            yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(target, -leechSeedHealth));
 
             //check for liquid ooze
-            yield return StartCoroutine(effectInfo.inflictor.battleHUD.healthBar.SetHealthBar(effectInfo.inflictor.pokemon, leechSeedHealth));
-            effectInfo.inflictor.pokemon.CurrentHealth += leechSeedHealth;
+            yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(effectInfo.inflictor, leechSeedHealth));
 
             yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + "'s health is sapped by leech seed!"));
         }

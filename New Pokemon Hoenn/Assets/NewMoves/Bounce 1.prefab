@@ -49,10 +49,10 @@ MonoBehaviour:
     the target the next. Has a good chance to paralyze the target.
   moveType: 10
   typeFromWeather: 0
-  displayPower: 0
+  displayPower: 85
   category: 0
-  targetType: 0
-  maxPP: 0
+  targetType: 1
+  maxPP: 5
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -63,9 +63,9 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   multiTurnData:
-    specialText: 
+    specialText: '&userName bounced up high!'
     skipChargingTurn: 0
-    useNext: {fileID: 0}
+    useNext: {fileID: 1682630347, guid: c115c74550fb4e348b4640cf0ee78479, type: 3}
     baseMove: {fileID: 0}
     givesSemiInvulnerable: 0
     forcedToUseMax: 0

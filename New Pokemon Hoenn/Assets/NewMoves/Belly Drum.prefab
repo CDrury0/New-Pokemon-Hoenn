@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: 4919544792392028208}
+  - component: {fileID: 3120046970569259023}
+  - component: {fileID: 6489999458694924025}
   m_Layer: 0
   m_Name: Belly Drum
   m_TagString: Move
@@ -77,3 +79,37 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+--- !u!114 &3120046970569259023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7641cedeacf73684c87fc0c04f13d80f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  curse: 0
+  canKillSelf: 0
+  percentHealthCost: 0.5
+--- !u!114 &6489999458694924025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09722111948b9ba47831130df6172d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  curse: 0
+  chance: 1
+  statChanges: 0d00000000000000000000000000000000000000000000000000000000000000

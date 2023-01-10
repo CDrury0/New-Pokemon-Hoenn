@@ -14,8 +14,13 @@ public class ApplyBind : ApplyIndividualEffect, IApplyEffect
         }
         effectInfo.timer--;
         int bindDamage = (int)(0.0625f * target.pokemon.stats[0]);
-        yield return StartCoroutine(target.battleHUD.healthBar.SetHealthBar(target.pokemon, -bindDamage));
-        target.pokemon.CurrentHealth -= bindDamage;
+        yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(target, -bindDamage));
         yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " is hurt by " + moveName + "!"));
+    }
+
+    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    {
+        message = "&targetName is trapped by &userName's &moveName!";
+        yield return StartCoroutine(base.DoEffect(user, target, moveData));
     }
 }

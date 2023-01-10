@@ -7,21 +7,20 @@ public abstract class EffectDamage : MoveEffect, ICheckMoveFail
 {
     public bool makesContact;
 
+    //account for sturdy, endure here
     protected IEnumerator ApplyDamage(MoveData moveData, BattleTarget user, BattleTarget target, int damage){
-        yield return StartCoroutine(target.battleHUD.healthBar.SetHealthBar(target.pokemon, -damage));
-        target.pokemon.CurrentHealth -= damage;
+        yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(target, -damage));
         if(moveData.category == MoveData.Category.Physical){
             target.individualBattleModifier.physicalDamageTakenThisTurn += damage;
         }
         else{
             target.individualBattleModifier.specialDamageTakenThisTurn += damage;
         }
-        yield return StartCoroutine(DoHitEffects());
+        yield return StartCoroutine(DoHitEffects(user, target, moveData));
     }
 
     //rough skin, effect spore, etc.
-    private IEnumerator DoHitEffects(){
-        Debug.Log("hit effects");
+    private IEnumerator DoHitEffects(BattleTarget user, BattleTarget target, MoveData moveData){
         yield break;
     }
 

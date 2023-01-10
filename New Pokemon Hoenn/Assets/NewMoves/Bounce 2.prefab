@@ -49,10 +49,10 @@ MonoBehaviour:
     the target the next. Has a good chance to paralyze the target.
   moveType: 10
   typeFromWeather: 0
-  displayPower: 0
+  displayPower: 85
   category: 0
-  targetType: 0
-  maxPP: 0
+  targetType: 1
+  maxPP: 5
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
     specialText: 
     skipChargingTurn: 0
     useNext: {fileID: 0}
-    baseMove: {fileID: 0}
+    baseMove: {fileID: 1682630347, guid: 798cf59dd56f94e4a8709a83f664e31e, type: 3}
     givesSemiInvulnerable: 0
     forcedToUseMax: 0
     alwaysUseMaxTurns: 0

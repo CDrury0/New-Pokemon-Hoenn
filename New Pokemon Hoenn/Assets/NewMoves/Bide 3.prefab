@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: -1470534337925205138}
+  - component: {fileID: -7155787009061919272}
   m_Layer: 0
   m_Name: Bide 3
   m_TagString: Move
@@ -52,7 +53,7 @@ MonoBehaviour:
   displayPower: 0
   category: 0
   targetType: 0
-  maxPP: 0
+  maxPP: 10
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -66,7 +67,7 @@ MonoBehaviour:
     specialText: 
     skipChargingTurn: 0
     useNext: {fileID: 0}
-    baseMove: {fileID: 0}
+    baseMove: {fileID: 1682630347, guid: bc2e956fccac2c44681ebe4722aa2919, type: 3}
     givesSemiInvulnerable: 0
     forcedToUseMax: 0
     alwaysUseMaxTurns: 0
@@ -78,3 +79,19 @@ MonoBehaviour:
     cannotMissVulnerable: 1
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+--- !u!114 &-7155787009061919272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e2658981370d0440a1834716077e55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  makesContact: 1
+  bideRelease: 1

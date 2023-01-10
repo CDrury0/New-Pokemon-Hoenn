@@ -52,7 +52,7 @@ MonoBehaviour:
   displayPower: 0
   category: 0
   targetType: 0
-  maxPP: 0
+  maxPP: 10
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -65,12 +65,12 @@ MonoBehaviour:
   multiTurnData:
     specialText: 
     skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
+    useNext: {fileID: 1682630347, guid: 5348cd7f1212f7149a0583be2854be33, type: 3}
+    baseMove: {fileID: 1682630347, guid: bc2e956fccac2c44681ebe4722aa2919, type: 3}
     givesSemiInvulnerable: 0
     forcedToUseMax: 0
     alwaysUseMaxTurns: 0
-    bideCharge: 0
+    bideCharge: 1
     confuseOnEnd: 0
     mustRechargeAfter: 0
   accuracyData:

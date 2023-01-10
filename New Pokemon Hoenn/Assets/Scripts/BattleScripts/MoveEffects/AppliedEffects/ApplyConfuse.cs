@@ -11,4 +11,10 @@ public class ApplyConfuse : ApplyIndividualEffect
         }
         return false;
     }
+
+    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
+    {
+        message = "&targetName was confused!";
+        yield return StartCoroutine(base.DoEffect(user, target, moveData));
+    }
 }

@@ -270,6 +270,11 @@ public class MoveFunctions : MonoBehaviour
         moveFailed.failed = false;
     }
 
+    public IEnumerator ChangeTargetHealth(BattleTarget target, int change){
+        yield return StartCoroutine(target.battleHUD.healthBar.SetHealthBar(target.pokemon, change));
+        target.pokemon.CurrentHealth += change;
+    }
+
     public void DeductPP(BattleTarget user){
         //account for pressure
         user.pokemon.movePP[user.pokemon.moves.IndexOf(user.turnAction)]--;

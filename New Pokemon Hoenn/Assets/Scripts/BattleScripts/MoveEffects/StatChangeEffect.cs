@@ -5,6 +5,7 @@ using UnityEngine;
 public class StatChangeEffect : MoveEffect, ICheckMoveEffectFail
 {
     public bool curse;
+    public bool stockpileRemoval;
     public float chance;
     public int[] statChanges = new int[8];
 
@@ -21,6 +22,11 @@ public class StatChangeEffect : MoveEffect, ICheckMoveEffectFail
 
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
+        if(stockpileRemoval){
+            for(int i = 0; i < statChanges.Length; i++){
+                statChanges[i] *= user.individualBattleModifier.stockpileCount;
+            }
+        }
         if(Random.Range(0f, 1f) <= chance && !ImmuneToStatChanges(target)){
             for(int i = 0; i < target.individualBattleModifier.statStages.Length; i++){
                 if(StatChangeOutOfBounds(i, target)){

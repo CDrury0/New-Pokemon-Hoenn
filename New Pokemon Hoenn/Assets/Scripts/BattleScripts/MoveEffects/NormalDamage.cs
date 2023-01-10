@@ -69,6 +69,9 @@ public class NormalDamage : EffectDamage
         while(timesHit < timesToHit){
             timesHit++;
             yield return StartCoroutine(NormalDamageMethod(user, target, moveData, power));
+            if(target.pokemon.CurrentHealth == 0){
+                break;
+            }
         }
         if(hitsMaxTimes != 0){
             yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage("Hit " + timesHit + " time(s)!"));
@@ -164,6 +167,11 @@ public class NormalDamage : EffectDamage
         modifier *= user.pokemon.IsThisType(localType) ? 1.5f : 1f;
 
         modifier *= GetWeatherDamageModifier(localType, CombatSystem.Weather);
+
+        if(user.individualBattleModifier.chargedType != StatLib.Type.None && user.individualBattleModifier.chargedType == moveData.GetEffectiveMoveType()){
+            modifier *= 1.5f;
+            user.individualBattleModifier.chargedType = StatLib.Type.None;
+        }
 
         if(user.individualBattleModifier.targets.Count > 1){
             modifier *= 0.75f;

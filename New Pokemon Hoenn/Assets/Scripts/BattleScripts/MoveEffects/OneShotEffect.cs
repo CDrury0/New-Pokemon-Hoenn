@@ -6,7 +6,26 @@ public class OneShotEffect : EffectDamage
 {
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        throw new System.NotImplementedException();
-        //make an apply damage method and remove shitty line-by-line that is used elsewhere
+        yield return StartCoroutine(ApplyDamage(moveData, user, target, target.pokemon.stats[0]));
+        //don't say this if enemy survived due to sturdy or endure?
+        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage("It's a one-hit KO!"));
+    }
+
+    public override string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
+    {
+        if(target.pokemon.IsThisType(StatLib.Type.Ice)){
+            return MoveData.FAIL;
+        }
+        if(!OneShotHits(user, target)){
+            return MoveData.FAIL;
+        }
+        return base.CheckMoveFail(user, target, moveData);
+    }
+
+    private bool OneShotHits(BattleTarget user, BattleTarget target){
+        if(user.pokemon.level < target.pokemon.level){
+            return false;
+        }
+        return Random.Range(0f, 1f) <= (float)(user.pokemon.level - target.pokemon.level + 30) / 100f;
     }
 }
