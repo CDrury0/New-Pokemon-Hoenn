@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: 94969274804487284}
+  - component: {fileID: -2678470846656354043}
   m_Layer: 0
   m_Name: Focus Punch
   m_TagString: Move
@@ -49,14 +50,14 @@ MonoBehaviour:
     moves, but will fail if the user takes damage.
   moveType: 7
   typeFromWeather: 0
-  displayPower: 0
+  displayPower: 150
   category: 0
-  targetType: 0
-  maxPP: 0
-  priority: 0
+  targetType: 1
+  maxPP: 20
+  priority: -3
   pursuit: 0
   soundBased: 0
-  focusPunch: 0
+  focusPunch: 1
   onlyUsableFirstTurn: 0
   worksOnAsleep: 0
   worksWhileAsleep: 0
@@ -78,3 +79,34 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+--- !u!114 &-2678470846656354043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4718a26df09fa1479726839ba709dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  makesContact: 1
+  hitsMaxTimes: 0
+  recoilDamage: 0
+  absorbHealth: 0
+  spitUp: 0
+  facade: 0
+  revenge: 0
+  furyCutter: 0
+  highCritRate: 0
+  bonusFromCurl: 0
+  bonusLikeRollout: 0
+  cannotKO: 0
+  bonusAgainstMinimize: 0
+  bonusAgainstSemiInvulnerable: 0
+  bonusAgainstStatus: 0
+  curesBonusStatus: 0
+  payback: 0

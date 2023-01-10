@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: 558506213833072248}
+  - component: {fileID: -1046921543262648921}
   m_Layer: 0
   m_Name: Encore
   m_TagString: Move
@@ -45,14 +46,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveName: Encore
-  moveDescription: For the next 3 to 6 turns, the target can only select the move
+  moveDescription: For the next 2 to 4 turns, the target can only select the move
     it used last.
   moveType: 1
   typeFromWeather: 0
-  displayPower: 0
+  displayPower: 40
   category: 2
-  targetType: 0
-  maxPP: 0
+  targetType: 1
+  maxPP: 25
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -78,3 +79,20 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+--- !u!114 &-1046921543262648921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b8df4144ff3d84e9676382894e2bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  chance: 1
+  timerMin: 2
+  timerMax: 4

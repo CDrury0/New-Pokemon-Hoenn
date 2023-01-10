@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: 17826219540356128}
+  - component: {fileID: -486421351400011824}
   m_Layer: 0
   m_Name: Endeavor
   m_TagString: Move
@@ -45,13 +46,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveName: Endeavor
-  moveDescription: Brings the target's HP down to match the user's
+  moveDescription: Brings the target's HP down to match the user's.
   moveType: 1
   typeFromWeather: 0
   displayPower: 0
   category: 2
-  targetType: 0
-  maxPP: 0
+  targetType: 1
+  maxPP: 5
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -77,3 +78,18 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+--- !u!114 &-486421351400011824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddfe8d29e6bff1044b11609d21b7f246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  makesContact: 1

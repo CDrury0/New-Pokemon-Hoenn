@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: -7499797989569838815}
+  - component: {fileID: 5767297946405845498}
   m_Layer: 0
   m_Name: Fissure
   m_TagString: Move
@@ -51,7 +52,7 @@ MonoBehaviour:
   typeFromWeather: 0
   displayPower: 0
   category: 0
-  targetType: 0
+  targetType: 1
   maxPP: 0
   priority: 0
   pursuit: 0
@@ -78,3 +79,18 @@ MonoBehaviour:
     cannotMissVulnerable: 1
     hitsSemiInvulnerable: 2
     bypassOnWeather: 0
+--- !u!114 &5767297946405845498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1970e321e21554241b02c6647d8f2625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  makesContact: 0
