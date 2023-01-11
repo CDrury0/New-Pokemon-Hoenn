@@ -147,5 +147,9 @@ public class BattleTarget
     public string GetName(){
         return teamBattleModifier.teamPrefix + pokemon.nickName;
     }
+
+    public bool IsActive(){
+        return pokemon != null && pokemon.primaryStatus != PrimaryStatus.Fainted;
+    }
 }
 

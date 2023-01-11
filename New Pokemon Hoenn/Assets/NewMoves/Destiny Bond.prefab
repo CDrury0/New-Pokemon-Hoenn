@@ -93,4 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyToSelf: 0
   message: 
+  chance: 1
+  timerMin: 0
+  timerMax: 0
   onFaintEffect: 0

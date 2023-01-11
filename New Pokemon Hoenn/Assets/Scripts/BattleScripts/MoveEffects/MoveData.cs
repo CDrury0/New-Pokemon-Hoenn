@@ -42,7 +42,8 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
 
     public string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        if(onlyUsableFirstTurn && CombatSystem.MoveRecordList.Find(record => record.user == user.pokemon) != null){
+        //if a matching move is found, it means the user has already moved since being sent out
+        if(onlyUsableFirstTurn && CombatSystem.MoveRecordList.FindRecordOfUserMove(user.pokemon) != null){
             return FAIL;
         }
         if(worksOnAsleep && target.pokemon.primaryStatus != PrimaryStatus.Asleep){
@@ -88,6 +89,7 @@ public class MoveAccuracyData
     public bool cannotMissVulnerable;
     public SemiInvulnerable hitsSemiInvulnerable;
     public Weather bypassOnWeather;
+    public float hurtsIfMiss;
 
     public bool CheckMoveHit(MoveData moveData, BattleTarget user, BattleTarget target, Weather weather){
         if(moveData.targetType == TargetType.Self || moveData.targetType == TargetType.Ally){

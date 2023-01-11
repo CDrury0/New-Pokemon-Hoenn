@@ -16,7 +16,7 @@ public class ApplyEncore : ApplyIndividualEffect, ICheckMoveSelectable, IApplyEf
 
     public override bool CheckMoveEffectFail(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        if(CombatSystem.MoveRecordList.FindLast(record => record.user == target.pokemon) == null){
+        if(CombatSystem.MoveRecordList.FindRecordLastUsedBy(target.pokemon) == null){
             return true;
         }
         return base.CheckMoveEffectFail(user, target, moveData);
@@ -25,7 +25,7 @@ public class ApplyEncore : ApplyIndividualEffect, ICheckMoveSelectable, IApplyEf
     public List<GameObject> GetUnusableMoves(BattleTarget target)
     {
         List<GameObject> unusableMoves = new List<GameObject>(target.pokemon.moves);
-        unusableMoves.Remove(MultiTurnData.GetBaseMove(CombatSystem.MoveRecordList.FindLast(record => record.user == target.pokemon).moveUsed.GetComponent<MoveData>()));
+        unusableMoves.Remove(MultiTurnData.GetBaseMove(CombatSystem.MoveRecordList.FindRecordLastUsedBy(target.pokemon).moveUsed.GetComponent<MoveData>()));
         return unusableMoves;
     }
 }

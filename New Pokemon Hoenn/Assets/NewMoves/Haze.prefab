@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: 1687493928670350499}
+  - component: {fileID: 6554528033969288679}
   m_Layer: 0
   m_Name: Haze
   m_TagString: Move
@@ -46,13 +47,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Haze
   moveDescription: "A thick fog resets all active Pok\xE9mon's stats to their normal
-    values. Also removes spikes from both sides of the battle."
+    values."
   moveType: 6
   typeFromWeather: 0
   displayPower: 0
   category: 2
   targetType: 0
-  maxPP: 0
+  maxPP: 25
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -78,3 +79,19 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+--- !u!114 &6554528033969288679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91902336103094b42a5b56d657ceb0c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  haze: 1
+  statsReset: 0000000000000000

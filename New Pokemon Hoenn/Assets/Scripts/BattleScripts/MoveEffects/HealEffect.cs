@@ -26,6 +26,6 @@ public class HealEffect : MoveEffect
         }
         int healAmount = (int)(target.pokemon.stats[0] * healPercent);
         yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(target, healAmount));
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(ReplaceBattleMessage(user, target)));
+        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(ReplaceBattleMessage(user, target, moveData)));
     }
 }

@@ -10,22 +10,11 @@ public enum SemiInvulnerable { None, Airborne, Underground, Underwater }
 public enum TargetType {Self, Single, Foes, Ally, RandomFoe, All}
 public class CombatSystem : MonoBehaviour
 {
-    public class MoveRecord{
-        public Pokemon user;
-        public Pokemon target;
-        public GameObject moveUsed;
-
-        public MoveRecord(Pokemon user, Pokemon target, GameObject moveUsed){
-            this.user = user;
-            this.target = target;
-            this.moveUsed = moveUsed;
-        }
-    }
     public static Weather Weather {get; set;}
     public static int weatherTimer;
     public static int TurnCount {get; private set;}
     public static BattleTarget ActiveTarget {get; private set;}
-    public static List<MoveRecord> MoveRecordList {get; private set;}
+    public static MoveRecordList MoveRecordList {get; private set;}
     public CombatScreen combatScreen;
     public MoveFunctions moveFunctions;
     public bool DoubleBattle {get; private set;}
@@ -66,7 +55,7 @@ public class CombatSystem : MonoBehaviour
         TurnCount = 0;
         Weather = ReferenceLib.Instance.activeArea.weather;
         weatherTimer = 0;
-        MoveRecordList = new List<MoveRecord>();
+        MoveRecordList = new MoveRecordList();
         playerParty = PlayerParty.Instance.playerParty;
         this.DoubleBattle = doubleBattle;
         this.enemyParty = enemyParty;
@@ -212,7 +201,7 @@ public class CombatSystem : MonoBehaviour
                 }
             }
 
-            MoveRecordList.Add(new MoveRecord(user.pokemon, user.individualBattleModifier.targets[j].pokemon, user.turnAction));
+            MoveRecordList.AddRecord(user.pokemon, user.individualBattleModifier.targets[j].pokemon, user.turnAction);
         }
     }
 
@@ -225,6 +214,11 @@ public class CombatSystem : MonoBehaviour
             BattleTarget user = orderedUsers[i];
             GameObject action = Instantiate(user.turnAction);
 
+            AppliedEffectInfo onFaintInfo = user.individualBattleModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyOnFaintEffect);
+            if(onFaintInfo != null){
+                onFaintInfo.effect.RemoveEffect(user, onFaintInfo);
+            }
+
             if(action.CompareTag("Move")){
                 //curse needs a special exception
                 if(action.GetComponent<ApplyCurse>() != null && user.pokemon.IsThisType(StatLib.Type.Ghost)){
@@ -236,11 +230,10 @@ public class CombatSystem : MonoBehaviour
                 //effects after move usage?
             }
             //else if switch, item, etc.
+            //do moveFunctions.AppliedEffectOfType<ApplyOnFaintEffect>() when handling fainting
         }
 
         yield return StartCoroutine(moveFunctions.EndOfTurnEffects(orderedUsers));
-        //end of turn effects
-        //check for fainting, etc.
 
         StartCoroutine(GetTurnActions());
     }
@@ -254,7 +247,5 @@ public class CombatSystem : MonoBehaviour
         foreach(GameObject oldTurnAction in instantiatedMoves){
             Destroy(oldTurnAction);
         }
-
-        MoveRecordList = new List<MoveRecord>();
     }
 }

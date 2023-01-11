@@ -20,7 +20,7 @@ public class ApplyTeamDurationEffect : MoveEffect, ICheckMoveEffectFail
 
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        string outputMessage = ReplaceBattleMessage(user, target);
+        string outputMessage = ReplaceBattleMessage(user, target, moveData);
         yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(outputMessage));
 
         if(durationEffect != TeamDurationEffect.None){

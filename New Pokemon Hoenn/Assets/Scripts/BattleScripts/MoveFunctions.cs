@@ -234,6 +234,10 @@ public class MoveFunctions : MonoBehaviour
 
         if(!moveData.accuracyData.CheckMoveHit(moveData, user, target, CombatSystem.Weather)){
             yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + "'s attack missed"));
+            if(moveData.accuracyData.hurtsIfMiss > 0f){
+                yield return StartCoroutine(ChangeTargetHealth(user, -(int)(user.pokemon.stats[0] * moveData.accuracyData.hurtsIfMiss)));
+                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " kept going and crashed!"));
+            }
             yield break;
         }
 
