@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: -4565589962940142258}
+  - component: {fileID: 3389681298604564181}
   m_Layer: 0
   m_Name: Roar
   m_TagString: Move
@@ -51,11 +52,11 @@ MonoBehaviour:
   typeFromWeather: 0
   displayPower: 0
   category: 2
-  targetType: 0
-  maxPP: 0
-  priority: 0
+  targetType: 1
+  maxPP: 20
+  priority: -6
   pursuit: 0
-  soundBased: 0
+  soundBased: 1
   focusPunch: 0
   onlyUsableFirstTurn: 0
   worksOnAsleep: 0
@@ -78,3 +79,18 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
+--- !u!114 &3389681298604564181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 428142f565d1b384c84d61347f472451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 

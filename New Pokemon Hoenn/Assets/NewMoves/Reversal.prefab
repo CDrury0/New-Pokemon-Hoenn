@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: 1817446414012138319}
+  - component: {fileID: 4038210370084903155}
   m_Layer: 0
   m_Name: Reversal
   m_TagString: Move
@@ -51,8 +52,8 @@ MonoBehaviour:
   typeFromWeather: 0
   displayPower: 0
   category: 0
-  targetType: 0
-  maxPP: 0
+  targetType: 1
+  maxPP: 15
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -78,3 +79,50 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
+--- !u!114 &4038210370084903155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd77178c40817ae4ab0e3fc8c3e6de6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  makesContact: 1
+  hitsMaxTimes: 0
+  recoilDamage: 0
+  absorbHealth: 0
+  spitUp: 0
+  facade: 0
+  revenge: 0
+  furyCutter: 0
+  highCritRate: 0
+  bonusFromCurl: 0
+  bonusLikeRollout: 0
+  cannotKO: 0
+  bonusAgainstMinimize: 0
+  bonusAgainstSemiInvulnerable: 0
+  bonusAgainstStatus: 0
+  curesBonusStatus: 0
+  payback: 0
+  waterSpoutTypeDamage: 0
+  piecewiseDamage:
+    piecewisePairs:
+    - key: 0.04
+      powerValue: 150
+    - key: 0.1
+      powerValue: 120
+    - key: 0.2
+      powerValue: 100
+    - key: 0.35
+      powerValue: 80
+    - key: 0.68
+      powerValue: 55
+    - key: 1
+      powerValue: 30

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: -4768036329955869062}
+  - component: {fileID: -8601537067994875158}
   m_Layer: 0
   m_Name: Leech Seed
   m_TagString: Move
@@ -51,7 +52,7 @@ MonoBehaviour:
   typeFromWeather: 0
   displayPower: 0
   category: 2
-  targetType: 0
+  targetType: 1
   maxPP: 0
   priority: 0
   pursuit: 0
@@ -78,3 +79,21 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
+--- !u!114 &-8601537067994875158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74bb8a7ac74e86b47aeb6f7edecffd6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  chance: 1
+  timerMin: 0
+  timerMax: 0

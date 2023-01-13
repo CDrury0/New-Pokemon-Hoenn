@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: 6649777577677844996}
+  - component: {fileID: -1107975705318473205}
   m_Layer: 0
   m_Name: Snatch
   m_TagString: Move
@@ -45,14 +46,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveName: Snatch
-  moveDescription: If the opponent uses a status move on itself this turn, the user
-    will steal it and use it for itself.
+  moveDescription: If another Pokemon uses a status move on itself this turn, the
+    user will steal it and use it instead.
   moveType: 16
   typeFromWeather: 0
   displayPower: 0
   category: 2
   targetType: 0
-  maxPP: 0
+  maxPP: 10
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -78,3 +79,21 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
+--- !u!114 &-1107975705318473205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd631fbbd545f14bbdcffcc44e7638a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  chance: 1
+  timerMin: 0
+  timerMax: 0

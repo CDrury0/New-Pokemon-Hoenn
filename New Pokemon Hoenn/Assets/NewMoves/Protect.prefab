@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: -9098236495380425717}
+  - component: {fileID: 2921109330506202502}
   m_Layer: 0
   m_Name: Protect
   m_TagString: Move
@@ -52,8 +53,8 @@ MonoBehaviour:
   displayPower: 0
   category: 2
   targetType: 0
-  maxPP: 0
-  priority: 0
+  maxPP: 10
+  priority: 4
   pursuit: 0
   soundBased: 0
   focusPunch: 0
@@ -78,3 +79,21 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
+--- !u!114 &2921109330506202502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ec0073618da2b42a3d031fe6db3499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  chance: 1
+  timerMin: 0
+  timerMax: 0

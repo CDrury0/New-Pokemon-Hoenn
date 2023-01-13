@@ -79,6 +79,7 @@ MonoBehaviour:
     cannotMissVulnerable: 1
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
 --- !u!114 &2254611552403714589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   applyToSelf: 0
-  message: '&targetName became drowsy!'
+  message: 
   chance: 1
   timerMin: 1
   timerMax: 1

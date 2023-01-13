@@ -79,6 +79,7 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
 --- !u!114 &-4403743311746306099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,5 +95,6 @@ MonoBehaviour:
   applyToSelf: 0
   message: 
   curse: 0
+  stockpileRemoval: 0
   chance: 1
   statChanges: 0000000002000000000000000000000000000000000000000000000000000000

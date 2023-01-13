@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: -563006220317226066}
+  - component: {fileID: 4030787645792145069}
+  - component: {fileID: -8194149426308965564}
   m_Layer: 0
   m_Name: Perish Song
   m_TagString: Move
@@ -50,11 +52,11 @@ MonoBehaviour:
   typeFromWeather: 0
   displayPower: 0
   category: 2
-  targetType: 0
-  maxPP: 0
+  targetType: 5
+  maxPP: 5
   priority: 0
   pursuit: 0
-  soundBased: 0
+  soundBased: 1
   focusPunch: 0
   onlyUsableFirstTurn: 0
   worksOnAsleep: 0
@@ -77,3 +79,38 @@ MonoBehaviour:
     cannotMissVulnerable: 1
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
+--- !u!114 &4030787645792145069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10964d43bca7cc47aa3092e7feb2435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  chance: 1
+  timerMin: 3
+  timerMax: 3
+--- !u!114 &-8194149426308965564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10964d43bca7cc47aa3092e7feb2435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 1
+  message: 
+  chance: 1
+  timerMin: 3
+  timerMax: 3

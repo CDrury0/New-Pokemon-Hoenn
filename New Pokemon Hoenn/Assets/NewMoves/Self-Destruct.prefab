@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: -5735708059907160667}
+  - component: {fileID: -5289155747436785864}
+  - component: {fileID: -237002564710854790}
   m_Layer: 0
   m_Name: Self-Destruct
   m_TagString: Move
@@ -49,10 +51,10 @@ MonoBehaviour:
     but causes the user to faint."
   moveType: 1
   typeFromWeather: 0
-  displayPower: 0
+  displayPower: 250
   category: 0
-  targetType: 0
-  maxPP: 0
+  targetType: 5
+  maxPP: 5
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -78,3 +80,55 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
+--- !u!114 &-5289155747436785864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd77178c40817ae4ab0e3fc8c3e6de6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  makesContact: 0
+  hitsMaxTimes: 0
+  recoilDamage: 0
+  absorbHealth: 0
+  spitUp: 0
+  facade: 0
+  revenge: 0
+  furyCutter: 0
+  highCritRate: 0
+  bonusFromCurl: 0
+  bonusLikeRollout: 0
+  cannotKO: 0
+  bonusAgainstMinimize: 0
+  bonusAgainstSemiInvulnerable: 0
+  bonusAgainstStatus: 0
+  curesBonusStatus: 0
+  payback: 0
+  waterSpoutTypeDamage: 1
+  piecewiseDamage:
+    piecewisePairs: []
+--- !u!114 &-237002564710854790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7641cedeacf73684c87fc0c04f13d80f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  curse: 0
+  canKillSelf: 1
+  percentHealthCost: 1

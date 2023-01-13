@@ -78,6 +78,7 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
 --- !u!114 &-8297692891988587614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   applyToSelf: 0
-  message: '&targetName said goo'
+  message: 
   chance: 1
-  timerMin: 3
-  timerMax: 3
+  timerMin: 0
+  timerMax: 0

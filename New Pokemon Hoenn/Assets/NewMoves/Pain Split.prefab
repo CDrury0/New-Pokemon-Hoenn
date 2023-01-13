@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1682630348}
-  - component: {fileID: -8761428253808825834}
+  - component: {fileID: 5092582887386961164}
+  - component: {fileID: 1363612435946522922}
   m_Layer: 0
-  m_Name: Rock Wrecker
+  m_Name: Pain Split
   m_TagString: Move
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8761428253808825834
+--- !u!114 &5092582887386961164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,15 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8017aeb4b8f9175468925e2a21b528c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveName: Rock Wrecker
-  moveDescription: Crushes the target with a stream of stone. User must recharge
-    the next turn.
-  moveType: 13
+  moveName: Pain Split
+  moveDescription: Sets the user's and target's HP to the average of the two.
+  moveType: 14
   typeFromWeather: 0
   displayPower: 0
-  category: 0
-  targetType: 0
-  maxPP: 0
+  category: 2
+  targetType: 1
+  maxPP: 10
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -74,7 +74,22 @@ MonoBehaviour:
     confuseOnEnd: 0
     mustRechargeAfter: 0
   accuracyData:
-    accuracy: 0.9
-    cannotMissVulnerable: 0
+    accuracy: 0
+    cannotMissVulnerable: 1
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
+--- !u!114 &1363612435946522922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6d8dba9fa0b8d4bbfcf45cf3ea7f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 

@@ -51,8 +51,8 @@ MonoBehaviour:
   displayPower: 0
   category: 2
   targetType: 0
-  maxPP: 0
-  priority: 0
+  maxPP: 15
+  priority: 4
   pursuit: 0
   soundBased: 0
   focusPunch: 0
@@ -77,3 +77,4 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: -1407976313678802006}
+  - component: {fileID: -195401850131721524}
   m_Layer: 0
   m_Name: Low Kick
   m_TagString: Move
@@ -52,7 +53,7 @@ MonoBehaviour:
   displayPower: 0
   category: 0
   targetType: 0
-  maxPP: 0
+  maxPP: 20
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -78,3 +79,50 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
+--- !u!114 &-195401850131721524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f58d8816a5a7b843a0ecc93f56ede2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  makesContact: 1
+  hitsMaxTimes: 0
+  recoilDamage: 0
+  absorbHealth: 0
+  spitUp: 0
+  facade: 0
+  revenge: 0
+  furyCutter: 0
+  highCritRate: 0
+  bonusFromCurl: 0
+  bonusLikeRollout: 0
+  cannotKO: 0
+  bonusAgainstMinimize: 0
+  bonusAgainstSemiInvulnerable: 0
+  bonusAgainstStatus: 0
+  curesBonusStatus: 0
+  payback: 0
+  basedOnUserWeight: 0
+  damagePairs:
+    piecewisePairs:
+    - key: 10
+      powerValue: 20
+    - key: 25
+      powerValue: 40
+    - key: 50
+      powerValue: 60
+    - key: 100
+      powerValue: 80
+    - key: 200
+      powerValue: 100
+    - key: 2000
+      powerValue: 120

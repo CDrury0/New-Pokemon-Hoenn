@@ -79,6 +79,7 @@ MonoBehaviour:
     cannotMissVulnerable: 1
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
 --- !u!114 &6688061380677943603
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: -5057294590140745242}
+  - component: {fileID: 2341033597172753768}
   m_Layer: 0
   m_Name: Morning Sun
   m_TagString: Move
@@ -51,7 +52,7 @@ MonoBehaviour:
   displayPower: 0
   category: 2
   targetType: 0
-  maxPP: 0
+  maxPP: 5
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -77,3 +78,20 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
+--- !u!114 &2341033597172753768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea5c9cd22f3ccc4d852eb5eda852616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  healChangesWithWeather: 1
+  swallow: 0

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: 8628745727247490872}
+  - component: {fileID: 5604598048378441832}
   m_Layer: 0
   m_Name: Leer
   m_TagString: Move
@@ -51,8 +52,8 @@ MonoBehaviour:
   typeFromWeather: 0
   displayPower: 0
   category: 2
-  targetType: 0
-  maxPP: 0
+  targetType: 1
+  maxPP: 30
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -78,3 +79,22 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
+--- !u!114 &5604598048378441832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09722111948b9ba47831130df6172d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  curse: 0
+  stockpileRemoval: 0
+  chance: 1
+  statChanges: 00000000ffffffff000000000000000000000000000000000000000000000000

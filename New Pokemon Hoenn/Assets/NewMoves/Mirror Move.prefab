@@ -78,6 +78,7 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
 --- !u!114 &6250655624318422875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,5 +93,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyToSelf: 0
   message: 
-  prohibitedMoves:
-  - {fileID: 1682630347}
+  prohibitedMoves: []

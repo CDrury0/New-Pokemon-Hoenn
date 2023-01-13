@@ -9,7 +9,17 @@ public class ChangePPEffect : MoveEffect
     {
         int whichMove = target.pokemon.moves.IndexOf(MultiTurnData.GetBaseMove(CombatSystem.MoveRecordList.FindRecordLastUsedBy(target.pokemon).moveUsed.GetComponent<MoveData>()));
         target.pokemon.movePP[whichMove] += ppChange;
+        CorrectPPOverflow(target, whichMove);
         string ppMessage = ppChange > 0 ? " gained PP!" : " lost PP!";
         yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + ppMessage));
+    }
+
+    private void CorrectPPOverflow(BattleTarget target, int whichMove){
+        if(target.pokemon.movePP[whichMove] < 0){
+            target.pokemon.movePP[whichMove] = 0;
+        }
+        else if(target.pokemon.movePP[whichMove] > target.pokemon.moveMaxPP[whichMove]){
+            target.pokemon.movePP[whichMove] = target.pokemon.moveMaxPP[whichMove];
+        }
     }
 }

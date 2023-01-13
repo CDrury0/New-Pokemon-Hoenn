@@ -5,6 +5,7 @@ using UnityEngine.UI;
 //holds data relevant to one team that is reset when a battle starts
 public class TeamBattleModifier
 {
+    public const int SPIKES_MAX_STACKS = 3;
     public const string ALLY_POS = "Ally's";
     public const string ENEMY_POS = "Foe's";
     public const string ALLY_PREFIX = "";
@@ -78,6 +79,7 @@ public class IndividualBattleModifier
     public const int MAX_STAT_STAGES = 6;
     public const int MAX_ACCURACY_STAGES = 5;
     public const int MAX_CRIT_STAGES = 10;
+    public const int MAX_STOCKPILE_COUNT = 3;
     public List<AppliedEffectInfo> inflictingEffects;
     public List<AppliedEffectInfo> appliedEffects;
     public List<TimedEffectInfo> timedEffects; //timed effects are not overwritten on switch

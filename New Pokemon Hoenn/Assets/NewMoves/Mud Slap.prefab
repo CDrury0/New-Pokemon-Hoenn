@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: -2573753481881058230}
+  - component: {fileID: -8681297864612937630}
+  - component: {fileID: 7572911684698566626}
   m_Layer: 0
   m_Name: Mud Slap
   m_TagString: Move
@@ -45,13 +47,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveName: Mud Slap
-  moveDescription: Tosses mud in the target's face, reducing accuracy.
+  moveDescription: Tosses mud in the target's face, which may reduce accuracy.
   moveType: 9
   typeFromWeather: 0
-  displayPower: 0
+  displayPower: 25
   category: 1
-  targetType: 0
-  maxPP: 0
+  targetType: 1
+  maxPP: 10
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -77,3 +79,53 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
+--- !u!114 &-8681297864612937630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4718a26df09fa1479726839ba709dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  makesContact: 0
+  hitsMaxTimes: 0
+  recoilDamage: 0
+  absorbHealth: 0
+  spitUp: 0
+  facade: 0
+  revenge: 0
+  furyCutter: 0
+  highCritRate: 0
+  bonusFromCurl: 0
+  bonusLikeRollout: 0
+  cannotKO: 0
+  bonusAgainstMinimize: 0
+  bonusAgainstSemiInvulnerable: 0
+  bonusAgainstStatus: 0
+  curesBonusStatus: 0
+  payback: 0
+--- !u!114 &7572911684698566626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09722111948b9ba47831130df6172d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  curse: 0
+  stockpileRemoval: 0
+  chance: 0.3
+  statChanges: 0000000000000000000000000000000000000000ffffffff0000000000000000

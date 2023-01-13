@@ -79,6 +79,7 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
 --- !u!114 &-5251478035975904648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,6 +94,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyToSelf: 0
   message: 
+  curse: 0
+  stockpileRemoval: 0
   chance: 1
   statChanges: 0200000000000000000000000000000000000000000000000000000000000000
 --- !u!114 &2205971215468550428
@@ -108,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   applyToSelf: 0
-  message: '&targetName is acting a fool!'
+  message: 
   chance: 1
   timerMin: 2
   timerMax: 5

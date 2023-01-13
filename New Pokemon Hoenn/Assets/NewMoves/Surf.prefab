@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: 1294688888503048454}
+  - component: {fileID: 1696453826981162398}
   m_Layer: 0
   m_Name: Surf
   m_TagString: Move
@@ -45,14 +46,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveName: Surf
-  moveDescription: Creates a huge wave, then crashes it down on the foe. Does more
-    damage to underwater targets.
+  moveDescription: Creates a huge wave, then crashes it down on all active Pokemon.
+    Does more damage to underwater targets.
   moveType: 3
   typeFromWeather: 0
-  displayPower: 0
+  displayPower: 65
   category: 1
-  targetType: 0
-  maxPP: 0
+  targetType: 5
+  maxPP: 15
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -78,3 +79,35 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 3
     bypassOnWeather: 0
+    hurtsIfMiss: 0
+--- !u!114 &1696453826981162398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4718a26df09fa1479726839ba709dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  makesContact: 0
+  hitsMaxTimes: 0
+  recoilDamage: 0
+  absorbHealth: 0
+  spitUp: 0
+  facade: 0
+  revenge: 0
+  furyCutter: 0
+  highCritRate: 0
+  bonusFromCurl: 0
+  bonusLikeRollout: 0
+  cannotKO: 0
+  bonusAgainstMinimize: 0
+  bonusAgainstSemiInvulnerable: 0
+  bonusAgainstStatus: 0
+  curesBonusStatus: 0
+  payback: 0

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveName: Flash
-  moveDescription: A flash of light blinds all foes, reducing their accuracy.
+  moveDescription: A flash of light blinds the foe, reducing its accuracy.
   moveType: 1
   typeFromWeather: 0
   displayPower: 0
@@ -73,7 +73,8 @@ MonoBehaviour:
     confuseOnEnd: 0
     mustRechargeAfter: 0
   accuracyData:
-    accuracy: 0.8
+    accuracy: 0.75
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0

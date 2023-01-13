@@ -180,6 +180,7 @@ public class CombatSystem : MonoBehaviour
         if(doDeductPP){
             moveFunctions.DeductPP(user);
         }
+        
         yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " used " + moveData.moveName));
     
         int targetCount = user.individualBattleModifier.targets.Count;  //must save value of target count or calling moves like mirror move may activate multiple times during double battles

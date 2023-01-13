@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: -8458085107123571655}
+  - component: {fileID: -2815081695234154983}
   m_Layer: 0
   m_Name: Thunder Wave
   m_TagString: Move
@@ -51,8 +52,8 @@ MonoBehaviour:
   typeFromWeather: 0
   displayPower: 0
   category: 2
-  targetType: 0
-  maxPP: 0
+  targetType: 1
+  maxPP: 20
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -78,3 +79,24 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
+--- !u!114 &-2815081695234154983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72aeb37c76c26c40bc1d85f5546ef3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  statusInflicted: 3
+  toxic: 0
+  chance: 1
+  powder: 0
+  ignoresExistingCondition: 0
+  triAttack: 0

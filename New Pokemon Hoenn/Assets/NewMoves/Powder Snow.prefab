@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: -5533161531274640873}
+  - component: {fileID: -1298033421238803679}
   m_Layer: 0
   m_Name: Powder Snow
   m_TagString: Move
@@ -49,10 +50,10 @@ MonoBehaviour:
     affected targets.
   moveType: 6
   typeFromWeather: 0
-  displayPower: 0
+  displayPower: 40
   category: 1
-  targetType: 0
-  maxPP: 0
+  targetType: 2
+  maxPP: 25
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -78,3 +79,24 @@ MonoBehaviour:
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
+--- !u!114 &-1298033421238803679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72aeb37c76c26c40bc1d85f5546ef3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  statusInflicted: 5
+  toxic: 0
+  chance: 0.1
+  powder: 0
+  ignoresExistingCondition: 0
+  triAttack: 0

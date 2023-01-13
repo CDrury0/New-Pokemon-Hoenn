@@ -79,6 +79,7 @@ MonoBehaviour:
     cannotMissVulnerable: 1
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
+    hurtsIfMiss: 0
 --- !u!114 &-2593621604965725330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,4 +95,4 @@ MonoBehaviour:
   applyToSelf: 0
   message: 
   makesContact: 1
-  magicCoat: 0
+  mirrorCoat: 0

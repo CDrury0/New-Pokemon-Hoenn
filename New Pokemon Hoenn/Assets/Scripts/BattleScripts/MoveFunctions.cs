@@ -7,6 +7,7 @@ public class MoveFunctions : MonoBehaviour
 {
     public CombatScreen combatScreen;
     public GameObject confuseAttack;
+    public ApplyConfuse confuseAfterForcedToUse;
     private const float TYPE_WEAKNESS = 1.75f;
     private const float TYPE_RESIST = 0.58f;
 
@@ -203,6 +204,7 @@ public class MoveFunctions : MonoBehaviour
         }
         if(user.individualBattleModifier.flinched){
             yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " flinched!"));
+            user.individualBattleModifier.flinched = false;
             yield break;
         }
         AppliedEffectInfo confuseEffect = user.individualBattleModifier.appliedEffects.FirstOrDefault(e => e.effect is ApplyConfuse);
@@ -281,7 +283,9 @@ public class MoveFunctions : MonoBehaviour
 
     public void DeductPP(BattleTarget user){
         //account for pressure
-        user.pokemon.movePP[user.pokemon.moves.IndexOf(user.turnAction)]--;
+        if(user.pokemon.moves.Contains(user.turnAction)){
+            user.pokemon.movePP[user.pokemon.moves.IndexOf(user.turnAction)]--;
+        }
     }
 
     //TEST END OF TURN EFFECTS
@@ -315,7 +319,6 @@ public class MoveFunctions : MonoBehaviour
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyEncore>(battleTargets));
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyDisable>(battleTargets));
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyTaunt>(battleTargets));
-        yield return StartCoroutine(DoAppliedEffectOfType<ApplyTorment>(battleTargets));
 
         //yawn
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyDrowsy>(battleTargets));
