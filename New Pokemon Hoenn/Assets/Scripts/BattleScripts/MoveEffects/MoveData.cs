@@ -23,7 +23,6 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
     public bool worksWhileAsleep;
     public bool cannotBeSnatched;
     public bool notReflectedByMagicCoat;
-    public MultiTurnData multiTurnData;
     public MoveVisualData visualData;
     public MoveAccuracyData accuracyData;
     public const string FAIL = "But it failed!";
@@ -54,25 +53,11 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
         }
         //fail if sound based move is used on soundproof target
         return null;
-    } 
-}
+    }
 
-[System.Serializable]
-public class MultiTurnData
-{
-    public string specialText;
-    public Weather skipChargingTurn;
-    public GameObject useNext;
-    [SerializeField] private GameObject baseMove;
-    public SemiInvulnerable givesSemiInvulnerable;
-    public int forcedToUseMax;
-    public bool alwaysUseMaxTurns;
-    public bool bideCharge;
-    public bool confuseOnEnd;
-    public bool mustRechargeAfter;
-
-    public static GameObject GetBaseMove(MoveData data){
-        return data.multiTurnData.baseMove != null ? data.multiTurnData.baseMove : data.gameObject;
+    public static GameObject GetBaseMove(GameObject move){
+        MultiTurnEffect multiTurn = move.GetComponent<MultiTurnEffect>();
+        return multiTurn != null ? multiTurn.baseMove : move;
     }
 }
 
@@ -91,7 +76,7 @@ public class MoveAccuracyData
     public Weather bypassOnWeather;
     public float hurtsIfMiss;
 
-    public bool CheckMoveHit(MoveData moveData, BattleTarget user, BattleTarget target, Weather weather){
+    public bool CheckMoveHit(MoveData moveData, BattleTarget user, BattleTarget target){
         if(moveData.targetType == TargetType.Self || moveData.targetType == TargetType.Ally){
             return true;
         }
@@ -99,17 +84,23 @@ public class MoveAccuracyData
         if(lockOnEffect != null){
             lockOnEffect.effect.RemoveEffect(target, lockOnEffect);
             return true;
+        }
+        if(target.individualBattleModifier.semiInvulnerable == SemiInvulnerable.None || hitsSemiInvulnerable == target.individualBattleModifier.semiInvulnerable){
+            if(cannotMissVulnerable){
+                return true;
+            }
+            if(BypassOnWeather()){
+                return true;
+            }
+            if(Random.Range(0f, 1f) / AccuracyMult(user.individualBattleModifier.statStages[5], target.individualBattleModifier.statStages[6]) <= accuracy){
+                return true;
+            }
         } 
-        if(cannotMissVulnerable && target.individualBattleModifier.semiInvulnerable == SemiInvulnerable.None){
-            return true;
-        }
-        if(bypassOnWeather != Weather.None && bypassOnWeather == weather){
-            return true;
-        }
-        if(Random.Range(0f, 1f) * AccuracyMult(user.individualBattleModifier.statStages[5], target.individualBattleModifier.statStages[6]) <= accuracy){
-            return true;
-        }
         return false;
+    }
+
+    private bool BypassOnWeather(){
+        return bypassOnWeather != Weather.None && bypassOnWeather == CombatSystem.Weather;
     }
 
     private float AccuracyMult(int userAccStages, int targetEvaStages) 

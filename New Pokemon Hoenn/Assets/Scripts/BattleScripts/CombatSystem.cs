@@ -43,11 +43,12 @@ public class CombatSystem : MonoBehaviour
     }
 
     //must start the coroutine from this monobehaviour so it doesn't matter if originating gameobject is set to inactive
+    //make this accept a Trainer object that contains SerializablePokemon[], EnemyAI, and other data
     public void StartBattle(SerializablePokemon[] enemyPartyTemplate, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI){
         StartCoroutine(RealStartBattle(new Party(enemyPartyTemplate), trainerBattle, doubleBattle, enemyAI));
     }
 
-    public void StartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI){  //no not use this except with battleTestMenu
+    public void StartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI){  //do not use this except with battleTestMenu
         StartCoroutine(RealStartBattle(enemyParty, trainerBattle, doubleBattle, enemyAI));
     }
 
@@ -118,12 +119,11 @@ public class CombatSystem : MonoBehaviour
                 }
             }
             else{
-                //if GetRequiredAction != null (player is locked into action from previous turn), make that the action and do not allow manual selection
-
-                //else allow player to select an action manually
-                combatScreen.SetActionPromptText();
-                combatScreen.battleOptionsLayoutObject.SetActive(true);
-                yield return new WaitUntil(() => Proceed);
+                if(!moveFunctions.LockedIntoAction(ActiveTarget)){
+                    combatScreen.SetActionPromptText();
+                    combatScreen.battleOptionsLayoutObject.SetActive(true);
+                    yield return new WaitUntil(() => Proceed);
+                }
             }
         }
         StartCoroutine(BattleTurn());
@@ -164,18 +164,29 @@ public class CombatSystem : MonoBehaviour
         Proceed = true;
     }
 
+    public void VerifyMoveTarget(BattleTarget user, GameObject move){
+        if(move.GetComponent<CounterDamage>() != null){
+            user.individualBattleModifier.targets = new List<BattleTarget>(){user.individualBattleModifier.bideTarget};
+        }
+
+        //correct targeting fainted pokemon in double battles
+    }
+
     public class WrappedBool{ public bool failed;}
 
     public IEnumerator UseMove(BattleTarget user, GameObject move, bool calledFromOtherMove, bool doDeductPP){
         if(!calledFromOtherMove){
             WrappedBool moveFailed = new WrappedBool();
             yield return StartCoroutine(moveFunctions.CheckMoveFailedToBeUsed(moveFailed, user));
-            //check for any valid target
             if(moveFailed.failed){
+                user.individualBattleModifier.lastMoveWasUsed = false;
                 yield break;
             }
         }
 
+        VerifyMoveTarget(user, move);
+
+        user.individualBattleModifier.lastMoveWasUsed = true;
         MoveData moveData = move.GetComponent<MoveData>();
         if(doDeductPP){
             moveFunctions.DeductPP(user);
@@ -203,6 +214,10 @@ public class CombatSystem : MonoBehaviour
             }
 
             MoveRecordList.AddRecord(user.pokemon, user.individualBattleModifier.targets[j].pokemon, user.turnAction);
+
+            if(moveFunctions.IsChargingTurn(move)){
+                break;
+            }
         }
     }
 

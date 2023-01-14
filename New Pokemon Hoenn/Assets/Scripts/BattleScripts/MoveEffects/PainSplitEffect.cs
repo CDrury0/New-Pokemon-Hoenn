@@ -9,6 +9,7 @@ public class PainSplitEffect : MoveEffect
         int targetHealth = (user.pokemon.CurrentHealth + target.pokemon.CurrentHealth) / 2;
         int healthChange = targetHealth - user.pokemon.CurrentHealth;
         yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(user, healthChange));
+        healthChange = targetHealth - target.pokemon.CurrentHealth;
         yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(target, healthChange));
         yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage("The battlers shared their pain!"));
     }

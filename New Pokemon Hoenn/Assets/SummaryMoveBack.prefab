@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2807186188352632458}
   - component: {fileID: 2807186188352632463}
   - component: {fileID: 2807186188352632460}
-  - component: {fileID: 2807186188352632461}
   - component: {fileID: 2807186188352632462}
   - component: {fileID: 2807186188352632465}
   - component: {fileID: -4510902481439405227}
@@ -32,6 +31,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2807186189517136155}
   - {fileID: 2807186190023374228}
@@ -86,30 +86,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2807186188352632461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2807186188352632459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a04cbe177d916cd4fbef16b4d12771b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentTransform: {fileID: 2807186188352632458}
-  moveRepresented: {fileID: 0}
-  ppValues: 0000000000000000
-  descriptionText: {fileID: 0}
-  loadSummaryInfo: {fileID: 0}
-  categorySprite: {fileID: 2807186189517136157}
-  moveNameText: {fileID: 2807186190023374230}
-  movePPText: {fileID: 2807186189068578649}
-  moveTypeImage: {fileID: 2807186189811471164}
-  moveTypeText: {fileID: 2807186188845003334}
-  movePowerText: {fileID: 2807186189016792078}
-  moveAccuracyText: {fileID: 2807186188785567128}
 --- !u!114 &2807186188352632462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +145,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2807186188352632461}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SummaryMoveButton, Assembly-CSharp
         m_MethodName: LoadMoveDescription
         m_Mode: 1
@@ -230,6 +206,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2807186188352632458}
   m_RootOrder: 6
@@ -325,6 +302,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2807186189811471162}
   m_RootOrder: 0
@@ -420,6 +398,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2807186188352632458}
   m_RootOrder: 5
@@ -515,6 +494,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2807186188352632458}
   m_RootOrder: 3
@@ -610,6 +590,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2807186188352632458}
   m_RootOrder: 0
@@ -701,6 +682,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2807186188845003332}
   m_Father: {fileID: 2807186188352632458}
@@ -793,6 +775,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2807186188352632458}
   m_RootOrder: 1
@@ -888,6 +871,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2807186188352632458}
   m_RootOrder: 2

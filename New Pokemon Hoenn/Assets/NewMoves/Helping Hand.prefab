@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8245888289346443735}
   - component: {fileID: 3683384747955473594}
+  - component: {fileID: -7320882246758657450}
   m_Layer: 0
   m_Name: Helping Hand
   m_TagString: Move
@@ -44,15 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8017aeb4b8f9175468925e2a21b528c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveName: 
-  moveDescription: 
+  moveName: Helping Hand
+  moveDescription: Boosts the power of the ally's attack this turn.
   moveType: 0
   typeFromWeather: 0
   displayPower: 0
-  category: 0
-  targetType: 0
-  maxPP: 0
-  priority: 0
+  category: 2
+  targetType: 3
+  maxPP: 20
+  priority: 5
   pursuit: 0
   soundBased: 0
   focusPunch: 0
@@ -78,3 +79,20 @@ MonoBehaviour:
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
     hurtsIfMiss: 0
+--- !u!114 &-7320882246758657450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5642945152840528678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c031a4839c87d8d439957bdf53d39429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  chance: 1
+  timerMin: 0
+  timerMax: 0

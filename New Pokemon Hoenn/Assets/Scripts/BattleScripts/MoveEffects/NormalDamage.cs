@@ -164,11 +164,11 @@ public class NormalDamage : EffectDamage
 
         modifier *= CombatLib.Instance.moveFunctions.GetTypeMatchup(localType, target);
 
-        modifier *= user.pokemon.IsThisType(localType) ? 1.5f : 1f;
+        modifier *= user.pokemon.IsThisType(localType) ? 1.4f : 1f;
 
         modifier *= GetWeatherDamageModifier(localType, CombatSystem.Weather);
 
-        if(user.individualBattleModifier.chargedType != StatLib.Type.None && user.individualBattleModifier.chargedType == moveData.GetEffectiveMoveType()){
+        if(user.individualBattleModifier.chargedType != StatLib.Type.None && user.individualBattleModifier.chargedType == localType){
             modifier *= 1.5f;
             user.individualBattleModifier.chargedType = StatLib.Type.None;
         }
@@ -188,6 +188,10 @@ public class NormalDamage : EffectDamage
 
         if(moveData.category == MoveData.Category.Special && target.teamBattleModifier.teamEffects.FirstOrDefault(e => e.effect == TeamDurationEffect.LightScreen) != null && moveData.gameObject.GetComponent<BreaksWalls>() == null){
             modifier *= 0.67f;
+        }
+
+        if(user.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyHelpingHand) != null){
+            modifier *= 1.5f;
         }
 
         //if user selected pursuit and target is switching out

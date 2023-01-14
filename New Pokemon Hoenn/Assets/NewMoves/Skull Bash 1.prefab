@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: -2820014310555761102}
+  - component: {fileID: -3246860272647211679}
+  - component: {fileID: -3270810248634960695}
   m_Layer: 0
   m_Name: Skull Bash 1
   m_TagString: Move
@@ -49,10 +51,10 @@ MonoBehaviour:
     with its thick skull on the second turn.
   moveType: 1
   typeFromWeather: 0
-  displayPower: 0
+  displayPower: 100
   category: 0
-  targetType: 0
-  maxPP: 0
+  targetType: 1
+  maxPP: 15
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -62,20 +64,51 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
     hurtsIfMiss: 0
+--- !u!114 &-3246860272647211679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0fe572876d9bf845a5a51020879db9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: '&userName tucked its head!'
+  skipChargingTurn: 0
+  useNext: {fileID: 1682630347, guid: 69575a3233a16314e9c336d1a0ca34dc, type: 3}
+  baseMove: {fileID: 1682630347}
+  givesSemiInvulnerable: 0
+  forcedToUseMax: 0
+  alwaysUseMaxTurns: 0
+  confuseOnEnd: 0
+  bideCharge: 0
+  mustRecharge: 0
+  chargingTurn: 1
+--- !u!114 &-3270810248634960695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09722111948b9ba47831130df6172d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 1
+  message: 
+  curse: 0
+  stockpileRemoval: 0
+  chance: 1
+  statChanges: 0000000001000000000000000000000000000000000000000000000000000000

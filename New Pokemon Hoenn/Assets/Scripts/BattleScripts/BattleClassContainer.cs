@@ -15,7 +15,6 @@ public class TeamBattleModifier
     public string teamPrefix;
     public string teamPossessive;
     public List<TeamDurationEffectInfo> teamEffects;
-    public StatLib.Type sportAgainst;
     public int spikesCount;
 
     public TeamBattleModifier(bool isTrainerBattle, bool isPlayerTeam){
@@ -64,9 +63,9 @@ public class AppliedEffectInfo{
 public class TimedEffectInfo{
     public GameObject timedEffect;
     public int timer;
-    public BattleTarget inflictor;
+    public Pokemon inflictor;
 
-    public TimedEffectInfo(GameObject timedEffect, int timer, BattleTarget inflictor){
+    public TimedEffectInfo(GameObject timedEffect, int timer, Pokemon inflictor){
         this.timedEffect = timedEffect;
         this.timer = timer;
         this.inflictor = inflictor;
@@ -83,36 +82,48 @@ public class IndividualBattleModifier
     public List<AppliedEffectInfo> inflictingEffects;
     public List<AppliedEffectInfo> appliedEffects;
     public List<TimedEffectInfo> timedEffects; //timed effects are not overwritten on switch
-    public List<GameObject> movesBlockedByImprison;
     public List<BattleTarget> targets;
-    public OnFaintEffect onFaintEffect; //destiny bond or grudge
     public int[] statStages;
     public float[] statMultipliers;
     public int physicalDamageTakenThisTurn;
     public int specialDamageTakenThisTurn;
     public int bideDamage;
+    public BattleTarget bideTarget;
     public StatLib.Type chargedType; //currently charge is the only move that affects this
     public Pokemon switchingIn;
     public bool recharging;
     public int stockpileCount;
     public SemiInvulnerable semiInvulnerable;
     public GameObject disabledMove;
-    public int consecutiveMoveCounter; //how many times a move has been used consecutively
-    public int forcedToUseUntilCounter; //the number of times the move must be used to allow selection of a new action (e.g. 2 or 3 at random for thrash)
+    public int consecutiveMoveCounter;
+    private int _forcedToUseUntilCounter;
+    public int ForcedToUseUntilCounter {
+        get{
+            return _forcedToUseUntilCounter;
+        }
+        set{
+            //if the forcedToUseCounter is reset, do not mess with the consecutive move counter
+            if(value != 0){
+                consecutiveMoveCounter = 0;
+            }
+            _forcedToUseUntilCounter = value;
+        }
+    }
     public int protectCounter;
     public GameObject mimicMove;
     public int mimicPP;
     public bool flinched;
+    public bool lastMoveWasUsed;
     public int toxicCounter; //resets when switching out
 
     public IndividualBattleModifier(){
         inflictingEffects = new List<AppliedEffectInfo>();
         appliedEffects = new List<AppliedEffectInfo>();
         timedEffects = new List<TimedEffectInfo>();
-        movesBlockedByImprison = new List<GameObject>();
         targets = new List<BattleTarget>();
         statStages = new int[8];
         statMultipliers = new float[5]{1,1,1,1,1};
+        lastMoveWasUsed = true;
     }
 
     //add overloaded constructor to account for passed effects via baton pass
@@ -120,7 +131,7 @@ public class IndividualBattleModifier
     public void CalculateStatMultipliers(){
         for(int i = 0; i < 5; i++)
         {
-            statMultipliers[i] = (float)(Mathf.Abs(statStages[i]) + 3f) / 3f;
+            statMultipliers[i] = ((float)Mathf.Abs(statStages[i]) + 3f) / 3f;
             if(statStages[i] < 0)
             {
                 statMultipliers[i] = 1f / statMultipliers[i];

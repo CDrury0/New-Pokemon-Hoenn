@@ -8,6 +8,7 @@ public class MoveFunctions : MonoBehaviour
     public CombatScreen combatScreen;
     public GameObject confuseAttack;
     public ApplyConfuse confuseAfterForcedToUse;
+    public MoveData confuseAfterForcedToUseData;
     private const float TYPE_WEAKNESS = 1.75f;
     private const float TYPE_RESIST = 0.58f;
 
@@ -105,6 +106,28 @@ public class MoveFunctions : MonoBehaviour
         return false;
     }
 
+    public bool LockedIntoAction(BattleTarget user){
+        if(user.turnAction == null){
+            return false;
+        }
+        if(!user.individualBattleModifier.lastMoveWasUsed){
+            user.individualBattleModifier.ForcedToUseUntilCounter = 0;
+            return false;
+        }
+        GameObject requiredNext = CombatSystem.MoveRecordList.FindRecordLastUsedBy(user.pokemon).moveUsed.GetComponent<MultiTurnEffect>()?.useNext;
+        if(requiredNext != null){
+            user.turnAction = requiredNext;
+            return true;
+        }
+        if(user.individualBattleModifier.consecutiveMoveCounter < user.individualBattleModifier.ForcedToUseUntilCounter){
+            return true;
+        }
+        if(user.individualBattleModifier.recharging){
+            return true;
+        }
+        return false;
+    }
+
     //account for quick claw later
     public List<BattleTarget> GetTurnOrder(List<BattleTarget> battleTargets){
         List<int> order = new List<int>(battleTargets.Count);
@@ -165,8 +188,18 @@ public class MoveFunctions : MonoBehaviour
         }
     }
 
+    public bool IsChargingTurn(GameObject move){
+        MultiTurnEffect multiTurn = move.GetComponent<MultiTurnEffect>();
+        return multiTurn != null && multiTurn.chargingTurn;
+    }
+
     public IEnumerator CheckMoveFailedToBeUsed(CombatSystem.WrappedBool moveFailed, BattleTarget user){
         moveFailed.failed = true;
+        if(user.individualBattleModifier.recharging){
+            user.individualBattleModifier.recharging = false;
+            yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " must recharge!"));
+            yield break;
+        }
         if(user.pokemon.primaryStatus == PrimaryStatus.Paralyzed && Random.Range(0f, 1f) < 0.2f){
             yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " is paralyzed! It can't move!"));
             yield break;
@@ -233,8 +266,13 @@ public class MoveFunctions : MonoBehaviour
     public IEnumerator CheckMoveFailedAgainstTarget(CombatSystem.WrappedBool moveFailed, GameObject turnAction, BattleTarget user, BattleTarget target){
         moveFailed.failed = true;
         MoveData moveData = turnAction.GetComponent<MoveData>();
+        
+        if(IsChargingTurn(turnAction)){
+            moveFailed.failed = false;
+            yield break;
+        }
 
-        if(!moveData.accuracyData.CheckMoveHit(moveData, user, target, CombatSystem.Weather)){
+        if(!moveData.accuracyData.CheckMoveHit(moveData, user, target)){
             yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + "'s attack missed"));
             if(moveData.accuracyData.hurtsIfMiss > 0f){
                 yield return StartCoroutine(ChangeTargetHealth(user, -(int)(user.pokemon.stats[0] * moveData.accuracyData.hurtsIfMiss)));
@@ -290,6 +328,9 @@ public class MoveFunctions : MonoBehaviour
 
     //TEST END OF TURN EFFECTS
     public IEnumerator EndOfTurnEffects(List<BattleTarget> battleTargets){
+        //bide damage addition
+        yield return StartCoroutine(HandleMultiTurn(battleTargets));
+
         //weather
         if(CombatSystem.Weather != Weather.None){
             yield return StartCoroutine(HandleWeather(battleTargets));
@@ -335,6 +376,7 @@ public class MoveFunctions : MonoBehaviour
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyMagicCoat>(battleTargets));
         yield return StartCoroutine(DoAppliedEffectOfType<ApplySnatch>(battleTargets));
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyInfatuate>(battleTargets));
+        yield return StartCoroutine(DoAppliedEffectOfType<ApplyHelpingHand>(battleTargets));
 
         //multi-turn move resolution
 
@@ -348,6 +390,24 @@ public class MoveFunctions : MonoBehaviour
                 if(a != null){
                     IApplyEffect effect = (IApplyEffect)a.effect;
                     yield return StartCoroutine(effect.DoAppliedEffect(battleTargets[i], a));
+                }
+            }
+        }
+    }
+
+    private IEnumerator HandleMultiTurn(List<BattleTarget> battleTargets){
+        foreach(BattleTarget b in battleTargets){
+            MultiTurnEffect multiTurn = b.turnAction.GetComponent<MultiTurnEffect>();
+            if(multiTurn != null){
+                if(multiTurn.bideCharge){
+                    b.individualBattleModifier.bideDamage += b.individualBattleModifier.physicalDamageTakenThisTurn;
+                    b.individualBattleModifier.bideDamage += b.individualBattleModifier.specialDamageTakenThisTurn;
+                }
+                if(multiTurn.confuseOnEnd){
+                    yield return StartCoroutine(confuseAfterForcedToUse.DoEffect(b, b, confuseAfterForcedToUseData));
+                }
+                if(multiTurn.useNext == null){
+                    b.individualBattleModifier.semiInvulnerable = SemiInvulnerable.None;
                 }
             }
         }

@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class Trainer : MonoBehaviour
 {
-    public SerializablePokemon[] trainerPartyTemplate = new SerializablePokemon[6];
     public EnemyAI enemyAI;
+    public SerializablePokemon[] trainerPartyTemplate = new SerializablePokemon[6];
 }
