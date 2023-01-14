@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: 5413037975419954875}
+  - component: {fileID: -7036793754794901081}
+  - component: {fileID: 8276152000041546498}
   m_Layer: 0
   m_Name: Dig 2
   m_TagString: Move
@@ -48,10 +50,10 @@ MonoBehaviour:
   moveDescription: Digs underground the first turn, then deals damage the second.
   moveType: 9
   typeFromWeather: 0
-  displayPower: 0
+  displayPower: 80
   category: 0
-  targetType: 0
-  maxPP: 0
+  targetType: 1
+  maxPP: 10
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -61,20 +63,64 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
     hurtsIfMiss: 0
+--- !u!114 &-7036793754794901081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0fe572876d9bf845a5a51020879db9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  skipChargingTurn: 0
+  useNext: {fileID: 0}
+  baseMove: {fileID: 1682630347, guid: f1d7b819419b67e4b98c9e0970cd991b, type: 3}
+  givesSemiInvulnerable: 0
+  forcedToUseMax: 0
+  alwaysUseMaxTurns: 0
+  confuseOnEnd: 0
+  bideCharge: 0
+  mustRecharge: 0
+  chargingTurn: 0
+--- !u!114 &8276152000041546498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4718a26df09fa1479726839ba709dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  makesContact: 1
+  hitsMaxTimes: 0
+  recoilDamage: 0
+  absorbHealth: 0
+  spitUp: 0
+  facade: 0
+  revenge: 0
+  furyCutter: 0
+  highCritRate: 0
+  bonusFromCurl: 0
+  bonusLikeRollout: 0
+  cannotKO: 0
+  bonusAgainstMinimize: 0
+  bonusAgainstSemiInvulnerable: 0
+  bonusAgainstStatus: 0
+  curesBonusStatus: 0
+  payback: 0

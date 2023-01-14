@@ -25,4 +25,8 @@ public class ApplyProtect : ApplyIndividualEffect, IApplyEffect
         }
         return false;
     }
+
+    void Awake(){
+        message = "&userName protected itself!";
+    }
 }

@@ -49,7 +49,7 @@ public class NormalDamage : EffectDamage
             power *= 2;
         }
         if(furyCutter){
-            power *= 1 + user.individualBattleModifier.consecutiveMoveCounter <= 3 ? user.individualBattleModifier.consecutiveMoveCounter : 3;
+            power *= (1 + user.individualBattleModifier.consecutiveMoveCounter) <= 3 ? user.individualBattleModifier.consecutiveMoveCounter : 3;
         }
         if(bonusLikeRollout){
             power *= 1 + user.individualBattleModifier.consecutiveMoveCounter;

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: -4277044568567037593}
+  - component: {fileID: 3175258687527453831}
   m_Layer: 0
   m_Name: Razor Wind 1
   m_TagString: Move
@@ -62,20 +63,33 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: '&userName whipped up a whirlwind!'
-    skipChargingTurn: 0
-    useNext: {fileID: 1682630347, guid: 879105aaf6f14de41aa355eea11784f2, type: 3}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
   accuracyData:
     accuracy: 0.9
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
     hurtsIfMiss: 0
+--- !u!114 &3175258687527453831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0fe572876d9bf845a5a51020879db9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: '&userName whipped up a whirlwind!'
+  skipChargingTurn: 0
+  useNext: {fileID: 1682630347, guid: 879105aaf6f14de41aa355eea11784f2, type: 3}
+  baseMove: {fileID: 0}
+  givesSemiInvulnerable: 0
+  forcedToUseMax: 0
+  alwaysUseMaxTurns: 0
+  confuseOnEnd: 0
+  bideCharge: 0
+  mustRecharge: 0
+  chargingTurn: 1

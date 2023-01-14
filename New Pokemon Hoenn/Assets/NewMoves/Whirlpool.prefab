@@ -64,21 +64,10 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
   accuracyData:
     accuracy: 0.85
     cannotMissVulnerable: 0
-    hitsSemiInvulnerable: 0
+    hitsSemiInvulnerable: 3
     bypassOnWeather: 0
     hurtsIfMiss: 0
 --- !u!114 &3370345104982350889
@@ -108,7 +97,7 @@ MonoBehaviour:
   bonusLikeRollout: 0
   cannotKO: 0
   bonusAgainstMinimize: 0
-  bonusAgainstSemiInvulnerable: 0
+  bonusAgainstSemiInvulnerable: 3
   bonusAgainstStatus: 0
   curesBonusStatus: 0
   payback: 0

@@ -21,7 +21,7 @@ public abstract class EffectDamage : MoveEffect, ICheckMoveFail
 
     //rough skin, effect spore, etc.
     private IEnumerator DoHitEffects(BattleTarget user, BattleTarget target, MoveData moveData){
-        target.individualBattleModifier.bideTarget = user;
+        target.individualBattleModifier.lastOneToDealDamage = user;
         yield break;
     }
 

@@ -18,4 +18,8 @@ public class ApplyInfatuate : ApplyIndividualEffect, IApplyEffect
         //oblivious?
         return false;
     }
+
+    void Awake(){
+        message = "&targetName fell in love with &userName";
+    }
 }

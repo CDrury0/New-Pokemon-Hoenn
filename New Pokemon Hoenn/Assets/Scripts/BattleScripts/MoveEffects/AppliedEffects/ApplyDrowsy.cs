@@ -22,4 +22,8 @@ public class ApplyDrowsy : ApplyIndividualEffect, IApplyEffect
             effectInfo.timer--;
         }
     }
+
+    void Awake(){
+        message = "&targetName became drowsy!";
+    }
 }

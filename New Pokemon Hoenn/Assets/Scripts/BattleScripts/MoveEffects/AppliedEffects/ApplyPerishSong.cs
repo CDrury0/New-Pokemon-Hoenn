@@ -13,4 +13,8 @@ public class ApplyPerishSong : ApplyIndividualEffect, IApplyEffect
         yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " will faint in " + effectInfo.timer + " turn(s)!"));
         effectInfo.timer--;
     }
+
+    void Awake(){
+        message = "Everyone hearing the song will faint in 3 turns!";
+    }
 }

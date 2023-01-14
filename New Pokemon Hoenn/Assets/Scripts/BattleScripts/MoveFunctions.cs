@@ -107,22 +107,12 @@ public class MoveFunctions : MonoBehaviour
     }
 
     public bool LockedIntoAction(BattleTarget user){
-        if(user.turnAction == null){
-            return false;
-        }
-        if(!user.individualBattleModifier.lastMoveWasUsed){
-            user.individualBattleModifier.ForcedToUseUntilCounter = 0;
-            return false;
-        }
-        GameObject requiredNext = CombatSystem.MoveRecordList.FindRecordLastUsedBy(user.pokemon).moveUsed.GetComponent<MultiTurnEffect>()?.useNext;
-        if(requiredNext != null){
-            user.turnAction = requiredNext;
-            return true;
-        }
-        if(user.individualBattleModifier.consecutiveMoveCounter < user.individualBattleModifier.ForcedToUseUntilCounter){
-            return true;
-        }
-        if(user.individualBattleModifier.recharging){
+        MultiTurnInfo multiTurnInfo = user.individualBattleModifier.multiTurnInfo;
+        if(multiTurnInfo != null){
+            if(multiTurnInfo.multiTurn.useNext != null){
+                user.turnAction = multiTurnInfo.multiTurn.useNext;
+                Debug.Log(user.turnAction);
+            }
             return true;
         }
         return false;
@@ -195,8 +185,8 @@ public class MoveFunctions : MonoBehaviour
 
     public IEnumerator CheckMoveFailedToBeUsed(CombatSystem.WrappedBool moveFailed, BattleTarget user){
         moveFailed.failed = true;
-        if(user.individualBattleModifier.recharging){
-            user.individualBattleModifier.recharging = false;
+        if(user.individualBattleModifier.multiTurnInfo != null && user.individualBattleModifier.multiTurnInfo.recharging){
+            user.individualBattleModifier.multiTurnInfo = null;
             yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " must recharge!"));
             yield break;
         }
@@ -237,7 +227,6 @@ public class MoveFunctions : MonoBehaviour
         }
         if(user.individualBattleModifier.flinched){
             yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " flinched!"));
-            user.individualBattleModifier.flinched = false;
             yield break;
         }
         AppliedEffectInfo confuseEffect = user.individualBattleModifier.appliedEffects.FirstOrDefault(e => e.effect is ApplyConfuse);
@@ -328,7 +317,7 @@ public class MoveFunctions : MonoBehaviour
 
     //TEST END OF TURN EFFECTS
     public IEnumerator EndOfTurnEffects(List<BattleTarget> battleTargets){
-        //bide damage addition
+        //multi-turn resolution
         yield return StartCoroutine(HandleMultiTurn(battleTargets));
 
         //weather
@@ -378,9 +367,13 @@ public class MoveFunctions : MonoBehaviour
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyInfatuate>(battleTargets));
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyHelpingHand>(battleTargets));
 
-        //multi-turn move resolution
-
         //abilities that boost (speed boost)
+    }
+
+    private void ClearFlinch(List<BattleTarget> battleTargets){
+        foreach(BattleTarget b in battleTargets){
+            b.individualBattleModifier.flinched = false;
+        }
     }
 
     private IEnumerator DoAppliedEffectOfType <T> (List<BattleTarget> battleTargets) where T : IApplyEffect{
@@ -397,18 +390,8 @@ public class MoveFunctions : MonoBehaviour
 
     private IEnumerator HandleMultiTurn(List<BattleTarget> battleTargets){
         foreach(BattleTarget b in battleTargets){
-            MultiTurnEffect multiTurn = b.turnAction.GetComponent<MultiTurnEffect>();
-            if(multiTurn != null){
-                if(multiTurn.bideCharge){
-                    b.individualBattleModifier.bideDamage += b.individualBattleModifier.physicalDamageTakenThisTurn;
-                    b.individualBattleModifier.bideDamage += b.individualBattleModifier.specialDamageTakenThisTurn;
-                }
-                if(multiTurn.confuseOnEnd){
-                    yield return StartCoroutine(confuseAfterForcedToUse.DoEffect(b, b, confuseAfterForcedToUseData));
-                }
-                if(multiTurn.useNext == null){
-                    b.individualBattleModifier.semiInvulnerable = SemiInvulnerable.None;
-                }
+            if(b.individualBattleModifier.multiTurnInfo != null){
+                yield return StartCoroutine(b.individualBattleModifier.multiTurnInfo.multiTurn.DoAppliedEffect(b, null));
             }
         }
     }

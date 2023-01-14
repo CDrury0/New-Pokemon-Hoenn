@@ -72,6 +72,19 @@ public class TimedEffectInfo{
     }
 }
 
+public class MultiTurnInfo{
+    public MultiTurnEffect multiTurn;
+    public GameObject useNext;
+    public int forcedToUseUntilCounter;
+    public bool recharging;
+
+    public MultiTurnInfo(MultiTurnEffect multiTurn, int forcedToUseUntilCounter, bool recharging){
+        this.multiTurn = multiTurn;
+        this.forcedToUseUntilCounter = forcedToUseUntilCounter;
+        this.recharging = recharging;
+    }
+}
+
 //holds data relevant to a single pokemon that is reset on tag-in
 public class IndividualBattleModifier
 {
@@ -82,38 +95,24 @@ public class IndividualBattleModifier
     public List<AppliedEffectInfo> inflictingEffects;
     public List<AppliedEffectInfo> appliedEffects;
     public List<TimedEffectInfo> timedEffects; //timed effects are not overwritten on switch
+    public MultiTurnInfo multiTurnInfo;
     public List<BattleTarget> targets;
     public int[] statStages;
     public float[] statMultipliers;
     public int physicalDamageTakenThisTurn;
     public int specialDamageTakenThisTurn;
     public int bideDamage;
-    public BattleTarget bideTarget;
+    public BattleTarget lastOneToDealDamage;
     public StatLib.Type chargedType; //currently charge is the only move that affects this
     public Pokemon switchingIn;
-    public bool recharging;
     public int stockpileCount;
     public SemiInvulnerable semiInvulnerable;
     public GameObject disabledMove;
     public int consecutiveMoveCounter;
-    private int _forcedToUseUntilCounter;
-    public int ForcedToUseUntilCounter {
-        get{
-            return _forcedToUseUntilCounter;
-        }
-        set{
-            //if the forcedToUseCounter is reset, do not mess with the consecutive move counter
-            if(value != 0){
-                consecutiveMoveCounter = 0;
-            }
-            _forcedToUseUntilCounter = value;
-        }
-    }
     public int protectCounter;
     public GameObject mimicMove;
     public int mimicPP;
     public bool flinched;
-    public bool lastMoveWasUsed;
     public int toxicCounter; //resets when switching out
 
     public IndividualBattleModifier(){
@@ -123,7 +122,6 @@ public class IndividualBattleModifier
         targets = new List<BattleTarget>();
         statStages = new int[8];
         statMultipliers = new float[5]{1,1,1,1,1};
-        lastMoveWasUsed = true;
     }
 
     //add overloaded constructor to account for passed effects via baton pass

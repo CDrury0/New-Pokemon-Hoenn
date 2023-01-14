@@ -10,4 +10,8 @@ public class ApplyIngrain : ApplyIndividualEffect, IApplyEffect
         yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(target, ingrainHeal));
         yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " healed with its roots!"));
     }
+
+    void Awake(){
+        message = "&userName planted its roots!";
+    }
 }

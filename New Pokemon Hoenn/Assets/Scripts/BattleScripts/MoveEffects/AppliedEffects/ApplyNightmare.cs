@@ -17,4 +17,8 @@ public class ApplyNightmare : ApplyIndividualEffect, IApplyEffect
     {
         return target.pokemon.primaryStatus != PrimaryStatus.Asleep;
     }
+
+    void Awake(){
+        message = "&targetName's nightmare begins!";
+    }
 }

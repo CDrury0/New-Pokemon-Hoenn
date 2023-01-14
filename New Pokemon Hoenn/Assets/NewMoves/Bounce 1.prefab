@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: -7787880839216837945}
+  - component: {fileID: -8531875808863047322}
   m_Layer: 0
   m_Name: Bounce 1
   m_TagString: Move
@@ -62,20 +63,33 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: '&userName bounced up high!'
-    skipChargingTurn: 0
-    useNext: {fileID: 1682630347, guid: c115c74550fb4e348b4640cf0ee78479, type: 3}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
   accuracyData:
     accuracy: 0.85
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
     hurtsIfMiss: 0
+--- !u!114 &-8531875808863047322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0fe572876d9bf845a5a51020879db9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: '&userName bounced up high!'
+  skipChargingTurn: 0
+  useNext: {fileID: 1682630347, guid: c115c74550fb4e348b4640cf0ee78479, type: 3}
+  baseMove: {fileID: 0}
+  givesSemiInvulnerable: 1
+  forcedToUseMax: 0
+  alwaysUseMaxTurns: 0
+  confuseOnEnd: 0
+  bideCharge: 0
+  mustRecharge: 0
+  chargingTurn: 1

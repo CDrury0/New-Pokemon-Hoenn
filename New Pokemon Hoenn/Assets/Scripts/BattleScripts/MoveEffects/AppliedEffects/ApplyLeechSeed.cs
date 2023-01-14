@@ -21,4 +21,8 @@ public class ApplyLeechSeed : ApplyIndividualEffect, IApplyEffect
     {
         return target.pokemon.IsThisType(StatLib.Type.Grass);
     }
+
+    void Awake(){
+        message = "&targetName was seeded!";
+    }
 }

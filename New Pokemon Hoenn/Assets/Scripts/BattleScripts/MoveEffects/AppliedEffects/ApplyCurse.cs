@@ -19,4 +19,8 @@ public class ApplyCurse : ApplyIndividualEffect, IApplyEffect
         }
         return base.CheckMoveEffectFail(user, target, moveData);
     }
+
+    void Awake(){
+        message = "&userName cut its HP and laid a curse on &targetName!";
+    }
 }

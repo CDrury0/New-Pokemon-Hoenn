@@ -7,6 +7,7 @@ public class ApplyDisable : ApplyIndividualEffect, ICheckMoveSelectable, IApplyE
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         target.individualBattleModifier.disabledMove = MoveData.GetBaseMove(CombatSystem.MoveRecordList.FindRecordLastUsedBy(target.pokemon).moveUsed);
+        message = target.GetName() + " " + target.individualBattleModifier.disabledMove.GetComponent<MoveData>().moveName + " was disabled!";
         yield return StartCoroutine(base.DoEffect(user, target, moveData));
     }
 

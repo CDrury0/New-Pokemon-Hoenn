@@ -9,4 +9,8 @@ public class ApplyHelpingHand : ApplyIndividualEffect, IApplyEffect
         RemoveEffect(target, effectInfo);
         yield break;
     }
+
+    void Awake(){
+        message = "&userName is ready to help &targetName!";
+    }
 }

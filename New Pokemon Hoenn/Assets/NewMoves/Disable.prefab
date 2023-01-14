@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Disable
   moveDescription: Prevents the target from using its most recently selected move
-    for 2 to 5 turns.
+    for 4 turns.
   moveType: 1
   typeFromWeather: 0
   displayPower: 0
@@ -63,19 +63,8 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
   accuracyData:
-    accuracy: 0.75
+    accuracy: 1
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
@@ -95,5 +84,5 @@ MonoBehaviour:
   applyToSelf: 0
   message: 
   chance: 1
-  timerMin: 2
-  timerMax: 5
+  timerMin: 4
+  timerMax: 4

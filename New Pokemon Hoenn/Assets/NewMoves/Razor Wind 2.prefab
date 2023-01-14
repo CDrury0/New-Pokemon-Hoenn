@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: 428217527974326828}
+  - component: {fileID: -837308584591634122}
   - component: {fileID: 722586581170970429}
   m_Layer: 0
   m_Name: Razor Wind 2
@@ -63,23 +64,36 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 1682630347, guid: 316bfc75aeeedcf4dbdd0f54f1796d4d, type: 3}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
   accuracyData:
     accuracy: 0.9
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
     hurtsIfMiss: 0
+--- !u!114 &-837308584591634122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0fe572876d9bf845a5a51020879db9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  skipChargingTurn: 0
+  useNext: {fileID: 0}
+  baseMove: {fileID: 1682630347, guid: 316bfc75aeeedcf4dbdd0f54f1796d4d, type: 3}
+  givesSemiInvulnerable: 0
+  forcedToUseMax: 0
+  alwaysUseMaxTurns: 0
+  confuseOnEnd: 0
+  bideCharge: 0
+  mustRecharge: 0
+  chargingTurn: 0
 --- !u!114 &722586581170970429
 MonoBehaviour:
   m_ObjectHideFlags: 0

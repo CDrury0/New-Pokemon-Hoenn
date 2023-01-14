@@ -24,4 +24,8 @@ public class ApplyTaunt : ApplyIndividualEffect, ICheckMoveSelectable, IApplyEff
         }
         return unusableMoves;
     }
+
+    void Awake(){
+        message = "&targetName fell for the taunt!";
+    }
 }

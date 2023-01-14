@@ -8,4 +8,8 @@ public class ApplyTorment : ApplyIndividualEffect, ICheckMoveSelectable
     {
         return new List<GameObject>() {MoveData.GetBaseMove(CombatSystem.MoveRecordList.FindRecordLastUsedBy(target.pokemon)?.moveUsed)};
     }
+
+    void Awake(){
+        message = "&targetName was subjected to torment!";
+    }
 }

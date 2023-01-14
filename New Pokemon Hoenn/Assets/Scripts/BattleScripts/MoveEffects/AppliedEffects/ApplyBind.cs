@@ -20,7 +20,10 @@ public class ApplyBind : ApplyIndividualEffect, IApplyEffect
 
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        message = "&targetName is trapped by &userName's &moveName!";
         yield return StartCoroutine(base.DoEffect(user, target, moveData));
+    }
+
+    void Awake(){
+        message = "&targetName is trapped by &userName's &moveName!";
     }
 }

@@ -1,4 +1,6 @@
 public class ApplyLockOn : ApplyIndividualEffect
 {
-    //bruh
+    void Awake(){
+        message = "&targetName was targeted!";
+    }
 }

@@ -113,7 +113,7 @@ public class CombatSystem : MonoBehaviour
                 //get enemyAI selection
                 List<GameObject> possibleMoves = new List<GameObject>(ActiveTarget.pokemon.moves);
                 possibleMoves.RemoveAll(move => move == null);
-                ActiveTarget.turnAction = ActiveTarget.pokemon.moves[UnityEngine.Random.Range(0, ActiveTarget.pokemon.moves.Count)];
+                ActiveTarget.turnAction = possibleMoves[UnityEngine.Random.Range(0, possibleMoves.Count)];
                 if(moveFunctions.MustChooseTarget(ActiveTarget.turnAction.GetComponent<MoveData>().targetType, ActiveTarget, BattleTargets, DoubleBattle)){
                     ActiveTarget.individualBattleModifier.targets = new List<BattleTarget>(){player1};
                 }
@@ -165,8 +165,8 @@ public class CombatSystem : MonoBehaviour
     }
 
     public void VerifyMoveTarget(BattleTarget user, GameObject move){
-        if(move.GetComponent<CounterDamage>() != null){
-            user.individualBattleModifier.targets = new List<BattleTarget>(){user.individualBattleModifier.bideTarget};
+        if(move.GetComponent<CounterDamage>() != null || (move.GetComponent<DirectDamage>() != null && move.GetComponent<DirectDamage>().bideRelease)){
+            user.individualBattleModifier.targets = new List<BattleTarget>(){user.individualBattleModifier.lastOneToDealDamage};
         }
 
         //correct targeting fainted pokemon in double battles
@@ -179,14 +179,13 @@ public class CombatSystem : MonoBehaviour
             WrappedBool moveFailed = new WrappedBool();
             yield return StartCoroutine(moveFunctions.CheckMoveFailedToBeUsed(moveFailed, user));
             if(moveFailed.failed){
-                user.individualBattleModifier.lastMoveWasUsed = false;
+                user.individualBattleModifier.multiTurnInfo = null;
                 yield break;
             }
         }
 
         VerifyMoveTarget(user, move);
 
-        user.individualBattleModifier.lastMoveWasUsed = true;
         MoveData moveData = move.GetComponent<MoveData>();
         if(doDeductPP){
             moveFunctions.DeductPP(user);
@@ -213,7 +212,9 @@ public class CombatSystem : MonoBehaviour
                 }
             }
 
-            MoveRecordList.AddRecord(user.pokemon, user.individualBattleModifier.targets[j].pokemon, user.turnAction);
+            if(user.individualBattleModifier.targets[j] != null){
+                MoveRecordList.AddRecord(user.pokemon, user.individualBattleModifier.targets[j].pokemon, user.turnAction);
+            }
 
             if(moveFunctions.IsChargingTurn(move)){
                 break;
@@ -236,14 +237,11 @@ public class CombatSystem : MonoBehaviour
             }
 
             if(action.CompareTag("Move")){
-                //curse needs a special exception
-                if(action.GetComponent<ApplyCurse>() != null && user.pokemon.IsThisType(StatLib.Type.Ghost)){
-                    moveFunctions.MustChooseTarget(TargetType.RandomFoe, user, BattleTargets, DoubleBattle);
-                }
+                PreMoveEffects(user, user.turnAction);
 
                 yield return StartCoroutine(UseMove(user, action, false, true));
                 
-                //effects after move usage?
+                PostMoveEffects(user, user.turnAction);
             }
             //else if switch, item, etc.
             //do moveFunctions.AppliedEffectOfType<ApplyOnFaintEffect>() when handling fainting
@@ -252,6 +250,26 @@ public class CombatSystem : MonoBehaviour
         yield return StartCoroutine(moveFunctions.EndOfTurnEffects(orderedUsers));
 
         StartCoroutine(GetTurnActions());
+    }
+
+    private void PreMoveEffects(BattleTarget user, GameObject moveUsed){
+        if(moveUsed.GetComponent<ApplyCurse>() != null && user.pokemon.IsThisType(StatLib.Type.Ghost)){
+            moveFunctions.MustChooseTarget(TargetType.RandomFoe, user, BattleTargets, DoubleBattle);
+        }
+
+        GameObject usedLastTurn = MoveRecordList.FindRecordLastUsedBy(user.pokemon)?.moveUsed;
+        if(usedLastTurn != null && usedLastTurn != user.turnAction){
+            user.individualBattleModifier.consecutiveMoveCounter = 0;
+        }
+        else{
+            user.individualBattleModifier.consecutiveMoveCounter++;
+        }
+    }
+
+    private void PostMoveEffects(BattleTarget user, GameObject moveUsed){
+        if(moveUsed.GetComponent<MultiTurnEffect>() != null && moveUsed.GetComponent<MultiTurnEffect>().givesSemiInvulnerable == SemiInvulnerable.None){
+            user.individualBattleModifier.semiInvulnerable = SemiInvulnerable.None;
+        }
     }
 
     private void EndBattle(){

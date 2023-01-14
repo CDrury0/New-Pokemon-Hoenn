@@ -23,4 +23,8 @@ public class ApplyOnFaintEffect : ApplyIndividualEffect, IApplyEffect
             }
         }
     }
+
+    void Awake(){
+        message = onFaintEffect == OnFaintEffect.DestinyBond ? "&userName is commanding its destiny!" : "&userName caused &targetName to bear a grudge!";
+    }
 }

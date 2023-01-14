@@ -11,4 +11,8 @@ public class ApplyTrap : ApplyIndividualEffect, IApplyEffect
             yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " is no longer trapped!"));
         }
     }
+
+    void Awake(){
+        message = "&targetName can no longer escape!";
+    }
 }

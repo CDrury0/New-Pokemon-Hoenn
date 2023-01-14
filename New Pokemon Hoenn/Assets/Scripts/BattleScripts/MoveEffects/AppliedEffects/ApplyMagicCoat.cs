@@ -7,4 +7,8 @@ public class ApplyMagicCoat : ApplyIndividualEffect, IApplyEffect
         effectInfo.effect.RemoveEffect(target, effectInfo);
         yield break;
     }
+
+    void Awake(){
+        message = "&userName shrouded itself with &moveName";
+    }
 }

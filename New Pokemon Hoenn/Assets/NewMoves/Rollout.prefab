@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: 7231867751368446550}
+  - component: {fileID: -4346168582827199721}
+  - component: {fileID: 5558612510714887180}
   m_Layer: 0
   m_Name: Rollout
   m_TagString: Move
@@ -62,20 +64,64 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
   accuracyData:
     accuracy: 0.9
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: 0
     hurtsIfMiss: 0
+--- !u!114 &-4346168582827199721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0fe572876d9bf845a5a51020879db9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  skipChargingTurn: 0
+  useNext: {fileID: 0}
+  baseMove: {fileID: 0}
+  givesSemiInvulnerable: 0
+  forcedToUseMax: 5
+  alwaysUseMaxTurns: 1
+  confuseOnEnd: 0
+  bideCharge: 0
+  mustRecharge: 0
+  chargingTurn: 0
+--- !u!114 &5558612510714887180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4718a26df09fa1479726839ba709dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  makesContact: 1
+  hitsMaxTimes: 0
+  recoilDamage: 0
+  absorbHealth: 0
+  spitUp: 0
+  facade: 0
+  revenge: 0
+  furyCutter: 0
+  highCritRate: 0
+  bonusFromCurl: 1
+  bonusLikeRollout: 1
+  cannotKO: 0
+  bonusAgainstMinimize: 0
+  bonusAgainstSemiInvulnerable: 0
+  bonusAgainstStatus: 0
+  curesBonusStatus: 0
+  payback: 0

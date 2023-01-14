@@ -25,4 +25,8 @@ public class ApplyEndure : ApplyIndividualEffect, IApplyEffect
         }
         return false;
     }
+
+    void Awake(){
+        message = "&userName braced itself!";
+    }
 }

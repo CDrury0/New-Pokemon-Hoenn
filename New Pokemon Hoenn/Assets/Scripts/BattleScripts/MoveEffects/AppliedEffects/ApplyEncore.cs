@@ -28,4 +28,8 @@ public class ApplyEncore : ApplyIndividualEffect, ICheckMoveSelectable, IApplyEf
         unusableMoves.Remove(MoveData.GetBaseMove(CombatSystem.MoveRecordList.FindRecordLastUsedBy(target.pokemon).moveUsed));
         return unusableMoves;
     }
+
+    void Awake(){
+        message = "&targetName got an encore!";
+    }
 }

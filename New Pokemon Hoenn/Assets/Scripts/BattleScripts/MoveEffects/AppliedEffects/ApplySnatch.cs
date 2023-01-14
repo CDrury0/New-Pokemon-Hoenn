@@ -7,4 +7,8 @@ public class ApplySnatch : ApplyIndividualEffect, IApplyEffect
         effectInfo.effect.RemoveEffect(target, effectInfo);
         yield break;
     }
+
+    void Awake(){
+        message = "&userName is ready to snatch a move!";
+    }
 }
