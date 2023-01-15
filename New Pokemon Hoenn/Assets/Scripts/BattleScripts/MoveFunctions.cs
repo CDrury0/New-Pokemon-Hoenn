@@ -111,7 +111,6 @@ public class MoveFunctions : MonoBehaviour
         if(multiTurnInfo != null){
             if(multiTurnInfo.multiTurn.useNext != null){
                 user.turnAction = multiTurnInfo.multiTurn.useNext;
-                Debug.Log(user.turnAction);
             }
             return true;
         }

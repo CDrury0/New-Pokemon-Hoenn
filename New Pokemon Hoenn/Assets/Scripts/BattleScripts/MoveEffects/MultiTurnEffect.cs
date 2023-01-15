@@ -35,7 +35,7 @@ public class MultiTurnEffect : MoveEffect, IApplyEffect
                 target.individualBattleModifier.multiTurnInfo = null;
             }
         }
-        else if(target.individualBattleModifier.multiTurnInfo.useNext == null){
+        else if(useNext == null){
             target.individualBattleModifier.multiTurnInfo = null;
         }
     }

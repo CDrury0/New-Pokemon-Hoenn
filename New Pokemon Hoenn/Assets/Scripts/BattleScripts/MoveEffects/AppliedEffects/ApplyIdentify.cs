@@ -1,4 +1,6 @@
 public class ApplyIdentify : ApplyIndividualEffect
 {
-    //bruh
+    void Awake(){
+        message = "&userName identified &targetName!";
+    }
 }

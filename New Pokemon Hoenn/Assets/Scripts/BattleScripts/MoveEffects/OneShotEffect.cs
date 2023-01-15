@@ -7,8 +7,9 @@ public class OneShotEffect : EffectDamage
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         yield return StartCoroutine(ApplyDamage(moveData, user, target, target.pokemon.stats[0]));
-        //don't say this if enemy survived due to sturdy or endure?
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage("It's a one-hit KO!"));
+        if(target.pokemon.CurrentHealth == 0){
+            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage("It's a one-hit KO!"));
+        }
     }
 
     public override string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)

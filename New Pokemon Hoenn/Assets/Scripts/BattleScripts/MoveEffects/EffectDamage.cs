@@ -9,7 +9,15 @@ public abstract class EffectDamage : MoveEffect, ICheckMoveFail
 
     //account for sturdy, endure here
     protected IEnumerator ApplyDamage(MoveData moveData, BattleTarget user, BattleTarget target, int damage){
+        bool endured = false;
+        if(target.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyEndure) != null && damage == target.pokemon.CurrentHealth){
+            endured = true;
+            damage--;
+        }
         yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(target, -damage));
+        if(endured){
+            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " endured the hit!"));
+        }
         if(moveData.category == MoveData.Category.Physical){
             target.individualBattleModifier.physicalDamageTakenThisTurn += damage;
         }

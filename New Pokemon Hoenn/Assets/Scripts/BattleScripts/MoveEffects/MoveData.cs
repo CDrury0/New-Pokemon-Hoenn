@@ -23,6 +23,7 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
     public bool worksWhileAsleep;
     public bool cannotBeSnatched;
     public bool notReflectedByMagicCoat;
+    public bool ignoresProtect;
     public MoveVisualData visualData;
     public MoveAccuracyData accuracyData;
     public const string FAIL = "But it failed!";
@@ -51,6 +52,9 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
         if(worksWhileAsleep && user.pokemon.primaryStatus != PrimaryStatus.Asleep){
             return FAIL;
         }
+        if(FailAgainstProtect(user, target)){
+            return target.GetName() + " protected itself!";
+        }
         //fail if sound based move is used on soundproof target
         return null;
     }
@@ -58,6 +62,16 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
     public static GameObject GetBaseMove(GameObject move){
         MultiTurnEffect multiTurn = move.GetComponent<MultiTurnEffect>();
         return multiTurn != null ? multiTurn.baseMove != null ? multiTurn.baseMove : move : move;
+    }
+
+    private bool FailAgainstProtect(BattleTarget user, BattleTarget target){
+        if(ignoresProtect){
+            return false;
+        }
+        if(targetType == TargetType.Ally || target == user){
+            return false;
+        }
+        return target.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyProtect) != null;
     }
 }
 
