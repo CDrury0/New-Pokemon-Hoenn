@@ -61,19 +61,9 @@ MonoBehaviour:
   onlyUsableFirstTurn: 0
   worksOnAsleep: 0
   worksWhileAsleep: 0
-  cannotBeSnatched: 0
+  cannotBeSnatched: 1
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
+  ignoresProtect: 0
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 0

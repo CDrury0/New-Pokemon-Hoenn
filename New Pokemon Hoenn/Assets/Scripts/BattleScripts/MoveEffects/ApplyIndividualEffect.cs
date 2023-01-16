@@ -13,7 +13,7 @@ public abstract class ApplyIndividualEffect : MoveEffect, ICheckMoveEffectFail
     }
 
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData){
-        if(Random.Range(0f, 1f) <= chance && target.individualBattleModifier.appliedEffects.Find(e => e.effect.GetType() == this.GetType()) == null && !ImmuneToEffect(user, target, moveData)){
+        if(Random.Range(0f, 1f) <= chance){
             AppliedEffectInfo effectInfo = new AppliedEffectInfo(this, Random.Range(timerMin, timerMax + 1), user);
             target.individualBattleModifier.appliedEffects.Add(effectInfo);
             user.individualBattleModifier.inflictingEffects.Add(effectInfo);

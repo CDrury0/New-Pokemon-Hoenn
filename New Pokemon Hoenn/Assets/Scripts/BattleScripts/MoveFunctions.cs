@@ -64,12 +64,13 @@ public class MoveFunctions : MonoBehaviour
         }
     }
     
-    public bool MustChooseTarget(TargetType targetType, BattleTarget user, List<BattleTarget> battleTargets, bool doubleBattle){
+    public bool MustChooseTarget(TargetType targetType, BattleTarget user){
+        List<BattleTarget> battleTargets = new List<BattleTarget>(CombatLib.Instance.combatSystem.BattleTargets);
         if(targetType == TargetType.Self){
             user.individualBattleModifier.targets = new List<BattleTarget>(){user};
             return false;
         }
-        if(!doubleBattle){
+        if(!CombatLib.Instance.combatSystem.DoubleBattle){
             if(targetType == TargetType.Ally){
                 user.individualBattleModifier.targets = new List<BattleTarget>(){null};
             }

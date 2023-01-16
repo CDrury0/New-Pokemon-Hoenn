@@ -17,6 +17,7 @@ public class CombatSystem : MonoBehaviour
     public static MoveRecordList MoveRecordList {get; private set;}
     public CombatScreen combatScreen;
     public MoveFunctions moveFunctions;
+    public GameObject struggle;
     public bool DoubleBattle {get; private set;}
     private Party playerParty;
     private Party enemyParty;
@@ -109,14 +110,9 @@ public class CombatSystem : MonoBehaviour
 
         foreach(BattleTarget b in BattleTargets){
             ActiveTarget = b;
-            if(!b.teamBattleModifier.isPlayerTeam){
-                //get enemyAI selection
-                List<GameObject> possibleMoves = new List<GameObject>(ActiveTarget.pokemon.moves);
-                possibleMoves.RemoveAll(move => move == null);
-                ActiveTarget.turnAction = possibleMoves[UnityEngine.Random.Range(0, possibleMoves.Count)];
-                if(moveFunctions.MustChooseTarget(ActiveTarget.turnAction.GetComponent<MoveData>().targetType, ActiveTarget, BattleTargets, DoubleBattle)){
-                    ActiveTarget.individualBattleModifier.targets = new List<BattleTarget>(){player1};
-                }
+            if(!ActiveTarget.teamBattleModifier.isPlayerTeam){
+                //get enemyAI action
+                enemyAI.ChooseAction(ActiveTarget);
             }
             else{
                 if(!moveFunctions.LockedIntoAction(ActiveTarget)){
@@ -130,17 +126,31 @@ public class CombatSystem : MonoBehaviour
     }
 
     public void FightButtonFunction(){
-        //if choosing fight forces move selection (struggle, etc.)
-
-        //else
         combatScreen.battleOptionsLayoutObject.SetActive(false);
-        combatScreen.ShowMoveButtons(ActiveTarget);
+
+        List<GameObject> unusableMoves = GetAllUnusableMoves(ActiveTarget);
+
+        bool[] isSelectables = new bool[ActiveTarget.pokemon.moves.Capacity];
+        for(int i = 0; i < ActiveTarget.pokemon.moves.Count; i++){
+            GameObject move = ActiveTarget.pokemon.moves[i];
+            isSelectables[i] = !unusableMoves.Contains(move);
+        }
+
+        //if choosing fight forces move selection (i.e. all moves are unselectable), force select struggle
+        if(isSelectables.Where(b => b == false).ToArray().Length == ActiveTarget.pokemon.moves.Capacity){
+            ActiveTarget.turnAction = struggle;
+            moveFunctions.MustChooseTarget(TargetType.RandomFoe, ActiveTarget);
+            Proceed =  true;
+        }
+        else{
+            combatScreen.ShowMoveButtons(ActiveTarget.pokemon, isSelectables);
+        }
     }
 
     public void MoveButtonFunction(int whichMove){
         ActiveTarget.turnAction = ActiveTarget.pokemon.moves[whichMove];
         combatScreen.HideMoveButtons();
-        if(moveFunctions.MustChooseTarget(ActiveTarget.pokemon.moves[whichMove].GetComponent<MoveData>().targetType, ActiveTarget, BattleTargets, DoubleBattle)){
+        if(moveFunctions.MustChooseTarget(ActiveTarget.pokemon.moves[whichMove].GetComponent<MoveData>().targetType, ActiveTarget)){
             EnableTargetButtons();
         }
         else{
@@ -172,6 +182,27 @@ public class CombatSystem : MonoBehaviour
         //correct targeting fainted pokemon in double battles
     }
 
+    public List<GameObject> GetAllUnusableMoves(BattleTarget user){
+        List<GameObject> unusableMoves = new List<GameObject>();
+        foreach(AppliedEffectInfo effectInfo in user.individualBattleModifier.appliedEffects.FindAll(e => e.effect is ICheckMoveSelectable)){
+            ICheckMoveSelectable effectProhibitingMoves = (ICheckMoveSelectable)effectInfo.effect;
+            unusableMoves.AddRange(effectProhibitingMoves.GetUnusableMoves(user));
+        }
+        unusableMoves.Add(null);
+        unusableMoves.AddRange(GetImprisonMoves(user));
+        unusableMoves.AddRange(user.pokemon.moves.FindAll(move => user.pokemon.movePP[user.pokemon.moves.IndexOf(move)] == 0));
+        return unusableMoves;
+    }
+
+    private List<GameObject> GetImprisonMoves(BattleTarget user){
+        List<BattleTarget> imprisonUsers = BattleTargets.FindAll(b => b.teamBattleModifier.isPlayerTeam != user.teamBattleModifier.isPlayerTeam && b.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyImprison) != null);
+        List<GameObject> imprisonedMoves = new List<GameObject>();
+        foreach(BattleTarget b in imprisonUsers){
+            imprisonedMoves.AddRange(b.pokemon.moves);
+        }
+        return imprisonedMoves;
+    }
+
     public class WrappedBool{ public bool failed;}
 
     public IEnumerator UseMove(BattleTarget user, GameObject move, bool calledFromOtherMove, bool doDeductPP){
@@ -183,8 +214,6 @@ public class CombatSystem : MonoBehaviour
                 yield break;
             }
         }
-
-        VerifyMoveTarget(user, move);
 
         MoveData moveData = move.GetComponent<MoveData>();
         if(doDeductPP){
@@ -254,8 +283,10 @@ public class CombatSystem : MonoBehaviour
 
     private void PreMoveEffects(BattleTarget user, GameObject moveUsed){
         if(moveUsed.GetComponent<ApplyCurse>() != null && user.pokemon.IsThisType(StatLib.Type.Ghost)){
-            moveFunctions.MustChooseTarget(TargetType.RandomFoe, user, BattleTargets, DoubleBattle);
+            moveFunctions.MustChooseTarget(TargetType.RandomFoe, user);
         }
+
+        VerifyMoveTarget(user, moveUsed);
 
         GameObject usedLastTurn = MoveRecordList.FindRecordLastUsedBy(user.pokemon)?.moveUsed;
         if(usedLastTurn != null && usedLastTurn != user.turnAction){

@@ -38,4 +38,8 @@ public class HealEffect : MoveEffect, ICheckMoveEffectFail
         yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(target, healAmount));
         yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(ReplaceBattleMessage(user, target, moveData)));
     }
+
+    void Awake(){
+        message = "&userName restored health!";
+    }
 }

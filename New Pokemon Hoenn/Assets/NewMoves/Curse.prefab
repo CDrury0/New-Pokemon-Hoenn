@@ -62,8 +62,8 @@ MonoBehaviour:
   onlyUsableFirstTurn: 0
   worksOnAsleep: 0
   worksWhileAsleep: 0
-  cannotBeSnatched: 0
-  notReflectedByMagicCoat: 0
+  cannotBeSnatched: 1
+  notReflectedByMagicCoat: 1
   ignoresProtect: 1
   accuracyData:
     accuracy: 0

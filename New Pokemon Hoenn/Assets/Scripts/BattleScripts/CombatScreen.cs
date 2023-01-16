@@ -56,24 +56,28 @@ public class CombatScreen : MonoBehaviour
         }
     }
 
-    public void ShowMoveButtons(BattleTarget b){
-        //check against ICheckMoveSelectable
-        for(int i = 0; i < b.pokemon.moves.Capacity; i++){
-            if(b.pokemon.moves[i] != null){
-                moveButtons[i].GetComponent<Image>().color = typeColors.colors[(int)b.pokemon.moves[i].GetComponent<MoveData>().GetEffectiveMoveType()];
-                TextMeshProUGUI text = moveButtons[i].GetComponentInChildren<TextMeshProUGUI>();
-                text.text = b.pokemon.moves[i].GetComponent<MoveData>().moveName;
-                text.text += "  " + b.pokemon.movePP[i] + "/" + b.pokemon.moveMaxPP[i];
-                moveButtons[i].interactable = true;
-            }
-            else{
-                moveButtons[i].GetComponent<Image>().color = new Color(typeColors.colors[0].r, typeColors.colors[0].g, typeColors.colors[0].b, 127);
-                moveButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = "---";
-                moveButtons[i].interactable = false;
-            }
+    public void ShowMoveButtons(Pokemon p, bool[] isSelectables){
+        for(int i = 0; i < p.moves.Capacity; i++){
+            PopulateMoveButton(p, i, isSelectables[i]);
         }
         moveButtonLayoutObject.SetActive(true);
         moveBackButton.SetActive(true);
+    }
+
+    private void PopulateMoveButton(Pokemon pokemon, int whichMove, bool isSelectable){
+        Image buttonImage = moveButtons[whichMove].GetComponent<Image>();
+        TextMeshProUGUI buttonText = moveButtons[whichMove].GetComponentInChildren<TextMeshProUGUI>();
+        if(pokemon.moves[whichMove] == null){
+            buttonText.text = "---";
+            buttonImage.color = typeColors.colors[0];
+        }
+        else{
+            MoveData moveData = pokemon.moves[whichMove].GetComponent<MoveData>();
+            buttonText.text = moveData.moveName + " " + pokemon.movePP[whichMove] + "/" + pokemon.moveMaxPP[whichMove];
+            buttonImage.color = typeColors.colors[(int)moveData.GetEffectiveMoveType()];
+        }
+        buttonImage.color = isSelectable ? buttonImage.color : new Color(buttonImage.color.r, buttonImage.color.g, buttonImage.color.b, 127);
+        moveButtons[whichMove].interactable = isSelectable;
     }
 
     public void HideMoveButtons(){

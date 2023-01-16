@@ -17,7 +17,7 @@ public class MirrorMoveEffect : CallMoveEffect, ICheckMoveFail
     {
         MoveRecordList.MoveRecord recordOfUserBeingAttacked = CombatSystem.MoveRecordList.FindRecordMirrorMove(user.pokemon, prohibitedMoves);
         GameObject baseMove = MoveData.GetBaseMove(recordOfUserBeingAttacked.moveUsed);
-        if(CombatLib.Instance.moveFunctions.MustChooseTarget(baseMove.GetComponent<MoveData>().targetType, user, CombatLib.Instance.combatSystem.BattleTargets, CombatLib.Instance.combatSystem.DoubleBattle)){
+        if(CombatLib.Instance.moveFunctions.MustChooseTarget(baseMove.GetComponent<MoveData>().targetType, user)){
             user.individualBattleModifier.targets = new List<BattleTarget>(){CombatLib.Instance.combatSystem.BattleTargets.Find(b => b.pokemon == recordOfUserBeingAttacked.user)};
         }
         user.turnAction = baseMove;

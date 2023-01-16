@@ -17,8 +17,8 @@ public class SleepTalkEffect : CallMoveEffect, ICheckMoveFail
     {
         List<GameObject> usableMoves = GetUsableMoves(user);
         GameObject selectedMove = Instantiate(usableMoves[Random.Range(0, usableMoves.Count)]);
-        if(CombatLib.Instance.moveFunctions.MustChooseTarget(selectedMove.GetComponent<MoveData>().targetType, user, CombatLib.Instance.combatSystem.BattleTargets, CombatLib.Instance.combatSystem.DoubleBattle)){
-            CombatLib.Instance.moveFunctions.MustChooseTarget(TargetType.RandomFoe, user, CombatLib.Instance.combatSystem.BattleTargets, CombatLib.Instance.combatSystem.DoubleBattle);
+        if(CombatLib.Instance.moveFunctions.MustChooseTarget(selectedMove.GetComponent<MoveData>().targetType, user)){
+            CombatLib.Instance.moveFunctions.MustChooseTarget(TargetType.RandomFoe, user);
         }
         yield return StartCoroutine(CombatLib.Instance.combatSystem.UseMove(user, selectedMove, true, true));
     }

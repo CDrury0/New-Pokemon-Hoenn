@@ -10,6 +10,7 @@ public class BattleTestMenu : MonoBehaviour
     public GameObject menuButtonPrefab;
     public GameObject monListParent;
     public GameObject moveListParent;
+    public Text moveDescriptionText;
     public TMP_Dropdown battleTypeDropdown;
     public GameObject[] allMoves;
     [SerializeField] private Button[] playerPartyButtons;
@@ -135,7 +136,11 @@ public class BattleTestMenu : MonoBehaviour
     private void PopulateMoveList(){
         for(int i = 0; i < allMoves.Length; i++){
             GameObject g = Instantiate(menuButtonPrefab, moveListParent.transform);
-            g.GetComponentInChildren<Text>().text = allMoves[i].GetComponent<MoveData>().moveName;
+            MoveData moveData = allMoves[i].GetComponent<MoveData>();
+            g.GetComponentInChildren<Text>().text = moveData.moveName;
+            MouseOverMoveButton mouseOverComponent = g.AddComponent<MouseOverMoveButton>();
+            mouseOverComponent.moveData = moveData;
+            mouseOverComponent.moveDescriptionText = moveDescriptionText;
             int blahblah = i;
             g.GetComponent<Button>().onClick.AddListener(() => SelectMove(blahblah));
         }

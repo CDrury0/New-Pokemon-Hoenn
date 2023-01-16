@@ -50,12 +50,16 @@ public class MultiTurnEffect : MoveEffect, IApplyEffect
             yield return StartCoroutine(CombatLib.Instance.combatSystem.UseMove(user, nextMove, true, false));
             yield break;
         }
+
         user.individualBattleModifier.semiInvulnerable = givesSemiInvulnerable;
-        if(user.individualBattleModifier.multiTurnInfo == null && forcedToUseMax != 0){
-            user.individualBattleModifier.consecutiveMoveCounter = 0;
-            user.individualBattleModifier.multiTurnInfo = new MultiTurnInfo(this, alwaysUseMaxTurns ? forcedToUseMax : Random.Range(2, forcedToUseMax + 1), mustRecharge);
+
+        if(forcedToUseMax != 0){
+            if(user.individualBattleModifier.multiTurnInfo == null){
+                user.individualBattleModifier.consecutiveMoveCounter = 0;
+                user.individualBattleModifier.multiTurnInfo = new MultiTurnInfo(this, alwaysUseMaxTurns ? forcedToUseMax : Random.Range(2, forcedToUseMax + 1), mustRecharge);
+            }
         }
-        if(useNext != null){
+        else{
             user.individualBattleModifier.multiTurnInfo = new MultiTurnInfo(this, 0, false);
             user.individualBattleModifier.multiTurnInfo.useNext = useNext;
         }
