@@ -26,6 +26,7 @@ public class CombatSystem : MonoBehaviour
     private BattleTarget player2;
     private BattleTarget enemy1;
     private BattleTarget enemy2;
+    private List<BattleTarget> referenceBattleTargets;
     public List<BattleTarget> BattleTargets {get; private set;}
     private List<Pokemon> expParticipants;
     private List<BattleTarget> turnOrder;
@@ -88,8 +89,8 @@ public class CombatSystem : MonoBehaviour
             enemy2.pokemon = null;
         }
 
-        BattleTargets = new List<BattleTarget>(){player1, enemy1, player2, enemy2};
-        BattleTargets.RemoveAll(b => b.pokemon == null);
+        referenceBattleTargets = new List<BattleTarget>(){player1, enemy1, player2, enemy2};
+        BattleTargets = new List<BattleTarget>(referenceBattleTargets.FindAll(b => b.pokemon != null));
         
         //replace with proper animations
         combatScreen.SetStartingGraphics(BattleTargets);
