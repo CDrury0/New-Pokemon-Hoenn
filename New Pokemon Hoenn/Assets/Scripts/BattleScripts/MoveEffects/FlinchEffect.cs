@@ -5,6 +5,7 @@ using UnityEngine;
 public class FlinchEffect : MoveEffect
 {
     public float chance;
+
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         bool immuneToFlinch = ImmuneToFlinch(target);

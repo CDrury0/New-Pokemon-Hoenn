@@ -10,6 +10,7 @@ public enum SemiInvulnerable { None, Airborne, Underground, Underwater }
 public enum TargetType {Self, Single, Foes, Ally, RandomFoe, All}
 public class CombatSystem : MonoBehaviour
 {
+    public static bool BattleActive {get; private set;}
     public static Weather Weather {get; set;}
     public static int weatherTimer;
     public static int TurnCount {get; private set;}
@@ -18,6 +19,7 @@ public class CombatSystem : MonoBehaviour
     public CombatScreen combatScreen;
     public MoveFunctions moveFunctions;
     public GameObject struggle;
+    public GameObject switchPokemon;
     public bool DoubleBattle {get; private set;}
     private Party playerParty;
     private Party enemyParty;
@@ -55,6 +57,7 @@ public class CombatSystem : MonoBehaviour
     }
 
     private IEnumerator RealStartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI){
+        BattleActive = true;
         TurnCount = 0;
         Weather = ReferenceLib.Instance.activeArea.weather;
         weatherTimer = 0;
@@ -100,6 +103,10 @@ public class CombatSystem : MonoBehaviour
 
         StartCoroutine(GetTurnActions());
         yield break;
+    }
+
+    public static bool ActiveTargetCanSwitch(){
+        return ActiveTarget.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyBind || e.effect is ApplyTrap || e.effect is ApplyIngrain) == null;      
     }
 
     public Pokemon[] GetTeamParty(BattleTarget whoseTeam){
@@ -151,7 +158,7 @@ public class CombatSystem : MonoBehaviour
     public void MoveButtonFunction(int whichMove){
         ActiveTarget.turnAction = ActiveTarget.pokemon.moves[whichMove];
         combatScreen.HideMoveButtons();
-        if(moveFunctions.MustChooseTarget(ActiveTarget.pokemon.moves[whichMove].GetComponent<MoveData>().targetType, ActiveTarget)){
+        if(moveFunctions.MustChooseTarget(ActiveTarget.turnAction.GetComponent<MoveData>().targetType, ActiveTarget)){
             EnableTargetButtons();
         }
         else{
@@ -305,6 +312,8 @@ public class CombatSystem : MonoBehaviour
     }
 
     private void EndBattle(){
+        BattleActive = false;
+
         foreach(Pokemon p in playerParty.party){
             p.inBattle = false;
         }

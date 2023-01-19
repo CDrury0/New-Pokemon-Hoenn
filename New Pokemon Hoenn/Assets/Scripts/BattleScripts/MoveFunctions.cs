@@ -367,6 +367,8 @@ public class MoveFunctions : MonoBehaviour
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyInfatuate>(battleTargets));
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyHelpingHand>(battleTargets));
 
+        ClearFlinch(battleTargets);
+
         //abilities that boost (speed boost)
     }
 
