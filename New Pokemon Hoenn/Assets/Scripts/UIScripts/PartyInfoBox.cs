@@ -11,37 +11,28 @@ public class PartyInfoBox : MonoBehaviour
     public GameObject actionButtonPanel;
     public GameObject sendOutButton;
     
-    void OnEnable(){
-        gameObject.GetComponentInParent<Canvas>().sortingOrder = 2;
+    public void LoadPokemonDetails(){
         Pokemon pokemonToDisplay = PlayerParty.Instance.playerParty.party[whichPartyMember];
-        if(pokemonToDisplay == null){
-            boxSprite.gameObject.SetActive(false);
-            pokemonInfo.gameObject.SetActive(false);
-            actionButtonPanel.SetActive(false);
-            return;
+        bool enableInfoBox = pokemonToDisplay != null;
+        boxSprite.gameObject.SetActive(enableInfoBox);
+        pokemonInfo.gameObject.SetActive(enableInfoBox);
+        actionButtonPanel.SetActive(enableInfoBox);
+        if(enableInfoBox){
+            boxSprite.sprite = pokemonToDisplay.boxSprite;
+            pokemonInfo.SetBattleHUD(pokemonToDisplay);
         }
-        boxSprite.sprite = pokemonToDisplay.boxSprite;
-        pokemonInfo.SetBattleHUD(pokemonToDisplay);
-        boxSprite.gameObject.SetActive(true);
-        pokemonInfo.gameObject.SetActive(true);
-        actionButtonPanel.SetActive(true);
-        if(CombatSystem.BattleActive){
-            sendOutButton.SetActive(CanBeSwitchedIn(pokemonToDisplay));
-        }
-        else{
-            sendOutButton.SetActive(false);
-        }
+
+        ActivateSendOutButton();
     }
 
-    void OnDisable(){
-        gameObject.GetComponentInParent<Canvas>().sortingOrder = 0;
+    private void ActivateSendOutButton(){
+        sendOutButton.SetActive(false);
+        if(CombatSystem.BattleActive){
+            sendOutButton.SetActive(MoveFunctions.CanBeSwitchedIn(PlayerParty.Instance.playerParty.party[whichPartyMember]));
+        }
     }
 
     public void SendOutButtonFunction(){
         //call CombatSystem method to select switch action, etc.
-    }
-
-    private bool CanBeSwitchedIn(Pokemon pokemonInThisSlot){
-        return CombatSystem.ActiveTargetCanSwitch() && pokemonInThisSlot.primaryStatus != PrimaryStatus.Fainted && !pokemonInThisSlot.inBattle;
     }
 }

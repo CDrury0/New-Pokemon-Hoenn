@@ -63,22 +63,12 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
+  ignoresProtect: 0
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 1
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &1461652255612783304
 MonoBehaviour:
@@ -95,5 +85,5 @@ MonoBehaviour:
   applyToSelf: 0
   message: 
   durationEffect: 0
-  weatherSet: 1
+  weatherSet: {fileID: 11400000, guid: d2198ff756744b7438715fdaac99e28c, type: 2}
   timer: 5

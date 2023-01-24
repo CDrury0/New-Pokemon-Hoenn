@@ -63,11 +63,12 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
+  ignoresProtect: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &5445148946565322062
 MonoBehaviour:
@@ -83,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyToSelf: 0
   message: '&userName took in sunlight!'
-  skipChargingTurn: 2
+  skipChargingTurn: {fileID: 11400000, guid: b4559a6b9fbff2142b59a70902477424, type: 2}
   useNext: {fileID: 1682630347, guid: a858c315130461a4bb789f9335f21cf3, type: 3}
   baseMove: {fileID: 0}
   givesSemiInvulnerable: 0

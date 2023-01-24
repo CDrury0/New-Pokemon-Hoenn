@@ -20,16 +20,16 @@ public class ApplyTeamDurationEffect : MoveEffect, ICheckMoveEffectFail
 
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        string outputMessage = ReplaceBattleMessage(user, target, moveData);
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(outputMessage));
-
         if(durationEffect != TeamDurationEffect.None){
             target.teamBattleModifier.teamEffects.Add(new TeamDurationEffectInfo(durationEffect, timer));
+            string outputMessage = ReplaceBattleMessage(user, target, moveData);
+            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(outputMessage));
         }
 
-        if(weatherSet != Weather.None){
+        if(weatherSet != null){
             CombatSystem.Weather = weatherSet;
             CombatSystem.weatherTimer = timer;
+            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(weatherSet.textOnSet));
         }
     }
 }

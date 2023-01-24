@@ -3,9 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
-using System;
 
-public enum Weather { None, Rain, Sunlight, Hail, Sandstorm}
 public enum SemiInvulnerable { None, Airborne, Underground, Underwater }
 public enum TargetType {Self, Single, Foes, Ally, RandomFoe, All}
 public class CombatSystem : MonoBehaviour
@@ -105,7 +103,7 @@ public class CombatSystem : MonoBehaviour
         yield break;
     }
 
-    public static bool ActiveTargetCanSwitch(){
+    public static bool ActiveTargetCanSwitchOut(){
         return ActiveTarget.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyBind || e.effect is ApplyTrap || e.effect is ApplyIngrain) == null;      
     }
 
@@ -253,7 +251,7 @@ public class CombatSystem : MonoBehaviour
                 MoveRecordList.AddRecord(user.pokemon, user.individualBattleModifier.targets[j].pokemon, user.turnAction);
             }
 
-            if(moveFunctions.IsChargingTurn(move)){
+            if(MoveFunctions.IsChargingTurn(move)){
                 break;
             }
         }

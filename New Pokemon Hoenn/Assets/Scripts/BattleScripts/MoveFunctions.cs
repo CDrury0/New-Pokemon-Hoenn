@@ -45,24 +45,6 @@ public class MoveFunctions : MonoBehaviour
                 return 0;
         }
     }
-
-    public StatLib.Type GetMoveTypeFromWeather(Weather weather){
-        switch(weather){
-            case Weather.None:
-            return StatLib.Type.Normal;
-            case Weather.Hail:
-            return StatLib.Type.Ice;
-            case Weather.Rain:
-            return StatLib.Type.Water;
-            case Weather.Sunlight:
-            return StatLib.Type.Fire;
-            case Weather.Sandstorm:
-            return StatLib.Type.Rock;
-            default:
-            Debug.Log("Weather bugged");
-            return StatLib.Type.None;
-        }
-    }
     
     public bool MustChooseTarget(TargetType targetType, BattleTarget user){
         List<BattleTarget> battleTargets = new List<BattleTarget>(CombatLib.Instance.combatSystem.BattleTargets);
@@ -178,9 +160,13 @@ public class MoveFunctions : MonoBehaviour
         }
     }
 
-    public bool IsChargingTurn(GameObject move){
+    public static bool IsChargingTurn(GameObject move){
         MultiTurnEffect multiTurn = move.GetComponent<MultiTurnEffect>();
         return multiTurn != null && multiTurn.chargingTurn;
+    }
+
+    public static bool CanBeSwitchedIn(Pokemon pokemonToSwitchIn){
+        return CombatSystem.ActiveTargetCanSwitchOut() && pokemonToSwitchIn.primaryStatus != PrimaryStatus.Fainted && !pokemonToSwitchIn.inBattle;
     }
 
     public IEnumerator CheckMoveFailedToBeUsed(CombatSystem.WrappedBool moveFailed, BattleTarget user){
@@ -317,11 +303,12 @@ public class MoveFunctions : MonoBehaviour
 
     //TEST END OF TURN EFFECTS
     public IEnumerator EndOfTurnEffects(List<BattleTarget> battleTargets){
+        
         //multi-turn resolution
         yield return StartCoroutine(HandleMultiTurn(battleTargets));
 
         //weather
-        if(CombatSystem.Weather != Weather.None){
+        if(CombatSystem.Weather != null){
             yield return StartCoroutine(HandleWeather(battleTargets));
         }
         
@@ -399,32 +386,30 @@ public class MoveFunctions : MonoBehaviour
     }
 
     private IEnumerator HandleWeather(List<BattleTarget> battleTargets){
+        Weather weather = CombatSystem.Weather;
         if(CombatSystem.weatherTimer == 0){
-            yield return StartCoroutine(combatScreen.battleText.WriteMessage("The " + CombatSystem.Weather + " subsided"));
-            CombatSystem.Weather = Weather.None;
+            yield return StartCoroutine(combatScreen.battleText.WriteMessage(weather.textOnStop));
+            CombatSystem.Weather = null;
             yield break;
         }
 
         CombatSystem.weatherTimer--;
-        yield return StartCoroutine(combatScreen.battleText.WriteMessage("The " + CombatSystem.Weather + " continues"));
+        yield return StartCoroutine(combatScreen.battleText.WriteMessage(weather.textOnContinue));
 
-        if(CombatSystem.Weather == Weather.Hail){
+        if(weather.damageEveryTurn){
             foreach(BattleTarget b in battleTargets){
-                if(!b.pokemon.IsThisType(StatLib.Type.Ice)){
-                    int damage = (int)(0.0625f * b.pokemon.stats[0]);
-                    yield return StartCoroutine(b.battleHUD.healthBar.SetHealthBar(b.pokemon, -damage));
-                    b.pokemon.CurrentHealth -= damage;
-                    yield return StartCoroutine(combatScreen.battleText.WriteMessage(b.GetName() + " is stricken by hail!"));
+                
+                bool takeDamage = false;
+                foreach(StatLib.Type immuneType in weather.immuneTypes){
+                    if(b.pokemon.IsThisType(immuneType)){
+                        takeDamage = true;
+                    }
                 }
-            }
-        }
-        else if(CombatSystem.Weather == Weather.Sandstorm){
-            foreach(BattleTarget b in battleTargets){
-                if(!b.pokemon.IsThisType(StatLib.Type.Ground) && !b.pokemon.IsThisType(StatLib.Type.Rock) && !b.pokemon.IsThisType(StatLib.Type.Steel)){
+
+                if(takeDamage){
                     int damage = (int)(0.0625f * b.pokemon.stats[0]);
-                    yield return StartCoroutine(b.battleHUD.healthBar.SetHealthBar(b.pokemon, -damage));
-                    b.pokemon.CurrentHealth -= damage;
-                    yield return StartCoroutine(combatScreen.battleText.WriteMessage(b.GetName() + " is buffeted by the sandstorm!"));
+                    yield return StartCoroutine(ChangeTargetHealth(b, -damage));
+                    yield return StartCoroutine(combatScreen.battleText.WriteMessage(b.GetName() + " " + weather.textOnDamage));
                 }
             }
         }

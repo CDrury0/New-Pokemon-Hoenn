@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37441c34c21db164885f4aef8ce11da0, type: 3}
+  m_Name: Sandstorm
+  m_EditorClassIdentifier: 
+  typeFromWeather: 13
+  weakensType: 0
+  textOnSet: A sandstorm brewed!
+  textOnContinue: The sandstorm rages
+  textOnStop: The sandstorm subsided
+  damageEveryTurn: 1
+  textOnDamage: is buffeted by the sandstorm!
+  immuneTypes: 0d0000000900000011000000
+  healsMore: 0
+  healsLess: 1

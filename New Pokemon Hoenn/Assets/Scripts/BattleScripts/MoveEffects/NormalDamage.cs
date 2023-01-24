@@ -219,20 +219,12 @@ public class NormalDamage : EffectDamage
     private float GetWeatherDamageModifier(StatLib.Type moveType, Weather weather){
         const float WEATHER_BONUS = 1.4f;
         const float WEATHER_PENALTY = 0.6f;
-        if(weather == Weather.Rain){
-            if(moveType == StatLib.Type.Water){
+        if(weather != null){
+            if(weather.typeFromWeather == moveType){
                 return WEATHER_BONUS;
             }
-            else if(moveType == StatLib.Type.Fire){
+            if(weather.weakensType == moveType){
                 return WEATHER_PENALTY;
-            }
-        }
-        else if(weather == Weather.Sunlight){
-            if(moveType == StatLib.Type.Water){
-                return WEATHER_PENALTY;
-            }
-            else if(moveType == StatLib.Type.Fire){
-                return WEATHER_BONUS;
             }
         }
         return 1f;

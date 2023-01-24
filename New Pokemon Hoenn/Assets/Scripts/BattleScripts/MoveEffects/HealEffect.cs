@@ -20,15 +20,11 @@ public class HealEffect : MoveEffect, ICheckMoveEffectFail
     {
         float healPercent = baseHealPercent != 0 ? baseHealPercent : 0.5f;
         if(healChangesWithWeather){
-            switch(CombatSystem.Weather){
-                case Weather.None:
-                break;
-                case Weather.Sunlight:
-                healPercent *= 1.5f;
-                break;
-                default:
+            if(CombatSystem.Weather.healsLess){
                 healPercent *= 0.5f;
-                break;
+            }
+            if(CombatSystem.Weather.healsMore){
+                healPercent *= 1.5f;
             }
         }
         if(swallow){

@@ -29,7 +29,7 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
     public const string FAIL = "But it failed!";
 
     public StatLib.Type GetEffectiveMoveType(){
-        return typeFromWeather ? CombatLib.Instance.moveFunctions.GetMoveTypeFromWeather(CombatSystem.Weather) : moveType;
+        return typeFromWeather ? CombatSystem.Weather != null ? CombatSystem.Weather.typeFromWeather : StatLib.Type.Normal : moveType;
     }
 
     public List<GameObject> GetUnusableMoves(BattleTarget target){
@@ -114,7 +114,7 @@ public class MoveAccuracyData
     }
 
     private bool BypassOnWeather(){
-        return bypassOnWeather != Weather.None && bypassOnWeather == CombatSystem.Weather;
+        return bypassOnWeather != null && bypassOnWeather == CombatSystem.Weather;
     }
 
     private float AccuracyMult(int userAccStages, int targetEvaStages) 

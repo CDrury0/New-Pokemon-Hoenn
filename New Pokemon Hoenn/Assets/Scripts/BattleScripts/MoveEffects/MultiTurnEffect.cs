@@ -45,7 +45,7 @@ public class MultiTurnEffect : MoveEffect, IApplyEffect
         if(chargingTurn){
             yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(ReplaceBattleMessage(user, target, moveData)));
         }
-        if(chargingTurn && skipChargingTurn != Weather.None && CombatSystem.Weather == skipChargingTurn){
+        if(chargingTurn && skipChargingTurn != null && CombatSystem.Weather == skipChargingTurn){
             GameObject nextMove = Instantiate(useNext);
             yield return StartCoroutine(CombatLib.Instance.combatSystem.UseMove(user, nextMove, true, false));
             yield break;
