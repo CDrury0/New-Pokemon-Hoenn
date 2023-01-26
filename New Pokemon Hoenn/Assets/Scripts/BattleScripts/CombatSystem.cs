@@ -90,7 +90,10 @@ public class CombatSystem : MonoBehaviour
             enemy2.pokemon = null;
         }
 
-        referenceBattleTargets = new List<BattleTarget>(){player1, enemy1, player2, enemy2};
+        referenceBattleTargets = new List<BattleTarget>(){player1, enemy1};
+        if(DoubleBattle){
+            referenceBattleTargets.AddRange(new List<BattleTarget>(){player2, enemy2});
+        }
         BattleTargets = new List<BattleTarget>(referenceBattleTargets.FindAll(b => b.pokemon != null));
         
         //replace with proper animations
@@ -237,6 +240,10 @@ public class CombatSystem : MonoBehaviour
             if(!moveFailed.failed){
                 foreach(MoveEffect effect in move.GetComponents<MoveEffect>()){
                     BattleTarget target = effect.applyToSelf ? user : user.individualBattleModifier.targets[j];
+                    //only do self-applied effects one time regardless of the number of targets
+                    if(effect.applyToSelf && j + 1 != user.individualBattleModifier.targets.Count){
+                        continue;
+                    }
                     if(effect is ICheckMoveEffectFail){
                         ICheckMoveEffectFail effectThatMayFail = (ICheckMoveEffectFail)effect;
                         if(effectThatMayFail.CheckMoveEffectFail(user, target, moveData)){
@@ -260,6 +267,7 @@ public class CombatSystem : MonoBehaviour
     private IEnumerator BattleTurn(){
         //increment turn count, reset damage taken this turn, destroy instantiated turnAction gameobjects, other cleanup things
         
+        //fainted mons are not removed from orderedUsers
         List<BattleTarget> orderedUsers = moveFunctions.GetTurnOrder(BattleTargets);
 
         for(int i = 0; i < orderedUsers.Count; i++){
@@ -280,6 +288,7 @@ public class CombatSystem : MonoBehaviour
             }
             //else if switch, item, etc.
             //do moveFunctions.AppliedEffectOfType<ApplyOnFaintEffect>() when handling fainting
+            yield return StartCoroutine(HandleFaint());
         }
 
         yield return StartCoroutine(moveFunctions.EndOfTurnEffects(orderedUsers));
@@ -307,6 +316,22 @@ public class CombatSystem : MonoBehaviour
         if(moveUsed.GetComponent<MultiTurnEffect>() != null && moveUsed.GetComponent<MultiTurnEffect>().givesSemiInvulnerable == SemiInvulnerable.None){
             user.individualBattleModifier.semiInvulnerable = SemiInvulnerable.None;
         }
+    }
+
+    public IEnumerator HandleFaint(){
+        foreach(BattleTarget b in BattleTargets){
+            if(b.pokemon.CurrentHealth == 0){
+                b.pokemon.primaryStatus = PrimaryStatus.Fainted;
+                b.pokemon.inBattle = false;
+                //animation for fainting, remove direct sprite object change
+                b.monSpriteObject.SetActive(false);
+                b.battleHUD.gameObject.SetActive(false);
+                yield return StartCoroutine(combatScreen.battleText.WriteMessage(b.GetName() + " fainted"));
+                //do xp here if fainted mon is opponent
+            }
+        }
+
+        BattleTargets.RemoveAll(b => b.pokemon.primaryStatus == PrimaryStatus.Fainted);
     }
 
     private void EndBattle(){

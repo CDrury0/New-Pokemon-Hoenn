@@ -50,6 +50,7 @@ MonoBehaviour:
     strikes the next. May cause the opponent to flinch. Has a high critical hit ratio.
   moveType: 10
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 140
   category: 0
   targetType: 1
@@ -63,11 +64,12 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
+  ignoresProtect: 0
   accuracyData:
     accuracy: 0.9
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &7235924086436076071
 MonoBehaviour:
@@ -83,8 +85,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyToSelf: 0
   message: '&userName became cloaked in light!'
-  skipChargingTurn: 0
-  useNext: {fileID: 0}
+  skipChargingTurn: {fileID: 0}
+  useNext: {fileID: 1682630347, guid: c9778ae200997e4488ac33025fd591c6, type: 3}
   baseMove: {fileID: 0}
   givesSemiInvulnerable: 0
   forcedToUseMax: 0

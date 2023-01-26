@@ -281,6 +281,9 @@ MonoBehaviour:
   boxSprite: {fileID: 6677332171843120968}
   actionButtonPanel: {fileID: 3202823916222694106}
   sendOutButton: {fileID: 8000229088573600868}
+  battleHUDImage: {fileID: 9132573132974746391}
+  normalColor: {r: 0.5058824, g: 0.5019608, b: 0.5058824, a: 1}
+  faintedColor: {r: 0.5188679, g: 0.34891528, b: 0.3450961, a: 1}
 --- !u!1001 &434521921140410137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -786,6 +789,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BattleHUDPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 2456657366344744945, guid: 4a360ef3b31b6e54ab669f3d29b282e0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2456657366344744946, guid: 4a360ef3b31b6e54ab669f3d29b282e0, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -912,6 +919,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2456657366344744946, guid: 4a360ef3b31b6e54ab669f3d29b282e0, type: 3}
   m_PrefabInstance: {fileID: 6677332170197914852}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9132573132974746391 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2456657366344744947, guid: 4a360ef3b31b6e54ab669f3d29b282e0, type: 3}
+  m_PrefabInstance: {fileID: 6677332170197914852}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7770701679092501955
 PrefabInstance:
   m_ObjectHideFlags: 0

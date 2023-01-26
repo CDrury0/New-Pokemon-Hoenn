@@ -6,6 +6,7 @@ using System.Linq;
 public class MoveFunctions : MonoBehaviour
 {
     public CombatScreen combatScreen;
+    public CombatSystem combatSystem;
     public GameObject confuseAttack;
     public ApplyConfuse confuseAfterForcedToUse;
     public MoveData confuseAfterForcedToUseData;
@@ -375,6 +376,7 @@ public class MoveFunctions : MonoBehaviour
                 }
             }
         }
+        yield return StartCoroutine(combatSystem.HandleFaint());
     }
 
     private IEnumerator HandleMultiTurn(List<BattleTarget> battleTargets){

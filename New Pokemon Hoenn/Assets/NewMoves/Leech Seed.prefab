@@ -50,10 +50,11 @@ MonoBehaviour:
     turn.
   moveType: 5
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 0
   category: 2
   targetType: 1
-  maxPP: 0
+  maxPP: 15
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -63,22 +64,12 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
+  ignoresProtect: 0
   accuracyData:
     accuracy: 0.9
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &-8601537067994875158
 MonoBehaviour:

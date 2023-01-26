@@ -12,7 +12,7 @@ public class BattleHUD : MonoBehaviour
     public Image genderIcon;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI levelText;
-    public ColorSO typeColors;
+    public ColorSO statusColors;
     public Sprite[] genderSprites;
 
     public void SetBattleHUD(Pokemon p){
@@ -30,7 +30,7 @@ public class BattleHUD : MonoBehaviour
             return;
         }
         
-        statusIcon.color = typeColors.colors[GetStatusTypeNumber(status)];
+        statusIcon.color = statusColors.colors[(int)status];
         statusIcon.GetComponentInChildren<TextMeshProUGUI>(true).text = status.ToString();
         statusIcon.gameObject.SetActive(true);
     }
@@ -42,22 +42,5 @@ public class BattleHUD : MonoBehaviour
         }
         genderIcon.sprite = genderSprites[(int)gender - 1];
         genderIcon.enabled = true;
-    }
-
-    private int GetStatusTypeNumber(PrimaryStatus status){
-        switch(status){
-            case PrimaryStatus.Poisoned:
-            return (int)StatLib.Type.Poison;
-            case PrimaryStatus.Burned:
-            return (int)StatLib.Type.Fire;
-            case PrimaryStatus.Paralyzed:
-            return (int)StatLib.Type.Electric;
-            case PrimaryStatus.Asleep:
-            return (int)StatLib.Type.Normal;
-            case PrimaryStatus.Frozen:
-            return (int)StatLib.Type.Ice;
-            default:
-            return (int)StatLib.Type.None;
-        }
     }
 }

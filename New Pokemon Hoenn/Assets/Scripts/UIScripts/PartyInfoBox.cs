@@ -10,6 +10,9 @@ public class PartyInfoBox : MonoBehaviour
     public Image boxSprite;
     public GameObject actionButtonPanel;
     public GameObject sendOutButton;
+    [SerializeField] private Image battleHUDImage;
+    [SerializeField] private Color normalColor;
+    [SerializeField] private Color faintedColor;
     
     public void LoadPokemonDetails(){
         Pokemon pokemonToDisplay = PlayerParty.Instance.playerParty.party[whichPartyMember];
@@ -20,6 +23,7 @@ public class PartyInfoBox : MonoBehaviour
         if(enableInfoBox){
             boxSprite.sprite = pokemonToDisplay.boxSprite;
             pokemonInfo.SetBattleHUD(pokemonToDisplay);
+            battleHUDImage.color = pokemonToDisplay.primaryStatus == PrimaryStatus.Fainted ? faintedColor : normalColor;
         }
 
         ActivateSendOutButton();
