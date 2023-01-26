@@ -74,7 +74,7 @@ public class CombatScreen : MonoBehaviour
         else{
             MoveData moveData = pokemon.moves[whichMove].GetComponent<MoveData>();
             buttonText.text = moveData.moveName + " " + pokemon.movePP[whichMove] + "/" + pokemon.moveMaxPP[whichMove];
-            buttonImage.color = typeColors.colors[(int)moveData.GetEffectiveMoveType()];
+            buttonImage.color = typeColors.colors[(int)moveData.GetEffectiveMoveType(pokemon)];
         }
         moveButtons[whichMove].interactable = isSelectable;
     }

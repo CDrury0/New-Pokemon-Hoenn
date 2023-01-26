@@ -76,7 +76,7 @@ public class NormalDamage : EffectDamage
         if(hitsMaxTimes != 0){
             yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage("Hit " + timesHit + " time(s)!"));
         }
-        yield return StartCoroutine(CombatLib.Instance.moveFunctions.WriteEffectivenessText(target, moveData.GetEffectiveMoveType()));
+        yield return StartCoroutine(CombatLib.Instance.moveFunctions.WriteEffectivenessText(target, moveData.GetEffectiveMoveType(user.pokemon)));
 
         if(recoilDamage != 0f){
             yield return StartCoroutine(DoRecoilDamage(user));
@@ -160,7 +160,7 @@ public class NormalDamage : EffectDamage
         workingDamage /= 50;
         workingDamage += 2;
 
-        StatLib.Type localType = moveData.GetEffectiveMoveType();
+        StatLib.Type localType = moveData.GetEffectiveMoveType(user.pokemon);
 
         modifier *= CombatLib.Instance.moveFunctions.GetTypeMatchup(localType, target);
 

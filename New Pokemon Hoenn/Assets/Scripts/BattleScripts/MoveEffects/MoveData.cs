@@ -9,6 +9,7 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
     [TextArea(3,3)] public string moveDescription;
     [SerializeField] private StatLib.Type moveType;
     public bool typeFromWeather;
+    public bool hiddenPowerType;
     public int displayPower; //the power value shown in UI
     public enum Category{Physical, Special, Status};
     public Category category;
@@ -28,8 +29,14 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
     public MoveAccuracyData accuracyData;
     public const string FAIL = "But it failed!";
 
-    public StatLib.Type GetEffectiveMoveType(){
-        return typeFromWeather ? CombatSystem.Weather != null ? CombatSystem.Weather.typeFromWeather : StatLib.Type.Normal : moveType;
+    public StatLib.Type GetEffectiveMoveType(Pokemon user){
+        if(typeFromWeather){
+            return CombatSystem.Weather != null ? CombatSystem.Weather.typeFromWeather : StatLib.Type.Normal;
+        }
+        if(hiddenPowerType){
+            return user.hiddenPowerType;
+        }
+        return moveType;
     }
 
     public List<GameObject> GetUnusableMoves(BattleTarget target){
