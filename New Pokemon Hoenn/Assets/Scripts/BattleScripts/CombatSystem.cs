@@ -28,7 +28,7 @@ public class CombatSystem : MonoBehaviour
     private BattleTarget enemy1;
     private BattleTarget enemy2;
     private List<BattleTarget> referenceBattleTargets;
-    public List<BattleTarget> BattleTargets {get; private set;}
+    public static List<BattleTarget> BattleTargets {get; private set;}
     private List<Pokemon> expParticipants;
     private List<BattleTarget> turnOrder;
     private static bool _proceed;
@@ -73,30 +73,18 @@ public class CombatSystem : MonoBehaviour
 
         //replace Pokemon argument with null, followed by SendOutPokemon using GetFirstAvailable
         player1 = new BattleTarget(playerTeamModifier, new IndividualBattleModifier(), playerParty.GetFirstAvailable(), combatScreen.player1hud, combatScreen.player1Object);
-        player1.pokemon.inBattle = true;
         enemy1 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(), this.enemyParty.GetFirstAvailable(), combatScreen.enemy1hud, combatScreen.enemy1Object);
-        enemy1.pokemon.inBattle = true;
 
-        player2 = new BattleTarget(playerTeamModifier, new IndividualBattleModifier(), playerParty.GetFirstAvailable(), combatScreen.player2hud, combatScreen.player2Object);
-        enemy2 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(), this.enemyParty.GetFirstAvailable(), combatScreen.enemy2hud, combatScreen.enemy2Object);
-
-        if(doubleBattle){
-            if(player2.pokemon != null){
-                player2.pokemon.inBattle = true;
-            }
-            if(enemy2.pokemon != null){
-                enemy2.pokemon.inBattle = true;
-            }
-        }
-        else{
-            player2.pokemon = null;
-            enemy2.pokemon = null;
-        }
+        player2 = new BattleTarget(playerTeamModifier, new IndividualBattleModifier(), null, combatScreen.player2hud, combatScreen.player2Object);
+        enemy2 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(), null, combatScreen.enemy2hud, combatScreen.enemy2Object);
 
         referenceBattleTargets = new List<BattleTarget>(){player1, enemy1};
-        if(DoubleBattle){
+        if(doubleBattle){
+            player2.pokemon = playerParty.GetFirstAvailable();
+            enemy2.pokemon = enemyParty.GetFirstAvailable();
             referenceBattleTargets.AddRange(new List<BattleTarget>(){player2, enemy2});
         }
+        
         BattleTargets = new List<BattleTarget>(referenceBattleTargets.FindAll(b => b.pokemon != null));
         
         //replace with proper animations
@@ -138,8 +126,6 @@ public class CombatSystem : MonoBehaviour
                     yield return new WaitUntil(() => Proceed);
                 }
             }
-
-            Debug.Log(ActiveTarget.GetName() + " chose " + ActiveTarget.turnAction.name);
         }
         StartCoroutine(BattleTurn());
     }
@@ -348,7 +334,7 @@ public class CombatSystem : MonoBehaviour
             }
         }
 
-        Debug.Log(BattleTargets.RemoveAll(b => b.pokemon.primaryStatus == PrimaryStatus.Fainted));
+        BattleTargets.RemoveAll(b => b.pokemon.primaryStatus == PrimaryStatus.Fainted);
     }
 
     public IEnumerator ReplaceFaintedTargets(){
@@ -359,7 +345,7 @@ public class CombatSystem : MonoBehaviour
                 ActiveTarget.individualBattleModifier.switchingIn = enemyAI.SelectNextPokemon(enemyParty);
             }
             else{
-                if(playerParty.GetFirstAvailable() != null){
+                if(playerParty.HasAvailableFighter()){
                     partyMenu.OpenParty(false);
                 }
                 else{

@@ -12,7 +12,7 @@ public class ApplyOnFaintEffect : ApplyIndividualEffect, IApplyEffect
             MoveRecordList.MoveRecord recordOfAttack = CombatSystem.MoveRecordList.FindRecordLastAttacker(target.pokemon);
             if(recordOfAttack != null){
                 if(onFaintEffect == OnFaintEffect.DestinyBond){
-                    yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(CombatLib.Instance.combatSystem.BattleTargets.Find(b => b.pokemon == recordOfAttack.user), -recordOfAttack.user.stats[0]));
+                    yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(CombatSystem.BattleTargets.Find(b => b.pokemon == recordOfAttack.user), -recordOfAttack.user.stats[0]));
                     yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " took its attacker down with it!"));
                 }
                 else{

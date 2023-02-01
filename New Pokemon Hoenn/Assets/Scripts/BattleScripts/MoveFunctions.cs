@@ -48,7 +48,7 @@ public class MoveFunctions : MonoBehaviour
     }
     
     public bool MustChooseTarget(TargetType targetType, BattleTarget user){
-        List<BattleTarget> battleTargets = new List<BattleTarget>(CombatLib.Instance.combatSystem.BattleTargets);
+        List<BattleTarget> battleTargets = new List<BattleTarget>(CombatSystem.BattleTargets);
         if(targetType == TargetType.Self){
             user.individualBattleModifier.targets = new List<BattleTarget>(){user};
             return false;
@@ -167,7 +167,9 @@ public class MoveFunctions : MonoBehaviour
     }
 
     public static bool CanBeSwitchedIn(Pokemon pokemonToSwitchIn){
-        return CombatSystem.ActiveTargetCanSwitchOut() && pokemonToSwitchIn != null && pokemonToSwitchIn.primaryStatus != PrimaryStatus.Fainted && !pokemonToSwitchIn.inBattle;
+        return CombatSystem.ActiveTargetCanSwitchOut() && pokemonToSwitchIn != null 
+        && pokemonToSwitchIn.primaryStatus != PrimaryStatus.Fainted && !pokemonToSwitchIn.inBattle 
+        && CombatSystem.BattleTargets.Find(b => b.individualBattleModifier.switchingIn == pokemonToSwitchIn) == null;
     }
 
     public IEnumerator CheckMoveFailedToBeUsed(CombatSystem.WrappedBool moveFailed, BattleTarget user){

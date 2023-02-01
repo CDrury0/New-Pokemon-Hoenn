@@ -21,9 +21,19 @@ public class Party
     public Pokemon GetFirstAvailable(){
         foreach (Pokemon p in party){
             if(p != null && p.primaryStatus != PrimaryStatus.Fainted && !p.inBattle){
+                p.inBattle = true;
                 return p;
             }
         }
         return null;
+    }
+
+    public bool HasAvailableFighter(){
+        foreach(Pokemon p in party){
+            if(p != null && p.primaryStatus != PrimaryStatus.Fainted && !p.inBattle){
+                return true;
+            }
+        }
+        return false;
     }
 }

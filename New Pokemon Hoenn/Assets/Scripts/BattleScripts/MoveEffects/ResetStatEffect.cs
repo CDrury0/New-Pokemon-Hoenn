@@ -9,8 +9,8 @@ public class ResetStatEffect : MoveEffect
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         if(haze){
-            for(int i = 0; i < CombatLib.Instance.combatSystem.BattleTargets.Count; i++){
-                ResetStats(CombatLib.Instance.combatSystem.BattleTargets[i]);
+            for(int i = 0; i < CombatSystem.BattleTargets.Count; i++){
+                ResetStats(CombatSystem.BattleTargets[i]);
             }
             yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage("All stat stages were reset!"));
         }
