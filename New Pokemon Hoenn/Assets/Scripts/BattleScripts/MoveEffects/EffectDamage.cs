@@ -28,6 +28,7 @@ public abstract class EffectDamage : MoveEffect, ICheckMoveFail
     }
 
     //rough skin, effect spore, etc.
+    //do grudge/destiny bond
     private IEnumerator DoHitEffects(BattleTarget user, BattleTarget target, MoveData moveData){
         target.individualBattleModifier.lastOneToDealDamage = user;
         yield break;

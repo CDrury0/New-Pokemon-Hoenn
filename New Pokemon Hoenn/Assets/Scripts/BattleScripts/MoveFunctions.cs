@@ -58,7 +58,7 @@ public class MoveFunctions : MonoBehaviour
                 user.individualBattleModifier.targets = new List<BattleTarget>(){null};
             }
             else{
-                user.individualBattleModifier.targets = new List<BattleTarget>(){battleTargets.First(b => b.teamBattleModifier.isPlayerTeam != user.teamBattleModifier.isPlayerTeam)};
+                user.individualBattleModifier.targets = new List<BattleTarget>(){battleTargets.FirstOrDefault(b => b.teamBattleModifier.isPlayerTeam != user.teamBattleModifier.isPlayerTeam)};
             }
             return false;
         }
@@ -167,7 +167,7 @@ public class MoveFunctions : MonoBehaviour
     }
 
     public static bool CanBeSwitchedIn(Pokemon pokemonToSwitchIn){
-        return CombatSystem.ActiveTargetCanSwitchOut() && pokemonToSwitchIn.primaryStatus != PrimaryStatus.Fainted && !pokemonToSwitchIn.inBattle;
+        return CombatSystem.ActiveTargetCanSwitchOut() && pokemonToSwitchIn != null && pokemonToSwitchIn.primaryStatus != PrimaryStatus.Fainted && !pokemonToSwitchIn.inBattle;
     }
 
     public IEnumerator CheckMoveFailedToBeUsed(CombatSystem.WrappedBool moveFailed, BattleTarget user){
