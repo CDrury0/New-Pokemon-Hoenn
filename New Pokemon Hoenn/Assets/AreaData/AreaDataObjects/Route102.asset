@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Route102
   m_EditorClassIdentifier: 
   areaName: Route 102
-  weather: 0
+  terrainData: {fileID: 0}
+  weather: {fileID: 11400000, guid: 222c990df5561c443920f8582a4dc7d7, type: 2}
   generationValues: {fileID: 11400000, guid: ede6ef600045bbc4ea7e051f9df92fda, type: 2}
   musicIntro: {fileID: 0}
   musicLoop: {fileID: 0}

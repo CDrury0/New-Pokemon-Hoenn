@@ -140,12 +140,12 @@ public class IndividualBattleModifier
 
 public class BattleTarget
 {
-    [HideInInspector] public Pokemon pokemon;
+    public Pokemon pokemon;
     public TeamBattleModifier teamBattleModifier;
     public IndividualBattleModifier individualBattleModifier;
     public BattleHUD battleHUD;
     public GameObject monSpriteObject;
-    [HideInInspector] public GameObject turnAction;
+    public GameObject turnAction;
 
     public BattleTarget(TeamBattleModifier tbm, IndividualBattleModifier ibm, Pokemon pokemon, BattleHUD hud, GameObject monSpriteObject){
         this.teamBattleModifier = tbm;

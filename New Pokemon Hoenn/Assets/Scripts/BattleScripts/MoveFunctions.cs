@@ -309,9 +309,7 @@ public class MoveFunctions : MonoBehaviour
         yield return StartCoroutine(HandleMultiTurn(battleTargets));
 
         //weather
-        if(CombatSystem.Weather != null){
-            yield return StartCoroutine(HandleWeather(battleTargets));
-        }
+        yield return StartCoroutine(HandleWeather(battleTargets));
         
         //bind effects
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyBind>(battleTargets));
@@ -391,20 +389,23 @@ public class MoveFunctions : MonoBehaviour
         Weather weather = CombatSystem.Weather;
         if(CombatSystem.weatherTimer == 0){
             yield return StartCoroutine(combatScreen.battleText.WriteMessage(weather.textOnStop));
-            CombatSystem.Weather = null;
+            CombatSystem.Weather = ReferenceLib.Instance.activeArea.weather;
             yield break;
         }
 
-        CombatSystem.weatherTimer--;
+        if(CombatSystem.Weather != ReferenceLib.Instance.activeArea.weather){
+            CombatSystem.weatherTimer--;
+        }
+        
         yield return StartCoroutine(combatScreen.battleText.WriteMessage(weather.textOnContinue));
 
         if(weather.damageEveryTurn){
             foreach(BattleTarget b in battleTargets){
                 
-                bool takeDamage = false;
+                bool takeDamage = true;
                 foreach(StatLib.Type immuneType in weather.immuneTypes){
                     if(b.pokemon.IsThisType(immuneType)){
-                        takeDamage = true;
+                        takeDamage = false;
                     }
                 }
 
@@ -414,6 +415,8 @@ public class MoveFunctions : MonoBehaviour
                     yield return StartCoroutine(combatScreen.battleText.WriteMessage(b.GetName() + " " + weather.textOnDamage));
                 }
             }
+
+            yield return StartCoroutine(combatSystem.HandleFaint());
         }
     }
 
@@ -442,5 +445,7 @@ public class MoveFunctions : MonoBehaviour
                 b.pokemon.CurrentHealth -= burnDamage;
             }
         }
+
+        yield return StartCoroutine(combatSystem.HandleFaint());
     }
 }

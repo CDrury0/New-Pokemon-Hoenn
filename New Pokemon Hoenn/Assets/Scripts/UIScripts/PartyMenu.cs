@@ -7,6 +7,7 @@ public class PartyMenu : MonoBehaviour
 {
     public TextMeshProUGUI partyPromptText;
     public PartyInfoBox[] infoBoxes;
+    public GameObject closeButton;
 
     void OnEnable(){
         GetComponentInParent<Canvas>().sortingOrder = 1;
@@ -16,10 +17,11 @@ public class PartyMenu : MonoBehaviour
         GetComponentInParent<Canvas>().sortingOrder = 0;
     }
 
-    public void OpenParty(){
+    public void OpenParty(bool allowClose){
         foreach(PartyInfoBox infoBox in infoBoxes){
             infoBox.LoadPokemonDetails();
         }
+        closeButton.SetActive(allowClose);
         gameObject.SetActive(true);
     }
 }

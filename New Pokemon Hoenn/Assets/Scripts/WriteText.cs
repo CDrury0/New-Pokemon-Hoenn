@@ -29,6 +29,10 @@ public class WriteText : MonoBehaviour
 
     public IEnumerator WriteMessage(string message)
     {
+        if(string.IsNullOrEmpty(message)){
+            yield break;
+        }
+
         wait = Wait(2.5f);
         text.text = "";
         gameObject.SetActive(true);
@@ -57,6 +61,10 @@ public class WriteText : MonoBehaviour
 
     public IEnumerator WriteMessageConfirm(string message)
     {
+        if(string.IsNullOrEmpty(message)){
+            yield break;
+        }
+        
         text.text = "";
         gameObject.SetActive(true);
         skip = false;

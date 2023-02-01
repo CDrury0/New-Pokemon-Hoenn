@@ -31,7 +31,7 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
 
     public StatLib.Type GetEffectiveMoveType(Pokemon user){
         if(typeFromWeather){
-            return CombatSystem.Weather != null ? CombatSystem.Weather.typeFromWeather : StatLib.Type.Normal;
+            return CombatSystem.Weather.typeFromWeather;
         }
         if(hiddenPowerType){
             return user.hiddenPowerType;

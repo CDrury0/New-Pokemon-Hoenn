@@ -37,6 +37,8 @@ public class PartyInfoBox : MonoBehaviour
     }
 
     public void SendOutButtonFunction(){
-        //call CombatSystem method to select switch action, etc.
+        GetComponentInParent<PartyMenu>().gameObject.SetActive(false);
+        CombatSystem.ActiveTarget.individualBattleModifier.switchingIn = PlayerParty.Instance.playerParty.party[whichPartyMember];
+        CombatSystem.Proceed = true;
     }
 }

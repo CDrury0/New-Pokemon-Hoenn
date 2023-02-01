@@ -11,4 +11,6 @@ public abstract class EnemyAI //: MonoBehaviour enables use as component on trai
     }
 
     public abstract void ChooseAction(BattleTarget user);
+
+    public abstract Pokemon SelectNextPokemon(Party enemyParty);
 }

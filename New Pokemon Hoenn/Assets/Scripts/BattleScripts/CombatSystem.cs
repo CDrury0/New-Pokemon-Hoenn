@@ -16,8 +16,9 @@ public class CombatSystem : MonoBehaviour
     public static MoveRecordList MoveRecordList {get; private set;}
     public CombatScreen combatScreen;
     public MoveFunctions moveFunctions;
+    public PartyMenu partyMenu;
     public GameObject struggle;
-    public GameObject switchPokemon;
+    public GameObject switchAction;
     public bool DoubleBattle {get; private set;}
     private Party playerParty;
     private Party enemyParty;
@@ -30,9 +31,9 @@ public class CombatSystem : MonoBehaviour
     public List<BattleTarget> BattleTargets {get; private set;}
     private List<Pokemon> expParticipants;
     private List<BattleTarget> turnOrder;
-    private bool _proceed;
-    private bool Proceed {
-        get{
+    private static bool _proceed;
+    public static bool Proceed {
+        private get{
             if(_proceed){
                 _proceed = false;
                 return true;
@@ -58,6 +59,7 @@ public class CombatSystem : MonoBehaviour
         BattleActive = true;
         TurnCount = 0;
         Weather = ReferenceLib.Instance.activeArea.weather;
+        Debug.Log(Weather.name);
         weatherTimer = 0;
         MoveRecordList = new MoveRecordList();
         playerParty = PlayerParty.Instance.playerParty;
@@ -267,11 +269,10 @@ public class CombatSystem : MonoBehaviour
     private IEnumerator BattleTurn(){
         //increment turn count, reset damage taken this turn, destroy instantiated turnAction gameobjects, other cleanup things
         
-        //fainted mons are not removed from orderedUsers
-        List<BattleTarget> orderedUsers = moveFunctions.GetTurnOrder(BattleTargets);
+        BattleTargets = moveFunctions.GetTurnOrder(BattleTargets);
 
-        for(int i = 0; i < orderedUsers.Count; i++){
-            BattleTarget user = orderedUsers[i];
+        for(int i = 0; i < BattleTargets.Count; i++){
+            BattleTarget user = BattleTargets[i];
             GameObject action = Instantiate(user.turnAction);
 
             AppliedEffectInfo onFaintInfo = user.individualBattleModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyOnFaintEffect);
@@ -291,7 +292,11 @@ public class CombatSystem : MonoBehaviour
             yield return StartCoroutine(HandleFaint());
         }
 
-        yield return StartCoroutine(moveFunctions.EndOfTurnEffects(orderedUsers));
+        yield return StartCoroutine(moveFunctions.EndOfTurnEffects(BattleTargets));
+
+        BattleTargets = referenceBattleTargets.FindAll(b => b != null && b.pokemon.inBattle);
+
+        yield return StartCoroutine(ReplaceFaintedTargets());
 
         StartCoroutine(GetTurnActions());
     }
@@ -322,6 +327,7 @@ public class CombatSystem : MonoBehaviour
         foreach(BattleTarget b in BattleTargets){
             if(b.pokemon.CurrentHealth == 0){
                 b.pokemon.primaryStatus = PrimaryStatus.Fainted;
+                b.individualBattleModifier = new IndividualBattleModifier();
                 b.pokemon.inBattle = false;
                 //animation for fainting, remove direct sprite object change
                 b.monSpriteObject.SetActive(false);
@@ -332,6 +338,50 @@ public class CombatSystem : MonoBehaviour
         }
 
         BattleTargets.RemoveAll(b => b.pokemon.primaryStatus == PrimaryStatus.Fainted);
+    }
+
+    public IEnumerator ReplaceFaintedTargets(){
+        List<BattleTarget> targetsToReplace = new List<BattleTarget>(referenceBattleTargets.FindAll(b => !BattleTargets.Contains(b)));
+        foreach(BattleTarget needsReplaced in targetsToReplace){
+            ActiveTarget = needsReplaced;
+            if(!ActiveTarget.teamBattleModifier.isPlayerTeam){
+                ActiveTarget.individualBattleModifier.switchingIn = enemyAI.SelectNextPokemon(enemyParty);
+            }
+            else{
+                if(playerParty.GetFirstAvailable() != null){
+                    partyMenu.OpenParty(false);
+                }
+                else{
+                    Proceed = true;
+                }
+                yield return new WaitUntil(() => Proceed);
+            }
+            if(ActiveTarget.individualBattleModifier.switchingIn != null){
+                ActiveTarget.individualBattleModifier.switchingIn.inBattle = true;
+            }
+        }
+        foreach(BattleTarget needsReplaced in targetsToReplace){
+            if(needsReplaced.individualBattleModifier.switchingIn != null){
+                yield return StartCoroutine(SendOutPokemon(needsReplaced, needsReplaced.individualBattleModifier.switchingIn, needsReplaced.teamBattleModifier.isPlayerTeam));
+            }
+        }
+    }
+
+    public IEnumerator SendOutPokemon(BattleTarget replacing, Pokemon replacement, bool playerTeam){
+        replacing.pokemon = replacement;
+
+        //account for baton pass
+        replacing.individualBattleModifier = new IndividualBattleModifier();
+
+        replacing.battleHUD.SetBattleHUD(replacing.pokemon);
+        replacing.monSpriteObject.GetComponent<Image>().sprite = playerTeam ? replacing.pokemon.backSprite : replacing.pokemon.frontSprite;
+        //replace setActives later
+        replacing.monSpriteObject.SetActive(true);
+        replacing.battleHUD.gameObject.SetActive(true);
+
+        BattleTargets.Insert(referenceBattleTargets.IndexOf(replacing), replacing);
+        string message = playerTeam ? "Go " + replacing.pokemon.nickName + "!" : "Enemy sent out " + replacing.pokemon.nickName;
+        yield return StartCoroutine(combatScreen.battleText.WriteMessage(message));
     }
 
     private void EndBattle(){

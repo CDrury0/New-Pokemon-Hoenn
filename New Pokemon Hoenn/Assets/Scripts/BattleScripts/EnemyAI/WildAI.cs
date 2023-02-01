@@ -17,4 +17,9 @@ public class WildAI : EnemyAI
             CombatLib.Instance.moveFunctions.MustChooseTarget(TargetType.RandomFoe, user);
         }
     }
+
+    public override Pokemon SelectNextPokemon(Party enemyParty)
+    {
+        return enemyParty.GetFirstAvailable();
+    }
 }
