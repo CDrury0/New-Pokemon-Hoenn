@@ -379,6 +379,7 @@ public class CombatSystem : MonoBehaviour
         replacing.pokemon.inBattle = false;
 
         replacing.pokemon = replacing.individualBattleModifier.switchingIn;
+        replacing.pokemon.inBattle = true;
 
         //account for baton pass
         replacing.individualBattleModifier = new IndividualBattleModifier();
