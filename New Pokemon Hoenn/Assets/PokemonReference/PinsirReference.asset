@@ -20,7 +20,7 @@ MonoBehaviour:
   weight: 55
   IDNumber: 172
   type1: 12
-  type2: 0
+  type2: 9
   friendship: 70
   baseExperience: 160
   growthRate: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   boxSprite: {fileID: 21300000, guid: 98fd337c7ec25434b9f52f08dea43c74, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 2b9c7c5a3fc962b469c853ba1d1407f5, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000200000000000000000000000000000000000000
   learnedMoves:
   - {fileID: 0}

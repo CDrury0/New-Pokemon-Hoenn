@@ -37,4 +37,8 @@ public class MoveRecordList
     public MoveRecord FindRecordOfUserMove(Pokemon user){
         return moveRecords.Find(record => record.user == user);
     }
+
+    public void RemoveAllRecordsOfUser(Pokemon user){
+        moveRecords.RemoveAll(r => r.user == user);
+    }
 }

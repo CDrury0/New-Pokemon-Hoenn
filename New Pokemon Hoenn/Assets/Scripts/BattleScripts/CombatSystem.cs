@@ -250,7 +250,7 @@ public class CombatSystem : MonoBehaviour
                 }
             }
 
-            if(user.individualBattleModifier.targets[j] != null){
+            if(user.individualBattleModifier.targets.Count > 0){
                 MoveRecordList.AddRecord(user.pokemon, user.individualBattleModifier.targets[j].pokemon, user.turnAction);
             }
 
@@ -291,7 +291,7 @@ public class CombatSystem : MonoBehaviour
 
         yield return StartCoroutine(moveFunctions.EndOfTurnEffects(BattleTargets));
 
-        BattleTargets = referenceBattleTargets.FindAll(b => b != null && b.pokemon.inBattle);
+        BattleTargets = referenceBattleTargets.FindAll(b => BattleTargets.Contains(b));
 
         yield return StartCoroutine(ReplaceFaintedTargets());
 
@@ -357,6 +357,7 @@ public class CombatSystem : MonoBehaviour
         foreach(BattleTarget needsReplaced in targetsToReplace){
             if(needsReplaced.individualBattleModifier.switchingIn != null){
                 yield return StartCoroutine(SendOutPokemon(needsReplaced));
+                BattleTargets.Insert(referenceBattleTargets.IndexOf(needsReplaced), needsReplaced);
             }
         }
     }
@@ -377,22 +378,20 @@ public class CombatSystem : MonoBehaviour
 
     private IEnumerator SendOutPokemon(BattleTarget replacing){
         replacing.pokemon.inBattle = false;
+        MoveRecordList.RemoveAllRecordsOfUser(replacing.pokemon);
 
         replacing.pokemon = replacing.individualBattleModifier.switchingIn;
         replacing.pokemon.inBattle = true;
 
         //account for baton pass
         replacing.individualBattleModifier = new IndividualBattleModifier();
-
+        
         replacing.battleHUD.SetBattleHUD(replacing.pokemon);
         replacing.monSpriteObject.GetComponent<Image>().sprite = replacing.teamBattleModifier.isPlayerTeam ? replacing.pokemon.backSprite : replacing.pokemon.frontSprite;
         //replace setActives later
         replacing.monSpriteObject.SetActive(true);
         replacing.battleHUD.gameObject.SetActive(true);
 
-        if(!BattleTargets.Contains(replacing)){
-            BattleTargets.Insert(referenceBattleTargets.IndexOf(replacing), replacing);
-        }
         string message = replacing.teamBattleModifier.isPlayerTeam ? "Go " + replacing.pokemon.nickName + "!" : "Enemy sent out " + replacing.pokemon.nickName;
         yield return StartCoroutine(combatScreen.battleText.WriteMessage(message));
     }
@@ -408,5 +407,7 @@ public class CombatSystem : MonoBehaviour
         foreach(GameObject oldTurnAction in instantiatedMoves){
             Destroy(oldTurnAction);
         }
+
+
     }
 }
