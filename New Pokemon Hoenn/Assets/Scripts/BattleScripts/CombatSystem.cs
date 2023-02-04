@@ -225,9 +225,13 @@ public class CombatSystem : MonoBehaviour
             moveFunctions.DeductPP(user);
         }
         
-        yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " used " + moveData.moveName));
+        MultiTurnEffect multi = move.GetComponent<MultiTurnEffect>();
+        if(multi == null || !multi.chargingTurn){
+            yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " used " + moveData.moveName));
+        }
     
-        int targetCount = user.individualBattleModifier.targets.Count;  //must save value of target count or calling moves like mirror move may activate multiple times during double battles
+        //must save value of target count or calling moves like mirror move may activate multiple times during double battles
+        int targetCount = user.individualBattleModifier.targets.Count;
         for(int j = 0; j < targetCount; j++){
             WrappedBool moveFailed = new WrappedBool();
             yield return StartCoroutine(moveFunctions.CheckMoveFailedAgainstTarget(moveFailed, move, user, user.individualBattleModifier.targets[j]));
@@ -236,10 +240,12 @@ public class CombatSystem : MonoBehaviour
             if(!moveFailed.failed){
                 foreach(MoveEffect effect in move.GetComponents<MoveEffect>()){
                     BattleTarget target = effect.applyToSelf ? user : user.individualBattleModifier.targets[j];
+
                     //only do self-applied effects one time regardless of the number of targets
                     if(effect.applyToSelf && j + 1 != user.individualBattleModifier.targets.Count){
                         continue;
                     }
+                    
                     if(effect is ICheckMoveEffectFail){
                         ICheckMoveEffectFail effectThatMayFail = (ICheckMoveEffectFail)effect;
                         if(effectThatMayFail.CheckMoveEffectFail(user, target, moveData)){
@@ -262,7 +268,12 @@ public class CombatSystem : MonoBehaviour
 
     private IEnumerator BattleTurn(){
         //increment turn count, reset damage taken this turn, destroy instantiated turnAction gameobjects, other cleanup things
-        
+        TurnCount++;
+        foreach(BattleTarget b in BattleTargets){
+            b.individualBattleModifier.specialDamageTakenThisTurn = 0;
+            b.individualBattleModifier.physicalDamageTakenThisTurn = 0;
+        }
+
         BattleTargets = moveFunctions.GetTurnOrder(BattleTargets);
 
         for(int i = 0; i < BattleTargets.Count; i++){

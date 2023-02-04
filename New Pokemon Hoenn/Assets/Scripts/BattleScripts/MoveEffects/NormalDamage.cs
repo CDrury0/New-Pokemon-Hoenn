@@ -54,7 +54,9 @@ public class NormalDamage : EffectDamage
         if(bonusLikeRollout){
             power *= 1 + user.individualBattleModifier.consecutiveMoveCounter;
         }
-        //payback
+        if(payback && CombatSystem.BattleTargets.Last() == user){
+            power *= 2;
+        }
 
         int timesToHit = 1;
         if(hitsMaxTimes != 0){

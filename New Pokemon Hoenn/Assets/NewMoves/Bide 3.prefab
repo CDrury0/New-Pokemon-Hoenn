@@ -51,11 +51,12 @@ MonoBehaviour:
     taken to the most recent attacker.
   moveType: 1
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 0
   category: 0
   targetType: 0
   maxPP: 10
-  priority: 0
+  priority: 1
   pursuit: 0
   soundBased: 0
   focusPunch: 0
@@ -64,11 +65,12 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
+  ignoresProtect: 0
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 1
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &7824943445367668076
 MonoBehaviour:
@@ -84,7 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyToSelf: 0
   message: 
-  skipChargingTurn: 0
+  skipChargingTurn: {fileID: 0}
   useNext: {fileID: 0}
   baseMove: {fileID: 1682630347, guid: bc2e956fccac2c44681ebe4722aa2919, type: 3}
   givesSemiInvulnerable: 0

@@ -50,11 +50,12 @@ MonoBehaviour:
     taken to the most recent attacker.
   moveType: 1
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 0
   category: 0
   targetType: 0
   maxPP: 10
-  priority: 0
+  priority: 1
   pursuit: 0
   soundBased: 0
   focusPunch: 0
@@ -63,11 +64,12 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
+  ignoresProtect: 0
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &5374694223057845139
 MonoBehaviour:
@@ -83,7 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyToSelf: 0
   message: '&userName began storing energy!'
-  skipChargingTurn: 0
+  skipChargingTurn: {fileID: 0}
   useNext: {fileID: 1682630347, guid: 10f8d3ac9ea95ce49ae81eef4b60251a, type: 3}
   baseMove: {fileID: 0}
   givesSemiInvulnerable: 0
