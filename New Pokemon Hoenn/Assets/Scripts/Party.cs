@@ -36,4 +36,13 @@ public class Party
         }
         return false;
     }
+
+    public bool IsEntireTeamFainted(){
+        foreach(Pokemon p in party){
+            if(p != null && p.primaryStatus != PrimaryStatus.Fainted){
+                return false;
+            }
+        }
+        return true;
+    }
 }

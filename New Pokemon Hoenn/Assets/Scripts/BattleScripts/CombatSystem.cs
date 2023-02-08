@@ -184,7 +184,11 @@ public class CombatSystem : MonoBehaviour
             user.individualBattleModifier.targets = new List<BattleTarget>(){user.individualBattleModifier.lastOneToDealDamage};
         }
 
-        //correct targeting fainted pokemon in double battles
+        user.individualBattleModifier.targets.RemoveAll(b => !BattleTargets.Contains(b) && b != null);
+        TargetType moveTargetType = user.turnAction.GetComponent<MoveData>().targetType;
+        if((moveTargetType == TargetType.Single || moveTargetType == TargetType.RandomFoe) && user.individualBattleModifier.targets.Count == 0){
+            user.individualBattleModifier.targets = new List<BattleTarget>(){BattleTargets.First(b => b.teamBattleModifier.isPlayerTeam != user.teamBattleModifier.isPlayerTeam)};
+        }
     }
 
     public List<GameObject> GetAllUnusableMoves(BattleTarget user){
@@ -274,10 +278,14 @@ public class CombatSystem : MonoBehaviour
             b.individualBattleModifier.physicalDamageTakenThisTurn = 0;
         }
 
-        BattleTargets = moveFunctions.GetTurnOrder(BattleTargets);
+        List<BattleTarget> turnOrder = new List<BattleTarget>(moveFunctions.GetTurnOrder(BattleTargets));
 
-        for(int i = 0; i < BattleTargets.Count; i++){
-            ActiveTarget = BattleTargets[i];
+        for(int i = 0; i < turnOrder.Count; i++){
+            ActiveTarget = turnOrder[i];
+            if(!BattleTargets.Contains(ActiveTarget)){
+                continue;
+            }
+
             GameObject action = Instantiate(ActiveTarget.turnAction);
 
             AppliedEffectInfo onFaintInfo = ActiveTarget.individualBattleModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyOnFaintEffect);
@@ -298,15 +306,32 @@ public class CombatSystem : MonoBehaviour
             }
 
             yield return StartCoroutine(HandleFaint());
+
+            if(IsAnyTeamEmpty()){
+                break;
+            }
         }
 
-        yield return StartCoroutine(moveFunctions.EndOfTurnEffects(BattleTargets));
+        if(playerParty.IsEntireTeamFainted() || enemyParty.IsEntireTeamFainted()){
+            yield return StartCoroutine(EndBattle());
+            yield break;
+        }
 
-        BattleTargets = referenceBattleTargets.FindAll(b => BattleTargets.Contains(b));
+        turnOrder.RemoveAll(b => !BattleTargets.Contains(b));
+        yield return StartCoroutine(moveFunctions.EndOfTurnEffects(turnOrder));
+
+        if(playerParty.IsEntireTeamFainted() || enemyParty.IsEntireTeamFainted()){
+            yield return StartCoroutine(EndBattle());
+            yield break;
+        }
 
         yield return StartCoroutine(ReplaceFaintedTargets());
 
         StartCoroutine(GetTurnActions());
+    }
+
+    private bool IsAnyTeamEmpty(){
+        return BattleTargets.Find(b => b.teamBattleModifier.isPlayerTeam) == null || BattleTargets.Find(b => !b.teamBattleModifier.isPlayerTeam) == null;
     }
 
     private void PreMoveEffects(BattleTarget user, GameObject moveUsed){
@@ -352,12 +377,13 @@ public class CombatSystem : MonoBehaviour
         List<BattleTarget> targetsToReplace = new List<BattleTarget>(referenceBattleTargets.FindAll(b => !BattleTargets.Contains(b)));
         foreach(BattleTarget needsReplaced in targetsToReplace){
             ActiveTarget = needsReplaced;
+            ActiveTarget.individualBattleModifier.switchingIn = null; //may be necessary to prevent auto-switching to mon selected before being KO'ed by pursuit
             if(!ActiveTarget.teamBattleModifier.isPlayerTeam){
                 ActiveTarget.individualBattleModifier.switchingIn = enemyAI.SelectNextPokemon(enemyParty);
             }
             else{
                 if(playerParty.HasAvailableFighter()){
-                    partyMenu.OpenParty(false);
+                    partyMenu.OpenParty(false, "Who will replace " + ActiveTarget.pokemon.nickName + "?");
                 }
                 else{
                     Proceed = true;
@@ -407,7 +433,27 @@ public class CombatSystem : MonoBehaviour
         yield return StartCoroutine(combatScreen.battleText.WriteMessage(message));
     }
 
-    private void EndBattle(){
+    public bool CanBeSwitchedIn(Pokemon pokemonToSwitchIn){
+        return ActiveTargetCanSwitchOut() && pokemonToSwitchIn != null 
+        && pokemonToSwitchIn.primaryStatus != PrimaryStatus.Fainted && !pokemonToSwitchIn.inBattle 
+        && referenceBattleTargets.Find(b => b.individualBattleModifier.switchingIn == pokemonToSwitchIn) == null;
+    }
+
+    private IEnumerator EndBattle(){
+        if(playerParty.IsEntireTeamFainted()){
+            yield return StartCoroutine(combatScreen.battleText.WriteMessage("You lose, moron"));
+        }
+        else if(enemyParty.IsEntireTeamFainted()){
+            yield return StartCoroutine(combatScreen.battleText.WriteMessage("You win, tryhard"));
+        }
+        else{
+            Debug.Log("something went wrong");
+        }
+        CleanUpAfterBattle();
+        combatScreen.gameObject.SetActive(false);
+    }
+
+    private void CleanUpAfterBattle(){
         BattleActive = false;
 
         foreach(Pokemon p in playerParty.party){
@@ -419,6 +465,9 @@ public class CombatSystem : MonoBehaviour
             Destroy(oldTurnAction);
         }
 
-
+        GameObject[] instantiatedSwitchActions = GameObject.FindGameObjectsWithTag("Switch");
+        foreach(GameObject oldTurnAction in instantiatedSwitchActions){
+            Destroy(oldTurnAction);
+        }
     }
 }

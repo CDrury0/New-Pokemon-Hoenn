@@ -32,7 +32,7 @@ public class PartyInfoBox : MonoBehaviour
     private void ActivateSendOutButton(){
         sendOutButton.SetActive(false);
         if(CombatSystem.BattleActive){
-            sendOutButton.SetActive(MoveFunctions.CanBeSwitchedIn(PlayerParty.Instance.playerParty.party[whichPartyMember]));
+            sendOutButton.SetActive(CombatLib.Instance.combatSystem.CanBeSwitchedIn(PlayerParty.Instance.playerParty.party[whichPartyMember]));
         }
     }
 

@@ -5,7 +5,7 @@ using TMPro;
 
 public class PartyMenu : MonoBehaviour
 {
-    public TextMeshProUGUI partyPromptText;
+    public GameObject promptTextBox;
     public PartyInfoBox[] infoBoxes;
     public GameObject closeButton;
 
@@ -17,11 +17,22 @@ public class PartyMenu : MonoBehaviour
         GetComponentInParent<Canvas>().sortingOrder = 0;
     }
 
-    public void OpenParty(bool allowClose){
+    public void OpenPartyNoMessage(bool allowClose){
+        OpenParty(allowClose);
+    }
+
+    public void OpenParty(bool allowClose, string message = null){
         foreach(PartyInfoBox infoBox in infoBoxes){
             infoBox.LoadPokemonDetails();
         }
         closeButton.SetActive(allowClose);
+
+        promptTextBox.SetActive(false);
+        if(message != null){
+            promptTextBox.GetComponentInChildren<TextMeshProUGUI>().text = message;
+            promptTextBox.SetActive(true);
+        }
+
         gameObject.SetActive(true);
     }
 }

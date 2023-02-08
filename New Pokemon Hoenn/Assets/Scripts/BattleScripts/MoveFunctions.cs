@@ -58,7 +58,12 @@ public class MoveFunctions : MonoBehaviour
                 user.individualBattleModifier.targets = new List<BattleTarget>(){null};
             }
             else{
-                user.individualBattleModifier.targets = new List<BattleTarget>(){battleTargets.FirstOrDefault(b => b.teamBattleModifier.isPlayerTeam != user.teamBattleModifier.isPlayerTeam)};
+                try{
+                    user.individualBattleModifier.targets = new List<BattleTarget>(){battleTargets.First(b => b.teamBattleModifier.isPlayerTeam != user.teamBattleModifier.isPlayerTeam)};
+                }
+                catch(System.InvalidOperationException e){
+                    Debug.LogError(e);
+                }
             }
             return false;
         }
@@ -166,12 +171,6 @@ public class MoveFunctions : MonoBehaviour
         return multiTurn != null && multiTurn.chargingTurn;
     }
 
-    public static bool CanBeSwitchedIn(Pokemon pokemonToSwitchIn){
-        return CombatSystem.ActiveTargetCanSwitchOut() && pokemonToSwitchIn != null 
-        && pokemonToSwitchIn.primaryStatus != PrimaryStatus.Fainted && !pokemonToSwitchIn.inBattle 
-        && CombatSystem.BattleTargets.Find(b => b.individualBattleModifier.switchingIn == pokemonToSwitchIn) == null;
-    }
-
     public IEnumerator CheckMoveFailedToBeUsed(CombatSystem.WrappedBool moveFailed, BattleTarget user){
         moveFailed.failed = true;
         if(user.individualBattleModifier.multiTurnInfo != null && user.individualBattleModifier.multiTurnInfo.recharging){
@@ -247,6 +246,11 @@ public class MoveFunctions : MonoBehaviour
         
         if(IsChargingTurn(turnAction)){
             moveFailed.failed = false;
+            yield break;
+        }
+
+        if(user.individualBattleModifier.targets.FirstOrDefault() == null){
+            yield return StartCoroutine(combatScreen.battleText.WriteMessage(MoveData.FAIL));
             yield break;
         }
 
