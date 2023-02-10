@@ -101,6 +101,9 @@ public class MoveFunctions : MonoBehaviour
             if(multiTurnInfo.multiTurn.useNext != null){
                 user.turnAction = multiTurnInfo.multiTurn.useNext;
             }
+            if(multiTurnInfo.multiTurn.GetComponent<MoveData>().targetType == TargetType.RandomFoe){
+                MustChooseTarget(TargetType.RandomFoe, user);
+            }
             return true;
         }
         return false;

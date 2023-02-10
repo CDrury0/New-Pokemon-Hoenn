@@ -5,12 +5,17 @@ using UnityEngine;
 public class MagnitudeDamage : NormalDamage
 {
     public PiecewiseDamageData piecewiseDamage;
+    private int roll;
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        int roll = GetMagnitude(Random.Range(0f, 1f));
+        Debug.Log("start: " + roll);
+        if(roll == 0){
+            roll = GetMagnitude(Random.Range(0f, 1f));
+            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(moveData.moveName + " " + roll));
+        }
         int power = piecewiseDamage.GetPower(roll);
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(moveData.moveName + " " + roll));
         yield return StartCoroutine(NormalDamageMethod(user, target, moveData, power));
+        yield return StartCoroutine(CombatLib.Instance.moveFunctions.WriteEffectivenessText(target, moveData.GetEffectiveMoveType(user.pokemon)));
     }
 
     private int GetMagnitude(float rand){

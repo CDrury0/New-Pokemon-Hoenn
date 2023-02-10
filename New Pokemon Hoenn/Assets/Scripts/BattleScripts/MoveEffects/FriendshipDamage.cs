@@ -13,5 +13,6 @@ public class FriendshipDamage : NormalDamage
             power = 1;
         }
         yield return StartCoroutine(base.NormalDamageMethod(user, target, moveData, power));
+        yield return StartCoroutine(CombatLib.Instance.moveFunctions.WriteEffectivenessText(target, moveData.GetEffectiveMoveType(user.pokemon)));
     }
 }

@@ -24,6 +24,7 @@ public class HealthBasedDamage : NormalDamage
     {
         int power = waterSpoutTypeDamage ? WaterSpoutFormula(user, moveData.displayPower) : piecewiseDamage.GetPower((float)user.pokemon.CurrentHealth / (float)user.pokemon.stats[0]);
         yield return StartCoroutine(NormalDamageMethod(user, target, moveData, power));
+        yield return StartCoroutine(CombatLib.Instance.moveFunctions.WriteEffectivenessText(target, moveData.GetEffectiveMoveType(user.pokemon)));
     }
 
     private int WaterSpoutFormula(BattleTarget user, int displayPower){
