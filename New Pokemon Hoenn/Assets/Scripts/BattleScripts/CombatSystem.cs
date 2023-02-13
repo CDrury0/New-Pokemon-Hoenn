@@ -101,8 +101,8 @@ public class CombatSystem : MonoBehaviour
         return ActiveTarget.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyBind || e.effect is ApplyTrap || e.effect is ApplyIngrain) == null;      
     }
 
-    public Pokemon[] GetTeamParty(BattleTarget whoseTeam){
-        return whoseTeam.teamBattleModifier.isPlayerTeam ? playerParty.party : enemyParty.party;
+    public Party GetTeamParty(BattleTarget whoseTeam){
+        return whoseTeam.teamBattleModifier.isPlayerTeam ? playerParty : enemyParty;
     }
 
     public void OpenPartyMenu(){
@@ -260,8 +260,11 @@ public class CombatSystem : MonoBehaviour
                 }
             }
 
-            if(user.individualBattleModifier.targets.Count > 0){
+            try{
                 MoveRecordList.AddRecord(user.pokemon, user.individualBattleModifier.targets[j].pokemon, user.turnAction);
+            }
+            catch(System.Exception e){
+                Debug.LogError(e);
             }
 
             if(MoveFunctions.IsChargingTurn(move)){
@@ -393,13 +396,13 @@ public class CombatSystem : MonoBehaviour
         }
         foreach(BattleTarget needsReplaced in targetsToReplace){
             if(needsReplaced.individualBattleModifier.switchingIn != null){
-                yield return StartCoroutine(SendOutPokemon(needsReplaced));
+                yield return StartCoroutine(SendOutPokemon(needsReplaced, false));
                 BattleTargets.Insert(referenceBattleTargets.IndexOf(needsReplaced), needsReplaced);
             }
         }
     }
 
-    public IEnumerator SwitchPokemon(BattleTarget replacing){
+    public IEnumerator SwitchPokemon(BattleTarget replacing, bool passEffects){
         //play withdraw animation
         if(replacing.individualBattleModifier.switchingIn == null){
             if(!replacing.teamBattleModifier.isPlayerTeam){
@@ -410,10 +413,10 @@ public class CombatSystem : MonoBehaviour
                 yield return new WaitUntil(() => Proceed);
             }
         }
-        yield return StartCoroutine(SendOutPokemon(replacing));
+        yield return StartCoroutine(SendOutPokemon(replacing, passEffects));
     }
 
-    private IEnumerator SendOutPokemon(BattleTarget replacing){
+    private IEnumerator SendOutPokemon(BattleTarget replacing, bool passEffects){
         replacing.pokemon.inBattle = false;
         MoveRecordList.RemoveAllRecordsOfUser(replacing.pokemon);
 
@@ -421,7 +424,7 @@ public class CombatSystem : MonoBehaviour
         replacing.pokemon.inBattle = true;
 
         //account for baton pass
-        replacing.individualBattleModifier = new IndividualBattleModifier();
+        replacing.individualBattleModifier = passEffects ? new IndividualBattleModifier(replacing.individualBattleModifier) : new IndividualBattleModifier();
         
         replacing.battleHUD.SetBattleHUD(replacing.pokemon);
         replacing.monSpriteObject.GetComponent<Image>().sprite = replacing.teamBattleModifier.isPlayerTeam ? replacing.pokemon.backSprite : replacing.pokemon.frontSprite;

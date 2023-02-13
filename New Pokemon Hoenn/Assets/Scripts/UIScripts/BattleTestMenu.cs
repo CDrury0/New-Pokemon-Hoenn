@@ -34,11 +34,11 @@ public class BattleTestMenu : MonoBehaviour
     }
 
     public void ClearPlayerParty(){
-        ClearParty(PlayerParty.Instance.playerParty);
+        ClearParty(true);
     }
 
     public void ClearEnemyParty(){
-        ClearParty(enemyParty);
+        ClearParty(false);
     }
 
     public void RandomPlayerParty(){
@@ -78,9 +78,14 @@ public class BattleTestMenu : MonoBehaviour
         return newParty;
     }
 
-    private void ClearParty(Party party){
-        Button[] b = party == enemyParty ? enemyPartyButtons : playerPartyButtons;
-        party = new Party();
+    private void ClearParty(bool playerParty){
+        Button[] b = playerParty ? playerPartyButtons : enemyPartyButtons;
+        if(playerParty){
+            PlayerParty.Instance.playerParty = new Party();
+        }
+        else{
+            enemyParty = new Party();
+        }
         foreach(Button button in b){
             button.GetComponent<Image>().sprite = null;
         }

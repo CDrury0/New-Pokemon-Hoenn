@@ -6,7 +6,7 @@ public class AssistEffect : CallMoveEffect, ICheckMoveFail
 {
     public string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        if(GetUsableMoves(user, CombatLib.Instance.combatSystem.GetTeamParty(user)).Count > 0){
+        if(GetUsableMoves(user, CombatLib.Instance.combatSystem.GetTeamParty(user).party).Count > 0){
             return null;
         }
         return MoveData.FAIL;
@@ -14,7 +14,7 @@ public class AssistEffect : CallMoveEffect, ICheckMoveFail
 
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        List<GameObject> usableMoves = GetUsableMoves(user, CombatLib.Instance.combatSystem.GetTeamParty(user));
+        List<GameObject> usableMoves = GetUsableMoves(user, CombatLib.Instance.combatSystem.GetTeamParty(user).party);
         GameObject selectedMove = Instantiate(usableMoves[Random.Range(0, usableMoves.Count)]);
         if(CombatLib.Instance.moveFunctions.MustChooseTarget(selectedMove.GetComponent<MoveData>().targetType, user)){
             CombatLib.Instance.moveFunctions.MustChooseTarget(TargetType.RandomFoe, user);

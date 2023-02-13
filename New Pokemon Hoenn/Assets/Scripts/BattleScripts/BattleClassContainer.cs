@@ -124,7 +124,18 @@ public class IndividualBattleModifier
         statMultipliers = new float[5]{1,1,1,1,1};
     }
 
-    //add overloaded constructor to account for passed effects via baton pass
+    public IndividualBattleModifier(IndividualBattleModifier oldModifier) : this(){
+        appliedEffects.Add(oldModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyConfuse));
+        appliedEffects.Add(oldModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyLockOn));
+        appliedEffects.Add(oldModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyTrap));
+        appliedEffects.Add(oldModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyLeechSeed));
+        appliedEffects.Add(oldModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyCurse));
+        appliedEffects.Add(oldModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyIngrain));
+        appliedEffects.Add(oldModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyPerishSong));
+        appliedEffects.RemoveAll(effectInfo => effectInfo is null);
+        statStages = oldModifier.statStages;
+        CalculateStatMultipliers();
+    }
 
     public void CalculateStatMultipliers(){
         for(int i = 0; i < 5; i++)
