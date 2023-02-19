@@ -23,6 +23,14 @@ public class NormalDamage : EffectDamage
     public bool curesBonusStatus;
     public bool payback;
 
+    public override string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
+    {
+        if(spitUp && user.individualBattleModifier.stockpileCount == 0){
+            return MoveData.FAIL;
+        }
+        return base.CheckMoveFail(user, target, moveData);
+    }
+
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         int power = moveData.displayPower;
@@ -184,11 +192,11 @@ public class NormalDamage : EffectDamage
             modifier *= 0.5f;
         }
 
-        if(moveData.category == MoveData.Category.Physical && target.teamBattleModifier.teamEffects.FirstOrDefault(e => e.effect == TeamDurationEffect.Reflect) != null && moveData.gameObject.GetComponent<BreaksWalls>() == null){
+        if(moveData.category == MoveData.Category.Physical && target.teamBattleModifier.teamEffects.FirstOrDefault(e => e.effect.durationEffect == TeamDurationEffect.Reflect) != null && moveData.gameObject.GetComponent<BreaksWalls>() == null){
             modifier *= 0.67f;
         }
 
-        if(moveData.category == MoveData.Category.Special && target.teamBattleModifier.teamEffects.FirstOrDefault(e => e.effect == TeamDurationEffect.LightScreen) != null && moveData.gameObject.GetComponent<BreaksWalls>() == null){
+        if(moveData.category == MoveData.Category.Special && target.teamBattleModifier.teamEffects.FirstOrDefault(e => e.effect.durationEffect == TeamDurationEffect.LightScreen) != null && moveData.gameObject.GetComponent<BreaksWalls>() == null){
             modifier *= 0.67f;
         }
 

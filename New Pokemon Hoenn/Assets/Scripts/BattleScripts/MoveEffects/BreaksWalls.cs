@@ -6,8 +6,8 @@ public class BreaksWalls : MoveEffect
 {
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        TeamDurationEffectInfo reflectEffectInfo = target.teamBattleModifier.teamEffects.Find(e => e.effect == TeamDurationEffect.Reflect);
-        TeamDurationEffectInfo lightScreenEffectInfo = target.teamBattleModifier.teamEffects.Find(e => e.effect == TeamDurationEffect.LightScreen);
+        TeamDurationEffectInfo reflectEffectInfo = target.teamBattleModifier.teamEffects.Find(e => e.effect.durationEffect == TeamDurationEffect.Reflect);
+        TeamDurationEffectInfo lightScreenEffectInfo = target.teamBattleModifier.teamEffects.Find(e => e.effect.durationEffect == TeamDurationEffect.LightScreen);
 
         if(reflectEffectInfo != null){
             target.teamBattleModifier.teamEffects.Remove(reflectEffectInfo);

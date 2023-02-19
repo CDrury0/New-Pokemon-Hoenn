@@ -50,6 +50,7 @@ MonoBehaviour:
     primary status conditions and confusion for 5 turns.
   moveType: 1
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 0
   category: 2
   targetType: 0
@@ -87,3 +88,4 @@ MonoBehaviour:
   durationEffect: 1
   weatherSet: {fileID: 0}
   timer: 5
+  endMessage: '&userPossessive safeguard faded!'

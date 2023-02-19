@@ -50,6 +50,7 @@ MonoBehaviour:
     taken from physical moves.
   moveType: 11
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 0
   category: 2
   targetType: 0
@@ -83,7 +84,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   applyToSelf: 0
-  message: '&userName projected a barrier!'
+  message: '&userPossessive team''s defense rose!'
   durationEffect: 3
   weatherSet: {fileID: 0}
   timer: 5
+  endMessage: '&userPossessive Reflect faded!'

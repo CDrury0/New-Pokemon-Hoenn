@@ -67,6 +67,9 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
     }
 
     public static GameObject GetBaseMove(GameObject move){
+        if(move == null){
+            return null;
+        }
         MultiTurnEffect multiTurn = move.GetComponent<MultiTurnEffect>();
         return multiTurn != null ? multiTurn.baseMove != null ? multiTurn.baseMove : move : move;
     }

@@ -14,7 +14,7 @@ public class StatChangeEffect : MoveEffect, ICheckMoveEffectFail
         if(curse && user.pokemon.IsThisType(StatLib.Type.Ghost)){
             return true;
         }
-        if(ImmuneToStatChanges(target) && user != target){
+        if(chance == 1f && ImmuneToStatChanges(target) && user != target){
             return true;
         }
         return false;
@@ -61,7 +61,10 @@ public class StatChangeEffect : MoveEffect, ICheckMoveEffectFail
     }
 
     private bool StatChangeOutOfBounds(int i, BattleTarget target){
-        if(target.individualBattleModifier.statStages[i] == GetStatMax(i)){
+        if(target.individualBattleModifier.statStages[i] == GetStatMax(i) && statChanges[i] > 0){
+            return true;
+        }
+        if(target.individualBattleModifier.statStages[i] == -GetStatMax(i) && statChanges[i] < 0){
             return true;
         }
         return false;
@@ -91,7 +94,7 @@ public class StatChangeEffect : MoveEffect, ICheckMoveEffectFail
     }
 
     private bool ImmuneToStatChanges(BattleTarget target){
-        if(target.teamBattleModifier.teamEffects.Find(e => e.effect == TeamDurationEffect.StatChangeImmune) != null){
+        if(target.teamBattleModifier.teamEffects.Find(e => e.effect.durationEffect == TeamDurationEffect.StatChangeImmune) != null){
             return true;
         }
         //clear body, etc.

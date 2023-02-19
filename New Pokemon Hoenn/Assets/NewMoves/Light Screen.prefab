@@ -50,6 +50,7 @@ MonoBehaviour:
     taken from special moves.
   moveType: 11
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 0
   category: 2
   targetType: 0
@@ -83,7 +84,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   applyToSelf: 0
-  message: '&userName projected a barrier!'
+  message: '&userPossessive Special Defense rose!'
   durationEffect: 4
   weatherSet: {fileID: 0}
   timer: 5
+  endMessage: '&userPossessive Light Screen faded!'

@@ -8,10 +8,11 @@ public class ApplyTeamDurationEffect : MoveEffect, ICheckMoveEffectFail
     public TeamDurationEffect durationEffect;
     public Weather weatherSet;
     public int timer;
+    [SerializeField] private string endMessage;
 
     public bool CheckMoveEffectFail(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        if(target.teamBattleModifier.teamEffects.Find(e => e.effect == durationEffect) != null){
+        if(target.teamBattleModifier.teamEffects.Find(e => e.effect.durationEffect == durationEffect) != null){
             return true;
         }
         //check for weather immunity (cloud nine / air lock)
@@ -21,7 +22,7 @@ public class ApplyTeamDurationEffect : MoveEffect, ICheckMoveEffectFail
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         if(durationEffect != TeamDurationEffect.None){
-            target.teamBattleModifier.teamEffects.Add(new TeamDurationEffectInfo(durationEffect, timer));
+            target.teamBattleModifier.teamEffects.Add(new TeamDurationEffectInfo(this, timer));
             string outputMessage = ReplaceBattleMessage(user, target, moveData);
             yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(outputMessage));
         }
@@ -31,5 +32,9 @@ public class ApplyTeamDurationEffect : MoveEffect, ICheckMoveEffectFail
             CombatSystem.weatherTimer = timer;
             yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(weatherSet.textOnSet));
         }
+    }
+
+    public string GetEndMessage(TeamBattleModifier whichTeam){
+        return endMessage.Replace("&userPossessive", whichTeam.teamPossessive);
     }
 }

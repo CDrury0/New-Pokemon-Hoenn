@@ -38,10 +38,10 @@ public class TeamBattleModifier
 } 
 
 public class TeamDurationEffectInfo{
-    public TeamDurationEffect effect;
+    public ApplyTeamDurationEffect effect;
     public int timer;
 
-    public TeamDurationEffectInfo(TeamDurationEffect effect, int timer){
+    public TeamDurationEffectInfo(ApplyTeamDurationEffect effect, int timer){
         this.effect = effect;
         this.timer = timer;
     }

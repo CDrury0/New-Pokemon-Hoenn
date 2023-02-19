@@ -260,6 +260,7 @@ public class CombatSystem : MonoBehaviour
                 }
             }
 
+            //only add a record if the move was used
             try{
                 MoveRecordList.AddRecord(user.pokemon, user.individualBattleModifier.targets[j].pokemon, user.turnAction);
             }
@@ -440,6 +441,24 @@ public class CombatSystem : MonoBehaviour
         return ActiveTargetCanSwitchOut() && pokemonToSwitchIn != null 
         && pokemonToSwitchIn.primaryStatus != PrimaryStatus.Fainted && !pokemonToSwitchIn.inBattle 
         && referenceBattleTargets.Find(b => b.individualBattleModifier.switchingIn == pokemonToSwitchIn) == null;
+    }
+
+    public IEnumerator HandleTeamEffects(){
+        TeamBattleModifier playerTeam = referenceBattleTargets.Find(b => b.teamBattleModifier.isPlayerTeam).teamBattleModifier;
+        TeamBattleModifier enemyTeam = referenceBattleTargets.Find(b => !b.teamBattleModifier.isPlayerTeam).teamBattleModifier;
+
+        yield return StartCoroutine(OneTeamEffects(playerTeam));
+        yield return StartCoroutine(OneTeamEffects(enemyTeam));
+    }
+
+    private IEnumerator OneTeamEffects(TeamBattleModifier whichTeam){
+        foreach(TeamDurationEffectInfo t in whichTeam.teamEffects){
+            t.timer--;
+            if(t.timer == 0){
+                yield return StartCoroutine(combatScreen.battleText.WriteMessage(t.effect.GetEndMessage(whichTeam)));
+            }
+        }
+        whichTeam.teamEffects.RemoveAll(t => t.timer == 0);
     }
 
     private IEnumerator EndBattle(){

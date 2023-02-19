@@ -71,7 +71,7 @@ public class ApplyPrimaryStatusEffect : MoveEffect, ICheckMoveFail
         if(powder && target.pokemon.IsThisType(StatLib.Type.Grass)){
             return true;
         }
-        if(target.teamBattleModifier.teamEffects.Find(e => e.effect == TeamDurationEffect.Safeguard) != null){
+        if(target.teamBattleModifier.teamEffects.Find(e => e.effect.durationEffect == TeamDurationEffect.Safeguard) != null){
             return true;
         }
         if(status == PrimaryStatus.Poisoned){

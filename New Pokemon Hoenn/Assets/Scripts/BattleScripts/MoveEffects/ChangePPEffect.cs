@@ -2,9 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangePPEffect : MoveEffect
+public class ChangePPEffect : MoveEffect, ICheckMoveFail
 {
     public int ppChange;
+
+    public string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
+    {
+        if(MoveData.GetBaseMove(CombatSystem.MoveRecordList.FindRecordLastUsedBy(target.pokemon)?.moveUsed) == null){
+            return MoveData.FAIL;
+        }
+        return null;
+    }
+
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         int whichMove = target.pokemon.moves.IndexOf(MoveData.GetBaseMove(CombatSystem.MoveRecordList.FindRecordLastUsedBy(target.pokemon).moveUsed));

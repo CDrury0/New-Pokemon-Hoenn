@@ -352,6 +352,7 @@ public class MoveFunctions : MonoBehaviour
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyPerishSong>(battleTargets));
 
         //reflect/light screen/safeguard/mist
+        yield return StartCoroutine(combatSystem.HandleTeamEffects());
 
         //protect, endure, trap
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyTrap>(battleTargets));
