@@ -479,7 +479,9 @@ public class CombatSystem : MonoBehaviour
         BattleActive = false;
 
         foreach(Pokemon p in playerParty.party){
-            p.inBattle = false;
+            if(p != null){
+                p.inBattle = false;
+            }
         }
 
         GameObject[] instantiatedMoves = GameObject.FindGameObjectsWithTag("Move");
