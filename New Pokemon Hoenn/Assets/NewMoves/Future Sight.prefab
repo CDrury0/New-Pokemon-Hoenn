@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: 3896783627097925754}
+  - component: {fileID: -7751525067239619973}
   m_Layer: 0
   m_Name: Future Sight
   m_TagString: Move
@@ -49,10 +50,11 @@ MonoBehaviour:
     2 turns.
   moveType: 11
   typeFromWeather: 0
-  displayPower: 0
+  hiddenPowerType: 0
+  displayPower: 100
   category: 1
-  targetType: 0
-  maxPP: 0
+  targetType: 1
+  maxPP: 10
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -62,20 +64,27 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
+  ignoresProtect: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
+--- !u!114 &-7751525067239619973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c59b9f44d3ee8d145ab93eeb85a351e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: '&userName foresaw an attack!'
+  exclusiveWithFutureSight: 1
+  timer: 3
+  moveUsed: {fileID: 1682630347, guid: c6063f8f4e680954b8359953f6347183, type: 3}

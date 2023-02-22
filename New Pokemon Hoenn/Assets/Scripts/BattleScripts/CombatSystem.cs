@@ -72,11 +72,11 @@ public class CombatSystem : MonoBehaviour
         TeamBattleModifier enemyTeamModifier = new TeamBattleModifier(trainerBattle, false);
 
         //replace Pokemon argument with null, followed by SendOutPokemon using GetFirstAvailable
-        player1 = new BattleTarget(playerTeamModifier, new IndividualBattleModifier(), playerParty.GetFirstAvailable(), combatScreen.player1hud, combatScreen.player1Object);
-        enemy1 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(), this.enemyParty.GetFirstAvailable(), combatScreen.enemy1hud, combatScreen.enemy1Object);
+        player1 = new BattleTarget(playerTeamModifier, new IndividualBattleModifier(null), playerParty.GetFirstAvailable(), combatScreen.player1hud, combatScreen.player1Object);
+        enemy1 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(null), this.enemyParty.GetFirstAvailable(), combatScreen.enemy1hud, combatScreen.enemy1Object);
 
-        player2 = new BattleTarget(playerTeamModifier, new IndividualBattleModifier(), null, combatScreen.player2hud, combatScreen.player2Object);
-        enemy2 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(), null, combatScreen.enemy2hud, combatScreen.enemy2Object);
+        player2 = new BattleTarget(playerTeamModifier, new IndividualBattleModifier(null), null, combatScreen.player2hud, combatScreen.player2Object);
+        enemy2 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(null), null, combatScreen.enemy2hud, combatScreen.enemy2Object);
 
         referenceBattleTargets = new List<BattleTarget>(){player1, enemy1};
         if(doubleBattle){
@@ -298,11 +298,24 @@ public class CombatSystem : MonoBehaviour
             }
 
             if(action.CompareTag("Move")){
-                PreMoveEffects(ActiveTarget, ActiveTarget.turnAction);
+                BattleTarget swiper = SnatchOrMagicCoat(ActiveTarget, turnOrder);
+                if(swiper != null){
+                    string typeOfSwipe = action.GetComponent<MoveData>().targetType == TargetType.Self ? " snatched " : " reflected ";
+                    yield return StartCoroutine(combatScreen.battleText.WriteMessage(swiper.GetName() + typeOfSwipe + ActiveTarget.GetName() + "'s " + action.GetComponent<MoveData>().moveName + "!"));
+                    
+                    PreMoveEffects(swiper, swiper.turnAction);
 
-                yield return StartCoroutine(UseMove(ActiveTarget, action, false, true));
-                
-                PostMoveEffects(ActiveTarget, ActiveTarget.turnAction);
+                    yield return StartCoroutine(UseMove(swiper, action, true, false));
+
+                    PostMoveEffects(swiper, swiper.turnAction);
+                }
+                else{
+                    PreMoveEffects(ActiveTarget, ActiveTarget.turnAction);
+
+                    yield return StartCoroutine(UseMove(ActiveTarget, action, false, true));
+                    
+                    PostMoveEffects(ActiveTarget, ActiveTarget.turnAction);
+                }
             }
 
             else if(action.CompareTag("Switch")){
@@ -332,6 +345,30 @@ public class CombatSystem : MonoBehaviour
         yield return StartCoroutine(ReplaceFaintedTargets());
 
         StartCoroutine(GetTurnActions());
+    }
+
+    private BattleTarget SnatchOrMagicCoat(BattleTarget user, List<BattleTarget> turnOrder){
+        MoveData moveData = user.turnAction.GetComponent<MoveData>();
+        if(moveData.category == MoveData.Category.Status && moveData.targetType == TargetType.Self && !moveData.cannotBeSnatched){
+            BattleTarget usedSnatch = turnOrder.Find(b => b.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplySnatch) != null);
+            if(usedSnatch != null){
+                usedSnatch.individualBattleModifier.appliedEffects.RemoveAll(e => e.effect is ApplySnatch);
+                usedSnatch.turnAction = user.turnAction;
+                return usedSnatch;
+            }
+        }
+        BattleTarget targetThatUsedMagicCoat = user.individualBattleModifier.targets.Find(b => b.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyMagicCoat) != null);
+        if(moveData.category == MoveData.Category.Status && targetThatUsedMagicCoat != null && !moveData.notReflectedByMagicCoat){
+            targetThatUsedMagicCoat.turnAction = user.turnAction;
+            if(moveData.targetType == TargetType.Single){
+                targetThatUsedMagicCoat.individualBattleModifier.targets = new List<BattleTarget>(){user};
+            }
+            else{
+                moveFunctions.MustChooseTarget(moveData.targetType, targetThatUsedMagicCoat);
+            }
+            return targetThatUsedMagicCoat;
+        }
+        return null;
     }
 
     private bool IsAnyTeamEmpty(){
@@ -364,7 +401,7 @@ public class CombatSystem : MonoBehaviour
         foreach(BattleTarget b in BattleTargets){
             if(b.pokemon.CurrentHealth == 0){
                 b.pokemon.primaryStatus = PrimaryStatus.Fainted;
-                b.individualBattleModifier = new IndividualBattleModifier();
+                b.individualBattleModifier = new IndividualBattleModifier(null);
                 b.pokemon.inBattle = false;
                 //animation for fainting, remove direct sprite object change
                 b.monSpriteObject.SetActive(false);
@@ -425,7 +462,7 @@ public class CombatSystem : MonoBehaviour
         replacing.pokemon.inBattle = true;
 
         //account for baton pass
-        replacing.individualBattleModifier = passEffects ? new IndividualBattleModifier(replacing.individualBattleModifier) : new IndividualBattleModifier();
+        replacing.individualBattleModifier = passEffects ? new IndividualBattleModifier(replacing.individualBattleModifier, replacing.individualBattleModifier.timedEffects) : new IndividualBattleModifier(replacing.individualBattleModifier.timedEffects);
         
         replacing.battleHUD.SetBattleHUD(replacing.pokemon);
         replacing.monSpriteObject.GetComponent<Image>().sprite = replacing.teamBattleModifier.isPlayerTeam ? replacing.pokemon.backSprite : replacing.pokemon.frontSprite;

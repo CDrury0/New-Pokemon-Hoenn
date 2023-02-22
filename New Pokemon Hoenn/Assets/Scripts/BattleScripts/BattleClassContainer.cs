@@ -47,7 +47,6 @@ public class TeamDurationEffectInfo{
     }
 }
 
-//if the target.individualmodifier contains a tethereffect and inflictor.individual.inflictingTetherEffects doesn't, release at end of turn
 public class AppliedEffectInfo{
     public ApplyIndividualEffect effect;
     public int timer;
@@ -61,14 +60,14 @@ public class AppliedEffectInfo{
 }
 
 public class TimedEffectInfo{
-    public GameObject timedEffect;
+    public ApplyTimedEffect timedEffect;
     public int timer;
-    public Pokemon inflictor;
+    public BattleTarget target;
 
-    public TimedEffectInfo(GameObject timedEffect, int timer, Pokemon inflictor){
+    public TimedEffectInfo(ApplyTimedEffect timedEffect, int timer, BattleTarget target){
         this.timedEffect = timedEffect;
         this.timer = timer;
-        this.inflictor = inflictor;
+        this.target = target;
     }
 }
 
@@ -115,16 +114,16 @@ public class IndividualBattleModifier
     public bool flinched;
     public int toxicCounter; //resets when switching out
 
-    public IndividualBattleModifier(){
+    public IndividualBattleModifier(List<TimedEffectInfo> timedEffects){
         inflictingEffects = new List<AppliedEffectInfo>();
         appliedEffects = new List<AppliedEffectInfo>();
-        timedEffects = new List<TimedEffectInfo>();
+        this.timedEffects = timedEffects == null ? new List<TimedEffectInfo>() : timedEffects;
         targets = new List<BattleTarget>();
         statStages = new int[8];
         statMultipliers = new float[5]{1,1,1,1,1};
     }
 
-    public IndividualBattleModifier(IndividualBattleModifier oldModifier) : this(){
+    public IndividualBattleModifier(IndividualBattleModifier oldModifier, List<TimedEffectInfo> timedEffects) : this(timedEffects){
         appliedEffects.Add(oldModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyConfuse));
         appliedEffects.Add(oldModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyLockOn));
         appliedEffects.Add(oldModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyTrap));

@@ -49,6 +49,7 @@ MonoBehaviour:
   moveDescription: Uses the last move directed at this Pokemon.
   moveType: 10
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 0
   category: 2
   targetType: 0
@@ -60,24 +61,14 @@ MonoBehaviour:
   onlyUsableFirstTurn: 0
   worksOnAsleep: 0
   worksWhileAsleep: 0
-  cannotBeSnatched: 0
+  cannotBeSnatched: 1
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
+  ignoresProtect: 0
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &6250655624318422875
 MonoBehaviour:

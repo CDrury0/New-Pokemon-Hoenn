@@ -16,7 +16,6 @@ public class RemoveHazardsAndTethers : MoveEffect
             effectsToRemove.Add(effectInfo);
         }
         user.teamBattleModifier.spikesCount = 0;
-        Debug.Log("cleared hazards and tether effects");
         yield break;
     }
 }

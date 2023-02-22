@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682630348}
   - component: {fileID: 3772077084463274258}
+  - component: {fileID: 4755005496781971478}
   m_Layer: 0
   m_Name: Magic Coat
   m_TagString: Move
@@ -48,6 +49,7 @@ MonoBehaviour:
   moveDescription: A psychic barrier reflects status moves back at the user.
   moveType: 11
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 0
   category: 2
   targetType: 0
@@ -59,22 +61,29 @@ MonoBehaviour:
   onlyUsableFirstTurn: 0
   worksOnAsleep: 0
   worksWhileAsleep: 0
-  cannotBeSnatched: 0
+  cannotBeSnatched: 1
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
+  ignoresProtect: 0
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
+--- !u!114 &4755005496781971478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f913c068ba2425b4db7fbbb0ec9e6d9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  chance: 1
+  timerMin: 0
+  timerMax: 0

@@ -327,7 +327,7 @@ public class MoveFunctions : MonoBehaviour
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyCurse>(battleTargets));
 
         //timed effects
-        yield return StartCoroutine(DoAppliedEffectOfType<ApplyTimedEffect>(battleTargets));
+        yield return StartCoroutine(DoTimedEffects(battleTargets));
 
         //shed skin, rain dish, etc. (healing abilities)
 
@@ -371,6 +371,15 @@ public class MoveFunctions : MonoBehaviour
     private void ClearFlinch(List<BattleTarget> battleTargets){
         foreach(BattleTarget b in battleTargets){
             b.individualBattleModifier.flinched = false;
+        }
+    }
+
+    private IEnumerator DoTimedEffects(List<BattleTarget> battleTargets){
+        for(int i = 0; i < battleTargets.Count; i++){
+            List<TimedEffectInfo> shallowCopyForEnumeration = new List<TimedEffectInfo>(battleTargets[i].individualBattleModifier.timedEffects);
+            foreach(TimedEffectInfo timedEffectInfo in shallowCopyForEnumeration){
+                yield return StartCoroutine(timedEffectInfo.timedEffect.DoAppliedEffect(battleTargets[i], null));
+            }
         }
     }
 

@@ -50,6 +50,7 @@ MonoBehaviour:
     to take damage upon switching in. Can stack up to 3 times.
   moveType: 9
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 0
   category: 2
   targetType: 0
@@ -68,7 +69,7 @@ MonoBehaviour:
     accuracy: 0
     cannotMissVulnerable: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &-6631908291262314004
 MonoBehaviour:
