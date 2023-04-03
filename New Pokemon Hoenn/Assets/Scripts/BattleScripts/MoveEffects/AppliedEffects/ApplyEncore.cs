@@ -14,12 +14,12 @@ public class ApplyEncore : ApplyIndividualEffect, ICheckMoveSelectable, IApplyEf
         effectInfo.timer--;
     }
 
-    public override bool CheckMoveEffectFail(BattleTarget user, BattleTarget target, MoveData moveData)
+    public override bool ImmuneToEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         if(CombatSystem.MoveRecordList.FindRecordLastUsedBy(target.pokemon) == null){
             return true;
         }
-        return base.CheckMoveEffectFail(user, target, moveData);
+        return false;
     }
 
     public List<GameObject> GetUnusableMoves(BattleTarget target)

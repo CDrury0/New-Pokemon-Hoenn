@@ -28,7 +28,7 @@ public abstract class ApplyIndividualEffect : MoveEffect, ICheckMoveEffectFail
         target.individualBattleModifier.appliedEffects.Remove(effectInfo);
     }
 
-    public virtual bool CheckMoveEffectFail(BattleTarget user, BattleTarget target, MoveData moveData)
+    public bool CheckMoveEffectFail(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         if(target.individualBattleModifier.appliedEffects.Find(e => e.effect.GetType() == this.GetType()) != null){
             return true;

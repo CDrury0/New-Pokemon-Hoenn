@@ -11,11 +11,11 @@ public class ApplyDisable : ApplyIndividualEffect, ICheckMoveSelectable, IApplyE
         yield return StartCoroutine(base.DoEffect(user, target, moveData));
     }
 
-    public override bool CheckMoveEffectFail(BattleTarget user, BattleTarget target, MoveData moveData){
+    public override bool ImmuneToEffect(BattleTarget user, BattleTarget target, MoveData moveData){
         if(CombatSystem.MoveRecordList.FindRecordLastUsedBy(target.pokemon) == null){
             return true;
         }
-        return base.CheckMoveEffectFail(user, target, moveData);
+        return false;
     }
     
     public IEnumerator DoAppliedEffect(BattleTarget target, AppliedEffectInfo effectInfo)

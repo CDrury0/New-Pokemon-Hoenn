@@ -133,7 +133,7 @@ public class CombatSystem : MonoBehaviour
     public void FightButtonFunction(){
         combatScreen.battleOptionsLayoutObject.SetActive(false);
 
-        List<GameObject> unusableMoves = GetAllUnusableMoves(ActiveTarget);
+        List<GameObject> unusableMoves = MoveFunctions.GetAllUnusableMoves(ActiveTarget);
 
         bool[] isSelectables = new bool[ActiveTarget.pokemon.moves.Capacity];
         for(int i = 0; i < ActiveTarget.pokemon.moves.Count; i++){
@@ -191,27 +191,6 @@ public class CombatSystem : MonoBehaviour
         }
     }
 
-    public List<GameObject> GetAllUnusableMoves(BattleTarget user){
-        List<GameObject> unusableMoves = new List<GameObject>();
-        foreach(AppliedEffectInfo effectInfo in user.individualBattleModifier.appliedEffects.FindAll(e => e.effect is ICheckMoveSelectable)){
-            ICheckMoveSelectable effectProhibitingMoves = (ICheckMoveSelectable)effectInfo.effect;
-            unusableMoves.AddRange(effectProhibitingMoves.GetUnusableMoves(user));
-        }
-        unusableMoves.Add(null);
-        unusableMoves.AddRange(GetImprisonMoves(user));
-        unusableMoves.AddRange(user.pokemon.moves.FindAll(move => user.pokemon.movePP[user.pokemon.moves.IndexOf(move)] == 0));
-        return unusableMoves;
-    }
-
-    private List<GameObject> GetImprisonMoves(BattleTarget user){
-        List<BattleTarget> imprisonUsers = BattleTargets.FindAll(b => b.teamBattleModifier.isPlayerTeam != user.teamBattleModifier.isPlayerTeam && b.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyImprison) != null);
-        List<GameObject> imprisonedMoves = new List<GameObject>();
-        foreach(BattleTarget b in imprisonUsers){
-            imprisonedMoves.AddRange(b.pokemon.moves);
-        }
-        return imprisonedMoves;
-    }
-
     public class WrappedBool{ public bool failed;}
 
     public IEnumerator UseMove(BattleTarget user, GameObject move, bool calledFromOtherMove, bool doDeductPP){
@@ -249,6 +228,10 @@ public class CombatSystem : MonoBehaviour
                     if(effect.applyToSelf && j + 1 != user.individualBattleModifier.targets.Count){
                         continue;
                     }
+
+                    if(target.pokemon.CurrentHealth == 0){
+                        continue;
+                    }
                     
                     if(effect is ICheckMoveEffectFail){
                         ICheckMoveEffectFail effectThatMayFail = (ICheckMoveEffectFail)effect;
@@ -260,12 +243,8 @@ public class CombatSystem : MonoBehaviour
                 }
             }
 
-            //only add a record if the move was used
-            try{
+            if(!moveFailed.failed){
                 MoveRecordList.AddRecord(user.pokemon, user.individualBattleModifier.targets[j].pokemon, user.turnAction);
-            }
-            catch(System.Exception e){
-                Debug.LogError(e);
             }
 
             if(MoveFunctions.IsChargingTurn(move)){
@@ -299,23 +278,16 @@ public class CombatSystem : MonoBehaviour
 
             if(action.CompareTag("Move")){
                 BattleTarget swiper = SnatchOrMagicCoat(ActiveTarget, turnOrder);
+                BattleTarget localUser = ActiveTarget;
                 if(swiper != null){
+                    localUser = swiper;
                     string typeOfSwipe = action.GetComponent<MoveData>().targetType == TargetType.Self ? " snatched " : " reflected ";
                     yield return StartCoroutine(combatScreen.battleText.WriteMessage(swiper.GetName() + typeOfSwipe + ActiveTarget.GetName() + "'s " + action.GetComponent<MoveData>().moveName + "!"));
-                    
-                    PreMoveEffects(swiper, swiper.turnAction);
-
-                    yield return StartCoroutine(UseMove(swiper, action, true, false));
-
-                    PostMoveEffects(swiper, swiper.turnAction);
                 }
-                else{
-                    PreMoveEffects(ActiveTarget, ActiveTarget.turnAction);
 
-                    yield return StartCoroutine(UseMove(ActiveTarget, action, false, true));
-                    
-                    PostMoveEffects(ActiveTarget, ActiveTarget.turnAction);
-                }
+                PreMoveEffects(localUser, ActiveTarget.turnAction);
+                yield return StartCoroutine(UseMove(localUser, action, false, true));
+                PostMoveEffects(localUser, ActiveTarget.turnAction);
             }
 
             else if(action.CompareTag("Switch")){

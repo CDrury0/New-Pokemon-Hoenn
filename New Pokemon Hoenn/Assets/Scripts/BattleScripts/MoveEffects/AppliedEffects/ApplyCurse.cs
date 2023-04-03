@@ -12,12 +12,12 @@ public class ApplyCurse : ApplyIndividualEffect, IApplyEffect
         yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(user.GetName() + " is afflicted by its curse!"));
     }
 
-    public override bool CheckMoveEffectFail(BattleTarget user, BattleTarget target, MoveData moveData)
+    public override bool ImmuneToEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         if(!user.pokemon.IsThisType(StatLib.Type.Ghost)){
             return true;
         }
-        return base.CheckMoveEffectFail(user, target, moveData);
+        return false;
     }
 
     void Awake(){

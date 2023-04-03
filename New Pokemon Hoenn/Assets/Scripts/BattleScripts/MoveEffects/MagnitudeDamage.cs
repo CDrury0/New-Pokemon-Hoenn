@@ -8,7 +8,7 @@ public class MagnitudeDamage : NormalDamage
     private int roll;
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        Debug.Log("start: " + roll);
+        //since a new object is created each time the move is used, roll will be 0 here if it is the first time damage is calculated
         if(roll == 0){
             roll = GetMagnitude(Random.Range(0f, 1f));
             yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(moveData.moveName + " " + roll));

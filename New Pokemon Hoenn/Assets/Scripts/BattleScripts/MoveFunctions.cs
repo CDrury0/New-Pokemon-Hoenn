@@ -174,6 +174,27 @@ public class MoveFunctions : MonoBehaviour
         return multiTurn != null && multiTurn.chargingTurn;
     }
 
+    public static List<GameObject> GetAllUnusableMoves(BattleTarget user){
+        List<GameObject> unusableMoves = new List<GameObject>();
+        foreach(AppliedEffectInfo effectInfo in user.individualBattleModifier.appliedEffects.FindAll(e => e.effect is ICheckMoveSelectable)){
+            ICheckMoveSelectable effectProhibitingMoves = (ICheckMoveSelectable)effectInfo.effect;
+            unusableMoves.AddRange(effectProhibitingMoves.GetUnusableMoves(user));
+        }
+        unusableMoves.Add(null);
+        unusableMoves.AddRange(GetImprisonMoves(user));
+        unusableMoves.AddRange(user.pokemon.moves.FindAll(move => user.pokemon.movePP[user.pokemon.moves.IndexOf(move)] == 0));
+        return unusableMoves;
+    }
+
+    private static List<GameObject> GetImprisonMoves(BattleTarget user){
+        List<BattleTarget> imprisonUsers = CombatSystem.BattleTargets.FindAll(b => b.teamBattleModifier.isPlayerTeam != user.teamBattleModifier.isPlayerTeam && b.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyImprison) != null);
+        List<GameObject> imprisonedMoves = new List<GameObject>();
+        foreach(BattleTarget b in imprisonUsers){
+            imprisonedMoves.AddRange(b.pokemon.moves);
+        }
+        return imprisonedMoves;
+    }
+
     public IEnumerator CheckMoveFailedToBeUsed(CombatSystem.WrappedBool moveFailed, BattleTarget user){
         moveFailed.failed = true;
         if(user.individualBattleModifier.multiTurnInfo != null && user.individualBattleModifier.multiTurnInfo.recharging){
