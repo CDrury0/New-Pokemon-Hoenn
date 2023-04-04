@@ -242,8 +242,11 @@ public class CombatSystem : MonoBehaviour
                     yield return StartCoroutine(effect.DoEffect(user, target, moveData));
                 }
             }
+            else{
+                user.individualBattleModifier.multiTurnInfo = null;
+            }
 
-            if(!moveFailed.failed){
+            if(!moveFailed.failed && user.individualBattleModifier.targets.Count > 0){
                 MoveRecordList.AddRecord(user.pokemon, user.individualBattleModifier.targets[j].pokemon, user.turnAction);
             }
 
@@ -251,6 +254,8 @@ public class CombatSystem : MonoBehaviour
                 break;
             }
         }
+
+        yield return StartCoroutine(CheckOnFaintEffects(user, user.individualBattleModifier.targets));
     }
 
     private IEnumerator BattleTurn(){
@@ -317,6 +322,16 @@ public class CombatSystem : MonoBehaviour
         yield return StartCoroutine(ReplaceFaintedTargets());
 
         StartCoroutine(GetTurnActions());
+    }
+
+    private IEnumerator CheckOnFaintEffects(BattleTarget user, List<BattleTarget> targets){
+        for(int i = 0; i < targets.Count; i++){
+            AppliedEffectInfo a = targets[i].individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyOnFaintEffect);
+            if(a != null){
+                IApplyEffect onFaintEffect = (IApplyEffect)a.effect;
+                yield return StartCoroutine(onFaintEffect.DoAppliedEffect(user, a));
+            }
+        }
     }
 
     private BattleTarget SnatchOrMagicCoat(BattleTarget user, List<BattleTarget> turnOrder){
