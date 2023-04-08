@@ -16,6 +16,7 @@ public class CombatSystem : MonoBehaviour
     public static MoveRecordList MoveRecordList {get; private set;}
     public CombatScreen combatScreen;
     public MoveFunctions moveFunctions;
+    public HandleExperience handleExperience;
     public PartyMenu partyMenu;
     public GameObject struggle;
     public GameObject switchAction;
@@ -90,6 +91,9 @@ public class CombatSystem : MonoBehaviour
         //replace with proper animations
         combatScreen.SetStartingGraphics(BattleTargets);
         combatScreen.gameObject.SetActive(true);
+
+        //make sure all mons active at the start of the battle are registered for experience
+        handleExperience.UpdateParticipantsOnShift(BattleTargets);
 
         //check tag-in effects like intimidate, trace, etc.
 
@@ -363,7 +367,7 @@ public class CombatSystem : MonoBehaviour
     }
 
     private void PreMoveEffects(BattleTarget user, GameObject moveUsed){
-        if(moveUsed.GetComponent<ApplyCurse>() != null && user.pokemon.IsThisType(StatLib.Type.Ghost)){
+        if(moveUsed.GetComponent<ApplyCurse>() != null && user.pokemon.IsThisType(Pokemon.Type.Ghost)){
             moveFunctions.MustChooseTarget(TargetType.RandomFoe, user);
         }
 
@@ -395,6 +399,12 @@ public class CombatSystem : MonoBehaviour
                 b.battleHUD.gameObject.SetActive(false);
                 yield return StartCoroutine(combatScreen.battleText.WriteMessage(b.GetName() + " fainted"));
                 //do xp here if fainted mon is opponent
+                if(!b.teamBattleModifier.isPlayerTeam){
+                    yield return StartCoroutine(handleExperience.DoExperience(b.pokemon));
+                }
+                else{
+                    handleExperience.RemoveParticipant(b.pokemon);
+                }
             }
         }
 
@@ -425,6 +435,7 @@ public class CombatSystem : MonoBehaviour
                 BattleTargets.Insert(referenceBattleTargets.IndexOf(needsReplaced), needsReplaced);
             }
         }
+        handleExperience.UpdateParticipantsOnShift(BattleTargets);
     }
 
     public IEnumerator SwitchPokemon(BattleTarget replacing, bool passEffects){
@@ -449,13 +460,17 @@ public class CombatSystem : MonoBehaviour
         replacing.pokemon.inBattle = true;
 
         //account for baton pass
-        replacing.individualBattleModifier = passEffects ? new IndividualBattleModifier(replacing.individualBattleModifier, replacing.individualBattleModifier.timedEffects) : new IndividualBattleModifier(replacing.individualBattleModifier.timedEffects);
+        replacing.individualBattleModifier = passEffects 
+        ? new IndividualBattleModifier(replacing.individualBattleModifier, replacing.individualBattleModifier.timedEffects) 
+        : new IndividualBattleModifier(replacing.individualBattleModifier.timedEffects);
         
         replacing.battleHUD.SetBattleHUD(replacing.pokemon);
         replacing.monSpriteObject.GetComponent<Image>().sprite = replacing.teamBattleModifier.isPlayerTeam ? replacing.pokemon.backSprite : replacing.pokemon.frontSprite;
         //replace setActives later
         replacing.monSpriteObject.SetActive(true);
         replacing.battleHUD.gameObject.SetActive(true);
+
+        handleExperience.UpdateParticipantsOnShift(BattleTargets);
 
         string message = replacing.teamBattleModifier.isPlayerTeam ? "Go " + replacing.pokemon.nickName + "!" : "Enemy sent out " + replacing.pokemon.nickName;
         yield return StartCoroutine(combatScreen.battleText.WriteMessage(message));

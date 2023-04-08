@@ -19,13 +19,13 @@ public class ReferenceLib : MonoBehaviour
 
     [System.Serializable]
     public class TypeMatchupList{
-        public StatLib.Type attackingType;
+        public Pokemon.Type attackingType;
         public List<TypeMatchupValues> matchup;
     }
 
     [System.Serializable]
     public class TypeMatchupValues{
-        public StatLib.Type defendingType;
+        public Pokemon.Type defendingType;
         public StatLib.Matchup effectiveness;
     }
 }

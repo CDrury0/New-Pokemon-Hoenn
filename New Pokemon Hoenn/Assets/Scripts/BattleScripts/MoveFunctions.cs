@@ -13,7 +13,7 @@ public class MoveFunctions : MonoBehaviour
     private const float TYPE_WEAKNESS = 1.75f;
     private const float TYPE_RESIST = 0.58f;
 
-    public float GetTypeMatchup(StatLib.Type moveType, BattleTarget defender){
+    public float GetTypeMatchup(Pokemon.Type moveType, BattleTarget defender){
         if(defender.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyIdentify) != null){
             return 1f;
         }
@@ -27,8 +27,8 @@ public class MoveFunctions : MonoBehaviour
         }
     }
 
-    private float GetSingleTypeEffectiveness(StatLib.Type offensiveType, StatLib.Type defensiveType){
-        if(offensiveType == StatLib.Type.None){
+    private float GetSingleTypeEffectiveness(Pokemon.Type offensiveType, Pokemon.Type defensiveType){
+        if(offensiveType == Pokemon.Type.None){
             return 1;
         }
         ReferenceLib.TypeMatchupList matchupList = ReferenceLib.Instance.typeEffectivenessMatchups.First(type => type.attackingType == offensiveType);
@@ -159,7 +159,7 @@ public class MoveFunctions : MonoBehaviour
         return Random.Range(0f, 0.99f) < critRatio;
     }
 
-    public IEnumerator WriteEffectivenessText(BattleTarget target, StatLib.Type effectiveMoveType){
+    public IEnumerator WriteEffectivenessText(BattleTarget target, Pokemon.Type effectiveMoveType){
         float matchup = GetTypeMatchup(effectiveMoveType, target);
         if(matchup > 1){
             yield return StartCoroutine(combatScreen.battleText.WriteMessage("It's super effective!"));
@@ -287,7 +287,7 @@ public class MoveFunctions : MonoBehaviour
             yield break;
         }
 
-        if(moveData.moveName == "Thunder Wave" && target.pokemon.IsThisType(StatLib.Type.Ground)){
+        if(moveData.moveName == "Thunder Wave" && target.pokemon.IsThisType(Pokemon.Type.Ground)){
             yield return StartCoroutine(combatScreen.battleText.WriteMessage("It doesn't affect " + target.GetName() + "..."));
             yield break;
         }
@@ -443,7 +443,7 @@ public class MoveFunctions : MonoBehaviour
             foreach(BattleTarget b in battleTargets){
                 
                 bool takeDamage = true;
-                foreach(StatLib.Type immuneType in weather.immuneTypes){
+                foreach(Pokemon.Type immuneType in weather.immuneTypes){
                     if(b.pokemon.IsThisType(immuneType)){
                         takeDamage = false;
                     }

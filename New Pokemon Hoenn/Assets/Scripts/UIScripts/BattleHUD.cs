@@ -17,7 +17,7 @@ public class BattleHUD : MonoBehaviour
 
     public void SetBattleHUD(Pokemon p){
         healthBar.SetHealthBarInstant(p.CurrentHealth, p.stats[0]);
-        expBar.SetExpBarInstant(p.experience, StatLib.CalculateExperienceAtLevel(p.pokemonDefault.growthRate, p.level), StatLib.CalculateExperienceAtLevel(p.pokemonDefault.growthRate, p.level + 1));
+        expBar.SetExpBarInstant(p.experience, p.pokemonDefault.CalculateExperienceAtLevel(p.level), p.pokemonDefault.CalculateExperienceAtLevel(p.level + 1));
         SetStatusIcon(p.primaryStatus);
         SetGenderIcon(p.gender);
         nameText.text = p.nickName;

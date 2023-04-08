@@ -7,16 +7,17 @@ public enum Nature {Hardy, Lonely, Brave, Adamant, Naughty, Bold, Docile, Relaxe
 
 public class Pokemon
 {
+    public enum Type {None, Normal, Fire, Water, Electric, Grass, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, Fairy}
     public PokemonDefault pokemonDefault;
     public List<GameObject> moves;
     public int[] movePP = new int[4];
     public int[] moveMaxPP = new int[4];
     public int[] effortValues = new int[6];
     public int[] individualValues = new int[6];
-    public StatLib.Type hiddenPowerType;
+    public Pokemon.Type hiddenPowerType;
     public PrimaryStatus primaryStatus;
-    public StatLib.Type type1;
-    public StatLib.Type type2;
+    public Pokemon.Type type1;
+    public Pokemon.Type type2;
     public bool isShiny;
     public Sprite frontSprite;
     public Sprite backSprite;
@@ -177,7 +178,7 @@ public class Pokemon
         }
     }
 
-    public bool IsThisType(StatLib.Type type){
+    public bool IsThisType(Pokemon.Type type){
         return type1 == type || type2 == type;
     }
 
@@ -286,9 +287,9 @@ public class Pokemon
         individualValues = MakeRandomIVS();
         isShiny = Random.Range(0, 1000) == 0;
         FillSprites(this);
-        hiddenPowerType = (StatLib.Type)Random.Range(1, 18);
+        hiddenPowerType = (Pokemon.Type)Random.Range(1, 18);
         friendship = pokemonDefault.friendship;
-        experience = StatLib.CalculateExperienceAtLevel(pokemonDefault.growthRate, level);
+        experience = pokemonDefault.CalculateExperienceAtLevel(level);
         height = MakeHeight(pokemonDefault);
         weight = MakeWeight(pokemonDefault);
         pokemonName = pokemonDefault.pokemonName;

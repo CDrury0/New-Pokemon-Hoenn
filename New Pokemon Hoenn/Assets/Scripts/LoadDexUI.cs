@@ -78,45 +78,45 @@ public class LoadDexUI : MonoBehaviour
         type2box.gameObject.SetActive(false);
     }
 
-    public static Color GetTypeColor(StatLib.Type type)
+    public static Color GetTypeColor(Pokemon.Type type)
     {
         switch (type)
         {
-            case StatLib.Type.Normal:
+            case Pokemon.Type.Normal:
                 return typeColorsLib[0];
-            case StatLib.Type.Fighting:
+            case Pokemon.Type.Fighting:
                 return typeColorsLib[1];
-            case StatLib.Type.Flying:
+            case Pokemon.Type.Flying:
                 return typeColorsLib[2];
-            case StatLib.Type.Poison:
+            case Pokemon.Type.Poison:
                 return typeColorsLib[3];
-            case StatLib.Type.Ground:
+            case Pokemon.Type.Ground:
                 return typeColorsLib[4];
-            case StatLib.Type.Rock:
+            case Pokemon.Type.Rock:
                 return typeColorsLib[5];
-            case StatLib.Type.Bug:
+            case Pokemon.Type.Bug:
                 return typeColorsLib[6];
-            case StatLib.Type.Ghost:
+            case Pokemon.Type.Ghost:
                 return typeColorsLib[7];
-            case StatLib.Type.Steel:
+            case Pokemon.Type.Steel:
                 return typeColorsLib[8];
-            case StatLib.Type.Fire:
+            case Pokemon.Type.Fire:
                 return typeColorsLib[9];
-            case StatLib.Type.Water:
+            case Pokemon.Type.Water:
                 return typeColorsLib[10];
-            case StatLib.Type.Grass:
+            case Pokemon.Type.Grass:
                 return typeColorsLib[11];
-            case StatLib.Type.Electric:
+            case Pokemon.Type.Electric:
                 return typeColorsLib[12];
-            case StatLib.Type.Psychic:
+            case Pokemon.Type.Psychic:
                 return typeColorsLib[13];
-            case StatLib.Type.Ice:
+            case Pokemon.Type.Ice:
                 return typeColorsLib[14];
-            case StatLib.Type.Dragon:
+            case Pokemon.Type.Dragon:
                 return typeColorsLib[15];
-            case StatLib.Type.Dark:
+            case Pokemon.Type.Dark:
                 return typeColorsLib[16];
-            case StatLib.Type.Fairy:
+            case Pokemon.Type.Fairy:
                 return typeColorsLib[17];
             default:
                 return typeColorsLib[0];

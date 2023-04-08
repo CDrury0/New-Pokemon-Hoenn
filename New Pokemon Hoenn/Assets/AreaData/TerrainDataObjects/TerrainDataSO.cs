@@ -8,5 +8,5 @@ public class TerrainDataSO : ScriptableObject
     //battle background sprite, pokemon team circle sprite, secret power type, etc.
     public Sprite battleBackgroundSprite;
     public Sprite pokemonSpawnCircleSprite;
-    public StatLib.Type secretPowerType;
+    public Pokemon.Type secretPowerType;
 }

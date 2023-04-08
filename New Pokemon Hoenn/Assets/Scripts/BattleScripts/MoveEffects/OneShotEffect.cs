@@ -14,7 +14,7 @@ public class OneShotEffect : EffectDamage
 
     public override string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        if(target.pokemon.IsThisType(StatLib.Type.Ice)){
+        if(target.pokemon.IsThisType(Pokemon.Type.Ice)){
             return MoveData.FAIL;
         }
         if(!OneShotHits(user, target)){

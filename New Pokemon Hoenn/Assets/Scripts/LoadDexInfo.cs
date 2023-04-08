@@ -210,7 +210,7 @@ public class LoadDexInfo : MonoBehaviour
         type1fill.color = LoadDexUI.GetTypeColor(representsThis.type1);
         type1text.text = representsThis.type1.ToString();
 
-        if (representsThis.type2 == StatLib.Type.None)
+        if (representsThis.type2 == Pokemon.Type.None)
         {
             type2box.gameObject.SetActive(false);
         }

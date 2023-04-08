@@ -14,8 +14,8 @@ public class PokemonDefault : ScriptableObject
     public float height;
     public float weight;
     public int IDNumber;
-    public StatLib.Type type1;
-    public StatLib.Type type2;
+    public Pokemon.Type type1;
+    public Pokemon.Type type2;
     public int friendship;
     public int baseExperience;
     public GrowthRate growthRate;
@@ -44,6 +44,21 @@ public class PokemonDefault : ScriptableObject
     public GameObject[] learnedMoves;
     public GameObject[] eggMoves;
     public GameObject[] tutorMoves;
+
+    public int CalculateExperienceAtLevel(int level)
+    {
+        switch (growthRate)
+        {
+            case GrowthRate.Fast:
+                return (int)(Mathf.Pow(level, 3) * 4 / 5);
+            case GrowthRate.Medium:
+                return (int)Mathf.Pow(level, 3);
+            case GrowthRate.Slow:
+                return (int)(Mathf.Pow(level, 3) * 5 / 4);
+            default:
+                return 0;
+        }
+    }
 }
 
 [System.Serializable]

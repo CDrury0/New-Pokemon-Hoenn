@@ -170,7 +170,7 @@ public class NormalDamage : EffectDamage
         workingDamage /= 50;
         workingDamage += 2;
 
-        StatLib.Type localType = moveData.GetEffectiveMoveType(user.pokemon);
+        Pokemon.Type localType = moveData.GetEffectiveMoveType(user.pokemon);
 
         modifier *= CombatLib.Instance.moveFunctions.GetTypeMatchup(localType, target);
 
@@ -178,9 +178,9 @@ public class NormalDamage : EffectDamage
 
         modifier *= GetWeatherDamageModifier(localType, CombatSystem.Weather);
 
-        if(user.individualBattleModifier.chargedType != StatLib.Type.None && user.individualBattleModifier.chargedType == localType){
+        if(user.individualBattleModifier.chargedType != Pokemon.Type.None && user.individualBattleModifier.chargedType == localType){
             modifier *= 1.5f;
-            user.individualBattleModifier.chargedType = StatLib.Type.None;
+            user.individualBattleModifier.chargedType = Pokemon.Type.None;
         }
 
         if(user.individualBattleModifier.targets.Count > 1){
@@ -226,7 +226,7 @@ public class NormalDamage : EffectDamage
         return damage;
     }
 
-    private float GetWeatherDamageModifier(StatLib.Type moveType, Weather weather){
+    private float GetWeatherDamageModifier(Pokemon.Type moveType, Weather weather){
         const float WEATHER_BONUS = 1.4f;
         const float WEATHER_PENALTY = 0.6f;
         if(weather.typeFromWeather == moveType){

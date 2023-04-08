@@ -102,7 +102,7 @@ public class IndividualBattleModifier
     public int specialDamageTakenThisTurn;
     public int bideDamage;
     public BattleTarget lastOneToDealDamage;
-    public StatLib.Type chargedType; //currently charge is the only move that affects this
+    public Pokemon.Type chargedType; //currently charge is the only move that affects this
     public Pokemon switchingIn;
     public int stockpileCount;
     public SemiInvulnerable semiInvulnerable;

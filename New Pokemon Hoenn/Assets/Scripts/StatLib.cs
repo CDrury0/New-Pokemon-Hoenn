@@ -4,7 +4,6 @@ using UnityEngine;
 
 public static class StatLib
 {
-    public enum Type { None, Normal, Fire, Water, Electric, Grass, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, Fairy  }
     public enum Matchup {Immunity, Weakness, Resistance}
     public enum EggGroup { Monster, Amphibious, Bug, Avian, Field, Fairy, Plantoid, Humanoid, Aquatic, Inorganic, Amorphous, Piscine, Dragon, None }
 
@@ -99,21 +98,6 @@ public static class StatLib
         Snow_Cloak,
         Regenerator,
         None 
-    }
-
-    public static int CalculateExperienceAtLevel(GrowthRate growthRate, int level)
-    {
-        switch (growthRate)
-        {
-            case GrowthRate.Fast:
-                return (int)(Mathf.Pow(level, 3) * 4 / 5);
-            case GrowthRate.Medium:
-                return (int)Mathf.Pow(level, 3);
-            case GrowthRate.Slow:
-                return (int)(Mathf.Pow(level, 3) * 5 / 4);
-            default:
-                return 0;
-        }
     }
 
     public static string GetAbilityDescription(Ability ability)

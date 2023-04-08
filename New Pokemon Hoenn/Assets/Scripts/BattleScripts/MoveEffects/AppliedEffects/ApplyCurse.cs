@@ -14,7 +14,7 @@ public class ApplyCurse : ApplyIndividualEffect, IApplyEffect
 
     public override bool ImmuneToEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        if(!user.pokemon.IsThisType(StatLib.Type.Ghost)){
+        if(!user.pokemon.IsThisType(Pokemon.Type.Ghost)){
             return true;
         }
         return false;

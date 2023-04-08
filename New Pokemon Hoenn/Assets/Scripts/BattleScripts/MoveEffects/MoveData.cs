@@ -7,7 +7,7 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
 {
     public string moveName;
     [TextArea(3,3)] public string moveDescription;
-    [SerializeField] private StatLib.Type moveType;
+    [SerializeField] private Pokemon.Type moveType;
     public bool typeFromWeather;
     public bool hiddenPowerType;
     public int displayPower; //the power value shown in UI
@@ -29,7 +29,7 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
     public MoveAccuracyData accuracyData;
     public const string FAIL = "But it failed!";
 
-    public StatLib.Type GetEffectiveMoveType(Pokemon user){
+    public Pokemon.Type GetEffectiveMoveType(Pokemon user){
         if(typeFromWeather){
             return CombatSystem.Weather.typeFromWeather;
         }

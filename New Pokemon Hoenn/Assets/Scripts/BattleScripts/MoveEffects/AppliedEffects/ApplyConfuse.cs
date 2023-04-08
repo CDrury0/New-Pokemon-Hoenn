@@ -6,7 +6,7 @@ public class ApplyConfuse : ApplyIndividualEffect
 {
     public override bool ImmuneToEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        if(target.pokemon.IsThisType(StatLib.Type.Bug)){
+        if(target.pokemon.IsThisType(Pokemon.Type.Bug)){
             return true;
         }
         return false;
