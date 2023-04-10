@@ -39,6 +39,10 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
         return moveType;
     }
 
+    public Pokemon.Type GetEffectiveMoveType() {
+        return moveType;
+    }
+
     public List<GameObject> GetUnusableMoves(BattleTarget target){
         List<GameObject> unusableMoves = new List<GameObject>();
         if(target.pokemon.movePP[target.pokemon.moves.IndexOf(gameObject)] == 0){

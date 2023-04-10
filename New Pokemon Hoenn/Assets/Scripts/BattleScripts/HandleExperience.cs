@@ -68,7 +68,7 @@ public class HandleExperience : MonoBehaviour
         p.stats.CopyTo(oldStats, 0);
         p.UpdateStats();
         if(hud != null){
-            hud.SetBattleHUD(p); //only do if mon is in battle
+            hud.SetBattleHUD(p);
         }
         yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(p.nickName + " grew to level " + p.level + "!"));
         //learn moves?
