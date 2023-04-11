@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HandleExperience : MonoBehaviour
 {
+    [SerializeField] private LearnMoveScreen learnMoveScreen;
+    [SerializeField] private LevelUpScreen levelUpScreen;
     private Dictionary<Pokemon, List<Pokemon>> expMaps;
 
     private void AddExpRecord(Pokemon enemy) {
@@ -71,7 +73,14 @@ public class HandleExperience : MonoBehaviour
             hud.SetBattleHUD(p);
         }
         yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(p.nickName + " grew to level " + p.level + "!"));
-        //learn moves?
+        yield return StartCoroutine(levelUpScreen.DoLevelUpScreen(oldStats, p.stats, p.nickName));
+        GameObject learnedMove = p.pokemonDefault.learnedMoves[p.level];
+        if (learnedMove != null){
+            string moveName = learnedMove.GetComponent<MoveData>().moveName;
+            yield return StartCoroutine(learnMoveScreen.DoLearnMoveScreen(p, learnedMove));
+            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(
+                p.nickName + (learnMoveScreen.MoveReplaced < p.moves.Count ? " learned " + moveName + "!" : " did not learn " + moveName)));
+        }
     }
 
     void Awake() {

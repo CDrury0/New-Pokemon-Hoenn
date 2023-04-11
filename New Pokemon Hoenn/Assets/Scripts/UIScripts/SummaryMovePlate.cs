@@ -6,7 +6,6 @@ using TMPro;
 
 public class SummaryMovePlate : MonoBehaviour
 {
-    public MoveData testData;
     [SerializeField] private ColorSO typeColors;
     [SerializeField] private Sprite[] categorySprites;
     [SerializeField] private Image categorySprite;
@@ -25,16 +24,12 @@ public class SummaryMovePlate : MonoBehaviour
         ppText.text = "PP: " + currentPP + " / " + maxPP;
         typeSprite.color = typeColors.colors[(int)moveData.GetEffectiveMoveType()];
         typeText.text = moveData.GetEffectiveMoveType().ToString();
-        powerText.text = moveData.displayPower == 0 ? "---" : "Power: " + moveData.displayPower.ToString();
-        accuracyText.text = moveData.accuracyData.accuracy == 0 ? "---" : "Accuracy: " + (moveData.accuracyData.accuracy * 100).ToString();
+        powerText.text = "Power: " + (moveData.displayPower == 0 ? "---" : moveData.displayPower.ToString());
+        accuracyText.text = "Accuracy: " + (moveData.accuracyData.accuracy == 0 ? "---" : (moveData.accuracyData.accuracy * 100).ToString());
         moveDescription = moveData.moveDescription;
     }
 
     public void SetDescriptionText() {
         descriptionText.text = moveDescription;
-    }
-
-    void Awake(){
-        SetMoveInfo(testData.maxPP, testData.maxPP, testData);
     }
 }

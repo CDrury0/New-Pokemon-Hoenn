@@ -171,7 +171,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 431.0019, y: 15.843}
-  m_SizeDelta: {x: 161.4949, y: 27.1162}
+  m_SizeDelta: {x: 150, y: 27.1162}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5930875337333661827
 CanvasRenderer:
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 52
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -459,7 +459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5433071c10eabf42a89e829a76ac71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testData: {fileID: 5442741169790577213, guid: db13d3ca82541f34ca25affef2ea6794, type: 3}
   typeColors: {fileID: 11400000, guid: 1926c8337e79a51499663875c17a3120, type: 2}
   categorySprites:
   - {fileID: 21300000, guid: e9483fa31556c9a4cb22c7e5de69bc61, type: 3}
@@ -829,7 +828,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 431, y: -15.843}
-  m_SizeDelta: {x: 161.4949, y: 27.1162}
+  m_SizeDelta: {x: 150, y: 27.1162}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5461359499331002210
 CanvasRenderer:
@@ -893,7 +892,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 52
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
