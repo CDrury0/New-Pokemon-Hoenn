@@ -17,6 +17,7 @@ public class NormalDamage : EffectDamage
     public bool bonusFromCurl;
     public bool bonusLikeRollout;
     public bool cannotKO;
+    public bool cannotCrit;
     public bool bonusAgainstMinimize;
     public SemiInvulnerable bonusAgainstSemiInvulnerable;
     public PrimaryStatus bonusAgainstStatus;
@@ -123,7 +124,7 @@ public class NormalDamage : EffectDamage
     }
 
     protected IEnumerator NormalDamageMethod(BattleTarget user, BattleTarget target, MoveData moveData, int power){
-        bool crit = CombatLib.Instance.moveFunctions.RollCrit(user, highCritRate);
+        bool crit = cannotCrit ? false : CombatLib.Instance.moveFunctions.RollCrit(user, highCritRate);
         int damage = NormalDamageFormula(power, user, target, crit);
         damageDealt += damage;
         yield return StartCoroutine(base.ApplyDamage(moveData, user, target, damage));

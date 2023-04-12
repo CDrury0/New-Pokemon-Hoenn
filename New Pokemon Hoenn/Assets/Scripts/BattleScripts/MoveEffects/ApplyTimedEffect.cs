@@ -10,7 +10,8 @@ public class ApplyTimedEffect : MoveEffect, IApplyEffect, ICheckMoveFail
 
     public string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        if(exclusiveWithFutureSight && user.individualBattleModifier.timedEffects.Find(e => e.timedEffect.exclusiveWithFutureSight) != null){
+        TimedEffectInfo existingEffectInfo = user.individualBattleModifier.timedEffects.Find(e => e.timedEffect.exclusiveWithFutureSight);
+        if(exclusiveWithFutureSight && existingEffectInfo != null && existingEffectInfo.target == target){
             return MoveData.FAIL;
         }
         return null;
@@ -20,7 +21,6 @@ public class ApplyTimedEffect : MoveEffect, IApplyEffect, ICheckMoveFail
     {
         TimedEffectInfo thisInfo = user.individualBattleModifier.timedEffects.Find(e => e.timedEffect == this);
         thisInfo.timer--;
-        Debug.Log(thisInfo.timer);
         if(thisInfo.timer == 0){
             user.individualBattleModifier.targets = new List<BattleTarget>(){thisInfo.target};
             CombatLib.Instance.combatSystem.VerifyMoveTarget(user, moveUsed);

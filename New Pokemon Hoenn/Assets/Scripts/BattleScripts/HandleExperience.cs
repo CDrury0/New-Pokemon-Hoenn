@@ -47,7 +47,7 @@ public class HandleExperience : MonoBehaviour
             int exp = experiencePerMon;
             //experience modifiers go here
             yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(p.nickName + " earned " + exp + " EXP"));
-            BattleHUD hud = CombatSystem.BattleTargets.Find(b => b.pokemon == p).battleHUD;
+            BattleHUD hud = CombatSystem.BattleTargets.Find(b => b.pokemon == p)?.battleHUD;
             while(exp != 0){
                 int expAtNextLevel = p.pokemonDefault.CalculateExperienceAtLevel(p.level + 1);
                 int expToApply = Mathf.Min(exp, expAtNextLevel - p.experience); //this iteration, grant either all experience or the experience required to reach the next level (whichever is smaller)

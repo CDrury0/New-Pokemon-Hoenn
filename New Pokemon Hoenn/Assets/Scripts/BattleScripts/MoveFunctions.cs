@@ -302,7 +302,7 @@ public class MoveFunctions : MonoBehaviour
             }
         }
 
-        //if ALL of these fail, the move fails
+        //if ALL move effects implement ICheckMoveEffectFail and they ALL fail, the move fails
         ICheckMoveEffectFail[] componentsCausingEffectToFail = turnAction.GetComponents<ICheckMoveEffectFail>();
         if(componentsCausingEffectToFail.Length > 0){
             int failCount = 0;
@@ -311,7 +311,8 @@ public class MoveFunctions : MonoBehaviour
                     failCount++;
                 }
             }
-            if(failCount == componentsCausingEffectToFail.Length){
+            MoveEffect[] allMoveEffects = turnAction.GetComponents<MoveEffect>();
+            if(failCount == allMoveEffects.Length){
                 yield return StartCoroutine(combatScreen.battleText.WriteMessage(MoveData.FAIL));
                 yield break;
             }
