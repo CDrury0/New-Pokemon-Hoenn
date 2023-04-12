@@ -182,9 +182,9 @@ public class Pokemon
         return type1 == type || type2 == type;
     }
 
-    private float[] NatureMultiplier()
+    public float[] NatureMultiplier()
     {
-        float[] natureMultiplier = new float[6] { 0, 1, 1, 1, 1, 1 };
+        float[] natureMultiplier = new float[6] { 1, 1, 1, 1, 1, 1 };
 
         switch (nature)
         {

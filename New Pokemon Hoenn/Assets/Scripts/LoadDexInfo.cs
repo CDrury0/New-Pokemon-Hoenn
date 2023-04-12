@@ -24,21 +24,19 @@ public class LoadDexInfo : MonoBehaviour
     public ReferenceLib pokemonReferenceLib;
     public PokemonDefault representsThisPokemon;
     private DexStatus caughtStatus;
-    private void OnEnable()
-    {
+
+    private void OnEnable() {
         caughtStatus = GlobalGameEvents.globalDexProgress[representsThisPokemon.IDNumber];
         caughtSprite.SetActive(caughtStatus == DexStatus.Caught);
         dexNumber.text = representsThisPokemon.IDNumber.ToString();
         dexButtonName.text = caughtStatus == DexStatus.Unknown ? "???" : representsThisPokemon.pokemonName;
     }
 
-    public void LoadDexDetails()
-    {
+    public void LoadDexDetails() {
         type1box.SetActive(false);
         type2box.SetActive(false);
 
-        if (caughtStatus == DexStatus.Caught)
-        {
+        if (caughtStatus == DexStatus.Caught){
             heightBox.text = "Avg. Height: " + representsThisPokemon.height + " m";
             weightBox.text = "Avg. Weight: " + representsThisPokemon.weight + " kg";
             speciesBox.text = representsThisPokemon.species + " Pokémon";
@@ -51,8 +49,7 @@ public class LoadDexInfo : MonoBehaviour
             LoadEVYield(true);
             LoadStatBars(representsThisPokemon);
         }
-        else if(caughtStatus == DexStatus.Seen)
-        {
+        else if(caughtStatus == DexStatus.Seen){
             heightBox.text = "";
             weightBox.text = "";
             speciesBox.text = "";
@@ -64,8 +61,7 @@ public class LoadDexInfo : MonoBehaviour
             LoadEVYield(false);
             ResetStatBars();
         }
-        else if(caughtStatus == DexStatus.Unknown)
-        {
+        else if(caughtStatus == DexStatus.Unknown){
             heightBox.text = "";
             weightBox.text = "";
             speciesBox.text = "";
@@ -207,7 +203,7 @@ public class LoadDexInfo : MonoBehaviour
     public void LoadPokemonTypes(PokemonDefault representsThis)
     {
         type1box.gameObject.SetActive(true);
-        type1fill.color = LoadDexUI.GetTypeColor(representsThis.type1);
+        type1fill.color = loadDexUI.typeColors.colors[(int)representsThis.type1];
         type1text.text = representsThis.type1.ToString();
 
         if (representsThis.type2 == Pokemon.Type.None)
@@ -217,7 +213,7 @@ public class LoadDexInfo : MonoBehaviour
         else
         {
             type2box.gameObject.SetActive(true);
-            type2fill.color = LoadDexUI.GetTypeColor(representsThis.type2);
+            type2fill.color = loadDexUI.typeColors.colors[(int)representsThis.type2];
             type2text.text = representsThis.type2.ToString();
         }
     }
