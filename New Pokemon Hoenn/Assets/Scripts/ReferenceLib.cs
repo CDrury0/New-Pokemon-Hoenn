@@ -6,7 +6,7 @@ public class ReferenceLib : MonoBehaviour
 {
     public static ReferenceLib Instance {get; private set;}
     public PokemonDefault[] pokemonDefaultLib;
-    public List<TypeMatchupList> typeEffectivenessMatchups;  //first index is attacking type, second is defending
+    public List<TypeMatchupList> typeEffectivenessMatchups;
     public AreaData activeArea;
 
     void Awake(){

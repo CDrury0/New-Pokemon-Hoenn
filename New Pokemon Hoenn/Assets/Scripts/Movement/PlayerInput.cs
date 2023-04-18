@@ -7,9 +7,7 @@ public class PlayerInput : InputController
     public Transform interactPoint;
     public MenuAnimation menuAnimation;
     public LayerMask stopsMovement;
-    public SpriteRenderer activePlayerSprite;
-    //replace sprite renderer and sprite array with animation controller
-    public Sprite[] playerSprites;
+    public Animator playerAnimator;
     [SerializeField] private float walkingSpeed = 3.5f;
     [SerializeField] private float sprintSpeed = 7.5f;
     [SerializeField] private float movementInputDelaySeconds;
@@ -59,26 +57,14 @@ public class PlayerInput : InputController
         }
 
         direction = newDirection;
-        SetPlayerSprite(direction);
+        SetPlayerSprite();
         if(!sprinting){
             StartCoroutine(DelayMovementInput());
         }
     }
 
-    protected virtual void SetPlayerSprite(Vector3 directionToFace) {
-        if(directionToFace.x != 0){
-            if(directionToFace.x == 1){
-                activePlayerSprite.sprite = playerSprites[1];
-                return;
-            }
-            activePlayerSprite.sprite = playerSprites[3];
-            return;
-        }
-        if(directionToFace.y == 1){
-            activePlayerSprite.sprite = playerSprites[0];
-            return;
-        }
-        activePlayerSprite.sprite = playerSprites[2];
+    protected virtual void SetPlayerSprite() {
+        
     }
 
     protected virtual IEnumerator ActivateInteractPoint() {

@@ -1,0 +1,1277 @@
+fileFormatVersion: 2
+guid: 0663cece10b4ef646975d286d000c424
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlayerTestSheet_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 691
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 573c3b2fb78b7ba4697641dfb7371de0
+      internalID: 624435327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 691
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bf35662f65d4814d82680a99ae1f007
+      internalID: 1151011346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_2
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 691
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed3c746cb8248a44f80ba492e157c042
+      internalID: 1232927024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_4
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 691
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ed2d8bc9b2972240b470c7a6990ed29
+      internalID: 1504556680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_5
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 691
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1edd6c579e3b1d54aa0906732a78a5b5
+      internalID: 4460196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_6
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 691
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed95fdd055ed207409788854211313b8
+      internalID: 294911017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_8
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 691
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22038eb35c5a32243ad54d61f591fb18
+      internalID: -1250098865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_9
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 691
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2750a3707ee9ff0478995e9895321db8
+      internalID: -346253649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_10
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 691
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bb10407c69b29846838c9bd0e40554f
+      internalID: 1116592730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_11
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 658
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72e7fbf36e3095f429872ec0089a5f5e
+      internalID: 74894831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_12
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 658
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de5ef969d6d2dac42a92a11064426a49
+      internalID: 1595748088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_13
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 658
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c55c8a69fc60b2c4983f17834c71d13c
+      internalID: 764344690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_15
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 658
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2b208df193f53d49a4f77e382448efb
+      internalID: 1420343112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_16
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 658
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1df0c9f8c0e5efb489d09cd499e45fb3
+      internalID: 306697496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_17
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 658
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77bd8431ddb0dc945bb13b80a4233629
+      internalID: 295091237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_19
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 658
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5076be65e607f764bbaf27090b70f32a
+      internalID: 1245598280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_20
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 658
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3609b6ccfc11d084382f4ffab4b24096
+      internalID: -1679025948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_21
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 658
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 482e238517b4f114183fe01a57a9fe65
+      internalID: -812609675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_22
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 625
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f77d7868b354f24d88962caca354213
+      internalID: 29954405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_23
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 625
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5900a8dd89cc71479a1496a459ea3e4
+      internalID: -1814413652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_24
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 625
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 118927a6e72b03541b8c13f7cc0524ee
+      internalID: -254372942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_26
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 625
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 257009742471b6144b1227b9fef946b2
+      internalID: -1301108189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_27
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 625
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef8457347005c724d905a05a889cb8ac
+      internalID: 999504696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_28
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 625
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b06ee33dfc4944fb317f174e92d426
+      internalID: 1160991514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_30
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 625
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab6220539744f9a4d87063650ea24369
+      internalID: -711809158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_31
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 625
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cd904f4366b75246bb1d827b22a19b7
+      internalID: -681098319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_32
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 625
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9c1d89b8915d0148b56601a59cbceb0
+      internalID: -1723682236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_33
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 592
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b054db316368b5e47ad6757d1ab2a22d
+      internalID: 2023522939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_34
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 592
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d08ecae145ff48429b6441f2c059152
+      internalID: 101037045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_35
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 592
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f327e0695297ff4daaaec1a967cfcbb
+      internalID: 320411656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_37
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 592
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9755b15bab1174041be62266d473d7e2
+      internalID: 254517623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_38
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 592
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c86d80a8e4f5ba45be4cb89dae6a313
+      internalID: -1542440740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_39
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 592
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14af27d1b2c6a4e4abcd19287cdf9a24
+      internalID: 944774339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_41
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 592
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e52f9758fd2d7347aaac2df17799b32
+      internalID: 203916981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_42
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 592
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c507d8b296d040c43bae2da1bcf3fdde
+      internalID: -1315719103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_43
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 592
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1101e8d1b35e3e4b8fa6f13ae8e44ea
+      internalID: -940051283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_44
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 559
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35055fe8cab9c0d4a8e65f473790e50a
+      internalID: 290121890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_45
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 559
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 760059b1b13fa1249a3cfc9734703b9e
+      internalID: -1366845386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_46
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 559
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ca691bf6a8e4ca4e851467cb9b675a3
+      internalID: 620100202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_47
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 559
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e2e63cc4bb8a8f478bead653d9e04e5
+      internalID: -599663230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_55
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04ec254cf81bb534baaa42eb35fa0af6
+      internalID: -398465829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_56
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29cddf3c86e49e74892e5cc164bb53df
+      internalID: -39072292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_57
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d119b06d98c18946a456be52fb8e56a
+      internalID: 894115369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestSheet_58
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc53cafc66ca7e7479bb636d7550f627
+      internalID: -1194893847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PlayerTestSheet_207: -2051909077
+      PlayerTestSheet_2: 1232927024
+      PlayerTestSheet_107: -1269275090
+      PlayerTestSheet_199: -2073141071
+      PlayerTestSheet_132: 5992796
+      PlayerTestSheet_78: -1107809967
+      PlayerTestSheet_103: -1120645997
+      PlayerTestSheet_155: -92789924
+      PlayerTestSheet_14: -809802533
+      PlayerTestSheet_75: 2053703189
+      PlayerTestSheet_219: 1775271928
+      PlayerTestSheet_28: 1160991514
+      PlayerTestSheet_73: -1039538479
+      PlayerTestSheet_162: 682091110
+      PlayerTestSheet_114: -131308978
+      PlayerTestSheet_60: 1061243735
+      PlayerTestSheet_125: -1788013492
+      PlayerTestSheet_71: 1952259266
+      PlayerTestSheet_43: -940051283
+      PlayerTestSheet_4: 1504556680
+      PlayerTestSheet_158: -1748369226
+      PlayerTestSheet_118: -691566747
+      PlayerTestSheet_229: -447351429
+      PlayerTestSheet_193: -1766238511
+      PlayerTestSheet_3: 82021371
+      PlayerTestSheet_45: -1366845386
+      PlayerTestSheet_37: 254517623
+      PlayerTestSheet_130: 417331444
+      PlayerTestSheet_145: -2103713176
+      PlayerTestSheet_150: -187427437
+      PlayerTestSheet_81: -428399160
+      PlayerTestSheet_20: -1679025948
+      PlayerTestSheet_163: 505091048
+      PlayerTestSheet_133: 1452300694
+      PlayerTestSheet_65: 1774547278
+      PlayerTestSheet_52: -367587940
+      PlayerTestSheet_178: 293844620
+      PlayerTestSheet_164: -32973435
+      PlayerTestSheet_185: 1081365557
+      PlayerTestSheet_165: -1765748969
+      PlayerTestSheet_140: 1651427752
+      PlayerTestSheet_33: 2023522939
+      PlayerTestSheet_194: -1218185155
+      PlayerTestSheet_48: 1841311875
+      PlayerTestSheet_142: 521210619
+      PlayerTestSheet_143: -522979038
+      PlayerTestSheet_204: -711336904
+      PlayerTestSheet_69: 921633321
+      PlayerTestSheet_82: -1552214964
+      PlayerTestSheet_30: -711809158
+      PlayerTestSheet_18: -1673754546
+      PlayerTestSheet_101: -683377721
+      PlayerTestSheet_104: 1124077727
+      PlayerTestSheet_187: -1602051467
+      PlayerTestSheet_5: 4460196
+      PlayerTestSheet_99: 1003395576
+      PlayerTestSheet_179: -1238632331
+      PlayerTestSheet_198: 188225185
+      PlayerTestSheet_195: 1366095744
+      PlayerTestSheet_135: 1385977886
+      PlayerTestSheet_95: 157701652
+      PlayerTestSheet_113: -2078548420
+      PlayerTestSheet_224: 1522699507
+      PlayerTestSheet_46: 620100202
+      PlayerTestSheet_197: -1787449761
+      PlayerTestSheet_93: -949959191
+      PlayerTestSheet_173: 2070972404
+      PlayerTestSheet_215: 1157953891
+      PlayerTestSheet_138: 1206486618
+      PlayerTestSheet_108: 2059141503
+      PlayerTestSheet_126: -821383770
+      PlayerTestSheet_27: 999504696
+      PlayerTestSheet_11: 74894831
+      PlayerTestSheet_120: 62127492
+      PlayerTestSheet_42: -1315719103
+      PlayerTestSheet_100: 1704602963
+      PlayerTestSheet_190: 1126720422
+      PlayerTestSheet_208: -162966203
+      PlayerTestSheet_51: -1377500006
+      PlayerTestSheet_57: 894115369
+      PlayerTestSheet_188: 2090744562
+      PlayerTestSheet_220: -1552743107
+      PlayerTestSheet_80: 601308529
+      PlayerTestSheet_109: -147382103
+      PlayerTestSheet_72: -277469753
+      PlayerTestSheet_15: 1420343112
+      PlayerTestSheet_217: -1164435290
+      PlayerTestSheet_218: 1962076482
+      PlayerTestSheet_98: -126480758
+      PlayerTestSheet_61: -696429009
+      PlayerTestSheet_124: -2034467364
+      PlayerTestSheet_70: 338155566
+      PlayerTestSheet_21: -812609675
+      PlayerTestSheet_191: 129523581
+      PlayerTestSheet_23: -1814413652
+      PlayerTestSheet_202: -110703499
+      PlayerTestSheet_29: 1410045970
+      PlayerTestSheet_89: -760540049
+      PlayerTestSheet_111: -873543769
+      PlayerTestSheet_38: -1542440740
+      PlayerTestSheet_56: -39072292
+      PlayerTestSheet_91: 1656363691
+      PlayerTestSheet_181: -1091234092
+      PlayerTestSheet_40: 1467476440
+      PlayerTestSheet_228: 830762438
+      PlayerTestSheet_161: -1985453073
+      PlayerTestSheet_201: 1481696696
+      PlayerTestSheet_49: -256241100
+      PlayerTestSheet_203: 1706752519
+      PlayerTestSheet_152: -427232834
+      PlayerTestSheet_22: 29954405
+      PlayerTestSheet_168: 1516376258
+      PlayerTestSheet_131: 1689968170
+      PlayerTestSheet_212: 1000006353
+      PlayerTestSheet_134: 2004024200
+      PlayerTestSheet_24: -254372942
+      PlayerTestSheet_222: 29136165
+      PlayerTestSheet_35: 320411656
+      PlayerTestSheet_58: -1194893847
+      PlayerTestSheet_182: -1099054316
+      PlayerTestSheet_0: 624435327
+      PlayerTestSheet_129: 1809827521
+      PlayerTestSheet_127: -2036996379
+      PlayerTestSheet_92: -1118809159
+      PlayerTestSheet_115: -1519174570
+      PlayerTestSheet_210: 1642685369
+      PlayerTestSheet_230: 1170417243
+      PlayerTestSheet_10: 1116592730
+      PlayerTestSheet_74: -1110654301
+      PlayerTestSheet_88: 965174779
+      PlayerTestSheet_184: -1118039922
+      PlayerTestSheet_79: 1120626148
+      PlayerTestSheet_76: 924489948
+      PlayerTestSheet_110: 610304307
+      PlayerTestSheet_157: 2069364897
+      PlayerTestSheet_68: 1131695837
+      PlayerTestSheet_186: -1760184015
+      PlayerTestSheet_196: 181440480
+      PlayerTestSheet_141: -466699176
+      PlayerTestSheet_175: 610124202
+      PlayerTestSheet_54: 1893181668
+      PlayerTestSheet_64: -1304203982
+      PlayerTestSheet_205: -1191338266
+      PlayerTestSheet_172: -191379470
+      PlayerTestSheet_146: -2102024153
+      PlayerTestSheet_32: -1723682236
+      PlayerTestSheet_34: 101037045
+      PlayerTestSheet_96: -156338614
+      PlayerTestSheet_117: -524364278
+      PlayerTestSheet_166: -1303747266
+      PlayerTestSheet_216: 57543879
+      PlayerTestSheet_66: -340963853
+      PlayerTestSheet_121: -489671459
+      PlayerTestSheet_119: 946425760
+      PlayerTestSheet_139: 1655423175
+      PlayerTestSheet_149: 272322809
+      PlayerTestSheet_53: 522912921
+      PlayerTestSheet_8: -1250098865
+      PlayerTestSheet_59: -752654902
+      PlayerTestSheet_123: -666181498
+      PlayerTestSheet_227: -263730801
+      PlayerTestSheet_1: 1151011346
+      PlayerTestSheet_156: 347713622
+      PlayerTestSheet_159: 604470849
+      PlayerTestSheet_6: 294911017
+      PlayerTestSheet_213: 1202731735
+      PlayerTestSheet_116: -596411365
+      PlayerTestSheet_44: 290121890
+      PlayerTestSheet_154: 1727415752
+      PlayerTestSheet_90: 1929650397
+      PlayerTestSheet_97: 1210126701
+      PlayerTestSheet_171: -426836889
+      PlayerTestSheet_180: -94765570
+      PlayerTestSheet_206: 208431519
+      PlayerTestSheet_25: 1046588497
+      PlayerTestSheet_77: 979127826
+      PlayerTestSheet_128: -1956808532
+      PlayerTestSheet_170: -362763235
+      PlayerTestSheet_148: 1065714065
+      PlayerTestSheet_183: -949336476
+      PlayerTestSheet_85: -177446705
+      PlayerTestSheet_211: -585741726
+      PlayerTestSheet_62: 732363432
+      PlayerTestSheet_17: 295091237
+      PlayerTestSheet_200: -1874554359
+      PlayerTestSheet_36: 765865962
+      PlayerTestSheet_55: -398465829
+      PlayerTestSheet_221: 1980549801
+      PlayerTestSheet_41: 203916981
+      PlayerTestSheet_147: 1694846287
+      PlayerTestSheet_122: 1210528563
+      PlayerTestSheet_12: 1595748088
+      PlayerTestSheet_151: -700107934
+      PlayerTestSheet_7: -966864355
+      PlayerTestSheet_26: -1301108189
+      PlayerTestSheet_106: -1230332058
+      PlayerTestSheet_39: 944774339
+      PlayerTestSheet_144: 192805610
+      PlayerTestSheet_189: 1382650012
+      PlayerTestSheet_31: -681098319
+      PlayerTestSheet_63: -116578412
+      PlayerTestSheet_102: -620008335
+      PlayerTestSheet_83: 1821373936
+      PlayerTestSheet_223: -446496573
+      PlayerTestSheet_137: -537802507
+      PlayerTestSheet_226: -675263734
+      PlayerTestSheet_192: 1312796914
+      PlayerTestSheet_209: 1055238097
+      PlayerTestSheet_94: 1971012903
+      PlayerTestSheet_13: 764344690
+      PlayerTestSheet_167: 341293423
+      PlayerTestSheet_174: -604315462
+      PlayerTestSheet_176: -1068418740
+      PlayerTestSheet_19: 1245598280
+      PlayerTestSheet_86: -1357043279
+      PlayerTestSheet_50: -789934389
+      PlayerTestSheet_84: -259840852
+      PlayerTestSheet_136: -17324989
+      PlayerTestSheet_105: 1052266627
+      PlayerTestSheet_87: -587817813
+      PlayerTestSheet_16: 306697496
+      PlayerTestSheet_177: -1161638102
+      PlayerTestSheet_9: -346253649
+      PlayerTestSheet_160: -406414066
+      PlayerTestSheet_67: 68845168
+      PlayerTestSheet_47: -599663230
+      PlayerTestSheet_225: 1339862894
+      PlayerTestSheet_169: -658176604
+      PlayerTestSheet_112: 214127676
+      PlayerTestSheet_153: -513707854
+      PlayerTestSheet_214: 789053324
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

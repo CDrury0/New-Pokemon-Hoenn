@@ -142,7 +142,7 @@ public class BattleTestMenu : MonoBehaviour
         for(int i = 0; i < allMoves.Length; i++){
             GameObject g = Instantiate(menuButtonPrefab, moveListParent.transform);
             MoveData moveData = allMoves[i].GetComponent<MoveData>();
-            g.GetComponentInChildren<Text>().text = moveData.moveName;
+            g.GetComponentInChildren<TextMeshProUGUI>().text = moveData.moveName;
             MouseOverMoveButton mouseOverComponent = g.AddComponent<MouseOverMoveButton>();
             mouseOverComponent.moveData = moveData;
             mouseOverComponent.moveDescriptionText = moveDescriptionText;

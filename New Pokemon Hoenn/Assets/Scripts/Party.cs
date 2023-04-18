@@ -6,14 +6,9 @@ public class Party
         party = new Pokemon[6];
     }
 
-    public Party(SerializablePokemon[] templateToCopy){
-        for(int i = 0; i < party.Length; i++){
-            if(templateToCopy[i] != null){
-                party[i] = new Pokemon(templateToCopy[i]);
-            }
-            else{
-                party[i] = null;
-            }
+    public Party(SerializablePokemon[] templateToCopy) : this() {
+        for(int i = 0; i < templateToCopy.Length; i++){
+            party[i] = templateToCopy[i] != null ? new Pokemon(templateToCopy[i]) : null;
         }
     }
 
