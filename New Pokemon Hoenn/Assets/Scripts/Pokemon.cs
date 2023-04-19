@@ -97,15 +97,7 @@ public class Pokemon
         this.height = p.height;
         this.heldItem = p.heldItem;
         this.moves = new List<GameObject>(p.moves);
-        if(p.moveMaxPP[0] == 0){
-            this.moveMaxPP = new int[4];
-            for(int i = 0; i < this.moveMaxPP.Length; i++){
-                this.moveMaxPP[i] = p.moves[i].GetComponent<MoveData>().maxPP;
-            }
-        }
-        else{
-            this.moveMaxPP = new int[] {p.moveMaxPP[0], p.moveMaxPP[1], p.moveMaxPP[2], p.moveMaxPP[3]};
-        }
+        this.moveMaxPP = new int[] { p.moveMaxPP[0], p.moveMaxPP[1], p.moveMaxPP[2], p.moveMaxPP[3] };
         this.movePP = new int[] {this.moveMaxPP[0], this.moveMaxPP[1], this.moveMaxPP[2], this.moveMaxPP[3]};
         this.nature = p.nature;
         this.nickName = p.pokemonDefault.pokemonName;
@@ -162,7 +154,7 @@ public class Pokemon
         movePP[whichMove] = move.maxPP;
     }
 
-    public static void FillSprites(Pokemon p)
+    private void FillSprites(Pokemon p)
     {
         if (p.isShiny)
         {

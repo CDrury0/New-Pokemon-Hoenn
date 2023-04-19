@@ -41,6 +41,9 @@ public class HandleExperience : MonoBehaviour
 
     public IEnumerator DoExperience(Pokemon enemy) {
         List<Pokemon> participants = expMaps[enemy];
+        if(participants.Count == 0){
+            yield break;
+        }
         int totalExperience = enemy.pokemonDefault.baseExperience * enemy.level / 6;  //magic 6 means every 6 levels adds a multiple of base experience
         int experiencePerMon = totalExperience / participants.Count;
         foreach(Pokemon p in participants){

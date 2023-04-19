@@ -12,7 +12,7 @@ public class PlayerInput : InputController
     [SerializeField] private float sprintSpeed = 7.5f;
     [SerializeField] private float movementInputDelaySeconds;
     private Vector3 direction;
-    private bool allowMovementInput = true;
+    public static bool allowMovementInput = true;
 
     void Update() {
         GetPlayerInput();
@@ -39,7 +39,7 @@ public class PlayerInput : InputController
         return false;
     }
 
-    protected void GetMovementInput(bool sprinting) {
+    protected virtual void GetMovementInput(bool sprinting) {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         if(horizontal == 0 && vertical == 0){

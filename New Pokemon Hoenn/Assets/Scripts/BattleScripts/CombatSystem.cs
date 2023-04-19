@@ -49,16 +49,17 @@ public class CombatSystem : MonoBehaviour
     //must start the coroutine from this monobehaviour so it doesn't matter if originating gameobject is set to inactive
 
     //make this accept a BattleData object that contains SerializablePokemon[], EnemyAI, and other data
-    public void StartTrainerBattle(SerializablePokemon[] enemyPartyTemplate, bool doubleBattle, EnemyAI enemyAI){
-        StartCoroutine(RealStartBattle(new Party(enemyPartyTemplate), true, doubleBattle, enemyAI));
+    public void StartBattle(Trainer trainer){
+        StartCoroutine(RealStartBattle(new Party(trainer.trainerPartyTemplate), true, trainer.isDoubleBattle, trainer.enemyAI));
     }
 
-    public void StartWildBattle(Pokemon p, EnemyAI enemyAI){
+    public void StartBattle(Pokemon p, EnemyAI enemyAI){
         Party wildParty = new Party();
         wildParty.party[0] = p;
         StartCoroutine(RealStartBattle(wildParty, false, false, enemyAI));
     }
 
+    //only used by battle test menu
     public void StartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI){
         StartCoroutine(RealStartBattle(enemyParty, trainerBattle, doubleBattle, enemyAI));
     }
