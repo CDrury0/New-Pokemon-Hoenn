@@ -8,7 +8,7 @@ public class OneShotEffect : EffectDamage
     {
         yield return StartCoroutine(ApplyDamage(moveData, user, target, target.pokemon.stats[0]));
         if(target.pokemon.CurrentHealth == 0){
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage("It's a one-hit KO!"));
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage("It's a one-hit KO!"));
         }
     }
 

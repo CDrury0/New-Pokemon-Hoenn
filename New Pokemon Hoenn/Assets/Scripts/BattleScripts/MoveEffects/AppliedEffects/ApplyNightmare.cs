@@ -9,7 +9,7 @@ public class ApplyNightmare : ApplyIndividualEffect, IApplyEffect
         if(target.pokemon.primaryStatus == PrimaryStatus.Asleep){
             int nightmareDamage = (int)(0.25f * target.pokemon.stats[0]);
             yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(target, -nightmareDamage));
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " is tormented by its nightmare!"));
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + " is tormented by its nightmare!"));
         }
     }
 

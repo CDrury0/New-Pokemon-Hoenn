@@ -58,13 +58,11 @@ public class LoadDexUI : MonoBehaviour
         for (int i = 1; i < dexPlates.Length; i++){
             dexPlates[i].gameObject.SetActive(false);
         }
-        GlobalGameEvents.blockPlayerInputOverworld = false;
         type1box.gameObject.SetActive(false);
         type2box.gameObject.SetActive(false);
     }
 
     public void EnableDexUI() {
         this.gameObject.SetActive(true);
-        GlobalGameEvents.blockPlayerInputOverworld = true;
     }
 }

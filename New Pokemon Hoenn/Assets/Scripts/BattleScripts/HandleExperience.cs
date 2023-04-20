@@ -49,7 +49,7 @@ public class HandleExperience : MonoBehaviour
         foreach(Pokemon p in participants){
             int exp = experiencePerMon;
             //experience modifiers go here
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(p.nickName + " earned " + exp + " EXP"));
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(p.nickName + " earned " + exp + " EXP"));
             BattleHUD hud = CombatSystem.BattleTargets.Find(b => b.pokemon == p)?.battleHUD;
             while(exp != 0){
                 int expAtNextLevel = p.pokemonDefault.CalculateExperienceAtLevel(p.level + 1);
@@ -75,13 +75,13 @@ public class HandleExperience : MonoBehaviour
         if(hud != null){
             hud.SetBattleHUD(p);
         }
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(p.nickName + " grew to level " + p.level + "!"));
+        yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(p.nickName + " grew to level " + p.level + "!"));
         yield return StartCoroutine(levelUpScreen.DoLevelUpScreen(oldStats, p.stats, p.nickName));
         GameObject learnedMove = p.pokemonDefault.learnedMoves[p.level];
-        if (learnedMove != null){
+        if (learnedMove != null && !p.moves.Contains(learnedMove)){
             string moveName = learnedMove.GetComponent<MoveData>().moveName;
             yield return StartCoroutine(learnMoveScreen.DoLearnMoveScreen(p, learnedMove));
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(
                 p.nickName + (learnMoveScreen.MoveReplaced < p.moves.Count ? " learned " + moveName + "!" : " did not learn " + moveName)));
         }
     }

@@ -18,7 +18,7 @@ public abstract class ApplyIndividualEffect : MoveEffect, ICheckMoveEffectFail
             target.individualBattleModifier.appliedEffects.Add(effectInfo);
             user.individualBattleModifier.inflictingEffects.Add(effectInfo);
             if(!string.IsNullOrEmpty(message)){
-                yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(ReplaceBattleMessage(user, target, moveData)));
+                yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(ReplaceBattleMessage(user, target, moveData)));
             }
         }
     }

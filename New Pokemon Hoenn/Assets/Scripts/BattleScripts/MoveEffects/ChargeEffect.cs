@@ -8,6 +8,6 @@ public class ChargeEffect : MoveEffect
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         target.individualBattleModifier.chargedType = chargedType;
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " charged up energy!"));
+        yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + " charged up energy!"));
     }
 }

@@ -20,7 +20,9 @@ public class CombatLib : MonoBehaviour
     /// <summary>
     /// Replace with an equivalent that prints to a different object if a battle is not happening (e.g. move learned via TM)
     /// </summary>
-    public IEnumerator WriteBattleMessage(string message){
-        yield return StartCoroutine(combatScreen.battleText.WriteMessage(message));
+    public IEnumerator WriteGlobalMessage(string message){
+        if(CombatSystem.BattleActive){
+            yield return StartCoroutine(combatScreen.battleText.WriteMessage(message));
+        }
     }
 }

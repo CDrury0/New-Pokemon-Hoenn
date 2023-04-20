@@ -24,13 +24,13 @@ public class ApplyTeamDurationEffect : MoveEffect, ICheckMoveEffectFail
         if(durationEffect != TeamDurationEffect.None){
             target.teamBattleModifier.teamEffects.Add(new TeamDurationEffectInfo(this, timer));
             string outputMessage = ReplaceBattleMessage(user, target, moveData);
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(outputMessage));
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(outputMessage));
         }
 
         if(weatherSet != null){
             CombatSystem.Weather = weatherSet;
             CombatSystem.weatherTimer = timer;
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(weatherSet.textOnSet));
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(weatherSet.textOnSet));
         }
     }
 

@@ -33,6 +33,6 @@ public class ApplyTimedEffect : MoveEffect, IApplyEffect, ICheckMoveFail
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         user.individualBattleModifier.timedEffects.Add(new TimedEffectInfo(this, timer, target));
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(ReplaceBattleMessage(user, target, moveData)));
+        yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(ReplaceBattleMessage(user, target, moveData)));
     }
 }

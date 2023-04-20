@@ -21,7 +21,7 @@ public class ApplyDisable : ApplyIndividualEffect, ICheckMoveSelectable, IApplyE
     public IEnumerator DoAppliedEffect(BattleTarget target, AppliedEffectInfo effectInfo)
     {
         if(effectInfo.timer == 0){
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + "'s " + target.individualBattleModifier.disabledMove.GetComponent<MoveData>().moveName + " is no longer disabled"));
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + "'s " + target.individualBattleModifier.disabledMove.GetComponent<MoveData>().moveName + " is no longer disabled"));
             RemoveEffect(target, effectInfo);
             yield break;
         }

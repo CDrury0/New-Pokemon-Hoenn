@@ -11,6 +11,6 @@ public class PainSplitEffect : MoveEffect
         yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(user, healthChange));
         healthChange = targetHealth - target.pokemon.CurrentHealth;
         yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(target, healthChange));
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage("The battlers shared their pain!"));
+        yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage("The battlers shared their pain!"));
     }
 }

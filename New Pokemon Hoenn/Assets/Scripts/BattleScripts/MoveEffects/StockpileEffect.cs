@@ -15,6 +15,6 @@ public class StockpileEffect : MoveEffect, ICheckMoveFail
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         user.individualBattleModifier.stockpileCount++;
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(user.GetName() + " stockpiled " + user.individualBattleModifier.stockpileCount + "!"));
+        yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(user.GetName() + " stockpiled " + user.individualBattleModifier.stockpileCount + "!"));
     }
 }

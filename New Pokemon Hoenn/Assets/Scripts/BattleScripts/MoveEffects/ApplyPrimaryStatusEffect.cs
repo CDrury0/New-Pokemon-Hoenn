@@ -31,11 +31,11 @@ public class ApplyPrimaryStatusEffect : MoveEffect, ICheckMoveFail
 
         if(Random.Range(0f, 1f) <= chance){
             if(ImmuneToStatus(status, target, powder)){
-                yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " is immune to the status condition!"));
+                yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + " is immune to the status condition!"));
                 yield break;
             }
             if(!ignoresExistingCondition && target.pokemon.primaryStatus != PrimaryStatus.None){
-                yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " is already " + target.pokemon.primaryStatus.ToString() + "!"));
+                yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + " is already " + target.pokemon.primaryStatus.ToString() + "!"));
             }
             else{
                 target.pokemon.primaryStatus = status;
@@ -64,7 +64,7 @@ public class ApplyPrimaryStatusEffect : MoveEffect, ICheckMoveFail
         else{
             message += " was " + status.ToString() + "!";
         }
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(message));
+        yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(message));
     }
 
     public static bool ImmuneToStatus(PrimaryStatus status, BattleTarget target, bool powder){

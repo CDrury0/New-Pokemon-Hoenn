@@ -10,11 +10,11 @@ public class ApplyDrowsy : ApplyIndividualEffect, IApplyEffect
             if(target.pokemon.primaryStatus == PrimaryStatus.None && !ApplyPrimaryStatusEffect.ImmuneToStatus(PrimaryStatus.Asleep, target, false)){
                 target.pokemon.primaryStatus = PrimaryStatus.Asleep;
                 target.pokemon.sleepCounter = Random.Range(1, 5);
-                yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " fell Asleep!"));
+                yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + " fell Asleep!"));
                 target.battleHUD.SetBattleHUD(target.pokemon);
             }
             else{
-                yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " resisted Sleep!"));
+                yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + " resisted Sleep!"));
             }
             RemoveEffect(target, effectInfo);
         }

@@ -43,7 +43,7 @@ public class MultiTurnEffect : MoveEffect, IApplyEffect
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         if(chargingTurn){
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(ReplaceBattleMessage(user, target, moveData)));
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(ReplaceBattleMessage(user, target, moveData)));
         }
         if(chargingTurn && skipChargingTurn != null && CombatSystem.Weather == skipChargingTurn){
             GameObject nextMove = Instantiate(useNext);

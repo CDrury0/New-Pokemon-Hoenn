@@ -7,6 +7,8 @@ using System.Security.Cryptography;
 
 public class StartupFunctions : MonoBehaviour
 {
+    public AudioManager.Sound defaultIntro;
+    public AudioManager.Sound defaultLoop;
     public int intToSave;
     private void Start()
     { 
@@ -16,7 +18,7 @@ public class StartupFunctions : MonoBehaviour
         {
             GlobalGameEvents.globalDexProgress[i] = DexStatus.Caught;
         }
-
+        AudioManager.Instance.PlayMusic(defaultIntro, defaultLoop);
         //LoadSave();
     }
 

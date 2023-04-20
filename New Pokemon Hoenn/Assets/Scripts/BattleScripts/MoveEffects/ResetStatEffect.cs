@@ -12,7 +12,7 @@ public class ResetStatEffect : MoveEffect
             for(int i = 0; i < CombatSystem.BattleTargets.Count; i++){
                 ResetStats(CombatSystem.BattleTargets[i]);
             }
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage("All stat stages were reset!"));
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage("All stat stages were reset!"));
         }
         else{
             ResetStats(target);

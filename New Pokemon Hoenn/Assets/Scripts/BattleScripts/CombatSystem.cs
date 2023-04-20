@@ -21,9 +21,11 @@ public class CombatSystem : MonoBehaviour
     public GameObject struggle;
     public GameObject switchAction;
     public bool DoubleBattle {get; private set;}
+    private bool trainerBattle;
     private Party playerParty;
     private Party enemyParty;
     private EnemyAI enemyAI;
+    private Trainer enemyTrainer;
     private BattleTarget player1;
     private BattleTarget player2;
     private BattleTarget enemy1;
@@ -47,10 +49,9 @@ public class CombatSystem : MonoBehaviour
     }
 
     //must start the coroutine from this monobehaviour so it doesn't matter if originating gameobject is set to inactive
-
-    //make this accept a BattleData object that contains SerializablePokemon[], EnemyAI, and other data
     public void StartBattle(Trainer trainer){
-        StartCoroutine(RealStartBattle(new Party(trainer.trainerPartyTemplate), true, trainer.isDoubleBattle, trainer.enemyAI));
+        enemyTrainer = trainer;
+        StartCoroutine(RealStartBattle(new Party(trainer.trainerPartyTemplate), true, trainer.isDoubleBattle, trainer.trainerAI));
     }
 
     public void StartBattle(Pokemon p, EnemyAI enemyAI){
@@ -72,6 +73,7 @@ public class CombatSystem : MonoBehaviour
         MoveRecordList = new MoveRecordList();
         playerParty = PlayerParty.Instance.playerParty;
         this.DoubleBattle = doubleBattle;
+        this.trainerBattle = trainerBattle;
         this.enemyParty = enemyParty;
         this.enemyAI = enemyAI;
 
@@ -397,7 +399,9 @@ public class CombatSystem : MonoBehaviour
     }
 
     public IEnumerator HandleFaint(){
-        foreach(BattleTarget b in BattleTargets){
+        //IEnumerable.OrderBy sorts in ascending order, so boolean matches are listed in "reverse" order, hence the !
+        List<BattleTarget> playerFirstTargets = new List<BattleTarget>(BattleTargets.OrderBy(b => !b.teamBattleModifier.isPlayerTeam).ToList());
+        foreach(BattleTarget b in playerFirstTargets){
             if(b.pokemon.CurrentHealth == 0){
                 b.pokemon.primaryStatus = PrimaryStatus.Fainted;
                 b.individualBattleModifier = new IndividualBattleModifier(null);
@@ -510,10 +514,10 @@ public class CombatSystem : MonoBehaviour
 
     private IEnumerator EndBattle(){
         if(playerParty.IsEntireTeamFainted()){
-            yield return StartCoroutine(combatScreen.battleText.WriteMessage("You lose, moron"));
+            yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("You lose, moron"));
         }
         else if(enemyParty.IsEntireTeamFainted()){
-            yield return StartCoroutine(combatScreen.battleText.WriteMessage("You win, tryhard"));
+            yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("You win, tryhard"));
         }
         else{
             Debug.Log("something went wrong");

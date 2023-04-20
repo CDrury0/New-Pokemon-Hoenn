@@ -20,7 +20,7 @@ public class ChangePPEffect : MoveEffect, ICheckMoveFail
         target.pokemon.movePP[whichMove] += ppChange;
         CorrectPPOverflow(target, whichMove);
         string ppMessage = ppChange > 0 ? " gained PP!" : " lost PP!";
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + ppMessage));
+        yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + ppMessage));
     }
 
     private void CorrectPPOverflow(BattleTarget target, int whichMove){

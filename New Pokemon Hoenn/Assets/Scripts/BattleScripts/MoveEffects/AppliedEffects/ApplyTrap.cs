@@ -8,7 +8,7 @@ public class ApplyTrap : ApplyIndividualEffect, IApplyEffect
     {
         if(!effectInfo.inflictor.individualBattleModifier.inflictingEffects.Contains(effectInfo)){
             RemoveEffect(target, effectInfo);
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " is no longer trapped!"));
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + " is no longer trapped!"));
         }
     }
 

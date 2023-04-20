@@ -13,7 +13,7 @@ public class ApplyLeechSeed : ApplyIndividualEffect, IApplyEffect
             //check for liquid ooze
             yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(effectInfo.inflictor, leechSeedHealth));
 
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + "'s health is sapped by leech seed!"));
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + "'s health is sapped by leech seed!"));
         }
     }
 

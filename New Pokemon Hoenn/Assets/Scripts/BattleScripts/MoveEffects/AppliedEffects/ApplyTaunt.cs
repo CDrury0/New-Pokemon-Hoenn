@@ -7,7 +7,7 @@ public class ApplyTaunt : ApplyIndividualEffect, ICheckMoveSelectable, IApplyEff
     public IEnumerator DoAppliedEffect(BattleTarget target, AppliedEffectInfo effectInfo)
     {
         if(effectInfo.timer == 0){
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " is no longer taunted!"));
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + " is no longer taunted!"));
             RemoveEffect(target, effectInfo);
             yield break;
         }

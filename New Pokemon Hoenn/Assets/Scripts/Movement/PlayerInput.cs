@@ -12,7 +12,6 @@ public class PlayerInput : InputController
     [SerializeField] private float sprintSpeed = 7.5f;
     [SerializeField] private float movementInputDelaySeconds;
     private Vector3 direction;
-    public static bool allowMovementInput = true;
 
     void Update() {
         GetPlayerInput();
@@ -20,20 +19,28 @@ public class PlayerInput : InputController
 
     protected void GetPlayerInput() {
         if(Vector3.Distance(transform.position, followPoint.position) == 0){
-            if(!GetOtherInput() && allowMovementInput){
-                GetMovementInput(Input.GetKey(KeyCode.LeftShift));
+            if(allowMenuToggle){
+                if(!GetMenuInput() && allowMovementInput){
+                    if(!GetInteractInput()){
+                        GetMovementInput(Input.GetKey(KeyCode.LeftShift));
+                    }
+                }
             }
         }
     }
 
-    private bool GetOtherInput(){
+    private bool GetInteractInput() {
+        if(Input.GetKeyDown(KeyCode.E)){
+            StartCoroutine(ActivateInteractPoint());
+            return true;
+        }
+        return false;
+    }
+
+    private bool GetMenuInput(){
         if(Input.GetKeyDown(KeyCode.Q)){
             allowMovementInput = !allowMovementInput;
             menuAnimation.ToggleMenu();
-            return true;
-        }
-        if(Input.GetKeyDown(KeyCode.E)){
-            StartCoroutine(ActivateInteractPoint());
             return true;
         }
         return false;
@@ -57,21 +64,18 @@ public class PlayerInput : InputController
         }
 
         direction = newDirection;
-        SetPlayerSprite();
+
         if(!sprinting){
             StartCoroutine(DelayMovementInput());
         }
     }
 
-    protected virtual void SetPlayerSprite() {
-        
-    }
-
     protected virtual IEnumerator ActivateInteractPoint() {
-        //disallow all input until routine has completed?
+        allowMovementInput = false;
         interactPoint.position += direction;
         yield return new WaitForFixedUpdate();
         interactPoint.position -= direction;
+        allowMovementInput = true;
     }
 
     private IEnumerator DelayMovementInput() {

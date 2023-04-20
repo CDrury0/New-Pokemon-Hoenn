@@ -11,11 +11,11 @@ public class BreaksWalls : MoveEffect
 
         if(reflectEffectInfo != null){
             target.teamBattleModifier.teamEffects.Remove(reflectEffectInfo);
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.teamBattleModifier.teamPossessive + " reflect was broken!"));
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.teamBattleModifier.teamPossessive + " reflect was broken!"));
         }
         if(lightScreenEffectInfo != null){
             target.teamBattleModifier.teamEffects.Remove(lightScreenEffectInfo);
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.teamBattleModifier.teamPossessive + " light screen was broken!"));
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.teamBattleModifier.teamPossessive + " light screen was broken!"));
         }
     }
 }

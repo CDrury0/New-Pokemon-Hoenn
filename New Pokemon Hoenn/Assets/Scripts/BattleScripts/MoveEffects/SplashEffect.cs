@@ -6,6 +6,6 @@ public class SplashEffect : MoveEffect
 {
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage("But nothing happened!"));
+        yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage("But nothing happened!"));
     }
 }

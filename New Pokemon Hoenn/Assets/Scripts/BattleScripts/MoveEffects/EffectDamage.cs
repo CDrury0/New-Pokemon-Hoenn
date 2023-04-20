@@ -16,7 +16,7 @@ public abstract class EffectDamage : MoveEffect, ICheckMoveFail
         }
         yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(target, -damage));
         if(endured){
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " endured the hit!"));
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + " endured the hit!"));
         }
         if(moveData.category == MoveData.Category.Physical){
             target.individualBattleModifier.physicalDamageTakenThisTurn += damage;

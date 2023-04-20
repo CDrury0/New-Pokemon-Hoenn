@@ -13,6 +13,6 @@ public class SpikesEffect : MoveEffect, ICheckMoveEffectFail
     {
         BattleTarget effectiveTarget = CombatSystem.BattleTargets.Find(b => b.teamBattleModifier.isPlayerTeam != user.teamBattleModifier.isPlayerTeam);
         effectiveTarget.teamBattleModifier.spikesCount++;
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(effectiveTarget.teamBattleModifier.teamPossessive + " side was covered in spikes!"));
+        yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(effectiveTarget.teamBattleModifier.teamPossessive + " side was covered in spikes!"));
     }
 }

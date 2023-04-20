@@ -14,12 +14,12 @@ public class ApplyOnFaintEffect : ApplyIndividualEffect, IApplyEffect
         if(effectInfo.inflictor.pokemon.CurrentHealth == 0){
             if(onFaintEffect == OnFaintEffect.DestinyBond){
                 yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(target, -target.pokemon.stats[0]));
-                yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(effectInfo.inflictor.GetName() + " took its attacker down with it!"));
+                yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(effectInfo.inflictor.GetName() + " took its attacker down with it!"));
             }
             else{
                 int whichMove = target.pokemon.moves.IndexOf(target.turnAction);
                 target.pokemon.movePP[whichMove] = 0;
-                yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + "'s " + target.turnAction.GetComponent<MoveData>().moveName + " lost all its PP due to the grudge!"));
+                yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + "'s " + target.turnAction.GetComponent<MoveData>().moveName + " lost all its PP due to the grudge!"));
             }
         }
     }

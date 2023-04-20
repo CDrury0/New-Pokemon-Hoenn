@@ -4,7 +4,14 @@ using UnityEngine;
 public class Trainer : InteractEvent
 {
     public bool isDoubleBattle;
-    public EnemyAI enemyAI;
+    public string trainerTitle;
+    public string trainerName;
+    public string victoryMessage;
+    public int rewardDollars;
+    public EnemyAI trainerAI;
+    public Sprite trainerSprite;
+    public AudioPlayer battleMusic;
+    public AudioPlayer victoryMusic;
     public SerializablePokemon[] trainerPartyTemplate = new SerializablePokemon[6];
 
     void Awake() {

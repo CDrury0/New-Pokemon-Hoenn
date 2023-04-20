@@ -11,7 +11,7 @@ public class MagnitudeDamage : NormalDamage
         //since a new object is created each time the move is used, roll will be 0 here if it is the first time damage is calculated
         if(roll == 0){
             roll = GetMagnitude(Random.Range(0f, 1f));
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(moveData.moveName + " " + roll));
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(moveData.moveName + " " + roll));
         }
         int power = piecewiseDamage.GetPower(roll);
         yield return StartCoroutine(NormalDamageMethod(user, target, moveData, power));

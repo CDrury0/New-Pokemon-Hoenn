@@ -10,6 +10,6 @@ public class PsychUpEffect : MoveEffect
             user.individualBattleModifier.statStages[i] = target.individualBattleModifier.statStages[i];
         }
         user.individualBattleModifier.CalculateStatMultipliers();
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(user.GetName() + " copied " + target.GetName() + "'s stat changes!"));
+        yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(user.GetName() + " copied " + target.GetName() + "'s stat changes!"));
     }
 }

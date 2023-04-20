@@ -8,9 +8,14 @@ public class Interactable : MonoBehaviour
     [SerializeField] private List<InteractEvent> events;
     protected void OnTriggerEnter2D(Collider2D collider) {
         if(collider.CompareTag("InteractPoint")){
-            for (int i = 0; i < events.Count; i++){
-                StartCoroutine(events[i].DoInteractEvent());
-            }  
+            StartCoroutine(DoEvents());
+        }
+    }
+
+    private IEnumerator DoEvents() {
+        //block all input during an event?
+        for (int i = 0; i < events.Count; i++){
+            yield return StartCoroutine(events[i].DoInteractEvent());
         }
     }
 }

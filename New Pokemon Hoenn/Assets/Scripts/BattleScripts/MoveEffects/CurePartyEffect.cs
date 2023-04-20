@@ -13,6 +13,6 @@ public class CurePartyEffect : MoveEffect
                 userParty[i].primaryStatus = PrimaryStatus.None;
             }
         }
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(user.GetName() + "'s party was cured of status conditions!"));
+        yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(user.GetName() + "'s party was cured of status conditions!"));
     }
 }

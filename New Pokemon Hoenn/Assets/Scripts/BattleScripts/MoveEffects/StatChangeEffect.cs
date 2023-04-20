@@ -31,7 +31,7 @@ public class StatChangeEffect : MoveEffect, ICheckMoveEffectFail
             for(int i = 0; i < target.individualBattleModifier.statStages.Length; i++){
                 if(StatChangeOutOfBounds(i, target)){
                     string statChangeString = statChanges[i] > 0 ? " won't go higher!" : " won't go lower!";
-                    yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + "'s " + GetStatName(i) + statChangeString));
+                    yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + "'s " + GetStatName(i) + statChangeString));
                     continue;
                 }
 
@@ -44,7 +44,7 @@ public class StatChangeEffect : MoveEffect, ICheckMoveEffectFail
 
                 if(statChanges[i] != 0){
                     string statChangeString = (Mathf.Abs(statChanges[i]) > 1 ? " sharply" : "") + (statChanges[i] > 0 ? " rose" : " fell");
-                    yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + "'s " + GetStatName(i) + statChangeString));
+                    yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + "'s " + GetStatName(i) + statChangeString));
                 }
             }
         }

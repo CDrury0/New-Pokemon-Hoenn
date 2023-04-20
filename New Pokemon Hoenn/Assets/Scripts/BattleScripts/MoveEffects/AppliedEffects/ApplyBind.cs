@@ -9,13 +9,13 @@ public class ApplyBind : ApplyIndividualEffect, IApplyEffect
         string moveName = gameObject.GetComponent<MoveData>().moveName;
         if(!effectInfo.inflictor.individualBattleModifier.inflictingEffects.Contains(effectInfo) || effectInfo.timer == 0){
             RemoveEffect(target, effectInfo);
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " was freed from " + moveName + "!"));
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + " was freed from " + moveName + "!"));
             yield break;
         }
         effectInfo.timer--;
         int bindDamage = (int)(0.0625f * target.pokemon.stats[0]);
         yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(target, -bindDamage));
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " is hurt by " + moveName + "!"));
+        yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + " is hurt by " + moveName + "!"));
     }
 
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)

@@ -32,7 +32,7 @@ public class HealEffect : MoveEffect, ICheckMoveEffectFail
         }
         int healAmount = (int)(target.pokemon.stats[0] * healPercent);
         yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(target, healAmount));
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(ReplaceBattleMessage(user, target, moveData)));
+        yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(ReplaceBattleMessage(user, target, moveData)));
     }
 
     void Awake(){

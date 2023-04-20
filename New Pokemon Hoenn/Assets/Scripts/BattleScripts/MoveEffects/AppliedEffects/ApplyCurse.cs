@@ -9,7 +9,7 @@ public class ApplyCurse : ApplyIndividualEffect, IApplyEffect
         int curseDamage = (int)(0.25f * user.pokemon.stats[0]);
         yield return StartCoroutine(user.battleHUD.healthBar.SetHealthBar(user.pokemon, -curseDamage));
         user.pokemon.CurrentHealth -= curseDamage;
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(user.GetName() + " is afflicted by its curse!"));
+        yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(user.GetName() + " is afflicted by its curse!"));
     }
 
     public override bool ImmuneToEffect(BattleTarget user, BattleTarget target, MoveData moveData)

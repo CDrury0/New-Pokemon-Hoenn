@@ -6,11 +6,11 @@ public class ApplyPerishSong : ApplyIndividualEffect, IApplyEffect
     {
         if(effectInfo.timer == 0){
             yield return StartCoroutine(CombatLib.Instance.moveFunctions.ChangeTargetHealth(target, -target.pokemon.stats[0]));
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + "'s time is up!"));
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + "'s time is up!"));
             RemoveEffect(target, effectInfo);
             yield break;
         }
-        yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + " will faint in " + effectInfo.timer + " turn(s)!"));
+        yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + " will faint in " + effectInfo.timer + " turn(s)!"));
         effectInfo.timer--;
     }
 

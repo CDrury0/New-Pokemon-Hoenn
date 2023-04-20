@@ -7,7 +7,7 @@ public class ApplyEncore : ApplyIndividualEffect, ICheckMoveSelectable, IApplyEf
     public IEnumerator DoAppliedEffect(BattleTarget target, AppliedEffectInfo effectInfo)
     {
         if(effectInfo.timer == 0){
-            yield return StartCoroutine(CombatLib.Instance.WriteBattleMessage(target.GetName() + "'s encore ended"));
+            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + "'s encore ended"));
             RemoveEffect(target, effectInfo);
             yield break;
         }
