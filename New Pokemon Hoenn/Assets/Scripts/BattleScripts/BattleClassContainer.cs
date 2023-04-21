@@ -32,7 +32,7 @@ public class TeamBattleModifier
         }
         else{
             teamPossessive = ENEMY_POS;
-            teamPrefix = ENEMY_PREFIX;
+            teamPrefix = WILD_PREFIX;
         }
     }
 } 

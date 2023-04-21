@@ -6,6 +6,10 @@ public class Party
         party = new Pokemon[6];
     }
 
+    public Party(Pokemon p) : this() {
+        party[0] = p;
+    }
+
     public Party(SerializablePokemon[] templateToCopy) : this() {
         for(int i = 0; i < templateToCopy.Length; i++){
             if(templateToCopy[i] != null){

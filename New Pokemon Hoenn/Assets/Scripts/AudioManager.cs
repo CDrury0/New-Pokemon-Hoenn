@@ -36,7 +36,7 @@ public class AudioManager : MonoBehaviour
         musicSource.clip = intro.clip;
         musicSource2.clip = loop.clip;
         musicSource.Play();
-        yield return new WaitForSeconds(musicSource.clip.length - 0.1f);
+        yield return new WaitUntil(() => !musicSource.isPlaying);
         musicSource2.Play();
     }
 

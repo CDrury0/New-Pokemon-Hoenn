@@ -24,7 +24,10 @@ public class CombatSystem : MonoBehaviour
     private bool trainerBattle;
     private Party playerParty;
     private Party enemyParty;
+    [SerializeField] private EnemyAI wildAI;
     private EnemyAI enemyAI;
+    [SerializeField] private AudioPlayer wildMusic;
+    private AudioPlayer musicPlayer;
     private Trainer enemyTrainer;
     private BattleTarget player1;
     private BattleTarget player2;
@@ -48,24 +51,29 @@ public class CombatSystem : MonoBehaviour
         }
     }
 
-    //must start the coroutine from this monobehaviour so it doesn't matter if originating gameobject is set to inactive
+    //for trainer battles
     public void StartBattle(Trainer trainer){
         enemyTrainer = trainer;
-        StartCoroutine(RealStartBattle(new Party(trainer.trainerPartyTemplate), true, trainer.isDoubleBattle, trainer.trainerAI));
+        StartCoroutine(RealStartBattle(new Party(trainer.trainerPartyTemplate), true, trainer.isDoubleBattle, trainer.trainerAI, trainer.battleMusic));
     }
 
-    public void StartBattle(Pokemon p, EnemyAI enemyAI){
-        Party wildParty = new Party();
-        wildParty.party[0] = p;
-        StartCoroutine(RealStartBattle(wildParty, false, false, enemyAI));
+    //for special wild encounters
+    public void StartBattle(Pokemon p, EnemyAI enemyAI, AudioPlayer encounterMusic){
+        StartCoroutine(RealStartBattle(new Party(p), false, false, enemyAI, encounterMusic));
+    }
+
+    //for normal wild battles
+    public void StartBattle(Pokemon p){
+        StartCoroutine(RealStartBattle(new Party(p), false, false, wildAI, wildMusic));
     }
 
     //only used by battle test menu
     public void StartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI){
-        StartCoroutine(RealStartBattle(enemyParty, trainerBattle, doubleBattle, enemyAI));
+        StartCoroutine(RealStartBattle(enemyParty, trainerBattle, doubleBattle, enemyAI, wildMusic));
     }
 
-    private IEnumerator RealStartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI){
+    //must start the coroutine from this monobehaviour so it doesn't matter if originating gameobject is set to inactive
+    private IEnumerator RealStartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI, AudioPlayer musicPlayer){
         BattleActive = true;
         TurnCount = 0;
         Weather = ReferenceLib.Instance.activeArea.weather;
@@ -76,6 +84,9 @@ public class CombatSystem : MonoBehaviour
         this.trainerBattle = trainerBattle;
         this.enemyParty = enemyParty;
         this.enemyAI = enemyAI;
+        this.musicPlayer = musicPlayer;
+
+        musicPlayer.PlaySound();
 
         combatScreen.SetBattleSpriteFormat(doubleBattle);
 

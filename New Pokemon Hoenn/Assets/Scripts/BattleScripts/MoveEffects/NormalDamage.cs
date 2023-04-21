@@ -111,6 +111,9 @@ public class NormalDamage : EffectDamage
     //add exception for liquid ooze
     private IEnumerator DoAbsorb(BattleTarget user, BattleTarget target){
         int actualAbsorbHealth = (int)(damageDealt * absorbHealth);
+        if(actualAbsorbHealth < 1){
+            actualAbsorbHealth = 1;
+        }
         yield return StartCoroutine(user.battleHUD.healthBar.SetHealthBar(user.pokemon, actualAbsorbHealth));
         user.pokemon.CurrentHealth += actualAbsorbHealth;
         yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage(target.GetName() + " had its energy drained!"));
@@ -118,6 +121,9 @@ public class NormalDamage : EffectDamage
 
     private IEnumerator DoRecoilDamage(BattleTarget user){
         int actualRecoilDamage = (int)(damageDealt * recoilDamage);
+        if(actualRecoilDamage < 1){
+            actualRecoilDamage = 1;
+        }
         yield return StartCoroutine(user.battleHUD.healthBar.SetHealthBar(user.pokemon, -actualRecoilDamage));
         user.pokemon.CurrentHealth -= actualRecoilDamage;
         yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage(user.GetName() + " is damaged by recoil!"));
