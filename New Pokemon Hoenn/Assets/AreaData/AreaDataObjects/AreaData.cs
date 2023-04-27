@@ -11,4 +11,5 @@ public class AreaData : ScriptableObject
     public GenerationValues generationValues;
     public AudioClip musicIntro;
     public AudioClip musicLoop;
+    public List<int> eventManifest;
 }

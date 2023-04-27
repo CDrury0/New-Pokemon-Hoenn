@@ -73,7 +73,9 @@ public class PlayerInput : InputController
     protected virtual IEnumerator ActivateInteractPoint() {
         allowMovementInput = false;
         interactPoint.position += direction;
+        interactPoint.gameObject.SetActive(true);
         yield return new WaitForFixedUpdate();
+        interactPoint.gameObject.SetActive(false);
         interactPoint.position -= direction;
         allowMovementInput = true;
     }

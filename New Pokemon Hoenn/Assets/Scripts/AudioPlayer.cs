@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioPlayer : InteractEvent
+public class AudioPlayer : EventAction
 {
     [SerializeField] private string label;
     public bool fadeOutMusic;
@@ -11,7 +11,7 @@ public class AudioPlayer : InteractEvent
     public AudioManager.Sound musicIntro;
     public AudioManager.Sound musicLoop;
 
-    protected override IEnumerator InteractEventLogic() {
+    protected override IEnumerator EventActionLogic() {
         PlaySound();
         yield break;
     }

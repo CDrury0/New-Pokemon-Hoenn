@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class GameAreaManager : MonoBehaviour
 {
-    public List<int> completedEvents;
+    public AreaData areaData;
 }
