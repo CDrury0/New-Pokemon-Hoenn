@@ -5,11 +5,13 @@ using UnityEngine;
 public class AudioPlayer : InteractEvent
 {
     [SerializeField] private string label;
+    public bool fadeOutMusic;
+    public bool reduceMusic;
     public AudioManager.Sound soundToPlay;
     public AudioManager.Sound musicIntro;
     public AudioManager.Sound musicLoop;
 
-    public override IEnumerator DoInteractEvent() {
+    protected override IEnumerator InteractEventLogic() {
         PlaySound();
         yield break;
     }
