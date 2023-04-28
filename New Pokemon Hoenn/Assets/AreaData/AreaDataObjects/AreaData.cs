@@ -6,6 +6,8 @@ using UnityEngine;
 public class AreaData : ScriptableObject
 {
     public string areaName;
+    public GameObject areaObjectPrefab;
+    public List<GameObject> adjacentObjectPrefabs;
     public TerrainDataSO terrainData;
     public Weather weather;
     public GenerationValues generationValues;

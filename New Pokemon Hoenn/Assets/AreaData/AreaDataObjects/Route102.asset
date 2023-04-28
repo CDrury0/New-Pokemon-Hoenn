@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: Route102
   m_EditorClassIdentifier: 
   areaName: Route 102
+  areaObjectPrefab: {fileID: 5304810680318749678, guid: 65a90bc06ab78ec4eb10f485f809d4b9, type: 3}
+  adjacentObjectPrefabs:
+  - {fileID: 7949022571760219455, guid: e7abf1a7c0e39b44fa689d96c27430ac, type: 3}
+  - {fileID: 1847503710245702945, guid: c5079fcacca303e469774e1d1d9bca79, type: 3}
   terrainData: {fileID: 0}
   weather: {fileID: 11400000, guid: 222c990df5561c443920f8582a4dc7d7, type: 2}
   generationValues: {fileID: 11400000, guid: ede6ef600045bbc4ea7e051f9df92fda, type: 2}
-  musicIntro: {fileID: 0}
-  musicLoop: {fileID: 0}
+  musicIntro: {fileID: 8300000, guid: f1d20897cca5c6b4da81026545108714, type: 3}
+  musicLoop: {fileID: 8300000, guid: d2e8f4ef838248243a9717a8c42cf458, type: 3}
+  eventManifest: 
