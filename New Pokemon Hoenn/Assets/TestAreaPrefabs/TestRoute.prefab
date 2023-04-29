@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 464933843}
   - component: {fileID: 464933846}
   - component: {fileID: 464933845}
+  - component: {fileID: 3728283563800885595}
   - component: {fileID: 464933844}
   m_Layer: 0
   m_Name: Loader (1)
@@ -112,6 +113,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &3728283563800885595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464933842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89de7da6b36b11d4cb1c519b9192487f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerMethod: 1
+  destroyIfAlreadyDone: 0
+  destroyIfTrue: {fileID: 0}
+  _eventTriggerID: 1
+  eventAction: {fileID: 464933844}
+  eventIfAlreadyDone: {fileID: 0}
 --- !u!114 &464933844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0b4647777027947b510c107e81565c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextEvent: {fileID: 0}
   areaEntered: {fileID: 5304810680318749677}
 --- !u!1 &586269880
 GameObject:
@@ -136,6 +156,7 @@ GameObject:
   - component: {fileID: 586269881}
   - component: {fileID: 586269884}
   - component: {fileID: 586269883}
+  - component: {fileID: 5507404643864063313}
   - component: {fileID: 586269882}
   m_Layer: 0
   m_Name: Loader (2)
@@ -237,6 +258,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &5507404643864063313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586269880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89de7da6b36b11d4cb1c519b9192487f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerMethod: 1
+  destroyIfAlreadyDone: 0
+  destroyIfTrue: {fileID: 0}
+  _eventTriggerID: 2
+  eventAction: {fileID: 586269882}
+  eventIfAlreadyDone: {fileID: 0}
 --- !u!114 &586269882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0b4647777027947b510c107e81565c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextEvent: {fileID: 0}
   areaEntered: {fileID: 5304810680318749677}
 --- !u!1 &5304810679803661328
 GameObject:

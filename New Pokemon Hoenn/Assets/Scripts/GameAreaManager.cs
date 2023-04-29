@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GameAreaManager : MonoBehaviour
 {
@@ -12,7 +13,23 @@ public class GameAreaManager : MonoBehaviour
         }
         Debug.Log("Loading " + areaData.areaName);
         ReferenceLib.Instance.activeArea = areaData;
-        List<GameAreaManager> allLoadedAreas = new List<GameAreaManager>(FindObjectsOfType<GameAreaManager>());
+        List<GameAreaManager> activeGameAreas = new List<GameAreaManager>(FindObjectsOfType<GameAreaManager>());
+        List<GameObject> prefabsOfActiveAreas = new List<GameObject>(FindObjectsOfType<GameAreaManager>().Select(a => a.areaData.areaObjectPrefab));
+        foreach(GameObject go in prefabsOfActiveAreas){
+            if(!areaData.adjacentObjectPrefabs.Contains(go) && go != areaData.areaObjectPrefab){
+                Destroy(activeGameAreas.Find(a => a.areaData.areaObjectPrefab == go).gameObject);
+            }
+        }
+        
+        foreach(GameObject go in areaData.adjacentObjectPrefabs){
+            if(!prefabsOfActiveAreas.Contains(go)){
+                Instantiate(go);
+            }
+        }
+    }
+}
+
+/* List<GameAreaManager> allLoadedAreas = new List<GameAreaManager>(FindObjectsOfType<GameAreaManager>());
         foreach(GameObject go in areaData.adjacentObjectPrefabs){
             if(!allLoadedAreas.Contains(go.GetComponent<GameAreaManager>())){
                 Instantiate(go);
@@ -22,6 +39,4 @@ public class GameAreaManager : MonoBehaviour
             if(!areaData.adjacentObjectPrefabs.Contains(gam.gameObject) && gam != this){
                 Destroy(gam.gameObject);
             }
-        }
-    }
-}
+        } */

@@ -13,13 +13,13 @@ public class EventTrigger : MonoBehaviour
     public int EventTriggerID {
         get { return _eventTriggerID; }
     }
-    [SerializeField] private EventAction EventAction;
+    [SerializeField] private EventAction eventAction;
     [SerializeField] private EventAction eventIfAlreadyDone;
 
     void OnTriggerEnter2D(Collider2D collider) {
         if(DoesTriggerMatch(collider)){
             if(eventIfAlreadyDone == null || !GetComponentInParent<GameAreaManager>().areaData.eventManifest.Contains(_eventTriggerID)){
-                StartCoroutine(EventAction.DoEventAction());
+                StartCoroutine(eventAction.DoEventAction());
                 return;
             }
             StartCoroutine(eventIfAlreadyDone.DoEventAction());
@@ -30,7 +30,7 @@ public class EventTrigger : MonoBehaviour
         if(triggerMethod == TriggerMethod.Interaction && collider.CompareTag("InteractPoint")){
             return true;
         }
-        else if(triggerMethod ==  TriggerMethod.Position && collider.CompareTag("Player")){
+        else if(triggerMethod == TriggerMethod.Position && collider.CompareTag("Player")){
             return true;
         }
         return false;

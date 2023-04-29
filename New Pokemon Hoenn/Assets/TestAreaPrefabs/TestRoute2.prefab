@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 594986097}
   - component: {fileID: 594986100}
   - component: {fileID: 594986099}
+  - component: {fileID: 4441252383799978162}
   - component: {fileID: 594986098}
   m_Layer: 0
   m_Name: Loader (3)
@@ -112,6 +113,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &4441252383799978162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594986096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89de7da6b36b11d4cb1c519b9192487f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerMethod: 1
+  destroyIfAlreadyDone: 0
+  destroyIfTrue: {fileID: 0}
+  _eventTriggerID: 1
+  eventAction: {fileID: 594986098}
+  eventIfAlreadyDone: {fileID: 0}
 --- !u!114 &594986098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0b4647777027947b510c107e81565c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextEvent: {fileID: 0}
   areaEntered: {fileID: 1847503710245702944}
 --- !u!1 &1847503710245702945
 GameObject:

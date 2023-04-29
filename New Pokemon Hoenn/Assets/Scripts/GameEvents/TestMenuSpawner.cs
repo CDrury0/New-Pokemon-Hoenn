@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class TestMenuSpawner : EventAction
 {
-    public GameObject testMenu;
+    public GameObject testMenuPrefab;
+    private GameObject testMenu;
     protected override IEnumerator EventActionLogic() {
+        if(testMenu == null){
+            testMenu = Instantiate(testMenuPrefab);
+        }
         testMenu.SetActive(!testMenu.activeInHierarchy);
         yield break;
     }

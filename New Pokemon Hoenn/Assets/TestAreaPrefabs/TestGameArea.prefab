@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2126274498}
   - component: {fileID: 2126274501}
   - component: {fileID: 2126274500}
+  - component: {fileID: 3811992206373697064}
   - component: {fileID: 2126274499}
   m_Layer: 0
   m_Name: Loader
@@ -112,6 +113,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &3811992206373697064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126274497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89de7da6b36b11d4cb1c519b9192487f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerMethod: 1
+  destroyIfAlreadyDone: 0
+  destroyIfTrue: {fileID: 0}
+  _eventTriggerID: 3
+  eventAction: {fileID: 2126274499}
+  eventIfAlreadyDone: {fileID: 0}
 --- !u!114 &2126274499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0b4647777027947b510c107e81565c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextEvent: {fileID: 0}
   areaEntered: {fileID: 7949022571760219454}
 --- !u!1 &7949022570686416718
 GameObject:
@@ -921,9 +941,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerMethod: 0
   destroyIfAlreadyDone: 0
-  destroyIfTrue: {fileID: 0}
+  destroyIfTrue: {fileID: 7949022571026782358}
   _eventTriggerID: 1
-  EventAction: {fileID: 7949022571026782359}
+  eventAction: {fileID: 7949022571026782359}
   eventIfAlreadyDone: {fileID: 0}
 --- !u!114 &7949022571026782359
 MonoBehaviour:
@@ -969,7 +989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextEvent: {fileID: 0}
-  outputObject: {fileID: 0}
+  outputObject: {fileID: 6395187810024367364, guid: 9c92721c2f421aa43b0c072532c15f70, type: 3}
   messages:
   - Fail
 --- !u!114 &7949022571026782352
@@ -985,7 +1005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextEvent: {fileID: 0}
-  outputObject: {fileID: 0}
+  outputObject: {fileID: 6395187810024367364, guid: 9c92721c2f421aa43b0c072532c15f70, type: 3}
   messages:
   - Pass
 --- !u!1 &7949022571430525793
@@ -15536,6 +15556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaData: {fileID: 11400000, guid: e0bd8f54da4414a4c8abe88d1ff82433, type: 2}
+  areaEventObjects: {fileID: 0}
 --- !u!1 &7949022571879651653
 GameObject:
   m_ObjectHideFlags: 0
@@ -15636,7 +15657,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007940948, y: -0.0019029751}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -15647,7 +15668,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1741389, y: 0.18169864}
+  m_Size: {x: 0.1, y: 0.1}
   m_EdgeRadius: 0
 --- !u!114 &7949022571879651678
 MonoBehaviour:
@@ -15665,7 +15686,7 @@ MonoBehaviour:
   destroyIfAlreadyDone: 0
   destroyIfTrue: {fileID: 0}
   _eventTriggerID: 0
-  EventAction: {fileID: 0}
+  eventAction: {fileID: 7949022571879651679}
   eventIfAlreadyDone: {fileID: 0}
 --- !u!114 &7949022571879651679
 MonoBehaviour:
@@ -15680,7 +15701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextEvent: {fileID: 0}
-  testMenu: {fileID: 0}
+  testMenuPrefab: {fileID: 2497166615336264563, guid: 9c54dc031ce34b0429eccaee33f37ff6, type: 3}
 --- !u!1 &7949022571924217126
 GameObject:
   m_ObjectHideFlags: 0
