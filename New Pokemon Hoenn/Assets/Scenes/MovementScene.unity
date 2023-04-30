@@ -122993,35 +122993,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98d60644b4781df40a4023d479c13697, type: 3}
---- !u!1001 &1847503711847395909
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1847503710245702945, guid: c5079fcacca303e469774e1d1d9bca79, type: 3}
-      propertyPath: m_Name
-      value: TestRoute2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1847503710245702947, guid: c5079fcacca303e469774e1d1d9bca79, type: 3}
-      propertyPath: m_RootOrder
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1847503710245702947, guid: c5079fcacca303e469774e1d1d9bca79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1847503710245702947, guid: c5079fcacca303e469774e1d1d9bca79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1847503710245702947, guid: c5079fcacca303e469774e1d1d9bca79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c5079fcacca303e469774e1d1d9bca79, type: 3}
 --- !u!1001 &2456657366412707832
 PrefabInstance:
   m_ObjectHideFlags: 0
