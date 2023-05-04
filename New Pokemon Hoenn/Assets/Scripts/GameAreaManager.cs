@@ -6,6 +6,7 @@ using System.Linq;
 public class GameAreaManager : MonoBehaviour
 {
     public AreaData areaData;
+    [Tooltip("This should self-reference the child object in its hierarchy")]
     public GameObject eventObjectContainer;
 
     public IEnumerator LoadArea() {

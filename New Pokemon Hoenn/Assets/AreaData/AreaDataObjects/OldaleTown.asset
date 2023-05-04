@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc5e90590df6f0841b0e6ca2f9408235, type: 3}
-  m_Name: Route69
+  m_Name: OldaleTown
   m_EditorClassIdentifier: 
-  areaName: Route 69
-  areaObjectPrefab: {fileID: 1847503710245702945, guid: c5079fcacca303e469774e1d1d9bca79, type: 3}
+  areaName: Oldale Town
+  areaObjectPrefab: {fileID: 4060085899828782912, guid: 801bd0a5b1f18f148b9f35942cf8e95c, type: 3}
   adjacentObjectPrefabs:
-  - {fileID: 5304810680318749678, guid: 65a90bc06ab78ec4eb10f485f809d4b9, type: 3}
+  - {fileID: 8638905525964203478, guid: fde5ae68257a72c45b8d4e6e714762a8, type: 3}
+  eventObjectPrefab: {fileID: 0}
   terrainData: {fileID: 0}
   weather: {fileID: 11400000, guid: 222c990df5561c443920f8582a4dc7d7, type: 2}
-  generationValues: {fileID: 11400000, guid: 83c119af14a9e4c41ab559113fb9bc34, type: 2}
+  generationValues: {fileID: 0}
   musicIntro: {fileID: 8300000, guid: 553270bd8e5cac54bac5f5f210fb2670, type: 3}
   musicLoop: {fileID: 8300000, guid: 259a9dd29c4d13b4ebf118eed6f7f2a3, type: 3}
   eventManifest: 

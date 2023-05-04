@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Littleroot
   m_EditorClassIdentifier: 
   areaName: Littleroot Town
-  areaObjectPrefab: {fileID: 7949022571760219455, guid: e7abf1a7c0e39b44fa689d96c27430ac, type: 3}
+  areaObjectPrefab: {fileID: 5933589388143245903, guid: 9585e37a25944084c98b0e26289de345, type: 3}
   adjacentObjectPrefabs:
-  - {fileID: 5304810680318749678, guid: 65a90bc06ab78ec4eb10f485f809d4b9, type: 3}
+  - {fileID: 8638905525964203478, guid: fde5ae68257a72c45b8d4e6e714762a8, type: 3}
+  - {fileID: 5933589388143245903, guid: 9585e37a25944084c98b0e26289de345, type: 3}
   eventObjectPrefab: {fileID: 4625481712394623269, guid: 4f975df7aa0d2074fbbfbed61356f18b, type: 3}
   terrainData: {fileID: 0}
   weather: {fileID: 11400000, guid: 222c990df5561c443920f8582a4dc7d7, type: 2}
-  generationValues: {fileID: 11400000, guid: 83c119af14a9e4c41ab559113fb9bc34, type: 2}
+  generationValues: {fileID: 0}
   musicIntro: {fileID: 8300000, guid: e5c815a7b1b3f1442b1fcd2aff8ec136, type: 3}
   musicLoop: {fileID: 8300000, guid: 41a971c741d829742b9744af38a07d6f, type: 3}
-  eventManifest: 01000000
+  eventManifest: 

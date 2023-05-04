@@ -39,16 +39,19 @@ public class Pokemon
     public string metArea;
     public int[] stats = new int[6];
     private int _currentHealth;
-    public int CurrentHealth {get{return _currentHealth;}set{
-        if(value < 0){
-            _currentHealth = 0;
-        }
-        else if(value > stats[0]){
-            _currentHealth = stats[0];
-        }
-        else{
-            _currentHealth = value;
-        }}}
+    public int CurrentHealth {
+        get{return _currentHealth;}
+        set{
+            if(value < 0){
+                _currentHealth = 0;
+            }
+            else if(value > stats[0]){
+                _currentHealth = stats[0];
+            }
+            else{
+                _currentHealth = value;
+            }
+        }}
     public int numberID;
     public int sleepCounter = 0;
     public bool toxic;
