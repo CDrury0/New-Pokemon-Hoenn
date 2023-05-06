@@ -18,7 +18,7 @@ public class StartupFunctions : MonoBehaviour
         {
             GlobalGameEvents.globalDexProgress[i] = DexStatus.Caught;
         }
-        AudioManager.Instance.PlayMusic(defaultIntro, defaultLoop);
+        AudioManager.Instance.PlayMusic(defaultIntro, defaultLoop, false);
         //LoadSave();
     }
 

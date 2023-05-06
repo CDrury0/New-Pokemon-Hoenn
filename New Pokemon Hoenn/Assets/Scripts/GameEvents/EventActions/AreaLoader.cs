@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// This is necessary because the GameAreaManager will likely not be instantiated, meaning a coroutine cannot be started from it
+/// This is necessary because the GameAreaManager will sometimes not be instantiated, meaning a coroutine cannot be reliably started from it
 /// </summary>
 public class AreaLoader : EventAction
 {
-    [SerializeField] private GameAreaManager areaEntered;
+    private GameAreaManager areaEntered;
 
     protected override IEnumerator EventActionLogic() {
+        if(areaEntered.areaData == ReferenceLib.Instance.activeArea){
+            exit = true;
+            yield break;
+        }
+        exit = false;
         StartCoroutine(areaEntered.LoadArea());
-        yield break;
+    }
+
+    void Start() {
+        areaEntered = GetComponentInParent<GameAreaManager>();
     }
 }

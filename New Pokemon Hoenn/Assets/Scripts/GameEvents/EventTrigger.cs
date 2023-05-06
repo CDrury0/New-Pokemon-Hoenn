@@ -44,5 +44,6 @@ public class EventTrigger : MonoBehaviour
 
     void Reset() {
         _eventTriggerID = GetComponentInParent<GameAreaManager>().GetComponentsInChildren<EventTrigger>().Length;
+        eventAction = GetComponent<EventAction>();
     }
 }
