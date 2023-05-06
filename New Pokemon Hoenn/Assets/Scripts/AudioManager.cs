@@ -52,20 +52,19 @@ public class AudioManager : MonoBehaviour
     }
 
     private void PlayMusic(Sound intro, Sound loop){
-        if(musicSource.isPlaying){
-            if(currentMusicCycle != null){
-                StopCoroutine(currentMusicCycle);
-                //Get rid of unused AudioSource components 
-                //(extras are created if the music is changed before the loop source can be assigned)
-                AudioSource[] audioSources = GetComponents<AudioSource>();
-                foreach (AudioSource a in audioSources){
-                    if(a != musicSource && a != soundEffectSource){
-                        Destroy(a);
-                    }
+        if(currentMusicCycle != null){
+            StopCoroutine(currentMusicCycle);
+            //Get rid of unused AudioSource components 
+            //(extras are created if the music is changed before the loop source can be assigned)
+            AudioSource[] audioSources = GetComponents<AudioSource>();
+            foreach (AudioSource a in audioSources){
+                if(a != musicSource && a != soundEffectSource){
+                    Destroy(a);
                 }
             }
-            musicSource.Stop();
         }
+        musicSource.Stop();
+
         //replace this and other volume sets to take from PlayerPrefs
         musicSource.volume = 1f;
         currentMusicCycle = DoMusicCycle(intro, loop);
