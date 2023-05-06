@@ -16,6 +16,7 @@ public abstract class EventAction : MonoBehaviour
         yield return StartCoroutine(EventActionLogic());
         if(!exit && nextEvent != null){
             StartCoroutine(nextEvent.DoEventAction());
+            yield break;
         }
     }
 }

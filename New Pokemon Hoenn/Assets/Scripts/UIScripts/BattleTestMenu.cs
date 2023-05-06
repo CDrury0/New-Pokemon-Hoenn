@@ -26,7 +26,9 @@ public class BattleTestMenu : MonoBehaviour
         ClearSelectedMoves();
         PopulateMoveList();
         PopulatePokemonList();
-        PlayerParty.Instance.playerParty = new Party();
+        if(PlayerParty.Instance.playerParty == null){
+            PlayerParty.Instance.playerParty = new Party();
+        }
         enemyParty = new Party();
         if(levelValue == 0){
             levelValue = 50;

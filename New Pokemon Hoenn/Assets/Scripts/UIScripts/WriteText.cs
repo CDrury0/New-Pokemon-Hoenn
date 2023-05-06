@@ -59,7 +59,7 @@ public class WriteText : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    public IEnumerator WriteMessageConfirm(string message)
+    public IEnumerator WriteMessageConfirm(string message, float forcedWait = 0f)
     {
         if(string.IsNullOrEmpty(message)){
             yield break;
@@ -80,6 +80,7 @@ public class WriteText : MonoBehaviour
                 break;
             }
         }
+        yield return new WaitForSeconds(forcedWait);
         yield return new WaitUntil(() => { return skip; });
         skip = false;
     }

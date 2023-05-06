@@ -17,6 +17,7 @@ public class CombatSystem : MonoBehaviour
     public CombatScreen combatScreen;
     public MoveFunctions moveFunctions;
     public HandleExperience handleExperience;
+    public ChangeInputPermission disableInputOnBattleStart;
     public PartyMenu partyMenu;
     public GameObject struggle;
     public GameObject switchAction;
@@ -58,7 +59,7 @@ public class CombatSystem : MonoBehaviour
     }
 
     //for special wild encounters
-    public void StartBattle(Pokemon p, EnemyAI enemyAI, AudioPlayer encounterMusic){
+    public void StartBattle(Pokemon p, EnemyAI enemyAI, AudioPlayer encounterMusic) {
         StartCoroutine(RealStartBattle(new Party(p), false, false, enemyAI, encounterMusic));
     }
 
@@ -86,6 +87,7 @@ public class CombatSystem : MonoBehaviour
         this.enemyAI = enemyAI;
         this.musicPlayer = musicPlayer;
 
+        StartCoroutine(disableInputOnBattleStart.DoEventAction());
         musicPlayer.PlaySound();
 
         combatScreen.SetBattleSpriteFormat(doubleBattle);

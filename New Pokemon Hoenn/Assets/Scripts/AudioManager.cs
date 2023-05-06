@@ -77,7 +77,7 @@ public class AudioManager : MonoBehaviour
     }
 
     private IEnumerator DoMusicCycle(Sound intro, Sound loop){
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         musicSource.clip = intro.clip;
         musicSource.loop = false;
         AudioSource newSource = gameObject.AddComponent<AudioSource>();
