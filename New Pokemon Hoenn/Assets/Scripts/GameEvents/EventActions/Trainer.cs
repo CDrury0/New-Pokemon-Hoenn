@@ -16,6 +16,10 @@ public class Trainer : EventAction
 
     void Awake() {
         for (int i = 0; i < trainerPartyTemplate.Length; i++){
+            if(trainerPartyTemplate[i].pokemonDefault == null){
+                trainerPartyTemplate[i] = null;
+                continue;
+            }
             for (int j = 0; j < trainerPartyTemplate[i].moves.Count; j++){
                 if(trainerPartyTemplate[i].moveMaxPP[j] == 0){
                     GameObject move = trainerPartyTemplate[i].moves[j];
@@ -28,7 +32,7 @@ public class Trainer : EventAction
     }
 
     protected override IEnumerator EventActionLogic() {
-        CombatLib.Instance.combatSystem.StartBattle(this);
-        yield break;
+        yield return StartCoroutine(CombatLib.Instance.combatSystem.StartBattle(this));
+        exit = !CombatSystem.PlayerVictory;
     } 
 }

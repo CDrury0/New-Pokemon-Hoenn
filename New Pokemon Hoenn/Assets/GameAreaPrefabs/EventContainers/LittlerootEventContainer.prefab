@@ -88,12 +88,38 @@ PrefabInstance:
       propertyPath: _eventTriggerID
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: nextEvent
+      value: 
+      objectReference: {fileID: 3528008327518760645}
     - target: {fileID: 8671835066302808280, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: m_Name
       value: TestTrainer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+--- !u!1 &2151936893262064317 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8671835066302808280, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+  m_PrefabInstance: {fileID: 7315459052483390053}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3528008327518760645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151936893262064317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f313c0a2db61504fb2c0cef1dfefc73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextEvent: {fileID: 0}
+  outputObject: {fileID: 6395187810024367364, guid: 9c92721c2f421aa43b0c072532c15f70, type: 3}
+  confirmationDelaySeconds: 0
+  messages:
+  - man, i'm weak
 --- !u!4 &6258128224505918935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3701093892732837810, guid: d40f95e1789df2d47884391f09ec1904, type: 3}

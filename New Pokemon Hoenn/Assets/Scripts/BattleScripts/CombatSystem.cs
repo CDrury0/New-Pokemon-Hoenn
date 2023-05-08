@@ -9,6 +9,7 @@ public enum TargetType {Self, Single, Foes, Ally, RandomFoe, All}
 public class CombatSystem : MonoBehaviour
 {
     public static bool BattleActive {get; private set;}
+    public static bool PlayerVictory { get; private set; }
     public static Weather Weather {get; set;}
     public static int weatherTimer;
     public static int TurnCount {get; private set;}
@@ -17,7 +18,6 @@ public class CombatSystem : MonoBehaviour
     public CombatScreen combatScreen;
     public MoveFunctions moveFunctions;
     public HandleExperience handleExperience;
-    public ChangeInputPermission disableInputOnBattleStart;
     public PartyMenu partyMenu;
     public GameObject struggle;
     public GameObject switchAction;
@@ -53,28 +53,36 @@ public class CombatSystem : MonoBehaviour
     }
 
     //for trainer battles
-    public void StartBattle(Trainer trainer){
+    public IEnumerator StartBattle(Trainer trainer){
         enemyTrainer = trainer;
-        StartCoroutine(RealStartBattle(new Party(trainer.trainerPartyTemplate), true, trainer.isDoubleBattle, trainer.trainerAI, trainer.battleMusic));
+        RealStartBattle(new Party(trainer.trainerPartyTemplate), true, trainer.isDoubleBattle, trainer.trainerAI, trainer.battleMusic);
+        yield return new WaitUntil(() => CombatSystem.BattleActive);
+        yield return new WaitUntil(() => !CombatSystem.BattleActive);
     }
 
     //for special wild encounters
-    public void StartBattle(Pokemon p, EnemyAI enemyAI, AudioPlayer encounterMusic) {
-        StartCoroutine(RealStartBattle(new Party(p), false, false, enemyAI, encounterMusic));
+    public IEnumerator StartBattle(Pokemon p, EnemyAI enemyAI, AudioPlayer encounterMusic) {
+        RealStartBattle(new Party(p), false, false, enemyAI, encounterMusic);
+        yield return new WaitUntil(() => CombatSystem.BattleActive);
+        yield return new WaitUntil(() => !CombatSystem.BattleActive);
     }
 
     //for normal wild battles
-    public void StartBattle(Pokemon p){
-        StartCoroutine(RealStartBattle(new Party(p), false, false, wildAI, wildMusic));
+    public IEnumerator StartBattle(Pokemon p){
+        RealStartBattle(new Party(p), false, false, wildAI, wildMusic);
+        yield return new WaitUntil(() => CombatSystem.BattleActive);
+        yield return new WaitUntil(() => !CombatSystem.BattleActive);
+        //by waiting until the battle is active BEFORE waiting until battle is inactive, 
+        //race conditions caused by asynchronous execution of coroutines is prevented
     }
 
     //only used by battle test menu
     public void StartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI){
-        StartCoroutine(RealStartBattle(enemyParty, trainerBattle, doubleBattle, enemyAI, wildMusic));
+        RealStartBattle(enemyParty, trainerBattle, doubleBattle, enemyAI, wildMusic);
     }
 
     //must start the coroutine from this monobehaviour so it doesn't matter if originating gameobject is set to inactive
-    private IEnumerator RealStartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI, AudioPlayer musicPlayer){
+    private void RealStartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI, AudioPlayer musicPlayer){
         BattleActive = true;
         TurnCount = 0;
         Weather = ReferenceLib.Instance.activeArea.weather;
@@ -87,7 +95,6 @@ public class CombatSystem : MonoBehaviour
         this.enemyAI = enemyAI;
         this.musicPlayer = musicPlayer;
 
-        StartCoroutine(disableInputOnBattleStart.DoEventAction());
         musicPlayer.PlaySound();
 
         combatScreen.SetBattleSpriteFormat(doubleBattle);
@@ -121,7 +128,6 @@ public class CombatSystem : MonoBehaviour
         //check tag-in effects like intimidate, trace, etc.
 
         StartCoroutine(GetTurnActions());
-        yield break;
     }
 
     public static bool ActiveTargetCanSwitchOut(){
@@ -528,20 +534,22 @@ public class CombatSystem : MonoBehaviour
     private IEnumerator EndBattle(){
         if(playerParty.IsEntireTeamFainted()){
             yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("You lose, moron"));
+            PlayerVictory = false;
+
         }
         else if(enemyParty.IsEntireTeamFainted()){
             yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("You win, tryhard"));
+            PlayerVictory = true;
         }
         else{
             Debug.Log("something went wrong");
         }
         CleanUpAfterBattle();
         combatScreen.gameObject.SetActive(false);
+        BattleActive = false;
     }
 
     private void CleanUpAfterBattle(){
-        BattleActive = false;
-
         foreach(Pokemon p in playerParty.party){
             if(p != null){
                 p.inBattle = false;

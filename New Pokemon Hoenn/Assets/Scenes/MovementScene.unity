@@ -10003,6 +10003,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3838743011661149474, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+      propertyPath: battleMusic
+      value: 
+      objectReference: {fileID: 598696013}
     - target: {fileID: 5933589388143245901, guid: 9585e37a25944084c98b0e26289de345, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -35620,7 +35624,6 @@ GameObject:
   - component: {fileID: 598696010}
   - component: {fileID: 598696012}
   - component: {fileID: 598696013}
-  - component: {fileID: 598696014}
   m_Layer: 0
   m_Name: CombatSystem
   m_TagString: Untagged
@@ -35643,7 +35646,6 @@ MonoBehaviour:
   combatScreen: {fileID: 1752241222}
   moveFunctions: {fileID: 598696007}
   handleExperience: {fileID: 598696011}
-  disableInputOnBattleStart: {fileID: 598696014}
   partyMenu: {fileID: 653305090}
   struggle: {fileID: 1682630347, guid: 47f9690a6d706754cb0ad7e3b9a00ba8, type: 3}
   switchAction: {fileID: 7089235823656307835, guid: 7ed4414611918e247b8bde064120ac22, type: 3}
@@ -35799,21 +35801,6 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 232cd1e7f3c5c754e97c872879b5cab8, type: 3}
   musicLoop:
     clip: {fileID: 8300000, guid: 3556c7c66ca7d1b4a957d43e394956f3, type: 3}
---- !u!114 &598696014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598696003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f80328b028838f4e81a5e78edff2df4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextEvent: {fileID: 0}
-  allowMenuToggle: 1
-  allowMovementInput: 1
 --- !u!114 &599359690 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1107009910691160943, guid: 392d4d11d7550af4d8ce2a57c46b31cf, type: 3}

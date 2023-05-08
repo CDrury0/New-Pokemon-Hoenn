@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class Party
 {
     public Pokemon[] party;

@@ -6,9 +6,9 @@ public class SpawnTile : EventAction
 {
     protected override IEnumerator EventActionLogic(){
         if(Random.Range(0, 9) == 0){
-            CombatLib.Instance.combatSystem.StartBattle(new Pokemon(ReferenceLib.Instance.activeArea.generationValues.grassSpawnInfo));
+            Pokemon generatedMon = new Pokemon(ReferenceLib.Instance.activeArea.generationValues.grassSpawnInfo);
+            yield return StartCoroutine(CombatLib.Instance.combatSystem.StartBattle(generatedMon));
+            exit = !CombatSystem.PlayerVictory;
         }
-        yield return new WaitForSeconds(1f);
-        yield return new WaitUntil(() => CombatSystem.BattleActive);
     }
 }

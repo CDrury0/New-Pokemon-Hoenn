@@ -9,13 +9,13 @@ public class InputController : MonoBehaviour
     [SerializeField] protected float moveSpeed = PLAYER_WALK_SPEED;
     [SerializeField] protected Transform followPoint;
     /// <summary>
-    /// blocks movement of all moveable entities
+    /// when false, blocks all moveable objects from moving independently (but they can still be moved via events)
     /// </summary>
-    [SerializeField] public static bool allowMovementInput = true;
+    public static bool allowMovementInput = true;
     /// <summary>
-    /// blocks all input from the player, but not necessarily movement of entities (useful for scripted movement events)
+    /// when false, blocks the player from toggling the menu
     /// </summary>
-    [HideInInspector] public static bool allowMenuToggle = true;
+    public static bool allowMenuToggle = true;
 
     void FixedUpdate() {
         transform.position = Vector3.MoveTowards(transform.position, followPoint.position, moveSpeed * Time.deltaTime);
