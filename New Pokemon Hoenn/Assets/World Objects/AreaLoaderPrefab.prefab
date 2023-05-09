@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89de7da6b36b11d4cb1c519b9192487f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allowInput: 1
   triggerMethod: 1
   destroyIfAlreadyDone: 0
   destroyIfTrue: {fileID: 0}
@@ -126,10 +127,7 @@ MonoBehaviour:
   reduceMusic: 0
   soundToPlay:
     clip: {fileID: 0}
-    volume: 1
   musicIntro:
     clip: {fileID: 0}
-    volume: 1
   musicLoop:
     clip: {fileID: 0}
-    volume: 1

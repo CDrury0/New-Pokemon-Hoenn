@@ -2,14 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInput : InputController
+public class PlayerInput : MonoBehaviour
 {
+    private const float WALKING_SPEED = 3.5f;
+    private const float SPRINT_SPEED = 7.5f;
+    /// <summary>
+    /// This may be set independently to account for menu toggling
+    /// </summary>
+    public static bool allowMovementInput = true;
+    /// <summary>
+    /// Setting this false automatically sets allowMovementInput to false
+    /// </summary>
+    private static bool _allowMenuToggle = true;
+    public static bool AllowMenuToggle {
+        get { return _allowMenuToggle; }
+        set {if(value == false){
+                allowMovementInput = false;
+            }
+            _allowMenuToggle = value;
+        }
+    }
+    public Transform followPoint;
     public Transform interactPoint;
     public MenuAnimation menuAnimation;
     public LayerMask stopsMovement;
     public Animator playerAnimator;
-    [SerializeField] private float walkingSpeed = 3.5f;
-    [SerializeField] private float sprintSpeed = 7.5f;
+    private float moveSpeed;
     [SerializeField] private float movementInputDelaySeconds;
     private Vector3 direction;
 
@@ -17,9 +35,9 @@ public class PlayerInput : InputController
         GetPlayerInput();
     }
 
-    protected void GetPlayerInput() {
+    private void GetPlayerInput() {
         if(Vector3.Distance(transform.position, followPoint.position) == 0){
-            if(allowMenuToggle){
+            if(AllowMenuToggle){
                 if(!GetMenuInput() && allowMovementInput){
                     if(!GetInteractInput()){
                         GetMovementInput(Input.GetKey(KeyCode.LeftShift));
@@ -46,7 +64,7 @@ public class PlayerInput : InputController
         return false;
     }
 
-    protected virtual void GetMovementInput(bool sprinting) {
+    private void GetMovementInput(bool sprinting) {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         if(horizontal == 0 && vertical == 0){
@@ -56,7 +74,7 @@ public class PlayerInput : InputController
         Vector3 newDirection = horizontal != 0 ? new Vector3(horizontal, 0, 0) : newDirection = new Vector3(0, vertical, 0);
 
         if(direction == newDirection){
-            moveSpeed = sprinting ? sprintSpeed : walkingSpeed;
+            moveSpeed = sprinting ? SPRINT_SPEED : WALKING_SPEED;
             if(!Physics2D.OverlapCircle(followPoint.position + direction, 0.3f, stopsMovement)){
                 followPoint.position += direction;
             }
@@ -70,14 +88,18 @@ public class PlayerInput : InputController
         }
     }
 
-    protected virtual IEnumerator ActivateInteractPoint() {
-        interactPoint.gameObject.SetActive(true);
+    private void FixedUpdate() {
+        transform.position = Vector3.MoveTowards(transform.position, followPoint.position, moveSpeed * Time.deltaTime);
+    }
+
+    private IEnumerator ActivateInteractPoint() {
         allowMovementInput = false;
         interactPoint.position += direction;
+        interactPoint.gameObject.SetActive(true);
         yield return new WaitForFixedUpdate();
+        interactPoint.gameObject.SetActive(false);
         interactPoint.position -= direction;
         allowMovementInput = true;
-        interactPoint.gameObject.SetActive(false);
     }
 
     private IEnumerator DelayMovementInput() {

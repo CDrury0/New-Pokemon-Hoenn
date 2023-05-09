@@ -14,9 +14,12 @@ public abstract class EventAction : MonoBehaviour
     protected abstract IEnumerator EventActionLogic();
     public IEnumerator DoEventAction() {
         yield return StartCoroutine(EventActionLogic());
-        if(!exit && nextEvent != null){
+        if(exit){
+            PlayerInput.allowMovementInput = true;
+            PlayerInput.AllowMenuToggle = true;
+        }
+        else if(nextEvent != null){
             StartCoroutine(nextEvent.DoEventAction());
-            yield break;
         }
     }
 }

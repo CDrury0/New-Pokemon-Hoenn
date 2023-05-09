@@ -6,6 +6,7 @@ using UnityEngine;
 public class EventTrigger : MonoBehaviour
 {
     private enum TriggerMethod {Interaction, Position}
+    [SerializeField] private bool allowInput;
     [SerializeField] private TriggerMethod triggerMethod;
     [SerializeField] private bool destroyIfAlreadyDone;
     [SerializeField] private EventCondition destroyIfTrue;
@@ -18,6 +19,7 @@ public class EventTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider) {
         if(DoesTriggerMatch(collider)){
+            PlayerInput.AllowMenuToggle = allowInput;
             if(eventIfAlreadyDone == null || !GetComponentInParent<GameAreaManager>().areaData.eventManifest.Contains(_eventTriggerID)){
                 StartCoroutine(eventAction.DoEventAction());
                 return;

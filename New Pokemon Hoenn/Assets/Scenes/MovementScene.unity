@@ -69511,7 +69511,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a0cddbb3f18f447a7c8481dde541db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
   followPoint: {fileID: 1811542984}
   interactPoint: {fileID: 266409905}
   menuAnimation: {fileID: 1187341917}
@@ -69519,8 +69518,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   playerAnimator: {fileID: 0}
-  walkingSpeed: 3.5
-  sprintSpeed: 7.5
   movementInputDelaySeconds: 0.15
 --- !u!50 &1204299919
 Rigidbody2D:
