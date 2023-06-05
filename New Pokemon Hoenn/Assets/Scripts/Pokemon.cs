@@ -285,6 +285,7 @@ public class Pokemon
         hiddenPowerType = (Pokemon.Type)Random.Range(1, 18);
         friendship = pokemonDefault.friendship;
         experience = pokemonDefault.CalculateExperienceAtLevel(level);
+        Debug.Log(experience);
         height = MakeHeight(pokemonDefault);
         weight = MakeWeight(pokemonDefault);
         pokemonName = pokemonDefault.pokemonName;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GrowthRate { Slow, Medium, Fast }
+public enum GrowthRate { Slow, MediumSlow, MediumFast, Fast }
 
 [SerializeField][CreateAssetMenu]
 public class PokemonDefault : ScriptableObject
@@ -51,7 +51,10 @@ public class PokemonDefault : ScriptableObject
         {
             case GrowthRate.Fast:
                 return (int)(Mathf.Pow(level, 3) * 4 / 5);
-            case GrowthRate.Medium:
+            case GrowthRate.MediumSlow:
+                //level 1 mons have negative xp with this formula, so eggs should hatch at >= level 2 (this is an issue in the original game as well)
+                return (int)((((float)6 / 5) * Mathf.Pow(level, 3)) - (15 * Mathf.Pow(level, 2)) + (100 * level) - 140);
+            case GrowthRate.MediumFast:
                 return (int)Mathf.Pow(level, 3);
             case GrowthRate.Slow:
                 return (int)(Mathf.Pow(level, 3) * 5 / 4);

@@ -23,7 +23,7 @@ MonoBehaviour:
   type2: 0
   friendship: 70
   baseExperience: 175
-  growthRate: 2
+  growthRate: 3
   catchRate: 60
   genderRatio: 0.5
   eggGroup1: 1
@@ -49,7 +49,7 @@ MonoBehaviour:
   boxSprite: {fileID: 21300000, guid: f390fa49e6128ce41af8add3a1b0d9b1, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 85a0812918a350543a3c381bafb00cf1, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000000000000000000020000000000000000000000
   learnedMoves:
   - {fileID: 0}

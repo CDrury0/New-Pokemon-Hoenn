@@ -33596,10 +33596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edc71d50e11b6544b6f258aa9aa2046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultIntro:
-    clip: {fileID: 8300000, guid: e5c815a7b1b3f1442b1fcd2aff8ec136, type: 3}
-  defaultLoop:
-    clip: {fileID: 8300000, guid: 41a971c741d829742b9744af38a07d6f, type: 3}
+  defaultIntro: {fileID: 8300000, guid: e5c815a7b1b3f1442b1fcd2aff8ec136, type: 3}
+  defaultLoop: {fileID: 8300000, guid: 41a971c741d829742b9744af38a07d6f, type: 3}
   intToSave: 240
 --- !u!4 &562892384
 Transform:
@@ -35795,12 +35793,9 @@ MonoBehaviour:
   getClipsFromArea: 0
   fadeOutMusic: 0
   reduceMusic: 0
-  soundToPlay:
-    clip: {fileID: 0}
-  musicIntro:
-    clip: {fileID: 8300000, guid: 232cd1e7f3c5c754e97c872879b5cab8, type: 3}
-  musicLoop:
-    clip: {fileID: 8300000, guid: 3556c7c66ca7d1b4a957d43e394956f3, type: 3}
+  soundToPlay: {fileID: 0}
+  musicIntro: {fileID: 0}
+  musicLoop: {fileID: 0}
 --- !u!114 &599359690 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1107009910691160943, guid: 392d4d11d7550af4d8ce2a57c46b31cf, type: 3}
@@ -69163,7 +69158,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 0
 --- !u!95 &1187341916
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -69180,7 +69175,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1187341917
 MonoBehaviour:
   m_ObjectHideFlags: 0

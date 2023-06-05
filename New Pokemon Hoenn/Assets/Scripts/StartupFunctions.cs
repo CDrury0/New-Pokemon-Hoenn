@@ -7,8 +7,8 @@ using System.Security.Cryptography;
 
 public class StartupFunctions : MonoBehaviour
 {
-    public AudioManager.Sound defaultIntro;
-    public AudioManager.Sound defaultLoop;
+    public AudioClip defaultIntro;
+    public AudioClip defaultLoop;
     public int intToSave;
     private void Start()
     { 

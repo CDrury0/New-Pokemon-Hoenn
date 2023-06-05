@@ -9,12 +9,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource soundEffectSource;
     private IEnumerator currentMusicCycle;
 
-    [System.Serializable]
-    public class Sound{
-        public AudioClip clip;
-    }
-
-    public void PlaySoundEffect(Sound sound, bool reduceMusic){
+    public void PlaySoundEffect(AudioClip sound, bool reduceMusic){
         if(reduceMusic){
             StartCoroutine(DoSoundEffectWithFade(sound));
             return;
@@ -22,12 +17,12 @@ public class AudioManager : MonoBehaviour
         PlaySoundEffect(sound);
     }
 
-    private IEnumerator DoSoundEffectWithFade(Sound sound){
-        float startingVolume = musicSource.volume;
-        yield return StartCoroutine(FadeSound(startingVolume, startingVolume * 0.2f, 0.5f));
+    private IEnumerator DoSoundEffectWithFade(AudioClip sound){
+        float musicStartingVolume = PlayerPrefs.GetFloat("musicVolume");
+        yield return StartCoroutine(FadeSound(musicStartingVolume, musicStartingVolume * 0.2f, 0.5f));
         PlaySoundEffect(sound);
-        yield return new WaitForSeconds(sound.clip.length);
-        yield return StartCoroutine(FadeSound(musicSource.volume, startingVolume, 0.5f));
+        yield return new WaitForSeconds(sound.length);
+        yield return StartCoroutine(FadeSound(musicSource.volume, musicStartingVolume, 0.5f));
     }
 
     private IEnumerator FadeSound(float start, float end, float timeSeconds){
@@ -39,11 +34,12 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void PlaySoundEffect(Sound sound){
-        soundEffectSource.PlayOneShot(sound.clip);
+    private void PlaySoundEffect(AudioClip sound){
+        soundEffectSource.volume = PlayerPrefs.GetFloat("effectVolume");
+        soundEffectSource.PlayOneShot(sound);
     }
 
-    public void PlayMusic(Sound intro, Sound loop, bool fadeOutMusic){
+    public void PlayMusic(AudioClip intro, AudioClip loop, bool fadeOutMusic){
         if(fadeOutMusic){
             StartCoroutine(FadeMusic(intro, loop));
             return;
@@ -51,7 +47,7 @@ public class AudioManager : MonoBehaviour
         PlayMusic(intro, loop);
     }
 
-    private void PlayMusic(Sound intro, Sound loop){
+    private void PlayMusic(AudioClip intro, AudioClip loop){
         if(currentMusicCycle != null){
             StopCoroutine(currentMusicCycle);
             //Get rid of unused AudioSource components 
@@ -65,24 +61,23 @@ public class AudioManager : MonoBehaviour
         }
         musicSource.Stop();
 
-        //replace this and other volume sets to take from PlayerPrefs
-        musicSource.volume = 1f;
+        musicSource.volume = PlayerPrefs.GetFloat("musicVolume");
         currentMusicCycle = DoMusicCycle(intro, loop);
         StartCoroutine(currentMusicCycle);
     }
 
-    private IEnumerator FadeMusic(Sound intro, Sound loop){
+    private IEnumerator FadeMusic(AudioClip intro, AudioClip loop){
         yield return StartCoroutine(FadeSound(musicSource.volume, 0f, 2f));
         PlayMusic(intro, loop);
     }
 
-    private IEnumerator DoMusicCycle(Sound intro, Sound loop){
+    private IEnumerator DoMusicCycle(AudioClip introClip, AudioClip loopClip){
         yield return new WaitForSeconds(0.1f);
-        musicSource.clip = intro.clip;
+        musicSource.clip = introClip;
         musicSource.loop = false;
         AudioSource newSource = gameObject.AddComponent<AudioSource>();
         newSource.playOnAwake = false;
-        newSource.clip = loop.clip;
+        newSource.clip = loopClip;
         newSource.loop = true;
         musicSource.Play();
         yield return new WaitUntil(() => !musicSource.isPlaying);

@@ -9,9 +9,9 @@ public class AudioPlayer : EventAction
     public bool getClipsFromArea;
     public bool fadeOutMusic;
     public bool reduceMusic;
-    public AudioManager.Sound soundToPlay;
-    public AudioManager.Sound musicIntro;
-    public AudioManager.Sound musicLoop;
+    public AudioClip soundToPlay;
+    public AudioClip musicIntro;
+    public AudioClip musicLoop;
 
     protected override IEnumerator EventActionLogic() {
         PlaySound();
@@ -19,14 +19,14 @@ public class AudioPlayer : EventAction
     }
 
     public void PlaySound() {
-        if(soundToPlay.clip != null){
+        if(soundToPlay != null){
             AudioManager.Instance.PlaySoundEffect(soundToPlay, reduceMusic);
         }
         else{
             if(getClipsFromArea){
                 AreaData area = ReferenceLib.Instance.activeArea;
-                musicIntro.clip = area.musicIntro;
-                musicLoop.clip = area.musicLoop;
+                musicIntro = area.musicIntro;
+                musicLoop = area.musicLoop;
             }
             AudioManager.Instance.PlayMusic(musicIntro, musicLoop, fadeOutMusic);
         }
