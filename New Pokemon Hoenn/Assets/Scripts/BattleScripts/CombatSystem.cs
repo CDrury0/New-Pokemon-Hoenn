@@ -28,7 +28,8 @@ public class CombatSystem : MonoBehaviour
     [SerializeField] private EnemyAI wildAI;
     private EnemyAI enemyAI;
     [SerializeField] private AudioPlayer wildMusic;
-    private AudioPlayer musicPlayer;
+    [SerializeField] private AudioPlayer areaMusic;
+    private AudioPlayer battleMusicPlayer;
     private Trainer enemyTrainer;
     private BattleTarget player1;
     private BattleTarget player2;
@@ -62,6 +63,7 @@ public class CombatSystem : MonoBehaviour
 
     //for special wild encounters
     public IEnumerator StartBattle(Pokemon p, EnemyAI enemyAI, AudioPlayer encounterMusic) {
+        enemyTrainer = null;
         RealStartBattle(new Party(p), false, false, enemyAI, encounterMusic);
         yield return new WaitUntil(() => CombatSystem.BattleActive);
         yield return new WaitUntil(() => !CombatSystem.BattleActive);
@@ -69,11 +71,12 @@ public class CombatSystem : MonoBehaviour
 
     //for normal wild battles
     public IEnumerator StartBattle(Pokemon p){
+        enemyTrainer = null;
         RealStartBattle(new Party(p), false, false, wildAI, wildMusic);
         yield return new WaitUntil(() => CombatSystem.BattleActive);
         yield return new WaitUntil(() => !CombatSystem.BattleActive);
         //by waiting until the battle is active BEFORE waiting until battle is inactive, 
-        //race conditions caused by asynchronous execution of coroutines is prevented
+        //race condition caused by asynchronous execution of coroutines is prevented
     }
 
     //only used by battle test menu
@@ -93,7 +96,7 @@ public class CombatSystem : MonoBehaviour
         this.trainerBattle = trainerBattle;
         this.enemyParty = enemyParty;
         this.enemyAI = enemyAI;
-        this.musicPlayer = musicPlayer;
+        this.battleMusicPlayer = musicPlayer;
 
         musicPlayer.PlaySound();
 
@@ -102,7 +105,6 @@ public class CombatSystem : MonoBehaviour
         TeamBattleModifier playerTeamModifier = new TeamBattleModifier(trainerBattle, true);
         TeamBattleModifier enemyTeamModifier = new TeamBattleModifier(trainerBattle, false);
 
-        //replace Pokemon argument with null, followed by SendOutPokemon using GetFirstAvailable
         player1 = new BattleTarget(playerTeamModifier, new IndividualBattleModifier(null), playerParty.GetFirstAvailable(), combatScreen.player1hud, combatScreen.player1Object);
         enemy1 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(null), this.enemyParty.GetFirstAvailable(), combatScreen.enemy1hud, combatScreen.enemy1Object);
 
@@ -544,6 +546,7 @@ public class CombatSystem : MonoBehaviour
         else{
             Debug.Log("something went wrong");
         }
+        areaMusic.PlaySound();
         CleanUpAfterBattle();
         combatScreen.gameObject.SetActive(false);
         BattleActive = false;

@@ -10003,10 +10003,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3838743011661149474, guid: 9585e37a25944084c98b0e26289de345, type: 3}
-      propertyPath: battleMusic
+    - target: {fileID: 4306619360160489709, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+      propertyPath: label
       value: 
-      objectReference: {fileID: 598696013}
+      objectReference: {fileID: 0}
     - target: {fileID: 5933589388143245901, guid: 9585e37a25944084c98b0e26289de345, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -35622,6 +35622,7 @@ GameObject:
   - component: {fileID: 598696010}
   - component: {fileID: 598696012}
   - component: {fileID: 598696013}
+  - component: {fileID: 598696014}
   m_Layer: 0
   m_Name: CombatSystem
   m_TagString: Untagged
@@ -35649,6 +35650,7 @@ MonoBehaviour:
   switchAction: {fileID: 7089235823656307835, guid: 7ed4414611918e247b8bde064120ac22, type: 3}
   wildAI: {fileID: 598696012}
   wildMusic: {fileID: 598696013}
+  areaMusic: {fileID: 598696014}
 --- !u!4 &598696005
 Transform:
   m_ObjectHideFlags: 0
@@ -35792,6 +35794,26 @@ MonoBehaviour:
   label: default wild battle music
   getClipsFromArea: 0
   fadeOutMusic: 0
+  reduceMusic: 0
+  soundToPlay: {fileID: 0}
+  musicIntro: {fileID: 0}
+  musicLoop: {fileID: 0}
+--- !u!114 &598696014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598696003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextEvent: {fileID: 0}
+  label: area music
+  getClipsFromArea: 1
+  fadeOutMusic: 1
   reduceMusic: 0
   soundToPlay: {fileID: 0}
   musicIntro: {fileID: 0}

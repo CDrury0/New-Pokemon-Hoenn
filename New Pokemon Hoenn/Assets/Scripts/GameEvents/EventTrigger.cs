@@ -10,6 +10,7 @@ public class EventTrigger : MonoBehaviour
     [SerializeField] private TriggerMethod triggerMethod;
     [SerializeField] private bool destroyIfAlreadyDone;
     [SerializeField] private EventCondition destroyIfTrue;
+    [Tooltip("This ID should be unique within the game area it is a child of")]
     [SerializeField] private int _eventTriggerID;
     public int EventTriggerID {
         get { return _eventTriggerID; }

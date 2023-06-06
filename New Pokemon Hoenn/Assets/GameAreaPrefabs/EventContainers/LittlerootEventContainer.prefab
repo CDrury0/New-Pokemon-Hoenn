@@ -92,6 +92,10 @@ PrefabInstance:
       propertyPath: nextEvent
       value: 
       objectReference: {fileID: 3528008327518760645}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: battleMusic
+      value: 
+      objectReference: {fileID: 1448645372976289601}
     - target: {fileID: 8671835066302808280, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: m_Name
       value: TestTrainer
@@ -114,6 +118,26 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8671835066302808280, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
   m_PrefabInstance: {fileID: 7315459052483390053}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1448645372976289601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151936893262064317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextEvent: {fileID: 0}
+  label: battle music
+  getClipsFromArea: 0
+  fadeOutMusic: 0
+  reduceMusic: 0
+  soundToPlay: {fileID: 0}
+  musicIntro: {fileID: 8300000, guid: 232cd1e7f3c5c754e97c872879b5cab8, type: 3}
+  musicLoop: {fileID: 8300000, guid: 3556c7c66ca7d1b4a957d43e394956f3, type: 3}
 --- !u!114 &3528008327518760645
 MonoBehaviour:
   m_ObjectHideFlags: 0

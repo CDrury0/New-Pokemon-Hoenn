@@ -282,12 +282,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay:
-    clip: {fileID: 8300000, guid: e69f45fa510fe8443a2563650341b4b9, type: 3}
-    volume: 1
-  musicIntro:
-    clip: {fileID: 0}
-    volume: 1
-  musicLoop:
-    clip: {fileID: 0}
-    volume: 1
+  nextEvent: {fileID: 0}
+  label: 
+  getClipsFromArea: 0
+  fadeOutMusic: 0
+  reduceMusic: 0
+  soundToPlay: {fileID: 8300000, guid: e69f45fa510fe8443a2563650341b4b9, type: 3}
+  musicIntro: {fileID: 0}
+  musicLoop: {fileID: 0}

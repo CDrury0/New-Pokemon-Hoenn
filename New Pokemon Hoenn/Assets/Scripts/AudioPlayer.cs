@@ -21,13 +21,15 @@ public class AudioPlayer : EventAction
     public void PlaySound() {
         if(soundToPlay != null){
             AudioManager.Instance.PlaySoundEffect(soundToPlay, reduceMusic);
+            return;
         }
-        else{
-            if(getClipsFromArea){
-                AreaData area = ReferenceLib.Instance.activeArea;
-                musicIntro = area.musicIntro;
-                musicLoop = area.musicLoop;
-            }
+        else if(getClipsFromArea){
+            AreaData area = ReferenceLib.Instance.activeArea;
+            musicIntro = area.musicIntro;
+            musicLoop = area.musicLoop;
+        }
+
+        if(!(musicIntro == null && musicLoop == null)){
             AudioManager.Instance.PlayMusic(musicIntro, musicLoop, fadeOutMusic);
         }
     }
