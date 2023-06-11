@@ -15,6 +15,7 @@ public abstract class EventAction : MonoBehaviour
     public IEnumerator DoEventAction() {
         yield return StartCoroutine(EventActionLogic());
         if(exit){
+            //REMOVE THIS ONCE COMBAT SYSTEM EVENT CHAIN IS IMPLEMENTED
             PlayerInput.allowMovementInput = true;
             PlayerInput.AllowMenuToggle = true;
         }

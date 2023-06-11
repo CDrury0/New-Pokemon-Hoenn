@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5e90590df6f0841b0e6ca2f9408235, type: 3}
+  m_Name: Route103
+  m_EditorClassIdentifier: 
+  areaName: Route 103
+  areaObjectPrefab: {fileID: 784543152340269473, guid: 925752a76afb592478b69f373172fc06, type: 3}
+  adjacentObjectPrefabs:
+  - {fileID: 784543152340269473, guid: 925752a76afb592478b69f373172fc06, type: 3}
+  - {fileID: 4060085899828782912, guid: 801bd0a5b1f18f148b9f35942cf8e95c, type: 3}
+  eventObjectPrefab: {fileID: 0}
+  terrainData: {fileID: 0}
+  weather: {fileID: 11400000, guid: 222c990df5561c443920f8582a4dc7d7, type: 2}
+  generationValues: {fileID: 11400000, guid: 36f12c75dd8510d499493ddc0f5a9c35, type: 2}
+  musicIntro: {fileID: 8300000, guid: f1d20897cca5c6b4da81026545108714, type: 3}
+  musicLoop: {fileID: 8300000, guid: d2e8f4ef838248243a9717a8c42cf458, type: 3}
+  eventManifest: 

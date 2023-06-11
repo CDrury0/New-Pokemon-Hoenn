@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7214090465150011467}
   - component: {fileID: 8076466987143524744}
   - component: {fileID: 3042566066784129685}
+  - component: {fileID: 4819224395196761987}
   - component: {fileID: 8424404058128101953}
   m_Layer: 6
   m_Name: TestTrainer
@@ -172,7 +173,7 @@ MonoBehaviour:
   rewardDollars: 0
   trainerAI: {fileID: 3042566066784129685}
   trainerSprite: {fileID: 0}
-  battleMusic: {fileID: 0}
+  battleMusic: {fileID: 4819224395196761987}
   victoryMusic: {fileID: 0}
   trainerPartyTemplate:
   - pokemonDefault: {fileID: 11400000, guid: 1d3a37a634528e24a98864f40e8b7e75, type: 2}
@@ -278,6 +279,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f56b67c2ab9f0e4883909284eb2a694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4819224395196761987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8671835066302808280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextEvent: {fileID: 0}
+  label: battle music
+  getClipsFromArea: 0
+  fadeOutMusic: 0
+  reduceMusic: 0
+  soundToPlay: {fileID: 0}
+  musicIntro: {fileID: 8300000, guid: 232cd1e7f3c5c754e97c872879b5cab8, type: 3}
+  musicLoop: {fileID: 8300000, guid: 3556c7c66ca7d1b4a957d43e394956f3, type: 3}
 --- !u!114 &8424404058128101953
 MonoBehaviour:
   m_ObjectHideFlags: 0
