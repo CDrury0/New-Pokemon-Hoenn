@@ -96,19 +96,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTrainer
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8424404058128101953, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
---- !u!114 &1255595981607901220 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8424404058128101953, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
-  m_PrefabInstance: {fileID: 7315459052483390053}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2151936893262064317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f80328b028838f4e81a5e78edff2df4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2151936893262064317 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8671835066302808280, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
@@ -126,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f313c0a2db61504fb2c0cef1dfefc73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextEvent: {fileID: 1255595981607901220}
+  nextEvent: {fileID: 0}
   outputObject: {fileID: 6395187810024367364, guid: 9c92721c2f421aa43b0c072532c15f70, type: 3}
   confirmationDelaySeconds: 0
   messages:
@@ -211,6 +201,7 @@ PrefabInstance:
     - {fileID: 7214090465150011467, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
     - {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
     - {fileID: 3042566066784129685, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+    - {fileID: 8424404058128101953, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
 --- !u!1 &632167794005225412 stripped
 GameObject:

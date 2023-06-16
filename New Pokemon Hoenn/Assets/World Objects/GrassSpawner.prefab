@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5457338382388120671}
   - component: {fileID: 4267165200606469049}
   - component: {fileID: 5457338382388120670}
-  - component: {fileID: -2145715345047990947}
   m_Layer: 0
   m_Name: GrassSpawner
   m_TagString: Untagged
@@ -126,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89de7da6b36b11d4cb1c519b9192487f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allowInput: 0
   triggerMethod: 1
   destroyIfAlreadyDone: 0
   destroyIfTrue: {fileID: 0}
@@ -144,19 +144,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dbd83bdcb3fdd546aad668b69164530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextEvent: {fileID: -2145715345047990947}
---- !u!114 &-2145715345047990947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5457338382388120666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f80328b028838f4e81a5e78edff2df4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   nextEvent: {fileID: 0}
-  allowMenuToggle: 0
-  allowMovementInput: 0

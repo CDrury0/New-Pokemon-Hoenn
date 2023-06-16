@@ -14,13 +14,15 @@ public abstract class EventAction : MonoBehaviour
     protected abstract IEnumerator EventActionLogic();
     public IEnumerator DoEventAction() {
         yield return StartCoroutine(EventActionLogic());
-        if(exit){
-            //REMOVE THIS ONCE COMBAT SYSTEM EVENT CHAIN IS IMPLEMENTED
-            PlayerInput.allowMovementInput = true;
-            PlayerInput.AllowMenuToggle = true;
-        }
-        else if(nextEvent != null){
-            StartCoroutine(nextEvent.DoEventAction());
+        if(!exit){
+            //kill me
+            if(nextEvent != null && this is not EventSwitch){
+                StartCoroutine(nextEvent.DoEventAction());
+            }
+            else{
+                PlayerInput.allowMovementInput = true;
+                PlayerInput.AllowMenuToggle = true;
+            }
         }
     }
 }
