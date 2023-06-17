@@ -35796,8 +35796,8 @@ MonoBehaviour:
   fadeOutMusic: 0
   reduceMusic: 0
   soundToPlay: {fileID: 0}
-  musicIntro: {fileID: 0}
-  musicLoop: {fileID: 0}
+  musicIntro: {fileID: 8300000, guid: d72d053ac791fcc4eb90d158f947da25, type: 3}
+  musicLoop: {fileID: 8300000, guid: 5962ee76359665c4daf08c1822aee4d7, type: 3}
 --- !u!114 &598696014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69510,6 +69510,7 @@ GameObject:
   - component: {fileID: 1204299922}
   - component: {fileID: 1204299918}
   - component: {fileID: 1204299924}
+  - component: {fileID: 1204299925}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -69531,11 +69532,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followPoint: {fileID: 1811542984}
   interactPoint: {fileID: 266409905}
+  playerAnimation: {fileID: 1204299925}
   menuAnimation: {fileID: 1187341917}
   stopsMovement:
     serializedVersion: 2
     m_Bits: 64
-  playerAnimator: {fileID: 0}
   movementInputDelaySeconds: 0.15
 --- !u!50 &1204299919
 Rigidbody2D:
@@ -69664,6 +69665,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1748e47f7ef5bd84e8b3c9cc4dde10aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1204299925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204299917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deae102ac7b2ff142bbabbfeb7b7923b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1206379177

@@ -67,7 +67,7 @@ public class AudioManager : MonoBehaviour
     }
 
     private IEnumerator FadeMusic(AudioClip intro, AudioClip loop){
-        yield return StartCoroutine(FadeSound(musicSource.volume, 0f, 2f));
+        yield return StartCoroutine(FadeSound(musicSource.volume, 0f, 1.2f));
         PlayMusic(intro, loop);
     }
 
