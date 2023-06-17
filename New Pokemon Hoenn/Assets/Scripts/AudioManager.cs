@@ -67,7 +67,7 @@ public class AudioManager : MonoBehaviour
     }
 
     private IEnumerator FadeMusic(AudioClip intro, AudioClip loop){
-        yield return StartCoroutine(FadeSound(musicSource.volume, 0f, 1.2f));
+        yield return StartCoroutine(FadeSound(musicSource.volume, 0f, 1.1f));
         PlayMusic(intro, loop);
     }
 
@@ -79,6 +79,7 @@ public class AudioManager : MonoBehaviour
         newSource.playOnAwake = false;
         newSource.clip = loopClip;
         newSource.loop = true;
+        newSource.volume = PlayerPrefs.GetFloat("musicVolume");
         musicSource.Play();
         yield return new WaitUntil(() => !musicSource.isPlaying);
         newSource.Play();

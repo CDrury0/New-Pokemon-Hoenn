@@ -22,6 +22,10 @@ public class StartupFunctions : MonoBehaviour
         //LoadSave();
     }
 
+    void Awake(){
+        PlayerPrefs.SetFloat("musicVolume", 1f);
+    }
+
     /*private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))

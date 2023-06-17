@@ -26,7 +26,7 @@ public class PlayerInput : MonoBehaviour
     public Transform interactPoint;
     public MenuAnimation menuAnimation;
     public LayerMask stopsMovement;
-    public Animator playerAnimator;
+    public PlayerAnimations playerAnimations;
     private float moveSpeed;
     [SerializeField] private float movementInputDelaySeconds;
     private Vector3 direction;
@@ -77,6 +77,7 @@ public class PlayerInput : MonoBehaviour
             moveSpeed = sprinting ? SPRINT_SPEED : WALKING_SPEED;
             if(!Physics2D.OverlapCircle(followPoint.position + direction, 0.3f, stopsMovement)){
                 followPoint.position += direction;
+                StartCoroutine(playerAnimations.AnimateMovement(direction, moveSpeed, true, sprinting));
             }
             return;
         }
