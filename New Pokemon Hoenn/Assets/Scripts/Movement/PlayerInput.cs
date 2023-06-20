@@ -26,7 +26,7 @@ public class PlayerInput : MonoBehaviour
     public Transform interactPoint;
     public MenuAnimation menuAnimation;
     public LayerMask stopsMovement;
-    public PlayerAnimations playerAnimations;
+    public MovementAnimation playerAnimations;
     private float moveSpeed;
     [SerializeField] private float movementInputDelaySeconds;
     private Vector3 direction;

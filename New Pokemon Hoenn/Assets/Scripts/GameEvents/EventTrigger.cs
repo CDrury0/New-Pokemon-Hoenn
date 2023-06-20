@@ -17,9 +17,13 @@ public class EventTrigger : MonoBehaviour
     }
     [SerializeField] private EventAction eventAction;
     [SerializeField] private EventAction eventIfAlreadyDone;
+    [SerializeField] private NPCMovement movementToStop;
 
     void OnTriggerEnter2D(Collider2D collider) {
         if(DoesTriggerMatch(collider)){
+            if(movementToStop != null){
+                movementToStop.halt = true;
+            }
             PlayerInput.AllowMenuToggle = allowInput;
             if(eventIfAlreadyDone == null || !GetComponentInParent<GameAreaManager>().areaData.eventManifest.Contains(_eventTriggerID)){
                 StartCoroutine(eventAction.DoEventAction());

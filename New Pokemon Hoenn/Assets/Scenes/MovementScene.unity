@@ -4401,6 +4401,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100189219}
   m_CullTransparentMesh: 0
+--- !u!1 &101756331 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4397808522923459698, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+  m_PrefabInstance: {fileID: 187402535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &101756340 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4629907560604317753, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+  m_PrefabInstance: {fileID: 187402535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &101756341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101756331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f9ccdfcc61f864a9b0f9408b9d97c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 101756340}
+  stillSprites:
+  - {fileID: 21300000, guid: 48b45aa290f7fbd46a7be3b335821156, type: 3}
+  - {fileID: 21300000, guid: a7f6f0a9e6796944daf99875eec0dc2c, type: 3}
+  - {fileID: 21300000, guid: 9ae6ab63da4c03d4793ddaebbc29df17, type: 3}
+  - {fileID: 21300000, guid: ae3000248f2950c439f37062f16a120c, type: 3}
+  walkUpSprites: []
+  walkRightSprites: []
+  walkDownSprites: []
+  walkLeftSprites: []
+  runUpSprites: []
+  runRightSprites: []
+  runDownSprites: []
+  runLeftSprites: []
+--- !u!114 &101756342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101756331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38d9e4e8199ca734dbaf86888bccb8f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halt: 0
+  movementAnimation: {fileID: 101756341}
+  rotateClockwise: 1
 --- !u!1 &103257441
 GameObject:
   m_ObjectHideFlags: 0
@@ -10003,6 +10054,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1946047110650870232, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+      propertyPath: movementToStop
+      value: 
+      objectReference: {fileID: 101756342}
     - target: {fileID: 4306619360160489709, guid: 9585e37a25944084c98b0e26289de345, type: 3}
       propertyPath: label
       value: 
@@ -43098,7 +43153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &719514699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69653,7 +69708,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
 --- !u!114 &1204299924
 MonoBehaviour:
@@ -69679,7 +69734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f9ccdfcc61f864a9b0f9408b9d97c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSprite: {fileID: 1204299920}
+  spriteRenderer: {fileID: 1204299920}
   stillSprites:
   - {fileID: 21300000, guid: 48b45aa290f7fbd46a7be3b335821156, type: 3}
   - {fileID: 21300000, guid: a7f6f0a9e6796944daf99875eec0dc2c, type: 3}
@@ -119128,7 +119183,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: eb48e1f24fe69b94793173a9b1745a8e, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
