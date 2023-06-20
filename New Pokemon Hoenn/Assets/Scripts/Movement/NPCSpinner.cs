@@ -13,15 +13,11 @@ public class NPCSpinner : NPCMovement
         //the coroutine won't actually return any time since it is only changing the sprite once, so manual waiting is necessary
         yield return new WaitForSeconds(LOOK_DURATION_SECONDS);
         index = index == directionCycle.Length - 1 ? 0 : index + 1;
-        if(!halt){
-            StartCoroutine(MoveLogic());
-        }
     }
 
-    void Start(){
+    void Awake(){
         directionCycle = rotateClockwise
         ? new Vector3[] { Vector3.up, Vector3.right, Vector3.down, Vector3.left }
         : new Vector3[] { Vector3.up, Vector3.left, Vector3.down, Vector3.right };
-        StartCoroutine(MoveLogic());
     }
 }

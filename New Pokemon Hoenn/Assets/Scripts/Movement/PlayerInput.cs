@@ -10,10 +10,10 @@ public class PlayerInput : MonoBehaviour
     /// This may be set independently to account for menu toggling
     /// </summary>
     public static bool allowMovementInput = true;
+    private static bool _allowMenuToggle = true;
     /// <summary>
     /// Setting this false automatically sets allowMovementInput to false
     /// </summary>
-    private static bool _allowMenuToggle = true;
     public static bool AllowMenuToggle {
         get { return _allowMenuToggle; }
         set {if(value == false){
@@ -29,7 +29,7 @@ public class PlayerInput : MonoBehaviour
     public MovementAnimation playerAnimations;
     private float moveSpeed;
     [SerializeField] private float movementInputDelaySeconds;
-    private Vector3 direction;
+    public Vector3 Direction { get; private set; }
 
     void Update() {
         GetPlayerInput();
@@ -73,16 +73,16 @@ public class PlayerInput : MonoBehaviour
 
         Vector3 newDirection = horizontal != 0 ? new Vector3(horizontal, 0, 0) : newDirection = new Vector3(0, vertical, 0);
 
-        if(direction == newDirection){
+        if(Direction == newDirection){
             moveSpeed = sprinting ? SPRINT_SPEED : WALKING_SPEED;
-            if(!Physics2D.OverlapCircle(followPoint.position + direction, 0.3f, stopsMovement)){
-                followPoint.position += direction;
-                StartCoroutine(playerAnimations.AnimateMovement(direction, moveSpeed, true, sprinting));
+            if(!Physics2D.OverlapCircle(followPoint.position + Direction, 0.3f, stopsMovement)){
+                followPoint.position += Direction;
+                StartCoroutine(playerAnimations.AnimateMovement(Direction, moveSpeed, true, sprinting));
             }
             return;
         }
 
-        direction = newDirection;
+        Direction = newDirection;
 
         if(!sprinting){
             StartCoroutine(DelayMovementInput());
@@ -95,11 +95,11 @@ public class PlayerInput : MonoBehaviour
 
     private IEnumerator ActivateInteractPoint() {
         allowMovementInput = false;
-        interactPoint.position += direction;
+        interactPoint.position += Direction;
         interactPoint.gameObject.SetActive(true);
         yield return new WaitForFixedUpdate();
         interactPoint.gameObject.SetActive(false);
-        interactPoint.position -= direction;
+        interactPoint.position -= Direction;
         allowMovementInput = true;
     }
 

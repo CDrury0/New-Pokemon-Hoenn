@@ -10057,6 +10057,10 @@ PrefabInstance:
     - target: {fileID: 1946047110650870232, guid: 9585e37a25944084c98b0e26289de345, type: 3}
       propertyPath: movementToStop
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946047110650870232, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+      propertyPath: movementToFacePlayer
+      value: 
       objectReference: {fileID: 101756342}
     - target: {fileID: 4306619360160489709, guid: 9585e37a25944084c98b0e26289de345, type: 3}
       propertyPath: label
