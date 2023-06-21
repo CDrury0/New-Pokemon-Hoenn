@@ -25,8 +25,10 @@ public abstract class NPCMovement : MonoBehaviour
         yield return new WaitUntil(() => transform.position == walkToPoint);
     }
 
-    public void FacePlayer(Vector3 playerDirection){
-        Vector3 toFacePlayer = GetOppositeDirection(playerDirection);
+    public void FacePlayer(Transform movePoint){
+        Vector3 toFacePlayer = transform.position - movePoint.position;
+        toFacePlayer.Normalize();
+        toFacePlayer = GetOppositeDirection(toFacePlayer);
         movementAnimation.FaceDirection(toFacePlayer);
     }
 

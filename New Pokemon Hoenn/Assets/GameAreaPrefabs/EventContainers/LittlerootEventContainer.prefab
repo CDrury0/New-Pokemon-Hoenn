@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 683959044285280173}
   m_Layer: 0
   m_Name: LittlerootEventContainer
-  m_TagString: Untagged
+  m_TagString: EventContainer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3320399566483130915, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: _eventTriggerID
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3701093892732837810, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: m_RootOrder
@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6796235339155225970, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: _eventTriggerID
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8671835066302808280, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: m_Name

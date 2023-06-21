@@ -10,7 +10,7 @@ public class EventTrigger : MonoBehaviour
     [SerializeField] private TriggerMethod triggerMethod;
     [SerializeField] private bool destroyIfAlreadyDone;
     [SerializeField] private EventCondition destroyIfTrue;
-    [Tooltip("This ID should be unique within the game area it is a child of")]
+    [Tooltip("Set this field to value -1 to auto-generate a value unique to its Event Container")]
     [SerializeField] private int _eventTriggerID;
     public int EventTriggerID {
         get { return _eventTriggerID; }
@@ -21,8 +21,15 @@ public class EventTrigger : MonoBehaviour
     [SerializeField] private NPCMovement movementToStop;
     [Tooltip("If not null, will cause the NPC whose NPCMovement component is supplied to face the player when this is triggered (useful on trainer interact)")]
     [SerializeField] private NPCMovement movementToFacePlayer;
+    private bool movePointEligible;
+    private Transform movePointTransform;
 
     void OnTriggerEnter2D(Collider2D collider) {
+        if(collider.CompareTag("MovePoint")){
+            movePointEligible = true;
+            movePointTransform = collider.transform;
+            return;
+        }
         if(DoesTriggerMatch(collider)){
             bool markedDone = GetComponentInParent<GameAreaManager>().areaData.eventManifest.Contains(_eventTriggerID);
             if(markedDone && eventIfAlreadyDone == null){
@@ -33,7 +40,7 @@ public class EventTrigger : MonoBehaviour
                 movementToStop.halt = true;
             }
             if(movementToFacePlayer != null){
-                movementToFacePlayer.FacePlayer(collider.GetComponentInParent<PlayerInput>().Direction);
+                movementToFacePlayer.FacePlayer(movePointTransform);
             }
             PlayerInput.AllowMenuToggle = allowInput;
             if(eventIfAlreadyDone == null || !markedDone){
@@ -44,11 +51,17 @@ public class EventTrigger : MonoBehaviour
         }
     }
 
+    void OnTriggerExit2D(Collider2D collider){
+        if(collider.CompareTag("MovePoint")){
+            movePointEligible = false;
+        }
+    }
+
     private bool DoesTriggerMatch(Collider2D collider) {
         if(triggerMethod == TriggerMethod.Interaction && collider.CompareTag("InteractPoint")){
             return true;
         }
-        else if(triggerMethod == TriggerMethod.Position && collider.CompareTag("Player")){
+        else if(movePointEligible && triggerMethod == TriggerMethod.Position && collider.CompareTag("Player")){
             return true;
         }
         return false;
@@ -60,7 +73,21 @@ public class EventTrigger : MonoBehaviour
         }
     }
 
-    void Reset() {
-        _eventTriggerID = GetComponentInParent<GameAreaManager>().GetComponentsInChildren<EventTrigger>().Length;
+    void OnValidate() {
+        if(_eventTriggerID == -1){
+            GameObject eventContainer = GetParentWithTag(gameObject, "EventContainer");
+            _eventTriggerID = eventContainer.GetComponentsInChildren<EventTrigger>().Length;
+        }
+    }
+
+    public static GameObject GetParentWithTag(GameObject child, string tag){
+        if(child == null){
+            return null;
+        } 
+        else if(child.CompareTag(tag)){
+            return child;
+        }
+        Debug.Log(child.name);
+        return GetParentWithTag(child.transform.parent.gameObject, tag);
     }
 }
