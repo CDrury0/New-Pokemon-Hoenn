@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    private const float WALKING_SPEED = 3.5f;
-    private const float SPRINT_SPEED = 7.5f;
+    public static Transform playerTransform;
+    public const float WALKING_SPEED = 3.5f;
+    public const float SPRINT_SPEED = 7.5f;
     /// <summary>
     /// This may be set independently to account for menu toggling
     /// </summary>
@@ -94,18 +95,20 @@ public class PlayerInput : MonoBehaviour
     }
 
     private IEnumerator ActivateInteractPoint() {
-        allowMovementInput = false;
         interactPoint.position += Direction;
         interactPoint.gameObject.SetActive(true);
         yield return new WaitForFixedUpdate();
         interactPoint.gameObject.SetActive(false);
         interactPoint.position -= Direction;
-        allowMovementInput = true;
     }
 
     private IEnumerator DelayMovementInput() {
         allowMovementInput = false;
         yield return new WaitForSeconds(movementInputDelaySeconds);
         allowMovementInput = true;
+    }
+
+    void Awake(){
+        playerTransform = transform;
     }
 }

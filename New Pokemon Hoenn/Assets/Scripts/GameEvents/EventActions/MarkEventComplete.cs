@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class MarkEventComplete : EventAction
 {
-    [SerializeField] private EventTrigger toMarkComplete;
+    [SerializeField] private EventTrigger[] toMarkComplete;
     protected override IEnumerator EventActionLogic() {
         AreaData thisAreaData = GetComponentInParent<GameAreaManager>().areaData;
-        if(!thisAreaData.eventManifest.Contains(toMarkComplete.EventTriggerID)){
-            thisAreaData.eventManifest.Add(toMarkComplete.EventTriggerID);
+        for (int i = 0; i < toMarkComplete.Length; i++){
+            if (!thisAreaData.eventManifest.Contains(toMarkComplete[i].EventTriggerID)){
+                thisAreaData.eventManifest.Add(toMarkComplete[i].EventTriggerID);
+            }
         }
         yield break;
-    }
-
-    void Reset() {
-        toMarkComplete = gameObject.GetComponent<EventTrigger>();
     }
 }

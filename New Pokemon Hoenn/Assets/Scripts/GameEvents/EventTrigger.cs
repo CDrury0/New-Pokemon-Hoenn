@@ -17,13 +17,18 @@ public class EventTrigger : MonoBehaviour
     }
     [SerializeField] private EventAction eventAction;
     [SerializeField] private EventAction eventIfAlreadyDone;
-    [Tooltip("If not null, will stop further supplied NPCMovement MoveLogic from running when this is triggered")]
+    [Tooltip("If not null, will stop further supplied NPCMovement MoveLogic from running when this is triggered even after event chain completes")]
     [SerializeField] private NPCMovement movementToStop;
-    [Tooltip("If not null, will cause the NPC whose NPCMovement component is supplied to face the player when this is triggered")]
+    [Tooltip("If not null, will cause the NPC whose NPCMovement component is supplied to face the player when this is triggered (useful on trainer interact)")]
     [SerializeField] private NPCMovement movementToFacePlayer;
 
     void OnTriggerEnter2D(Collider2D collider) {
         if(DoesTriggerMatch(collider)){
+            bool markedDone = GetComponentInParent<GameAreaManager>().areaData.eventManifest.Contains(_eventTriggerID);
+            if(markedDone && eventIfAlreadyDone == null){
+                return;
+            }
+            //otherwise, SOME EventAction will occur
             if(movementToStop != null){
                 movementToStop.halt = true;
             }
@@ -31,7 +36,7 @@ public class EventTrigger : MonoBehaviour
                 movementToFacePlayer.FacePlayer(collider.GetComponentInParent<PlayerInput>().Direction);
             }
             PlayerInput.AllowMenuToggle = allowInput;
-            if(eventIfAlreadyDone == null || !GetComponentInParent<GameAreaManager>().areaData.eventManifest.Contains(_eventTriggerID)){
+            if(eventIfAlreadyDone == null || !markedDone){
                 StartCoroutine(eventAction.DoEventAction());
                 return;
             }
@@ -57,6 +62,5 @@ public class EventTrigger : MonoBehaviour
 
     void Reset() {
         _eventTriggerID = GetComponentInParent<GameAreaManager>().GetComponentsInChildren<EventTrigger>().Length;
-        eventAction = GetComponent<EventAction>();
     }
 }

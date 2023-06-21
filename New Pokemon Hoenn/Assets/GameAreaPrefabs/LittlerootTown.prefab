@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LittlerootEventContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 8470552548818899855, guid: 4f975df7aa0d2074fbbfbed61356f18b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ae3000248f2950c439f37062f16a120c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f975df7aa0d2074fbbfbed61356f18b, type: 3}
 --- !u!1 &6981726911867156458 stripped
@@ -73,6 +77,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3179703864032249026, guid: 2b44720738daeeb49babac451f742552, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4294996485346320901, guid: 2b44720738daeeb49babac451f742552, type: 3}
       propertyPath: m_RootOrder
       value: 2

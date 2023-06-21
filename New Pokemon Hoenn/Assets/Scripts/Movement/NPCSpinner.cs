@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class NPCSpinner : NPCMovement
 {
+    [SerializeField] private int detectionRange;
+    [SerializeField] private BoxCollider2D detectionCollider;
     [SerializeField] private bool rotateClockwise;
     private Vector3[] directionCycle;
     private const float LOOK_DURATION_SECONDS = 1.5f;
     private int index;
-    protected override IEnumerator MoveLogic(){
-        yield return StartCoroutine(movementAnimation.AnimateMovement(directionCycle[index], 0, false, false));
-        //the coroutine won't actually return any time since it is only changing the sprite once, so manual waiting is necessary
+    protected override IEnumerator PassiveMoveLogic(){
+        movementAnimation.FaceDirection(directionCycle[index]);
+        if (detectionCollider != null){
+            SetDetectionArea(detectionCollider, directionCycle[index], detectionRange);
+        }
+        //since this is only changing the sprite once, manual waiting is necessary
         yield return new WaitForSeconds(LOOK_DURATION_SECONDS);
         index = index == directionCycle.Length - 1 ? 0 : index + 1;
     }
