@@ -13,9 +13,6 @@ public class NPCWalkEvent : EventAction
     private Vector3 moveToPoint;
 
     protected override IEnumerator EventActionLogic(){
-        //REMOVE ONCE ALERT EVENT ACTION IS IMPLEMENTED
-        yield return new WaitForSeconds(1f);
-
         int diffY;
         int diffX;
         if(moveToPlayer){

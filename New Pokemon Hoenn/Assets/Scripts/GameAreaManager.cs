@@ -17,7 +17,9 @@ public class GameAreaManager : MonoBehaviour
         //destroy all areas that are not in the adjacency list
         foreach(GameObject go in prefabsOfActiveAreas){
             if(!areaData.adjacentObjectPrefabs.Contains(go)){
-                Destroy(activeGameAreas.Find(a => a.areaData.areaObjectPrefab == go).gameObject);
+                GameObject toDestroy = activeGameAreas.Find(a => a.areaData.areaObjectPrefab == go).gameObject;
+                Destroy(toDestroy);
+                Resources.UnloadAsset(toDestroy);
             }
         }
 

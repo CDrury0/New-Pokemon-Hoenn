@@ -40,6 +40,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 683959044285280173}
     m_Modifications:
+    - target: {fileID: 364817839153986707, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 48b45aa290f7fbd46a7be3b335821156, type: 3}
+    - target: {fileID: 1372461811057861201, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3320399566483130915, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: _eventTriggerID
       value: 4
@@ -54,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3701093892732837810, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.75
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 3701093892732837810, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: m_LocalPosition.z

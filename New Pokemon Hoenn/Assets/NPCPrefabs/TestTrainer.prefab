@@ -76,8 +76,9 @@ MonoBehaviour:
   destroyIfAlreadyDone: 1
   destroyIfTrue: {fileID: 0}
   _eventTriggerID: 1
-  eventAction: {fileID: 6206834959908735435}
-  eventIfAlreadyDone: {fileID: 0}
+  eventActions:
+  - {fileID: 2598115513752736083}
+  eventsIfAlreadyDone: []
   movementToStop: {fileID: 0}
   movementToFacePlayer: {fileID: -3792440079889342074}
 --- !u!1 &8671835066302808280
@@ -92,12 +93,14 @@ GameObject:
   - component: {fileID: 364817839153986707}
   - component: {fileID: 1372461811057861201}
   - component: {fileID: 6796235339155225970}
-  - component: {fileID: 408516362562542856}
+  - component: {fileID: 2598115513752736083}
+  - component: {fileID: 1342640348597609408}
   - component: {fileID: 6206834959908735435}
   - component: {fileID: 7214090465150011467}
   - component: {fileID: 8076466987143524744}
   - component: {fileID: 3042566066784129685}
   - component: {fileID: 4819224395196761987}
+  - component: {fileID: 408516362562542856}
   - component: {fileID: -7049907172597748719}
   - component: {fileID: -3792440079889342074}
   - component: {fileID: 2736338909741817037}
@@ -219,11 +222,13 @@ MonoBehaviour:
   destroyIfAlreadyDone: 0
   destroyIfTrue: {fileID: 0}
   _eventTriggerID: 0
-  eventAction: {fileID: 408516362562542856}
-  eventIfAlreadyDone: {fileID: 0}
+  eventActions:
+  - {fileID: 2598115513752736083}
+  eventsIfAlreadyDone:
+  - {fileID: 2736338909741817037}
   movementToStop: {fileID: 0}
   movementToFacePlayer: {fileID: -3792440079889342074}
---- !u!114 &408516362562542856
+--- !u!114 &2598115513752736083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,13 +237,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 8671835066302808280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c98315a3eed91c4884e071301fec9cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextEvent: {fileID: 1342640348597609408}
+  label: trigger music
+  getClipsFromArea: 0
+  fadeOutMusic: 0
+  reduceMusic: 0
+  soundToPlay: {fileID: 0}
+  musicIntro: {fileID: 8300000, guid: f7f1a73029d79e44f8bfccd7d92c4e81, type: 3}
+  musicLoop: {fileID: 8300000, guid: b3ca7d8e9333b1e478c2058ec00fd2eb, type: 3}
+--- !u!114 &1342640348597609408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8671835066302808280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42ac9200debe0749a5e4f2ce2507ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nextEvent: {fileID: 6206834959908735435}
-  toMarkComplete:
-  - {fileID: 6796235339155225970}
-  - {fileID: 3320399566483130915}
+  alertObject: {fileID: 3254360312741342902, guid: dce51a943d2a54f44a216be821939307, type: 3}
 --- !u!114 &6206834959908735435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9352ab1706b50e747bb79c8550ea6fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextEvent: {fileID: 2736338909741817037}
+  nextEvent: {fileID: 408516362562542856}
   isDoubleBattle: 0
   trainerTitle: 
   trainerName: 
@@ -418,8 +441,24 @@ MonoBehaviour:
   fadeOutMusic: 0
   reduceMusic: 0
   soundToPlay: {fileID: 0}
-  musicIntro: {fileID: 8300000, guid: 232cd1e7f3c5c754e97c872879b5cab8, type: 3}
-  musicLoop: {fileID: 8300000, guid: 3556c7c66ca7d1b4a957d43e394956f3, type: 3}
+  musicIntro: {fileID: 8300000, guid: 35e8f576111fcf743ae61c30a635a025, type: 3}
+  musicLoop: {fileID: 8300000, guid: c18c6bbd2ef3d814c953cef6b26cf9bf, type: 3}
+--- !u!114 &408516362562542856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8671835066302808280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c98315a3eed91c4884e071301fec9cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextEvent: {fileID: 2736338909741817037}
+  toMarkComplete:
+  - {fileID: 6796235339155225970}
+  - {fileID: 3320399566483130915}
 --- !u!114 &-7049907172597748719
 MonoBehaviour:
   m_ObjectHideFlags: 0

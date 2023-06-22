@@ -15,8 +15,8 @@ public class EventTrigger : MonoBehaviour
     public int EventTriggerID {
         get { return _eventTriggerID; }
     }
-    [SerializeField] private EventAction eventAction;
-    [SerializeField] private EventAction eventIfAlreadyDone;
+    [SerializeField] private EventAction[] eventActions;
+    [SerializeField] private EventAction[] eventsIfAlreadyDone;
     [Tooltip("If not null, will stop further supplied NPCMovement MoveLogic from running when this is triggered even after event chain completes")]
     [SerializeField] private NPCMovement movementToStop;
     [Tooltip("If not null, will cause the NPC whose NPCMovement component is supplied to face the player when this is triggered (useful on trainer interact)")]
@@ -32,7 +32,7 @@ public class EventTrigger : MonoBehaviour
         }
         if(DoesTriggerMatch(collider)){
             bool markedDone = GetComponentInParent<GameAreaManager>().areaData.eventManifest.Contains(_eventTriggerID);
-            if(markedDone && eventIfAlreadyDone == null){
+            if(markedDone && eventsIfAlreadyDone.Length == 0){
                 return;
             }
             //otherwise, SOME EventAction will occur
@@ -43,11 +43,15 @@ public class EventTrigger : MonoBehaviour
                 movementToFacePlayer.FacePlayer(movePointTransform);
             }
             PlayerInput.AllowMenuToggle = allowInput;
-            if(eventIfAlreadyDone == null || !markedDone){
-                StartCoroutine(eventAction.DoEventAction());
+            if(eventsIfAlreadyDone.Length == 0 || !markedDone){
+                foreach (EventAction e in eventActions){
+                    StartCoroutine(e.DoEventAction());
+                }
                 return;
             }
-            StartCoroutine(eventIfAlreadyDone.DoEventAction());
+            foreach(EventAction e in eventsIfAlreadyDone){
+                StartCoroutine(e.DoEventAction());
+            }
         }
     }
 
@@ -61,13 +65,14 @@ public class EventTrigger : MonoBehaviour
         if(triggerMethod == TriggerMethod.Interaction && collider.CompareTag("InteractPoint")){
             return true;
         }
-        else if(movePointEligible && triggerMethod == TriggerMethod.Position && collider.CompareTag("Player")){
+        else if((movePointEligible || collider.transform.position == movePointTransform.position) && triggerMethod == TriggerMethod.Position && collider.CompareTag("Player")){
             return true;
         }
         return false;
     }
 
     void Awake() {
+        movePointTransform = GameObject.FindGameObjectWithTag("MovePoint").transform;
         if((destroyIfAlreadyDone && GetComponentInParent<GameAreaManager>().areaData.eventManifest.Contains(_eventTriggerID)) || (destroyIfTrue != null && destroyIfTrue.IsConditionTrue())){
             Destroy(gameObject);
         }
