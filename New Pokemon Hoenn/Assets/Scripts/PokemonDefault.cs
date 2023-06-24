@@ -68,7 +68,7 @@ public class EvoDetails
     public Item evolutionStone;
     public Item evolvesWithHeldItem;
     public int evolvesWithFriendship;
-    public Gender evolvesFromGender;
+    public bool evolvesFromGender;
     public bool evolvesRandom;
     [Tooltip("If evolution is gender-based or randomly determined, fill the relevant slots (fill this if there is only one form to evolve into)")]
     public PokemonDefault firstOrMale;

@@ -18,6 +18,7 @@ public class CombatSystem : MonoBehaviour
     public CombatScreen combatScreen;
     public MoveFunctions moveFunctions;
     public HandleExperience handleExperience;
+    public HandleEvolution handleEvolution;
     public PartyMenu partyMenu;
     public GameObject struggle;
     public GameObject switchAction;
@@ -82,8 +83,8 @@ public class CombatSystem : MonoBehaviour
     }
 
     //only used by battle test menu
-    public void StartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI){
-        RealStartBattle(enemyParty, trainerBattle, doubleBattle, enemyAI, wildMusic);
+    public void StartBattle(Party enemyParty, bool doubleBattle){
+        RealStartBattle(enemyParty, true, doubleBattle, wildAI, wildMusic);
     }
 
     //must start the coroutine from this monobehaviour so it doesn't matter if originating gameobject is set to inactive
@@ -99,7 +100,7 @@ public class CombatSystem : MonoBehaviour
         this.enemyParty = enemyParty;
         this.enemyAI = enemyAI;
         this.battleMusicPlayer = musicPlayer;
-        victoryMusicPlayer = trainerBattle ? enemyTrainer.victoryMusic : wildVictoryMusic;
+        victoryMusicPlayer = trainerBattle && enemyTrainer != null ? enemyTrainer.victoryMusic : wildVictoryMusic;
 
         musicPlayer.PlaySound();
 
@@ -539,6 +540,7 @@ public class CombatSystem : MonoBehaviour
     private IEnumerator EndBattle(){
         if(playerParty.IsEntireTeamFainted()){
             yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("You lose, moron"));
+            HandleEvolution.ClearMarkedLevelUps();
             PlayerVictory = false;
         }
         else if(enemyParty.IsEntireTeamFainted()){
@@ -549,6 +551,7 @@ public class CombatSystem : MonoBehaviour
                 yield return StartCoroutine(handleExperience.DoExperience(enemy1.pokemon));
             }
             yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("You win, tryhard"));
+            yield return StartCoroutine(handleEvolution.DoEvolutions());
         }
         else{
             Debug.Log("something went wrong: battle was slated to end but neither side has won");

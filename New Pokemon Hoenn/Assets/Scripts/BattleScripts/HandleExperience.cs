@@ -68,6 +68,7 @@ public class HandleExperience : MonoBehaviour
 
     ///<summary>A null value for hud indicates that the mon levelling up is not currently in battle</summary>
     public IEnumerator LevelUp(Pokemon p, BattleHUD hud) {
+        HandleEvolution.MarkLevelUp(p);
         p.level++;
         int[] oldStats = new int[p.stats.Length];
         p.stats.CopyTo(oldStats, 0);

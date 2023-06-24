@@ -93,6 +93,7 @@ public class Pokemon
         this.effortValues = p.effortValues;
         this.individualValues = p.individualValues;
         this.level = p.level;
+        this.nature = p.nature;
         UpdateStats();
         this.CurrentHealth = stats[0];
         this.friendship = p.friendship;
@@ -102,12 +103,22 @@ public class Pokemon
         this.moves = new List<GameObject>(p.moves);
         this.moveMaxPP = new int[] { p.moveMaxPP[0], p.moveMaxPP[1], p.moveMaxPP[2], p.moveMaxPP[3] };
         this.movePP = new int[] {this.moveMaxPP[0], this.moveMaxPP[1], this.moveMaxPP[2], this.moveMaxPP[3]};
-        this.nature = p.nature;
         this.nickName = p.pokemonDefault.pokemonName;
         this.primaryStatus = PrimaryStatus.None;
         this.type1 = this.pokemonDefault.type1;
         this.type2 = this.pokemonDefault.type2;
         this.weight = p.weight;
+    }
+
+    public void Evolve(PokemonDefault evolveInto){
+        if(nickName == pokemonName){
+            nickName = evolveInto.pokemonName;
+        }
+        pokemonName = evolveInto.pokemonName;
+        height = UpdateHeight(evolveInto);
+        weight = UpdateWeight(evolveInto);
+        this.pokemonDefault = evolveInto;
+        FillValues();
     }
 
     public void UpdateStats()
@@ -147,7 +158,8 @@ public class Pokemon
         stats = newStats;
         if(primaryStatus != PrimaryStatus.Fainted)
         {
-            CurrentHealth += stats[0] - oldMaxHp;
+            float hpRatio = CurrentHealth / (float)oldMaxHp;
+            CurrentHealth = (int)(hpRatio * stats[0]);
         }
     }
 
@@ -304,6 +316,16 @@ public class Pokemon
         moves = new List<GameObject>{null, null, null, null}; //must put 4 nulls in to reserve the space so Capacity will report the correct value
     }
 
+    //used upon evolution
+    private void FillValues(){
+        FillSprites(this);
+        experience = pokemonDefault.CalculateExperienceAtLevel(level);
+        ability = abilitySlot == 1 ? pokemonDefault.ability1 : pokemonDefault.ability2;
+        UpdateStats();
+        type1 = pokemonDefault.type1;
+        type2 = pokemonDefault.type2;
+    }
+
     private void WildPokemonLearnMoves(PokemonDefault pokemonDefault, int level)
     {
         for(int i = level; i >= 0; i--)
@@ -343,16 +365,24 @@ public class Pokemon
         }
     }
 
-    private float MakeHeight(PokemonDefault pokemonDefault)
-    {
+    private float MakeHeight(PokemonDefault pokemonDefault){
         float rawHeight = pokemonDefault.height * Random.Range(0.8f, 1.2f);
         return (float)System.Math.Round(rawHeight, 2);
     }
 
-    private float MakeWeight(PokemonDefault pokemonDefault)
-    {
+    private float UpdateHeight(PokemonDefault pokemonDefault){
+        float heightRatio = height / this.pokemonDefault.height;
+        return (float)(System.Math.Round(heightRatio * pokemonDefault.height, 2));
+    }
+
+    private float MakeWeight(PokemonDefault pokemonDefault){
         float rawWeight = pokemonDefault.weight * Random.Range(0.75f, 1.25f);
         return (float)System.Math.Round(rawWeight, 2);
+    }
+
+    private float UpdateWeight(PokemonDefault pokemonDefault){
+        float weightRatio = weight / this.pokemonDefault.weight;
+        return (float)(System.Math.Round(weightRatio * pokemonDefault.weight, 2));
     }
 
     private int[] MakeRandomIVS()

@@ -192,6 +192,6 @@ public class BattleTestMenu : MonoBehaviour
 
     public void StartBattle(){
         gameObject.SetActive(false);
-        CombatLib.Instance.combatSystem.StartBattle(enemyParty, true, battleTypeDropdown.value == 1, new WildAI());
+        CombatLib.Instance.combatSystem.StartBattle(enemyParty, battleTypeDropdown.value == 1);
     }
 }
