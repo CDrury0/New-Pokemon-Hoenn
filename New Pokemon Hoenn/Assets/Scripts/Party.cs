@@ -21,6 +21,19 @@ public class Party
     }
 
     //add methods to retrieve info e.g. leader ability
+
+    /// <summary>
+    /// Returns the index of the first empty slot, or -1 if the party is full
+    /// </summary>
+    public int PartyIsFull(){
+        for (int i = 0; i < party.Length; i++){
+            if(party[i] == null){
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public Pokemon GetFirstAvailable(){
         foreach (Pokemon p in party){
             if(p != null && p.primaryStatus != PrimaryStatus.Fainted && !p.inBattle){

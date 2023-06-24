@@ -25,8 +25,6 @@ public class PokemonDefault : ScriptableObject
     public StatLib.EggGroup eggGroup2;
     public int eggCycles;
     public PokemonDefault childPokemon;
-    public PokemonDefault evolvesInto1;
-    public PokemonDefault evolvesInto2;
     public string pokedexEntry;
     public StatLib.Ability ability1;
     public StatLib.Ability ability2;
@@ -34,7 +32,6 @@ public class PokemonDefault : ScriptableObject
     public Sprite normalBack;
     public Sprite shinyFront;
     public Sprite shinyBack;
-    public int evolutionLevel;
     public EvoDetails evoDetails;
     public Sprite boxSprite;
     public Sprite shinyBoxSprite;
@@ -67,8 +64,16 @@ public class PokemonDefault : ScriptableObject
 [System.Serializable]
 public class EvoDetails
 {
-    public Item evolvesWithItem;
+    public int evolutionLevel;
+    public Item evolutionStone;
+    public Item evolvesWithHeldItem;
     public int evolvesWithFriendship;
-    public bool evolvesFromGender;
+    public Gender evolvesFromGender;
     public bool evolvesRandom;
+    [Tooltip("If evolution is gender-based or randomly determined, fill the relevant slots (fill this if there is only one form to evolve into)")]
+    public PokemonDefault firstOrMale;
+    [Tooltip("If evolution is gender-based or randomly determined, fill the relevant slots")]
+    public PokemonDefault secondOrFemale;
+    [Tooltip("Insert shedinja reference to indicate its use; leave null otherwise")]
+    public PokemonDefault shedinja;
 }

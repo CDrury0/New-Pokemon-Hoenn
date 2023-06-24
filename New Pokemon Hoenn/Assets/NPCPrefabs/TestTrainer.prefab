@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 8076466987143524744}
   - component: {fileID: 3042566066784129685}
   - component: {fileID: 4819224395196761987}
+  - component: {fileID: 647040502150291600}
   - component: {fileID: 408516362562542856}
   - component: {fileID: -7049907172597748719}
   - component: {fileID: -3792440079889342074}
@@ -168,7 +169,7 @@ SpriteRenderer:
   m_SortingLayerID: 728887617
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 48b45aa290f7fbd46a7be3b335821156, type: 3}
+  m_Sprite: {fileID: -781746410, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -196,7 +197,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.625, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -318,7 +319,7 @@ MonoBehaviour:
   trainerAI: {fileID: 3042566066784129685}
   trainerSprite: {fileID: 0}
   battleMusic: {fileID: 4819224395196761987}
-  victoryMusic: {fileID: 0}
+  victoryMusic: {fileID: 647040502150291600}
   trainerPartyTemplate:
   - pokemonDefault: {fileID: 11400000, guid: 1d3a37a634528e24a98864f40e8b7e75, type: 2}
     ability: 0
@@ -443,6 +444,26 @@ MonoBehaviour:
   soundToPlay: {fileID: 0}
   musicIntro: {fileID: 8300000, guid: 35e8f576111fcf743ae61c30a635a025, type: 3}
   musicLoop: {fileID: 8300000, guid: c18c6bbd2ef3d814c953cef6b26cf9bf, type: 3}
+--- !u!114 &647040502150291600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8671835066302808280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextEvent: {fileID: 0}
+  label: victory music
+  getClipsFromArea: 0
+  fadeOutMusic: 0
+  reduceMusic: 0
+  soundToPlay: {fileID: 0}
+  musicIntro: {fileID: 8300000, guid: 2fb9bd2aaa7e49445a5726b7076a7fd3, type: 3}
+  musicLoop: {fileID: 8300000, guid: fe042c86791e4f141a1e06a458644925, type: 3}
 --- !u!114 &408516362562542856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,42 +494,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 364817839153986707}
   stillSprites:
-  - {fileID: 21300000, guid: 48b45aa290f7fbd46a7be3b335821156, type: 3}
-  - {fileID: 21300000, guid: a7f6f0a9e6796944daf99875eec0dc2c, type: 3}
-  - {fileID: 21300000, guid: 9ae6ab63da4c03d4793ddaebbc29df17, type: 3}
-  - {fileID: 21300000, guid: ae3000248f2950c439f37062f16a120c, type: 3}
+  - {fileID: -781746410, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
+  - {fileID: -1819363177, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
+  - {fileID: -789779903, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
+  - {fileID: 1494018120, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
   walkUpSprites:
-  - {fileID: 21300000, guid: b8ff4f95d4a337c4facfb154d4b03ee4, type: 3}
-  - {fileID: 21300000, guid: 504124a9e6a76744aa2f8ea21ccbcd6a, type: 3}
-  - {fileID: 21300000, guid: 4500edd528387154ca3be71f4dd54688, type: 3}
-  - {fileID: 21300000, guid: 19a47acc0c4b98743b87be2d14795151, type: 3}
-  - {fileID: 21300000, guid: dc297bf81aeb5bf45a92a8325d614fb9, type: 3}
-  - {fileID: 21300000, guid: f12639e1a47e4c94da162ffb7ed67e1c, type: 3}
-  - {fileID: 21300000, guid: 352d457679991a34d93e58d1a81033cc, type: 3}
+  - {fileID: 1102913969, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
+  - {fileID: -781746410, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
+  - {fileID: -1797258283, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
+  - {fileID: -781746410, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
   walkRightSprites:
-  - {fileID: 21300000, guid: 91c5ff933f43abb4285e983745bb0e4e, type: 3}
-  - {fileID: 21300000, guid: 57d5a6f834cf5464d8b1b7e683bf43bf, type: 3}
-  - {fileID: 21300000, guid: 8f9f4916002930941a070f2b9ba5ddf0, type: 3}
-  - {fileID: 21300000, guid: 210c92abdbd11214cba75014e72c1b81, type: 3}
-  - {fileID: 21300000, guid: 13225e14bbd83234a9a56f8a0dc4b11a, type: 3}
-  - {fileID: 21300000, guid: fc1e498e9c44d544d82d1cda5f85e1d0, type: 3}
-  - {fileID: 21300000, guid: 820e5f1be3f69944f8c03d750b834db8, type: 3}
+  - {fileID: 1252005695, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
+  - {fileID: -1819363177, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
+  - {fileID: -475466124, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
+  - {fileID: -1819363177, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
   walkDownSprites:
-  - {fileID: 21300000, guid: 5faaef0aee4913447843579d43024afd, type: 3}
-  - {fileID: 21300000, guid: d2ea1cd1182d24f4eaba3d41627192e5, type: 3}
-  - {fileID: 21300000, guid: b4618277a2294394fa12feef6f6a5207, type: 3}
-  - {fileID: 21300000, guid: 743e1b4def89d864fb3eadd059ba002f, type: 3}
-  - {fileID: 21300000, guid: c8e6d912a9585d342b2af52ba4e3cf45, type: 3}
-  - {fileID: 21300000, guid: e3264b85cd832cf4d81acd1454a76bff, type: 3}
-  - {fileID: 21300000, guid: 8549737156352524a8b0099810b95ee5, type: 3}
+  - {fileID: -89131834, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
+  - {fileID: -789779903, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
+  - {fileID: -1662274975, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
+  - {fileID: -789779903, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
   walkLeftSprites:
-  - {fileID: 21300000, guid: 46cf5953cc9f67040943ecfb21ed1540, type: 3}
-  - {fileID: 21300000, guid: 67a7b267c1787c0418bd56033ee77ffd, type: 3}
-  - {fileID: 21300000, guid: 900539dea748e6d4796814b27b0e8f41, type: 3}
-  - {fileID: 21300000, guid: 92835d14b065990439b2e408acb05ced, type: 3}
-  - {fileID: 21300000, guid: 8f79934d86efc6b48ba60976c8ad48c3, type: 3}
-  - {fileID: 21300000, guid: d812914561d96824ea32de8b8d31e4a7, type: 3}
-  - {fileID: 21300000, guid: be04df86f58c3bf48909dc0960282877, type: 3}
+  - {fileID: -223497272, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
+  - {fileID: 1494018120, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
+  - {fileID: 668205097, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
+  - {fileID: 1494018120, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
   runUpSprites: []
   runRightSprites: []
   runDownSprites: []
@@ -526,7 +535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halt: 0
-  moveSpeed: 3.5
+  moveSpeed: 2.5
   movementAnimation: {fileID: -7049907172597748719}
   detectionRange: 3
   detectionCollider: {fileID: 1996657776225446619}

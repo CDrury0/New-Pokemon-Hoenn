@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class NPCMovement : MonoBehaviour
 {
     [HideInInspector] public bool halt;
-    public float moveSpeed = PlayerInput.WALKING_SPEED;
+    public float moveSpeed;
     [SerializeField] protected MovementAnimation movementAnimation;
     private Vector3 walkToPoint;
 

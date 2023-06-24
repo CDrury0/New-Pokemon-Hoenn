@@ -130,8 +130,11 @@ MonoBehaviour:
   destroyIfAlreadyDone: 0
   destroyIfTrue: {fileID: 0}
   _eventTriggerID: 0
-  eventAction: {fileID: 5457338382388120670}
-  eventIfAlreadyDone: {fileID: 0}
+  eventActions:
+  - {fileID: 5457338382388120670}
+  eventsIfAlreadyDone: []
+  movementToStop: {fileID: 0}
+  movementToFacePlayer: {fileID: 0}
 --- !u!114 &5457338382388120670
 MonoBehaviour:
   m_ObjectHideFlags: 0

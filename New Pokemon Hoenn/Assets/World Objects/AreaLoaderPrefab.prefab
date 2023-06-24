@@ -79,8 +79,11 @@ MonoBehaviour:
   destroyIfAlreadyDone: 0
   destroyIfTrue: {fileID: 0}
   _eventTriggerID: 0
-  eventAction: {fileID: 4854393945457205685}
-  eventIfAlreadyDone: {fileID: 0}
+  eventActions:
+  - {fileID: 4854393945457205685}
+  eventsIfAlreadyDone: []
+  movementToStop: {fileID: 0}
+  movementToFacePlayer: {fileID: 0}
 --- !u!114 &4854393945457205685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,9 +128,6 @@ MonoBehaviour:
   getClipsFromArea: 1
   fadeOutMusic: 1
   reduceMusic: 0
-  soundToPlay:
-    clip: {fileID: 0}
-  musicIntro:
-    clip: {fileID: 0}
-  musicLoop:
-    clip: {fileID: 0}
+  soundToPlay: {fileID: 0}
+  musicIntro: {fileID: 0}
+  musicLoop: {fileID: 0}

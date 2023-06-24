@@ -28,8 +28,10 @@ public class CombatSystem : MonoBehaviour
     [SerializeField] private EnemyAI wildAI;
     private EnemyAI enemyAI;
     [SerializeField] private AudioPlayer wildMusic;
+    [SerializeField] private AudioPlayer wildVictoryMusic;
     [SerializeField] private AudioPlayer areaMusic;
     private AudioPlayer battleMusicPlayer;
+    private AudioPlayer victoryMusicPlayer;
     private Trainer enemyTrainer;
     private BattleTarget player1;
     private BattleTarget player2;
@@ -97,6 +99,7 @@ public class CombatSystem : MonoBehaviour
         this.enemyParty = enemyParty;
         this.enemyAI = enemyAI;
         this.battleMusicPlayer = musicPlayer;
+        victoryMusicPlayer = trainerBattle ? enemyTrainer.victoryMusic : wildVictoryMusic;
 
         musicPlayer.PlaySound();
 
@@ -431,8 +434,8 @@ public class CombatSystem : MonoBehaviour
                 b.monSpriteObject.SetActive(false);
                 b.battleHUD.gameObject.SetActive(false);
                 yield return StartCoroutine(combatScreen.battleText.WriteMessage(b.GetName() + " fainted"));
-                //do xp here if fainted mon is opponent
-                if(!b.teamBattleModifier.isPlayerTeam){
+                //do xp here if fainted mon is opponent and trainer battle; xp for wild battles is handled in battle end logic
+                if(!b.teamBattleModifier.isPlayerTeam && trainerBattle){
                     yield return StartCoroutine(handleExperience.DoExperience(b.pokemon));
                 }
                 else{
@@ -537,15 +540,20 @@ public class CombatSystem : MonoBehaviour
         if(playerParty.IsEntireTeamFainted()){
             yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("You lose, moron"));
             PlayerVictory = false;
-
         }
         else if(enemyParty.IsEntireTeamFainted()){
-            yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("You win, tryhard"));
             PlayerVictory = true;
+            victoryMusicPlayer.PlaySound();
+            if(!trainerBattle){
+                //wild battle experience is handled after the battle is considered won
+                yield return StartCoroutine(handleExperience.DoExperience(enemy1.pokemon));
+            }
+            yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("You win, tryhard"));
         }
         else{
-            Debug.Log("something went wrong");
+            Debug.Log("something went wrong: battle was slated to end but neither side has won");
         }
+        //does this playSound ultimately belong here??
         areaMusic.PlaySound();
         CleanUpAfterBattle();
         combatScreen.gameObject.SetActive(false);

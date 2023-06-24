@@ -10095,10 +10095,6 @@ PrefabInstance:
       propertyPath: movementToFacePlayer
       value: 
       objectReference: {fileID: 1034144021}
-    - target: {fileID: 8506251622857169688, guid: 9585e37a25944084c98b0e26289de345, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.5
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1952026934403375189, guid: 9585e37a25944084c98b0e26289de345, type: 3}
     - {fileID: 5648014450812480962, guid: 9585e37a25944084c98b0e26289de345, type: 3}
@@ -35669,8 +35665,6 @@ GameObject:
   - component: {fileID: 598696009}
   - component: {fileID: 598696010}
   - component: {fileID: 598696012}
-  - component: {fileID: 598696013}
-  - component: {fileID: 598696014}
   m_Layer: 0
   m_Name: CombatSystem
   m_TagString: Untagged
@@ -35697,8 +35691,9 @@ MonoBehaviour:
   struggle: {fileID: 1682630347, guid: 47f9690a6d706754cb0ad7e3b9a00ba8, type: 3}
   switchAction: {fileID: 7089235823656307835, guid: 7ed4414611918e247b8bde064120ac22, type: 3}
   wildAI: {fileID: 598696012}
-  wildMusic: {fileID: 598696013}
-  areaMusic: {fileID: 598696014}
+  wildMusic: {fileID: 1901076945}
+  wildVictoryMusic: {fileID: 1901076944}
+  areaMusic: {fileID: 1901076943}
 --- !u!4 &598696005
 Transform:
   m_ObjectHideFlags: 0
@@ -35710,7 +35705,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1901076942}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -35826,46 +35822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f56b67c2ab9f0e4883909284eb2a694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &598696013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598696003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextEvent: {fileID: 0}
-  label: default wild battle music
-  getClipsFromArea: 0
-  fadeOutMusic: 0
-  reduceMusic: 0
-  soundToPlay: {fileID: 0}
-  musicIntro: {fileID: 8300000, guid: 14f77b6aafb92cd4da18b47f63e409a4, type: 3}
-  musicLoop: {fileID: 8300000, guid: 7d988362177a8654cb1e23b219d22867, type: 3}
---- !u!114 &598696014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598696003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextEvent: {fileID: 0}
-  label: area music
-  getClipsFromArea: 1
-  fadeOutMusic: 1
-  reduceMusic: 0
-  soundToPlay: {fileID: 0}
-  musicIntro: {fileID: 0}
-  musicLoop: {fileID: 0}
 --- !u!114 &599359690 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1107009910691160943, guid: 392d4d11d7550af4d8ce2a57c46b31cf, type: 3}
@@ -108780,6 +108736,100 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1901076941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1901076942}
+  - component: {fileID: 1901076945}
+  - component: {fileID: 1901076943}
+  - component: {fileID: 1901076944}
+  m_Layer: 0
+  m_Name: ReferencedCombatScriptContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1901076942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901076941}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 598696005}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1901076943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901076941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextEvent: {fileID: 0}
+  label: area music
+  getClipsFromArea: 1
+  fadeOutMusic: 1
+  reduceMusic: 0
+  soundToPlay: {fileID: 0}
+  musicIntro: {fileID: 0}
+  musicLoop: {fileID: 0}
+--- !u!114 &1901076944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901076941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextEvent: {fileID: 0}
+  label: wild victory music
+  getClipsFromArea: 0
+  fadeOutMusic: 0
+  reduceMusic: 0
+  soundToPlay: {fileID: 0}
+  musicIntro: {fileID: 8300000, guid: 2fb9bd2aaa7e49445a5726b7076a7fd3, type: 3}
+  musicLoop: {fileID: 8300000, guid: fe042c86791e4f141a1e06a458644925, type: 3}
+--- !u!114 &1901076945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901076941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextEvent: {fileID: 0}
+  label: default wild battle music
+  getClipsFromArea: 0
+  fadeOutMusic: 0
+  reduceMusic: 0
+  soundToPlay: {fileID: 0}
+  musicIntro: {fileID: 8300000, guid: 14f77b6aafb92cd4da18b47f63e409a4, type: 3}
+  musicLoop: {fileID: 8300000, guid: 7d988362177a8654cb1e23b219d22867, type: 3}
 --- !u!1 &1902147182
 GameObject:
   m_ObjectHideFlags: 0

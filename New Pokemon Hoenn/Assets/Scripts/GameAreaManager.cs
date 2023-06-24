@@ -19,7 +19,6 @@ public class GameAreaManager : MonoBehaviour
             if(!areaData.adjacentObjectPrefabs.Contains(go)){
                 GameObject toDestroy = activeGameAreas.Find(a => a.areaData.areaObjectPrefab == go).gameObject;
                 Destroy(toDestroy);
-                Resources.UnloadAsset(toDestroy);
             }
         }
 
