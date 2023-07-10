@@ -43,28 +43,42 @@ public class LearnMoveScreen : MonoBehaviour
         p.moveMaxPP[MoveReplaced] = moveData.maxPP;
     }
 
-    public IEnumerator DoLearnMoveScreen(Pokemon p, GameObject move) {
+    public IEnumerator DoLearnMoveScreen(Pokemon p, GameObject move, WriteText messageOutput = null) {
+        MoveData moveData = move.GetComponent<MoveData>();
+        
         if(p.moves.Contains(null)){
             MoveReplaced = p.moves.IndexOf(null);
             LearnMove(p, move);
-            yield break;
+        }
+        else{
+            moveToLearnDisplay.SetMoveInfo(moveData.maxPP, moveData.maxPP, moveData);
+            promptText.text = p.nickName + " is trying to learn " + moveData.moveName + ", but already knows 4 moves.";
+            moveDetailsText.text = "Select a move to learn more about it.";
+
+            for (int i = 0; i < movesKnownDisplays.Length; i++){
+                movesKnownDisplays[i].SetMoveInfo(p.movePP[i], p.moveMaxPP[i], p.moves[i].GetComponent<MoveData>());
+            }
+
+            background.SetActive(true);
+            yield return new WaitUntil(() => Proceed);
+            background.SetActive(false);
+
+            if (MoveReplaced < p.moves.Count){
+                LearnMove(p, move);
+            }
         }
 
-        MoveData moveData = move.GetComponent<MoveData>();
-        moveToLearnDisplay.SetMoveInfo(moveData.maxPP, moveData.maxPP, moveData);
-        promptText.text = p.nickName + " is trying to learn " + moveData.moveName + ", but already knows 4 moves.";
-        moveDetailsText.text = "Select a move to learn more about it.";
-
-        for (int i = 0; i < movesKnownDisplays.Length; i++){
-            movesKnownDisplays[i].SetMoveInfo(p.movePP[i], p.moveMaxPP[i], p.moves[i].GetComponent<MoveData>());
+        if(messageOutput != null){
+            yield return StartCoroutine(messageOutput.WriteMessageConfirm(
+                p.nickName + (MoveReplaced < p.moves.Count ? " learned " + moveData.moveName + "!" : " did not learn " + moveData.moveName)));
         }
+    }
 
-        background.SetActive(true);
-        yield return new WaitUntil(() => Proceed);
-        background.SetActive(false);
-        
-        if(MoveReplaced < p.moves.Count){
-            LearnMove(p, move);
-        }
+    /// <summary>
+    /// Returns null if no valid move can be learned, otherwise returns the move
+    /// </summary>
+    public static GameObject GetValidMoveToLearn(Pokemon p){
+        GameObject tentativeMove = p.pokemonDefault.learnedMoves[p.level];
+        return tentativeMove != null && !p.moves.Contains(tentativeMove) ? tentativeMove : null;
     }
 }

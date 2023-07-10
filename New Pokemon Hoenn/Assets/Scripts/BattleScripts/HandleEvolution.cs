@@ -8,6 +8,7 @@ public class HandleEvolution : MonoBehaviour
     [SerializeField] private GameObject evoScreen;
     [SerializeField] private Image monSprite;
     [SerializeField] private WriteText textObj;
+    [SerializeField] private LearnMoveScreen learnMoveScreen;
     private static List<Pokemon> didLevelUpLastBattle;
 
     void Awake(){
@@ -61,7 +62,6 @@ public class HandleEvolution : MonoBehaviour
         yield return StartCoroutine(textObj.WriteMessageConfirm(previousNickname + " is evolving!"));
         monSprite.sprite = p.frontSprite; //replace with evolution animation
         yield return StartCoroutine(textObj.WriteMessageConfirm(previousNickname + " evolved into " + p.pokemonName + "!"));
-        evoScreen.SetActive(false);
     }
 
     private IEnumerator EvolveMon(Pokemon p){
@@ -72,7 +72,11 @@ public class HandleEvolution : MonoBehaviour
             string previousNickname = p.nickName;
             p.Evolve(evolveInto);
             yield return StartCoroutine(DoEvolutionScreen(previousEvo, previousNickname, p));
-            //move learned on evolution?
+            GameObject moveToLearn = LearnMoveScreen.GetValidMoveToLearn(p);
+            if(moveToLearn != null){
+                yield return StartCoroutine(learnMoveScreen.DoLearnMoveScreen(p, moveToLearn, textObj));
+            }
+            evoScreen.SetActive(false);
         }
     }
 

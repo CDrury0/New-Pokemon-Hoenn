@@ -67,23 +67,21 @@ public class HandleExperience : MonoBehaviour
     }
 
     ///<summary>A null value for hud indicates that the mon levelling up is not currently in battle</summary>
-    public IEnumerator LevelUp(Pokemon p, BattleHUD hud) {
+    public IEnumerator LevelUp(Pokemon p, BattleHUD hud)
+    {
         HandleEvolution.MarkLevelUp(p);
         p.level++;
         int[] oldStats = new int[p.stats.Length];
         p.stats.CopyTo(oldStats, 0);
         p.UpdateStats();
-        if(hud != null){
+        if (hud != null){
             hud.SetBattleHUD(p);
         }
         yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(p.nickName + " grew to level " + p.level + "!"));
         yield return StartCoroutine(levelUpScreen.DoLevelUpScreen(oldStats, p.stats, p.nickName));
-        GameObject learnedMove = p.pokemonDefault.learnedMoves[p.level];
-        if (learnedMove != null && !p.moves.Contains(learnedMove)){
-            string moveName = learnedMove.GetComponent<MoveData>().moveName;
-            yield return StartCoroutine(learnMoveScreen.DoLearnMoveScreen(p, learnedMove));
-            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(
-                p.nickName + (learnMoveScreen.MoveReplaced < p.moves.Count ? " learned " + moveName + "!" : " did not learn " + moveName)));
+        GameObject learnedMove = LearnMoveScreen.GetValidMoveToLearn(p);
+        if (learnedMove != null){
+            yield return StartCoroutine(learnMoveScreen.DoLearnMoveScreen(p, learnedMove, CombatLib.Instance.combatScreen.battleText));
         }
     }
 

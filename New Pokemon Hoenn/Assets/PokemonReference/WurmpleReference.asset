@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 15
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 11400000, guid: 48cd6504a823a3f44b15f16c42112820, type: 2}
-  evolvesInto2: {fileID: 11400000, guid: 4d2d484700ee0be44b73251464068ed0, type: 2}
   pokedexEntry: While rather unassuming, it is quite large for a worm.
   ability1: 17
   ability2: 17
@@ -39,12 +37,16 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: ef54af037e3eb4f4e9a131b38e5a7e04, type: 3}
   shinyFront: {fileID: 21300000, guid: e61092e7e6b4c264c8f1754ca6d8f4e9, type: 3}
   shinyBack: {fileID: 21300000, guid: 2ec975b1ddea5fb4b8202d4ebeaa3c6e, type: 3}
-  evolutionLevel: 7
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 5
+    evolutionStone: {fileID: 0}
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
-    evolvesRandom: 0
+    evolvesRandom: 1
+    firstOrMale: {fileID: 11400000, guid: 48cd6504a823a3f44b15f16c42112820, type: 2}
+    secondOrFemale: {fileID: 11400000, guid: 4d2d484700ee0be44b73251464068ed0, type: 2}
+    shedinja: {fileID: 0}
   boxSprite: {fileID: 21300000, guid: fb6e57a97bc58ac4bb0101ef6e297c54, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: ad5729f35e39dcb48aad381b919e0c8e, type: 3}
   naturallyHeldItem: {fileID: 0}

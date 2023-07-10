@@ -10003,18 +10003,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1015950912208501921, guid: 9585e37a25944084c98b0e26289de345, type: 3}
-      propertyPath: movementToFacePlayer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1015950912208501921, guid: 9585e37a25944084c98b0e26289de345, type: 3}
-      propertyPath: eventActions.Array.data[0]
-      value: 
-      objectReference: {fileID: 2001427456}
-    - target: {fileID: 1946047110650870232, guid: 9585e37a25944084c98b0e26289de345, type: 3}
-      propertyPath: movementToStop
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4306619360160489709, guid: 9585e37a25944084c98b0e26289de345, type: 3}
       propertyPath: label
       value: 
@@ -10067,34 +10055,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LittlerootTown 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6837913571519164017, guid: 9585e37a25944084c98b0e26289de345, type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6837913571519164017, guid: 9585e37a25944084c98b0e26289de345, type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6837913571519164017, guid: 9585e37a25944084c98b0e26289de345, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6837913571519164017, guid: 9585e37a25944084c98b0e26289de345, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7729520913453813385, guid: 9585e37a25944084c98b0e26289de345, type: 3}
-      propertyPath: triggerMethod
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7729520913453813385, guid: 9585e37a25944084c98b0e26289de345, type: 3}
-      propertyPath: destroyIfAlreadyDone
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7729520913453813385, guid: 9585e37a25944084c98b0e26289de345, type: 3}
-      propertyPath: movementToFacePlayer
-      value: 
-      objectReference: {fileID: 1034144021}
     m_RemovedComponents:
     - {fileID: 1952026934403375189, guid: 9585e37a25944084c98b0e26289de345, type: 3}
     - {fileID: 5648014450812480962, guid: 9585e37a25944084c98b0e26289de345, type: 3}
@@ -25442,6 +25402,7 @@ MonoBehaviour:
   evoScreen: {fileID: 1632646200}
   monSprite: {fileID: 1313681663}
   textObj: {fileID: 256917850}
+  learnMoveScreen: {fileID: 1743281972}
 --- !u!4 &430473641
 Transform:
   m_ObjectHideFlags: 0
@@ -35856,8 +35817,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea919c460471d549ab93cd42d06c9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  learnMoveScreen: {fileID: 1988734514}
-  levelUpScreen: {fileID: 1720264922}
+  learnMoveScreen: {fileID: 1743281972}
+  levelUpScreen: {fileID: 1743281973}
 --- !u!114 &598696012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36189,7 +36150,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1988734514}
+      - m_Target: {fileID: 1743281972}
         m_TargetAssemblyTypeName: LearnMoveScreen, Assembly-CSharp
         m_MethodName: SetLearnedMove
         m_Mode: 3
@@ -41722,7 +41683,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1988734514}
+      - m_Target: {fileID: 1743281972}
         m_TargetAssemblyTypeName: LearnMoveScreen, Assembly-CSharp
         m_MethodName: SetLearnedMove
         m_Mode: 3
@@ -59591,17 +59552,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1790053465693428282, guid: 98d60644b4781df40a4023d479c13697, type: 3}
   m_PrefabInstance: {fileID: 1033703503}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1034144021 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1012782520027407660, guid: 9585e37a25944084c98b0e26289de345, type: 3}
-  m_PrefabInstance: {fileID: 187402535}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38d9e4e8199ca734dbaf86888bccb8f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1034305897
 GameObject:
   m_ObjectHideFlags: 0
@@ -62575,7 +62525,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1720264922}
+      - m_Target: {fileID: 1743281973}
         m_TargetAssemblyTypeName: LevelUpScreen, Assembly-CSharp
         m_MethodName: SetProceed
         m_Mode: 1
@@ -69581,70 +69531,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a7f6f0a9e6796944daf99875eec0dc2c, type: 3}
   - {fileID: 21300000, guid: 9ae6ab63da4c03d4793ddaebbc29df17, type: 3}
   - {fileID: 21300000, guid: ae3000248f2950c439f37062f16a120c, type: 3}
-  walkUpSprites:
-  - {fileID: 21300000, guid: b8ff4f95d4a337c4facfb154d4b03ee4, type: 3}
-  - {fileID: 21300000, guid: 504124a9e6a76744aa2f8ea21ccbcd6a, type: 3}
-  - {fileID: 21300000, guid: 4500edd528387154ca3be71f4dd54688, type: 3}
-  - {fileID: 21300000, guid: 19a47acc0c4b98743b87be2d14795151, type: 3}
-  - {fileID: 21300000, guid: dc297bf81aeb5bf45a92a8325d614fb9, type: 3}
-  - {fileID: 21300000, guid: f12639e1a47e4c94da162ffb7ed67e1c, type: 3}
-  - {fileID: 21300000, guid: 352d457679991a34d93e58d1a81033cc, type: 3}
-  walkRightSprites:
-  - {fileID: 21300000, guid: 91c5ff933f43abb4285e983745bb0e4e, type: 3}
-  - {fileID: 21300000, guid: 57d5a6f834cf5464d8b1b7e683bf43bf, type: 3}
-  - {fileID: 21300000, guid: 8f9f4916002930941a070f2b9ba5ddf0, type: 3}
-  - {fileID: 21300000, guid: 210c92abdbd11214cba75014e72c1b81, type: 3}
-  - {fileID: 21300000, guid: 13225e14bbd83234a9a56f8a0dc4b11a, type: 3}
-  - {fileID: 21300000, guid: fc1e498e9c44d544d82d1cda5f85e1d0, type: 3}
-  - {fileID: 21300000, guid: 820e5f1be3f69944f8c03d750b834db8, type: 3}
-  walkDownSprites:
-  - {fileID: 21300000, guid: 5faaef0aee4913447843579d43024afd, type: 3}
-  - {fileID: 21300000, guid: d2ea1cd1182d24f4eaba3d41627192e5, type: 3}
-  - {fileID: 21300000, guid: b4618277a2294394fa12feef6f6a5207, type: 3}
-  - {fileID: 21300000, guid: 743e1b4def89d864fb3eadd059ba002f, type: 3}
-  - {fileID: 21300000, guid: c8e6d912a9585d342b2af52ba4e3cf45, type: 3}
-  - {fileID: 21300000, guid: e3264b85cd832cf4d81acd1454a76bff, type: 3}
-  - {fileID: 21300000, guid: 8549737156352524a8b0099810b95ee5, type: 3}
-  walkLeftSprites:
-  - {fileID: 21300000, guid: 46cf5953cc9f67040943ecfb21ed1540, type: 3}
-  - {fileID: 21300000, guid: 67a7b267c1787c0418bd56033ee77ffd, type: 3}
-  - {fileID: 21300000, guid: 900539dea748e6d4796814b27b0e8f41, type: 3}
-  - {fileID: 21300000, guid: 92835d14b065990439b2e408acb05ced, type: 3}
-  - {fileID: 21300000, guid: 8f79934d86efc6b48ba60976c8ad48c3, type: 3}
-  - {fileID: 21300000, guid: d812914561d96824ea32de8b8d31e4a7, type: 3}
-  - {fileID: 21300000, guid: be04df86f58c3bf48909dc0960282877, type: 3}
-  runUpSprites:
-  - {fileID: 21300000, guid: b8ff4f95d4a337c4facfb154d4b03ee4, type: 3}
-  - {fileID: 21300000, guid: 504124a9e6a76744aa2f8ea21ccbcd6a, type: 3}
-  - {fileID: 21300000, guid: 4500edd528387154ca3be71f4dd54688, type: 3}
-  - {fileID: 21300000, guid: 19a47acc0c4b98743b87be2d14795151, type: 3}
-  - {fileID: 21300000, guid: dc297bf81aeb5bf45a92a8325d614fb9, type: 3}
-  - {fileID: 21300000, guid: f12639e1a47e4c94da162ffb7ed67e1c, type: 3}
-  - {fileID: 21300000, guid: 352d457679991a34d93e58d1a81033cc, type: 3}
-  runRightSprites:
-  - {fileID: 21300000, guid: 91c5ff933f43abb4285e983745bb0e4e, type: 3}
-  - {fileID: 21300000, guid: 57d5a6f834cf5464d8b1b7e683bf43bf, type: 3}
-  - {fileID: 21300000, guid: 8f9f4916002930941a070f2b9ba5ddf0, type: 3}
-  - {fileID: 21300000, guid: 210c92abdbd11214cba75014e72c1b81, type: 3}
-  - {fileID: 21300000, guid: 13225e14bbd83234a9a56f8a0dc4b11a, type: 3}
-  - {fileID: 21300000, guid: fc1e498e9c44d544d82d1cda5f85e1d0, type: 3}
-  - {fileID: 21300000, guid: 820e5f1be3f69944f8c03d750b834db8, type: 3}
-  runDownSprites:
-  - {fileID: 21300000, guid: 5faaef0aee4913447843579d43024afd, type: 3}
-  - {fileID: 21300000, guid: d2ea1cd1182d24f4eaba3d41627192e5, type: 3}
-  - {fileID: 21300000, guid: b4618277a2294394fa12feef6f6a5207, type: 3}
-  - {fileID: 21300000, guid: 743e1b4def89d864fb3eadd059ba002f, type: 3}
-  - {fileID: 21300000, guid: c8e6d912a9585d342b2af52ba4e3cf45, type: 3}
-  - {fileID: 21300000, guid: e3264b85cd832cf4d81acd1454a76bff, type: 3}
-  - {fileID: 21300000, guid: 8549737156352524a8b0099810b95ee5, type: 3}
-  runLeftSprites:
-  - {fileID: 21300000, guid: 46cf5953cc9f67040943ecfb21ed1540, type: 3}
-  - {fileID: 21300000, guid: 67a7b267c1787c0418bd56033ee77ffd, type: 3}
-  - {fileID: 21300000, guid: 900539dea748e6d4796814b27b0e8f41, type: 3}
-  - {fileID: 21300000, guid: 92835d14b065990439b2e408acb05ced, type: 3}
-  - {fileID: 21300000, guid: 8f79934d86efc6b48ba60976c8ad48c3, type: 3}
-  - {fileID: 21300000, guid: d812914561d96824ea32de8b8d31e4a7, type: 3}
-  - {fileID: 21300000, guid: be04df86f58c3bf48909dc0960282877, type: 3}
+  walkUpSprites: []
+  walkRightSprites: []
+  walkDownSprites: []
+  walkLeftSprites: []
+  runUpSprites: []
+  runRightSprites: []
+  runDownSprites: []
+  runLeftSprites: []
 --- !u!1 &1206379177
 GameObject:
   m_ObjectHideFlags: 0
@@ -81670,7 +81564,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1988734514}
+      - m_Target: {fileID: 1743281972}
         m_TargetAssemblyTypeName: LearnMoveScreen, Assembly-CSharp
         m_MethodName: SetLearnedMove
         m_Mode: 3
@@ -88304,7 +88198,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1988734514}
+      - m_Target: {fileID: 1743281972}
         m_TargetAssemblyTypeName: LearnMoveScreen, Assembly-CSharp
         m_MethodName: SetLearnedMove
         m_Mode: 3
@@ -98242,7 +98136,6 @@ GameObject:
   - component: {fileID: 1720264919}
   - component: {fileID: 1720264921}
   - component: {fileID: 1720264920}
-  - component: {fileID: 1720264922}
   m_Layer: 5
   m_Name: LevelUpScreen
   m_TagString: Untagged
@@ -98312,34 +98205,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720264918}
   m_CullTransparentMesh: 1
---- !u!114 &1720264922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1720264918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54cf3c0d00096bf44a184e3fcc3164eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  background: {fileID: 334772907}
-  nicknameText: {fileID: 956183047}
-  oldStatText:
-  - {fileID: 15068183}
-  - {fileID: 1752340028}
-  - {fileID: 46846813}
-  - {fileID: 1287781957}
-  - {fileID: 24558104}
-  - {fileID: 35297392}
-  newStatText:
-  - {fileID: 818235924}
-  - {fileID: 508938417}
-  - {fileID: 283794320}
-  - {fileID: 1082322117}
-  - {fileID: 128024007}
-  - {fileID: 648289971}
 --- !u!1 &1720601711
 GameObject:
   m_ObjectHideFlags: 0
@@ -99887,6 +99752,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1743281971}
+  - component: {fileID: 1743281972}
+  - component: {fileID: 1743281973}
   m_Layer: 0
   m_Name: LevelUpFunctions
   m_TagString: Untagged
@@ -99902,7 +99769,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743281969}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.63435996, y: 0.7758602, z: -35.04538}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -99911,6 +99778,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1743281972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743281969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a49c9e8c9ace94b985c6f0ad4d66af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 885666478}
+  moveToLearnDisplay: {fileID: 2060408583}
+  movesKnownDisplays:
+  - {fileID: 786614107}
+  - {fileID: 2143938796}
+  - {fileID: 1590939335}
+  - {fileID: 1186570928}
+  promptText: {fileID: 240026727}
+  moveDetailsText: {fileID: 535518477}
+--- !u!114 &1743281973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743281969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cf3c0d00096bf44a184e3fcc3164eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 334772907}
+  nicknameText: {fileID: 956183047}
+  oldStatText:
+  - {fileID: 15068183}
+  - {fileID: 1752340028}
+  - {fileID: 46846813}
+  - {fileID: 1287781957}
+  - {fileID: 24558104}
+  - {fileID: 35297392}
+  newStatText:
+  - {fileID: 818235924}
+  - {fileID: 508938417}
+  - {fileID: 283794320}
+  - {fileID: 1082322117}
+  - {fileID: 128024007}
+  - {fileID: 648289971}
 --- !u!1 &1743797687
 GameObject:
   m_ObjectHideFlags: 0
@@ -104152,7 +104068,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1988734514}
+      - m_Target: {fileID: 1743281972}
         m_TargetAssemblyTypeName: LearnMoveScreen, Assembly-CSharp
         m_MethodName: SetLearnedMove
         m_Mode: 3
@@ -114878,7 +114794,6 @@ GameObject:
   - component: {fileID: 1988734511}
   - component: {fileID: 1988734513}
   - component: {fileID: 1988734512}
-  - component: {fileID: 1988734514}
   m_Layer: 5
   m_Name: LearnMoveScreen
   m_TagString: Untagged
@@ -114950,27 +114865,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988734510}
   m_CullTransparentMesh: 1
---- !u!114 &1988734514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988734510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7a49c9e8c9ace94b985c6f0ad4d66af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  background: {fileID: 885666478}
-  moveToLearnDisplay: {fileID: 2060408583}
-  movesKnownDisplays:
-  - {fileID: 786614107}
-  - {fileID: 2143938796}
-  - {fileID: 1590939335}
-  - {fileID: 1186570928}
-  promptText: {fileID: 240026727}
-  moveDetailsText: {fileID: 535518477}
 --- !u!1 &1991070777
 GameObject:
   m_ObjectHideFlags: 0
@@ -115426,17 +115320,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999330576}
   m_CullTransparentMesh: 0
---- !u!114 &2001427456 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7396011981203113745, guid: 9585e37a25944084c98b0e26289de345, type: 3}
-  m_PrefabInstance: {fileID: 187402535}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb293fb4b6a05554da61be4e23aa039d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2003330295
 GameObject:
   m_ObjectHideFlags: 0

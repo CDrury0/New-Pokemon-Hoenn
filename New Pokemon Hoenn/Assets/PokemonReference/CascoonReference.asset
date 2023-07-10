@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 15
   childPokemon: {fileID: 11400000, guid: 2cd04ec9ff775a3479d81700b7e987e2, type: 2}
-  evolvesInto1: {fileID: 11400000, guid: 8885c8f887fc39345b62fd42f529e67d, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: It endures relentless attacks in this vulnerable state. Such suffering
     causes the mind to HARDEN.
   ability1: 59
@@ -40,12 +38,16 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: e16da9534583a9f4fbc6725a7c3582e0, type: 3}
   shinyFront: {fileID: 21300000, guid: ccf3690a603613f48863095a0c7cc1eb, type: 3}
   shinyBack: {fileID: 21300000, guid: cf8d7f6d4c94d244286f63a3cbcf35a1, type: 3}
-  evolutionLevel: 10
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolutionStone: {fileID: 0}
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
   boxSprite: {fileID: 21300000, guid: b824e9582b0dc2a4bb3400fe3029dfe3, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: b91a4d0e9c064b4479c799fa9e558e67, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: 70cd10740ee83754892d6d04ef7e18cd, type: 2}
@@ -57,7 +59,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 51fa44889b79cc342acb18ca4e8c5fcb, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
