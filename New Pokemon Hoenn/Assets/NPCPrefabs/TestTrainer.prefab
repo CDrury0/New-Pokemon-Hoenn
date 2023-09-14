@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c98315a3eed91c4884e071301fec9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextEvent: {fileID: 2736338909741817037}
+  nextEvent: {fileID: 0}
   toMarkComplete:
   - {fileID: 6796235339155225970}
   - {fileID: 3320399566483130915}
@@ -535,7 +535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halt: 0
-  moveSpeed: 2.5
+  moveSpeed: 2
   movementAnimation: {fileID: -7049907172597748719}
   detectionRange: 3
   detectionCollider: {fileID: 1996657776225446619}

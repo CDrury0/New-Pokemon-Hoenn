@@ -23,7 +23,6 @@ public class CombatSystem : MonoBehaviour
     public GameObject struggle;
     public GameObject switchAction;
     public bool DoubleBattle {get; private set;}
-    private bool trainerBattle;
     private Party playerParty;
     private Party enemyParty;
     [SerializeField] private EnemyAI wildAI;
@@ -59,7 +58,7 @@ public class CombatSystem : MonoBehaviour
     //for trainer battles
     public IEnumerator StartBattle(Trainer trainer){
         enemyTrainer = trainer;
-        RealStartBattle(new Party(trainer.trainerPartyTemplate), true, trainer.isDoubleBattle, trainer.trainerAI, trainer.battleMusic);
+        RealStartBattle(new Party(trainer.trainerPartyTemplate), trainer.isDoubleBattle, trainer.trainerAI, trainer.battleMusic);
         yield return new WaitUntil(() => CombatSystem.BattleActive);
         yield return new WaitUntil(() => !CombatSystem.BattleActive);
     }
@@ -67,7 +66,7 @@ public class CombatSystem : MonoBehaviour
     //for special wild encounters
     public IEnumerator StartBattle(Pokemon p, EnemyAI enemyAI, AudioPlayer encounterMusic) {
         enemyTrainer = null;
-        RealStartBattle(new Party(p), false, false, enemyAI, encounterMusic);
+        RealStartBattle(new Party(p), false, enemyAI, encounterMusic);
         yield return new WaitUntil(() => CombatSystem.BattleActive);
         yield return new WaitUntil(() => !CombatSystem.BattleActive);
     }
@@ -75,7 +74,7 @@ public class CombatSystem : MonoBehaviour
     //for normal wild battles
     public IEnumerator StartBattle(Pokemon p){
         enemyTrainer = null;
-        RealStartBattle(new Party(p), false, false, wildAI, wildMusic);
+        RealStartBattle(new Party(p), false, wildAI, wildMusic);
         yield return new WaitUntil(() => CombatSystem.BattleActive);
         yield return new WaitUntil(() => !CombatSystem.BattleActive);
         //by waiting until the battle is active BEFORE waiting until battle is inactive, 
@@ -84,11 +83,11 @@ public class CombatSystem : MonoBehaviour
 
     //only used by battle test menu
     public void StartBattle(Party enemyParty, bool doubleBattle){
-        RealStartBattle(enemyParty, true, doubleBattle, wildAI, wildMusic);
+        RealStartBattle(enemyParty, doubleBattle, wildAI, wildMusic);
     }
 
     //must start the coroutine from this monobehaviour so it doesn't matter if originating gameobject is set to inactive
-    private void RealStartBattle(Party enemyParty, bool trainerBattle, bool doubleBattle, EnemyAI enemyAI, AudioPlayer musicPlayer){
+    private void RealStartBattle(Party enemyParty, bool doubleBattle, EnemyAI enemyAI, AudioPlayer musicPlayer){
         BattleActive = true;
         TurnCount = 0;
         Weather = ReferenceLib.Instance.activeArea.weather;
@@ -96,18 +95,17 @@ public class CombatSystem : MonoBehaviour
         MoveRecordList = new MoveRecordList();
         playerParty = PlayerParty.Instance.playerParty;
         this.DoubleBattle = doubleBattle;
-        this.trainerBattle = trainerBattle;
         this.enemyParty = enemyParty;
         this.enemyAI = enemyAI;
         this.battleMusicPlayer = musicPlayer;
-        victoryMusicPlayer = trainerBattle && enemyTrainer != null ? enemyTrainer.victoryMusic : wildVictoryMusic;
+        victoryMusicPlayer = enemyTrainer != null ? enemyTrainer.victoryMusic : wildVictoryMusic;
 
         musicPlayer.PlaySound();
 
         combatScreen.SetBattleSpriteFormat(doubleBattle);
 
-        TeamBattleModifier playerTeamModifier = new TeamBattleModifier(trainerBattle, true);
-        TeamBattleModifier enemyTeamModifier = new TeamBattleModifier(trainerBattle, false);
+        TeamBattleModifier playerTeamModifier = new TeamBattleModifier(enemyTrainer != null, true);
+        TeamBattleModifier enemyTeamModifier = new TeamBattleModifier(enemyTrainer != null, false);
 
         player1 = new BattleTarget(playerTeamModifier, new IndividualBattleModifier(null), playerParty.GetFirstAvailable(), combatScreen.player1hud, combatScreen.player1Object);
         enemy1 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(null), this.enemyParty.GetFirstAvailable(), combatScreen.enemy1hud, combatScreen.enemy1Object);
@@ -436,7 +434,7 @@ public class CombatSystem : MonoBehaviour
                 b.battleHUD.gameObject.SetActive(false);
                 yield return StartCoroutine(combatScreen.battleText.WriteMessage(b.GetName() + " fainted"));
                 //do xp here if fainted mon is opponent and trainer battle; xp for wild battles is handled in battle end logic
-                if(!b.teamBattleModifier.isPlayerTeam && trainerBattle){
+                if(!b.teamBattleModifier.isPlayerTeam && enemyTrainer != null){
                     yield return StartCoroutine(handleExperience.DoExperience(b.pokemon));
                 }
                 else{
@@ -546,7 +544,7 @@ public class CombatSystem : MonoBehaviour
         else if(enemyParty.IsEntireTeamFainted()){
             PlayerVictory = true;
             victoryMusicPlayer.PlaySound();
-            if(!trainerBattle){
+            if(enemyTrainer == null){
                 //wild battle experience is handled after the battle is considered won
                 yield return StartCoroutine(handleExperience.DoExperience(enemy1.pokemon));
             }
@@ -558,8 +556,10 @@ public class CombatSystem : MonoBehaviour
         }
         //does this playSound ultimately belong here??
         areaMusic.PlaySound();
+        yield return StartCoroutine(combatScreen.endBattleFadeIn.DoEventAction());
         CleanUpAfterBattle();
         combatScreen.gameObject.SetActive(false);
+        yield return StartCoroutine(combatScreen.endBattleFadeAway.DoEventAction());
         BattleActive = false;
     }
 

@@ -100249,6 +100249,9 @@ MonoBehaviour:
   player2hud: {fileID: 776988859}
   enemy1hud: {fileID: 1726253048}
   enemy2hud: {fileID: 917650021}
+  startBattleBars: {fileID: 0}
+  endBattleFadeIn: {fileID: 1901076947}
+  endBattleFadeAway: {fileID: 1901076946}
 --- !u!1 &1752340026
 GameObject:
   m_ObjectHideFlags: 0
@@ -108626,6 +108629,8 @@ GameObject:
   - component: {fileID: 1901076945}
   - component: {fileID: 1901076943}
   - component: {fileID: 1901076944}
+  - component: {fileID: 1901076947}
+  - component: {fileID: 1901076946}
   m_Layer: 0
   m_Name: ReferencedCombatScriptContainer
   m_TagString: Untagged
@@ -108708,6 +108713,42 @@ MonoBehaviour:
   soundToPlay: {fileID: 0}
   musicIntro: {fileID: 8300000, guid: 14f77b6aafb92cd4da18b47f63e409a4, type: 3}
   musicLoop: {fileID: 8300000, guid: 7d988362177a8654cb1e23b219d22867, type: 3}
+--- !u!114 &1901076946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901076941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5f50b686ac8d74489a244cfd5f1b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextEvent: {fileID: 0}
+  reverse: 1
+  timeToWait: 1.5
+  transitionObjPrefab: {fileID: 5943331842627113238, guid: d770414f59d3fe1418dc963c34844abb, type: 3}
+  destroyOwnTransitionAfterWait: 1
+  previousTransitionToDestroy: {fileID: 1901076947}
+--- !u!114 &1901076947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901076941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5f50b686ac8d74489a244cfd5f1b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextEvent: {fileID: 0}
+  reverse: 0
+  timeToWait: 1
+  transitionObjPrefab: {fileID: 5943331842627113238, guid: d770414f59d3fe1418dc963c34844abb, type: 3}
+  destroyOwnTransitionAfterWait: 0
+  previousTransitionToDestroy: {fileID: 0}
 --- !u!1 &1902147182
 GameObject:
   m_ObjectHideFlags: 0
