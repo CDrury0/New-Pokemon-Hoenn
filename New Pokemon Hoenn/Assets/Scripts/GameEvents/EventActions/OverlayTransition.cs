@@ -12,8 +12,15 @@ public class OverlayTransition : EventAction
     [Tooltip("If not null, destroys the provided transition object immediately after this animation begins; this is useful when waiting for other actions to finish before another animation segment occurs.")]
     [SerializeField] private OverlayTransition previousTransitionToDestroy;
     private GameObject instantiatedTransitionObj;
-    protected override IEnumerator EventActionLogic()
-    {
+
+    protected override IEnumerator EventActionLogic() {
+        yield return StartCoroutine(TransitionLogic());
+    }
+
+    /// <summary>
+    /// For use outside the scope of an EventAction chain
+    /// </summary>
+    public IEnumerator TransitionLogic() {
         instantiatedTransitionObj = Instantiate(transitionObjPrefab);
         instantiatedTransitionObj.GetComponentInChildren<Animator>().SetBool("Reverse", reverse);
         previousTransitionToDestroy?.DestroyInstantiatedTransition();

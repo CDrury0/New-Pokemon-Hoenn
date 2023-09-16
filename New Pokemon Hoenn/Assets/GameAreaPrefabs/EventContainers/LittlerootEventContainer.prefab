@@ -100,6 +100,70 @@ PrefabInstance:
       propertyPath: _eventTriggerID
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: isDoubleBattle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].level
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].level
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[2].level
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].gender
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].pokemonDefault
+      value: 
+      objectReference: {fileID: 11400000, guid: 1d3a37a634528e24a98864f40e8b7e75, type: 2}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].pokemonDefault
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f21f9dae7c185a4fbd1c2cb4a76bb09, type: 2}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[2].pokemonDefault
+      value: 
+      objectReference: {fileID: 11400000, guid: c8ac0642310af6e438e85ddbd0d91f47, type: 2}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].moves.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].moves.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[2].moves.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].moves.Array.data[0]
+      value: 
+      objectReference: {fileID: 1682630347, guid: 65c4f9d76ae36f4498f4aa91e7f79211, type: 3}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].moves.Array.data[0]
+      value: 
+      objectReference: {fileID: 1682630347, guid: b5e4bd3c53903d34195350687a527563, type: 3}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].moves.Array.data[1]
+      value: 
+      objectReference: {fileID: 1682630347, guid: 9dc5d069b0fe4ef4fb2b484b8581f5d1, type: 3}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[2].moves.Array.data[0]
+      value: 
+      objectReference: {fileID: 1682630347, guid: 94b62b9c3976cbc43bb67f5541f39ae9, type: 3}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[2].moves.Array.data[1]
+      value: 
+      objectReference: {fileID: 1682630347, guid: 24e8da65a1215954abeebdb957c6b140, type: 3}
     - target: {fileID: 8671835066302808280, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: m_Name
       value: TestTrainer

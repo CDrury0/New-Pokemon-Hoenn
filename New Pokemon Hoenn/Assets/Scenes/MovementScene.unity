@@ -108727,7 +108727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextEvent: {fileID: 0}
   reverse: 1
-  timeToWait: 1.5
+  timeToWait: 1
   transitionObjPrefab: {fileID: 5943331842627113238, guid: d770414f59d3fe1418dc963c34844abb, type: 3}
   destroyOwnTransitionAfterWait: 1
   previousTransitionToDestroy: {fileID: 1901076947}

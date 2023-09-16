@@ -100,12 +100,14 @@ public class MoveAccuracyData
 {
     public float accuracy;
     public bool cannotMissVulnerable;
+    [Tooltip("Entry hazards ignore effects that would normally make a move miss, like semi-invulnerable states")]
+    public bool entryHazard;
     public SemiInvulnerable hitsSemiInvulnerable;
     public Weather bypassOnWeather;
     public float hurtsIfMiss;
 
     public bool CheckMoveHit(MoveData moveData, BattleTarget user, BattleTarget target){
-        if(moveData.targetType == TargetType.Self || moveData.targetType == TargetType.Ally){
+        if(moveData.targetType == TargetType.Self || moveData.targetType == TargetType.Ally || entryHazard){
             return true;
         }
         AppliedEffectInfo lockOnEffect = target.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyLockOn);

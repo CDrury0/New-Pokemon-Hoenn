@@ -312,29 +312,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextEvent: {fileID: 408516362562542856}
   isDoubleBattle: 0
-  trainerTitle: 
-  trainerName: 
-  victoryMessage: 
+  trainerTitle: Trainer
+  trainerName: Test
+  victoryMessage: It's over
   rewardDollars: 0
   trainerAI: {fileID: 3042566066784129685}
   trainerSprite: {fileID: 0}
   battleMusic: {fileID: 4819224395196761987}
   victoryMusic: {fileID: 647040502150291600}
+  introAnimation: {fileID: 0}
   trainerPartyTemplate:
-  - pokemonDefault: {fileID: 11400000, guid: 1d3a37a634528e24a98864f40e8b7e75, type: 2}
+  - pokemonDefault: {fileID: 0}
     ability: 0
     isShiny: 0
     ballUsed: {fileID: 0}
     effortValues: 000000000000000000000000000000000000000000000000
     individualValues: 000000000000000000000000000000000000000000000000
-    level: 5
+    level: 0
     friendship: 0
-    gender: 1
+    gender: 0
     height: 0
     weight: 0
     heldItem: {fileID: 0}
-    moves:
-    - {fileID: 1682630347, guid: 65c4f9d76ae36f4498f4aa91e7f79211, type: 3}
+    moves: []
     moveMaxPP: 00000000000000000000000000000000
     nature: 0
   - pokemonDefault: {fileID: 0}

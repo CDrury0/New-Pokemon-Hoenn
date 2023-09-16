@@ -220,7 +220,7 @@ public class MoveFunctions : MonoBehaviour
             }
         }
         else if(user.pokemon.primaryStatus == PrimaryStatus.Frozen){
-            if(Random.Range(0f, 1f) < 0.25f){
+            if (Random.Range(0f, 1f) < 0.25f){
                 yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " thawed out!"));
                 user.pokemon.primaryStatus = PrimaryStatus.None;
             }
@@ -230,11 +230,20 @@ public class MoveFunctions : MonoBehaviour
             }
         }
         AppliedEffectInfo infatuationEffect = user.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyInfatuate);
-        if(infatuationEffect != null && user.individualBattleModifier.targets.Contains(infatuationEffect.inflictor)){
-            yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " is in love with " + infatuationEffect.inflictor.GetName()));
-            if(Random.Range(0, 2) == 0){
-                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " is immobilized by love!"));
-                yield break;
+        if(infatuationEffect != null){
+            //cast the effect field to infatuate since the computer can't guarantee that on its own
+            ApplyInfatuate infatuateComponent = infatuationEffect.effect as ApplyInfatuate;
+            //remove the effect if the inflictor is no longer in the target slot
+            //this needs to be done each time a move is attempted to be used
+            infatuateComponent.RemoveIfInflictorSwitchedOut(user, infatuationEffect);
+            //the value of infatuationEffect may refer to stale data if the effect was removed in the line above
+            infatuationEffect = user.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyInfatuate);
+            if(infatuationEffect != null && user.individualBattleModifier.targets.Contains(infatuationEffect.inflictor)){
+                yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " is in love with " + infatuationEffect.inflictor.GetName()));
+                if(Random.Range(0, 2) == 0){
+                    yield return StartCoroutine(combatScreen.battleText.WriteMessage(user.GetName() + " is immobilized by love!"));
+                    yield break;
+                }
             }
         }
         if(user.individualBattleModifier.flinched){
@@ -382,7 +391,6 @@ public class MoveFunctions : MonoBehaviour
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyEndure>(battleTargets));
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyMagicCoat>(battleTargets));
         yield return StartCoroutine(DoAppliedEffectOfType<ApplySnatch>(battleTargets));
-        yield return StartCoroutine(DoAppliedEffectOfType<ApplyInfatuate>(battleTargets));
         yield return StartCoroutine(DoAppliedEffectOfType<ApplyHelpingHand>(battleTargets));
 
         ClearFlinch(battleTargets);

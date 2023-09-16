@@ -53,7 +53,7 @@ MonoBehaviour:
   hiddenPowerType: 0
   displayPower: 0
   category: 2
-  targetType: 0
+  targetType: 1
   maxPP: 20
   priority: 0
   pursuit: 0
@@ -68,6 +68,7 @@ MonoBehaviour:
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 0
+    entryHazard: 1
     hitsSemiInvulnerable: 0
     bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0

@@ -17,7 +17,9 @@ public class SerializablePokemon
     public float height;
     public float weight;
     public Item heldItem;
+    [Tooltip("Only the moves you want to specify are necessary")]
     public List<GameObject> moves;
+    [Tooltip("Leaving 0 will make the PP whatever the max is for the move at the corresponding index")]
     public int[] moveMaxPP = new int[4];
     public Nature nature;
 }

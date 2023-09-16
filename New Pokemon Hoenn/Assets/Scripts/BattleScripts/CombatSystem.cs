@@ -556,10 +556,10 @@ public class CombatSystem : MonoBehaviour
         }
         //does this playSound ultimately belong here??
         areaMusic.PlaySound();
-        yield return StartCoroutine(combatScreen.endBattleFadeIn.DoEventAction());
+        yield return StartCoroutine(combatScreen.endBattleFadeIn.TransitionLogic());
         CleanUpAfterBattle();
         combatScreen.gameObject.SetActive(false);
-        yield return StartCoroutine(combatScreen.endBattleFadeAway.DoEventAction());
+        yield return StartCoroutine(combatScreen.endBattleFadeAway.TransitionLogic());
         BattleActive = false;
     }
 
