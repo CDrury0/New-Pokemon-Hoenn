@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OverlayTransition : EventAction
+public class EventAnimation : EventAction
 {
-    [SerializeField] private bool reverse;
     [SerializeField] private float timeToWait;
     [Tooltip("The gameobject with attached animation that should be played when this event action activates")]
     [SerializeField] private GameObject transitionObjPrefab;
     [SerializeField] private bool destroyOwnTransitionAfterWait;
     [Tooltip("If not null, destroys the provided transition object immediately after this animation begins; this is useful when waiting for other actions to finish before another animation segment occurs.")]
-    [SerializeField] private OverlayTransition previousTransitionToDestroy;
+    [SerializeField] private EventAnimation previousTransitionToDestroy;
     private GameObject instantiatedTransitionObj;
 
     protected override IEnumerator EventActionLogic() {
@@ -22,7 +21,6 @@ public class OverlayTransition : EventAction
     /// </summary>
     public IEnumerator TransitionLogic() {
         instantiatedTransitionObj = Instantiate(transitionObjPrefab);
-        instantiatedTransitionObj.GetComponentInChildren<Animator>().SetBool("Reverse", reverse);
         previousTransitionToDestroy?.DestroyInstantiatedTransition();
         yield return new WaitForSeconds(timeToWait);
         if (destroyOwnTransitionAfterWait){

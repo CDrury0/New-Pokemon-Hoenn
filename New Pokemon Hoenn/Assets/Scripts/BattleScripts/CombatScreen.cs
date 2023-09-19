@@ -26,9 +26,7 @@ public class CombatScreen : MonoBehaviour
     public BattleHUD player2hud;
     public BattleHUD enemy1hud;
     public BattleHUD enemy2hud;
-    public OverlayTransition startBattleBars;
-    public OverlayTransition endBattleFadeIn;
-    public OverlayTransition endBattleFadeAway;
+    public EventAnimation barsOpening;
 
     public void SetBattleSpriteFormat(bool isDoubleBattle){
         player1hud.gameObject.SetActive(false);

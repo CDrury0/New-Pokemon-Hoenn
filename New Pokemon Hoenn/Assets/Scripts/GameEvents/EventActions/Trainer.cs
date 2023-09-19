@@ -12,7 +12,7 @@ public class Trainer : EventAction
     public Sprite trainerSprite;
     public AudioPlayer battleMusic;
     public AudioPlayer victoryMusic;
-    public OverlayTransition introAnimation;
+    public EventAnimation introAnimation;
     public SerializablePokemon[] trainerPartyTemplate = new SerializablePokemon[6];
 
     void Awake() {

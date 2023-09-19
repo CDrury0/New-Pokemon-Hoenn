@@ -30,6 +30,7 @@ public class CombatSystem : MonoBehaviour
     [SerializeField] private AudioPlayer wildMusic;
     [SerializeField] private AudioPlayer wildVictoryMusic;
     [SerializeField] private AudioPlayer areaMusic;
+    [SerializeField] private OverlayTransitionCaller transitionCaller;
     private AudioPlayer battleMusicPlayer;
     private AudioPlayer victoryMusicPlayer;
     private Trainer enemyTrainer;
@@ -55,39 +56,31 @@ public class CombatSystem : MonoBehaviour
         }
     }
 
+    //must start the coroutine from this monobehaviour so it doesn't matter if originating gameobject is set to inactive
     //for trainer battles
     public IEnumerator StartBattle(Trainer trainer){
         enemyTrainer = trainer;
-        RealStartBattle(new Party(trainer.trainerPartyTemplate), trainer.isDoubleBattle, trainer.trainerAI, trainer.battleMusic);
-        yield return new WaitUntil(() => CombatSystem.BattleActive);
-        yield return new WaitUntil(() => !CombatSystem.BattleActive);
+        yield return StartCoroutine(RealStartBattle(new Party(trainer.trainerPartyTemplate), trainer.isDoubleBattle, trainer.trainerAI, trainer.battleMusic));
     }
 
     //for special wild encounters
     public IEnumerator StartBattle(Pokemon p, EnemyAI enemyAI, AudioPlayer encounterMusic) {
         enemyTrainer = null;
-        RealStartBattle(new Party(p), false, enemyAI, encounterMusic);
-        yield return new WaitUntil(() => CombatSystem.BattleActive);
-        yield return new WaitUntil(() => !CombatSystem.BattleActive);
+        yield return StartCoroutine(RealStartBattle(new Party(p), false, enemyAI, encounterMusic));
     }
 
     //for normal wild battles
     public IEnumerator StartBattle(Pokemon p){
         enemyTrainer = null;
-        RealStartBattle(new Party(p), false, wildAI, wildMusic);
-        yield return new WaitUntil(() => CombatSystem.BattleActive);
-        yield return new WaitUntil(() => !CombatSystem.BattleActive);
-        //by waiting until the battle is active BEFORE waiting until battle is inactive, 
-        //race condition caused by asynchronous execution of coroutines is prevented
+        yield return StartCoroutine(RealStartBattle(new Party(p), false, wildAI, wildMusic));
     }
 
     //only used by battle test menu
     public void StartBattle(Party enemyParty, bool doubleBattle){
-        RealStartBattle(enemyParty, doubleBattle, wildAI, wildMusic);
+        StartCoroutine(RealStartBattle(enemyParty, doubleBattle, wildAI, wildMusic));
     }
 
-    //must start the coroutine from this monobehaviour so it doesn't matter if originating gameobject is set to inactive
-    private void RealStartBattle(Party enemyParty, bool doubleBattle, EnemyAI enemyAI, AudioPlayer musicPlayer){
+    private IEnumerator RealStartBattle(Party enemyParty, bool doubleBattle, EnemyAI enemyAI, AudioPlayer musicPlayer){
         BattleActive = true;
         TurnCount = 0;
         Weather = ReferenceLib.Instance.activeArea.weather;
@@ -121,8 +114,9 @@ public class CombatSystem : MonoBehaviour
         }
         
         BattleTargets = new List<BattleTarget>(referenceBattleTargets.FindAll(b => b.pokemon != null));
-        
+
         //replace with proper animations
+        StartCoroutine(combatScreen.barsOpening.TransitionLogic());
         combatScreen.SetStartingGraphics(BattleTargets);
         combatScreen.gameObject.SetActive(true);
 
@@ -132,6 +126,9 @@ public class CombatSystem : MonoBehaviour
         //check tag-in effects like intimidate, trace, etc.
 
         StartCoroutine(GetTurnActions());
+
+        //waits until the battle is over before releasing control to the originating event chain
+        yield return new WaitUntil(() => !BattleActive);
     }
 
     public static bool ActiveTargetCanSwitchOut(){
@@ -556,14 +553,13 @@ public class CombatSystem : MonoBehaviour
         }
         //does this playSound ultimately belong here??
         areaMusic.PlaySound();
-        yield return StartCoroutine(combatScreen.endBattleFadeIn.TransitionLogic());
-        CleanUpAfterBattle();
-        combatScreen.gameObject.SetActive(false);
-        yield return StartCoroutine(combatScreen.endBattleFadeAway.TransitionLogic());
+
+        yield return StartCoroutine(transitionCaller.CallTransitionCoroutine());
+
         BattleActive = false;
     }
 
-    private void CleanUpAfterBattle(){
+    public void CleanUpAfterBattle(){
         foreach(Pokemon p in playerParty.party){
             if(p != null){
                 p.inBattle = false;

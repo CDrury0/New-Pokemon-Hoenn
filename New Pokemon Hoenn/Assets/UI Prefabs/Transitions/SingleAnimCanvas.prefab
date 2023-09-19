@@ -87,7 +87,7 @@ Animator:
   m_GameObject: {fileID: 5943331842437421729}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 18be178d70c6084439fc2437f455c3a6, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 5943331842627113240}
   - component: {fileID: 5943331842627113241}
   m_Layer: 5
-  m_Name: TransitionCanvas
+  m_Name: SingleAnimCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,7 +157,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &5943331842627113240
 MonoBehaviour:

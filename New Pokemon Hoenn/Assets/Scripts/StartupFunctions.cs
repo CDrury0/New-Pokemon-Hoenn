@@ -24,6 +24,7 @@ public class StartupFunctions : MonoBehaviour
 
     void Awake(){
         PlayerPrefs.SetFloat("musicVolume", 1f);
+        PlayerPrefs.SetFloat("effectVolume", 1f);
     }
 
     /*private void Update()
