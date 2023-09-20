@@ -101,11 +101,27 @@ public class BattleTestMenu : MonoBehaviour
     public void ChoosePlayerMon(int which){
         partySlot = which;
         isEnemyParty = false;
+        List<Button> monSlotButtons = new List<Button>(playerPartyButtons);
+        monSlotButtons.AddRange(enemyPartyButtons);
+        for (int i = 0; i < monSlotButtons.Count; i++){
+            monSlotButtons[i].GetComponentInChildren<Text>().color = Color.white;
+            if(i == which){
+                monSlotButtons[i].GetComponentInChildren<Text>().color = Color.green;
+            }
+        }
     }
 
     public void ChooseEnemyMon(int which){
         partySlot = which;
         isEnemyParty = true;
+        List<Button> monSlotButtons = new List<Button>(playerPartyButtons);
+        monSlotButtons.AddRange(enemyPartyButtons);
+        for (int i = 0; i < monSlotButtons.Count; i++){
+            monSlotButtons[i].GetComponentInChildren<Text>().color = Color.white;
+            if(i % 6 == which && i != which){
+                monSlotButtons[i].GetComponentInChildren<Text>().color = Color.green;
+            }
+        }
     }
 
     public void ApplyMoves(){

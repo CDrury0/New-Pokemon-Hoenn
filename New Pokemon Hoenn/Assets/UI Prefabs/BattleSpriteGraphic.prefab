@@ -430,6 +430,7 @@ GameObject:
   - component: {fileID: 5889629506862394814}
   - component: {fileID: 5889629506862394813}
   - component: {fileID: 660345690240508122}
+  - component: {fileID: 90588724702252364}
   m_Layer: 5
   m_Name: BattleSpriteGraphic
   m_TagString: Untagged
@@ -509,7 +510,7 @@ Animator:
   m_GameObject: {fileID: 5889629506862394803}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18be178d70c6084439fc2437f455c3a6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -520,3 +521,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &90588724702252364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5889629506862394803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d101b701ec0174689c462239232b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 660345690240508122}
+  clip: {fileID: 0}

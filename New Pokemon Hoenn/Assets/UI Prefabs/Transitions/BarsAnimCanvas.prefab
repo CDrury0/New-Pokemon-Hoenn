@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5943331842437421730}
   - component: {fileID: 5943331842437421731}
   - component: {fileID: 5943331842437421733}
+  - component: {fileID: 6884838642087835137}
   m_Layer: 5
   m_Name: Top
   m_TagString: Untagged
@@ -87,7 +88,7 @@ Animator:
   m_GameObject: {fileID: 5943331842437421729}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 93be44547e72e30489b7cb4ea45b331d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 18be178d70c6084439fc2437f455c3a6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -98,6 +99,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6884838642087835137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5943331842437421729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d101b701ec0174689c462239232b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5943331842437421733}
+  clip: {fileID: 7400000, guid: b4ac89517beef6d488f5173deec56e1f, type: 2}
 --- !u!1 &5943331842627113238
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,6 +227,7 @@ GameObject:
   - component: {fileID: 915224866857397668}
   - component: {fileID: 2632756910712974088}
   - component: {fileID: 856320111582576847}
+  - component: {fileID: 652649870649175790}
   m_Layer: 5
   m_Name: Bottom
   m_TagString: Untagged
@@ -287,7 +303,7 @@ Animator:
   m_GameObject: {fileID: 8553702834426170982}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: dbe97e512e4bf164e9df81d2c6300f16, type: 2}
+  m_Controller: {fileID: 9100000, guid: 18be178d70c6084439fc2437f455c3a6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -298,3 +314,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &652649870649175790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8553702834426170982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d101b701ec0174689c462239232b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 856320111582576847}
+  clip: {fileID: 7400000, guid: 424616ca726e2694cbcd49b920b80de6, type: 2}

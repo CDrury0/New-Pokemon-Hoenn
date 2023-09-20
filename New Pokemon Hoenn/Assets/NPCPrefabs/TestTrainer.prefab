@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: -7049907172597748719}
   - component: {fileID: -3792440079889342074}
   - component: {fileID: 2736338909741817037}
+  - component: {fileID: 1422851680844052151}
   m_Layer: 6
   m_Name: TestTrainer
   m_TagString: Untagged
@@ -320,7 +321,7 @@ MonoBehaviour:
   trainerSprite: {fileID: 0}
   battleMusic: {fileID: 4819224395196761987}
   victoryMusic: {fileID: 647040502150291600}
-  introAnimation: {fileID: 0}
+  introAnimation: {fileID: 1422851680844052151}
   trainerPartyTemplate:
   - pokemonDefault: {fileID: 0}
     ability: 0
@@ -557,3 +558,20 @@ MonoBehaviour:
   confirmationDelaySeconds: 0
   messages:
   - man, i'm weak
+--- !u!114 &1422851680844052151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8671835066302808280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5f50b686ac8d74489a244cfd5f1b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextEvent: {fileID: 0}
+  timeToWait: 1
+  transitionObjPrefab: {fileID: 5943331842627113238, guid: 39bdca81c1f9cd845b7ae9a2e6dc12d5, type: 3}
+  destroyOwnTransitionAfterWait: 0
+  previousTransitionToDestroy: {fileID: 0}

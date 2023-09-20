@@ -60,19 +60,19 @@ public class CombatSystem : MonoBehaviour
     //for trainer battles
     public IEnumerator StartBattle(Trainer trainer){
         enemyTrainer = trainer;
-        yield return StartCoroutine(RealStartBattle(new Party(trainer.trainerPartyTemplate), trainer.isDoubleBattle, trainer.trainerAI, trainer.battleMusic));
+        yield return StartCoroutine(RealStartBattle(new Party(trainer.trainerPartyTemplate), trainer.isDoubleBattle, trainer.trainerAI, trainer.battleMusic, trainer.introAnimation));
     }
 
     //for special wild encounters
-    public IEnumerator StartBattle(Pokemon p, EnemyAI enemyAI, AudioPlayer encounterMusic) {
+    public IEnumerator StartBattle(Pokemon p, EnemyAI enemyAI, AudioPlayer encounterMusic, EventAnimation intro) {
         enemyTrainer = null;
-        yield return StartCoroutine(RealStartBattle(new Party(p), false, enemyAI, encounterMusic));
+        yield return StartCoroutine(RealStartBattle(new Party(p), false, enemyAI, encounterMusic, intro));
     }
 
     //for normal wild battles
-    public IEnumerator StartBattle(Pokemon p){
+    public IEnumerator StartBattle(Pokemon p, EventAnimation intro){
         enemyTrainer = null;
-        yield return StartCoroutine(RealStartBattle(new Party(p), false, wildAI, wildMusic));
+        yield return StartCoroutine(RealStartBattle(new Party(p), false, wildAI, wildMusic, intro));
     }
 
     //only used by battle test menu
@@ -80,7 +80,7 @@ public class CombatSystem : MonoBehaviour
         StartCoroutine(RealStartBattle(enemyParty, doubleBattle, wildAI, wildMusic));
     }
 
-    private IEnumerator RealStartBattle(Party enemyParty, bool doubleBattle, EnemyAI enemyAI, AudioPlayer musicPlayer){
+    private IEnumerator RealStartBattle(Party enemyParty, bool doubleBattle, EnemyAI enemyAI, AudioPlayer musicPlayer, EventAnimation introAnimation = null){
         BattleActive = true;
         TurnCount = 0;
         Weather = ReferenceLib.Instance.activeArea.weather;
@@ -116,7 +116,12 @@ public class CombatSystem : MonoBehaviour
         BattleTargets = new List<BattleTarget>(referenceBattleTargets.FindAll(b => b.pokemon != null));
 
         //replace with proper animations
+        if(introAnimation != null){
+            yield return StartCoroutine(introAnimation.TransitionLogic());
+            combatScreen.barsOpening.previousTransitionToDestroy = introAnimation;
+        }
         StartCoroutine(combatScreen.barsOpening.TransitionLogic());
+
         combatScreen.SetStartingGraphics(BattleTargets);
         combatScreen.gameObject.SetActive(true);
 

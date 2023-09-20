@@ -42,7 +42,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3792440079889342074, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: detectionRange
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1372461811057861201, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: m_Offset.y

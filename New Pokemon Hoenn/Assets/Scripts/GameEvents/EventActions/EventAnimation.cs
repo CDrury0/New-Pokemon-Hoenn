@@ -9,7 +9,7 @@ public class EventAnimation : EventAction
     [SerializeField] private GameObject transitionObjPrefab;
     [SerializeField] private bool destroyOwnTransitionAfterWait;
     [Tooltip("If not null, destroys the provided transition object immediately after this animation begins; this is useful when waiting for other actions to finish before another animation segment occurs.")]
-    [SerializeField] private EventAnimation previousTransitionToDestroy;
+    public EventAnimation previousTransitionToDestroy;
     private GameObject instantiatedTransitionObj;
 
     protected override IEnumerator EventActionLogic() {

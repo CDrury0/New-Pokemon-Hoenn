@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5457338382388120671}
   - component: {fileID: 4267165200606469049}
   - component: {fileID: 5457338382388120670}
+  - component: {fileID: 2280329798061860392}
   m_Layer: 0
   m_Name: GrassSpawner
   m_TagString: Untagged
@@ -148,3 +149,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextEvent: {fileID: 0}
+  encounterIntro: {fileID: 2280329798061860392}
+--- !u!114 &2280329798061860392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5457338382388120666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5f50b686ac8d74489a244cfd5f1b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextEvent: {fileID: 0}
+  timeToWait: 1
+  transitionObjPrefab: {fileID: 5943331842627113238, guid: 39bdca81c1f9cd845b7ae9a2e6dc12d5, type: 3}
+  destroyOwnTransitionAfterWait: 0
+  previousTransitionToDestroy: {fileID: 0}

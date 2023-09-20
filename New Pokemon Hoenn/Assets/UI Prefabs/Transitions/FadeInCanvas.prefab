@@ -7,10 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5943331842437421733, guid: d770414f59d3fe1418dc963c34844abb, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 22100000, guid: 5cbe12cfd427f274eb77b75ce03c974e, type: 2}
     - target: {fileID: 5943331842627113238, guid: d770414f59d3fe1418dc963c34844abb, type: 3}
       propertyPath: m_Name
       value: FadeInCanvas
@@ -99,5 +95,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8870006689026345167, guid: d770414f59d3fe1418dc963c34844abb, type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 7400000, guid: 1d83e272f892b1d498743ccbff6435cc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d770414f59d3fe1418dc963c34844abb, type: 3}
