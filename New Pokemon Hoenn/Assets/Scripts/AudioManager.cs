@@ -6,7 +6,6 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     [SerializeField] private AudioSource musicSource;
-    [SerializeField] private AudioSource soundEffectSource;
     private IEnumerator currentMusicCycle;
 
     public void PlaySoundEffect(AudioClip sound, bool reduceMusic){
@@ -35,8 +34,10 @@ public class AudioManager : MonoBehaviour
     }
 
     private void PlaySoundEffect(AudioClip sound){
+        AudioSource soundEffectSource = gameObject.AddComponent<AudioSource>();
         soundEffectSource.volume = PlayerPrefs.GetFloat("effectVolume");
         soundEffectSource.PlayOneShot(sound);
+        Destroy(soundEffectSource, sound.length);
     }
 
     public void PlayMusic(AudioClip intro, AudioClip loop, bool fadeOutMusic){
@@ -54,7 +55,7 @@ public class AudioManager : MonoBehaviour
             //(extras are created if the music is changed before the loop source can be assigned)
             AudioSource[] audioSources = GetComponents<AudioSource>();
             foreach (AudioSource a in audioSources){
-                if(a != musicSource && a != soundEffectSource){
+                if(a != musicSource){
                     Destroy(a);
                 }
             }
