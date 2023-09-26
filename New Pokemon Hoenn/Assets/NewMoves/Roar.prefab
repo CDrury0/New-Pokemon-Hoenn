@@ -50,6 +50,7 @@ MonoBehaviour:
     ends wild battles.
   moveType: 1
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 0
   category: 2
   targetType: 1
@@ -65,10 +66,11 @@ MonoBehaviour:
   notReflectedByMagicCoat: 0
   ignoresProtect: 1
   accuracyData:
-    accuracy: 1
-    cannotMissVulnerable: 0
+    accuracy: 0
+    cannotMissVulnerable: 1
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &3389681298604564181
 MonoBehaviour:

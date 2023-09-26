@@ -136,6 +136,13 @@ public class IndividualBattleModifier
         CalculateStatMultipliers();
     }
 
+    public AppliedEffectInfo GetEffectInfoOfType<T>(bool inflicting = false) where T : ApplyIndividualEffect {
+        if(inflicting){
+            return inflictingEffects.Find(e => e.effect is T);
+        }
+        return appliedEffects.Find(e => e.effect is T);
+    }
+
     public void CalculateStatMultipliers(){
         for(int i = 0; i < 5; i++)
         {

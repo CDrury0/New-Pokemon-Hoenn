@@ -8,6 +8,7 @@ public enum SemiInvulnerable { None, Airborne, Underground, Underwater }
 public enum TargetType {Self, Single, Foes, Ally, RandomFoe, All}
 public class CombatSystem : MonoBehaviour
 {
+    private bool battleEndSignal;
     public static bool BattleActive {get; private set;}
     public static bool PlayerVictory { get; private set; }
     public static Weather Weather {get; set;}
@@ -24,7 +25,7 @@ public class CombatSystem : MonoBehaviour
     public GameObject switchAction;
     public bool DoubleBattle {get; private set;}
     private Party playerParty;
-    private Party enemyParty;
+    public Party EnemyParty { get; private set; }
     [SerializeField] private EnemyAI wildAI;
     private EnemyAI enemyAI;
     [SerializeField] private AudioPlayer wildMusic;
@@ -33,7 +34,7 @@ public class CombatSystem : MonoBehaviour
     [SerializeField] private OverlayTransitionCaller transitionCaller;
     private AudioPlayer battleMusicPlayer;
     private AudioPlayer victoryMusicPlayer;
-    private Trainer enemyTrainer;
+    public static Trainer EnemyTrainer { get; private set; }
     private BattleTarget player1;
     private BattleTarget player2;
     private BattleTarget enemy1;
@@ -59,24 +60,25 @@ public class CombatSystem : MonoBehaviour
     //must start the coroutine from this monobehaviour so it doesn't matter if originating gameobject is set to inactive
     //for trainer battles
     public IEnumerator StartBattle(Trainer trainer){
-        enemyTrainer = trainer;
+        EnemyTrainer = trainer;
         yield return StartCoroutine(RealStartBattle(new Party(trainer.trainerPartyTemplate), trainer.isDoubleBattle, trainer.trainerAI, trainer.battleMusic, trainer.introAnimation));
     }
 
     //for special wild encounters
     public IEnumerator StartBattle(Pokemon p, EnemyAI enemyAI, AudioPlayer encounterMusic, EventAnimation intro) {
-        enemyTrainer = null;
+        EnemyTrainer = null;
         yield return StartCoroutine(RealStartBattle(new Party(p), false, enemyAI, encounterMusic, intro));
     }
 
     //for normal wild battles
     public IEnumerator StartBattle(Pokemon p, EventAnimation intro){
-        enemyTrainer = null;
+        EnemyTrainer = null;
         yield return StartCoroutine(RealStartBattle(new Party(p), false, wildAI, wildMusic, intro));
     }
 
     //only used by battle test menu
     public void StartBattle(Party enemyParty, bool doubleBattle){
+        EnemyTrainer = null;
         StartCoroutine(RealStartBattle(enemyParty, doubleBattle, wildAI, wildMusic));
     }
 
@@ -88,20 +90,20 @@ public class CombatSystem : MonoBehaviour
         MoveRecordList = new MoveRecordList();
         playerParty = PlayerParty.Instance.playerParty;
         this.DoubleBattle = doubleBattle;
-        this.enemyParty = enemyParty;
+        this.EnemyParty = enemyParty;
         this.enemyAI = enemyAI;
         this.battleMusicPlayer = musicPlayer;
-        victoryMusicPlayer = enemyTrainer != null ? enemyTrainer.victoryMusic : wildVictoryMusic;
+        victoryMusicPlayer = EnemyTrainer != null ? EnemyTrainer.victoryMusic : wildVictoryMusic;
 
         musicPlayer.PlaySound();
 
         combatScreen.SetBattleSpriteFormat(doubleBattle);
 
-        TeamBattleModifier playerTeamModifier = new TeamBattleModifier(enemyTrainer != null, true);
-        TeamBattleModifier enemyTeamModifier = new TeamBattleModifier(enemyTrainer != null, false);
+        TeamBattleModifier playerTeamModifier = new TeamBattleModifier(EnemyTrainer != null, true);
+        TeamBattleModifier enemyTeamModifier = new TeamBattleModifier(EnemyTrainer != null, false);
 
         player1 = new BattleTarget(playerTeamModifier, new IndividualBattleModifier(null), playerParty.GetFirstAvailable(), combatScreen.player1hud, combatScreen.player1Object);
-        enemy1 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(null), this.enemyParty.GetFirstAvailable(), combatScreen.enemy1hud, combatScreen.enemy1Object);
+        enemy1 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(null), this.EnemyParty.GetFirstAvailable(), combatScreen.enemy1hud, combatScreen.enemy1Object);
 
         player2 = new BattleTarget(playerTeamModifier, new IndividualBattleModifier(null), null, combatScreen.player2hud, combatScreen.player2Object);
         enemy2 = new BattleTarget(enemyTeamModifier, new IndividualBattleModifier(null), null, combatScreen.enemy2hud, combatScreen.enemy2Object);
@@ -115,15 +117,14 @@ public class CombatSystem : MonoBehaviour
         
         BattleTargets = new List<BattleTarget>(referenceBattleTargets.FindAll(b => b.pokemon != null));
 
-        //replace with proper animations
         if(introAnimation != null){
             yield return StartCoroutine(introAnimation.TransitionLogic());
             combatScreen.barsOpening.previousTransitionToDestroy = introAnimation;
         }
-        StartCoroutine(combatScreen.barsOpening.TransitionLogic());
-
-        combatScreen.SetStartingGraphics(BattleTargets);
         combatScreen.gameObject.SetActive(true);
+        combatScreen.SetStartingGraphics(BattleTargets);
+        yield return StartCoroutine(combatScreen.barsOpening.TransitionLogic());
+        //anims
 
         //make sure all mons active at the start of the battle are registered for experience
         handleExperience.UpdateParticipantsOnShift(BattleTargets);
@@ -141,7 +142,7 @@ public class CombatSystem : MonoBehaviour
     }
 
     public Party GetTeamParty(BattleTarget whoseTeam){
-        return whoseTeam.teamBattleModifier.isPlayerTeam ? playerParty : enemyParty;
+        return whoseTeam.teamBattleModifier.isPlayerTeam ? playerParty : EnemyParty;
     }
 
     public void OpenPartyMenu(){
@@ -308,6 +309,10 @@ public class CombatSystem : MonoBehaviour
         List<BattleTarget> turnOrder = new List<BattleTarget>(moveFunctions.GetTurnOrder(BattleTargets));
 
         for(int i = 0; i < turnOrder.Count; i++){
+            if(battleEndSignal){
+                break;
+            }
+
             ActiveTarget = turnOrder[i];
             if(!BattleTargets.Contains(ActiveTarget)){
                 continue;
@@ -345,7 +350,7 @@ public class CombatSystem : MonoBehaviour
             }
         }
 
-        if(playerParty.IsEntireTeamFainted() || enemyParty.IsEntireTeamFainted()){
+        if(playerParty.IsEntireTeamFainted() || EnemyParty.IsEntireTeamFainted() || battleEndSignal){
             yield return StartCoroutine(EndBattle());
             yield break;
         }
@@ -353,7 +358,7 @@ public class CombatSystem : MonoBehaviour
         turnOrder.RemoveAll(b => !BattleTargets.Contains(b));
         yield return StartCoroutine(moveFunctions.EndOfTurnEffects(turnOrder));
 
-        if(playerParty.IsEntireTeamFainted() || enemyParty.IsEntireTeamFainted()){
+        if(playerParty.IsEntireTeamFainted() || EnemyParty.IsEntireTeamFainted()){
             yield return StartCoroutine(EndBattle());
             yield break;
         }
@@ -423,6 +428,10 @@ public class CombatSystem : MonoBehaviour
         }
     }
 
+    public void ForceBattleEnd() {
+        battleEndSignal = true;
+    }
+
     public IEnumerator HandleFaint(){
         //IEnumerable.OrderBy sorts in ascending order, so boolean matches are listed in "reverse" order, hence the !
         List<BattleTarget> playerFirstTargets = new List<BattleTarget>(BattleTargets.OrderBy(b => !b.teamBattleModifier.isPlayerTeam).ToList());
@@ -436,7 +445,7 @@ public class CombatSystem : MonoBehaviour
                 b.battleHUD.gameObject.SetActive(false);
                 yield return StartCoroutine(combatScreen.battleText.WriteMessage(b.GetName() + " fainted"));
                 //do xp here if fainted mon is opponent and trainer battle; xp for wild battles is handled in battle end logic
-                if(!b.teamBattleModifier.isPlayerTeam && enemyTrainer != null){
+                if(!b.teamBattleModifier.isPlayerTeam && EnemyTrainer != null){
                     yield return StartCoroutine(handleExperience.DoExperience(b.pokemon));
                 }
                 else{
@@ -454,7 +463,7 @@ public class CombatSystem : MonoBehaviour
             ActiveTarget = needsReplaced;
             ActiveTarget.individualBattleModifier.switchingIn = null; //may be necessary to prevent auto-switching to mon selected before being KO'ed by pursuit
             if(!ActiveTarget.teamBattleModifier.isPlayerTeam){
-                ActiveTarget.individualBattleModifier.switchingIn = enemyAI.SelectNextPokemon(enemyParty);
+                ActiveTarget.individualBattleModifier.switchingIn = enemyAI.SelectNextPokemon(EnemyParty);
             }
             else{
                 if(playerParty.HasAvailableFighter()){
@@ -476,10 +485,9 @@ public class CombatSystem : MonoBehaviour
     }
 
     public IEnumerator SwitchPokemon(BattleTarget replacing, bool passEffects){
-        //play withdraw animation
         if(replacing.individualBattleModifier.switchingIn == null){
             if(!replacing.teamBattleModifier.isPlayerTeam){
-                replacing.individualBattleModifier.switchingIn = enemyAI.SelectNextPokemon(enemyParty);
+                replacing.individualBattleModifier.switchingIn = enemyAI.SelectNextPokemon(EnemyParty);
             }
             else{
                 partyMenu.OpenParty(false);
@@ -489,7 +497,7 @@ public class CombatSystem : MonoBehaviour
         yield return StartCoroutine(SendOutPokemon(replacing, passEffects));
     }
 
-    private IEnumerator SendOutPokemon(BattleTarget replacing, bool passEffects){
+    public IEnumerator SendOutPokemon(BattleTarget replacing, bool passEffects){
         replacing.pokemon.inBattle = false;
         MoveRecordList.RemoveAllRecordsOfUser(replacing.pokemon);
 
@@ -503,7 +511,8 @@ public class CombatSystem : MonoBehaviour
         
         replacing.battleHUD.SetBattleHUD(replacing.pokemon);
         replacing.monSpriteObject.GetComponent<Image>().sprite = replacing.teamBattleModifier.isPlayerTeam ? replacing.pokemon.backSprite : replacing.pokemon.frontSprite;
-        //replace setActives later
+        
+        //replace setActives with animations
         replacing.monSpriteObject.SetActive(true);
         replacing.battleHUD.gameObject.SetActive(true);
 
@@ -538,15 +547,16 @@ public class CombatSystem : MonoBehaviour
     }
 
     private IEnumerator EndBattle(){
+        //victory is overridden in the case of explicit loss; treat e.g. whirlwind exits as wins
+        PlayerVictory = true;
         if(playerParty.IsEntireTeamFainted()){
             yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("You lose, moron"));
             HandleEvolution.ClearMarkedLevelUps();
             PlayerVictory = false;
         }
-        else if(enemyParty.IsEntireTeamFainted()){
-            PlayerVictory = true;
+        else if(EnemyParty.IsEntireTeamFainted()){
             victoryMusicPlayer.PlaySound();
-            if(enemyTrainer == null){
+            if(EnemyTrainer == null){
                 //wild battle experience is handled after the battle is considered won
                 yield return StartCoroutine(handleExperience.DoExperience(enemy1.pokemon));
             }
@@ -554,13 +564,14 @@ public class CombatSystem : MonoBehaviour
             yield return StartCoroutine(handleEvolution.DoEvolutions());
         }
         else{
-            Debug.Log("something went wrong: battle was slated to end but neither side has won");
+            //battle was forcefully ended via e.g. whirlwind
         }
         //does this playSound ultimately belong here??
         areaMusic.PlaySound();
 
         yield return StartCoroutine(transitionCaller.CallTransitionCoroutine());
 
+        battleEndSignal = false;
         BattleActive = false;
     }
 

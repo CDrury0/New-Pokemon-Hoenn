@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Party
 {
@@ -46,11 +47,15 @@ public class Party
 
     public bool HasAvailableFighter(){
         foreach(Pokemon p in party){
-            if(p != null && p.primaryStatus != PrimaryStatus.Fainted && !p.inBattle){
+            if(CheckIsAvailableFighter(p)){
                 return true;
             }
         }
         return false;
+    }
+
+    public static bool CheckIsAvailableFighter(Pokemon p){
+        return p != null && p.primaryStatus != PrimaryStatus.Fainted && !p.inBattle;
     }
 
     public bool IsEntireTeamFainted(){

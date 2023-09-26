@@ -25,7 +25,7 @@ public class AssistEffect : CallMoveEffect, ICheckMoveFail
     private List<GameObject> GetUsableMoves(BattleTarget user, Pokemon[] allies){
         List<GameObject> usableMoves = new List<GameObject>();
         for(int i = 0; i < allies.Length; i++){
-            if(allies[i] != user.pokemon){
+            if(allies[i] != null && allies[i] != user.pokemon){
                 usableMoves.AddRange(allies[i].moves);
             }
         }
