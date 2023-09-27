@@ -22,11 +22,14 @@ public class CombatScreen : MonoBehaviour
     public GameObject enemy1Object;
     public GameObject player2Object;
     public GameObject enemy2Object;
+    public Image enemyTrainerImage;
     public BattleHUD player1hud;
     public BattleHUD player2hud;
     public BattleHUD enemy1hud;
     public BattleHUD enemy2hud;
     public EventAnimation barsOpening;
+    [SerializeField] private SingleAnimOverride playerPlatform;
+    [SerializeField] private SingleAnimOverride enemyPlatform;
 
     public void SetBattleSpriteFormat(bool isDoubleBattle){
         player1hud.gameObject.SetActive(false);
@@ -48,13 +51,55 @@ public class CombatScreen : MonoBehaviour
         }
     }
 
-    public void SetStartingGraphics(List<BattleTarget> battleTargets){
+    public void SetStartingGraphics(BattleTarget wildMon){
+        battleText.gameObject.SetActive(false);
+        enemyTrainerImage.gameObject.SetActive(CombatSystem.EnemyTrainer?.trainerSprite != null);
+        if(CombatSystem.EnemyTrainer?.trainerSprite != null){
+            enemyTrainerImage.sprite = CombatSystem.EnemyTrainer.trainerSprite;
+        }
+        else{
+            wildMon.battleHUD.SetBattleHUD(wildMon.pokemon);
+            wildMon.monSpriteObject.GetComponent<Image>().sprite = wildMon.pokemon.frontSprite;
+            wildMon.monInnerMask.color = new Color(0, 0, 0, 1);
+            wildMon.battleHUD.gameObject.SetActive(true);
+            wildMon.monSpriteObject.SetActive(true);
+        }
+        //player trainer portrait slide animation
+        playerPlatform.PlayAnimation();
+        enemyPlatform.PlayAnimation();
+    }
+
+    public IEnumerator InitialUIAnimation(BattleTarget wildMon){
+        if(CombatSystem.EnemyTrainer != null){
+            //team party counter animation
+            yield break;
+        }
+        wildMon.monInnerMask.GetComponent<SingleAnimOverride>().PlayAnimation();
+    }
+
+    public IEnumerator WriteOpeningBattleMessage(string wildMonName){
+        Trainer enemy = CombatSystem.EnemyTrainer;
+        string message = enemy == null
+        ? "A wild " + wildMonName + " appeared!"
+        : enemy.trainerTitle + " " + enemy.trainerName + " would like to battle";
+        yield return StartCoroutine(battleText.WriteMessageConfirm(message));
+    }
+
+    public IEnumerator OpeningAnimationSequence(List<BattleTarget> battleTargets){
+        //remove this when the proper animations are implemented
         foreach(BattleTarget b in battleTargets){
             b.battleHUD.SetBattleHUD(b.pokemon);
             b.monSpriteObject.GetComponent<Image>().sprite = b.teamBattleModifier.isPlayerTeam ? b.pokemon.backSprite : b.pokemon.frontSprite;
             b.battleHUD.gameObject.SetActive(true);
             b.monSpriteObject.SetActive(true);
         }
+
+        if(CombatSystem.EnemyTrainer != null){
+            StartCoroutine(enemyTrainerImage.GetComponent<SingleAnimOverride>().PlayAnimationWait());
+            //enemy send out pokemon animations
+            yield break;
+        }
+        //player send out pokemon animations
     }
 
     public void ShowMoveButtons(Pokemon p, bool[] isSelectables){

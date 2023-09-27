@@ -122,9 +122,13 @@ public class CombatSystem : MonoBehaviour
             combatScreen.barsOpening.previousTransitionToDestroy = introAnimation;
         }
         combatScreen.gameObject.SetActive(true);
-        combatScreen.SetStartingGraphics(BattleTargets);
+        combatScreen.SetStartingGraphics(enemy1);
+
         yield return StartCoroutine(combatScreen.barsOpening.TransitionLogic());
-        //anims
+        yield return StartCoroutine(combatScreen.InitialUIAnimation(enemy1));
+        yield return StartCoroutine(combatScreen.WriteOpeningBattleMessage(enemy1.pokemon.pokemonName));
+        yield return StartCoroutine(combatScreen.OpeningAnimationSequence(BattleTargets));
+
 
         //make sure all mons active at the start of the battle are registered for experience
         handleExperience.UpdateParticipantsOnShift(BattleTargets);
@@ -485,6 +489,7 @@ public class CombatSystem : MonoBehaviour
     }
 
     public IEnumerator SwitchPokemon(BattleTarget replacing, bool passEffects){
+        //withdraw animation goes in here somewhere
         if(replacing.individualBattleModifier.switchingIn == null){
             if(!replacing.teamBattleModifier.isPlayerTeam){
                 replacing.individualBattleModifier.switchingIn = enemyAI.SelectNextPokemon(EnemyParty);

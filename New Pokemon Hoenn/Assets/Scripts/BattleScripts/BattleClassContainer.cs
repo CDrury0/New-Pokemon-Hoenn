@@ -162,6 +162,7 @@ public class BattleTarget
     public IndividualBattleModifier individualBattleModifier;
     public BattleHUD battleHUD;
     public GameObject monSpriteObject;
+    public Image monInnerMask;
     public GameObject turnAction;
 
     public BattleTarget(TeamBattleModifier tbm, IndividualBattleModifier ibm, Pokemon pokemon, BattleHUD hud, GameObject monSpriteObject){
@@ -170,6 +171,7 @@ public class BattleTarget
         this.pokemon = pokemon;
         this.battleHUD = hud;
         this.monSpriteObject = monSpriteObject;
+        monInnerMask = monSpriteObject.transform.GetChild(0).GetComponent<Image>();
     }
 
     public string GetName(){
