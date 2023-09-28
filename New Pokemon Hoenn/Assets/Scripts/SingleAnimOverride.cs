@@ -5,20 +5,21 @@ using UnityEngine;
 public class SingleAnimOverride : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private AnimationClip clip;
-    [SerializeField] private bool playOnAwake = true;
-    public float ClipLength { get { return clip.length; } }
+    [SerializeField] private AnimationClip[] clips;
+    [Tooltip("Clip 0 will play on awake")] [SerializeField] private bool playOnAwake = true;
+    private AnimationClip currentClip;
+    private RuntimeAnimatorController baseController;
+    public float ClipLength { get { return currentClip.length; } }
 
     void Awake() {
-        AnimatorOverrideController overrider = new AnimatorOverrideController(animator.runtimeAnimatorController);
-        overrider["FadeIn"] = clip;
-        animator.runtimeAnimatorController = overrider;
+        baseController = animator.runtimeAnimatorController;
         if(playOnAwake){
-            PlayAnimation();
+            PlayAnimation(0);
         }
     }
 
-    public void PlayAnimation(){
+    public void PlayAnimation(int clipIndex = 0){
+        UpdateAnimation(clipIndex);
         animator.SetBool("PlayClip", true);
         StartCoroutine(SetBoolDelayed());
     }
@@ -26,9 +27,18 @@ public class SingleAnimOverride : MonoBehaviour
     /// <summary>
     /// Yields an amount of time equal to the length of the clip
     /// </summary>
-    public IEnumerator PlayAnimationWait(){
-        PlayAnimation();
+    public IEnumerator PlayAnimationWait(int clipIndex = 0){
+        PlayAnimation(clipIndex);
         yield return new WaitForSeconds(ClipLength);
+    }
+
+    private void UpdateAnimation(int clipIndex){
+        if(clips[clipIndex] != currentClip){
+            currentClip = clips[clipIndex];
+            AnimatorOverrideController overrider = new AnimatorOverrideController(baseController);
+            overrider["FadeIn"] = clips[clipIndex];
+            animator.runtimeAnimatorController = overrider;
+        }
     }
 
     private IEnumerator SetBoolDelayed(){

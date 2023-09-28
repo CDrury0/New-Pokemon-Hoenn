@@ -29536,6 +29536,14 @@ PrefabInstance:
       propertyPath: clip
       value: 
       objectReference: {fileID: 7400000, guid: aa5a692fce302134fa733f9cc66a14ce, type: 2}
+    - target: {fileID: 90588724702252364, guid: c497233659e23f5429a8a1640d28d469, type: 3}
+      propertyPath: clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 90588724702252364, guid: c497233659e23f5429a8a1640d28d469, type: 3}
+      propertyPath: clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: aa5a692fce302134fa733f9cc66a14ce, type: 2}
     - target: {fileID: 5889629504921068478, guid: c497233659e23f5429a8a1640d28d469, type: 3}
       propertyPath: m_SizeDelta.x
       value: -690.1508
@@ -35521,7 +35529,9 @@ MonoBehaviour:
   partyMenu: {fileID: 653305090}
   struggle: {fileID: 1682630347, guid: 47f9690a6d706754cb0ad7e3b9a00ba8, type: 3}
   switchAction: {fileID: 7089235823656307835, guid: 7ed4414611918e247b8bde064120ac22, type: 3}
+  failedRunAction: {fileID: 7089235823656307835, guid: 73ddfa29553482c4196b2b4d22ec29b7, type: 3}
   wildAI: {fileID: 598696012}
+  runAwaySound: {fileID: 8300000, guid: 915b69581db5bca489a6091345c3be61, type: 3}
   wildMusic: {fileID: 1901076945}
   wildVictoryMusic: {fileID: 1901076944}
   areaMusic: {fileID: 1901076943}
@@ -42844,7 +42854,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &719514699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58158,10 +58168,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1455697165}
     m_Modifications:
-    - target: {fileID: -3154145983989538125, guid: 98d60644b4781df40a4023d479c13697, type: 3}
-      propertyPath: soundToPlay
-      value: 
-      objectReference: {fileID: 8300000, guid: f2684037fb4447b4c89d1b6ad213c431, type: 3}
     - target: {fileID: 1258757795229153523, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -58288,7 +58294,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 598696004}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: RunButtonFunction
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: CombatSystem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6946998453230578199, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_text
@@ -92261,7 +92283,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1595190872}
-  clip: {fileID: 7400000, guid: 8bd3580fb6287794d9bb841269bc5171, type: 2}
+  clips:
+  - {fileID: 7400000, guid: 8bd3580fb6287794d9bb841269bc5171, type: 2}
+  - {fileID: 7400000, guid: 3743e11c6ebcfac4fb3919d563a26482, type: 2}
   playOnAwake: 0
 --- !u!95 &1595190872
 Animator:
@@ -108815,7 +108839,7 @@ MonoBehaviour:
   label: area music
   getClipsFromArea: 1
   fadeOutMusic: 1
-  reduceMusic: 0
+  musicVolumeReduction: 0
   soundToPlay: {fileID: 0}
   musicIntro: {fileID: 0}
   musicLoop: {fileID: 0}
@@ -108835,7 +108859,7 @@ MonoBehaviour:
   label: wild victory music
   getClipsFromArea: 0
   fadeOutMusic: 0
-  reduceMusic: 0
+  musicVolumeReduction: 0
   soundToPlay: {fileID: 0}
   musicIntro: {fileID: 8300000, guid: 2fb9bd2aaa7e49445a5726b7076a7fd3, type: 3}
   musicLoop: {fileID: 8300000, guid: fe042c86791e4f141a1e06a458644925, type: 3}
@@ -108855,7 +108879,7 @@ MonoBehaviour:
   label: default wild battle music
   getClipsFromArea: 0
   fadeOutMusic: 0
-  reduceMusic: 0
+  musicVolumeReduction: 0
   soundToPlay: {fileID: 0}
   musicIntro: {fileID: 8300000, guid: 14f77b6aafb92cd4da18b47f63e409a4, type: 3}
   musicLoop: {fileID: 8300000, guid: 7d988362177a8654cb1e23b219d22867, type: 3}
@@ -119323,7 +119347,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: eb48e1f24fe69b94793173a9b1745a8e, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -123536,6 +123560,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 90588724702252364, guid: c497233659e23f5429a8a1640d28d469, type: 3}
       propertyPath: clip
+      value: 
+      objectReference: {fileID: 7400000, guid: f03e3176bf089374ca74d121f047b193, type: 2}
+    - target: {fileID: 90588724702252364, guid: c497233659e23f5429a8a1640d28d469, type: 3}
+      propertyPath: clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 90588724702252364, guid: c497233659e23f5429a8a1640d28d469, type: 3}
+      propertyPath: clips.Array.data[0]
       value: 
       objectReference: {fileID: 7400000, guid: f03e3176bf089374ca74d121f047b193, type: 2}
     - target: {fileID: 5889629505698509672, guid: c497233659e23f5429a8a1640d28d469, type: 3}

@@ -112,7 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5943331842437421733}
-  clip: {fileID: 7400000, guid: b4ac89517beef6d488f5173deec56e1f, type: 2}
+  clips:
+  - {fileID: 7400000, guid: b4ac89517beef6d488f5173deec56e1f, type: 2}
+  playOnAwake: 1
 --- !u!1 &5943331842627113238
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,4 +329,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 856320111582576847}
-  clip: {fileID: 7400000, guid: 424616ca726e2694cbcd49b920b80de6, type: 2}
+  clips:
+  - {fileID: 7400000, guid: 424616ca726e2694cbcd49b920b80de6, type: 2}
+  playOnAwake: 1

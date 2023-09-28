@@ -112,7 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4328119470579245484}
-  clip: {fileID: 7400000, guid: a602e259f82cd634ebd8b202531b502a, type: 2}
+  clips:
+  - {fileID: 7400000, guid: 1d83e272f892b1d498743ccbff6435cc, type: 2}
+  - {fileID: 7400000, guid: a602e259f82cd634ebd8b202531b502a, type: 2}
   playOnAwake: 0
 --- !u!1 &3985414472081473823
 GameObject:
@@ -226,7 +228,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 433158051476933932}
-  clip: {fileID: 7400000, guid: a602e259f82cd634ebd8b202531b502a, type: 2}
+  clips:
+  - {fileID: 7400000, guid: 1d83e272f892b1d498743ccbff6435cc, type: 2}
+  - {fileID: 7400000, guid: a602e259f82cd634ebd8b202531b502a, type: 2}
   playOnAwake: 0
 --- !u!1 &5889629505488999723
 GameObject:
@@ -792,5 +796,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 660345690240508122}
-  clip: {fileID: 0}
+  clips: []
   playOnAwake: 1

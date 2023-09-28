@@ -8,20 +8,20 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource musicSource;
     private IEnumerator currentMusicCycle;
 
-    public void PlaySoundEffect(AudioClip sound, bool reduceMusic){
-        if(reduceMusic){
-            StartCoroutine(DoSoundEffectWithFade(sound));
+    public void PlaySoundEffect(AudioClip sound, float musicVolumeReduction = 0f){
+        if(musicVolumeReduction > 0f){
+            StartCoroutine(DoSoundEffectWithFade(sound, musicVolumeReduction));
             return;
         }
         PlaySoundEffect(sound);
     }
 
-    private IEnumerator DoSoundEffectWithFade(AudioClip sound){
+    private IEnumerator DoSoundEffectWithFade(AudioClip sound, float musicVolumeReduction){
         float musicStartingVolume = PlayerPrefs.GetFloat("musicVolume");
-        yield return StartCoroutine(FadeSound(musicStartingVolume, musicStartingVolume * 0.2f, 0.5f));
+        yield return StartCoroutine(FadeSound(musicStartingVolume, musicStartingVolume * (1f - musicVolumeReduction), 0.3f));
         PlaySoundEffect(sound);
         yield return new WaitForSeconds(sound.length);
-        yield return StartCoroutine(FadeSound(musicSource.volume, musicStartingVolume, 0.5f));
+        yield return StartCoroutine(FadeSound(musicSource.volume, musicStartingVolume, 0.3f));
     }
 
     private IEnumerator FadeSound(float start, float end, float timeSeconds){

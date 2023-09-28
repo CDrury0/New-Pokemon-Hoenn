@@ -9,6 +9,7 @@ public enum TargetType {Self, Single, Foes, Ally, RandomFoe, All}
 public class CombatSystem : MonoBehaviour
 {
     private bool battleEndSignal;
+    private int escapeAttempts;
     public static bool BattleActive {get; private set;}
     public static bool PlayerVictory { get; private set; }
     public static Weather Weather {get; set;}
@@ -23,11 +24,13 @@ public class CombatSystem : MonoBehaviour
     public PartyMenu partyMenu;
     public GameObject struggle;
     public GameObject switchAction;
+    public GameObject failedRunAction;
     public bool DoubleBattle {get; private set;}
     private Party playerParty;
     public Party EnemyParty { get; private set; }
     [SerializeField] private EnemyAI wildAI;
     private EnemyAI enemyAI;
+    [SerializeField] private AudioClip runAwaySound;
     [SerializeField] private AudioPlayer wildMusic;
     [SerializeField] private AudioPlayer wildVictoryMusic;
     [SerializeField] private AudioPlayer areaMusic;
@@ -85,6 +88,7 @@ public class CombatSystem : MonoBehaviour
     private IEnumerator RealStartBattle(Party enemyParty, bool doubleBattle, EnemyAI enemyAI, AudioPlayer musicPlayer, EventAnimation introAnimation = null){
         BattleActive = true;
         TurnCount = 0;
+        escapeAttempts = 0;
         Weather = ReferenceLib.Instance.activeArea.weather;
         weatherTimer = 0;
         MoveRecordList = new MoveRecordList();
@@ -158,6 +162,11 @@ public class CombatSystem : MonoBehaviour
         combatScreen.battleText.gameObject.SetActive(false);
 
         foreach(BattleTarget b in BattleTargets){
+            if(battleEndSignal){
+                yield return StartCoroutine(EndBattle());
+                yield break;
+            }
+
             ActiveTarget = b;
             if(!ActiveTarget.teamBattleModifier.isPlayerTeam){
                 //get enemyAI action
@@ -205,6 +214,38 @@ public class CombatSystem : MonoBehaviour
         else{
             Proceed = true;
         }
+    }
+
+    public void RunButtonFunction(){
+        StartCoroutine(AttemptToEscape());
+    }
+
+    private IEnumerator AttemptToEscape(){
+        escapeAttempts++;
+        if(EnemyTrainer == null){
+            combatScreen.HideActionPanel();
+            if(CheckRunAttempt(ActiveTarget.pokemon.stats[5], enemy1.pokemon.stats[5])){
+                AudioManager.Instance.PlaySoundEffect(runAwaySound);
+                yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("Got away safely"));
+                battleEndSignal = true;
+            }
+            else{
+                ActiveTarget.turnAction = failedRunAction;
+                yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("Can't escape"));
+            }
+            Proceed = true;
+            yield break;
+        }
+        yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("There's no running from a trainer battle!"));
+        combatScreen.battleText.gameObject.SetActive(false);
+    }
+
+    private bool CheckRunAttempt(int userSpeed, int enemySpeed){
+        if(ActiveTarget.pokemon.stats[5] >= enemy1.pokemon.stats[5]){
+            return true;
+        }
+        int escapeSeed = ((((userSpeed * 128) / enemySpeed) + 30) * escapeAttempts) % 256;
+        return Random.Range(0, 256) < escapeSeed;
     }
 
     private void EnableTargetButtons(){
@@ -345,6 +386,10 @@ public class CombatSystem : MonoBehaviour
 
             else if(action.CompareTag("Switch")){
                 yield return StartCoroutine(action.GetComponent<MoveEffect>().DoEffect(ActiveTarget, null, null));
+            }
+
+            else if(action.CompareTag("Run")){
+                continue;
             }
 
             yield return StartCoroutine(HandleFaint());
@@ -561,15 +606,17 @@ public class CombatSystem : MonoBehaviour
         }
         else if(EnemyParty.IsEntireTeamFainted()){
             victoryMusicPlayer.PlaySound();
-            if(EnemyTrainer == null){
+            if(EnemyTrainer != null){
+                yield return StartCoroutine(combatScreen.EndTrainerBattleSequence(EnemyTrainer));
+            }
+            else{
                 //wild battle experience is handled after the battle is considered won
                 yield return StartCoroutine(handleExperience.DoExperience(enemy1.pokemon));
             }
-            yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("You win, tryhard"));
             yield return StartCoroutine(handleEvolution.DoEvolutions());
         }
         else{
-            //battle was forcefully ended via e.g. whirlwind
+            //battle was forcefully ended via e.g. run, whirlwind
         }
         //does this playSound ultimately belong here??
         areaMusic.PlaySound();

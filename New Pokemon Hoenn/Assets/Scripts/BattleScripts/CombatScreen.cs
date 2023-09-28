@@ -74,7 +74,8 @@ public class CombatScreen : MonoBehaviour
             //team party counter animation
             yield break;
         }
-        wildMon.monInnerMask.GetComponent<SingleAnimOverride>().PlayAnimation();
+        AudioManager.Instance.PlaySoundEffect(wildMon.pokemon.pokemonDefault.cry, 0.4f);
+        yield return StartCoroutine(wildMon.monInnerMask.GetComponent<SingleAnimOverride>().PlayAnimationWait(1));
     }
 
     public IEnumerator WriteOpeningBattleMessage(string wildMonName){
@@ -100,6 +101,13 @@ public class CombatScreen : MonoBehaviour
             yield break;
         }
         //player send out pokemon animations
+    }
+
+    public IEnumerator EndTrainerBattleSequence(Trainer enemyTrainer){
+        yield return StartCoroutine(battleText.WriteMessageConfirm("Player defeated " + enemyTrainer.trainerTitle + " " + enemyTrainer.trainerName));
+        yield return StartCoroutine(enemyTrainerImage.GetComponent<SingleAnimOverride>().PlayAnimationWait(1));
+        yield return StartCoroutine(battleText.WriteMessageConfirm(enemyTrainer.victoryMessage));
+        yield return StartCoroutine(battleText.WriteMessageConfirm("Player earned $" + enemyTrainer.rewardDollars + " for winning"));
     }
 
     public void ShowMoveButtons(Pokemon p, bool[] isSelectables){
@@ -128,6 +136,10 @@ public class CombatScreen : MonoBehaviour
     public void HideMoveButtons(){
         moveButtonLayoutObject.SetActive(false);
         moveBackButton.SetActive(false);
+    }
+
+    public void HideActionPanel(){
+        battleOptionsLayoutObject.SetActive(false);
     }
 
     public void HideTargetButtons(){

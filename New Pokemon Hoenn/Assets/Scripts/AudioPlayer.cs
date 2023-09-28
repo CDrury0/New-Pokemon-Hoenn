@@ -8,7 +8,8 @@ public class AudioPlayer : EventAction
     [Tooltip("If music is taken from current GameArea, clip references are not necessary")]
     public bool getClipsFromArea;
     public bool fadeOutMusic;
-    public bool reduceMusic;
+    [Tooltip("Percentage by which to reduce the music volume while this sound effect is playing")]
+    public float musicVolumeReduction;
     public AudioClip soundToPlay;
     public AudioClip musicIntro;
     public AudioClip musicLoop;
@@ -20,7 +21,7 @@ public class AudioPlayer : EventAction
 
     public void PlaySound() {
         if(soundToPlay != null){
-            AudioManager.Instance.PlaySoundEffect(soundToPlay, reduceMusic);
+            AudioManager.Instance.PlaySoundEffect(soundToPlay, musicVolumeReduction);
             return;
         }
         else if(getClipsFromArea){

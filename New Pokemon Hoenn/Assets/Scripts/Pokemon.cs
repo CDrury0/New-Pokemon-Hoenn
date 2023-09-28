@@ -37,6 +37,9 @@ public class Pokemon
     public Item ballUsed;
     public int metLevel;
     public string metArea;
+    /// <summary>
+    /// Stats are in the order: HP, Atk, Def, Sp. Atk, Sp. Def, Speed
+    /// </summary>
     public int[] stats = new int[6];
     private int _currentHealth;
     public int CurrentHealth {

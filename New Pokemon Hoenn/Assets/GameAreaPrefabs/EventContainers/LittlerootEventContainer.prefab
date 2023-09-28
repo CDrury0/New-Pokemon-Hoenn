@@ -101,12 +101,20 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: rewardDollars
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: trainerSprite
       value: 
-      objectReference: {fileID: 21300000, guid: dd7986a832c78f24eacf5d3ffd0287c6, type: 3}
+      objectReference: {fileID: 21300000, guid: e512a4c95a2e2e543b97d7881d6bd74d, type: 3}
     - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: isDoubleBattle
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: victoryMessage
+      value: I got clapped...
       objectReference: {fileID: 0}
     - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: trainerPartyTemplate.Array.data[0].level

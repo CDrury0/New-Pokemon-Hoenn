@@ -99,5 +99,13 @@ PrefabInstance:
       propertyPath: clip
       value: 
       objectReference: {fileID: 7400000, guid: a602e259f82cd634ebd8b202531b502a, type: 2}
+    - target: {fileID: 8870006689026345167, guid: d770414f59d3fe1418dc963c34844abb, type: 3}
+      propertyPath: clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870006689026345167, guid: d770414f59d3fe1418dc963c34844abb, type: 3}
+      propertyPath: clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: a602e259f82cd634ebd8b202531b502a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d770414f59d3fe1418dc963c34844abb, type: 3}

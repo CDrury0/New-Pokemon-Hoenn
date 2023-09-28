@@ -314,7 +314,7 @@ MonoBehaviour:
   label: 
   getClipsFromArea: 0
   fadeOutMusic: 0
-  reduceMusic: 0
+  musicVolumeReduction: 0
   soundToPlay: {fileID: 8300000, guid: e69f45fa510fe8443a2563650341b4b9, type: 3}
   musicIntro: {fileID: 0}
   musicLoop: {fileID: 0}
