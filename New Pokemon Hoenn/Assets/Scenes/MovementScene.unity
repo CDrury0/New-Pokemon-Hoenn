@@ -35531,7 +35531,7 @@ MonoBehaviour:
   switchAction: {fileID: 7089235823656307835, guid: 7ed4414611918e247b8bde064120ac22, type: 3}
   failedRunAction: {fileID: 7089235823656307835, guid: 73ddfa29553482c4196b2b4d22ec29b7, type: 3}
   wildAI: {fileID: 598696012}
-  runAwaySound: {fileID: 8300000, guid: 915b69581db5bca489a6091345c3be61, type: 3}
+  runAwaySound: {fileID: 8300000, guid: 020dcdec18610474f830c9aaac1bb93e, type: 3}
   wildMusic: {fileID: 1901076945}
   wildVictoryMusic: {fileID: 1901076944}
   areaMusic: {fileID: 1901076943}
@@ -109866,6 +109866,7 @@ GameObject:
   - component: {fileID: 1934170131}
   - component: {fileID: 1934170130}
   - component: {fileID: 1934170129}
+  - component: {fileID: 1934170132}
   m_Layer: 0
   m_Name: Library
   m_TagString: Untagged
@@ -110439,6 +110440,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   intro: {fileID: 1934170130}
   outro: {fileID: 1934170129}
+--- !u!114 &1934170132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934170126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318c643879d3d1f41a53a3070f0b9443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notVeryEffective: {fileID: 8300000, guid: 050a4f04d29ea2347886eb5c39ef837b, type: 3}
+  normalEffective: {fileID: 8300000, guid: 39430069723b4db459ccf3b82df7f008, type: 3}
+  superEffective: {fileID: 8300000, guid: 63c68752d4abbe24288a4eb93efae2e6, type: 3}
 --- !u!1001 &1934502163
 PrefabInstance:
   m_ObjectHideFlags: 0

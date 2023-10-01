@@ -489,6 +489,8 @@ public class CombatSystem : MonoBehaviour
                 b.pokemon.primaryStatus = PrimaryStatus.Fainted;
                 b.individualBattleModifier = new IndividualBattleModifier(null);
                 b.pokemon.inBattle = false;
+                AudioManager.Instance.PlaySoundEffect(b.pokemon.pokemonDefault.cry, 0.4f, (s => { s.pitch = 0.8f; }));
+                yield return new WaitForSeconds(b.pokemon.pokemonDefault.cry.length);
                 //animation for fainting, remove direct sprite object change
                 b.monSpriteObject.SetActive(false);
                 b.battleHUD.gameObject.SetActive(false);

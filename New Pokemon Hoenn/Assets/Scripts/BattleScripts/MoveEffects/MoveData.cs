@@ -39,6 +39,7 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
         return moveType;
     }
 
+    //this smells terrible...
     public Pokemon.Type GetEffectiveMoveType() {
         return moveType;
     }
