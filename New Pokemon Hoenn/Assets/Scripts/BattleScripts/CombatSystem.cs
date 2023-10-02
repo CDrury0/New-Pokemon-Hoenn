@@ -494,7 +494,7 @@ public class CombatSystem : MonoBehaviour
                 //animation for fainting, remove direct sprite object change
                 b.monSpriteObject.SetActive(false);
                 b.battleHUD.gameObject.SetActive(false);
-                yield return StartCoroutine(combatScreen.battleText.WriteMessage(b.GetName() + " fainted"));
+                yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm(b.GetName() + " fainted"));
                 //do xp here if fainted mon is opponent and trainer battle; xp for wild battles is handled in battle end logic
                 if(!b.teamBattleModifier.isPlayerTeam && EnemyTrainer != null){
                     yield return StartCoroutine(handleExperience.DoExperience(b.pokemon));
