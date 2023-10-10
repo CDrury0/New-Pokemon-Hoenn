@@ -32,10 +32,10 @@ public class CombatScreen : MonoBehaviour
     [SerializeField] private SingleAnimOverride enemyPlatform;
 
     public void SetBattleSpriteFormat(bool isDoubleBattle){
-        player1hud.gameObject.SetActive(false);
-        player2hud.gameObject.SetActive(false);
-        enemy1hud.gameObject.SetActive(false);
-        enemy2hud.gameObject.SetActive(false);
+        player1hud.SlideOut();
+        player2hud.SlideOut();
+        enemy1hud.SlideOut();
+        enemy2hud.SlideOut();
 
         player1Object.SetActive(false);
         player2Object.SetActive(false);
@@ -61,24 +61,25 @@ public class CombatScreen : MonoBehaviour
             wildMon.battleHUD.SetBattleHUD(wildMon.pokemon);
             wildMon.monSpriteObject.GetComponent<Image>().sprite = wildMon.pokemon.frontSprite;
             wildMon.monInnerMask.color = new Color(0, 0, 0, 1);
-            wildMon.battleHUD.gameObject.SetActive(true);
             wildMon.monSpriteObject.SetActive(true);
+            wildMon.pokemon.inBattle = true;
         }
         //player trainer portrait slide animation
         playerPlatform.PlayAnimation();
         enemyPlatform.PlayAnimation();
     }
 
-    public IEnumerator InitialUIAnimation(BattleTarget wildMon){
+    private IEnumerator EncounterAnimation(BattleTarget wildMon){
         if(CombatSystem.EnemyTrainer != null){
             //team party counter animation
             yield break;
         }
         AudioManager.Instance.PlaySoundEffect(wildMon.pokemon.pokemonDefault.cry, 0.4f);
         yield return StartCoroutine(wildMon.monInnerMask.GetComponent<SingleAnimOverride>().PlayAnimationWait(1));
+        wildMon.battleHUD.SlideIn();
     }
 
-    public IEnumerator WriteOpeningBattleMessage(string wildMonName){
+    private IEnumerator WriteOpeningBattleMessage(string wildMonName){
         Trainer enemy = CombatSystem.EnemyTrainer;
         string message = enemy == null
         ? "A wild " + wildMonName + " appeared!"
@@ -86,17 +87,21 @@ public class CombatScreen : MonoBehaviour
         yield return StartCoroutine(battleText.WriteMessageConfirm(message));
     }
 
-    public IEnumerator OpeningAnimationSequence(List<BattleTarget> battleTargets){
+    public IEnumerator OpeningAnimationSequence(List<BattleTarget> battleTargets, BattleTarget wildMon){
+        yield return StartCoroutine(barsOpening.TransitionLogic());
+        yield return StartCoroutine(EncounterAnimation(wildMon));
+        yield return StartCoroutine(WriteOpeningBattleMessage(wildMon.pokemon.pokemonName));
+
         //remove this when the proper animations are implemented
         foreach(BattleTarget b in battleTargets){
             b.battleHUD.SetBattleHUD(b.pokemon);
             b.monSpriteObject.GetComponent<Image>().sprite = b.teamBattleModifier.isPlayerTeam ? b.pokemon.backSprite : b.pokemon.frontSprite;
-            b.battleHUD.gameObject.SetActive(true);
+            b.battleHUD.SlideIn();
             b.monSpriteObject.SetActive(true);
         }
 
         if(CombatSystem.EnemyTrainer != null){
-            StartCoroutine(enemyTrainerImage.GetComponent<SingleAnimOverride>().PlayAnimationWait());
+            enemyTrainerImage.GetComponent<SingleAnimOverride>().PlayAnimation();
             //enemy send out pokemon animations
             yield break;
         }

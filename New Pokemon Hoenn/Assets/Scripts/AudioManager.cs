@@ -8,19 +8,18 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource musicSource;
     private IEnumerator currentMusicCycle;
 
-    /// <param name="sourceMods">The instructions contained in the supplied action are executed on the source before the sound is played</param>
-    public void PlaySoundEffect(AudioClip sound, float musicVolumeReduction = 0f, System.Action<AudioSource> sourceMods = null){
+    public void PlaySoundEffect(AudioClip sound, float musicVolumeReduction = 0f, float pitchMod = 0f){
         if(musicVolumeReduction > 0f){
-            StartCoroutine(DoSoundEffectWithFade(sound, musicVolumeReduction, sourceMods));
+            StartCoroutine(DoSoundEffectWithFade(sound, musicVolumeReduction, pitchMod));
             return;
         }
-        PlaySoundEffect(sound, sourceMods);
+        PlaySoundEffect(sound, pitchMod);
     }
 
-    private IEnumerator DoSoundEffectWithFade(AudioClip sound, float musicVolumeReduction, System.Action<AudioSource> sourceMods){
+    private IEnumerator DoSoundEffectWithFade(AudioClip sound, float musicVolumeReduction, float pitchMod){
         float musicStartingVolume = PlayerPrefs.GetFloat("musicVolume");
         yield return StartCoroutine(FadeSound(musicStartingVolume, musicStartingVolume * (1f - musicVolumeReduction), 0.3f));
-        PlaySoundEffect(sound, sourceMods);
+        PlaySoundEffect(sound, pitchMod);
         yield return new WaitForSeconds(sound.length);
         yield return StartCoroutine(FadeSound(musicSource.volume, musicStartingVolume, 0.3f));
     }
@@ -34,12 +33,12 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void PlaySoundEffect(AudioClip sound, System.Action<AudioSource> sourceMods){
+    private void PlaySoundEffect(AudioClip sound, float pitchMod){
         AudioSource soundEffectSource = gameObject.AddComponent<AudioSource>();
-        sourceMods?.Invoke(soundEffectSource);
         soundEffectSource.volume = PlayerPrefs.GetFloat("effectVolume");
+        soundEffectSource.pitch *= 1f + pitchMod;
         soundEffectSource.PlayOneShot(sound);
-        Destroy(soundEffectSource, sound.length * (1f + (1f - soundEffectSource.pitch)));
+        Destroy(soundEffectSource, sound.length * (1f - pitchMod));
     }
 
     public void PlayMusic(AudioClip intro, AudioClip loop, bool fadeOutMusic){

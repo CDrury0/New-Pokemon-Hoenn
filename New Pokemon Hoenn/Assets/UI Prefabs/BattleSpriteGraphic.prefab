@@ -318,7 +318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5889629505698509673}
   - component: {fileID: 5889629505698509675}
-  - component: {fileID: 5889629505698509674}
+  - component: {fileID: 5700537078180894647}
   - component: {fileID: 7059943695275246438}
   - component: {fileID: 5374757130615587206}
   m_Layer: 5
@@ -335,7 +335,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5889629505698509672}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -357,7 +357,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5889629505698509672}
   m_CullTransparentMesh: 1
---- !u!114 &5889629505698509674
+--- !u!114 &5700537078180894647
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -427,7 +427,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 0
-  m_TargetGraphic: {fileID: 5889629505698509674}
+  m_TargetGraphic: {fileID: 5700537078180894647}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -466,7 +466,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5889629505861952758}
   - component: {fileID: 5889629505861952752}
-  - component: {fileID: 5889629505861952759}
+  - component: {fileID: 7664525640261300169}
   - component: {fileID: 6903545133281177041}
   - component: {fileID: 4859897747598846929}
   m_Layer: 5
@@ -505,7 +505,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5889629505861952757}
   m_CullTransparentMesh: 1
---- !u!114 &5889629505861952759
+--- !u!114 &7664525640261300169
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -575,7 +575,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 0
-  m_TargetGraphic: {fileID: 5889629505861952759}
+  m_TargetGraphic: {fileID: 7664525640261300169}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:

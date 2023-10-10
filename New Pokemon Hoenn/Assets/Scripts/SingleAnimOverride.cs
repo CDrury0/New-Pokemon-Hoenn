@@ -19,7 +19,13 @@ public class SingleAnimOverride : MonoBehaviour
     }
 
     public void PlayAnimation(int clipIndex = 0){
-        UpdateAnimation(clipIndex);
+        UpdateAnimation(clips[clipIndex]);
+        animator.SetBool("PlayClip", true);
+        StartCoroutine(SetBoolDelayed());
+    }
+
+    public void PlayAnimation(AnimationClip clip){
+        UpdateAnimation(clip);
         animator.SetBool("PlayClip", true);
         StartCoroutine(SetBoolDelayed());
     }
@@ -32,11 +38,19 @@ public class SingleAnimOverride : MonoBehaviour
         yield return new WaitForSeconds(ClipLength);
     }
 
-    private void UpdateAnimation(int clipIndex){
-        if(clips[clipIndex] != currentClip){
-            currentClip = clips[clipIndex];
+    /// <summary>
+    /// Yields an amount of time equal to the length of the clip
+    /// </summary>
+    public IEnumerator PlayAnimationWait(AnimationClip clip){
+        PlayAnimation(clip);
+        yield return new WaitForSeconds(ClipLength);
+    }
+
+    private void UpdateAnimation(AnimationClip clip){
+        if(clip != currentClip){
+            currentClip = clip;
             AnimatorOverrideController overrider = new AnimatorOverrideController(baseController);
-            overrider["FadeIn"] = clips[clipIndex];
+            overrider["FadeIn"] = clip;
             animator.runtimeAnimatorController = overrider;
         }
     }

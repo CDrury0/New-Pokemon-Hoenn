@@ -460,11 +460,11 @@ RectTransform:
   m_Father: {fileID: 2456657366344744946}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -57.623962, y: 37.208992}
-  m_SizeDelta: {x: 268.25, y: 46.1623}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 11.559998, y: 37.208992}
+  m_SizeDelta: {x: 267.94, y: 46.1623}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &2456657365764040709
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -520,7 +520,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36.25
+  m_fontSize: 36.2
   m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -844,6 +844,8 @@ GameObject:
   - component: {fileID: 2456657366344744948}
   - component: {fileID: 2456657366344744947}
   - component: {fileID: 2456657366344744949}
+  - component: {fileID: 7306363820114972037}
+  - component: {fileID: 4844943036993827857}
   m_Layer: 5
   m_Name: BattleHUDPrefab
   m_TagString: Untagged
@@ -931,12 +933,49 @@ MonoBehaviour:
   expBar: {fileID: 2456657364947648127}
   statusIcon: {fileID: 2456657365345312126}
   genderIcon: {fileID: 2456657366556701310}
+  animOverride: {fileID: 4844943036993827857}
   nameText: {fileID: 2456657365764040708}
   levelText: {fileID: 2456657365892609360}
   statusColors: {fileID: 11400000, guid: fb35652d0ac7f1f45abf2a84649adbf0, type: 2}
   genderSprites:
   - {fileID: 21300000, guid: 572fb196d7800b14787e38f479633131, type: 3}
   - {fileID: 21300000, guid: efcdf3031e2ec0a40b6d1f836818ecb0, type: 3}
+--- !u!95 &7306363820114972037
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2456657366344744945}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18be178d70c6084439fc2437f455c3a6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4844943036993827857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2456657366344744945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d101b701ec0174689c462239232b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 7306363820114972037}
+  clips: []
+  playOnAwake: 0
 --- !u!1 &2456657366556701308
 GameObject:
   m_ObjectHideFlags: 0

@@ -101,8 +101,6 @@ public class CombatSystem : MonoBehaviour
 
         musicPlayer.PlaySound();
 
-        combatScreen.SetBattleSpriteFormat(doubleBattle);
-
         TeamBattleModifier playerTeamModifier = new TeamBattleModifier(EnemyTrainer != null, true);
         TeamBattleModifier enemyTeamModifier = new TeamBattleModifier(EnemyTrainer != null, false);
 
@@ -126,13 +124,11 @@ public class CombatSystem : MonoBehaviour
             combatScreen.barsOpening.previousTransitionToDestroy = introAnimation;
         }
         combatScreen.gameObject.SetActive(true);
+        combatScreen.SetBattleSpriteFormat(doubleBattle);
         combatScreen.SetStartingGraphics(enemy1);
 
-        yield return StartCoroutine(combatScreen.barsOpening.TransitionLogic());
-        yield return StartCoroutine(combatScreen.InitialUIAnimation(enemy1));
-        yield return StartCoroutine(combatScreen.WriteOpeningBattleMessage(enemy1.pokemon.pokemonName));
-        yield return StartCoroutine(combatScreen.OpeningAnimationSequence(BattleTargets));
-
+        //animation!
+        yield return StartCoroutine(combatScreen.OpeningAnimationSequence(BattleTargets, enemy1));
 
         //make sure all mons active at the start of the battle are registered for experience
         handleExperience.UpdateParticipantsOnShift(BattleTargets);
@@ -489,11 +485,14 @@ public class CombatSystem : MonoBehaviour
                 b.pokemon.primaryStatus = PrimaryStatus.Fainted;
                 b.individualBattleModifier = new IndividualBattleModifier(null);
                 b.pokemon.inBattle = false;
-                AudioManager.Instance.PlaySoundEffect(b.pokemon.pokemonDefault.cry, 0.4f, (s => { s.pitch = 0.8f; }));
-                yield return new WaitForSeconds(b.pokemon.pokemonDefault.cry.length);
+
+                //magic numbers...
+                AudioManager.Instance.PlaySoundEffect(b.pokemon.pokemonDefault.cry, 0.4f, -0.2f);
+                yield return new WaitForSeconds(b.pokemon.pokemonDefault.cry.length * 1.4f);
+
                 //animation for fainting, remove direct sprite object change
                 b.monSpriteObject.SetActive(false);
-                b.battleHUD.gameObject.SetActive(false);
+                b.battleHUD.SlideOut();
                 yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm(b.GetName() + " fainted"));
                 //do xp here if fainted mon is opponent and trainer battle; xp for wild battles is handled in battle end logic
                 if(!b.teamBattleModifier.isPlayerTeam && EnemyTrainer != null){
@@ -566,7 +565,7 @@ public class CombatSystem : MonoBehaviour
         
         //replace setActives with animations
         replacing.monSpriteObject.SetActive(true);
-        replacing.battleHUD.gameObject.SetActive(true);
+        replacing.battleHUD.SlideIn();
 
         handleExperience.UpdateParticipantsOnShift(BattleTargets);
 

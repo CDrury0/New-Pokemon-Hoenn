@@ -10,6 +10,7 @@ public class BattleHUD : MonoBehaviour
     public ExpBar expBar;
     public Image statusIcon;
     public Image genderIcon;
+    [SerializeField] private SingleAnimOverride animOverride;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI levelText;
     public ColorSO statusColors;
@@ -24,12 +25,27 @@ public class BattleHUD : MonoBehaviour
         levelText.text = "Lv. " + p.level;
     }
 
+    public void SlideIn(){
+        gameObject.SetActive(true);
+        animOverride.PlayAnimation(0);
+    }
+
+    public void SlideOut(){
+        if(gameObject.activeInHierarchy){
+            StartCoroutine(SlideOutCoroutine());
+        }
+    }
+
+    private IEnumerator SlideOutCoroutine(){
+        yield return StartCoroutine(animOverride.PlayAnimationWait(1));
+        gameObject.SetActive(false);
+    }
+
     private void SetStatusIcon(PrimaryStatus status){
         if(status == PrimaryStatus.None){
             statusIcon.gameObject.SetActive(false);
             return;
-        }
-        
+        } 
         statusIcon.color = statusColors.colors[(int)status];
         statusIcon.GetComponentInChildren<TextMeshProUGUI>(true).text = status.ToString();
         statusIcon.gameObject.SetActive(true);
