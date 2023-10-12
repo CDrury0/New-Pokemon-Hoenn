@@ -13,7 +13,18 @@ public class OverlayTransitionManager : MonoBehaviour
         StartCoroutine(TransitionCoroutine(action));
     }
 
+    public void DoTransitionWithAction(System.Action action){
+        StartCoroutine(TransitionCoroutine(action));
+    }
+
+    //unfortunately this overload is necessary because the Invoke method existing on both types is a coincidence; they have no common base class
     public IEnumerator TransitionCoroutine(UnityEvent action) {
+        yield return StartCoroutine(intro.TransitionLogic());
+        action?.Invoke();
+        yield return StartCoroutine(outro.TransitionLogic());
+    }
+
+    public IEnumerator TransitionCoroutine(System.Action action) {
         yield return StartCoroutine(intro.TransitionLogic());
         action?.Invoke();
         yield return StartCoroutine(outro.TransitionLogic());

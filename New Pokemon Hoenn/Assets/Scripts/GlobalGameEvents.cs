@@ -8,7 +8,7 @@ public enum EncounterType { Grass, Surf, Rod_Old, Rod_Good, Rod_Super}
 public static class GlobalGameEvents
 {
     public static float[] playerPosition;
-    public static List<Item> globalPlayerInventory;
+    public static List<ItemDataSO> globalPlayerInventory;
     public static DexStatus[] globalDexProgress = new DexStatus[215];
 
     public static float GetBattleEncounterChance()

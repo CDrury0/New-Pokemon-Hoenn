@@ -35,7 +35,7 @@ public class PokemonDefault : ScriptableObject
     public EvoDetails evoDetails;
     public Sprite boxSprite;
     public Sprite shinyBoxSprite;
-    public Item naturallyHeldItem;
+    public ItemDataSO naturallyHeldItem;
     public AreaData lastSeen;
     public int[] evYield = new int[6];
     public GameObject[] learnedMoves;
@@ -65,8 +65,8 @@ public class PokemonDefault : ScriptableObject
 public class EvoDetails
 {
     public int evolutionLevel;
-    public Item evolutionStone;
-    public Item evolvesWithHeldItem;
+    public ItemDataSO evolutionStone;
+    public ItemDataSO evolvesWithHeldItem;
     public int evolvesWithFriendship;
     public bool evolvesFromGender;
     public bool evolvesRandom;
