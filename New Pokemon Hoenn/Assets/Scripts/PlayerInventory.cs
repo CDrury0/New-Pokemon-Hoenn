@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public ItemDataSO.ItemPocket sortThisType;
-    public ItemDataSO[] itemReference;
+    public ItemData.ItemPocket sortThisType;
+    public ItemData[] itemReference;
 
 }

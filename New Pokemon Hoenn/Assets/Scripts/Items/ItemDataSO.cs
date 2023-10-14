@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemDataSO : ScriptableObject
+public class ItemData : ScriptableObject
 {
     public GameObject itemLogicGO;
     public enum ItemPocket {Item, Berry, Key, Ball, Machine}

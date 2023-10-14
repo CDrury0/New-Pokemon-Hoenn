@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemLogic : MonoBehaviour
 {
-    public ItemDataSO itemData;
+    public ItemData itemData;
     [Tooltip("If null, the item cannot be held")]
     public HeldItem heldItem;
     [Tooltip("If length is 0, the item cannot be used during battle")]
