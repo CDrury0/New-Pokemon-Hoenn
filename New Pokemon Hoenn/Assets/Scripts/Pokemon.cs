@@ -22,7 +22,7 @@ public class Pokemon
     public Sprite frontSprite;
     public Sprite backSprite;
     public Sprite boxSprite;
-    public Item heldItem;
+    public ItemData heldItem;
     public int friendship;
     public int level;
     public int experience;
@@ -34,7 +34,7 @@ public class Pokemon
     public Gender gender;
     public int abilitySlot;
     public StatLib.Ability ability;
-    public Item ballUsed;
+    public ItemData ballUsed;
     public int metLevel;
     public string metArea;
     /// <summary>
@@ -347,7 +347,7 @@ public class Pokemon
         }
     }
 
-    private Item MakeHeldItem(Item heldItem)
+    private ItemData MakeHeldItem(ItemData heldItem)
     {
         return heldItem != null && Random.Range(0, 10) == 0 ? heldItem : null;
     }

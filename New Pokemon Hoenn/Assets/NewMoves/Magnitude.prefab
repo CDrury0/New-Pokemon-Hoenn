@@ -50,6 +50,7 @@ MonoBehaviour:
     targets.
   moveType: 9
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 0
   category: 0
   targetType: 5
@@ -63,22 +64,13 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
+  ignoresProtect: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 2
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &5475414724097605788
 MonoBehaviour:
@@ -106,6 +98,7 @@ MonoBehaviour:
   bonusFromCurl: 0
   bonusLikeRollout: 0
   cannotKO: 0
+  cannotCrit: 0
   bonusAgainstMinimize: 0
   bonusAgainstSemiInvulnerable: 2
   bonusAgainstStatus: 0
@@ -114,16 +107,16 @@ MonoBehaviour:
   piecewiseDamage:
     piecewisePairs:
     - key: 4
-      powerValue: 20
+      powerValue: 25
     - key: 5
-      powerValue: 30
+      powerValue: 40
     - key: 6
-      powerValue: 50
+      powerValue: 55
     - key: 7
       powerValue: 70
     - key: 8
-      powerValue: 90
+      powerValue: 85
     - key: 9
-      powerValue: 110
+      powerValue: 100
     - key: 10
-      powerValue: 120
+      powerValue: 110

@@ -155,7 +155,7 @@ public class MoveFunctions : MonoBehaviour
         int critStages = user.individualBattleModifier.statStages[7] + 1;
         critStages += highCritRate ? 1 : 0;
         //add to critStages for scope lens and other crit boosters
-        float critRatio = 1f / (16f / (float)critStages);
+        float critRatio = 1f / (24f / ((float)critStages * 2));
         return Random.Range(0f, 0.99f) < critRatio;
     }
 
