@@ -9,12 +9,15 @@ public class OverlayTransitionManager : MonoBehaviour
     [SerializeField] private EventAnimation intro;
     [SerializeField] private EventAnimation outro;
 
-    public void DoTransitionWithAction(UnityEvent action){
-        StartCoroutine(TransitionCoroutine(action));
+    public void DoTransitionWithAction(UnityEvent action, GameObject toInstantiate){
+        StartCoroutine(TransitionCoroutine(action, toInstantiate));
     }
 
-    public IEnumerator TransitionCoroutine(UnityEvent action) {
+    public IEnumerator TransitionCoroutine(UnityEvent action, GameObject toInstantiate) {
         yield return StartCoroutine(intro.TransitionLogic());
+        if(toInstantiate != null){
+            Instantiate(toInstantiate);
+        }
         action?.Invoke();
         yield return StartCoroutine(outro.TransitionLogic());
     }
