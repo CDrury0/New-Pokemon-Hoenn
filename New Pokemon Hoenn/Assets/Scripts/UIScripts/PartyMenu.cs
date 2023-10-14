@@ -9,30 +9,25 @@ public class PartyMenu : MonoBehaviour
     public PartyInfoBox[] infoBoxes;
     public GameObject closeButton;
 
-    void OnEnable(){
-        GetComponentInParent<Canvas>().sortingOrder = 1;
-    }
-
     void OnDisable(){
-        GetComponentInParent<Canvas>().sortingOrder = 0;
+        Destroy(transform.parent.gameObject);
     }
 
-    public void OpenPartyNoMessage(bool allowClose){
-        OpenParty(allowClose);
-    }
-
-    public void OpenParty(bool allowClose, string message = null){
+    void OnEnable(){
         foreach(PartyInfoBox infoBox in infoBoxes){
             infoBox.LoadPokemonDetails();
         }
-        closeButton.SetActive(allowClose);
+    }
 
-        promptTextBox.SetActive(false);
-        if(message != null){
-            promptTextBox.GetComponentInChildren<TextMeshProUGUI>().text = message;
-            promptTextBox.SetActive(true);
-        }
+    /// <summary>
+    /// Closing the menu is already allowed by default. Only use this if you intend to disallow it, or allow it again after disabling previously
+    /// </summary>
+    public void SetAllowClose(bool value){
+        closeButton.SetActive(value);
+    }
 
-        gameObject.SetActive(true);
+    public void WriteTextPrompt(string message){
+        promptTextBox.GetComponentInChildren<TextMeshProUGUI>().text = message;
+        promptTextBox.SetActive(true);
     }
 }

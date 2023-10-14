@@ -25,6 +25,10 @@ public class LoadDexUI : MonoBehaviour
     public ReferenceLib pokemonReferenceLib;
     public LoadDexInfo[] dexPlates;
 
+    void OnDisable(){
+        Destroy(transform.parent.gameObject);
+    }
+
     private void OnEnable() {
         foreach(Image image in statBars){
             image.fillAmount = 0;

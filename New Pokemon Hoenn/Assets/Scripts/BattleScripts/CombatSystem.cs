@@ -21,7 +21,6 @@ public class CombatSystem : MonoBehaviour
     public MoveFunctions moveFunctions;
     public HandleExperience handleExperience;
     public HandleEvolution handleEvolution;
-    public PartyMenu partyMenu;
     public GameObject struggle;
     public GameObject switchAction;
     public GameObject failedRunAction;
@@ -151,7 +150,7 @@ public class CombatSystem : MonoBehaviour
 
     public void OpenPartyMenu(){
         ActiveTarget.turnAction = switchAction;
-        partyMenu.OpenParty(true);
+        combatScreen.SetPartyScreen();
     }
 
     private IEnumerator GetTurnActions(){
@@ -517,7 +516,7 @@ public class CombatSystem : MonoBehaviour
             }
             else{
                 if(playerParty.HasAvailableFighter()){
-                    partyMenu.OpenParty(false, "Who will replace " + ActiveTarget.pokemon.nickName + "?");
+                    combatScreen.SetPartyScreen(false, "Who will replace " + ActiveTarget.pokemon.nickName + "?");
                 }
                 else{
                     Proceed = true;
@@ -541,7 +540,7 @@ public class CombatSystem : MonoBehaviour
                 replacing.individualBattleModifier.switchingIn = enemyAI.SelectNextPokemon(EnemyParty);
             }
             else{
-                partyMenu.OpenParty(false);
+                combatScreen.SetPartyScreen(false);
                 yield return new WaitUntil(() => Proceed);
             }
         }

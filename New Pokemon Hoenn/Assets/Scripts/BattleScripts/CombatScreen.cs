@@ -12,6 +12,7 @@ public class CombatScreen : MonoBehaviour
     [SerializeField] private RectTransform enemyDoubleTransform;
     [SerializeField] private Button[] moveButtons;
     [SerializeField] private TextMeshProUGUI actionPromptText;
+    [SerializeField] private GameObject battlePartyScreen;
     public GameObject battleOptionsLayoutObject;
     public GameObject moveButtonLayoutObject;
     public GameObject moveBackButton;
@@ -158,5 +159,13 @@ public class CombatScreen : MonoBehaviour
 
     public void SetActionPromptText(){
         actionPromptText.text = "What should " + CombatSystem.ActiveTarget.GetName() + " do?";
+    }
+
+    public void SetPartyScreen(bool allowClose = true, string promptMessage = null){
+        PartyMenu partyMenuInstance = Instantiate(battlePartyScreen).GetComponentInChildren<PartyMenu>();
+        partyMenuInstance.SetAllowClose(allowClose);
+        if(promptMessage != null){
+            partyMenuInstance.WriteTextPrompt(promptMessage);
+        }
     }
 }
