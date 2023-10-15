@@ -46,14 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad0e26164433824ab7c54eb6ba4ba74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
-  itemSprite: {fileID: 0}
-  itemPocket: 0
-  itemPrice: 0
+  itemData: {fileID: 11400000, guid: 85ef28c555c4d4b43ac26d683e54c963, type: 2}
   heldItem: {fileID: 0}
-  effectsDuringBattle: []
-  effectsOutsideBattle: []
+  onUseDuringBattle: []
+  onUseOutsideBattle:
+  - {fileID: -1851520846420958101}
 --- !u!114 &7298311632309716967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,5 +76,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f5d0c1655265f42897e4caff2c5270, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flatHealAmount: 0
+  flatHealAmount: 20
   percentHpHealAmount: 0
