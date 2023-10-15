@@ -27,6 +27,7 @@ public class PartyInfoBox : MonoBehaviour
         }
 
         ActivateSendOutButton();
+        
     }
 
     private void ActivateSendOutButton(){

@@ -10,7 +10,10 @@ public class InventoryMenu : MonoBehaviour
     [SerializeField] private Transform scrollContent;
     [SerializeField] private GameObject itemBadgePrefab;
     [SerializeField] private TextMeshProUGUI itemDescription;
-    private ItemLogic loadedItemInstance;
+    [SerializeField] private GameObject useButton;
+    [SerializeField] private GameObject giveButton;
+    [SerializeField] private GameObject sellButton;
+    public static ItemLogic LoadedItemInstance { get; private set; }
 
     void OnEnable(){
         foreach(Tuple<ItemData, int> invEntry in PlayerInventory.Instance.inventory){
@@ -24,9 +27,13 @@ public class InventoryMenu : MonoBehaviour
     }
 
     public void LoadItem(ItemData itemData){
-        loadedItemInstance = Instantiate(PlayerInventory.GetItemPrefab(itemData)).GetComponent<ItemLogic>();
+        LoadedItemInstance = Instantiate(PlayerInventory.GetItemPrefab(itemData)).GetComponent<ItemLogic>();
         itemDescription.text = itemData.itemDescription;
-        //load buttons that allow use based on loadedItemInstance
+        bool allowUse = (CombatSystem.BattleActive && LoadedItemInstance.onUseDuringBattle.Count > 0)
+        || (!CombatSystem.BattleActive && LoadedItemInstance.onUseOutsideBattle.Count > 0);
+        useButton.SetActive(allowUse);
+        giveButton.SetActive(LoadedItemInstance.heldItem != null);
+
         //also allow filtering based on pockets, alphabetical, order obtained, etc.
         //use static variables for persistence between inventory menu instances
     }
