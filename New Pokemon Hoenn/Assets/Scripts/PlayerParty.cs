@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//singleton pattern
 public class PlayerParty : MonoBehaviour
 {
     public static PlayerParty Instance {get; private set;}

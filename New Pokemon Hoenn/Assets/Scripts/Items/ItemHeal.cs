@@ -7,6 +7,11 @@ public class ItemHeal : ItemEffect
     [SerializeField] private int flatHealAmount;
     [SerializeField] [Range(0, 1)] private float percentHpHealAmount;
 
+    public override bool CanEffectBeUsed(Pokemon p)
+    {
+        return p.CurrentHealth < p.stats[0];
+    }
+
     public override IEnumerator DoItemEffect()
     {
         throw new System.NotImplementedException();

@@ -23,6 +23,7 @@ public class InventoryMenu : MonoBehaviour
     }
 
     void OnDisable(){
+        LoadedItemInstance = null;
         Destroy(transform.parent.gameObject);
     }
 
@@ -36,5 +37,15 @@ public class InventoryMenu : MonoBehaviour
 
         //also allow filtering based on pockets, alphabetical, order obtained, etc.
         //use static variables for persistence between inventory menu instances
+    }
+
+    public static bool CanLoadedItemBeUsedOn(Pokemon p){
+        foreach(ItemEffect i in LoadedItemInstance.onUseOutsideBattle){
+            //if ANY effect cannot be used, the item cannot be used
+            if(!i.CanEffectBeUsed(p)){
+                return false;
+            }
+        }
+        return true;
     }
 }

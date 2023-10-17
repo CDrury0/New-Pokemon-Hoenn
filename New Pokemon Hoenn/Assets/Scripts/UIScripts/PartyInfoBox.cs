@@ -9,7 +9,7 @@ public class PartyInfoBox : MonoBehaviour
     public BattleHUD pokemonInfo;
     public Image boxSprite;
     public GameObject actionButtonPanel;
-    public GameObject sendOutButton;
+    [SerializeField] private PartyInfoBoxButtonContainer actionButtonContainer;
     [SerializeField] private Image battleHUDImage;
     [SerializeField] private Color normalColor;
     [SerializeField] private Color faintedColor;
@@ -25,21 +25,22 @@ public class PartyInfoBox : MonoBehaviour
             pokemonInfo.SetBattleHUD(pokemonToDisplay);
             battleHUDImage.color = pokemonToDisplay.primaryStatus == PrimaryStatus.Fainted ? faintedColor : normalColor;
         }
-
-        ActivateSendOutButton();
-        
+        actionButtonContainer.LoadActionButtons(pokemonToDisplay);
     }
 
-    private void ActivateSendOutButton(){
-        sendOutButton.SetActive(false);
-        if(CombatSystem.BattleActive){
-            sendOutButton.SetActive(CombatLib.Instance.combatSystem.CanBeSwitchedIn(PlayerParty.Instance.playerParty.party[whichPartyMember]));
+    /* private void ActivateUseItemButton(){
+        useItemButton.SetActive(false);
+        if(InventoryMenu.LoadedItemInstance != null){
+            Pokemon whichMon = PlayerParty.Instance.playerParty.party[whichPartyMember];
+            useItemButton.SetActive(InventoryMenu.CanLoadedItemBeUsedOn(whichMon));
         }
-    }
+    } */
 
-    public void SendOutButtonFunction(){
-        GetComponentInParent<PartyMenu>().gameObject.SetActive(false);
-        CombatSystem.ActiveTarget.individualBattleModifier.switchingIn = PlayerParty.Instance.playerParty.party[whichPartyMember];
-        CombatSystem.Proceed = true;
-    }
+    /* private void ActivateGiveItemButton(){
+        giveItemButton.SetActive(false);
+        if(InventoryMenu.LoadedItemInstance != null){
+            Pokemon whichMon = PlayerParty.Instance.playerParty.party[whichPartyMember];
+            giveItemButton.SetActive(whichMon.heldItem == null);
+        }
+    } */
 }

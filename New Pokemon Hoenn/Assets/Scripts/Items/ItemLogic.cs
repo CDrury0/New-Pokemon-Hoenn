@@ -12,6 +12,4 @@ public class ItemLogic : MonoBehaviour
     [Tooltip("If length is 0, the item cannot be used outside battle")]
     public List<ItemEffect> onUseOutsideBattle;
     //public PokemonDefault[] worksOn;
-
-    
 }
