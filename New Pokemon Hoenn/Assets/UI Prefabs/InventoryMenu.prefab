@@ -1334,11 +1334,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -1347,7 +1347,7 @@ PrefabInstance:
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 3001481407574547521}
+      objectReference: {fileID: 3645250328642930168}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -1358,7 +1358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetGiveMode
+      value: CallTransition
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -1366,7 +1366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: InventoryMenu, Assembly-CSharp
+      value: OverlayTransitionCaller, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
@@ -1374,7 +1374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1399,7 +1399,7 @@ PrefabInstance:
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: toInstantiate
       value: 
-      objectReference: {fileID: 5399885973230159841, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
+      objectReference: {fileID: 1871509479318313037, guid: 3134bb9e2266c7d4e8cc4b3368290ca4, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98d60644b4781df40a4023d479c13697, type: 3}
 --- !u!114 &3645250328642930168 stripped
@@ -1524,11 +1524,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -1537,7 +1537,7 @@ PrefabInstance:
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 3001481407574547521}
+      objectReference: {fileID: 1044284577611014479}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -1548,7 +1548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetGiveMode
+      value: CallTransition
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -1556,7 +1556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: InventoryMenu, Assembly-CSharp
+      value: OverlayTransitionCaller, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
@@ -1585,7 +1585,7 @@ PrefabInstance:
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: toInstantiate
       value: 
-      objectReference: {fileID: 5399885973230159841, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
+      objectReference: {fileID: 2977433275027474611, guid: 8605ced3d2ef4ec4b8ec5504e1efd25c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98d60644b4781df40a4023d479c13697, type: 3}
 --- !u!114 &1044284577611014479 stripped

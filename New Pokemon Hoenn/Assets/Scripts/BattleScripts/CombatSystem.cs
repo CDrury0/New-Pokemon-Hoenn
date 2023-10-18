@@ -540,6 +540,7 @@ public class CombatSystem : MonoBehaviour
                 replacing.individualBattleModifier.switchingIn = enemyAI.SelectNextPokemon(EnemyParty);
             }
             else{
+                //the only time this should be reached is in the case of baton pass-type moves
                 combatScreen.SetPartyScreen(false);
                 yield return new WaitUntil(() => Proceed);
             }

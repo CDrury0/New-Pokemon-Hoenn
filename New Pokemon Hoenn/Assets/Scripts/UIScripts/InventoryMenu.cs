@@ -23,29 +23,23 @@ public class InventoryMenu : MonoBehaviour
     }
 
     void OnDisable(){
+        Destroy(LoadedItemInstance.gameObject);
         LoadedItemInstance = null;
         Destroy(transform.parent.gameObject);
     }
 
     public void LoadItem(ItemData itemData){
+        if(LoadedItemInstance != null){
+            Destroy(LoadedItemInstance.gameObject);
+        }
         LoadedItemInstance = Instantiate(PlayerInventory.GetItemPrefab(itemData)).GetComponent<ItemLogic>();
         itemDescription.text = itemData.itemDescription;
         bool allowUse = (CombatSystem.BattleActive && LoadedItemInstance.onUseDuringBattle.Count > 0)
         || (!CombatSystem.BattleActive && LoadedItemInstance.onUseOutsideBattle.Count > 0);
         useButton.SetActive(allowUse);
-        giveButton.SetActive(LoadedItemInstance.heldItem != null);
+        giveButton.SetActive(LoadedItemInstance.heldItem != null && !CombatSystem.BattleActive);
 
         //also allow filtering based on pockets, alphabetical, order obtained, etc.
         //use static variables for persistence between inventory menu instances
-    }
-
-    public static bool CanLoadedItemBeUsedOn(Pokemon p){
-        foreach(ItemEffect i in LoadedItemInstance.onUseOutsideBattle){
-            //if ANY effect cannot be used, the item cannot be used
-            if(!i.CanEffectBeUsed(p)){
-                return false;
-            }
-        }
-        return true;
     }
 }
