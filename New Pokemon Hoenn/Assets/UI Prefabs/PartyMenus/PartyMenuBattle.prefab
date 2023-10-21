@@ -619,6 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62d8eea401603f49ade5ece8eb1a854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
   sendOutButton: {fileID: 3551055559623932769}
 --- !u!224 &905535356667608696 stripped
 RectTransform:
@@ -642,6 +643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62d8eea401603f49ade5ece8eb1a854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
   sendOutButton: {fileID: 969445129112816419}
 --- !u!1 &1752164824458882631 stripped
 GameObject:
@@ -660,6 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62d8eea401603f49ade5ece8eb1a854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
   sendOutButton: {fileID: 1655745033282100048}
 --- !u!1 &2290069423370700413 stripped
 GameObject:
@@ -678,6 +681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62d8eea401603f49ade5ece8eb1a854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
   sendOutButton: {fileID: 3559443029239421876}
 --- !u!1 &2581352890117318334 stripped
 GameObject:
@@ -696,6 +700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62d8eea401603f49ade5ece8eb1a854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
   sendOutButton: {fileID: 4287618748013225284}
 --- !u!224 &2993841011003961063 stripped
 RectTransform:
@@ -719,6 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62d8eea401603f49ade5ece8eb1a854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
   sendOutButton: {fileID: 4111533268209739443}
 --- !u!224 &3495958092214623931 stripped
 RectTransform:

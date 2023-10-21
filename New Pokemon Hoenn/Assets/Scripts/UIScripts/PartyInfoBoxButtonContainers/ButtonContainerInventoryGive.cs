@@ -10,6 +10,24 @@ public class ButtonContainerInventoryGive : PartyInfoBoxButtonContainer
     }
 
     public void GiveButtonFunction(){
-        Debug.Log("gave item");
+        foreach(PartyInfoBox box in GetComponentInParent<PartyMenu>().infoBoxes){
+            box.actionButtonPanel.SetActive(false);
+        }
+        StartCoroutine(GiveItem());
+    }
+
+    private IEnumerator GiveItem(){
+        PartyInfoBox boxComponent = GetComponent<PartyInfoBox>();
+        Pokemon monToGiveItem = PlayerParty.Instance.playerParty.party[boxComponent.whichPartyMember];
+        monToGiveItem.heldItem = InventoryMenu.LoadedItemInstance.itemData;
+        PlayerInventory.SubtractItem(monToGiveItem.heldItem);
+        boxComponent.LoadPokemonDetails();
+        string message = monToGiveItem.nickName + " was given the " + monToGiveItem.heldItem.itemName + " to hold";
+        GameObject outputInstance = Instantiate(messageModalPrefab);
+        IEnumerator writeMessage = outputInstance.GetComponentInChildren<WriteText>().WriteMessageConfirm(message);
+        yield return StartCoroutine(writeMessage);
+        Destroy(outputInstance);
+        GameObject.FindWithTag("InventoryMenu").GetComponentInChildren<InventoryMenu>().UpdateBadge(monToGiveItem.heldItem);
+        giveButton.GetComponent<OverlayTransitionCaller>().CallTransition();
     }
 }

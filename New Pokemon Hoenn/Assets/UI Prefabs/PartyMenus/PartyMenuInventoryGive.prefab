@@ -107,6 +107,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1825115709416541401}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: GiveButtonFunction
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ButtonContainerInventoryGive, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428284, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_Color.b
       value: 0.4245283
@@ -137,23 +157,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1825115709416541401}
+      objectReference: {fileID: 1871509480377697118}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GiveButtonFunction
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ButtonContainerInventoryGive, Assembly-CSharp
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -293,6 +313,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 8545774225089213196}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: GiveButtonFunction
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ButtonContainerInventoryGive, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428284, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_Color.b
       value: 0.4245283
@@ -323,23 +363,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8545774225089213196}
+      objectReference: {fileID: 1871509480377697118}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GiveButtonFunction
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ButtonContainerInventoryGive, Assembly-CSharp
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -598,7 +638,7 @@ PrefabInstance:
     - target: {fileID: 7491114307254149146, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
       propertyPath: actionButtonContainer
       value: 
-      objectReference: {fileID: 4960606440597733554}
+      objectReference: {fileID: 1940901378447355720}
     - target: {fileID: 7736608994182050217, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
       propertyPath: actionButtonContainer
       value: 
@@ -613,6 +653,11 @@ PrefabInstance:
       objectReference: {fileID: 1825115709416541401}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
+--- !u!1 &1871509480377697118 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5399885972102225138, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
+  m_PrefabInstance: {fileID: 5983261191562387372}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4861551031496962537 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1188777393502531141, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
@@ -645,6 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b75a1f0aa8e264bbed6ebb101e90d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
   giveButton: {fileID: 7655302114533045675}
 --- !u!224 &6521162999493198261 stripped
 RectTransform:
@@ -668,13 +714,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b75a1f0aa8e264bbed6ebb101e90d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
   giveButton: {fileID: 7704481964642967282}
 --- !u!1 &7425130677176176806 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3747994726792810250, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
   m_PrefabInstance: {fileID: 5983261191562387372}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4960606440597733554
+--- !u!114 &1940901378447355720
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -686,6 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b75a1f0aa8e264bbed6ebb101e90d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
   giveButton: {fileID: 5168544703577488336}
 --- !u!1 &7756149793731887381 stripped
 GameObject:
@@ -704,6 +752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b75a1f0aa8e264bbed6ebb101e90d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
   giveButton: {fileID: 6036463255008114521}
 --- !u!1 &7796970906788243759 stripped
 GameObject:
@@ -722,6 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b75a1f0aa8e264bbed6ebb101e90d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
   giveButton: {fileID: 8071061783840421856}
 --- !u!224 &8129319211792758845 stripped
 RectTransform:
@@ -745,6 +795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b75a1f0aa8e264bbed6ebb101e90d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
   giveButton: {fileID: 6908217031014135961}
 --- !u!224 &9179050864544780586 stripped
 RectTransform:
@@ -858,6 +909,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1940901378447355720}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: GiveButtonFunction
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ButtonContainerInventoryGive, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428284, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_Color.b
       value: 0.4245283
@@ -888,23 +959,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4960606440597733554}
+      objectReference: {fileID: 1871509480377697118}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GiveButtonFunction
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ButtonContainerInventoryGive, Assembly-CSharp
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1044,6 +1115,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1143263404695323080}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: GiveButtonFunction
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ButtonContainerInventoryGive, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428284, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_Color.b
       value: 0.4245283
@@ -1074,23 +1165,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1143263404695323080}
+      objectReference: {fileID: 1871509480377697118}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GiveButtonFunction
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ButtonContainerInventoryGive, Assembly-CSharp
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1230,6 +1321,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7749165401235520908}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: GiveButtonFunction
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ButtonContainerInventoryGive, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428284, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_Color.b
       value: 0.4245283
@@ -1260,23 +1371,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7749165401235520908}
+      objectReference: {fileID: 1871509480377697118}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GiveButtonFunction
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ButtonContainerInventoryGive, Assembly-CSharp
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1416,6 +1527,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 4575088513280619301}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: GiveButtonFunction
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ButtonContainerInventoryGive, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428284, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_Color.b
       value: 0.4245283
@@ -1446,23 +1577,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4575088513280619301}
+      objectReference: {fileID: 1871509480377697118}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GiveButtonFunction
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ButtonContainerInventoryGive, Assembly-CSharp
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
