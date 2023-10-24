@@ -29,7 +29,7 @@ public class ButtonContainerInventoryUse : PartyInfoBoxButtonContainer
         PartyInfoBox infoBox = GetComponent<PartyInfoBox>();
         infoBox.LoadPokemonDetails(false);
         Pokemon p = PlayerParty.Instance.playerParty.party[infoBox.whichPartyMember];
-        yield return StartCoroutine(InventoryMenu.LoadedItemInstance.DoItemEffects(infoBox.pokemonInfo, p, (string message) => MessageCallback(message)));
+        yield return StartCoroutine(InventoryMenu.LoadedItemInstance.DoItemEffects(infoBox.pokemonInfo, p, (string message) => ShowModalMessage(message)));
         InventoryMenu invMenu = GameObject.FindWithTag("InventoryMenu").GetComponentInChildren<InventoryMenu>();
         invMenu.UpdateBadge(LoadedItemInstance.itemData);
         yield return StartCoroutine(OverlayTransitionManager.Instance.TransitionCoroutine(() => { 
@@ -37,12 +37,5 @@ public class ButtonContainerInventoryUse : PartyInfoBoxButtonContainer
             GetComponentInParent<PartyMenu>().gameObject.SetActive(false);
             CombatSystem.Proceed = CombatSystem.BattleActive;
         }));
-    }
-
-    private IEnumerator MessageCallback(string message){
-        GameObject outputInstance = Instantiate(messageModalPrefab);
-        WriteText writeText = outputInstance.GetComponentInChildren<WriteText>();
-        yield return StartCoroutine(writeText.WriteMessageConfirm(message));
-        Destroy(outputInstance.gameObject);
     }
 }
