@@ -107,6 +107,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 5776380622272014513}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UseButtonFunction
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ButtonContainerInventoryUse, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428284, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_Color.b
       value: 0.4245283
@@ -159,7 +171,8 @@ PrefabInstance:
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 98d60644b4781df40a4023d479c13697, type: 3}
 --- !u!1 &925800477802367263 stripped
 GameObject:
@@ -293,6 +306,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7037190560877369207}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UseButtonFunction
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ButtonContainerInventoryUse, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428284, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_Color.b
       value: 0.4245283
@@ -345,7 +370,8 @@ PrefabInstance:
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 98d60644b4781df40a4023d479c13697, type: 3}
 --- !u!1 &4440675557245163497 stripped
 GameObject:
@@ -479,6 +505,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 5921911636712798791}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UseButtonFunction
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ButtonContainerInventoryUse, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428284, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_Color.b
       value: 0.4245283
@@ -531,7 +569,8 @@ PrefabInstance:
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 98d60644b4781df40a4023d479c13697, type: 3}
 --- !u!1 &4480108655550721791 stripped
 GameObject:
@@ -665,6 +704,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 8553539845070216933}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UseButtonFunction
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ButtonContainerInventoryUse, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428284, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_Color.b
       value: 0.4245283
@@ -717,7 +768,8 @@ PrefabInstance:
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 98d60644b4781df40a4023d479c13697, type: 3}
 --- !u!1 &3458256786570518498 stripped
 GameObject:
@@ -851,6 +903,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 6014618996862107234}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UseButtonFunction
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ButtonContainerInventoryUse, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428284, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_Color.b
       value: 0.4245283
@@ -903,7 +967,8 @@ PrefabInstance:
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 98d60644b4781df40a4023d479c13697, type: 3}
 --- !u!1 &2688222590921295140 stripped
 GameObject:
@@ -1037,6 +1102,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7158283012351042578}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UseButtonFunction
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ButtonContainerInventoryUse, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428284, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_Color.b
       value: 0.4245283
@@ -1089,7 +1166,8 @@ PrefabInstance:
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 98d60644b4781df40a4023d479c13697, type: 3}
 --- !u!1 &6407228654984551954 stripped
 GameObject:

@@ -50,15 +50,7 @@ public class PlayerInventory : MonoBehaviour
 
     void Start(){
         inventory = new Dictionary<ItemData, int>();
-        //inventory.Add(giveOnStart, 1);
-        foreach(ItemData i in dataManifest){
-            if(inventory.ContainsKey(i)){
-                inventory[i]++;
-            }
-            else{
-                inventory.Add(i, 1);
-            }
-        }
+        inventory.Add(giveOnStart, 1);
         //load inventory from save file here?
     }
 }

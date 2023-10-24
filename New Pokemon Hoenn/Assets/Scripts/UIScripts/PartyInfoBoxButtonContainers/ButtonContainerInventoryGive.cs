@@ -21,7 +21,7 @@ public class ButtonContainerInventoryGive : PartyInfoBoxButtonContainer
         Pokemon monToGiveItem = PlayerParty.Instance.playerParty.party[boxComponent.whichPartyMember];
         monToGiveItem.heldItem = InventoryMenu.LoadedItemInstance.itemData;
         PlayerInventory.SubtractItem(monToGiveItem.heldItem);
-        boxComponent.LoadPokemonDetails();
+        boxComponent.LoadPokemonDetails(false);
         string message = monToGiveItem.nickName + " was given the " + monToGiveItem.heldItem.itemName + " to hold";
         GameObject outputInstance = Instantiate(messageModalPrefab);
         IEnumerator writeMessage = outputInstance.GetComponentInChildren<WriteText>().WriteMessageConfirm(message);

@@ -172,6 +172,7 @@ public class CombatSystem : MonoBehaviour
                     combatScreen.SetActionPromptText();
                     combatScreen.battleOptionsLayoutObject.SetActive(true);
                     yield return new WaitUntil(() => Proceed);
+                    combatScreen.battleOptionsLayoutObject.SetActive(false);
                 }
             }
         }
@@ -635,12 +636,13 @@ public class CombatSystem : MonoBehaviour
             }
         }
 
-        GameObject[] instantiatedMoves = GameObject.FindGameObjectsWithTag("Move");
-        foreach(GameObject oldTurnAction in instantiatedMoves){
-            Destroy(oldTurnAction);
-        }
+        DestroyAllObjectsWithTag("Move");
+        DestroyAllObjectsWithTag("Switch");
+        DestroyAllObjectsWithTag("Item");
+    }
 
-        GameObject[] instantiatedSwitchActions = GameObject.FindGameObjectsWithTag("Switch");
+    private void DestroyAllObjectsWithTag(string tag){
+        GameObject[] instantiatedSwitchActions = GameObject.FindGameObjectsWithTag(tag);
         foreach(GameObject oldTurnAction in instantiatedSwitchActions){
             Destroy(oldTurnAction);
         }

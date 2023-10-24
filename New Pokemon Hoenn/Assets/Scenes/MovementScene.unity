@@ -3768,6 +3768,7 @@ MonoBehaviour:
   struggle: {fileID: 1682630347, guid: 47f9690a6d706754cb0ad7e3b9a00ba8, type: 3}
   switchAction: {fileID: 7089235823656307835, guid: 7ed4414611918e247b8bde064120ac22, type: 3}
   failedRunAction: {fileID: 7089235823656307835, guid: 73ddfa29553482c4196b2b4d22ec29b7, type: 3}
+  itemTurnActionPrefab: {fileID: 7089235823656307835, guid: 5af93534d52d38e418b5d29a8f29e96d, type: 3}
   wildAI: {fileID: 598696012}
   runAwaySound: {fileID: 8300000, guid: 020dcdec18610474f830c9aaac1bb93e, type: 3}
   wildMusic: {fileID: 1901076945}
@@ -4759,7 +4760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &719514699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13471,7 +13472,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: eb48e1f24fe69b94793173a9b1745a8e, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
