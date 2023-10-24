@@ -40,6 +40,12 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    public static void AddItem(ItemData itemData){
+        if(!Instance.inventory.TryAdd(itemData, 1)){
+            Instance.inventory[itemData]++;
+        }
+    }
+
     void Awake(){
         if(Instance != null){
             Debug.Log("PlayerInventory exists");

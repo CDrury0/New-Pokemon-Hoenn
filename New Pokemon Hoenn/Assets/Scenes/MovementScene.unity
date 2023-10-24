@@ -3076,7 +3076,7 @@ PrefabInstance:
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: toInstantiate
       value: 
-      objectReference: {fileID: 5399885973230159841, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
+      objectReference: {fileID: 2174819789406649146, guid: 85c5f95c84ec78b4cb94e6365e86925c, type: 3}
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -3768,7 +3768,6 @@ MonoBehaviour:
   struggle: {fileID: 1682630347, guid: 47f9690a6d706754cb0ad7e3b9a00ba8, type: 3}
   switchAction: {fileID: 7089235823656307835, guid: 7ed4414611918e247b8bde064120ac22, type: 3}
   failedRunAction: {fileID: 7089235823656307835, guid: 73ddfa29553482c4196b2b4d22ec29b7, type: 3}
-  itemTurnActionPrefab: {fileID: 7089235823656307835, guid: 5af93534d52d38e418b5d29a8f29e96d, type: 3}
   wildAI: {fileID: 598696012}
   runAwaySound: {fileID: 8300000, guid: 020dcdec18610474f830c9aaac1bb93e, type: 3}
   wildMusic: {fileID: 1901076945}

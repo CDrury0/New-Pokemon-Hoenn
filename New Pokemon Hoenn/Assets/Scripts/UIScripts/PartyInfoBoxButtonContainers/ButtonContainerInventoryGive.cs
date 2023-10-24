@@ -23,10 +23,7 @@ public class ButtonContainerInventoryGive : PartyInfoBoxButtonContainer
         PlayerInventory.SubtractItem(monToGiveItem.heldItem);
         boxComponent.LoadPokemonDetails(false);
         string message = monToGiveItem.nickName + " was given the " + monToGiveItem.heldItem.itemName + " to hold";
-        GameObject outputInstance = Instantiate(messageModalPrefab);
-        IEnumerator writeMessage = outputInstance.GetComponentInChildren<WriteText>().WriteMessageConfirm(message);
-        yield return StartCoroutine(writeMessage);
-        Destroy(outputInstance);
+        yield return StartCoroutine(ShowModalMessage(message));
         GameObject.FindWithTag("InventoryMenu").GetComponentInChildren<InventoryMenu>().UpdateBadge(monToGiveItem.heldItem);
         giveButton.GetComponent<OverlayTransitionCaller>().CallTransition();
     }
