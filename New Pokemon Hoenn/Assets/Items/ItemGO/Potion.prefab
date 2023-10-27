@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6069336275812394783}
   - component: {fileID: -4841574164895817454}
-  - component: {fileID: 7298311632309716967}
   - component: {fileID: -1851520846420958101}
   m_Layer: 0
-  m_Name: Bruh
+  m_Name: Potion
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,24 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 85ef28c555c4d4b43ac26d683e54c963, type: 2}
-  heldItem: {fileID: 7298311632309716967}
+  heldItem: {fileID: 0}
   onUseDuringBattle:
   - {fileID: -1851520846420958101}
   onUseOutsideBattle:
   - {fileID: -1851520846420958101}
---- !u!114 &7298311632309716967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903337395102383685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65994db5bb527d443b7944fb7c7a8aa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heldEffect: []
 --- !u!114 &-1851520846420958101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,4 +64,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flatHealAmount: 20
-  percentHpHealAmount: 0.5
+  percentHpHealAmount: 0

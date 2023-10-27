@@ -8,10 +8,25 @@ public class ItemLogic : MonoBehaviour
     [Tooltip("If null, the item cannot be held")]
     public HeldItem heldItem;
     [Tooltip("If length is 0, the item cannot be used during battle")]
-    public List<ItemEffect> onUseDuringBattle;
+    [SerializeField] private List<ItemEffect> onUseDuringBattle;
     [Tooltip("If length is 0, the item cannot be used outside battle")]
-    public List<ItemEffect> onUseOutsideBattle;
+    [SerializeField] private List<ItemEffect> onUseOutsideBattle;
     //public PokemonDefault[] worksOn;
+
+    public bool GetAllowUse(){
+        return (CombatSystem.BattleActive && onUseDuringBattle.Count > 0) || (!CombatSystem.BattleActive && onUseOutsideBattle.Count > 0);
+    }
+
+    public bool CanItemBeUsedOn(Pokemon p){
+        IEnumerable<ItemEffect> itemEffects = CombatSystem.BattleActive ? onUseDuringBattle : onUseOutsideBattle;
+        foreach(ItemEffect i in itemEffects){
+            //if ANY effect cannot be used, the item cannot be used
+            if(!i.CanEffectBeUsed(p)){
+                return false;
+            }
+        }
+        return true;
+    }
 
     public IEnumerator DoItemEffects(BattleHUD hudObj, Pokemon p, System.Func<string, IEnumerator> messageOutput){
         PlayerInventory.SubtractItem(itemData);

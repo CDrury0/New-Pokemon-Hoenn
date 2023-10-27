@@ -10,9 +10,7 @@ public class ButtonContainerInventoryGive : PartyInfoBoxButtonContainer
     }
 
     public void GiveButtonFunction(){
-        foreach(PartyInfoBox box in GetComponentInParent<PartyMenu>().infoBoxes){
-            box.actionButtonPanel.SetActive(false);
-        }
+        DisableAlternateInputs();
         StartCoroutine(GiveItem());
     }
 

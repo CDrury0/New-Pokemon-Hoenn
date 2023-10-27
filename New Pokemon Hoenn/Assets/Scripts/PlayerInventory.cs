@@ -15,10 +15,6 @@ public class PlayerInventory : MonoBehaviour
         return Instance.itemPrefabManifest.Find(g => g.GetComponent<ItemLogic>().itemData == Instance.dataManifest[itemIndex]);
     }
 
-    public static GameObject GetItemPrefab(ItemData itemData){
-        return Instance.itemPrefabManifest.Find(g => g.GetComponent<ItemLogic>().itemData == itemData);
-    }
-
     public static IEnumerable<KeyValuePair<ItemData, int>> GetEnumerableKeyValuePairs(){
         return Instance.inventory as IEnumerable<KeyValuePair<ItemData, int>>;
     }
@@ -56,7 +52,10 @@ public class PlayerInventory : MonoBehaviour
 
     void Start(){
         inventory = new Dictionary<ItemData, int>();
-        inventory.Add(giveOnStart, 1);
+        foreach(ItemData i in dataManifest){
+            AddItem(i);
+        }
+        AddItem(giveOnStart);
         //load inventory from save file here?
     }
 }

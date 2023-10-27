@@ -8,7 +8,8 @@ public class ItemHeal : ItemEffect
     [SerializeField] [Range(0, 1)] private float percentHpHealAmount;
 
     public override bool CanEffectBeUsed(Pokemon p){
-        return p.CurrentHealth < p.stats[0];
+        //cannot be used if target has fainted, unless this item also revives
+        return p.CurrentHealth < p.stats[0] && (p.primaryStatus != PrimaryStatus.Fainted || GetComponent<ItemRevive>());
     }
 
     public override IEnumerator DoItemEffect(Pokemon p, BattleHUD hudObj, System.Func<string, IEnumerator> messageOutput){

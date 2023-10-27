@@ -13,6 +13,7 @@ public class InventoryMenu : MonoBehaviour
     [SerializeField] private GameObject sellButton;
     private const string DEFAULT_DESCRIPTION = "Select an item to learn more about it.";
     private List<ItemBadgeButton> itemBadgeButtons;
+    private ItemData selectedItemData;
     public static ItemLogic LoadedItemInstance { get; private set; }
 
     void OnEnable(){
@@ -55,12 +56,9 @@ public class InventoryMenu : MonoBehaviour
         if(LoadedItemInstance != null){
             Destroy(LoadedItemInstance.gameObject);
         }
-        LoadedItemInstance = Instantiate(PlayerInventory.GetItemPrefab(itemData)).GetComponent<ItemLogic>();
-
-        bool allowUse = (CombatSystem.BattleActive && LoadedItemInstance.onUseDuringBattle.Count > 0)
-        || (!CombatSystem.BattleActive && LoadedItemInstance.onUseOutsideBattle.Count > 0);
-
-        bool allowGive = LoadedItemInstance.heldItem != null && !CombatSystem.BattleActive;
+        LoadedItemInstance = itemData.itemLogicGO != null ? Instantiate(itemData.itemLogicGO).GetComponent<ItemLogic>() : null;
+        bool allowUse = LoadedItemInstance != null && LoadedItemInstance.GetAllowUse();
+        bool allowGive = LoadedItemInstance != null && LoadedItemInstance.heldItem != null && !CombatSystem.BattleActive;
         SetDescriptionPanel(itemData.itemDescription, allowUse, allowGive);
 
         //also allow filtering based on pockets, alphabetical, order obtained, etc.
