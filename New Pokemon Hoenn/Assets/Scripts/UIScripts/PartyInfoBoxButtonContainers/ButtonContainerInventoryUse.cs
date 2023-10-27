@@ -5,6 +5,7 @@ using UnityEngine;
 public class ButtonContainerInventoryUse : PartyInfoBoxButtonContainer
 {
     [SerializeField] private GameObject useButton;
+    
     public override void LoadActionButtons(Pokemon p){
         useButton.SetActive(InventoryMenu.LoadedItemInstance.CanItemBeUsedOn(p));
     }
@@ -23,8 +24,11 @@ public class ButtonContainerInventoryUse : PartyInfoBoxButtonContainer
         invMenu.UpdateBadge(InventoryMenu.LoadedItemInstance.itemData);
         yield return StartCoroutine(OverlayTransitionManager.Instance.TransitionCoroutine(() => { 
             invMenu.gameObject.SetActive(!CombatSystem.BattleActive);
-            GetComponentInParent<PartyMenu>().gameObject.SetActive(false);
-            CombatSystem.Proceed = CombatSystem.BattleActive;
+            partyMenu.gameObject.SetActive(false);
+            if(CombatSystem.BattleActive){
+                CombatSystem.ActiveTarget.turnAction = CombatLib.Instance.combatSystem.playerUsedItemPlaceholder;
+                CombatSystem.Proceed = true;
+            }
         }));
     }
 }

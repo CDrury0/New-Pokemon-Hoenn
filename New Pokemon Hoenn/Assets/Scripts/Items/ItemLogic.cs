@@ -11,7 +11,6 @@ public class ItemLogic : MonoBehaviour
     [SerializeField] private List<ItemEffect> onUseDuringBattle;
     [Tooltip("If length is 0, the item cannot be used outside battle")]
     [SerializeField] private List<ItemEffect> onUseOutsideBattle;
-    //public PokemonDefault[] worksOn;
 
     public bool GetAllowUse(){
         return (CombatSystem.BattleActive && onUseDuringBattle.Count > 0) || (!CombatSystem.BattleActive && onUseOutsideBattle.Count > 0);

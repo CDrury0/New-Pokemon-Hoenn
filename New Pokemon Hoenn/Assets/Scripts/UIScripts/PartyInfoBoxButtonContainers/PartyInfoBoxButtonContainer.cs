@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class PartyInfoBoxButtonContainer : MonoBehaviour
 {
     [SerializeField] private GameObject messageModalPrefab;
-    private PartyMenu partyMenu;
+    protected PartyMenu partyMenu;
     public abstract void LoadActionButtons(Pokemon p);
     protected void DisableAlternateInputs(){
         partyMenu.closeButton.SetActive(false);

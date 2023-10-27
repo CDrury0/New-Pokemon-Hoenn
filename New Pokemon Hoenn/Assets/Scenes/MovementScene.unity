@@ -1444,6 +1444,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3838743011661149474, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+      propertyPath: trainerInventory.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838743011661149474, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+      propertyPath: trainerInventory.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 85ef28c555c4d4b43ac26d683e54c963, type: 2}
+    - target: {fileID: 3838743011661149474, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+      propertyPath: inventoryTemplate.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 85ef28c555c4d4b43ac26d683e54c963, type: 2}
     - target: {fileID: 4306619360160489709, guid: 9585e37a25944084c98b0e26289de345, type: 3}
       propertyPath: label
       value: 
@@ -3768,6 +3780,7 @@ MonoBehaviour:
   struggle: {fileID: 1682630347, guid: 47f9690a6d706754cb0ad7e3b9a00ba8, type: 3}
   switchAction: {fileID: 7089235823656307835, guid: 7ed4414611918e247b8bde064120ac22, type: 3}
   failedRunAction: {fileID: 7089235823656307835, guid: 73ddfa29553482c4196b2b4d22ec29b7, type: 3}
+  playerUsedItemPlaceholder: {fileID: 7089235823656307835, guid: 3b83097e47a69bf40a1e40311cd8982c, type: 3}
   wildAI: {fileID: 598696012}
   runAwaySound: {fileID: 8300000, guid: 020dcdec18610474f830c9aaac1bb93e, type: 3}
   wildMusic: {fileID: 1901076945}
