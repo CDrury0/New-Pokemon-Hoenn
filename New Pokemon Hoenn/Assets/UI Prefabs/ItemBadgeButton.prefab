@@ -461,6 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da19620d5671c2d499aca43a5903eef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemData: {fileID: 0}
   badgeSprite: {fileID: 936015589166625334}
   itemName: {fileID: 4267179946514938525}
   quantity: {fileID: 8640799489895917793}

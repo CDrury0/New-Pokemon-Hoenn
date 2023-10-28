@@ -17,7 +17,7 @@ public class ItemBadgeButton : MonoBehaviour
         badgeSprite.sprite = itemData.itemSprite;
         itemName.text = itemData.itemName;
         this.itemData = itemData;
-        this.quantity.text = itemData.itemPocket == ItemData.ItemPocket.Key ? string.Empty : "x" + quantity;
+        this.quantity.text = itemData.itemPocket == ItemData.ItemPocket.Key_Items ? string.Empty : "x" + quantity;
     }
 
     public void ButtonClick(){

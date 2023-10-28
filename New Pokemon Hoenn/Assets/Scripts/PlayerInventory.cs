@@ -15,8 +15,9 @@ public class PlayerInventory : MonoBehaviour
         return Instance.itemPrefabManifest.Find(g => g.GetComponent<ItemLogic>().itemData == Instance.dataManifest[itemIndex]);
     }
 
-    public static IEnumerable<KeyValuePair<ItemData, int>> GetEnumerableKeyValuePairs(){
-        return Instance.inventory as IEnumerable<KeyValuePair<ItemData, int>>;
+    /// <returns>A copy of the player inventory as a list of key/value pairs</returns>
+    public static List<KeyValuePair<ItemData, int>> GetKeyValuePairList(){
+        return new List<KeyValuePair<ItemData,int>>(Instance.inventory);
     }
 
     public static ItemData GetItemData(int index){

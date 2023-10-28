@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemData : ScriptableObject
 {
     public GameObject itemLogicGO;
-    public enum ItemPocket {Item, Berry, Key, Ball, Machine}
+    public enum ItemPocket {Items, Berries, Key_Items, Balls, Machines}
     public string itemName;
     public string itemDescription;
     public Sprite itemSprite;

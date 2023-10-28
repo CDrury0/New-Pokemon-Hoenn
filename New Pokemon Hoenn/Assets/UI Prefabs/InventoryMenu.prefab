@@ -162,8 +162,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 479944137812271938}
-  - component: {fileID: 8016316712713964283}
-  - component: {fileID: 8824014102763754890}
+  - component: {fileID: 7960575115556428943}
+  - component: {fileID: 4600967202063308015}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -188,10 +188,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: -0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 1}
---- !u!114 &8016316712713964283
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &7960575115556428943
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,22 +200,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1849653887320901255}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 4
-    m_Right: 4
-    m_Top: 4
-    m_Bottom: 4
+    m_Left: 5
+    m_Right: 0
+    m_Top: 5
+    m_Bottom: 0
   m_ChildAlignment: 0
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 280, y: 85}
-  m_Spacing: {x: 5, y: 5}
-  m_Constraint: 0
-  m_ConstraintCount: 2
---- !u!114 &8824014102763754890
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &4600967202063308015
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -503,8 +505,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 25.955872, y: -22.990997}
-  m_SizeDelta: {x: -97.5143, y: -46.356}
+  m_AnchoredPosition: {x: 25.955872, y: -24.3328}
+  m_SizeDelta: {x: -97.514, y: -48.2928}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1992788583415066047
 CanvasRenderer:
@@ -869,6 +871,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollContent: {fileID: 479944137812271938}
+  pocketPanelPrefab: {fileID: 1659111871459658645, guid: 80fba50f5e8b78148a5daf59135afa99, type: 3}
+  pocketHeaderPrefab: {fileID: 799749590286283661, guid: 52fc806d3028cd7479cbe59f277bcaa5, type: 3}
   itemBadgePrefab: {fileID: 4865910562805205683, guid: bb89899ea02d4a34ab34000835ae17c4, type: 3}
   itemDescription: {fileID: 6219148947113740580}
   useButton: {fileID: 9048576455085653682}
