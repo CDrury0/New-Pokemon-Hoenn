@@ -619,7 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62d8eea401603f49ade5ece8eb1a854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
+  modal: {fileID: 7313215179168204571}
   sendOutButton: {fileID: 3551055559623932769}
 --- !u!224 &905535356667608696 stripped
 RectTransform:
@@ -643,7 +643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62d8eea401603f49ade5ece8eb1a854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
+  modal: {fileID: 7313215179168204571}
   sendOutButton: {fileID: 969445129112816419}
 --- !u!1 &1752164824458882631 stripped
 GameObject:
@@ -662,7 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62d8eea401603f49ade5ece8eb1a854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
+  modal: {fileID: 7313215179168204571}
   sendOutButton: {fileID: 1655745033282100048}
 --- !u!1 &2290069423370700413 stripped
 GameObject:
@@ -681,7 +681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62d8eea401603f49ade5ece8eb1a854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
+  modal: {fileID: 7313215179168204571}
   sendOutButton: {fileID: 3559443029239421876}
 --- !u!1 &2581352890117318334 stripped
 GameObject:
@@ -700,7 +700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62d8eea401603f49ade5ece8eb1a854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
+  modal: {fileID: 7313215179168204571}
   sendOutButton: {fileID: 4287618748013225284}
 --- !u!224 &2993841011003961063 stripped
 RectTransform:
@@ -724,7 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62d8eea401603f49ade5ece8eb1a854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
+  modal: {fileID: 7313215179168204571}
   sendOutButton: {fileID: 4111533268209739443}
 --- !u!224 &3495958092214623931 stripped
 RectTransform:
@@ -741,6 +741,24 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1963666218990802892, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
   m_PrefabInstance: {fileID: 2376565665082470654}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7641340074665569292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5399885972102225138, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
+  m_PrefabInstance: {fileID: 2376565665082470654}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7313215179168204571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7641340074665569292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ee2468e22298d4da3c55e1c5303c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
 --- !u!1001 &2438863702620552330
 PrefabInstance:
   m_ObjectHideFlags: 0

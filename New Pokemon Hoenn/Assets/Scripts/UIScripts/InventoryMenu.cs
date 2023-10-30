@@ -17,9 +17,9 @@ public class InventoryMenu : MonoBehaviour
     [SerializeField] private GameObject useButton;
     [SerializeField] private GameObject giveButton;
     [SerializeField] private GameObject sellButton;
+    [SerializeField] private ModalMessage modal;
     private const string DEFAULT_DESCRIPTION = "Select an item to learn more about it.";
     private List<ItemBadgeButton> itemBadgeButtons;
-    private ItemData selectedItemData;
     public static ItemLogic LoadedItemInstance { get; private set; }
 
     void OnEnable(){
@@ -90,8 +90,15 @@ public class InventoryMenu : MonoBehaviour
         bool allowUse = LoadedItemInstance != null && LoadedItemInstance.GetAllowUse();
         bool allowGive = LoadedItemInstance != null && LoadedItemInstance.heldItem != null && !CombatSystem.BattleActive;
         SetDescriptionPanel(itemData.itemDescription, allowUse, allowGive);
+    }
 
-        //also allow filtering based on pockets, alphabetical, order obtained, etc.
-        //use static variables for persistence between inventory menu instances
+    public void UseItemButtonFunction(){
+        if(LoadedItemInstance.itemData.usedWithoutTarget){
+            PlayerInventory.SubtractItem(LoadedItemInstance.itemData);
+            StartCoroutine(LoadedItemInstance.DoItemEffects(null, null, (string message) => modal.ShowModalMessage(message)));
+            UpdateBadge(LoadedItemInstance.itemData);
+            return;
+        }
+        useButton.GetComponent<OverlayTransitionCaller>().CallTransition();
     }
 }

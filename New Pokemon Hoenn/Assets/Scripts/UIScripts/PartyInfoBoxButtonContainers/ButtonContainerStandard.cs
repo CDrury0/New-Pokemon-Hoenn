@@ -21,6 +21,6 @@ public class ButtonContainerStandard : PartyInfoBoxButtonContainer
         string message = "Received the " + p.heldItem.itemName + " from " + p.nickName;
         p.heldItem = null;
         GetComponent<PartyInfoBox>().LoadPokemonDetails(true);
-        yield return StartCoroutine(ShowModalMessage(message));
+        yield return StartCoroutine(modal.ShowModalMessage(message));
     }
 }

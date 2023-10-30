@@ -790,6 +790,7 @@ GameObject:
   - component: {fileID: 570447887694784386}
   - component: {fileID: 4578817768841812594}
   - component: {fileID: 3001481407574547521}
+  - component: {fileID: 2136327066873776250}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -878,6 +879,20 @@ MonoBehaviour:
   useButton: {fileID: 9048576455085653682}
   giveButton: {fileID: 4718519851538766341}
   sellButton: {fileID: 0}
+  modal: {fileID: 2136327066873776250}
+--- !u!114 &2136327066873776250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6736356013587019317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ee2468e22298d4da3c55e1c5303c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageModalPrefab: {fileID: 2027709524069805219, guid: 312f9b4f5b0194e4e9179810d61eb600, type: 3}
 --- !u!1 &6857645862842729105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,7 +1556,7 @@ PrefabInstance:
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1044284577611014479}
+      objectReference: {fileID: 3001481407574547521}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -1552,7 +1567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: CallTransition
+      value: UseItemButtonFunction
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -1560,7 +1575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: OverlayTransitionCaller, Assembly-CSharp
+      value: InventoryMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
