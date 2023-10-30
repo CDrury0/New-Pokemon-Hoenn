@@ -52,7 +52,7 @@ MonoBehaviour:
   moveType: 1
   typeFromWeather: 0
   hiddenPowerType: 0
-  displayPower: 250
+  displayPower: 350
   category: 0
   targetType: 5
   maxPP: 5
@@ -69,6 +69,7 @@ MonoBehaviour:
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
@@ -98,6 +99,7 @@ MonoBehaviour:
   bonusFromCurl: 0
   bonusLikeRollout: 0
   cannotKO: 0
+  cannotCrit: 0
   bonusAgainstMinimize: 0
   bonusAgainstSemiInvulnerable: 0
   bonusAgainstStatus: 0

@@ -16,8 +16,9 @@ public class ButtonContainerBattle : PartyInfoBoxButtonContainer
 
     public void SendOutButtonFunction(){
         int whichPartyMember = GetComponentInParent<PartyInfoBox>().whichPartyMember;
-        CombatSystem.ActiveTarget.individualBattleModifier.switchingIn = PlayerParty.Instance.playerParty.party[whichPartyMember];
+        Pokemon monSwitchingIn = PlayerParty.Instance.playerParty.party[whichPartyMember];
+        CombatSystem.ActiveTarget.individualBattleModifier.switchingIn = monSwitchingIn;
         CombatSystem.Proceed = true;
-        Destroy(GetComponentInParent<PartyMenu>().transform.parent.gameObject);
+        GetComponentInParent<PartyMenu>().gameObject.SetActive(false);
     }
 }

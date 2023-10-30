@@ -582,9 +582,11 @@ public class CombatSystem : MonoBehaviour
     }
 
     public bool CanBeSwitchedIn(Pokemon pokemonToSwitchIn){
-        return ActiveTargetCanSwitchOut() && pokemonToSwitchIn != null 
-        && pokemonToSwitchIn.primaryStatus != PrimaryStatus.Fainted && !pokemonToSwitchIn.inBattle 
-        && referenceBattleTargets.Find(b => b.individualBattleModifier.switchingIn == pokemonToSwitchIn) == null;
+        return ActiveTargetCanSwitchOut() && Party.CheckIsAvailableFighter(pokemonToSwitchIn);
+    }
+
+    public bool IsRegisteredToSwitchIn(Pokemon switchingIn){
+        return referenceBattleTargets.Find(b => b.individualBattleModifier.switchingIn == switchingIn) != null;
     }
 
     public IEnumerator HandleTeamEffects(){

@@ -51,7 +51,8 @@ MonoBehaviour:
     Deals more damage based on the user's remaining HP.
   moveType: 1
   typeFromWeather: 0
-  displayPower: 300
+  hiddenPowerType: 0
+  displayPower: 400
   category: 0
   targetType: 5
   maxPP: 5
@@ -64,22 +65,13 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
+  ignoresProtect: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &-3415669741914086304
 MonoBehaviour:
@@ -107,6 +99,7 @@ MonoBehaviour:
   bonusFromCurl: 0
   bonusLikeRollout: 0
   cannotKO: 0
+  cannotCrit: 0
   bonusAgainstMinimize: 0
   bonusAgainstSemiInvulnerable: 0
   bonusAgainstStatus: 0

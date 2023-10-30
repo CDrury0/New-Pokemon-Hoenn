@@ -55,7 +55,7 @@ public class Party
     }
 
     public static bool CheckIsAvailableFighter(Pokemon p){
-        return p != null && p.primaryStatus != PrimaryStatus.Fainted && !p.inBattle;
+        return p != null && p.primaryStatus != PrimaryStatus.Fainted && !p.inBattle && !CombatLib.Instance.combatSystem.IsRegisteredToSwitchIn(p);
     }
 
     public bool IsEntireTeamFainted(){
