@@ -47,6 +47,10 @@ public class MoveFunctions : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// If manual target selection is not necessary, automatically set the target accordingly using the TargetType argument.
+    /// </summary>
+    /// <returns>Whether or not manual target selection is necessary</returns>
     public bool MustChooseTarget(TargetType targetType, BattleTarget user){
         List<BattleTarget> battleTargets = new List<BattleTarget>(CombatSystem.BattleTargets);
         if(targetType == TargetType.Self){

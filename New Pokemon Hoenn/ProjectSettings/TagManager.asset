@@ -11,6 +11,9 @@ TagManager:
   - EventContainer
   - MovePoint
   - Run
+  - InventoryMenu
+  - Item
+  - Placeholder
   layers:
   - Default
   - TransparentFX

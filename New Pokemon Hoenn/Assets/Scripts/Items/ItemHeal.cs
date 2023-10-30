@@ -7,14 +7,19 @@ public class ItemHeal : ItemEffect
     [SerializeField] private int flatHealAmount;
     [SerializeField] [Range(0, 1)] private float percentHpHealAmount;
 
-    public override IEnumerator DoItemEffect()
-    {
-        throw new System.NotImplementedException();
+    public override bool CanEffectBeUsed(Pokemon p){
+        //cannot be used if target has fainted, unless this item also revives
+        return p.CurrentHealth < p.stats[0] && (p.primaryStatus != PrimaryStatus.Fainted || GetComponent<ItemRevive>());
     }
 
-    public override string GetItemEffectMessage()
-    {
-        throw new System.NotImplementedException();
+    public override IEnumerator DoItemEffect(Pokemon p, BattleHUD hudObj, System.Func<string, IEnumerator> messageOutput){
+        int healAmount = Mathf.Min((int)(percentHpHealAmount * p.stats[0]) + flatHealAmount, p.stats[0] - p.CurrentHealth);
+        yield return StartCoroutine(hudObj.healthBar.SetHealthBar(p, healAmount));
+        p.CurrentHealth += healAmount;
+        if(messageOutput != null){
+            string message = p.nickName + "'s HP was restored by " + healAmount + " points";
+            yield return StartCoroutine(messageOutput(message));
+        }
     }
 
     private IEnumerator HealTarget(Pokemon p, BattleHUD hud){

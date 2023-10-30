@@ -246,7 +246,7 @@ MonoBehaviour:
   label: trigger music
   getClipsFromArea: 0
   fadeOutMusic: 0
-  reduceMusic: 0
+  musicVolumeReduction: 0
   soundToPlay: {fileID: 0}
   musicIntro: {fileID: 8300000, guid: f7f1a73029d79e44f8bfccd7d92c4e81, type: 3}
   musicLoop: {fileID: 8300000, guid: b3ca7d8e9333b1e478c2058ec00fd2eb, type: 3}
@@ -413,6 +413,8 @@ MonoBehaviour:
     moves: []
     moveMaxPP: 00000000000000000000000000000000
     nature: 0
+  battleInventory: []
+  inventoryTemplate: []
 --- !u!114 &3042566066784129685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,6 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f56b67c2ab9f0e4883909284eb2a694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trainer: {fileID: 8076466987143524744}
 --- !u!114 &4819224395196761987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,7 +444,7 @@ MonoBehaviour:
   label: battle music
   getClipsFromArea: 0
   fadeOutMusic: 0
-  reduceMusic: 0
+  musicVolumeReduction: 0
   soundToPlay: {fileID: 0}
   musicIntro: {fileID: 8300000, guid: 35e8f576111fcf743ae61c30a635a025, type: 3}
   musicLoop: {fileID: 8300000, guid: c18c6bbd2ef3d814c953cef6b26cf9bf, type: 3}
@@ -461,7 +464,7 @@ MonoBehaviour:
   label: victory music
   getClipsFromArea: 0
   fadeOutMusic: 0
-  reduceMusic: 0
+  musicVolumeReduction: 0
   soundToPlay: {fileID: 0}
   musicIntro: {fileID: 8300000, guid: 2fb9bd2aaa7e49445a5726b7076a7fd3, type: 3}
   musicLoop: {fileID: 8300000, guid: fe042c86791e4f141a1e06a458644925, type: 3}

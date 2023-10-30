@@ -1,11 +1,12 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Trainer : EventAction
 {
     public bool isDoubleBattle;
-    public string trainerTitle;
-    public string trainerName;
+    [SerializeField] private string trainerTitle;
+    [SerializeField] private string trainerName;
     public string victoryMessage;
     public int rewardDollars;
     public EnemyAI trainerAI;
@@ -14,6 +15,12 @@ public class Trainer : EventAction
     public AudioPlayer victoryMusic;
     public EventAnimation introAnimation;
     public SerializablePokemon[] trainerPartyTemplate = new SerializablePokemon[6];
+    [HideInInspector] public List<ItemData> battleInventory;
+    [SerializeField] private List<ItemData> inventoryTemplate;
+
+    public string GetName(){
+        return trainerTitle + " " + trainerName;
+    }
 
     void Awake() {
         for (int i = 0; i < trainerPartyTemplate.Length; i++){
@@ -33,6 +40,7 @@ public class Trainer : EventAction
     }
 
     protected override IEnumerator EventActionLogic() {
+        battleInventory = new List<ItemData>(inventoryTemplate);
         yield return StartCoroutine(CombatLib.Instance.combatSystem.StartBattle(this));
         exit = !CombatSystem.PlayerVictory;
     } 

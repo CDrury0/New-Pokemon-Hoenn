@@ -4,22 +4,16 @@ using UnityEngine;
 
 public class WildAI : EnemyAI
 {
-    public override void ChooseAction(BattleTarget user)
-    {
-        if(CombatLib.Instance.moveFunctions.LockedIntoAction(user)){
-            return;
-        }
-
-        List<GameObject> possibleActions = GetPossibleActions(user);
+    protected override void SetTurnAction(BattleTarget user){
+        List<GameObject> possibleActions = GetPossibleMoves(user);
+        possibleActions.AddRange(GetUsableItems(user.pokemon));
         user.turnAction = possibleActions[Random.Range(0, possibleActions.Count)];
-        
         if(CombatLib.Instance.moveFunctions.MustChooseTarget(user.turnAction.GetComponent<MoveData>().targetType, user)){
             CombatLib.Instance.moveFunctions.MustChooseTarget(TargetType.RandomFoe, user);
         }
     }
 
-    public override Pokemon SelectNextPokemon(Party enemyParty)
-    {
+    public override Pokemon SelectNextPokemon(Party enemyParty){
         return enemyParty.GetFirstAvailable();
     }
 }

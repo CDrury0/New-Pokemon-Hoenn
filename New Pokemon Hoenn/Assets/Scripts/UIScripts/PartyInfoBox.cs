@@ -9,36 +9,24 @@ public class PartyInfoBox : MonoBehaviour
     public BattleHUD pokemonInfo;
     public Image boxSprite;
     public GameObject actionButtonPanel;
-    public GameObject sendOutButton;
+    [SerializeField] private PartyInfoBoxButtonContainer actionButtonContainer;
     [SerializeField] private Image battleHUDImage;
+    [SerializeField] private GameObject heldItemSprite;
     [SerializeField] private Color normalColor;
     [SerializeField] private Color faintedColor;
     
-    public void LoadPokemonDetails(){
+    public void LoadPokemonDetails(bool showActionButtons = true){
         Pokemon pokemonToDisplay = PlayerParty.Instance.playerParty.party[whichPartyMember];
         bool enableInfoBox = pokemonToDisplay != null;
         boxSprite.gameObject.SetActive(enableInfoBox);
         pokemonInfo.gameObject.SetActive(enableInfoBox);
-        actionButtonPanel.SetActive(enableInfoBox);
+        actionButtonPanel.SetActive(enableInfoBox && showActionButtons);
         if(enableInfoBox){
+            heldItemSprite.SetActive(pokemonToDisplay.heldItem != null);
             boxSprite.sprite = pokemonToDisplay.boxSprite;
             pokemonInfo.SetBattleHUD(pokemonToDisplay);
             battleHUDImage.color = pokemonToDisplay.primaryStatus == PrimaryStatus.Fainted ? faintedColor : normalColor;
+            actionButtonContainer.LoadActionButtons(pokemonToDisplay);
         }
-
-        ActivateSendOutButton();
-    }
-
-    private void ActivateSendOutButton(){
-        sendOutButton.SetActive(false);
-        if(CombatSystem.BattleActive){
-            sendOutButton.SetActive(CombatLib.Instance.combatSystem.CanBeSwitchedIn(PlayerParty.Instance.playerParty.party[whichPartyMember]));
-        }
-    }
-
-    public void SendOutButtonFunction(){
-        GetComponentInParent<PartyMenu>().gameObject.SetActive(false);
-        CombatSystem.ActiveTarget.individualBattleModifier.switchingIn = PlayerParty.Instance.playerParty.party[whichPartyMember];
-        CombatSystem.Proceed = true;
     }
 }

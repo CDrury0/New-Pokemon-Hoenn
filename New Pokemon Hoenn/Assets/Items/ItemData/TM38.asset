@@ -12,13 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: TM38
   m_EditorClassIdentifier: 
-  itemIdentifier: 210
-  itemName: TM38 - Fire Blast
+  itemLogicGO: {fileID: 0}
+  itemName: 'TM38: Fire Blast'
   itemDescription: "A machine used to teach a move to a Pok\xE9mon once."
   itemSprite: {fileID: 21300000, guid: 58f79b1ab9546784e9a681ecb5505b16, type: 3}
   itemPocket: 4
-  heldItem: 0
-  usedDuringBattle: 0
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 6000

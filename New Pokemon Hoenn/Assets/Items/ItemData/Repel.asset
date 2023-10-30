@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: Repel
   m_EditorClassIdentifier: 
-  itemIdentifier: 70
+  itemLogicGO: {fileID: 1903337395102383685, guid: 034dddf96a181254dbd25ec90144f45d, type: 3}
   itemName: Repel
   itemDescription: "Keeps weak wild Pok\xE9mon away for 50 steps."
   itemSprite: {fileID: 21300000, guid: 5fa7ecab4ab038b4797e025667ebaea1, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 0
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 250
+  usedWithoutTarget: 1

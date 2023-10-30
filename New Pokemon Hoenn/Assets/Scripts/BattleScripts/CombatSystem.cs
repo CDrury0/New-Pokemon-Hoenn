@@ -24,7 +24,8 @@ public class CombatSystem : MonoBehaviour
     public GameObject struggle;
     public GameObject switchAction;
     public GameObject failedRunAction;
-    public bool DoubleBattle {get; private set;}
+    public GameObject playerUsedItemPlaceholder;
+    public bool DoubleBattle { get; private set; }
     private Party playerParty;
     public Party EnemyParty { get; private set; }
     [SerializeField] private EnemyAI wildAI;
@@ -172,6 +173,7 @@ public class CombatSystem : MonoBehaviour
                     combatScreen.SetActionPromptText();
                     combatScreen.battleOptionsLayoutObject.SetActive(true);
                     yield return new WaitUntil(() => Proceed);
+                    combatScreen.battleOptionsLayoutObject.SetActive(false);
                 }
             }
         }
@@ -360,7 +362,7 @@ public class CombatSystem : MonoBehaviour
 
             GameObject action = Instantiate(ActiveTarget.turnAction);
 
-            AppliedEffectInfo onFaintInfo = ActiveTarget.individualBattleModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyOnFaintEffect);
+            AppliedEffectInfo onFaintInfo = ActiveTarget.individualBattleModifier.GetEffectInfoOfType<ApplyOnFaintEffect>();
             if(onFaintInfo != null){
                 onFaintInfo.effect.RemoveEffect(ActiveTarget, onFaintInfo);
             }
@@ -381,6 +383,12 @@ public class CombatSystem : MonoBehaviour
 
             else if(action.CompareTag("Switch")){
                 yield return StartCoroutine(action.GetComponent<MoveEffect>().DoEffect(ActiveTarget, null, null));
+            }
+
+            else if(action.CompareTag("Item")){
+                //the only time this occurs is when an enemy trainer uses an item
+                yield return StartCoroutine(action.GetComponent<ItemTurnAction>().DoEffect(ActiveTarget, null, null));
+                EnemyTrainer.battleInventory.Remove(action.GetComponent<ItemTurnAction>().itemLogic.itemData);
             }
 
             else if(action.CompareTag("Run")){
@@ -540,6 +548,7 @@ public class CombatSystem : MonoBehaviour
                 replacing.individualBattleModifier.switchingIn = enemyAI.SelectNextPokemon(EnemyParty);
             }
             else{
+                //the only time this should be reached is in the case of baton pass-type moves
                 combatScreen.SetPartyScreen(false);
                 yield return new WaitUntil(() => Proceed);
             }
@@ -634,12 +643,14 @@ public class CombatSystem : MonoBehaviour
             }
         }
 
-        GameObject[] instantiatedMoves = GameObject.FindGameObjectsWithTag("Move");
-        foreach(GameObject oldTurnAction in instantiatedMoves){
-            Destroy(oldTurnAction);
-        }
+        DestroyAllObjectsWithTag("Move");
+        DestroyAllObjectsWithTag("Switch");
+        DestroyAllObjectsWithTag("Item");
+        DestroyAllObjectsWithTag("Placeholder");
+    }
 
-        GameObject[] instantiatedSwitchActions = GameObject.FindGameObjectsWithTag("Switch");
+    private void DestroyAllObjectsWithTag(string tag){
+        GameObject[] instantiatedSwitchActions = GameObject.FindGameObjectsWithTag(tag);
         foreach(GameObject oldTurnAction in instantiatedSwitchActions){
             Destroy(oldTurnAction);
         }

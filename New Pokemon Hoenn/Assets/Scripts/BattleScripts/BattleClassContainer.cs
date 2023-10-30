@@ -124,31 +124,27 @@ public class IndividualBattleModifier
     }
 
     public IndividualBattleModifier(IndividualBattleModifier oldModifier, List<TimedEffectInfo> timedEffects) : this(timedEffects){
-        appliedEffects.Add(oldModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyConfuse));
-        appliedEffects.Add(oldModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyLockOn));
-        appliedEffects.Add(oldModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyTrap));
-        appliedEffects.Add(oldModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyLeechSeed));
-        appliedEffects.Add(oldModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyCurse));
-        appliedEffects.Add(oldModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyIngrain));
-        appliedEffects.Add(oldModifier.appliedEffects.Find(effectInfo => effectInfo.effect is ApplyPerishSong));
+        appliedEffects.Add(oldModifier.GetEffectInfoOfType<ApplyConfuse>());
+        appliedEffects.Add(oldModifier.GetEffectInfoOfType<ApplyLockOn>());
+        appliedEffects.Add(oldModifier.GetEffectInfoOfType<ApplyTrap>());
+        appliedEffects.Add(oldModifier.GetEffectInfoOfType<ApplyLeechSeed>());
+        appliedEffects.Add(oldModifier.GetEffectInfoOfType<ApplyCurse>());
+        appliedEffects.Add(oldModifier.GetEffectInfoOfType<ApplyIngrain>());
+        appliedEffects.Add(oldModifier.GetEffectInfoOfType<ApplyPerishSong>());
         appliedEffects.RemoveAll(effectInfo => effectInfo is null);
         statStages = oldModifier.statStages;
         CalculateStatMultipliers();
     }
 
     public AppliedEffectInfo GetEffectInfoOfType<T>(bool inflicting = false) where T : ApplyIndividualEffect {
-        if(inflicting){
-            return inflictingEffects.Find(e => e.effect is T);
-        }
-        return appliedEffects.Find(e => e.effect is T);
+        List<AppliedEffectInfo> effectInfoCollection = inflicting ? inflictingEffects : appliedEffects;
+        return effectInfoCollection.Find(e => e.effect is T);
     }
 
     public void CalculateStatMultipliers(){
-        for(int i = 0; i < 5; i++)
-        {
+        for(int i = 0; i < 5; i++){
             statMultipliers[i] = ((float)Mathf.Abs(statStages[i]) + 3f) / 3f;
-            if(statStages[i] < 0)
-            {
+            if(statStages[i] < 0){
                 statMultipliers[i] = 1f / statMultipliers[i];
             }
         }

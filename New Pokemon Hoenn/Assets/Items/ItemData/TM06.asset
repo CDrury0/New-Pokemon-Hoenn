@@ -12,13 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: TM06
   m_EditorClassIdentifier: 
-  itemIdentifier: 178
-  itemName: TM06 - Toxic
+  itemLogicGO: {fileID: 0}
+  itemName: 'TM06: Toxic'
   itemDescription: "A machine used to teach a move to a Pok\xE9mon once."
   itemSprite: {fileID: 21300000, guid: e0d8bd81e5645b64f86c77114c27d060, type: 3}
   itemPocket: 4
-  heldItem: 0
-  usedDuringBattle: 0
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 4000

@@ -84,7 +84,7 @@ public class CombatScreen : MonoBehaviour
         Trainer enemy = CombatSystem.EnemyTrainer;
         string message = enemy == null
         ? "A wild " + wildMonName + " appeared!"
-        : enemy.trainerTitle + " " + enemy.trainerName + " would like to battle";
+        : enemy.GetName() + " would like to battle";
         yield return StartCoroutine(battleText.WriteMessageConfirm(message));
     }
 
@@ -110,7 +110,7 @@ public class CombatScreen : MonoBehaviour
     }
 
     public IEnumerator EndTrainerBattleSequence(Trainer enemyTrainer){
-        yield return StartCoroutine(battleText.WriteMessageConfirm("Player defeated " + enemyTrainer.trainerTitle + " " + enemyTrainer.trainerName));
+        yield return StartCoroutine(battleText.WriteMessageConfirm("Player defeated " + enemyTrainer.GetName()));
         yield return StartCoroutine(enemyTrainerImage.GetComponent<SingleAnimOverride>().PlayAnimationWait(1));
         yield return StartCoroutine(battleText.WriteMessageConfirm(enemyTrainer.victoryMessage));
         yield return StartCoroutine(battleText.WriteMessageConfirm("Player earned $" + enemyTrainer.rewardDollars + " for winning"));

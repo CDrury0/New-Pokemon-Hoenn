@@ -5,6 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(ItemLogic))]
 public abstract class ItemEffect : MonoBehaviour
 {
-    public abstract IEnumerator DoItemEffect();
-    public abstract string GetItemEffectMessage();
+    protected ItemLogic itemLogic;
+    public abstract IEnumerator DoItemEffect(Pokemon p, BattleHUD hudObj, System.Func<string, IEnumerator> messageOutput);
+    public abstract bool CanEffectBeUsed(Pokemon p);
+
+    void Awake(){
+        itemLogic = GetComponent<ItemLogic>();
+    }
 }

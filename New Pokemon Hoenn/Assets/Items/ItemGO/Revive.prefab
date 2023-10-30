@@ -10,11 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6069336275812394783}
   - component: {fileID: -4841574164895817454}
-  - component: {fileID: 7298311632309716967}
+  - component: {fileID: 3914921360568455934}
   - component: {fileID: -1851520846420958101}
+  - component: {fileID: 3433724070243709026}
+  - component: {fileID: -2663768122426825621}
   m_Layer: 0
-  m_Name: Bruh
-  m_TagString: Untagged
+  m_Name: Revive
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,15 +48,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad0e26164433824ab7c54eb6ba4ba74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
-  itemSprite: {fileID: 0}
-  itemPocket: 0
-  itemPrice: 0
+  itemData: {fileID: 11400000, guid: 893d859744ba2334588f7957b3b4dc3b, type: 2}
   heldItem: {fileID: 0}
-  effectsDuringBattle: []
-  effectsOutsideBattle: []
---- !u!114 &7298311632309716967
+  onUseDuringBattle:
+  - {fileID: 3914921360568455934}
+  - {fileID: -1851520846420958101}
+  onUseOutsideBattle:
+  - {fileID: 3914921360568455934}
+  - {fileID: -1851520846420958101}
+--- !u!114 &3914921360568455934
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,10 +65,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1903337395102383685}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65994db5bb527d443b7944fb7c7a8aa7, type: 3}
+  m_Script: {fileID: 11500000, guid: e3a36c35dd8e0c84c9e141ffb5c30cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heldEffect: []
 --- !u!114 &-1851520846420958101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,4 +81,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flatHealAmount: 0
-  percentHpHealAmount: 0
+  percentHpHealAmount: 0.5
+--- !u!114 &3433724070243709026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903337395102383685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8017aeb4b8f9175468925e2a21b528c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: 
+  moveDescription: 
+  moveType: 0
+  typeFromWeather: 0
+  hiddenPowerType: 0
+  displayPower: 0
+  category: 2
+  targetType: 0
+  maxPP: 0
+  priority: 7
+  pursuit: 0
+  soundBased: 0
+  focusPunch: 0
+  onlyUsableFirstTurn: 0
+  worksOnAsleep: 0
+  worksWhileAsleep: 0
+  cannotBeSnatched: 0
+  notReflectedByMagicCoat: 0
+  ignoresProtect: 0
+  accuracyData:
+    accuracy: 0
+    cannotMissVulnerable: 0
+    entryHazard: 0
+    hitsSemiInvulnerable: 0
+    bypassOnWeather: {fileID: 0}
+    hurtsIfMiss: 0
+--- !u!114 &-2663768122426825621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903337395102383685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be10ab0e0900c8e4dac47e2c067b20e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  itemLogic: {fileID: -4841574164895817454}
