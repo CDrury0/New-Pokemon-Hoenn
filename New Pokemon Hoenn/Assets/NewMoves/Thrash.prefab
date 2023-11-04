@@ -51,10 +51,11 @@ MonoBehaviour:
     confused afterward.
   moveType: 1
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 110
   category: 0
   targetType: 4
-  maxPP: 10
+  maxPP: 15
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -64,11 +65,13 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
+  ignoresProtect: 0
   accuracyData:
     accuracy: 0.9
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &-9191903343196557033
 MonoBehaviour:
@@ -84,7 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyToSelf: 0
   message: 
-  skipChargingTurn: 0
+  skipChargingTurn: {fileID: 0}
   useNext: {fileID: 0}
   baseMove: {fileID: 0}
   givesSemiInvulnerable: 0
@@ -120,6 +123,7 @@ MonoBehaviour:
   bonusFromCurl: 0
   bonusLikeRollout: 0
   cannotKO: 0
+  cannotCrit: 0
   bonusAgainstMinimize: 0
   bonusAgainstSemiInvulnerable: 0
   bonusAgainstStatus: 0

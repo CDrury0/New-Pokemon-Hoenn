@@ -28,11 +28,10 @@ public class ItemLogic : MonoBehaviour
     }
 
     public IEnumerator DoItemEffects(BattleHUD hudObj, Pokemon p, System.Func<string, IEnumerator> messageOutput){
-        PlayerInventory.SubtractItem(itemData);
         List<ItemEffect> effectList = CombatSystem.BattleActive ? onUseDuringBattle : onUseOutsideBattle;
         yield return StartCoroutine(DoEffectList(effectList, p, hudObj, messageOutput));
         if(CombatSystem.BattleActive && p.inBattle){
-            CombatSystem.BattleTargets.Find(b => b.pokemon == p).battleHUD.SetBattleHUD(p);
+            CombatSystem.GetBattleTarget(p).battleHUD.SetBattleHUD(p);
         }
     }
 

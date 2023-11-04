@@ -23,7 +23,9 @@ public class MultiTurnEffect : MoveEffect, IApplyEffect
         }
         int forcedToUse = target.individualBattleModifier.multiTurnInfo.forcedToUseUntilCounter;
         if(forcedToUse != 0){
-            if(forcedToUse == target.individualBattleModifier.consecutiveMoveCounter){
+            //since the CONSECUTIVE move counter increments only when a move is used more than once,
+            //the counter will always be one behind the number of times the move was used, so + 1 is needed for this comparison
+            if(forcedToUse == target.individualBattleModifier.consecutiveMoveCounter + 1){
                 if(confuseOnEnd){
                     yield return StartCoroutine(CombatLib.Instance.moveFunctions.confuseAfterForcedToUse.DoEffect(target, target, CombatLib.Instance.moveFunctions.confuseAfterForcedToUseData));
                 }
@@ -56,7 +58,7 @@ public class MultiTurnEffect : MoveEffect, IApplyEffect
         if(forcedToUseMax != 0){
             if(user.individualBattleModifier.multiTurnInfo == null){
                 user.individualBattleModifier.consecutiveMoveCounter = 0;
-                user.individualBattleModifier.multiTurnInfo = new MultiTurnInfo(this, alwaysUseMaxTurns ? forcedToUseMax : Random.Range(2, forcedToUseMax + 1), mustRecharge);
+                user.individualBattleModifier.multiTurnInfo = new MultiTurnInfo(this, alwaysUseMaxTurns ? forcedToUseMax : Random.Range(2, forcedToUseMax), mustRecharge);
             }
         }
         else{

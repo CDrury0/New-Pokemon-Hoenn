@@ -55,6 +55,10 @@ public class PlayerInventory : MonoBehaviour
         inventory = new Dictionary<ItemData, int>();
         foreach(ItemData i in dataManifest){
             AddItem(i);
+            AddItem(i);
+            AddItem(i);
+            AddItem(i);
+            AddItem(i);
         }
         AddItem(giveOnStart);
         //load inventory from save file here?

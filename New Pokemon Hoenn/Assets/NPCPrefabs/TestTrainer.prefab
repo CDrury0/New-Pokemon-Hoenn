@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 6206834959908735435}
   - component: {fileID: 7214090465150011467}
   - component: {fileID: 8076466987143524744}
-  - component: {fileID: 3042566066784129685}
+  - component: {fileID: 3543319353181869969}
   - component: {fileID: 4819224395196761987}
   - component: {fileID: 647040502150291600}
   - component: {fileID: 408516362562542856}
@@ -317,7 +317,7 @@ MonoBehaviour:
   trainerName: Test
   victoryMessage: It's over
   rewardDollars: 0
-  trainerAI: {fileID: 3042566066784129685}
+  trainerAI: {fileID: 3543319353181869969}
   trainerSprite: {fileID: 0}
   battleMusic: {fileID: 4819224395196761987}
   victoryMusic: {fileID: 647040502150291600}
@@ -415,7 +415,7 @@ MonoBehaviour:
     nature: 0
   battleInventory: []
   inventoryTemplate: []
---- !u!114 &3042566066784129685
+--- !u!114 &3543319353181869969
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8671835066302808280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f56b67c2ab9f0e4883909284eb2a694, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e4664f8333e0904cad33eed3db600a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   trainer: {fileID: 8076466987143524744}

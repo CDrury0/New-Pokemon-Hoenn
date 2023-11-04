@@ -11,14 +11,15 @@ public abstract class EffectDamage : MoveEffect, ICheckMoveFail, IFlashImage
     //account for sturdy, endure here
     protected IEnumerator ApplyDamage(MoveData moveData, BattleTarget user, BattleTarget target, int damage){
         float matchup = CombatLib.Instance.moveFunctions.GetTypeMatchup(moveData.GetEffectiveMoveType(user.pokemon), target);
-        AudioClip onHit = matchup < 1f ? SFXLib.Instance.notVeryEffective : matchup == 1f ? SFXLib.Instance.normalEffective : SFXLib.Instance.superEffective;
+        SFXLib sfx = SFXLib.Instance;
+        AudioClip onHit = matchup < 1f ? sfx.notVeryEffective : matchup == 1f ? sfx.normalEffective : sfx.superEffective;
         AudioManager.Instance.PlaySoundEffect(onHit);
 
         IFlashImage magic = this as IFlashImage;
         yield return StartCoroutine(magic.DoImageFlash(target.monSpriteObject.GetComponent<Image>()));
 
         bool endured = false;
-        if(target.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyEndure) != null && damage == target.pokemon.CurrentHealth){
+        if(target.individualBattleModifier.GetEffectInfoOfType<ApplyEndure>() != null && damage == target.pokemon.CurrentHealth){
             endured = true;
             damage--;
         }
@@ -41,8 +42,7 @@ public abstract class EffectDamage : MoveEffect, ICheckMoveFail, IFlashImage
         yield break;
     }
 
-    public virtual string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
-    {
+    public virtual string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData){
         if(moveData.focusPunch && (user.individualBattleModifier.specialDamageTakenThisTurn > 0 || user.individualBattleModifier.physicalDamageTakenThisTurn > 0)){
             return user.GetName() + " lost its focus and couldn't move!";
         }

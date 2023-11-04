@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: PokeBall
   m_EditorClassIdentifier: 
-  itemIdentifier: 4
+  itemLogicGO: {fileID: 1903337395102383685, guid: 2ee0502474ef0dc40b8bf2419fc27f33, type: 3}
   itemName: "Pok\xE9Ball"
   itemDescription: "A basic tool for catching wild Pok\xE9mon."
   itemSprite: {fileID: 21300000, guid: 92913b0dbe73c804b8d914fc3c93f2bf, type: 3}
   itemPocket: 3
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 0
-  cannotBeDiscarded: 0
   itemPrice: 250
+  usedWithoutTarget: 1

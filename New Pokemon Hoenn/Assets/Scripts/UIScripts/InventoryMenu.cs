@@ -93,12 +93,21 @@ public class InventoryMenu : MonoBehaviour
     }
 
     public void UseItemButtonFunction(){
-        if(LoadedItemInstance.itemData.usedWithoutTarget){
-            PlayerInventory.SubtractItem(LoadedItemInstance.itemData);
-            StartCoroutine(LoadedItemInstance.DoItemEffects(null, null, (string message) => modal.ShowModalMessage(message)));
-            UpdateBadge(LoadedItemInstance.itemData);
+        if(!LoadedItemInstance.itemData.usedWithoutTarget){
+            useButton.GetComponent<OverlayTransitionCaller>().CallTransition();
             return;
         }
-        useButton.GetComponent<OverlayTransitionCaller>().CallTransition();
+        PlayerInventory.SubtractItem(LoadedItemInstance.itemData);
+        if(CombatSystem.BattleActive){
+            CombatSystem.ActiveTarget.turnAction = Instantiate(LoadedItemInstance.gameObject);
+            OverlayTransitionManager.Instance.DoTransitionWithAction(() => {
+                gameObject.SetActive(false);
+                CombatSystem.Proceed = true;
+            });
+            return;
+        }
+        StartCoroutine(LoadedItemInstance.DoItemEffects(null, null, (string message) => modal.ShowModalMessage(message)));
+        UpdateBadge(LoadedItemInstance.itemData);
+        return;
     }
 }

@@ -24,16 +24,14 @@ public class NormalDamage : EffectDamage
     public bool curesBonusStatus;
     public bool payback;
 
-    public override string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
-    {
+    public override string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData){
         if(spitUp && user.individualBattleModifier.stockpileCount == 0){
             return MoveData.FAIL;
         }
         return base.CheckMoveFail(user, target, moveData);
     }
 
-    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
-    {
+    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData){
         int power = moveData.displayPower;
         if(spitUp){
             power *= user.individualBattleModifier.stockpileCount;

@@ -141,6 +141,10 @@ public class CombatSystem : MonoBehaviour
         yield return new WaitUntil(() => !BattleActive);
     }
 
+    public static BattleTarget GetBattleTarget(Pokemon p){
+        return BattleTargets.Find(b => b.pokemon == p);
+    }
+
     public static bool ActiveTargetCanSwitchOut(){
         return ActiveTarget.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyBind || e.effect is ApplyTrap || e.effect is ApplyIngrain) == null;      
     }
@@ -386,9 +390,8 @@ public class CombatSystem : MonoBehaviour
             }
 
             else if(action.CompareTag("Item")){
-                //the only time this occurs is when an enemy trainer uses an item
+                //enemy uses this in general when items are used; player mainly just uses it for balls
                 yield return StartCoroutine(action.GetComponent<ItemTurnAction>().DoEffect(ActiveTarget, null, null));
-                EnemyTrainer.battleInventory.Remove(action.GetComponent<ItemTurnAction>().itemLogic.itemData);
             }
 
             else if(action.CompareTag("Run")){

@@ -19,6 +19,7 @@ public class ButtonContainerInventoryUse : PartyInfoBoxButtonContainer
         PartyInfoBox infoBox = GetComponent<PartyInfoBox>();
         infoBox.LoadPokemonDetails(false);
         Pokemon p = PlayerParty.Instance.playerParty.party[infoBox.whichPartyMember];
+        PlayerInventory.SubtractItem(InventoryMenu.LoadedItemInstance.itemData);
         yield return StartCoroutine(InventoryMenu.LoadedItemInstance.DoItemEffects(infoBox.pokemonInfo, p, (string message) => modal.ShowModalMessage(message)));
         InventoryMenu invMenu = GameObject.FindWithTag("InventoryMenu").GetComponentInChildren<InventoryMenu>();
         invMenu.UpdateBadge(InventoryMenu.LoadedItemInstance.itemData);
