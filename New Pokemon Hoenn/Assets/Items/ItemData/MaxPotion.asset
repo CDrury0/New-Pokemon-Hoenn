@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: MaxPotion
   m_EditorClassIdentifier: 
-  itemIdentifier: 20
+  itemLogicGO: {fileID: 1903337395102383685, guid: 737591384b7047f468860066439252e4, type: 3}
   itemName: Max Potion
   itemDescription: "Fully restores the HP of a Pok\xE9mon."
   itemSprite: {fileID: 21300000, guid: 529e073a73e501c42bd657c96d4796f9, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 2400
+  usedWithoutTarget: 0

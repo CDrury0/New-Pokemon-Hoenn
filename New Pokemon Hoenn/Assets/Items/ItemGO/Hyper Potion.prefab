@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6069336275812394783}
   - component: {fileID: -4841574164895817454}
-  - component: {fileID: 740765742281062348}
   - component: {fileID: -1851520846420958101}
+  - component: {fileID: 2441652009826571577}
+  - component: {fileID: -2073107539177408606}
   m_Layer: 0
-  m_Name: Revive
+  m_Name: Hyper Potion
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,27 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad0e26164433824ab7c54eb6ba4ba74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: 893d859744ba2334588f7957b3b4dc3b, type: 2}
+  itemData: {fileID: 11400000, guid: 5a78d536327893b409b7f011883d903a, type: 2}
   heldItem: {fileID: 0}
   onUseDuringBattle:
-  - {fileID: 740765742281062348}
   - {fileID: -1851520846420958101}
   onUseOutsideBattle:
-  - {fileID: 740765742281062348}
   - {fileID: -1851520846420958101}
---- !u!114 &740765742281062348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903337395102383685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b8fe497b94d40a4990fc0635b974a11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cureStatus: 6
 --- !u!114 &-1851520846420958101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,5 +65,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f5d0c1655265f42897e4caff2c5270, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flatHealAmount: 0
-  percentHpHealAmount: 0.5
+  flatHealAmount: 200
+  percentHpHealAmount: 0
+--- !u!114 &2441652009826571577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903337395102383685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8017aeb4b8f9175468925e2a21b528c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: 
+  moveDescription: 
+  moveType: 0
+  typeFromWeather: 0
+  hiddenPowerType: 0
+  displayPower: 0
+  category: 2
+  targetType: 0
+  maxPP: 0
+  priority: 7
+  pursuit: 0
+  soundBased: 0
+  focusPunch: 0
+  onlyUsableFirstTurn: 0
+  worksOnAsleep: 0
+  worksWhileAsleep: 0
+  cannotBeSnatched: 0
+  notReflectedByMagicCoat: 0
+  ignoresProtect: 0
+  accuracyData:
+    accuracy: 0
+    cannotMissVulnerable: 0
+    entryHazard: 0
+    hitsSemiInvulnerable: 0
+    bypassOnWeather: {fileID: 0}
+    hurtsIfMiss: 0
+--- !u!114 &-2073107539177408606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903337395102383685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be10ab0e0900c8e4dac47e2c067b20e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  itemLogic: {fileID: -4841574164895817454}

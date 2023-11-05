@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: HyperPotion
   m_EditorClassIdentifier: 
-  itemIdentifier: 21
+  itemLogicGO: {fileID: 1903337395102383685, guid: b9ca5d21481c4114b893c24b4a868b17, type: 3}
   itemName: Hyper Potion
   itemDescription: "Restores the HP of a Pok\xE9mon by 200 points."
   itemSprite: {fileID: 21300000, guid: 9555783e33f910f4691eebc7f9511e2d, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 1600
+  usedWithoutTarget: 0

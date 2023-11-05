@@ -10,8 +10,8 @@ public class ItemBall : ItemEffect
     }
 
     //this implementation assumes that only the player can use pokeballs
-    public override IEnumerator DoItemEffect(Pokemon p, BattleHUD hudObj, Func<string, IEnumerator> messageOutput){
-        string message = "Player threw a(n) " + itemLogic.itemData.itemName;
-        yield return StartCoroutine(messageOutput(message));
+    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj){
+        message = "Player threw a(n) " + itemLogic.itemData.itemName;
+        yield break;
     }
 }

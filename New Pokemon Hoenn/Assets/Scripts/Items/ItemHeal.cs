@@ -9,17 +9,19 @@ public class ItemHeal : ItemEffect
 
     public override bool CanEffectBeUsed(Pokemon p){
         //cannot be used if target has fainted, unless this item also revives
-        return p.CurrentHealth < p.stats[0] && (p.primaryStatus != PrimaryStatus.Fainted || GetComponent<ItemRevive>());
+        return p.CurrentHealth < p.stats[0] && (p.primaryStatus != PrimaryStatus.Fainted || ItemRevives());
     }
 
-    public override IEnumerator DoItemEffect(Pokemon p, BattleHUD hudObj, System.Func<string, IEnumerator> messageOutput){
+    private bool ItemRevives(){
+        ItemCurePrimaryStatus cure = GetComponent<ItemCurePrimaryStatus>();
+        return cure != null && cure.CureStatus == PrimaryStatus.Fainted;
+    }
+
+    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj){
         int healAmount = Mathf.Min((int)(percentHpHealAmount * p.stats[0]) + flatHealAmount, p.stats[0] - p.CurrentHealth);
         yield return StartCoroutine(hudObj.healthBar.SetHealthBar(p, healAmount));
         p.CurrentHealth += healAmount;
-        if(messageOutput != null){
-            string message = p.nickName + "'s HP was restored by " + healAmount + " points";
-            yield return StartCoroutine(messageOutput(message));
-        }
+        message = p.nickName + "'s HP was restored by " + healAmount + " points";
     }
 
     private IEnumerator HealTarget(Pokemon p, BattleHUD hud){

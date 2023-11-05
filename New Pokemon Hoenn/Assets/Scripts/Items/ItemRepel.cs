@@ -11,8 +11,9 @@ public class ItemRepel : ItemEffect
         return true;
     }
 
-    public override IEnumerator DoItemEffect(Pokemon p, BattleHUD hudObj, Func<string, IEnumerator> messageOutput){
+    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj){
         Debug.Log("repel used");
-        yield return StartCoroutine(messageOutput(itemLogic.itemData.itemName + " will keep weak wild Pokémon away for " + numSteps + " steps"));
+        message = itemLogic.itemData.itemName + " will keep weak wild Pokémon away for " + numSteps + " steps";
+        yield break;
     }
 }
