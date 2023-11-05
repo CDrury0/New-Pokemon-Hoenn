@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: Zinc
   m_EditorClassIdentifier: 
-  itemIdentifier: 57
+  itemLogicGO: {fileID: 1903337395102383685, guid: 528d0cd482e4db24483a45525f7f94d9, type: 3}
   itemName: Zinc
   itemDescription: "This potent nutritional supplement increases the special defense
     stat of a Pok\xE9mon."
   itemSprite: {fileID: 21300000, guid: a32be02724ec296429a604f0724982d3, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 0
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 10000
+  usedWithoutTarget: 0
+  stackLimit: 0

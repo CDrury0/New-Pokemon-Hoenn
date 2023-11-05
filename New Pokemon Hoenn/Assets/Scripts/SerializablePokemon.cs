@@ -9,8 +9,8 @@ public class SerializablePokemon
     public StatLib.Ability ability;
     public bool isShiny;
     public ItemData ballUsed;
-    [Range(0, 252)] public int[] effortValues = new int[6];
-    [Range(0, 31)] public int[] individualValues = new int[6];
+    [Range(0, Pokemon.MAX_EV)] public int[] effortValues = new int[6];
+    [Range(0, Pokemon.MAX_IV)] public int[] individualValues = new int[6];
     public int level;
     public int friendship;
     public Gender gender;

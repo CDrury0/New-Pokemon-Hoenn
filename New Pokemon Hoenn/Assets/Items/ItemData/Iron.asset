@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: Iron
   m_EditorClassIdentifier: 
-  itemIdentifier: 52
+  itemLogicGO: {fileID: 1903337395102383685, guid: 2640d0992a871aa4999f18a0fb713496, type: 3}
   itemName: Iron
   itemDescription: "This potent nutritional supplement increases the defense stat
     of a Pok\xE9mon."
   itemSprite: {fileID: 21300000, guid: 8da75a187607c8a4fa7616b07b55a68b, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 0
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 10000
+  usedWithoutTarget: 0
+  stackLimit: 0

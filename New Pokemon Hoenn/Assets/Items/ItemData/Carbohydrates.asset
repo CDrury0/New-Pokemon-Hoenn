@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: Carbohydrates
   m_EditorClassIdentifier: 
-  itemIdentifier: 53
+  itemLogicGO: {fileID: 1903337395102383685, guid: 586810babd539134fae2c89a9d518cf8, type: 3}
   itemName: Carbohydrates
   itemDescription: "This potent nutritional supplement increases the speed stat of
     a Pok\xE9mon."
   itemSprite: {fileID: 21300000, guid: 2278c297659615b43b3456b479de4b62, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 0
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 10000
+  usedWithoutTarget: 0
+  stackLimit: 0

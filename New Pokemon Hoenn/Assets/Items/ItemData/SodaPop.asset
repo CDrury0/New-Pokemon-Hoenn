@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: SodaPop
   m_EditorClassIdentifier: 
-  itemIdentifier: 27
+  itemLogicGO: {fileID: 1903337395102383685, guid: 363149d911d8a134d82809e1ad9daadd, type: 3}
   itemName: Soda Pop
   itemDescription: "Restores the HP of a Pok\xE9mon by 60 points. Bottled, not canned."
   itemSprite: {fileID: 21300000, guid: 6b129198a8e00764a90a65cea67ba64d, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 450
+  usedWithoutTarget: 0
+  stackLimit: 0

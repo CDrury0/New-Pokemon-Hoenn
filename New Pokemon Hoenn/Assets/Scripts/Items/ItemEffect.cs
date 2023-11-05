@@ -7,6 +7,9 @@ public abstract class ItemEffect : MonoBehaviour
 {
     protected ItemLogic itemLogic;
     protected string message;
+    /// <summary>
+    /// hudObj has SetBattleHUD(p) called on it after this method is executed; only use hudObj for other one-off HUD actions
+    /// </summary>
     protected abstract IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj);
     public abstract bool CanEffectBeUsed(Pokemon p);
     

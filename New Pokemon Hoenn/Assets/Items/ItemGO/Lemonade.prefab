@@ -10,12 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6069336275812394783}
   - component: {fileID: -4841574164895817454}
-  - component: {fileID: 7115410159797031050}
   - component: {fileID: -1851520846420958101}
   - component: {fileID: 4890241860401441911}
   - component: {fileID: 1465981013583228236}
   m_Layer: 0
-  m_Name: Full Restore
+  m_Name: Lemonade
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,27 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad0e26164433824ab7c54eb6ba4ba74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: c4c3e87c9d5c8a844a91ee405dadf00a, type: 2}
+  itemData: {fileID: 11400000, guid: 2b4c7523a229189439f9e3649330e268, type: 2}
   heldItem: {fileID: 0}
   onUseDuringBattle:
   - {fileID: -1851520846420958101}
-  - {fileID: -1851520846420958101}
   onUseOutsideBattle:
   - {fileID: -1851520846420958101}
-  - {fileID: -1851520846420958101}
---- !u!114 &7115410159797031050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903337395102383685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b8fe497b94d40a4990fc0635b974a11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cureStatus: 7
 --- !u!114 &-1851520846420958101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,8 +65,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f5d0c1655265f42897e4caff2c5270, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flatHealAmount: 0
-  percentHpHealAmount: 1
+  flatHealAmount: 80
+  percentHpHealAmount: 0
 --- !u!114 &4890241860401441911
 MonoBehaviour:
   m_ObjectHideFlags: 0

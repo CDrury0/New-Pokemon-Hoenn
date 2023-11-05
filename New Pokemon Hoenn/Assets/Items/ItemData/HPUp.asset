@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: HPUp
   m_EditorClassIdentifier: 
-  itemIdentifier: 50
+  itemLogicGO: {fileID: 1903337395102383685, guid: 967481edc27ace741990d8f4ace82b42, type: 3}
   itemName: HP Up
   itemDescription: "This potent nutritional supplement increases the HP stat of a
     Pok\xE9mon."
   itemSprite: {fileID: 21300000, guid: e73ca70018eabc9468b770ef88a9dfb9, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 0
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
+  itemPrice: 0
+  usedWithoutTarget: 0
+  stackLimit: 0

@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: FullHeal
   m_EditorClassIdentifier: 
-  itemIdentifier: 23
+  itemLogicGO: {fileID: 1903337395102383685, guid: 4d3eb4770743c784295b245824a878ef, type: 3}
   itemName: Full Heal
   itemDescription: "Cures a Pok\xE9mon of all status effects."
   itemSprite: {fileID: 21300000, guid: 244cd394fa85ae649a4fdbc81632e058, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 500
+  usedWithoutTarget: 0
+  stackLimit: 0

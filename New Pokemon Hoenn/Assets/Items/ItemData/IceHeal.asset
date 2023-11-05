@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: IceHeal
   m_EditorClassIdentifier: 
-  itemIdentifier: 16
+  itemLogicGO: {fileID: 1903337395102383685, guid: 436be79c8fff18743a449fa3c0b48b76, type: 3}
   itemName: Ice Heal
   itemDescription: "Cures a Pok\xE9mon of the frozen status effect."
   itemSprite: {fileID: 21300000, guid: 03e03c365485a304c9cf5a7cfaed7c1c, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 250
+  usedWithoutTarget: 0
+  stackLimit: 0

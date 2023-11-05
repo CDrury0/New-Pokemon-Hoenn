@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: Calcium
   m_EditorClassIdentifier: 
-  itemIdentifier: 54
+  itemLogicGO: {fileID: 1903337395102383685, guid: f82b6e4dfc9543f409300a7d9032b78c, type: 3}
   itemName: Calcium
   itemDescription: "This potent nutritional supplement increases the special attack
     stat of a Pok\xE9mon."
   itemSprite: {fileID: 21300000, guid: 2d5ace6fc630073478a3118685f0ec3a, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 0
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 10000
+  usedWithoutTarget: 0
+  stackLimit: 0

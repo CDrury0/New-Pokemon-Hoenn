@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: Lemonade
   m_EditorClassIdentifier: 
-  itemIdentifier: 28
+  itemLogicGO: {fileID: 1903337395102383685, guid: f7860f060e2a04c4f844b6b4488a3308, type: 3}
   itemName: Lemonade
   itemDescription: "Restores the HP of a Pok\xE9mon by 80 points. Canned, not bottled."
   itemSprite: {fileID: 21300000, guid: 3d1a134d66bb1e148912b0d8a118d81d, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 600
+  usedWithoutTarget: 0
+  stackLimit: 0

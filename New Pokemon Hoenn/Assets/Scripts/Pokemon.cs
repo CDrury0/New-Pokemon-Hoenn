@@ -8,6 +8,8 @@ public enum Nature {Hardy, Lonely, Brave, Adamant, Naughty, Bold, Docile, Relaxe
 public class Pokemon
 {
     public enum Type {None, Normal, Fire, Water, Electric, Grass, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, Fairy}
+    public const int MAX_EV = 200;
+    public const int MAX_IV = 31;
     public PokemonDefault pokemonDefault;
     public List<GameObject> moves;
     public int[] movePP = new int[4];

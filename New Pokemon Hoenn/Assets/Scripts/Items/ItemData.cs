@@ -12,4 +12,5 @@ public class ItemData : ScriptableObject
     public ItemPocket itemPocket;
     public int itemPrice;
     public bool usedWithoutTarget;
+    public int stackLimit;
 }

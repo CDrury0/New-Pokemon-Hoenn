@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: ParalyzeHeal
   m_EditorClassIdentifier: 
-  itemIdentifier: 18
+  itemLogicGO: {fileID: 1903337395102383685, guid: df85e92244d84124298b06f5dc5c77e6, type: 3}
   itemName: Paralyze Heal
   itemDescription: "Cures a Pok\xE9mon of the paralysis status effect."
   itemSprite: {fileID: 21300000, guid: efadceb0f0504994dabc5b1853e80053, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 250
+  usedWithoutTarget: 0
+  stackLimit: 0

@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: MaxRevive
   m_EditorClassIdentifier: 
-  itemIdentifier: 25
+  itemLogicGO: {fileID: 1903337395102383685, guid: d474866e7e0f58d43932405e0c740c5d, type: 3}
   itemName: Max Revive
   itemDescription: "Revives a fainted Pok\xE9mon with all of its HP."
   itemSprite: {fileID: 21300000, guid: 70ebf4fe323c1f2438e164afc7c5b880, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 4500
+  usedWithoutTarget: 0
+  stackLimit: 0
