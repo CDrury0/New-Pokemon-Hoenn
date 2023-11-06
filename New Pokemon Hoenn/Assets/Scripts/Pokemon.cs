@@ -10,6 +10,7 @@ public class Pokemon
     public enum Type {None, Normal, Fire, Water, Electric, Grass, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, Fairy}
     public const int MAX_EV = 200;
     public const int MAX_IV = 31;
+    public const int MAX_FRIENDSHIP = 255;
     public PokemonDefault pokemonDefault;
     public List<GameObject> moves;
     public int[] movePP = new int[4];
@@ -25,7 +26,18 @@ public class Pokemon
     public Sprite backSprite;
     public Sprite boxSprite;
     public ItemData heldItem;
-    public int friendship;
+    public int Friendship {get { return _friendship; } set{
+        if(value > Pokemon.MAX_FRIENDSHIP){
+            _friendship = Pokemon.MAX_FRIENDSHIP;
+        }
+        else if(value < 0){
+            _friendship = 0;
+        }
+        else{
+            _friendship = value;
+        }
+    }}
+    private int _friendship;
     public int level;
     public int experience;
     public float height;
@@ -101,7 +113,7 @@ public class Pokemon
         this.nature = p.nature;
         UpdateStats();
         this.CurrentHealth = stats[0];
-        this.friendship = p.friendship;
+        this.Friendship = p.friendship;
         this.gender = p.gender;
         this.height = p.height;
         this.heldItem = p.heldItem;
@@ -300,7 +312,7 @@ public class Pokemon
         isShiny = Random.Range(0, 1000) == 0;
         FillSprites(this);
         hiddenPowerType = (Pokemon.Type)Random.Range(1, 18);
-        friendship = pokemonDefault.friendship;
+        Friendship = pokemonDefault.friendship;
         experience = pokemonDefault.CalculateExperienceAtLevel(level);
         height = MakeHeight(pokemonDefault);
         weight = MakeWeight(pokemonDefault);

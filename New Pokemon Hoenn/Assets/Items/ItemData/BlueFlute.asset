@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: BlueFlute
   m_EditorClassIdentifier: 
-  itemIdentifier: 39
+  itemLogicGO: {fileID: 1903337395102383685, guid: c3c45d5f795e1194aad1e68646551600, type: 3}
   itemName: Blue Flute
   itemDescription: "A blue glass flute that awakens a Pok\xE9mon from sleep, but
     breaks when played."
   itemSprite: {fileID: 21300000, guid: e28b3a32615cd624ab172eb25ec483db, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 200
+  usedWithoutTarget: 0
+  stackLimit: 0

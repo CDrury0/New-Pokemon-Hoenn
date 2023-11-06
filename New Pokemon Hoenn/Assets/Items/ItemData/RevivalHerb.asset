@@ -12,14 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: RevivalHerb
   m_EditorClassIdentifier: 
-  itemIdentifier: 33
+  itemLogicGO: {fileID: 1903337395102383685, guid: 17494d5d67df2b748b721ca4a55630fa, type: 3}
   itemName: Revival Herb
-  itemDescription: "Revives a fainted Pok\xE9mon with half of its HP. Still tastes
-    awful."
+  itemDescription: "Revives a fainted Pok\xE9mon with full HP. Still tastes awful."
   itemSprite: {fileID: 21300000, guid: 9235e404073eff0419ebc010d6c952c7, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 1500
+  usedWithoutTarget: 0
+  stackLimit: 0

@@ -29,7 +29,7 @@ public class HandleEvolution : MonoBehaviour
             if(evoDetails.evolvesWithHeldItem != null && p.heldItem == evoDetails.evolvesWithHeldItem){
                 return true;
             }
-            if(p.friendship >= evoDetails.evolvesWithFriendship && evoDetails.evolvesWithFriendship != 0){
+            if(p.Friendship >= evoDetails.evolvesWithFriendship && evoDetails.evolvesWithFriendship != 0){
                 return true;
             }
             //if no special conditions are met, the pokemon evolves exclusively based on level
