@@ -17,18 +17,22 @@ public class Pokemon
     public int[] moveMaxPP = new int[4];
     public int[] effortValues = new int[6];
     public int[] individualValues = new int[6];
-    public Pokemon.Type hiddenPowerType;
+    public Type hiddenPowerType;
     public PrimaryStatus primaryStatus;
-    public Pokemon.Type type1;
-    public Pokemon.Type type2;
+    public Type type1;
+    public Type type2;
     public bool isShiny;
     public Sprite frontSprite;
     public Sprite backSprite;
     public Sprite boxSprite;
     public ItemData heldItem;
+
+    /// <summary>
+    /// Update property implementation to account for met location, luxury ball, etc?
+    /// </summary>
     public int Friendship {get { return _friendship; } set{
-        if(value > Pokemon.MAX_FRIENDSHIP){
-            _friendship = Pokemon.MAX_FRIENDSHIP;
+        if(value > MAX_FRIENDSHIP){
+            _friendship = MAX_FRIENDSHIP;
         }
         else if(value < 0){
             _friendship = 0;
@@ -311,7 +315,7 @@ public class Pokemon
         individualValues = MakeRandomIVS();
         isShiny = Random.Range(0, 1000) == 0;
         FillSprites(this);
-        hiddenPowerType = (Pokemon.Type)Random.Range(1, 18);
+        hiddenPowerType = (Type)Random.Range(1, 18);
         Friendship = pokemonDefault.friendship;
         experience = pokemonDefault.CalculateExperienceAtLevel(level);
         height = MakeHeight(pokemonDefault);
@@ -389,7 +393,7 @@ public class Pokemon
 
     private float UpdateHeight(PokemonDefault pokemonDefault){
         float heightRatio = height / this.pokemonDefault.height;
-        return (float)(System.Math.Round(heightRatio * pokemonDefault.height, 2));
+        return (float)System.Math.Round(heightRatio * pokemonDefault.height, 2);
     }
 
     private float MakeWeight(PokemonDefault pokemonDefault){
@@ -399,7 +403,7 @@ public class Pokemon
 
     private float UpdateWeight(PokemonDefault pokemonDefault){
         float weightRatio = weight / this.pokemonDefault.weight;
-        return (float)(System.Math.Round(weightRatio * pokemonDefault.weight, 2));
+        return (float)System.Math.Round(weightRatio * pokemonDefault.weight, 2);
     }
 
     private int[] MakeRandomIVS()

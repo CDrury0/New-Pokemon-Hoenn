@@ -20,7 +20,7 @@ public class LearnMoveScreen : MonoBehaviour
         }
     }
 
-    [SerializeField] private GameObject background;
+    [SerializeField] private GameObject mainMenuGO;
     [SerializeField] private SummaryMovePlate moveToLearnDisplay;
     [SerializeField] private SummaryMovePlate[] movesKnownDisplays;
     [SerializeField] private TextMeshProUGUI promptText;
@@ -43,7 +43,7 @@ public class LearnMoveScreen : MonoBehaviour
         p.moveMaxPP[MoveReplaced] = moveData.maxPP;
     }
 
-    public IEnumerator DoLearnMoveScreen(Pokemon p, GameObject move, WriteText messageOutput = null) {
+    public IEnumerator DoLearnMoveScreen(Pokemon p, GameObject move, System.Func<string, IEnumerator> messageOutput) {
         MoveData moveData = move.GetComponent<MoveData>();
         
         if(p.moves.Contains(null)){
@@ -59,9 +59,9 @@ public class LearnMoveScreen : MonoBehaviour
                 movesKnownDisplays[i].SetMoveInfo(p.movePP[i], p.moveMaxPP[i], p.moves[i].GetComponent<MoveData>());
             }
 
-            background.SetActive(true);
+            mainMenuGO.SetActive(true);
             yield return new WaitUntil(() => Proceed);
-            background.SetActive(false);
+            mainMenuGO.SetActive(false);
 
             if (MoveReplaced < p.moves.Count){
                 LearnMove(p, move);
@@ -69,8 +69,7 @@ public class LearnMoveScreen : MonoBehaviour
         }
 
         if(messageOutput != null){
-            yield return StartCoroutine(messageOutput.WriteMessageConfirm(
-                p.nickName + (MoveReplaced < p.moves.Count ? " learned " + moveData.moveName + "!" : " did not learn " + moveData.moveName)));
+            yield return StartCoroutine(messageOutput(p.nickName + (MoveReplaced < p.moves.Count ? " learned " + moveData.moveName + "!" : " did not learn " + moveData.moveName)));
         }
     }
 

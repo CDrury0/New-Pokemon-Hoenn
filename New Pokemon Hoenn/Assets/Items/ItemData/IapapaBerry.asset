@@ -12,14 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: IapapaBerry
   m_EditorClassIdentifier: 
-  itemIdentifier: 99
+  itemLogicGO: {fileID: 1903337395102383685, guid: 0119ae80d0fd89f4e87335e57dd9ccf6, type: 3}
   itemName: Iapapa Berry
-  itemDescription: "It tastes like pizza, and is universally delicious. Such rich
-    flavors make the Pok\xE9mon more friendly."
+  itemDescription: "It tastes like pizza. Makes Pok\xE9mon more friendly."
   itemSprite: {fileID: 21300000, guid: d55a50e3c2774374fa0f912c523eb0dc, type: 3}
   itemPocket: 1
-  heldItem: 1
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 100
+  usedWithoutTarget: 0
+  stackLimit: 0

@@ -17,7 +17,7 @@ public class ItemHeal : ItemEffect
         return cure != null && cure.CureStatus == PrimaryStatus.Fainted;
     }
 
-    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj){
+    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj, System.Func<string, IEnumerator> messageOutput){
         int healAmount = Mathf.Min((int)(percentHpHealAmount * p.stats[0]) + flatHealAmount, p.stats[0] - p.CurrentHealth);
         yield return StartCoroutine(hudObj.healthBar.SetHealthBar(p, healAmount));
         p.CurrentHealth += healAmount;

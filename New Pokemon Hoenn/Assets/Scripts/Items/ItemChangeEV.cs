@@ -11,7 +11,7 @@ public class ItemChangeEV : ItemEffect
         return changeAmount > 0 ? p.effortValues[statToChange] < Pokemon.MAX_EV : p.effortValues[statToChange] > 0;
     }
 
-    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj){
+    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj, System.Func<string, IEnumerator> messageOutput){
         if(changeAmount + p.effortValues[statToChange] > Pokemon.MAX_EV){
             p.effortValues[statToChange] = Pokemon.MAX_EV;
         }

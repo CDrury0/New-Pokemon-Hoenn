@@ -11,7 +11,7 @@ public class ItemChangeFriendship : ItemEffect
         || (changeAmount < 0 && p.Friendship > 0);
     }
 
-    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj){
+    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj, System.Func<string, IEnumerator> messageOutput){
         p.Friendship += changeAmount;
         message = p.nickName + "'s friendship was " + (changeAmount > 0 ? "increased" : "decreased");
         yield break;

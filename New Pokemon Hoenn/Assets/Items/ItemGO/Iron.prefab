@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6069336275812394783}
   - component: {fileID: -4841574164895817454}
   - component: {fileID: 3482187268192835201}
+  - component: {fileID: 3505556529870222120}
   m_Layer: 0
   m_Name: Iron
   m_TagString: Item
@@ -50,6 +51,7 @@ MonoBehaviour:
   onUseDuringBattle:
   - {fileID: 0}
   onUseOutsideBattle:
+  - {fileID: 3505556529870222120}
   - {fileID: 3482187268192835201}
 --- !u!114 &3482187268192835201
 MonoBehaviour:
@@ -65,3 +67,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statToChange: 2
   changeAmount: 10
+--- !u!114 &3505556529870222120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903337395102383685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0709700ee2ddd314ab5a769ccfd53069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeAmount: 3

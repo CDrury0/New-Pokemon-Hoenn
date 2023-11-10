@@ -20,7 +20,7 @@ public class LevelUpScreen : MonoBehaviour
         }
     }
 
-    [SerializeField] private GameObject background;
+    [SerializeField] private GameObject mainMenuGO;
     [SerializeField] private TextMeshProUGUI nicknameText;
     [SerializeField] private TextMeshProUGUI[] oldStatText;
     [SerializeField] private TextMeshProUGUI[] newStatText;
@@ -35,8 +35,8 @@ public class LevelUpScreen : MonoBehaviour
             oldStatText[i].text = oldStats[i].ToString() + " >";
             newStatText[i].text = " " + newStats[i].ToString();
         }
-        background.SetActive(true);
+        mainMenuGO.SetActive(true);
         yield return new WaitUntil(() => Proceed);
-        background.SetActive(false);
+        mainMenuGO.SetActive(false);
     }
 }

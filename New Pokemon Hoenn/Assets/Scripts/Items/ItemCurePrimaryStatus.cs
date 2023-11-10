@@ -17,7 +17,7 @@ public class ItemCurePrimaryStatus : ItemEffect
         return p.primaryStatus != PrimaryStatus.None && p.primaryStatus != PrimaryStatus.Fainted && _cureStatus == PrimaryStatus.Any;
     }
 
-    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj){
+    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj, System.Func<string, IEnumerator> messageOutput){
         p.primaryStatus = PrimaryStatus.None;
         message = p.nickName + " is no longer " + _cureStatus;
         yield break;

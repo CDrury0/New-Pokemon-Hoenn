@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6069336275812394783}
   - component: {fileID: -4841574164895817454}
-  - component: {fileID: 3482187268192835201}
   - component: {fileID: -7750275097662468769}
   m_Layer: 0
-  m_Name: Calcium
+  m_Name: Iapapa Berry
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,27 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad0e26164433824ab7c54eb6ba4ba74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: 77daf3a0c070bb24eb7a97a8972bc97c, type: 2}
+  itemData: {fileID: 11400000, guid: 000263b1bc0ff2a4198e201c07589909, type: 2}
   heldItem: {fileID: 0}
   onUseDuringBattle:
   - {fileID: 0}
   onUseOutsideBattle:
   - {fileID: -7750275097662468769}
-  - {fileID: 3482187268192835201}
---- !u!114 &3482187268192835201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903337395102383685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b2e0952bb360764a95278d372ae8ce6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statToChange: 3
-  changeAmount: 10
 --- !u!114 &-7750275097662468769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,4 +63,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0709700ee2ddd314ab5a769ccfd53069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeAmount: 3
+  changeAmount: 4

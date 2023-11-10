@@ -40,6 +40,6 @@ public class ItemLogic : MonoBehaviour
             yield return StartCoroutine(effects[i].DoItemEffect(p, hudObj, null));
         }
         //only the last effect in the list should have its message displayed
-        yield return StartCoroutine(effects[effects.Count - 1].DoItemEffect(p, hudObj, messageOutput));
+        yield return StartCoroutine(effects[^1].DoItemEffect(p, hudObj, messageOutput));
     }
 }

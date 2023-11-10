@@ -8,7 +8,7 @@ public class HandleEvolution : MonoBehaviour
     [SerializeField] private GameObject evoScreen;
     [SerializeField] private Image monSprite;
     [SerializeField] private WriteText textObj;
-    [SerializeField] private LearnMoveScreen learnMoveScreen;
+    [SerializeField] private GameObject learnMoveScreenPrefab;
     private static List<Pokemon> didLevelUpLastBattle;
 
     void Awake(){
@@ -74,7 +74,9 @@ public class HandleEvolution : MonoBehaviour
             yield return StartCoroutine(DoEvolutionScreen(previousEvo, previousNickname, p));
             GameObject moveToLearn = LearnMoveScreen.GetValidMoveToLearn(p);
             if(moveToLearn != null){
-                yield return StartCoroutine(learnMoveScreen.DoLearnMoveScreen(p, moveToLearn, textObj));
+                LearnMoveScreen learnScreen = Instantiate(learnMoveScreenPrefab).GetComponent<LearnMoveScreen>();
+                yield return StartCoroutine(learnScreen.DoLearnMoveScreen(p, moveToLearn, (string message) => textObj.WriteMessageConfirm(message)));
+                Destroy(learnScreen.gameObject);
             }
             evoScreen.SetActive(false);
         }

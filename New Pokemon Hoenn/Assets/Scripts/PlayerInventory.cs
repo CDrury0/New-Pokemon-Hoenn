@@ -37,9 +37,9 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    public static void AddItem(ItemData itemData){
-        if(!Instance.inventory.TryAdd(itemData, 1)){
-            Instance.inventory[itemData]++;
+    public static void AddItem(ItemData itemData, int qty = 1){
+        if(!Instance.inventory.TryAdd(itemData, qty)){
+            Instance.inventory[itemData] += qty;
         }
     }
 
@@ -55,12 +55,8 @@ public class PlayerInventory : MonoBehaviour
         inventory = new Dictionary<ItemData, int>();
         foreach(ItemData i in dataManifest){
             AddItem(i);
-            AddItem(i);
-            AddItem(i);
-            AddItem(i);
-            AddItem(i);
         }
-        AddItem(giveOnStart);
+        AddItem(giveOnStart, 3);
         //load inventory from save file here?
     }
 }

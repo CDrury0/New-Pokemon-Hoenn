@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HandleExperience : MonoBehaviour
 {
-    [SerializeField] private LearnMoveScreen learnMoveScreen;
-    [SerializeField] private LevelUpScreen levelUpScreen;
+    [SerializeField] private GameObject learnMoveScreenPrefab;
+    [SerializeField] private GameObject levelUpScreenPrefab;
     private Dictionary<Pokemon, List<Pokemon>> expMaps;
 
     private void AddExpRecord(Pokemon enemy) {
@@ -67,21 +67,23 @@ public class HandleExperience : MonoBehaviour
     }
 
     ///<summary>A null value for hud indicates that the mon levelling up is not currently in battle</summary>
-    public IEnumerator LevelUp(Pokemon p, BattleHUD hud)
-    {
+    public IEnumerator LevelUp(Pokemon p, BattleHUD hud) {
         HandleEvolution.MarkLevelUp(p);
         p.level++;
         int[] oldStats = new int[p.stats.Length];
         p.stats.CopyTo(oldStats, 0);
         p.UpdateStats();
-        if (hud != null){
-            hud.SetBattleHUD(p);
-        }
+        hud?.SetBattleHUD(p);
         yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(p.nickName + " grew to level " + p.level + "!"));
-        yield return StartCoroutine(levelUpScreen.DoLevelUpScreen(oldStats, p.stats, p.nickName));
+        LevelUpScreen levelUp = Instantiate(levelUpScreenPrefab).GetComponent<LevelUpScreen>();
+        yield return StartCoroutine(levelUp.DoLevelUpScreen(oldStats, p.stats, p.nickName));
+        Destroy(levelUp.gameObject);
         GameObject learnedMove = LearnMoveScreen.GetValidMoveToLearn(p);
         if (learnedMove != null){
-            yield return StartCoroutine(learnMoveScreen.DoLearnMoveScreen(p, learnedMove, CombatLib.Instance.combatScreen.battleText));
+            WriteText messageOutput = CombatLib.Instance.combatScreen.battleText;
+            LearnMoveScreen learnScreen = Instantiate(learnMoveScreenPrefab).GetComponent<LearnMoveScreen>();
+            yield return StartCoroutine(learnScreen.DoLearnMoveScreen(p, learnedMove, (string message) => messageOutput.WriteMessageConfirm(message)));
+            Destroy(learnScreen.gameObject);
         }
     }
 

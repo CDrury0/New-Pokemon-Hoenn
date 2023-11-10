@@ -7,9 +7,9 @@ public class ModalMessage : MonoBehaviour
     [SerializeField] private GameObject messageModalPrefab;
 
     public IEnumerator ShowModalMessage(string message){
-        GameObject outputInstance = GameObject.Instantiate(messageModalPrefab);
+        GameObject outputInstance = Instantiate(messageModalPrefab);
         IEnumerator writeMessage = outputInstance.GetComponentInChildren<WriteText>().WriteMessageConfirm(message);
         yield return StartCoroutine(writeMessage);
-        GameObject.Destroy(outputInstance);
+        Destroy(outputInstance);
     }
 }
