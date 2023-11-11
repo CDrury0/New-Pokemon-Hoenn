@@ -18,12 +18,12 @@ public class SummaryMovePlate : MonoBehaviour
     [SerializeField] private TextMeshProUGUI descriptionText;
     private string moveDescription;
 
-    public void SetMoveInfo(int currentPP, int maxPP, MoveData moveData) {
+    public void SetMoveInfo(int currentPP, int maxPP, MoveData moveData, Pokemon p) {
         categorySprite.sprite = categorySprites[(int)moveData.category];
         moveName.text = moveData.moveName;
         ppText.text = "PP: " + currentPP + " / " + maxPP;
-        typeSprite.color = typeColors.colors[(int)moveData.GetEffectiveMoveType()];
-        typeText.text = moveData.GetEffectiveMoveType().ToString();
+        typeSprite.color = typeColors.colors[(int)moveData.GetEffectiveMoveType(p)];
+        typeText.text = moveData.GetEffectiveMoveType(p).ToString();
         powerText.text = "Power: " + (moveData.displayPower == 0 ? "---" : moveData.displayPower.ToString());
         accuracyText.text = "Accuracy: " + (moveData.accuracyData.accuracy == 0 ? "---" : (moveData.accuracyData.accuracy * 100).ToString());
         moveDescription = moveData.moveDescription;

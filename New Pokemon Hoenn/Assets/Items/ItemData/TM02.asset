@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: TM02
   m_EditorClassIdentifier: 
-  itemLogicGO: {fileID: 0}
+  itemLogicGO: {fileID: 1903337395102383685, guid: 461495d26c0847e48bb3d788c04a2f7f, type: 3}
   itemName: 'TM02: Dragon Claw'
-  itemDescription: "A machine used to teach a move to a Pok\xE9mon once."
+  itemDescription: "A machine used to teach a move to a Pok\xE9mon."
   itemSprite: {fileID: 21300000, guid: 2a024a40e60549e4c99845c1db1cc0f4, type: 3}
   itemPocket: 4
   itemPrice: 4000
+  usedWithoutTarget: 0
+  stackLimit: 0

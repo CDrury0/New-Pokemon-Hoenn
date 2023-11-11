@@ -3,7 +3,9 @@ guid: 0b93daacf6174414db55e36b39fdaac4
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - learnMoveMenuPrefab: {fileID: 553725236065337305, guid: 4c7038fb5fd18d64c9504c33b852abed, type: 3}
+  - moveToLearn: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -30,7 +30,7 @@ public class SummaryScreen : MonoBehaviour
 
         for (int i = 0; i < movePlates.Length; i++){
             if(p.moves[i] != null){
-                movePlates[i].SetMoveInfo(p.movePP[i], p.moveMaxPP[i], p.moves[i].GetComponent<MoveData>());
+                movePlates[i].SetMoveInfo(p.movePP[i], p.moveMaxPP[i], p.moves[i].GetComponent<MoveData>(), p);
                 movePlates[i].gameObject.SetActive(true);
             }
             else{

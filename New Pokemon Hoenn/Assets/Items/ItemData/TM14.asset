@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemLogicGO: {fileID: 0}
   itemName: 'TM14: Blizzard'
-  itemDescription: "A machine used to teach a move to a Pok\xE9mon once."
+  itemDescription: "A machine used to teach a move to a Pok\xE9mon."
   itemSprite: {fileID: 21300000, guid: 89e9b8904eeb02d419e4f360bdd62569, type: 3}
   itemPocket: 4
   itemPrice: 6000
+  usedWithoutTarget: 0
+  stackLimit: 0

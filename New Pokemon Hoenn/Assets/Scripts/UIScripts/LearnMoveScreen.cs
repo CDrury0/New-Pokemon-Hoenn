@@ -51,12 +51,12 @@ public class LearnMoveScreen : MonoBehaviour
             LearnMove(p, move);
         }
         else{
-            moveToLearnDisplay.SetMoveInfo(moveData.maxPP, moveData.maxPP, moveData);
+            moveToLearnDisplay.SetMoveInfo(moveData.maxPP, moveData.maxPP, moveData, p);
             promptText.text = p.nickName + " is trying to learn " + moveData.moveName + ", but already knows 4 moves.";
             moveDetailsText.text = "Select a move to learn more about it.";
 
             for (int i = 0; i < movesKnownDisplays.Length; i++){
-                movesKnownDisplays[i].SetMoveInfo(p.movePP[i], p.moveMaxPP[i], p.moves[i].GetComponent<MoveData>());
+                movesKnownDisplays[i].SetMoveInfo(p.movePP[i], p.moveMaxPP[i], p.moves[i].GetComponent<MoveData>(), p);
             }
 
             mainMenuGO.SetActive(true);

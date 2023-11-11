@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: TM45
   m_EditorClassIdentifier: 
-  itemLogicGO: {fileID: 0}
+  itemLogicGO: {fileID: 1903337395102383685, guid: f649a58fd9f22564ca7133ec2394a09f, type: 3}
   itemName: 'TM45: Attract'
-  itemDescription: "A machine used to teach a move to a Pok\xE9mon once."
+  itemDescription: "A machine used to teach a move to a Pok\xE9mon."
   itemSprite: {fileID: 21300000, guid: ca197a8e6a92ddd46aa9ce120184e967, type: 3}
   itemPocket: 4
   itemPrice: 4000
+  usedWithoutTarget: 0
+  stackLimit: 0

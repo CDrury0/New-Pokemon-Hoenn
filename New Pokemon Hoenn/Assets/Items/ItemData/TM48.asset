@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: TM48
   m_EditorClassIdentifier: 
-  itemLogicGO: {fileID: 0}
+  itemLogicGO: {fileID: 1903337395102383685, guid: 9efd1c5b107649547b83bd6bb879660a, type: 3}
   itemName: 'TM48: Skill Swap'
-  itemDescription: "A machine used to teach a move to a Pok\xE9mon once."
+  itemDescription: "A machine used to teach a move to a Pok\xE9mon."
   itemSprite: {fileID: 21300000, guid: 54076a9e183ca73469e75d1e02880ab7, type: 3}
   itemPocket: 4
   itemPrice: 4000
+  usedWithoutTarget: 0
+  stackLimit: 0

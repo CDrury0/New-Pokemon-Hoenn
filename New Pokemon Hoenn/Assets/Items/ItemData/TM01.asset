@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: TM01
   m_EditorClassIdentifier: 
-  itemLogicGO: {fileID: 0}
+  itemLogicGO: {fileID: 1903337395102383685, guid: 6b277b4c9cf07694394655df698071af, type: 3}
   itemName: 'TM01: Focus Punch'
-  itemDescription: "A machine used to teach a move to a Pok\xE9mon once."
+  itemDescription: "A machine used to teach a move to a Pok\xE9mon."
   itemSprite: {fileID: 21300000, guid: 2997641b9c8389248ade2b3917eaa3c5, type: 3}
   itemPocket: 4
   itemPrice: 4000
+  usedWithoutTarget: 0
+  stackLimit: 0

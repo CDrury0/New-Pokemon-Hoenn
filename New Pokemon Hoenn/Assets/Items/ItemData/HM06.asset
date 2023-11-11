@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: HM06
   m_EditorClassIdentifier: 
-  itemLogicGO: {fileID: 0}
+  itemLogicGO: {fileID: 1903337395102383685, guid: 13b155d46abdee5498a206d00bd1847e, type: 3}
   itemName: 'HM06: Rock Smash'
   itemDescription: "A hidden machine used to teach a move to a Pok\xE9mon. Can be
     used more than once."
   itemSprite: {fileID: 21300000, guid: 50beb567494b04042997db70b3510f07, type: 3}
   itemPocket: 4
   itemPrice: 0
+  usedWithoutTarget: 0
+  stackLimit: 0
