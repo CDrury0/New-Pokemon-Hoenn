@@ -43,7 +43,7 @@ public class CombatSystem : MonoBehaviour
     private BattleTarget enemy1;
     private BattleTarget enemy2;
     private List<BattleTarget> referenceBattleTargets;
-    public static List<BattleTarget> BattleTargets {get; private set;}
+    public static List<BattleTarget> BattleTargets { get; private set; } = new List<BattleTarget>();
     private List<Pokemon> expParticipants;
     private List<BattleTarget> turnOrder;
     private static bool _proceed;
@@ -506,7 +506,8 @@ public class CombatSystem : MonoBehaviour
                 yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm(b.GetName() + " fainted"));
                 //do xp here if fainted mon is opponent and trainer battle; xp for wild battles is handled in battle end logic
                 if(!b.teamBattleModifier.isPlayerTeam && EnemyTrainer != null){
-                    yield return StartCoroutine(handleExperience.DoExperience(b.pokemon));
+                    System.Func<string, IEnumerator> messageOutput = (string message) => combatScreen.battleText.WriteMessageConfirm(message);
+                    yield return StartCoroutine(handleExperience.DoBattleExperience(b.pokemon, messageOutput));
                 }
                 else{
                     handleExperience.RemoveParticipant(b.pokemon);
@@ -625,7 +626,8 @@ public class CombatSystem : MonoBehaviour
             }
             else{
                 //wild battle experience is handled after the battle is considered won
-                yield return StartCoroutine(handleExperience.DoExperience(enemy1.pokemon));
+                System.Func<string, IEnumerator> messageOutput = (string message) => combatScreen.battleText.WriteMessageConfirm(message);
+                yield return StartCoroutine(handleExperience.DoBattleExperience(enemy1.pokemon, messageOutput));
             }
             yield return StartCoroutine(handleEvolution.DoEvolutions());
         }

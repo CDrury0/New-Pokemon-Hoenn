@@ -8,6 +8,7 @@ public enum Nature {Hardy, Lonely, Brave, Adamant, Naughty, Bold, Docile, Relaxe
 public class Pokemon
 {
     public enum Type {None, Normal, Fire, Water, Electric, Grass, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, Fairy}
+    public const int MAX_LEVEL = 100;
     public const int MAX_EV = 200;
     public const int MAX_IV = 31;
     public const int MAX_FRIENDSHIP = 255;
@@ -376,7 +377,7 @@ public class Pokemon
         {
             return Gender.None;
         }
-        else if (Random.Range(0f, 1f) <= ratio)
+        else if (Random.Range(0f, 0.999f) < ratio)
         {
             return Gender.Male;
         }

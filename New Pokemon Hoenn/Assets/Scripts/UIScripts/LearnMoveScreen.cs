@@ -53,7 +53,7 @@ public class LearnMoveScreen : MonoBehaviour
         else{
             moveToLearnDisplay.SetMoveInfo(moveData.maxPP, moveData.maxPP, moveData, p);
             promptText.text = p.nickName + " is trying to learn " + moveData.moveName + ", but already knows 4 moves.";
-            moveDetailsText.text = "Select a move to learn more about it.";
+            moveDetailsText.text = moveData.moveDescription;
 
             for (int i = 0; i < movesKnownDisplays.Length; i++){
                 movesKnownDisplays[i].SetMoveInfo(p.movePP[i], p.moveMaxPP[i], p.moves[i].GetComponent<MoveData>(), p);
@@ -69,7 +69,8 @@ public class LearnMoveScreen : MonoBehaviour
         }
 
         if(messageOutput != null){
-            yield return StartCoroutine(messageOutput(p.nickName + (MoveReplaced < p.moves.Count ? " learned " + moveData.moveName + "!" : " did not learn " + moveData.moveName)));
+            string message = p.nickName + (MoveReplaced < p.moves.Count ? " learned " + moveData.moveName + "!" : " did not learn " + moveData.moveName);
+            yield return StartCoroutine(messageOutput(message));
         }
     }
 

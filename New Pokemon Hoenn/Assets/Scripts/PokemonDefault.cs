@@ -42,22 +42,15 @@ public class PokemonDefault : ScriptableObject
     public GameObject[] eggMoves;
     public GameObject[] tutorMoves;
 
-    public int CalculateExperienceAtLevel(int level)
-    {
-        switch (growthRate)
-        {
-            case GrowthRate.Fast:
-                return (int)(Mathf.Pow(level, 3) * 4 / 5);
-            case GrowthRate.MediumSlow:
-                //level 1 mons have negative xp with this formula, so eggs should hatch at >= level 2 (this is an issue in the original game as well)
-                return (int)((((float)6 / 5) * Mathf.Pow(level, 3)) - (15 * Mathf.Pow(level, 2)) + (100 * level) - 140);
-            case GrowthRate.MediumFast:
-                return (int)Mathf.Pow(level, 3);
-            case GrowthRate.Slow:
-                return (int)(Mathf.Pow(level, 3) * 5 / 4);
-            default:
-                return 0;
-        }
+    public int CalculateExperienceAtLevel(int level) {
+        return growthRate switch {
+            GrowthRate.Fast => (int)(Mathf.Pow(level, 3) * 4 / 5),
+            //level 1 mons have negative xp with this formula, so eggs should hatch at >= level 2 (this is an issue in the original game as well)
+            GrowthRate.MediumSlow => (int)((((float)6 / 5) * Mathf.Pow(level, 3)) - (15 * Mathf.Pow(level, 2)) + (100 * level) - 140),
+            GrowthRate.MediumFast => (int)Mathf.Pow(level, 3),
+            GrowthRate.Slow => (int)(Mathf.Pow(level, 3) * 5 / 4),
+            _ => 0,
+        };
     }
 }
 

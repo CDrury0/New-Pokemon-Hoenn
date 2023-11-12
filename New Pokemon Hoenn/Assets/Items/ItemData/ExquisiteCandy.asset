@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
-  m_Name: RareCandy
+  m_Name: ExquisiteCandy
   m_EditorClassIdentifier: 
-  itemLogicGO: {fileID: 1903337395102383685, guid: b9ad6cb3c0197c448a191beb52b00d67, type: 3}
-  itemName: Rare Candy
-  itemDescription: "This delicious candy grants a Pok\xE9mon a full level of experience."
-  itemSprite: {fileID: 21300000, guid: f06b5282d37593c49ba9a4360df210c1, type: 3}
+  itemLogicGO: {fileID: 1903337395102383685, guid: 1a96aa9da83d20e43bc9742a33958d7b, type: 3}
+  itemName: Exquisite Candy
+  itemDescription: "This delicious candy grants a Pok\xE9mon three full levels of
+    experience."
+  itemSprite: {fileID: 21300000, guid: a1da71331ad45f943acbf48146c6821c, type: 3}
   itemPocket: 0
-  itemPrice: 8000
+  itemPrice: 14500
   usedWithoutTarget: 0
   stackLimit: 0

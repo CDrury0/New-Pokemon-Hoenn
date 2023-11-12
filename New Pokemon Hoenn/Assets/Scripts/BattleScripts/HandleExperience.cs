@@ -39,7 +39,7 @@ public class HandleExperience : MonoBehaviour
         }
     }
 
-    public IEnumerator DoExperience(Pokemon enemy) {
+    public IEnumerator DoBattleExperience(Pokemon enemy, System.Func<string, IEnumerator> messageOutput) {
         List<Pokemon> participants = expMaps[enemy];
         if(participants.Count == 0){
             yield break;
@@ -47,42 +47,45 @@ public class HandleExperience : MonoBehaviour
         int totalExperience = enemy.pokemonDefault.baseExperience * enemy.level / 6;  //magic 6 means every 6 levels adds a multiple of base experience
         int experiencePerMon = totalExperience / participants.Count;
         foreach(Pokemon p in participants){
-            int exp = experiencePerMon;
-            //experience modifiers go here
-            yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(p.nickName + " earned " + exp + " EXP"));
-            BattleHUD hud = CombatSystem.BattleTargets.Find(b => b.pokemon == p)?.battleHUD;
-            while(exp != 0){
-                int expAtNextLevel = p.pokemonDefault.CalculateExperienceAtLevel(p.level + 1);
-                int expToApply = Mathf.Min(exp, expAtNextLevel - p.experience); //this iteration, grant either all experience or the experience required to reach the next level (whichever is smaller)
-                exp -= expToApply;  //exp will have ^this much less in it next iteration
-                if(hud != null){
-                    yield return StartCoroutine(hud.expBar.SetExpBar(p.experience + expToApply, p.pokemonDefault.CalculateExperienceAtLevel(p.level), expAtNextLevel));
-                }
-                p.experience += expToApply;
-                if(p.experience == expAtNextLevel){
-                    yield return StartCoroutine(LevelUp(p, hud));
-                }
+            yield return StartCoroutine(DoIndividualExperience(p, experiencePerMon, messageOutput));
+        }
+    }
+
+    public IEnumerator DoIndividualExperience(Pokemon p, int amount, System.Func<string, IEnumerator> messageOutput) {
+        //experience modifiers go here
+        yield return StartCoroutine(messageOutput(p.nickName + " earned " + amount + " EXP"));
+        BattleHUD inBattleHud = CombatSystem.GetBattleTarget(p)?.battleHUD;
+        while(amount != 0){
+            int expAtNextLevel = p.pokemonDefault.CalculateExperienceAtLevel(p.level + 1);
+            //this iteration, grant either all experience or the experience required to reach the next level (whichever is smaller)
+            int expToApply = Mathf.Min(amount, expAtNextLevel - p.experience);
+            amount -= expToApply;  //exp will have ^this much less in it next iteration
+            if(inBattleHud != null){
+                yield return StartCoroutine(inBattleHud.expBar.SetExpBar(p.experience + expToApply, p.pokemonDefault.CalculateExperienceAtLevel(p.level), expAtNextLevel));
+            }
+            p.experience += expToApply;
+            if(p.experience == expAtNextLevel){
+                yield return StartCoroutine(LevelUp(p, inBattleHud, messageOutput));
             }
         }
     }
 
     ///<summary>A null value for hud indicates that the mon levelling up is not currently in battle</summary>
-    public IEnumerator LevelUp(Pokemon p, BattleHUD hud) {
+    public IEnumerator LevelUp(Pokemon p, BattleHUD hud, System.Func<string, IEnumerator> messageOutput) {
         HandleEvolution.MarkLevelUp(p);
         p.level++;
         int[] oldStats = new int[p.stats.Length];
         p.stats.CopyTo(oldStats, 0);
         p.UpdateStats();
         hud?.SetBattleHUD(p);
-        yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(p.nickName + " grew to level " + p.level + "!"));
+        yield return StartCoroutine(messageOutput(p.nickName + " grew to level " + p.level + "!"));
         LevelUpScreen levelUp = Instantiate(levelUpScreenPrefab).GetComponent<LevelUpScreen>();
         yield return StartCoroutine(levelUp.DoLevelUpScreen(oldStats, p.stats, p.nickName));
         Destroy(levelUp.gameObject);
         GameObject learnedMove = LearnMoveScreen.GetValidMoveToLearn(p);
         if (learnedMove != null){
-            WriteText messageOutput = CombatLib.Instance.combatScreen.battleText;
             LearnMoveScreen learnScreen = Instantiate(learnMoveScreenPrefab).GetComponent<LearnMoveScreen>();
-            yield return StartCoroutine(learnScreen.DoLearnMoveScreen(p, learnedMove, (string message) => messageOutput.WriteMessageConfirm(message)));
+            yield return StartCoroutine(learnScreen.DoLearnMoveScreen(p, learnedMove, (string message) => messageOutput(message)));
             Destroy(learnScreen.gameObject);
         }
     }
