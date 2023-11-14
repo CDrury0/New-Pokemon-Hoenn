@@ -48,8 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 77daf3a0c070bb24eb7a97a8972bc97c, type: 2}
   heldItem: {fileID: 0}
-  onUseDuringBattle:
-  - {fileID: 0}
+  onUseDuringBattle: []
   onUseOutsideBattle:
   - {fileID: -7750275097662468769}
   - {fileID: 3482187268192835201}

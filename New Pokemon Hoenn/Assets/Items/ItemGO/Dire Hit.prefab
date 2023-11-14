@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6069336275812394783}
   - component: {fileID: -4841574164895817454}
-  - component: {fileID: 3482187268192835201}
-  - component: {fileID: -3284453681544149458}
+  - component: {fileID: -4179306964491337749}
+  - component: {fileID: 2441652009826571577}
+  - component: {fileID: -2073107539177408606}
   m_Layer: 0
-  m_Name: HP Up
+  m_Name: Dire Hit
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,13 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad0e26164433824ab7c54eb6ba4ba74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: ad1408662e84bd545961e5472290cb7f, type: 2}
+  usedWithoutTarget: 0
+  itemData: {fileID: 11400000, guid: ee3797a6950fb2c41977457d16f8d957, type: 2}
   heldItem: {fileID: 0}
-  onUseDuringBattle: []
-  onUseOutsideBattle:
-  - {fileID: -3284453681544149458}
-  - {fileID: 3482187268192835201}
---- !u!114 &3482187268192835201
+  onUseDuringBattle:
+  - {fileID: -4179306964491337749}
+  onUseOutsideBattle: []
+--- !u!114 &-4179306964491337749
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,12 +62,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1903337395102383685}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b2e0952bb360764a95278d372ae8ce6, type: 3}
+  m_Script: {fileID: 11500000, guid: b31e18abf9e4ae941a6bea0742c12781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statToChange: 0
-  changeAmount: 10
---- !u!114 &-3284453681544149458
+  whichStat: 7
+  numStages: 2
+--- !u!114 &2441652009826571577
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,7 +76,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 1903337395102383685}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0709700ee2ddd314ab5a769ccfd53069, type: 3}
+  m_Script: {fileID: 11500000, guid: 8017aeb4b8f9175468925e2a21b528c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeAmount: 3
+  moveName: 
+  moveDescription: 
+  moveType: 0
+  typeFromWeather: 0
+  hiddenPowerType: 0
+  displayPower: 0
+  category: 2
+  targetType: 0
+  maxPP: 0
+  priority: 7
+  pursuit: 0
+  soundBased: 0
+  focusPunch: 0
+  onlyUsableFirstTurn: 0
+  worksOnAsleep: 0
+  worksWhileAsleep: 0
+  cannotBeSnatched: 0
+  notReflectedByMagicCoat: 0
+  ignoresProtect: 0
+  isHm: 0
+  accuracyData:
+    accuracy: 0
+    cannotMissVulnerable: 0
+    entryHazard: 0
+    hitsSemiInvulnerable: 0
+    bypassOnWeather: {fileID: 0}
+    hurtsIfMiss: 0
+--- !u!114 &-2073107539177408606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903337395102383685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be10ab0e0900c8e4dac47e2c067b20e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  itemLogic: {fileID: -4841574164895817454}

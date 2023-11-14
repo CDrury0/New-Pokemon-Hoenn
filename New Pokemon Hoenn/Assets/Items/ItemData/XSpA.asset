@@ -10,16 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
-  m_Name: XSpecial
+  m_Name: XSpA
   m_EditorClassIdentifier: 
-  itemIdentifier: 65
-  itemName: X Special
-  itemDescription: "This formula temporarily increases the special attack stat of
-    a Pok\xE9mon."
-  itemSprite: {fileID: 21300000, guid: 5a24bc15abcb3a8489342278185dbbbc, type: 3}
+  itemLogicGO: {fileID: 1903337395102383685, guid: 66d45bb1f71fc6e46b3ccbca141408dc, type: 3}
+  itemName: X Sp. Atk.
+  itemDescription: "This formula increases a Pok\xE9mon's special attack stat in
+    battle by 2 stages."
+  itemSprite: {fileID: 21300000, guid: 7546ca1f169b05248844d946a9da2cc7, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 0
-  cannotBeDiscarded: 0
   itemPrice: 900
+  stackLimit: 0

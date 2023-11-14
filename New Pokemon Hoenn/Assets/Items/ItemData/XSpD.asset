@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
-  m_Name: GuardSpec
+  m_Name: XSpD
   m_EditorClassIdentifier: 
-  itemIdentifier: 59
-  itemName: Guard Spec.
-  itemDescription: "This formula temporarily prevents stat reduction from enemy Pok\xE9mon."
+  itemLogicGO: {fileID: 1903337395102383685, guid: 35ddc79e58a4e8949af79c9d4b70e83b, type: 3}
+  itemName: X Sp. Def.
+  itemDescription: "This formula increases a Pok\xE9mon's special defense stat in
+    battle by 2 stages."
   itemSprite: {fileID: 21300000, guid: e0d85b96743ec114f9fbfe60a78a68f5, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 0
-  cannotBeDiscarded: 0
   itemPrice: 900
+  stackLimit: 0

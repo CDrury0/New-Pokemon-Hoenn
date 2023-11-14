@@ -18,14 +18,11 @@ public abstract class ItemEffect : MonoBehaviour
         hudObj.SetBattleHUD(p);
         //if it succeeds, then the pokemon was in the player's party
         //if it doesn't, i don't give a shit
-        try{
-            hudObj.GetComponentInParent<PartyInfoBox>().LoadPokemonDetails(false);
-        } catch(System.Exception e){
-            Debug.LogError(e);
+        hudObj?.GetComponentInParent<PartyInfoBox>()?.LoadPokemonDetails(false);
+        if (string.IsNullOrEmpty(message) || messageOutput == null){
+            yield break;
         }
-        if(messageOutput != null && message != string.Empty){
-            yield return StartCoroutine(messageOutput(message));
-        }
+        yield return StartCoroutine(messageOutput(message));
     }
 
     void Awake(){

@@ -127,7 +127,7 @@ PrefabInstance:
     - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: inventoryTemplate.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 85ef28c555c4d4b43ac26d683e54c963, type: 2}
+      objectReference: {fileID: 11400000, guid: 9d6d698dec2203c40ac23635e4ac75e4, type: 2}
     - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: trainerPartyTemplate.Array.data[0].level
       value: 6

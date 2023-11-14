@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemLogic : MonoBehaviour
 {
+    public bool usedWithoutTarget;
     public ItemData itemData;
     [Tooltip("If null, the item cannot be held")]
     public HeldItem heldItem;

@@ -12,6 +12,7 @@ public class TeamBattleModifier
     public const string ENEMY_PREFIX = "Foe ";
     public const string WILD_PREFIX = "Wild ";
     public bool isPlayerTeam;
+    public bool usedXItemThisBattle;
     public string teamPrefix;
     public string teamPossessive;
     public List<TeamDurationEffectInfo> teamEffects;

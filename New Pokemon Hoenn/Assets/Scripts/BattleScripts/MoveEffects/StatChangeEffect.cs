@@ -70,7 +70,7 @@ public class StatChangeEffect : MoveEffect, ICheckMoveEffectFail
         return false;
     }
 
-    private string GetStatName(int statNum){
+    public static string GetStatName(int statNum){
         switch(statNum){
             case 0:
             return "Attack";

@@ -93,7 +93,7 @@ public class InventoryMenu : MonoBehaviour
     }
 
     public void UseItemButtonFunction(){
-        if(!LoadedItemInstance.itemData.usedWithoutTarget){
+        if(!LoadedItemInstance.usedWithoutTarget){
             useButton.GetComponent<OverlayTransitionCaller>().CallTransition();
             return;
         }
