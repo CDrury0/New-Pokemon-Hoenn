@@ -13,7 +13,7 @@ public class ItemLearnMove : ItemEffect
     public override bool CanEffectBeUsed(Pokemon p) {
         return canLearnMove.Contains(p.pokemonDefault)
         && !p.moves.Contains(moveToLearn)
-        && p.moves.Find(m => m != null && !m.GetComponent<MoveData>().isHm) != null;
+        && p.moves.Find(m => m != null && !m.GetComponent<MoveData>().cannotBeForgotten) != null;
     }
 
     protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj, System.Func<string, IEnumerator> messageOutput) {

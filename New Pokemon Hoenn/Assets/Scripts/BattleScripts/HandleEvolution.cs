@@ -11,10 +11,6 @@ public class HandleEvolution : MonoBehaviour
     [SerializeField] private GameObject learnMoveScreenPrefab;
     private static List<Pokemon> didLevelUpLastBattle = new List<Pokemon>();
 
-    void Awake(){
-        ClearMarkedLevelUps();
-    }
-
     public static void MarkLevelUp(Pokemon p){
         didLevelUpLastBattle.Add(p);
     }

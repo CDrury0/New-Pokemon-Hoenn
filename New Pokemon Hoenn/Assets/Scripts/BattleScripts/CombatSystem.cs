@@ -618,7 +618,6 @@ public class CombatSystem : MonoBehaviour
         PlayerVictory = true;
         if(playerParty.IsEntireTeamFainted()){
             yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("You lose, moron"));
-            HandleEvolution.ClearMarkedLevelUps();
             PlayerVictory = false;
         }
         else if(EnemyParty.IsEntireTeamFainted()){

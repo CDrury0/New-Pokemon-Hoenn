@@ -25,7 +25,7 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
     public bool cannotBeSnatched;
     public bool notReflectedByMagicCoat;
     public bool ignoresProtect;
-    public bool isHm;
+    public bool cannotBeForgotten;
     public MoveVisualData visualData;
     public MoveAccuracyData accuracyData;
     public const string FAIL = "But it failed!";

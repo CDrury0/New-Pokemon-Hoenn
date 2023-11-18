@@ -65,7 +65,7 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
-  isHm: 0
+  cannotBeForgotten: 1
   accuracyData:
     accuracy: 0.95
     cannotMissVulnerable: 0

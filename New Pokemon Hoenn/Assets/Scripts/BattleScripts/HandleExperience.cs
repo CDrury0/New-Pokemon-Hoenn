@@ -54,7 +54,7 @@ public class HandleExperience : MonoBehaviour
     public IEnumerator DoIndividualExperience(Pokemon p, int amount, System.Func<string, IEnumerator> messageOutput) {
         //experience modifiers go here
         yield return StartCoroutine(messageOutput(p.nickName + " earned " + amount + " EXP"));
-        BattleHUD inBattleHud = CombatSystem.GetBattleTarget(p)?.battleHUD;
+        BattleHUD inBattleHud = CombatSystem.BattleActive ? CombatSystem.GetBattleTarget(p)?.battleHUD : null;
         while(amount != 0){
             int expAtNextLevel = p.pokemonDefault.CalculateExperienceAtLevel(p.level + 1);
             //this iteration, grant either all experience or the experience required to reach the next level (whichever is smaller)

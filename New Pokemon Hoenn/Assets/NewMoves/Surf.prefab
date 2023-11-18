@@ -65,9 +65,11 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 1
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 3
     bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
@@ -97,6 +99,7 @@ MonoBehaviour:
   bonusFromCurl: 0
   bonusLikeRollout: 0
   cannotKO: 0
+  cannotCrit: 0
   bonusAgainstMinimize: 0
   bonusAgainstSemiInvulnerable: 0
   bonusAgainstStatus: 0
