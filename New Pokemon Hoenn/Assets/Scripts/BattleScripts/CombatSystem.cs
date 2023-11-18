@@ -20,7 +20,7 @@ public class CombatSystem : MonoBehaviour
     public CombatScreen combatScreen;
     public MoveFunctions moveFunctions;
     public HandleExperience handleExperience;
-    public HandleEvolution handleEvolution;
+    public GameObject handleEvolutionObj;
     public GameObject struggle;
     public GameObject switchAction;
     public GameObject failedRunAction;
@@ -98,6 +98,8 @@ public class CombatSystem : MonoBehaviour
         this.enemyAI = enemyAI;
         this.battleMusicPlayer = musicPlayer;
         victoryMusicPlayer = EnemyTrainer != null ? EnemyTrainer.victoryMusic : wildVictoryMusic;
+        //flushes the list of mons eligible to evolve after the battle
+        HandleEvolution.ClearMarkedLevelUps();
 
         musicPlayer.PlaySound();
 
@@ -629,7 +631,9 @@ public class CombatSystem : MonoBehaviour
                 System.Func<string, IEnumerator> messageOutput = (string message) => combatScreen.battleText.WriteMessageConfirm(message);
                 yield return StartCoroutine(handleExperience.DoBattleExperience(enemy1.pokemon, messageOutput));
             }
+            HandleEvolution handleEvolution = Instantiate(handleEvolutionObj).GetComponent<HandleEvolution>();
             yield return StartCoroutine(handleEvolution.DoEvolutions());
+            Destroy(handleEvolution.gameObject);
         }
         else{
             //battle was forcefully ended via e.g. run, whirlwind

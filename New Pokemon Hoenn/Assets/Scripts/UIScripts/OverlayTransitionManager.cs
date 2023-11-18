@@ -8,6 +8,19 @@ public class OverlayTransitionManager : MonoBehaviour
     public static OverlayTransitionManager Instance { get; private set; }
     [SerializeField] private EventAnimation intro;
     [SerializeField] private EventAnimation outro;
+    private bool _proceed;
+    private bool Proceed {
+        get{
+            if(_proceed){
+                _proceed = false;
+                return true;
+            }
+            return false;
+        }
+        set{
+            _proceed = value;
+        }
+    }
 
     public void DoTransitionWithAction(UnityEvent action, GameObject toInstantiate){
         StartCoroutine(TransitionCoroutine(action, toInstantiate));
@@ -31,6 +44,20 @@ public class OverlayTransitionManager : MonoBehaviour
         yield return StartCoroutine(intro.TransitionLogic());
         action?.Invoke();
         yield return StartCoroutine(outro.TransitionLogic());
+    }
+
+    private System.Action BuildTransitionAction(System.Action action){
+        return () => {
+            action?.Invoke();
+            Proceed = true;
+        };
+    }
+
+    private System.Action BuildTransitionAction(UnityEvent action){
+        return () => {
+            action?.Invoke();
+            Proceed = true;
+        };
     }
 
     void Awake() {

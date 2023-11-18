@@ -20,7 +20,13 @@ public class ItemGiveExperience : ItemEffect
             int nextLevel = p.pokemonDefault.CalculateExperienceAtLevel(p.level + i + 1) - p.pokemonDefault.CalculateExperienceAtLevel(p.level + i);
             expAmount += nextLevel;
         }
+        int startLevel = p.level;
         yield return StartCoroutine(expHandler.DoIndividualExperience(p, expAmount, (string message) => messageOutput(message)));
+        if(startLevel != p.level){
+            HandleEvolution handleEvolution = Instantiate(CombatLib.Instance.combatSystem.handleEvolutionObj).GetComponent<HandleEvolution>();
+            yield return StartCoroutine(handleEvolution.EvolveMon(p));
+            Destroy(handleEvolution.gameObject);
+        }
     }
 
     void Awake() {

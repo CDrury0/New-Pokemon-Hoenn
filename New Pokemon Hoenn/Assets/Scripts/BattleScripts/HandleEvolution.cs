@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class HandleEvolution : MonoBehaviour
 {
-    [SerializeField] private GameObject evoScreen;
+    [SerializeField] private GameObject background;
     [SerializeField] private Image monSprite;
     [SerializeField] private WriteText textObj;
     [SerializeField] private GameObject learnMoveScreenPrefab;
-    private static List<Pokemon> didLevelUpLastBattle;
+    private static List<Pokemon> didLevelUpLastBattle = new List<Pokemon>();
 
     void Awake(){
         ClearMarkedLevelUps();
@@ -56,15 +56,15 @@ public class HandleEvolution : MonoBehaviour
     }
 
     private IEnumerator DoEvolutionScreen(Sprite previousEvo, string previousNickname, Pokemon p){
+        background.SetActive(true);
         monSprite.sprite = previousEvo;
-        evoScreen.SetActive(true);
         yield return StartCoroutine(textObj.WriteMessageConfirm("Huh?"));
         yield return StartCoroutine(textObj.WriteMessageConfirm(previousNickname + " is evolving!"));
         monSprite.sprite = p.frontSprite; //replace with evolution animation
         yield return StartCoroutine(textObj.WriteMessageConfirm(previousNickname + " evolved into " + p.pokemonName + "!"));
     }
 
-    private IEnumerator EvolveMon(Pokemon p){
+    public IEnumerator EvolveMon(Pokemon p){
         EvoDetails evoDetails = p.pokemonDefault.evoDetails;
         if(CanMonEvolve(p, evoDetails)){
             PokemonDefault evolveInto = GetMonToEvolveInto(p, evoDetails);
@@ -78,7 +78,7 @@ public class HandleEvolution : MonoBehaviour
                 yield return StartCoroutine(learnScreen.DoLearnMoveScreen(p, moveToLearn, (string message) => textObj.WriteMessageConfirm(message)));
                 Destroy(learnScreen.gameObject);
             }
-            evoScreen.SetActive(false);
+            background.SetActive(false);
         }
     }
 
