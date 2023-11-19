@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 11400000, guid: 0b762b1f5fa310b47a20f4953b22e30e, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Upon birth, it has only one snow-white tail. As Vulpix matures, the
     tail becomes red and splits off into more tails.
   ability1: 16
@@ -40,12 +38,18 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: c846724dc9dc4754f8a899cb979a1ff0, type: 3}
   shinyFront: {fileID: 21300000, guid: 7a2264d9a26e13c40845f33b908044a1, type: 3}
   shinyBack: {fileID: 21300000, guid: 481db781374ab164d87bf049600ddebe, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions:
+    - evoStone: {fileID: 11400000, guid: c8ab115f8912aec4192ce8f01fcf778e, type: 2}
+      evolution: {fileID: 11400000, guid: 0b762b1f5fa310b47a20f4953b22e30e, type: 2}
   boxSprite: {fileID: 21300000, guid: b64f27a147620b944af6996bd7748c29, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 6b9b27d77c8d84c4d8567722a91790ab, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: f74188d1b5abe044a9e29dcd7e8d7121, type: 2}

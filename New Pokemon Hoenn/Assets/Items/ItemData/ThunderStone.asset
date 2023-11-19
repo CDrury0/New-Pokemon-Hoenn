@@ -12,15 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: ThunderStone
   m_EditorClassIdentifier: 
-  itemIdentifier: 74
+  itemLogicGO: {fileID: 1903337395102383685, guid: 156b5f397558ad04eb54dd5e84408063, type: 3}
   itemName: Thunder Stone
   itemDescription: "A peculiar stone that makes certain species of Pok\xE9mon evolve."
   itemSprite: {fileID: 21300000, guid: 88e3dc6387273fb4db87cdeaf6fa589e, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 0
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 2000
-  worksOn:
-  - {fileID: 11400000, guid: 91ff90f9046b40549ad67c123efe4249, type: 2}
+  stackLimit: 0

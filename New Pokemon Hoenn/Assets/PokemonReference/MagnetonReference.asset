@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: 22ab0f7161d2a814e853663af622ee11, type: 2}
-  evolvesInto1: {fileID: 11400000, guid: 9cf544a57e06f1842bd21db1af8130f2, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: This fusion of several Magnemite causes distortion of electromagnetic
     signals in a wide area.
   ability1: 40
@@ -40,12 +38,18 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 4ba9846bb7daacd429e065d988ecd16b, type: 3}
   shinyFront: {fileID: 21300000, guid: 041f93a6544e0d84a903a8df0348a644, type: 3}
   shinyBack: {fileID: 21300000, guid: 8e9934e9284093542b7ccb534fe71258, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions:
+    - evoStone: {fileID: 11400000, guid: eca80e0321df28443980ffa6f727c137, type: 2}
+      evolution: {fileID: 11400000, guid: 9cf544a57e06f1842bd21db1af8130f2, type: 2}
   boxSprite: {fileID: 21300000, guid: ee8974bc67ecb3d4ab255109e01f3b07, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 0d998635755b6df4e8cd6b7098393c3d, type: 3}
   naturallyHeldItem: {fileID: 0}

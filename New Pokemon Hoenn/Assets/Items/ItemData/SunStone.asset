@@ -12,16 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: SunStone
   m_EditorClassIdentifier: 
-  itemIdentifier: 71
+  itemLogicGO: {fileID: 1903337395102383685, guid: 19581afe63345da4aa4a8bd7f62dac24, type: 3}
   itemName: Sun Stone
   itemDescription: "A peculiar stone that causes certain species of Pok\xE9mon to
     evolve. Its center burns like the sun."
   itemSprite: {fileID: 21300000, guid: 3eb4be0dd11b6d14cb291319c42f28a5, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 0
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 2000
-  worksOn:
-  - {fileID: 11400000, guid: 0b23c851018708141bf43917b4d960a6, type: 2}
+  stackLimit: 0

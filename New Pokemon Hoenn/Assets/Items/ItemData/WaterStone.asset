@@ -12,16 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: WaterStone
   m_EditorClassIdentifier: 
-  itemIdentifier: 75
+  itemLogicGO: {fileID: 1903337395102383685, guid: cab8c787e359149458b1b80594c17286, type: 3}
   itemName: Water Stone
   itemDescription: "A peculiar stone that makes certain species of Pok\xE9mon evolve."
   itemSprite: {fileID: 21300000, guid: 1aa1357a2f477ee43a027fb0fb9442a9, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 0
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 2000
-  worksOn:
-  - {fileID: 11400000, guid: 76745c65e204f594bbe159247393b048, type: 2}
-  - {fileID: 11400000, guid: 221c18fcec137c34c87a9496d10dd75f, type: 2}
+  stackLimit: 0

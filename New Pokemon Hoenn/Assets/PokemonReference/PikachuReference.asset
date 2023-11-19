@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 4
   eggCycles: 10
   childPokemon: {fileID: 11400000, guid: 1e5cb1acbd69ebf4f89975d97da62140, type: 2}
-  evolvesInto1: {fileID: 11400000, guid: da7c0115a878a0f408b28b7c8c684b5c, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: It lives in forests with others. It stores electricity in the pouches
     on its cheeks.
   ability1: 7
@@ -40,12 +38,18 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: d4cc8bf383507d3419f2023c190b401b, type: 3}
   shinyFront: {fileID: 21300000, guid: 9300d4ee670dd2a44ab828363cca63d7, type: 3}
   shinyBack: {fileID: 21300000, guid: fa2c3a2886082694fbf05138a7fd732a, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions:
+    - evoStone: {fileID: 11400000, guid: eca80e0321df28443980ffa6f727c137, type: 2}
+      evolution: {fileID: 11400000, guid: da7c0115a878a0f408b28b7c8c684b5c, type: 2}
   boxSprite: {fileID: 21300000, guid: 4aab98e50c99c0c4fbf109ec64c1e9a5, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: ec1d434b651897744a6708c3eedbc56a, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: c7ec1de857b041047851234ca05b4a45, type: 2}

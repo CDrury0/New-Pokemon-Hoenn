@@ -19,9 +19,10 @@ public class HandleEvolution : MonoBehaviour
         didLevelUpLastBattle = new List<Pokemon>();
     }
 
-    private bool CanMonEvolve(Pokemon p, EvoDetails evoDetails){
+    private static bool CanMonEvolve(Pokemon p){
+        EvoDetails evoDetails = p.pokemonDefault.evoDetails;
         //everstone?
-        if(p.level >= evoDetails.evolutionLevel){
+        if(evoDetails.evolutionLevel > 0 && p.level >= evoDetails.evolutionLevel){
             if(evoDetails.evolvesWithHeldItem != null && p.heldItem == evoDetails.evolvesWithHeldItem){
                 return true;
             }
@@ -29,18 +30,22 @@ public class HandleEvolution : MonoBehaviour
                 return true;
             }
             //if no special conditions are met, the pokemon evolves exclusively based on level
-            if(evoDetails.evolvesWithHeldItem == null && evoDetails.evolvesWithFriendship == 0 && evoDetails.firstOrMale != null){
+            if(evoDetails.evolvesWithHeldItem == null && evoDetails.evolvesWithFriendship == 0){
                 return true;
             }
         }
         return false;
     }
 
-    private PokemonDefault GetMonToEvolveInto(Pokemon p, EvoDetails evoDetails){
+    private static PokemonDefault GetMonToEvolveInto(Pokemon p, ItemData usedEvoStone){
+        EvoDetails evoDetails = p.pokemonDefault.evoDetails;
+        if(usedEvoStone != null){
+            return evoDetails.GetEvoStoneMatch(usedEvoStone);
+        }
+
         int firstSlot = PlayerParty.Instance.playerParty.PartyIsFull();
         if(evoDetails.shedinja != null && firstSlot != -1){
-            //guarantee shininess in the event that nincada is shiny?
-            PlayerParty.Instance.playerParty.party[firstSlot] = new Pokemon(evoDetails.shedinja, p.level);
+            PlayerParty.Instance.playerParty.party[firstSlot] = new Pokemon(evoDetails.shedinja, p.level) {isShiny = p.isShiny};
         }
         if(evoDetails.evolvesFromGender){
             return p.gender == Gender.Male ? evoDetails.firstOrMale : evoDetails.secondOrFemale;            
@@ -60,10 +65,9 @@ public class HandleEvolution : MonoBehaviour
         yield return StartCoroutine(textObj.WriteMessageConfirm(previousNickname + " evolved into " + p.pokemonName + "!"));
     }
 
-    public IEnumerator EvolveMon(Pokemon p){
-        EvoDetails evoDetails = p.pokemonDefault.evoDetails;
-        if(CanMonEvolve(p, evoDetails)){
-            PokemonDefault evolveInto = GetMonToEvolveInto(p, evoDetails);
+    public IEnumerator EvolveMon(Pokemon p, ItemData usedEvoStone = null){
+        if(CanMonEvolve(p) || usedEvoStone != null){
+            PokemonDefault evolveInto = GetMonToEvolveInto(p, usedEvoStone);
             Sprite previousEvo = p.frontSprite;
             string previousNickname = p.nickName;
             p.Evolve(evolveInto);
@@ -74,7 +78,6 @@ public class HandleEvolution : MonoBehaviour
                 yield return StartCoroutine(learnScreen.DoLearnMoveScreen(p, moveToLearn, (string message) => textObj.WriteMessageConfirm(message)));
                 Destroy(learnScreen.gameObject);
             }
-            background.SetActive(false);
         }
     }
 
@@ -83,5 +86,19 @@ public class HandleEvolution : MonoBehaviour
             yield return StartCoroutine(EvolveMon(didLevelUpLastBattle[i]));
         }
         ClearMarkedLevelUps();
+    }
+
+    /// <param name="p">providing an argument causes only that Pokemon to be considered</param>
+    public static bool WillEvolutionScreenBeUsed(Pokemon p = null){
+        if(p != null){
+            return CanMonEvolve(p);
+        }
+        for(int i = 0; i < didLevelUpLastBattle.Count; i++){
+            Pokemon temp = didLevelUpLastBattle[i];
+            if(CanMonEvolve(temp)){
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 0}
-  evolvesInto1: {fileID: 11400000, guid: 42dfbe64286a5f148b97c2806a19ab6d, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: It gathers with others in the night and makes its red core glow on
     and off with the twinkling stars. It can regenerate limbs if they are severed
     from its body.
@@ -41,16 +39,22 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 1cbb53f681f85064bbec0353de294674, type: 3}
   shinyFront: {fileID: 21300000, guid: a77ec87b58428bd419855103621e6ea3, type: 3}
   shinyBack: {fileID: 21300000, guid: 97888348fb6cf00488810934bffe1055, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions:
+    - evoStone: {fileID: 11400000, guid: af466518bf82c344f922fc09d59e1af6, type: 2}
+      evolution: {fileID: 11400000, guid: 42dfbe64286a5f148b97c2806a19ab6d, type: 2}
   boxSprite: {fileID: 21300000, guid: 765ef472ed5ec0940808a0ee44f5696d, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 64adcd1859004d646bc653210d19813d, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: 443149d9b1f88544fa82e216bbbce8d3, type: 2}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000000000000000000000000000000000001000000
   learnedMoves:
   - {fileID: 0}

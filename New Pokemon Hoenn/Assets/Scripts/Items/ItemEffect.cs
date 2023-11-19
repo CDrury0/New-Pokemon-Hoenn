@@ -15,7 +15,7 @@ public abstract class ItemEffect : MonoBehaviour
     
     public IEnumerator DoItemEffect(Pokemon p, BattleHUD hudObj, System.Func<string, IEnumerator> messageOutput){
         yield return StartCoroutine(ItemEffectImplementation(p, hudObj, messageOutput));
-        hudObj.SetBattleHUD(p);
+        hudObj?.SetBattleHUD(p);
         //if it succeeds, then the pokemon was in the player's party
         //if it doesn't, i don't give a shit
         hudObj?.GetComponentInParent<PartyInfoBox>()?.LoadPokemonDetails(false);

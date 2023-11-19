@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 1
   eggCycles: 15
   childPokemon: {fileID: 11400000, guid: ef6b423a8e3e2a643a7d734d7cfd1900, type: 2}
-  evolvesInto1: {fileID: 11400000, guid: fdf464c760986e1409ca17c1613cfa25, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: In the evening, it takes great delight in popping out of rivers and
     startling people. It feeds on aquatic moss that grows on rocks in the riverbed.
   ability1: 42
@@ -40,16 +38,22 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 2ca0e660e1f26984482206282ccd2065, type: 3}
   shinyFront: {fileID: 21300000, guid: 30d16ee84965f354ea76827eaf84c083, type: 3}
   shinyBack: {fileID: 21300000, guid: 1e59c6db6f90d204d81c632a25671caa, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: fdf464c760986e1409ca17c1613cfa25, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions:
+    - evoStone: {fileID: 11400000, guid: af466518bf82c344f922fc09d59e1af6, type: 2}
+      evolution: {fileID: 11400000, guid: fdf464c760986e1409ca17c1613cfa25, type: 2}
   boxSprite: {fileID: 21300000, guid: dd4f18174ef84924981ab8c0d80f0712, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: f60ea8bd185452542bef363cc656f3fe, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000000000000000000000000000200000000000000
   learnedMoves:
   - {fileID: 0}

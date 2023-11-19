@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: a895fba4208e07540830a563ca77b3e4, type: 2}
-  evolvesInto1: {fileID: 11400000, guid: c33dde205c158af4bb67d39a7fbffaa6, type: 2}
-  evolvesInto2: {fileID: 11400000, guid: 62c8c3dd84d7fda40bf6b49d5b7a498b, type: 2}
   pokedexEntry: What appears to be drool is actually sweet honey. It is very sticky
     and clings stubbornly if touched.
   ability1: 0
@@ -40,16 +38,24 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 59f0807f406baf542bcc15704f7cf66e, type: 3}
   shinyFront: {fileID: 21300000, guid: f03a9423b2a45704e92cb08ba104f07f, type: 3}
   shinyBack: {fileID: 21300000, guid: f29450c8fc709d3499b1ffc0a9c63042, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions:
+    - evoStone: {fileID: 11400000, guid: 379e0fdd27edf40449375f63ce0870fb, type: 2}
+      evolution: {fileID: 11400000, guid: c33dde205c158af4bb67d39a7fbffaa6, type: 2}
+    - evoStone: {fileID: 11400000, guid: 05a8b7ef4375ee04b80a7b9b53d9857d, type: 2}
+      evolution: {fileID: 11400000, guid: 62c8c3dd84d7fda40bf6b49d5b7a498b, type: 2}
   boxSprite: {fileID: 21300000, guid: 1117c71aa04b4914983df85c26acff1d, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 0d7ef6077b7a2a24b8249da25fd6a9a0, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000000000000000000020000000000000000000000
   learnedMoves:
   - {fileID: 0}

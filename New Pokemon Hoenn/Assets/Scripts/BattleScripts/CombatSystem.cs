@@ -622,7 +622,7 @@ public class CombatSystem : MonoBehaviour
         }
         else if(EnemyParty.IsEntireTeamFainted()){
             victoryMusicPlayer.PlaySound();
-            if(EnemyTrainer != null){
+            if (EnemyTrainer != null){
                 yield return StartCoroutine(combatScreen.EndTrainerBattleSequence(EnemyTrainer));
             }
             else{

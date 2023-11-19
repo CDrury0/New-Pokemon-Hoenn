@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 11400000, guid: dc00f9473fa5dc54780099c5801b7c44, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: A mix of stone, Nosepass has a magnetic nose that always faces north.
   ability1: 80
   ability2: 40
@@ -39,12 +37,18 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: fe6e6f811ff995841a7e36318e6be4a0, type: 3}
   shinyFront: {fileID: 21300000, guid: ac2e1bfe56d5d0e4795dab93cc636398, type: 3}
   shinyBack: {fileID: 21300000, guid: 6b22923889ea33649afbabf81327e2d2, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions:
+    - evoStone: {fileID: 11400000, guid: eca80e0321df28443980ffa6f727c137, type: 2}
+      evolution: {fileID: 11400000, guid: dc00f9473fa5dc54780099c5801b7c44, type: 2}
   boxSprite: {fileID: 21300000, guid: 6db9302b8e163cb4184550c7c4a94910, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: dd39a0d5c9c688546a66c9fc8887ce7c, type: 3}
   naturallyHeldItem: {fileID: 0}

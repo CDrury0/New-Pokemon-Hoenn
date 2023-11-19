@@ -57,8 +57,8 @@ public class PokemonDefault : ScriptableObject
 [System.Serializable]
 public class EvoDetails
 {
+    [Tooltip("0 will disallow evolution via level-up")]
     public int evolutionLevel;
-    public ItemData evolutionStone;
     public ItemData evolvesWithHeldItem;
     public int evolvesWithFriendship;
     public bool evolvesFromGender;
@@ -69,4 +69,17 @@ public class EvoDetails
     public PokemonDefault secondOrFemale;
     [Tooltip("Insert shedinja reference to indicate its use; leave null otherwise")]
     public PokemonDefault shedinja;
+    [SerializeField] private List<EvoStoneEntry> stoneEvolutions;
+    [System.Serializable] class EvoStoneEntry {
+        public ItemData evoStone;
+        public PokemonDefault evolution;
+    }
+
+    public PokemonDefault GetEvoStoneMatch(ItemData evoStone){
+        return stoneEvolutions.Find(entry => entry.evoStone == evoStone).evolution;
+    }
+
+    public bool HasStoneEntry(ItemData evoStone){
+        return stoneEvolutions.Find(entry => entry.evoStone == evoStone) != null;
+    }
 }
