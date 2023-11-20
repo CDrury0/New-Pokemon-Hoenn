@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: MoomooMilk
   m_EditorClassIdentifier: 
-  itemIdentifier: 29
+  itemLogicGO: {fileID: 1903337395102383685, guid: c7e0d95598401ac4cbd591d459af7acc, type: 3}
   itemName: Moomoo Milk
   itemDescription: "Restores the HP of a Pok\xE9mon by 100 points. Not pasteurized."
   itemSprite: {fileID: 21300000, guid: 914e3d9ed30eb0d48ad422577388ccdf, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 750
+  stackLimit: 0

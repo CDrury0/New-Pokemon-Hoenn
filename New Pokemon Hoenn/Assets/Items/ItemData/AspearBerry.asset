@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: AspearBerry
   m_EditorClassIdentifier: 
-  itemIdentifier: 89
+  itemLogicGO: {fileID: 1903337395102383685, guid: 99e4a135784d06e41a31137443f4f189, type: 3}
   itemName: Aspear Berry
   itemDescription: "A hard, sour berry that defrosts a Pok\xE9mon."
   itemSprite: {fileID: 21300000, guid: e2482c75f9249de4d85e5e999b7b0843, type: 3}
   itemPocket: 1
-  heldItem: 1
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 50
+  stackLimit: 0

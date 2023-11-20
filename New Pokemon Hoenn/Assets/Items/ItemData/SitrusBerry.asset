@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: SitrusBerry
   m_EditorClassIdentifier: 
-  itemIdentifier: 94
+  itemLogicGO: {fileID: 1903337395102383685, guid: 91769b4ebae32b04982e52138139941f, type: 3}
   itemName: Sitrus Berry
   itemDescription: "Close relative of the oran berry. Restores 30 HP to a Pok\xE9mon."
   itemSprite: {fileID: 21300000, guid: 2a940f7684c250b45ad55c094a91bfaf, type: 3}
   itemPocket: 1
-  heldItem: 1
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 50
+  stackLimit: 0

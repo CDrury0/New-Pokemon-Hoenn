@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: ChestoBerry
   m_EditorClassIdentifier: 
-  itemIdentifier: 86
+  itemLogicGO: {fileID: 1903337395102383685, guid: 87f99ca8a9913f645a2e283b43edd622, type: 3}
   itemName: Chesto Berry
   itemDescription: "A thick, dry berry that awakens a sleeping Pok\xE9mon."
   itemSprite: {fileID: 21300000, guid: cca5cef3235bf334aa9a797b909ebc68, type: 3}
   itemPocket: 1
-  heldItem: 1
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 50
+  stackLimit: 0

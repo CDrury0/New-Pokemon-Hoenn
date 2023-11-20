@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: CheriBerry
   m_EditorClassIdentifier: 
-  itemIdentifier: 85
+  itemLogicGO: {fileID: 1903337395102383685, guid: 8013373b71de3e64fb7f885ea493ddf1, type: 3}
   itemName: Cheri Berry
   itemDescription: "A small, spicy berry. It cures a Pok\xE9mon of paralysis."
   itemSprite: {fileID: 21300000, guid: ddff0e30fe6154a4584c56351005a987, type: 3}
   itemPocket: 1
-  heldItem: 1
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 50
+  stackLimit: 0

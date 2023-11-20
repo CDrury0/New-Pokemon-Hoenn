@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: RawstBerry
   m_EditorClassIdentifier: 
-  itemIdentifier: 88
+  itemLogicGO: {fileID: 1903337395102383685, guid: 7c543d8c6c78d4a4fb1a663304ab99d4, type: 3}
   itemName: Rawst Berry
   itemDescription: "A hard, bitter berry that heals a Pok\xE9mon of a burn."
   itemSprite: {fileID: 21300000, guid: 3a563051da9366145b9dcc1ef914f39f, type: 3}
   itemPocket: 1
-  heldItem: 1
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 50
+  stackLimit: 0
