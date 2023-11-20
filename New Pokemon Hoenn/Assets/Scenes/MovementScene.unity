@@ -1524,7 +1524,6 @@ MonoBehaviour:
   wildMusic: {fileID: 1901076945}
   wildVictoryMusic: {fileID: 1901076944}
   areaMusic: {fileID: 1901076943}
-  transitionCaller: {fileID: 1901076949}
 --- !u!4 &598696005
 Transform:
   m_ObjectHideFlags: 0
@@ -1604,7 +1603,7 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
-  isHm: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 0
@@ -5446,7 +5445,6 @@ GameObject:
   - component: {fileID: 1901076943}
   - component: {fileID: 1901076944}
   - component: {fileID: 1901076948}
-  - component: {fileID: 1901076949}
   m_Layer: 0
   m_Name: ReferencedCombatScriptContainer
   m_TagString: Untagged
@@ -5546,46 +5544,6 @@ MonoBehaviour:
   transitionObjPrefab: {fileID: 5943331842627113238, guid: bc335d0ac59e31947bfe95a8c842720b, type: 3}
   destroyOwnTransitionAfterWait: 1
   previousTransitionToDestroy: {fileID: 0}
---- !u!114 &1901076949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1901076941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4473d33727fc9f4f8309308ac4c5851, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toInstantiate: {fileID: 0}
-  action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 598696004}
-        m_TargetAssemblyTypeName: CombatSystem, Assembly-CSharp
-        m_MethodName: CleanUpAfterBattle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1752241217}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1934170126
 GameObject:
   m_ObjectHideFlags: 0

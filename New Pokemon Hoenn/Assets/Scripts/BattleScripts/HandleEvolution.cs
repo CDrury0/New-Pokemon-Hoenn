@@ -57,8 +57,11 @@ public class HandleEvolution : MonoBehaviour
     }
 
     private IEnumerator DoEvolutionScreen(Sprite previousEvo, string previousNickname, Pokemon p){
-        background.SetActive(true);
-        monSprite.sprite = previousEvo;
+        yield return StartCoroutine(OverlayTransitionManager.Instance.TransitionCoroutine(() => {
+            background.SetActive(true);
+            monSprite.sprite = previousEvo;
+            textObj.WriteMessageInstant("");
+        }));
         yield return StartCoroutine(textObj.WriteMessageConfirm("Huh?"));
         yield return StartCoroutine(textObj.WriteMessageConfirm(previousNickname + " is evolving!"));
         monSprite.sprite = p.frontSprite; //replace with evolution animation
@@ -78,6 +81,17 @@ public class HandleEvolution : MonoBehaviour
                 yield return StartCoroutine(learnScreen.DoLearnMoveScreen(p, moveToLearn, (string message) => textObj.WriteMessageConfirm(message)));
                 Destroy(learnScreen.gameObject);
             }
+            if (WillEvolutionOccur()){
+                yield break;
+            }
+            //Only do this transition if there will be no more evolutions done with this instance of HandleEvolution
+            yield return StartCoroutine(OverlayTransitionManager.Instance.TransitionCoroutine(() => {
+                background.SetActive(false);
+                //If a party menu if found, disable it to skip additional pointless transition (ButtonContainerInventoryUse.UseItem is exited early)
+                GameObject.FindGameObjectWithTag("PartyMenu")?.SetActive(false);
+                //Set the combatScreen inactive, since any time an evolution would occur a battle will never be returned to anyway
+                CombatLib.Instance.combatScreen.gameObject.SetActive(false);
+            }));
         }
     }
 
@@ -89,13 +103,14 @@ public class HandleEvolution : MonoBehaviour
     }
 
     /// <param name="p">providing an argument causes only that Pokemon to be considered</param>
-    public static bool WillEvolutionScreenBeUsed(Pokemon p = null){
+    public static bool WillEvolutionOccur(Pokemon p = null){
         if(p != null){
             return CanMonEvolve(p);
         }
         for(int i = 0; i < didLevelUpLastBattle.Count; i++){
             Pokemon temp = didLevelUpLastBattle[i];
             if(CanMonEvolve(temp)){
+                Debug.Log(temp.nickName + " can evolve");
                 return true;
             }
         }

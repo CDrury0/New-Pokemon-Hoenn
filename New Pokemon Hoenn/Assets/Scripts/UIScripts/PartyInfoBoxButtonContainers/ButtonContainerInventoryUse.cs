@@ -20,10 +20,12 @@ public class ButtonContainerInventoryUse : PartyInfoBoxButtonContainer
         infoBox.LoadPokemonDetails(false);
         Pokemon p = PlayerParty.Instance.playerParty.party[infoBox.whichPartyMember];
         PlayerInventory.SubtractItem(InventoryMenu.LoadedItemInstance.itemData);
-        yield return StartCoroutine(InventoryMenu.LoadedItemInstance.DoItemEffects(infoBox.pokemonInfo, p, (string message) => modal.ShowModalMessage(message)));
         InventoryMenu invMenu = GameObject.FindWithTag("InventoryMenu").GetComponentInChildren<InventoryMenu>();
         invMenu.UpdateBadge(InventoryMenu.LoadedItemInstance.itemData);
-        yield return StartCoroutine(OverlayTransitionManager.Instance.TransitionCoroutine(() => { 
+        yield return StartCoroutine(InventoryMenu.LoadedItemInstance.DoItemEffects(infoBox.pokemonInfo, p, (string message) => modal.ShowModalMessage(message)));
+
+        //if HandleEvolution.EvolveMon finds a party menu to destroy, this function will exit here, effectively skipping the transition
+        yield return StartCoroutine(OverlayTransitionManager.Instance.TransitionCoroutine(() => {
             invMenu.gameObject.SetActive(!CombatSystem.BattleActive);
             partyMenu.gameObject.SetActive(false);
             if(CombatSystem.BattleActive){

@@ -34,7 +34,6 @@ public class CombatSystem : MonoBehaviour
     [SerializeField] private AudioPlayer wildMusic;
     [SerializeField] private AudioPlayer wildVictoryMusic;
     [SerializeField] private AudioPlayer areaMusic;
-    [SerializeField] private OverlayTransitionCaller transitionCaller;
     private AudioPlayer battleMusicPlayer;
     private AudioPlayer victoryMusicPlayer;
     public static Trainer EnemyTrainer { get; private set; }
@@ -614,6 +613,7 @@ public class CombatSystem : MonoBehaviour
     }
 
     private IEnumerator EndBattle(){
+        bool willEvolutionOccur = false;
         //victory is overridden in the case of explicit loss; treat e.g. whirlwind exits as wins
         PlayerVictory = true;
         if(playerParty.IsEntireTeamFainted()){
@@ -630,18 +630,28 @@ public class CombatSystem : MonoBehaviour
                 System.Func<string, IEnumerator> messageOutput = (string message) => combatScreen.battleText.WriteMessageConfirm(message);
                 yield return StartCoroutine(handleExperience.DoBattleExperience(enemy1.pokemon, messageOutput));
             }
-            HandleEvolution handleEvolution = Instantiate(handleEvolutionObj).GetComponent<HandleEvolution>();
-            yield return StartCoroutine(handleEvolution.DoEvolutions());
-            Destroy(handleEvolution.gameObject);
+            willEvolutionOccur = HandleEvolution.WillEvolutionOccur();
+            //only bother instantiating the evolution screen object if it will actually be used
+            if(willEvolutionOccur){
+                HandleEvolution handleEvolution = Instantiate(handleEvolutionObj).GetComponent<HandleEvolution>();
+                yield return StartCoroutine(handleEvolution.DoEvolutions());
+                Destroy(handleEvolution.gameObject);
+            }
         }
         else{
-            //battle was forcefully ended via e.g. run, whirlwind
+            //battle was forcefully ended via e.g. run, whirlwind, pokeball caught wild mon
         }
         //does this playSound ultimately belong here??
         areaMusic.PlaySound();
 
-        yield return StartCoroutine(transitionCaller.CallTransitionCoroutine());
-
+        //only play the transition from combatScreen to overworld if evolution screen is not used
+        if(!willEvolutionOccur){
+            yield return StartCoroutine(OverlayTransitionManager.Instance.TransitionCoroutine(() => {
+                combatScreen.gameObject.SetActive(false);
+            }));
+        }
+        CleanUpAfterBattle();
+        
         battleEndSignal = false;
         BattleActive = false;
     }
