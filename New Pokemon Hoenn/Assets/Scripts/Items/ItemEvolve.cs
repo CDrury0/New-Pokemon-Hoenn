@@ -9,7 +9,7 @@ public class ItemEvolve : ItemEffect
         return p.pokemonDefault.evoDetails.HasStoneEntry(itemLogic.itemData);
     }
 
-    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj, Func<string, IEnumerator> messageOutput){
+    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj, Func<string, IEnumerator> messageOutput, int whichMove){
         HandleEvolution handleEvolution = Instantiate(CombatLib.Instance.combatSystem.handleEvolutionObj).GetComponent<HandleEvolution>();
         yield return StartCoroutine(handleEvolution.EvolveMon(p, itemLogic.itemData));
         Destroy(handleEvolution.gameObject);

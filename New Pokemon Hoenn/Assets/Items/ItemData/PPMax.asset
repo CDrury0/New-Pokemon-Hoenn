@@ -12,14 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: PPMax
   m_EditorClassIdentifier: 
-  itemIdentifier: 58
+  itemLogicGO: {fileID: 1903337395102383685, guid: c4849d1b4dcd4524487744dd656d1357, type: 3}
   itemName: PP Max
   itemDescription: This potent nutritional supplement increases the PP of a move
     to its highest value.
   itemSprite: {fileID: 21300000, guid: 6799c2e99034e254da5a768dddbd0623, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 0
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 15000
+  stackLimit: 0

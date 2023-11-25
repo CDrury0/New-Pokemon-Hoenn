@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class InventoryMenu : MonoBehaviour
 {
+    [SerializeField] private GameObject partyUseItemPrefab;
+    [SerializeField] private GameObject partyUseItemOnMovePrefab;    
     [SerializeField] private RectTransform scrollContent;
     [SerializeField] private GameObject pocketPanelPrefab;
     [SerializeField] private GameObject pocketHeaderPrefab;
@@ -93,8 +95,12 @@ public class InventoryMenu : MonoBehaviour
     }
 
     public void UseItemButtonFunction(){
+        //if the item requires a target, load the part menu
         if(!LoadedItemInstance.usedWithoutTarget){
-            useButton.GetComponent<OverlayTransitionCaller>().CallTransition();
+            OverlayTransitionCaller useButtonCaller = useButton.GetComponent<OverlayTransitionCaller>();
+            //set the correct type of party menu to instantiate based on whether the item must be used on a specific move
+            useButtonCaller.toInstantiate = LoadedItemInstance.usedOnSpecificMove ? partyUseItemOnMovePrefab : partyUseItemPrefab;
+            useButtonCaller.CallTransition();
             return;
         }
         PlayerInventory.SubtractItem(LoadedItemInstance.itemData);
@@ -108,6 +114,5 @@ public class InventoryMenu : MonoBehaviour
         }
         StartCoroutine(LoadedItemInstance.DoItemEffects(null, null, (string message) => modal.ShowModalMessage(message)));
         UpdateBadge(LoadedItemInstance.itemData);
-        return;
     }
 }

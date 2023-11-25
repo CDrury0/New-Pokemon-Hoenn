@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: PPUp
   m_EditorClassIdentifier: 
-  itemIdentifier: 56
+  itemLogicGO: {fileID: 1903337395102383685, guid: 6dc243fcb8281e34dae2484b836efc5b, type: 3}
   itemName: PP Up
   itemDescription: This potent nutritional supplement raises the max PP of a move.
   itemSprite: {fileID: 21300000, guid: faa40052ec07fe8409760e3399f4927d, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 0
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 10000
+  stackLimit: 0

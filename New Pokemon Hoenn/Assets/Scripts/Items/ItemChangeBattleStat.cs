@@ -31,7 +31,7 @@ public class ItemChangeBattleStat : ItemEffect
         }
     }
 
-    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj, Func<string, IEnumerator> messageOutput) {
+    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj, Func<string, IEnumerator> messageOutput, int whichMove) {
         BattleTarget target = CombatSystem.GetBattleTarget(p);
         int currentStage = target.individualBattleModifier.statStages[whichStat];
         target.individualBattleModifier.statStages[whichStat] = Mathf.Min(currentStage + numStages, IndividualBattleModifier.MAX_STAT_STAGES);

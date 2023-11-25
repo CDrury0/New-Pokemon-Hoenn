@@ -6,6 +6,7 @@ using TMPro;
 
 public class SummaryMovePlate : MonoBehaviour
 {
+    public Button button;
     [SerializeField] private ColorSO typeColors;
     [SerializeField] private Sprite[] categorySprites;
     [SerializeField] private Image categorySprite;

@@ -871,6 +871,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d6fd9a146b0a24f94084dd29fd86ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partyUseItemPrefab: {fileID: 2977433275027474611, guid: 8605ced3d2ef4ec4b8ec5504e1efd25c, type: 3}
+  partyUseItemOnMovePrefab: {fileID: 7597508535101397737, guid: 17676bad2802f384e93087122ac557f9, type: 3}
   scrollContent: {fileID: 479944137812271938}
   pocketPanelPrefab: {fileID: 1659111871459658645, guid: 80fba50f5e8b78148a5daf59135afa99, type: 3}
   pocketHeaderPrefab: {fileID: 799749590286283661, guid: 52fc806d3028cd7479cbe59f277bcaa5, type: 3}
@@ -1604,7 +1606,7 @@ PrefabInstance:
     - target: {fileID: 7726636780919096772, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: toInstantiate
       value: 
-      objectReference: {fileID: 2977433275027474611, guid: 8605ced3d2ef4ec4b8ec5504e1efd25c, type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98d60644b4781df40a4023d479c13697, type: 3}
 --- !u!114 &1044284577611014479 stripped

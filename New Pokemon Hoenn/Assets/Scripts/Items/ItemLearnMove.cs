@@ -16,7 +16,7 @@ public class ItemLearnMove : ItemEffect
         && p.moves.Find(m => m != null && !m.GetComponent<MoveData>().cannotBeForgotten) != null;
     }
 
-    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj, System.Func<string, IEnumerator> messageOutput) {
+    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj, System.Func<string, IEnumerator> messageOutput, int whichMove) {
         GameObject learnScreenParent = Instantiate(learnMoveMenuPrefab);
         learnMoveScreen = learnScreenParent.GetComponentInChildren<LearnMoveScreen>();
         yield return StartCoroutine(learnMoveScreen.DoLearnMoveScreen(p, moveToLearn, messageOutput));

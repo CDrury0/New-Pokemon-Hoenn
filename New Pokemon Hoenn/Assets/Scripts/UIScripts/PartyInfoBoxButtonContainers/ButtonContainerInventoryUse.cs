@@ -10,19 +10,19 @@ public class ButtonContainerInventoryUse : PartyInfoBoxButtonContainer
         useButton.SetActive(InventoryMenu.LoadedItemInstance.CanItemBeUsedOn(p));
     }
 
-    public void UseButtonFunction(){
+    public void UseButtonFunction(int whichMove = -1){
         DisableAlternateInputs();
-        StartCoroutine(UseItem());
+        StartCoroutine(UseItem(whichMove));
     }
 
-    private IEnumerator UseItem(){
+    private IEnumerator UseItem(int move){
         PartyInfoBox infoBox = GetComponent<PartyInfoBox>();
         infoBox.LoadPokemonDetails(false);
         Pokemon p = PlayerParty.Instance.playerParty.party[infoBox.whichPartyMember];
         PlayerInventory.SubtractItem(InventoryMenu.LoadedItemInstance.itemData);
         InventoryMenu invMenu = GameObject.FindWithTag("InventoryMenu").GetComponentInChildren<InventoryMenu>();
         invMenu.UpdateBadge(InventoryMenu.LoadedItemInstance.itemData);
-        yield return StartCoroutine(InventoryMenu.LoadedItemInstance.DoItemEffects(infoBox.pokemonInfo, p, (string message) => modal.ShowModalMessage(message)));
+        yield return StartCoroutine(InventoryMenu.LoadedItemInstance.DoItemEffects(infoBox.pokemonInfo, p, (string message) => modal.ShowModalMessage(message), move));
 
         //if HandleEvolution.EvolveMon finds a party menu to destroy, this function will exit here, effectively skipping the transition
         yield return StartCoroutine(OverlayTransitionManager.Instance.TransitionCoroutine(() => {

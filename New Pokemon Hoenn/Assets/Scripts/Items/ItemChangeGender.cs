@@ -13,7 +13,7 @@ public class ItemChangeGender : ItemEffect
         return p.genderRatio < 1f && p.genderRatio > 0f;
     }
 
-    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj, Func<string, IEnumerator> messageOutput) {
+    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj, Func<string, IEnumerator> messageOutput, int whichMove) {
         p.gender = p.gender == Gender.Male ? Gender.Female : Gender.Male;
         message = p.nickName + " became " + p.gender.ToString();
         yield break;

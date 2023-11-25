@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: Ether
   m_EditorClassIdentifier: 
-  itemIdentifier: 34
+  itemLogicGO: {fileID: 1903337395102383685, guid: 593d14131eb19824190896aa81fc6a55, type: 3}
   itemName: Ether
   itemDescription: Restores 10 PP to the selected move.
   itemSprite: {fileID: 21300000, guid: 819b6c08679fed74daad49581f8c4f77, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 1000
+  stackLimit: 0

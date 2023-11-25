@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: MaxEther
   m_EditorClassIdentifier: 
-  itemIdentifier: 35
+  itemLogicGO: {fileID: 1903337395102383685, guid: 10008b9041fcc7c44ac482548a2bf9d3, type: 3}
   itemName: Max Ether
   itemDescription: Fully restores the PP of the selected move.
   itemSprite: {fileID: 21300000, guid: 792e1d5146a56b2448738b6c7bd92f4d, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 2500
+  stackLimit: 0

@@ -12,14 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: FullRestore
   m_EditorClassIdentifier: 
-  itemIdentifier: 19
+  itemLogicGO: {fileID: 1903337395102383685, guid: f9869a519b5015d41a343f7ec4dca28f, type: 3}
   itemName: Full Restore
   itemDescription: "Fully restores the HP of a Pok\xE9mon and cures it of all status
     effects."
   itemSprite: {fileID: 21300000, guid: ee08bd2c4a19f2f448b8a570d149eef9, type: 3}
   itemPocket: 0
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 1
-  cannotBeDiscarded: 0
   itemPrice: 3200
+  stackLimit: 0

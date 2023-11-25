@@ -13,7 +13,7 @@ public class ItemGiveExperience : ItemEffect
         return p.level < Pokemon.MAX_LEVEL;
     }
 
-    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj, Func<string, IEnumerator> messageOutput){
+    protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj, Func<string, IEnumerator> messageOutput, int whichMove){
         int expAmount = flatExpAmount;
         for(int i = 0; i < expLevels; i++){
             //the difference between next level's requirement and the previous level's requirement is the amount added for EACH level granted by the item
