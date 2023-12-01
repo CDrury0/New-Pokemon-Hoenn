@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6069336275812394783}
   - component: {fileID: -4841574164895817454}
-  - component: {fileID: -7646607652359512725}
   - component: {fileID: 2441652009826571577}
   - component: {fileID: -2073107539177408606}
+  - component: {fileID: 1300410076200548000}
   m_Layer: 0
   m_Name: Pokeball
   m_TagString: Item
@@ -47,24 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad0e26164433824ab7c54eb6ba4ba74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usedOnSpecificMove: 0
   usedWithoutTarget: 1
   itemData: {fileID: 11400000, guid: ec773f5a7d2653a40bf6dd47bccff439, type: 2}
   heldItem: {fileID: 0}
   onUseDuringBattle:
-  - {fileID: -7646607652359512725}
+  - {fileID: 1300410076200548000}
   onUseOutsideBattle: []
---- !u!114 &-7646607652359512725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903337395102383685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebb0bb8252dae934abbd2739aaec9110, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2441652009826571577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +85,7 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
-  isHm: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 0
@@ -119,3 +108,17 @@ MonoBehaviour:
   applyToSelf: 0
   message: 
   itemLogic: {fileID: -4841574164895817454}
+--- !u!114 &1300410076200548000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903337395102383685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0e56b909f401954aa47b23bb03dd4ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guaranteedCapture: 0
+  catchRateMod: 1
