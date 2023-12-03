@@ -12,14 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: PremierBall
   m_EditorClassIdentifier: 
-  itemIdentifier: 12
+  itemLogicGO: {fileID: 1903337395102383685, guid: 423de6a8e82b17c45bedb24adacc7140, type: 3}
   itemName: Premier Ball
   itemDescription: "A ball manufactured by Apple. It works just like a Pok\xE9Ball,
     but gives more clout and costs more."
   itemSprite: {fileID: 21300000, guid: 1c0f834ee2157b64595ceca099eb5ebb, type: 3}
   itemPocket: 3
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 0
-  cannotBeDiscarded: 0
   itemPrice: 1500
+  stackLimit: 0

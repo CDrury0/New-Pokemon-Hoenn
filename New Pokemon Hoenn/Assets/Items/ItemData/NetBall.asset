@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: NetBall
   m_EditorClassIdentifier: 
-  itemIdentifier: 6
+  itemLogicGO: {fileID: 1903337395102383685, guid: c57f860af15ab8f4dace1fffb2bd2a73, type: 3}
   itemName: Net Ball
   itemDescription: "A ball that works especially well on Water and Bug type Pok\xE9mon."
   itemSprite: {fileID: 21300000, guid: eeb038464b2728e42a43fc4613c2e83a, type: 3}
   itemPocket: 3
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 0
-  cannotBeDiscarded: 0
   itemPrice: 1100
+  stackLimit: 0

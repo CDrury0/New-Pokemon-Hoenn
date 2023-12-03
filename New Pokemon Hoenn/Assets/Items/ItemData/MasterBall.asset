@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: MasterBall
   m_EditorClassIdentifier: 
-  itemIdentifier: 1
+  itemLogicGO: {fileID: 1903337395102383685, guid: f04587c347f070144bc01113106939b0, type: 3}
   itemName: Master Ball
   itemDescription: "The highest grade ball. It catches any wild Pok\xE9mon without
     fail."
   itemSprite: {fileID: 21300000, guid: dbd1735bc6c5e014488046c8d3fd87e6, type: 3}
   itemPocket: 3
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 0
-  cannotBeDiscarded: 1
+  itemPrice: 0
+  stackLimit: 0

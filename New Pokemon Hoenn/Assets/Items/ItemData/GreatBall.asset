@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: GreatBall
   m_EditorClassIdentifier: 
-  itemIdentifier: 3
+  itemLogicGO: {fileID: 1903337395102383685, guid: b2e85b600115e664b87bfa54c404ad57, type: 3}
   itemName: Great Ball
   itemDescription: "A good ball with a higher catch rate than a Pok\xE9Ball."
   itemSprite: {fileID: 21300000, guid: 8472dfd31b384be448ff09ffefe4e88a, type: 3}
   itemPocket: 3
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 0
-  cannotBeDiscarded: 0
   itemPrice: 650
+  stackLimit: 0

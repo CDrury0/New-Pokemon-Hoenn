@@ -12,14 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: TimerBall
   m_EditorClassIdentifier: 
-  itemIdentifier: 10
+  itemLogicGO: {fileID: 1903337395102383685, guid: 408a80f17ffdbb548aa258ecb6130cb8, type: 3}
   itemName: Timer Ball
   itemDescription: A ball that becomes more effective with each turn that passes
     in battle.
   itemSprite: {fileID: 21300000, guid: 17b7a6fc700a26541b84f0570752ac63, type: 3}
   itemPocket: 3
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 0
-  cannotBeDiscarded: 0
   itemPrice: 1000
+  stackLimit: 0

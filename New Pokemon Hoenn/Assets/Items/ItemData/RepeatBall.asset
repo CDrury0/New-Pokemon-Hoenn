@@ -12,14 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b416558afbe464dbfab5595abb5051, type: 3}
   m_Name: RepeatBall
   m_EditorClassIdentifier: 
-  itemIdentifier: 9
+  itemLogicGO: {fileID: 1903337395102383685, guid: 11665fa8ef58bee42b018c3b06697967, type: 3}
   itemName: Repeat Ball
   itemDescription: "A ball that works better against species of Pok\xE9mon previously
     caught."
   itemSprite: {fileID: 21300000, guid: 774246e1fa681c54592a451a711cc0fc, type: 3}
   itemPocket: 3
-  heldItem: 0
-  usedDuringBattle: 1
-  usedOutsideBattle: 0
-  cannotBeDiscarded: 0
   itemPrice: 1000
+  stackLimit: 0

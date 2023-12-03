@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1903337395102383685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6069336275812394783}
+  - component: {fileID: -4841574164895817454}
+  - component: {fileID: 2441652009826571577}
+  - component: {fileID: -2073107539177408606}
+  - component: {fileID: 1745855539403196143}
+  m_Layer: 0
+  m_Name: Timer Ball
+  m_TagString: Item
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6069336275812394783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903337395102383685}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4841574164895817454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903337395102383685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad0e26164433824ab7c54eb6ba4ba74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usedOnSpecificMove: 0
+  usedWithoutTarget: 1
+  itemData: {fileID: 11400000, guid: d2e105d6fe614464db2a27332d1f1329, type: 2}
+  heldItem: {fileID: 0}
+  onUseDuringBattle:
+  - {fileID: 1745855539403196143}
+  onUseOutsideBattle: []
+--- !u!114 &2441652009826571577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903337395102383685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8017aeb4b8f9175468925e2a21b528c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: 
+  moveDescription: 
+  moveType: 0
+  typeFromWeather: 0
+  hiddenPowerType: 0
+  displayPower: 0
+  category: 2
+  targetType: 0
+  maxPP: 0
+  priority: 7
+  pursuit: 0
+  soundBased: 0
+  focusPunch: 0
+  onlyUsableFirstTurn: 0
+  worksOnAsleep: 0
+  worksWhileAsleep: 0
+  cannotBeSnatched: 0
+  notReflectedByMagicCoat: 0
+  ignoresProtect: 0
+  cannotBeForgotten: 0
+  accuracyData:
+    accuracy: 0
+    cannotMissVulnerable: 0
+    entryHazard: 0
+    hitsSemiInvulnerable: 0
+    bypassOnWeather: {fileID: 0}
+    hurtsIfMiss: 0
+--- !u!114 &-2073107539177408606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903337395102383685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be10ab0e0900c8e4dac47e2c067b20e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  itemLogic: {fileID: -4841574164895817454}
+--- !u!114 &1745855539403196143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903337395102383685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12bab54ee8edc1643a2f572ede47d0f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guaranteedCapture: 0
