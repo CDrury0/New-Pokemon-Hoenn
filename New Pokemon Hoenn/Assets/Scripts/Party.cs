@@ -66,4 +66,13 @@ public class Party
         }
         return true;
     }
+
+    public int GetFirstEmpty(){
+        for(int i = 0; i < party.Length; i++){
+            if (party[i] == null){
+                return i;
+            }
+        }
+        return -1;
+    }
 }

@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 15
   childPokemon: {fileID: 11400000, guid: 2cd04ec9ff775a3479d81700b7e987e2, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Dustox developed nocturnal habits to compensate for its irresistable
     attraction to light.
   ability1: 17
@@ -40,18 +38,23 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 91805affb99f0f449808d413a28d556c, type: 3}
   shinyFront: {fileID: 21300000, guid: 9ca811d8d2de51746baa916ac540be4f, type: 3}
   shinyBack: {fileID: 21300000, guid: 3722dfb7368503d48850be6b98521fc5, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 2cfad550be5025045af80e5700220685, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 8be5a51eb8a63544d85401e544091bd6, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 000000000000000000000000000000000300000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 4378f1efb8ece594ab8aa99a181988bc, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -61,36 +64,35 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 4378f1efb8ece594ab8aa99a181988bc, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: dc04f357efd79a24984e0556045801b3, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 94e4163b6e665a04089f81c06a06067c, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: f55b40220c6e1ae41a5628a75489f093, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 7215a5607c1f8b44fac8cc8db496bae6, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: a243612a42e05ab4990c9effdb0de9e8, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 13f7180c5ab20f649a050baa453c73c7, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 98e3f7bfa1066d64bbb409271fe801cf, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 2769de940e3f220498aad5bf0da2345b, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

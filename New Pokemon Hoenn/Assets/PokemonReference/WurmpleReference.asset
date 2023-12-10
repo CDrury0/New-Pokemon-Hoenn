@@ -38,7 +38,7 @@ MonoBehaviour:
   shinyFront: {fileID: 21300000, guid: e61092e7e6b4c264c8f1754ca6d8f4e9, type: 3}
   shinyBack: {fileID: 21300000, guid: 2ec975b1ddea5fb4b8202d4ebeaa3c6e, type: 3}
   evoDetails:
-    evolutionLevel: 5
+    evolutionLevel: 7
     evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
@@ -53,12 +53,12 @@ MonoBehaviour:
   lastSeen: {fileID: 0}
   evYield: 010000000000000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 92fd833a8f54e6a4a90a5ce861da3412, type: 3}
+  - {fileID: 1682630347, guid: b3db69adb2af27746931b682e3455cb1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: fdf381f8f288be342b570fcdb0cd13e5, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

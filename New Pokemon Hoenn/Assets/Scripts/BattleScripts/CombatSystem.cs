@@ -8,7 +8,7 @@ public enum SemiInvulnerable { None, Airborne, Underground, Underwater }
 public enum TargetType {Self, Single, Foes, Ally, RandomFoe, All}
 public class CombatSystem : MonoBehaviour
 {
-    private bool battleEndSignal;
+    public static bool BattleEndSignal { get; set; }
     private int escapeAttempts;
     public static bool BattleActive {get; private set;}
     public static bool PlayerVictory { get; private set; }
@@ -163,7 +163,7 @@ public class CombatSystem : MonoBehaviour
         combatScreen.battleText.gameObject.SetActive(false);
 
         foreach(BattleTarget b in BattleTargets){
-            if(battleEndSignal){
+            if(BattleEndSignal){
                 yield return StartCoroutine(EndBattle());
                 yield break;
             }
@@ -229,7 +229,7 @@ public class CombatSystem : MonoBehaviour
             if(CheckRunAttempt(ActiveTarget.pokemon.stats[5], enemy1.pokemon.stats[5])){
                 AudioManager.Instance.PlaySoundEffect(runAwaySound);
                 yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("Got away safely"));
-                battleEndSignal = true;
+                BattleEndSignal = true;
             }
             else{
                 ActiveTarget.turnAction = failedRunAction;
@@ -356,7 +356,7 @@ public class CombatSystem : MonoBehaviour
         List<BattleTarget> turnOrder = new List<BattleTarget>(moveFunctions.GetTurnOrder(BattleTargets));
 
         for(int i = 0; i < turnOrder.Count; i++){
-            if(battleEndSignal){
+            if(BattleEndSignal){
                 break;
             }
 
@@ -406,7 +406,7 @@ public class CombatSystem : MonoBehaviour
             }
         }
 
-        if(playerParty.IsEntireTeamFainted() || EnemyParty.IsEntireTeamFainted() || battleEndSignal){
+        if(playerParty.IsEntireTeamFainted() || EnemyParty.IsEntireTeamFainted() || BattleEndSignal){
             yield return StartCoroutine(EndBattle());
             yield break;
         }
@@ -485,7 +485,7 @@ public class CombatSystem : MonoBehaviour
     }
 
     public void ForceBattleEnd() {
-        battleEndSignal = true;
+        BattleEndSignal = true;
     }
 
     public IEnumerator HandleFaint(){
@@ -652,7 +652,7 @@ public class CombatSystem : MonoBehaviour
         }
         CleanUpAfterBattle();
         
-        battleEndSignal = false;
+        BattleEndSignal = false;
         BattleActive = false;
     }
 

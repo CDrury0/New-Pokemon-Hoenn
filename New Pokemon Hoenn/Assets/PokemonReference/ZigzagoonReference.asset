@@ -40,7 +40,6 @@ MonoBehaviour:
   shinyBack: {fileID: 21300000, guid: a574fdf147f193b4e90c2fea2885c945, type: 3}
   evoDetails:
     evolutionLevel: 20
-    evolutionStone: {fileID: 0}
     evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
@@ -48,54 +47,55 @@ MonoBehaviour:
     firstOrMale: {fileID: 11400000, guid: 2b9c9216b25f0344cb2d96aadce3a7ef, type: 2}
     secondOrFemale: {fileID: 0}
     shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 6a7b4a4fd61b7df4895f798a18513005, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: fdd429e11802e3049b74a897fa467136, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: c7ec1de857b041047851234ca05b4a45, type: 2}
   lastSeen: {fileID: 0}
   evYield: 000000000000000000000000000000000000000001000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 37a9e3d8b9a8b9e4f8bbb2070cc07707, type: 3}
+  - {fileID: 1682630347, guid: b3db69adb2af27746931b682e3455cb1, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 0ce3ed085f23e1a40ab424f199f76853, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: c826d81b3d1e0ad4495577bf010fbf8b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 71cf185fcbbe3a04980decca06f825fa, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: b862e3af38fd94a49bd0cadadb344256, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 1682630347, guid: 44ee08ee6326a9048a5691cfaf1d480b, type: 3}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 51fa44889b79cc342acb18ca4e8c5fcb, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 5322628292312570297, guid: ab3c02b77ffeb5e429ce1a4a933d1944, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: b65bf63413250b744a80c5a15ee7305e, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 15ba65bc3e22633478daecf5be691410, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 7fdd7bde34c83324a8f9b6422ce3a015, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -156,11 +156,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 27c5d698f766581489034012d3d27e5b, type: 3}
+  - {fileID: 1682630347, guid: 8fd983fd1e63ceb428f67b03822fbac3, type: 3}
+  - {fileID: 5577835600589612960, guid: cf6f520f7d6afcb47875601bb31db6e3, type: 3}
+  - {fileID: 1682630347, guid: da8f2843e2fa12a4f95ad090c7046942, type: 3}
+  - {fileID: 1682630347, guid: b11a8127faea94044852ec170a7d7ac5, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

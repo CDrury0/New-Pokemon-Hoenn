@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: 00524eca11e18a64eaf8dbfcc90dba36, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: "Blaziken has incredibly strong legs - it can easily clear a 30-story
     building in one leap. This Pok\xE9mon\u2019s blazing punches leave its foes scorched
     and blackened."
@@ -41,16 +39,20 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 81f5ad11ee2a6e740b514923dde53f61, type: 3}
   shinyFront: {fileID: 21300000, guid: 998586b4c9b0756448994bb2d827895c, type: 3}
   shinyBack: {fileID: 21300000, guid: 7ea7f842c4371f34aa56dbede0b0f3aa, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 6742539abd51d5f44ad68d80c546d5ea, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: ff18a8cc340959b4487d22493c841ff4, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000300000000000000000000000000000000000000
   learnedMoves:
   - {fileID: 11400000, guid: 9cabc424007ca7f49a57c0421ebcdc3f, type: 2}
@@ -165,5 +167,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  tutorMoves:
-  - {fileID: 11400000, guid: d00bc889f3db61f48a15fbf243751340, type: 2}
+  tutorMoves: []

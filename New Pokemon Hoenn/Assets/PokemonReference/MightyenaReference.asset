@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 15
   childPokemon: {fileID: 11400000, guid: ce824753004e7be4ca967646b1570b78, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Mightyena travel in packs and take down large prey with perfect coordination.
   ability1: 20
   ability2: 78
@@ -39,71 +37,75 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: df3fcecc715eacf4aa54f31811e4cdb5, type: 3}
   shinyFront: {fileID: 21300000, guid: ebfe56150588f434db7a092c16fcdecd, type: 3}
   shinyBack: {fileID: 21300000, guid: e05fdb03320f3c74ab76536325ecaf22, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: d2dbd4cd25a28014b9f17ab135265bc7, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 1e1c6e1d2e70e8e43975336c03f67e75, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 000000000200000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: b3db69adb2af27746931b682e3455cb1, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 9ae6209838f10b94aa2e3ac9f3b6750c, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 71cf185fcbbe3a04980decca06f825fa, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: f722428433deb024c9c1859f17492076, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: b862e3af38fd94a49bd0cadadb344256, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 2b4d696d31d24a444870040118fe55b6, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: d0318d60adc4eeb49a5a19457c939e44, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 16914bc98e0d91a4492c2d665f7d725f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 60c6d7df92ff77147b48948581a05454, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 8e90c168f85cbe74aa5fb7cd788696a9, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: d45ff98d51914a440851a2dcb822ab95, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5577835600589612960, guid: 47de0ce56b3cf6f478e9c0b39ecb12f6, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -153,11 +155,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 7dd3c075b7dff7d43bc89345832eb60f, type: 3}
+  - {fileID: 5322628292312570297, guid: ab3c02b77ffeb5e429ce1a4a933d1944, type: 3}
+  - {fileID: 1682630347, guid: 826dc11843354af46a6f667dcb3cb72b, type: 3}
+  - {fileID: 1682630347, guid: cb5d07413d360234794696e56d14d25f, type: 3}
+  - {fileID: 1682630347, guid: 8d64b48dcbe43904ba29be5752356034, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

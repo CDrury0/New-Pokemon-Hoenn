@@ -35,12 +35,16 @@ public abstract class ItemBall : ItemEffect
         }
 
         yield return StartCoroutine(messageOutput("Gotcha! " + targetMon.nickName + " was caught!"));
-        
+
         //handle nickname
 
         //show dex entry?
 
         //handle add to party / box
+        bool placedInParty = PlayerParty.Instance.GivePlayerPokemon(targetMon);
+        string captureMessage = targetMon.nickName + (placedInParty ? " was added to the party" : " was sent to the PC");
+        yield return StartCoroutine(messageOutput(captureMessage));
+        CombatSystem.BattleEndSignal = true;
     }
 
     private bool ShakeCheck(float catchRate) {

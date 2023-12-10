@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 15
   childPokemon: {fileID: 11400000, guid: 2cd04ec9ff775a3479d81700b7e987e2, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Its colorfully patterned wings are its most prominent feature. It
     flies through flower-covered fields collecting pollen. It attacks ferociously
     when angered.
@@ -41,18 +39,23 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: fb2f29a16ea24bc4aa66add6eee0e02c, type: 3}
   shinyFront: {fileID: 21300000, guid: 86953d43fa6cd72409ca13a381f8fa9d, type: 3}
   shinyBack: {fileID: 21300000, guid: 41f767cfdc3e3db47bb426065a441eda, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: dd740159da2021147ab79fa6d265d450, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: d5046270ce06a8b45ad73297bcf6cd31, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 000000000000000000000000030000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: c0f3504b2dbacab40ab68d0fcb2d836b, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -62,36 +65,35 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: c0f3504b2dbacab40ab68d0fcb2d836b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: dc04f357efd79a24984e0556045801b3, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: ab564159b6049cc49886904252249996, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: e7e668ace207e5c46868734ee18c3b9d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 281e7dec40cabbe4f909e1c26c66fd1a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: a243612a42e05ab4990c9effdb0de9e8, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 9ea2151246387be47ab2464008ecef70, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 98e3f7bfa1066d64bbb409271fe801cf, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: b411734838cdd3844977c89af61ef1b4, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

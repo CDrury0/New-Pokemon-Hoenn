@@ -39,29 +39,29 @@ MonoBehaviour:
   shinyFront: {fileID: 21300000, guid: 7693e15c657c16444be44d9e8540ed05, type: 3}
   shinyBack: {fileID: 21300000, guid: 61ac8da902d7ff548817743e740b9f72, type: 3}
   evoDetails:
-    evolutionLevel: 0
-    evolutionStone: {fileID: 0}
+    evolutionLevel: 10
     evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
-    firstOrMale: {fileID: 0}
+    firstOrMale: {fileID: 11400000, guid: a3417551440046642a02c4f6c84be598, type: 2}
     secondOrFemale: {fileID: 0}
     shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: ab3d865383dcdd94c9d3b0a6985b76c0, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: d94afca38c8c5f448ad0e6948d9b5770, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: 70cd10740ee83754892d6d04ef7e18cd, type: 2}
   lastSeen: {fileID: 0}
   evYield: 000000000000000002000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 5d2cac0f75adb864da8466eb8554729a, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 1682630347, guid: 51fa44889b79cc342acb18ca4e8c5fcb, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 5d2cac0f75adb864da8466eb8554729a, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
