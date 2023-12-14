@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 0
   childPokemon: {fileID: 0}
-  evolvesInto1: {fileID: 11400000, guid: caaebd582cc47d9418b2e8e06acd6334, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Its tail is very bouncy. On sunny days they gather at the edge of
     water and splash about for fun.
   ability1: 45
@@ -40,40 +38,44 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 5876640390e38a24e9541a784c647152, type: 3}
   shinyFront: {fileID: 21300000, guid: dfd2ebed568b36a41b157830c86af540, type: 3}
   shinyBack: {fileID: 21300000, guid: 3f064825893100d4a816dfc8d7d1ea58, type: 3}
-  evolutionLevel: 0
   evoDetails:
-    evolvesWithItem: {fileID: 0}
-    evolvesWithFriendship: 0
+    evolutionLevel: 1
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithFriendship: 220
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: caaebd582cc47d9418b2e8e06acd6334, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 0308eb789c49bf74b9810e257f1caa44, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: e51b7abcd02a33e429897a76c7b1a3d7, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 010000000000000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 9b01503c0a77adf449b5020cbca0d24f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 27c5d698f766581489034012d3d27e5b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 0ce3ed085f23e1a40ab424f199f76853, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 44d90bc9a61eb9844a3865b705941b7b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 134ea16404318c64fb8403d27bc67254, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 8b76a176e06125d4e8d5dbea156b7233, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: a2b41cc8e11a06e44ba6b6ab93267b46, type: 3}
+  - {fileID: 1682630347, guid: 7fdd7bde34c83324a8f9b6422ce3a015, type: 3}
+  - {fileID: 1682630347, guid: d55fa8b0d6ddc22459954ef5add35996, type: 3}
+  - {fileID: 1682630347, guid: 75895ab20b8382647ac2d3c7d0bb1518, type: 3}
+  - {fileID: 1682630347, guid: 13f7180c5ab20f649a050baa453c73c7, type: 3}
+  - {fileID: 1682630347, guid: ce0c5b2ac9835ea4e9fde81769a6330b, type: 3}
+  - {fileID: 1682630347, guid: 01b37318f041dee4c89a7bc41beebff6, type: 3}
+  - {fileID: 1682630347, guid: 76c5a9ae3806d974bb4fbde4158cecab, type: 3}
+  - {fileID: 1682630347, guid: 134ea16404318c64fb8403d27bc67254, type: 3}
+  - {fileID: 1682630347, guid: da8f2843e2fa12a4f95ad090c7046942, type: 3}
+  - {fileID: 1682630347, guid: cd59c55b6c94d494da310d009dce7215, type: 3}
+  - {fileID: 1682630347, guid: b11a8127faea94044852ec170a7d7ac5, type: 3}
   tutorMoves: []

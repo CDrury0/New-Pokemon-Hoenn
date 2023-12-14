@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 35
   childPokemon: {fileID: 11400000, guid: 7a0128c0e29c19a4c97fff845ab499fb, type: 2}
-  evolvesInto1: {fileID: 11400000, guid: 0b538c75e01f81e4ca9fd3cee67c6ccd, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: It habitually shows off its strength with the size of sparks it creates
     by ramming its steel body into boulders.
   ability1: 4
@@ -40,18 +38,26 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: c9d2413a3fc1c924bbadf5ec2051dc68, type: 3}
   shinyFront: {fileID: 21300000, guid: 86cd80bbeffa1594aaeb566db44398a8, type: 3}
   shinyBack: {fileID: 21300000, guid: bbeffe507ee7ee74c9996a538fdeca14, type: 3}
-  evolutionLevel: 45
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 42
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: 0b538c75e01f81e4ca9fd3cee67c6ccd, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 3bec166c30e84f144b321249fbbc5384, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 0f751102912d95e48b19fd38b7b603da, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: 1716f5e36bb678d439d74a870f1d73cd, type: 2}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000000000002000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: b3db69adb2af27746931b682e3455cb1, type: 3}
+  - {fileID: 1682630347, guid: 01b45e86c1cbeb04e9a7d58674952c2d, type: 3}
+  - {fileID: 1682630347, guid: 5d2cac0f75adb864da8466eb8554729a, type: 3}
+  - {fileID: 1682630347, guid: c826d81b3d1e0ad4495577bf010fbf8b, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -61,6 +67,23 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 1a4a3e2c525bdd94eb9d9464cf2c9e37, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 66477b0212b2f234b867cebbdb5e82e3, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 2b4d696d31d24a444870040118fe55b6, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 60c6d7df92ff77147b48948581a05454, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 4e9ee735fd41f1d46bd6e1fc25fe92fc, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -68,6 +91,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 94e4163b6e665a04089f81c06a06067c, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -75,6 +99,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: c990bbfa6ce4ba343b0ef7883fb4b0c0, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -82,30 +107,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: c78e1d73cebe4f04b8c6e37ebee10173, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 94b62b9c3976cbc43bb67f5541f39ae9, type: 3}
+  - {fileID: 1682630347, guid: 6f96212698d131e40ac539d9dbee9d3c, type: 3}
+  - {fileID: 1682630347, guid: 82c55bd47031c1c4fb3cfcd557ef8eb7, type: 3}
+  - {fileID: 1682630347, guid: ac15de40915652542a799bd611fa91d1, type: 3}
   tutorMoves: []

@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 40
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 11400000, guid: 136c65f22f3988140b0758c9a350b097, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: "This pok\xE9mon is strong in its own right, bashing things with
     its steel-hard head, but it wishes to fly above all else."
   ability1: 67
@@ -40,18 +38,32 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: b91c3ba317c1549438b9ec8b8093c722, type: 3}
   shinyFront: {fileID: 21300000, guid: fed040260234c8544a601e93f9a48b25, type: 3}
   shinyBack: {fileID: 21300000, guid: 0d253da91bfe94b44859cff4d172c3d7, type: 3}
-  evolutionLevel: 30
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 30
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: 136c65f22f3988140b0758c9a350b097, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: efabf53e99357954998166397b0c8f4b, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: a4370297af0396b45b6f646dfaf83ad2, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: 15988c3f2a3f2ff45971c1aa1ec3f662, type: 2}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000100000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: e4ffd7371183e6c4ab39324e3a115e31, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: f722428433deb024c9c1859f17492076, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 826dc11843354af46a6f667dcb3cb72b, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -59,6 +71,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: c826d81b3d1e0ad4495577bf010fbf8b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 65bb2fa20d2228f42a907cb344ccfc03, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 89a087d2d801b3e448f7389fcb49da8f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -66,6 +87,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 6c3eb4dd14d66934197f2fbc541187d7, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 16914bc98e0d91a4492c2d665f7d725f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: d45ff98d51914a440851a2dcb822ab95, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -73,39 +103,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 6695597b82cd5d34c8429f5ecd0b5b5d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: c78e1d73cebe4f04b8c6e37ebee10173, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: ede0b0a1503c214459b726c26e38569d, type: 3}
+  - {fileID: 1682630347, guid: 298cc4d2d7721134eba0f407c88e6eee, type: 3}
+  - {fileID: 1682630347, guid: 5a28b833e42f54b498a616d95b9040c0, type: 3}
+  - {fileID: 1682630347, guid: 47c2dba1774fbf5469428df32eb1608c, type: 3}
+  - {fileID: 1682630347, guid: d81ba5f5bb7fef8498f8b0ef163a153b, type: 3}
   tutorMoves: []

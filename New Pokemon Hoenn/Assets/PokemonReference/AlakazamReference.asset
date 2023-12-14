@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: 1d3a37a634528e24a98864f40e8b7e75, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Its brain grows at a constant rate its entire life. This causes its
     psychic ability to increase with age. It has a flawless eidetic memory.
   ability1: 26
@@ -40,18 +38,24 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 97855695dfa816a4abf0c3bdedcb13ff, type: 3}
   shinyFront: {fileID: 21300000, guid: ec4e487b9ea22a740a5fa949313ff721, type: 3}
   shinyBack: {fileID: 21300000, guid: f89f01ca52a03d740a7d905ff7bf6d9f, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 4785816216849ae41b03086ce0f6fa05, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 16f35b6c54035044bb3d98c651817d75, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 000000000000000000000000030000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 08c22f06e6f95fa4b8a40cd2707b083a, type: 3}
+  - {fileID: 1682630347, guid: 36475b448d2db1a4d97cc083c925365d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -66,36 +70,34 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 4378f1efb8ece594ab8aa99a181988bc, type: 3}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 1b7666737655cb64cb69c2f9b8f80226, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 7215a5607c1f8b44fac8cc8db496bae6, type: 3}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 77ae39b4e8a11e34594d4640f90376ee, type: 3}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: b25c30b469bb12c46835a64380c9d26e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 75895ab20b8382647ac2d3c7d0bb1518, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 9fe705e548e252d489386e6c092d7888, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: b5e4bd3c53903d34195350687a527563, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5577835600589612960, guid: cf6f520f7d6afcb47875601bb31db6e3, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 519a29b43fe78304a9d4a52f6d781e39, type: 3}
+  - {fileID: 1682630347, guid: d55fa8b0d6ddc22459954ef5add35996, type: 3}
+  - {fileID: 1682630347, guid: 102a67bdb4db12140a7650460eaccdac, type: 3}
+  - {fileID: 1682630347, guid: 97b5b8b0e1be68049823bfc2cf4a03da, type: 3}
+  - {fileID: 1682630347, guid: fc27c1c3bbdf7ef4e85be9e4e954e5a9, type: 3}
+  - {fileID: 1682630347, guid: 160c550452c642e4f889cdb387f48266, type: 3}
   tutorMoves: []

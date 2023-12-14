@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6716492772424734705}
   - component: {fileID: 1720436593534916972}
   m_Layer: 0
-  m_Name: Feint Attack
+  m_Name: Faint Attack
   m_TagString: Move
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,11 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8017aeb4b8f9175468925e2a21b528c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveName: Feint Attack
+  moveName: Faint Attack
   moveDescription: The user punches from the shadows. Never misses against vulnerable
     targets.
   moveType: 16
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 60
   category: 0
   targetType: 1
@@ -64,11 +65,13 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 1
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &1720436593534916972
 MonoBehaviour:
@@ -96,6 +99,7 @@ MonoBehaviour:
   bonusFromCurl: 0
   bonusLikeRollout: 0
   cannotKO: 0
+  cannotCrit: 0
   bonusAgainstMinimize: 0
   bonusAgainstSemiInvulnerable: 0
   bonusAgainstStatus: 0

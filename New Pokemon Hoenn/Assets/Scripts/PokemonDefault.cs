@@ -39,7 +39,7 @@ public class PokemonDefault : ScriptableObject
     public AreaData lastSeen;
     public int[] evYield = new int[6];
     public GameObject[] learnedMoves;
-    public GameObject[] eggMoves;
+    public List<GameObject> eggMoves;
     [Tooltip("Applies only to the main level-based move tutor")] public GameObject[] tutorMoves;
 
     public int CalculateExperienceAtLevel(int level) {

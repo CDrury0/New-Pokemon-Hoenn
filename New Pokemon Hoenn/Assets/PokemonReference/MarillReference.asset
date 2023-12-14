@@ -29,9 +29,7 @@ MonoBehaviour:
   eggGroup1: 5
   eggGroup2: 1
   eggCycles: 10
-  childPokemon: {fileID: 11400000, guid: 1f4ebae683141e340b39f60ac3109124, type: 2}
-  evolvesInto1: {fileID: 11400000, guid: 64b7ecb4188105f4cb6330150ae0aa3f, type: 2}
-  evolvesInto2: {fileID: 0}
+  childPokemon: {fileID: 11400000}
   pokedexEntry: Using its tail as a float, it dives underwater. It likes eating plants
     that grow on river bottoms.
   ability1: 45
@@ -40,18 +38,59 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 099db409cc412ab4aadf18663ebbd9bc, type: 3}
   shinyFront: {fileID: 21300000, guid: cd677dd8c5904ec4c896021b7e2be22c, type: 3}
   shinyBack: {fileID: 21300000, guid: 37007c1e85590c64b9b2a5b0ce7bb710, type: 3}
-  evolutionLevel: 18
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 18
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: 64b7ecb4188105f4cb6330150ae0aa3f, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 6bc1e44e8d12a5346923cf9a9500332b, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 22647d03bac156447b7b131284215dea, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 020000000000000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: b3db69adb2af27746931b682e3455cb1, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 6d9c50460d4f2ca448710bc79602d7b9, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 0ce3ed085f23e1a40ab424f199f76853, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 8b76a176e06125d4e8d5dbea156b7233, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: e03b80fed2c7b944c86260eff0bcb2fb, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 1cebb35770445e648ab2ae01a88b7ad8, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: c78e1d73cebe4f04b8c6e37ebee10173, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: eb799f8b156024944a3674affb04bb9c, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -60,44 +99,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 5a28b833e42f54b498a616d95b9040c0, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: d55fa8b0d6ddc22459954ef5add35996, type: 3}
+  - {fileID: 1682630347, guid: 01b37318f041dee4c89a7bc41beebff6, type: 3}
+  - {fileID: 1682630347, guid: 76c5a9ae3806d974bb4fbde4158cecab, type: 3}
+  - {fileID: 1682630347, guid: 134ea16404318c64fb8403d27bc67254, type: 3}
+  - {fileID: 1682630347, guid: b11a8127faea94044852ec170a7d7ac5, type: 3}
   tutorMoves: []
