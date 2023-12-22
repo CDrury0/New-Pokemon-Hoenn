@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 40
   childPokemon: {fileID: 0}
-  evolvesInto1: {fileID: 11400000, guid: 512447a2c91b8e34db628b2a18d754d6, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: A Beldum can fuse with more metal into a new form, which causes Metang's
     existence. The magnetic and psychic power it possess is much greater than any
     Beldum.
@@ -41,18 +39,23 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 9062c3527ea980140b561edf85883214, type: 3}
   shinyFront: {fileID: 21300000, guid: 0baf672e9bf70ee45a01e223205b37fb, type: 3}
   shinyBack: {fileID: 21300000, guid: 3d64e4c34c5b5ce4885b37ce18c21d1e, type: 3}
-  evolutionLevel: 50
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 45
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: 512447a2c91b8e34db628b2a18d754d6, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 98aeba6a2577e8b46813efc74f50b6da, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: b7f04b5612924af49a064d881336a182, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000000000002000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 60c6d7df92ff77147b48948581a05454, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -72,40 +75,49 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 4378f1efb8ece594ab8aa99a181988bc, type: 3}
+  - {fileID: 1682630347, guid: 1a4a3e2c525bdd94eb9d9464cf2c9e37, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 16914bc98e0d91a4492c2d665f7d725f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 8fd983fd1e63ceb428f67b03822fbac3, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: b5e4bd3c53903d34195350687a527563, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 66477b0212b2f234b867cebbdb5e82e3, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 0fe2ee8ded1a39d45b6cacd20e600ca5, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 24e8da65a1215954abeebdb957c6b140, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 551f8c0b1a89c19419dae76ba93a8da6, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -144,25 +156,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  eggMoves: []
   tutorMoves: []

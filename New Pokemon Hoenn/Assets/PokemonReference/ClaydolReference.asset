@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 0}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: "An ancient clay figurine that came to life as a Pok\xE9mon from
     exposure to a mysterious ray of light."
   ability1: 24
@@ -40,49 +38,65 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 039bf7a721a8eae4ea9aa5b081791c27, type: 3}
   shinyFront: {fileID: 21300000, guid: 0f782c70dbdb5dc46a7ced4d20d16ec1, type: 3}
   shinyBack: {fileID: 21300000, guid: 41224ffa1c87a974ba065f876da357a5, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 9adedc889885d454692eba082b34c8ab, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: d3749150889186541aea98ceca730cad, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 000000000000000000000000000000000200000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 4378f1efb8ece594ab8aa99a181988bc, type: 3}
+  - {fileID: 1682630347, guid: 36475b448d2db1a4d97cc083c925365d, type: 3}
+  - {fileID: 1682630347, guid: 5d2cac0f75adb864da8466eb8554729a, type: 3}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: ff0dbb557125ce044afaff0b40a89c3d, type: 3}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 01b45e86c1cbeb04e9a7d58674952c2d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 7215a5607c1f8b44fac8cc8db496bae6, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 632cdc5041d480849bdc85d2fd50c8da, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 9774674d8176250499400391a8fd0d5c, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: db22eddd8e3d9d84c8a2f42805797f17, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 65f5fb47b7e3dff4880ef224a043acc2, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 551f8c0b1a89c19419dae76ba93a8da6, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 9553b6f338fab0b4dac4308a124df932, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -95,6 +109,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: af8913036b726b74095ebe1d980c1979, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -140,28 +155,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  eggMoves: []
   tutorMoves: []

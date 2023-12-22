@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
   m_Name: WhiscashReference
   m_EditorClassIdentifier: 
-  baseStats: 6e0000004e0000004a0000004c000000480000003c000000
+  baseStats: 730000004e0000004a0000004c000000480000003c000000
   cry: {fileID: 8300000, guid: aa5a97f7547f7954cad6de33b4546861, type: 3}
   pokemonName: Whiscash
   species: Whiskers
@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: 5315e164d4e8a724691e4cc5a2d04039, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: "If Whiscash goes on a wild rampage, it sets off a tremor. This Pok\xE9mon
     has the ability to predict impending earthquakes."
   ability1: 10
@@ -40,18 +38,49 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 9a0a44f134bedf24b9287dbe1336db1e, type: 3}
   shinyFront: {fileID: 21300000, guid: 5d701dee2b0653a41b6043fe910d9564, type: 3}
   shinyBack: {fileID: 21300000, guid: 6fa1db318069a6946b6fa0faa10dfaaf, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: e3b90fb510bd1cd459e203c289b59d02, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 2bbd8ba4df5a4ce4f9694927cd09df2d, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 020000000000000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 01b45e86c1cbeb04e9a7d58674952c2d, type: 3}
+  - {fileID: 1682630347, guid: b11a8127faea94044852ec170a7d7ac5, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 8b76a176e06125d4e8d5dbea156b7233, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 47395b3af2cf13941b2e248705ade46e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: a2b41cc8e11a06e44ba6b6ab93267b46, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 15ba65bc3e22633478daecf5be691410, type: 3}
+  - {fileID: 1682630347, guid: 1887268993ff6ee41bc709693646e9dc, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -61,6 +90,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: c0ecc0189ce7abd4bbfbfecbd0247278, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -70,6 +100,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 75895ab20b8382647ac2d3c7d0bb1518, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -79,36 +110,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: a51bc50866540b643a51ba8f59b15574, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: b30b2044a2d34da4497a2983f8da0110, type: 3}
+  - {fileID: 1682630347, guid: 47c2dba1774fbf5469428df32eb1608c, type: 3}
+  - {fileID: 1682630347, guid: a4ad426493484df45bc342b889a5c17b, type: 3}
   tutorMoves: []

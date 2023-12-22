@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
   m_Name: BellossomReference
   m_EditorClassIdentifier: 
-  baseStats: 4b000000500000005f0000005a0000005f0000003c000000
+  baseStats: 4b000000500000005f0000005a000000640000003c000000
   cry: {fileID: 8300000, guid: 5541e638986a37b46b9cba70845a915a, type: 3}
   pokemonName: Bellossom
   species: Flower
@@ -30,28 +30,34 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: a895fba4208e07540830a563ca77b3e4, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Its flower petals deepen in color through exposure to sunlight. When
     cloudy weather persists, it does a dancing ritual to summon the sun.
   ability1: 32
-  ability2: 32
+  ability2: 28
   normalFront: {fileID: 21300000, guid: aba64395b0320b842ad7fc3a24ea9db7, type: 3}
   normalBack: {fileID: 21300000, guid: b946344581cf28849ae20b329330a8e9, type: 3}
   shinyFront: {fileID: 21300000, guid: 539c3053a8ff72744ab3903d5c9a406c, type: 3}
   shinyBack: {fileID: 21300000, guid: 1cfe26ac9b2bff74b9bb836f02dc9040, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 3de345a44b3cbb44d84de4362266d2c9, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: c47305e05d9fff84f8d34a0ba0cfaa70, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000000000000000000000000000300000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: c0f3504b2dbacab40ab68d0fcb2d836b, type: 3}
+  - {fileID: 1682630347, guid: c6edaf6afde26c041a7c9839bc1c17ea, type: 3}
+  - {fileID: 1682630347, guid: ab564159b6049cc49886904252249996, type: 3}
+  - {fileID: 1682630347, guid: 3dfe7e1c32c040e48829e72c4f594d5a, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -92,6 +98,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 9e0ebb75c1ed9004c94a54ab57161b42, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -102,12 +109,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 83fd26603e9f62c4bab55d583f0faa0c, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 27c5d698f766581489034012d3d27e5b, type: 3}
+  - {fileID: 1682630347, guid: b65bf63413250b744a80c5a15ee7305e, type: 3}
+  - {fileID: 1682630347, guid: edde9baf11a79fc489f13478b819c1d0, type: 3}
+  - {fileID: 1682630347, guid: 6d2eb123fd85ba24d9e3bf3658bad886, type: 3}
+  - {fileID: 1682630347, guid: 34953606c3a0fc447b50dc3bb84f4150, type: 3}
+  - {fileID: 1682630347, guid: 9307206694f810c43b75946d8feb0d32, type: 3}
   tutorMoves: []

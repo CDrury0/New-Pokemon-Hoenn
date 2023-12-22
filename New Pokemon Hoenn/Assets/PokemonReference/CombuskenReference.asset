@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: 00524eca11e18a64eaf8dbfcc90dba36, type: 2}
-  evolvesInto1: {fileID: 11400000, guid: 304267c47a566e64dbc05406c89954ef, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: It boosts its concentration by emitting harsh cries. Its kicks have
     outstanding destructive power.
   ability1: 64
@@ -40,58 +38,26 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 5a5be76b1fbf23c47a2733aed8f99273, type: 3}
   shinyFront: {fileID: 21300000, guid: 2ee4356de16bb5d48ba7e48d4d7b2fdc, type: 3}
   shinyBack: {fileID: 21300000, guid: 1172fceb5d8ec5f419e7fbead6cf1e06, type: 3}
-  evolutionLevel: 36
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 36
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: 304267c47a566e64dbc05406c89954ef, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: f080345d2bdf19149a5e627c462a017a, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 2d4e00f552600ce40919f74908ae9ec5, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000200000000000000000000000000000000000000
   learnedMoves:
-  - {fileID: 11400000, guid: 9cabc424007ca7f49a57c0421ebcdc3f, type: 2}
-  - {fileID: 11400000, guid: a9b8732ca234e1a49882f8356f2a8e09, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 67cfbaa58f979894fa747930a78ea733, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 242e5f732a0096b42889f35b863676f7, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 54bea0289ec0dc94ba073ff00dd2be8d, type: 2}
-  - {fileID: 11400000, guid: 505ce956c034f6045b41b7bf3595fd1c, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: ac43065e815209a47843a3efb3fdf136, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 79e7d5880c79b6c4f9a85b466236f715, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 36e3008b0d3e28a4bba45fd8299be22d, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 4a7f4e40bd894c64793d787f95ae4c6a, type: 2}
+  - {fileID: 1682630347, guid: 89a087d2d801b3e448f7389fcb49da8f, type: 3}
+  - {fileID: 1682630347, guid: 65bb2fa20d2228f42a907cb344ccfc03, type: 3}
+  - {fileID: 1682630347, guid: 37a9e3d8b9a8b9e4f8bbb2070cc07707, type: 3}
+  - {fileID: 1682630347, guid: 47d7bbcd8de79124bb33b56c7189e45e, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -99,10 +65,46 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: eff6e228fe770ad4193188a0ac36ade9, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 89a087d2d801b3e448f7389fcb49da8f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: f00898dbe8c4a954492b870637d9b110, type: 3}
+  - {fileID: 1682630347, guid: a7b08c0b0d8444341a0c5a7790fad457, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 71cf185fcbbe3a04980decca06f825fa, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 5ae2b63769e42a04bbcd10658d0ba5c9, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: ab22b1393fa4ad546ad210018cd5637a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 19ad0ac334fbe3c47aa80e02a63d0eb4, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 3bb2dda68d885464aa21813c2da60b84, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 9f6a7fe7d6b016f468e2481fa3a84c58, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: e49ebea53ef374a498526f654ece44b0, type: 3}
+  - {fileID: 1682630347, guid: c19f6379901e77149af61b18a2fc7f3f, type: 3}
+  - {fileID: 1682630347, guid: 30ef31e6f4d53fa42992abaf4da69072, type: 3}
+  - {fileID: 1682630347, guid: d7bb52214382cd840a028878cbbca80f, type: 3}
+  - {fileID: 1682630347, guid: 82c55bd47031c1c4fb3cfcd557ef8eb7, type: 3}
+  - {fileID: 1682630347, guid: d0318d60adc4eeb49a5a19457c939e44, type: 3}
   tutorMoves: []

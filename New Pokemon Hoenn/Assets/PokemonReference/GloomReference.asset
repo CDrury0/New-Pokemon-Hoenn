@@ -32,7 +32,7 @@ MonoBehaviour:
   childPokemon: {fileID: 11400000, guid: a895fba4208e07540830a563ca77b3e4, type: 2}
   pokedexEntry: What appears to be drool is actually sweet honey. It is very sticky
     and clings stubbornly if touched.
-  ability1: 0
+  ability1: 32
   ability2: 0
   normalFront: {fileID: 21300000, guid: 75b80fc963e1e1041aafa65390ca460b, type: 3}
   normalBack: {fileID: 21300000, guid: 59f0807f406baf542bcc15704f7cf66e, type: 3}
@@ -58,6 +58,31 @@ MonoBehaviour:
   lastSeen: {fileID: 0}
   evYield: 000000000000000000000000020000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: c0f3504b2dbacab40ab68d0fcb2d836b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 3dfe7e1c32c040e48829e72c4f594d5a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 373aea13b5e89de41a31bacb14308872, type: 3}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: ab564159b6049cc49886904252249996, type: 3}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 2963ebf86aaa2e74e93b2a9418923b00, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 1f494fe06b001ce4a82faf6769a47587, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -68,6 +93,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: f55b40220c6e1ae41a5628a75489f093, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -76,33 +102,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 9e0ebb75c1ed9004c94a54ab57161b42, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -160,14 +160,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 27c5d698f766581489034012d3d27e5b, type: 3}
+  - {fileID: 1682630347, guid: b65bf63413250b744a80c5a15ee7305e, type: 3}
+  - {fileID: 1682630347, guid: edde9baf11a79fc489f13478b819c1d0, type: 3}
+  - {fileID: 1682630347, guid: 6d2eb123fd85ba24d9e3bf3658bad886, type: 3}
+  - {fileID: 1682630347, guid: 34953606c3a0fc447b50dc3bb84f4150, type: 3}
+  - {fileID: 1682630347, guid: 9307206694f810c43b75946d8feb0d32, type: 3}
   tutorMoves: []

@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 6
   eggCycles: 15
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 11400000, guid: ff1c1a2468c58524d96f4ed63094edfc, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: It spouts poison spores from the top of its head. These spores cause
     pain all over if inhaled.
   ability1: 25
@@ -40,18 +38,59 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 2fc8e2d4e390f704da4fb5037cdfbcd7, type: 3}
   shinyFront: {fileID: 21300000, guid: af3d259d224767c4bae9d5836380c5bf, type: 3}
   shinyBack: {fileID: 21300000, guid: f4fa2aae8b6c4a941a802c1cf34cdf7c, type: 3}
-  evolutionLevel: 23
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 23
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: ff1c1a2468c58524d96f4ed63094edfc, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 8d467852a20bba14bbef19c71ec468ab, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 9a33f2c408a77304f887d184860639cf, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: 8653bcf9b5bf1d849855012649a954af, type: 2}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 010000000000000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: c0f3504b2dbacab40ab68d0fcb2d836b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: b3db69adb2af27746931b682e3455cb1, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: ab564159b6049cc49886904252249996, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 2aaed267b89597245b36a0cbba2c8ef0, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 281e7dec40cabbe4f909e1c26c66fd1a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: c826d81b3d1e0ad4495577bf010fbf8b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 373aea13b5e89de41a31bacb14308872, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 7b371951088c6934a92f060e05eb82a8, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -60,6 +99,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: b411734838cdd3844977c89af61ef1b4, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -68,45 +108,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: b63918e7eca27f14eb606df9fa16131b, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 27c5d698f766581489034012d3d27e5b, type: 3}
+  - {fileID: 1682630347, guid: 65b233bdb2abc9244af74480a4967878, type: 3}
+  - {fileID: 1682630347, guid: 72d5c0ad3c3d0ab4a8747ebe636d07a4, type: 3}
+  - {fileID: 5642945152840528678, guid: 038ef067a029ebe41857b3a26b28a050, type: 3}
+  - {fileID: 1682630347, guid: d0318d60adc4eeb49a5a19457c939e44, type: 3}
   tutorMoves: []

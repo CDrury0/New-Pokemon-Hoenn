@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 40
   childPokemon: {fileID: 0}
-  evolvesInto1: {fileID: 11400000, guid: c8ac0642310af6e438e85ddbd0d91f47, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: "When Beldum gather in a swarm, they move in perfect unison as if
     they were but one Pok\xE9mon. They communicate with each other using electromagnetic
     waves."
@@ -41,18 +39,23 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 8b0493ac8a3b82a45a9e26e436e548de, type: 3}
   shinyFront: {fileID: 21300000, guid: ce479abfb38a3d540b4417022ef55759, type: 3}
   shinyBack: {fileID: 21300000, guid: 95754b410b42f614cb462924b803fc86, type: 3}
-  evolutionLevel: 25
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 20
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: c8ac0642310af6e438e85ddbd0d91f47, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 6dc7471b3589fbd4fa3a66723ee7a1e6, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: fddd8100b817be54d8692a851419d62e, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000000000001000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 60c6d7df92ff77147b48948581a05454, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -153,16 +156,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  eggMoves: []
   tutorMoves: []
