@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 11400000, guid: 4bf15bc9fe2385c4cbc3570d1508ffb0, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: They swarm any foe that invades their territory. Their sharp fangs
     can tear out boat hulls.
   ability1: 22
@@ -40,62 +38,66 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: aceb83db2e978f1408db964e4524c8d5, type: 3}
   shinyFront: {fileID: 21300000, guid: 5e4d812fbcf36eb4e9dea21f6906f41b, type: 3}
   shinyBack: {fileID: 21300000, guid: 214ff7ab124d2c746a31188a60998716, type: 3}
-  evolutionLevel: 30
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 30
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: 4bf15bc9fe2385c4cbc3570d1508ffb0, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 4d9aafd47bf20dc4db15d307cf065d9a, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 0fe7936620c2b1c44b4962234f9471f5, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: a30f44741b0807b49b7edbfd2d4a7bab, type: 2}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000100000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: f722428433deb024c9c1859f17492076, type: 3}
+  - {fileID: 1682630347, guid: 826dc11843354af46a6f667dcb3cb72b, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: e4ffd7371183e6c4ab39324e3a115e31, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 65bb2fa20d2228f42a907cb344ccfc03, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 16914bc98e0d91a4492c2d665f7d725f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: d45ff98d51914a440851a2dcb822ab95, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 148f6fecc17ea0b47b0477565b06557d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 60c6d7df92ff77147b48948581a05454, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: d0318d60adc4eeb49a5a19457c939e44, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 24e8da65a1215954abeebdb957c6b140, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: c78e1d73cebe4f04b8c6e37ebee10173, type: 3}
+  - {fileID: 1682630347, guid: 5a28b833e42f54b498a616d95b9040c0, type: 3}
+  - {fileID: 1682630347, guid: 47c2dba1774fbf5469428df32eb1608c, type: 3}
   tutorMoves: []

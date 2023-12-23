@@ -20,7 +20,7 @@ MonoBehaviour:
   weight: 0.8
   IDNumber: 146
   type1: 1
-  type2: 0
+  type2: 18
   friendship: 70
   baseExperience: 145
   growthRate: 2
@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 5
   eggCycles: 25
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Thanks to its volatile structure, Castform's appearance changes with
     the weather.
   ability1: 57
@@ -40,55 +38,59 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: e4433ae5f9ead6f4c8906ccb00cec5a5, type: 3}
   shinyFront: {fileID: 21300000, guid: 2a3ca3be753a0eb408e95a878a33f53f, type: 3}
   shinyBack: {fileID: 21300000, guid: 2dff7dd49757c564185498cf3d689f20, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 1b211e2ded50665488fc80ddfdd6d7db, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 07858feb0df95f248b588afdd21033ce, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: b645428ab39c80440b7e840ee7d60076, type: 2}
   lastSeen: {fileID: 0}
   evYield: 010000000000000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: b3db69adb2af27746931b682e3455cb1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: e233732a42dbfae45a385f86989ef4cd, type: 3}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 89a087d2d801b3e448f7389fcb49da8f, type: 3}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 7a642509e3b23144f9c4f1a8a53a51f5, type: 3}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 8b76a176e06125d4e8d5dbea156b7233, type: 3}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 61b2c972c9aafb749ad60f2fa817374d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: c0d35d448967af343a0fc5fa54120dca, type: 3}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: eb799f8b156024944a3674affb04bb9c, type: 3}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 9c68c7a08be9dd74fa6893bd49afcee4, type: 3}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 65f5fb47b7e3dff4880ef224a043acc2, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: ef531582a21339345a702ce1401a47f3, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: db13d3ca82541f34ca25affef2ea6794, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 75895ab20b8382647ac2d3c7d0bb1518, type: 3}
+  - {fileID: 1682630347, guid: 3a048711a70780e44a9d89f425dee451, type: 3}
   tutorMoves: []

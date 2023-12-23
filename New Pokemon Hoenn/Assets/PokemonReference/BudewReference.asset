@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 0}
-  evolvesInto1: {fileID: 11400000, guid: 0ac838aa13f876e448c641ab4a252091, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: It is sensitive to the weather, and its bud reacts accordingly. It
     releases pollen on warm days.
   ability1: 28
@@ -40,34 +38,38 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: f7413578c7beb6943ba516c84df77e54, type: 3}
   shinyFront: {fileID: 21300000, guid: bfcc5d7c057ee7b4db592c513f5907ad, type: 3}
   shinyBack: {fileID: 21300000, guid: 340631bc3333a894b8715f4586122ed2, type: 3}
-  evolutionLevel: 0
   evoDetails:
-    evolvesWithItem: {fileID: 0}
-    evolvesWithFriendship: 0
+    evolutionLevel: 1
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithFriendship: 220
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: 0ac838aa13f876e448c641ab4a252091, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 0}
   shinyBoxSprite: {fileID: 0}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000000000000000000010000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: c0f3504b2dbacab40ab68d0fcb2d836b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 7b371951088c6934a92f060e05eb82a8, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: ab564159b6049cc49886904252249996, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 281e7dec40cabbe4f909e1c26c66fd1a, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: d4dc732646beb6149805d5a7c28ef6ae, type: 3}
+  - {fileID: 1682630347, guid: bd84f37c3a3aa7d45abbe64de3d18004, type: 3}
+  - {fileID: 1682630347, guid: 51fa44889b79cc342acb18ca4e8c5fcb, type: 3}
+  - {fileID: 1682630347, guid: 6d2eb123fd85ba24d9e3bf3658bad886, type: 3}
+  - {fileID: 1682630347, guid: 2963ebf86aaa2e74e93b2a9418923b00, type: 3}
+  - {fileID: 1682630347, guid: 9fbbfca7202e31d4a8449efe1563d5a2, type: 3}
+  - {fileID: 1682630347, guid: 9307206694f810c43b75946d8feb0d32, type: 3}
   tutorMoves: []

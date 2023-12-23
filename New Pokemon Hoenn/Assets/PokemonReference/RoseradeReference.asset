@@ -29,9 +29,7 @@ MonoBehaviour:
   eggGroup1: 5
   eggGroup2: 6
   eggCycles: 20
-  childPokemon: {fileID: 11400000, guid: 56c62e392866db640a1ff6718922362a, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
+  childPokemon: {fileID: 11400000, guid: 0ac838aa13f876e448c641ab4a252091, type: 2}
   pokedexEntry: With a dance-like pattern, it strikes with vines, injecting poison
     on contact. Its scent captivates potential prey.
   ability1: 28
@@ -40,23 +38,27 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: c4462a32fad9b934b893870d1b06a989, type: 3}
   shinyFront: {fileID: 21300000, guid: 7268365f8c7a78f47b134936a687905d, type: 3}
   shinyBack: {fileID: 21300000, guid: 01d346646662d774e91e401d79a02ddf, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 0}
   shinyBoxSprite: {fileID: 0}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000000000000000000030000000000000000000000
   learnedMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: c6edaf6afde26c041a7c9839bc1c17ea, type: 3}
+  - {fileID: 1682630347, guid: 281e7dec40cabbe4f909e1c26c66fd1a, type: 3}
+  - {fileID: 1682630347, guid: fdf381f8f288be342b570fcdb0cd13e5, type: 3}
+  - {fileID: 1682630347, guid: 3dfe7e1c32c040e48829e72c4f594d5a, type: 3}
+  - {fileID: 1682630347, guid: ef531582a21339345a702ce1401a47f3, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 51fa44889b79cc342acb18ca4e8c5fcb, type: 3}
+  - {fileID: 1682630347, guid: 9fbbfca7202e31d4a8449efe1563d5a2, type: 3}
+  - {fileID: 1682630347, guid: 9307206694f810c43b75946d8feb0d32, type: 3}
   tutorMoves: []

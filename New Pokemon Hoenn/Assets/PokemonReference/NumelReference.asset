@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 11400000, guid: 0b8a6478edeb53a4ca82fb0d0fe9516f, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Its humped back stores intensely hot magma. In rain, the magma cools,
     slowing its movement.
   ability1: 10
@@ -40,18 +38,24 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: ee97ce0aad930ae4cb0f133dd458aa3f, type: 3}
   shinyFront: {fileID: 21300000, guid: 55bc699bb13c0104ebd14d4956857d2d, type: 3}
   shinyBack: {fileID: 21300000, guid: a1e25fe695fd9654b8018ba834e3b40d, type: 3}
-  evolutionLevel: 33
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 33
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: 0b8a6478edeb53a4ca82fb0d0fe9516f, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 7ae99ca57f327984fa9c5ade264ebe10, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: bf4b63740f822184db1ad4d8759faec9, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: d553c7d3850e2c84abd209f948608bf9, type: 2}
   lastSeen: {fileID: 0}
   evYield: 000000000000000000000000010000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 37a9e3d8b9a8b9e4f8bbb2070cc07707, type: 3}
+  - {fileID: 1682630347, guid: b3db69adb2af27746931b682e3455cb1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -61,6 +65,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 89a087d2d801b3e448f7389fcb49da8f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -68,6 +73,29 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 47395b3af2cf13941b2e248705ade46e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 65bb2fa20d2228f42a907cb344ccfc03, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 60c6d7df92ff77147b48948581a05454, type: 3}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: a2b41cc8e11a06e44ba6b6ab93267b46, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: c0ecc0189ce7abd4bbfbfecbd0247278, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 16cd9dd5e1e2c7c4cbb8d9aad387f115, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -75,33 +103,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: c78e1d73cebe4f04b8c6e37ebee10173, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 94b62b9c3976cbc43bb67f5541f39ae9, type: 3}
+  - {fileID: 1682630347, guid: 6d9c50460d4f2ca448710bc79602d7b9, type: 3}
+  - {fileID: 1682630347, guid: 9ae6209838f10b94aa2e3ac9f3b6750c, type: 3}
+  - {fileID: 1682630347, guid: e03b80fed2c7b944c86260eff0bcb2fb, type: 3}
+  - {fileID: 1682630347, guid: 16914bc98e0d91a4492c2d665f7d725f, type: 3}
+  - {fileID: 1682630347, guid: ac15de40915652542a799bd611fa91d1, type: 3}
   tutorMoves: []

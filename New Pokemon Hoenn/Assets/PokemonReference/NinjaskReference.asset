@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 15
   childPokemon: {fileID: 11400000, guid: b715d5d996d959f468a87bf46ddcee67, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Because it moves so quickly, it sometimes becomes invisible. It congregates
     around tree sap.
   ability1: 2
@@ -40,18 +38,26 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 3c728707e71b44b4bbcbf084921805b0, type: 3}
   shinyFront: {fileID: 21300000, guid: 6233732be51f1b34db4958109c17afcf, type: 3}
   shinyBack: {fileID: 21300000, guid: 51121e932fe904d40bf10dce26fdf0b7, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: fcb27a10f272fc94a8bd96d1429e24f3, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: fe31e66eda166fc4190f89446c6dc6fd, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 000000000000000000000000000000000000000002000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 5d2cac0f75adb864da8466eb8554729a, type: 3}
+  - {fileID: 1682630347, guid: cb02cfa9f478cf14d94b45b7d07f7e59, type: 3}
+  - {fileID: 1682630347, guid: 71cf185fcbbe3a04980decca06f825fa, type: 3}
+  - {fileID: 1682630347, guid: 47d7bbcd8de79124bb33b56c7189e45e, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -62,42 +68,38 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: b9f40785171e2304dba4cee579c671e9, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: bd84f37c3a3aa7d45abbe64de3d18004, type: 3}
+  - {fileID: 1682630347, guid: 52d61b8bdec9c1040b7bdcd35bb99b1e, type: 3}
+  - {fileID: 1682630347, guid: 148f6fecc17ea0b47b0477565b06557d, type: 3}
+  - {fileID: 1682630347, guid: ee824750d72cebc4a8243fc6f0ec039e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 34953606c3a0fc447b50dc3bb84f4150, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 19ad0ac334fbe3c47aa80e02a63d0eb4, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 24e8da65a1215954abeebdb957c6b140, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: e274e2e75d7e5344dab1906249c609ac, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: c19f6379901e77149af61b18a2fc7f3f, type: 3}
+  - {fileID: 1682630347, guid: 6cdc113472f759e409da8543a506ad75, type: 3}
+  - {fileID: 1682630347, guid: dc04f357efd79a24984e0556045801b3, type: 3}
+  - {fileID: 1682630347, guid: 98e3f7bfa1066d64bbb409271fe801cf, type: 3}
   tutorMoves: []

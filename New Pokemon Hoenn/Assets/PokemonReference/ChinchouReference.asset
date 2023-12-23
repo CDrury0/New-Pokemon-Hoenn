@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 11400000, guid: e948ade9c440883459840fd97a63598e, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: One antenna is a cathode, the other an anode. By touching them together,
     it can generate a strong electric current to shock foes.
   ability1: 8
@@ -40,18 +38,28 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: e18c839d54d4c2943a5226bd10886ee0, type: 3}
   shinyFront: {fileID: 21300000, guid: c2fae7445beb7844599d8dc798e21c33, type: 3}
   shinyBack: {fileID: 21300000, guid: eb82daf2ace41514c863e355d24f3c83, type: 3}
-  evolutionLevel: 30
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 27
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: e948ade9c440883459840fd97a63598e, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: fc74c1ef3aafb1f4fb1999943f516a8a, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: c2d0ea3a31fda5e4ea5251590125beac, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: 128d3a6a0d3c30d4498d91e848dcbd67, type: 2}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 010000000000000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 44d90bc9a61eb9844a3865b705941b7b, type: 3}
+  - {fileID: 1682630347, guid: 5aa64c8c7da0fcc4e9e4b7e5f885e5a4, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: cd59c55b6c94d494da310d009dce7215, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -59,6 +67,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: b65bf63413250b744a80c5a15ee7305e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 8b76a176e06125d4e8d5dbea156b7233, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -66,6 +79,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: b30b2044a2d34da4497a2983f8da0110, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 97993475828bb5845aaa3c6585ff440d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -73,6 +91,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 60c6d7df92ff77147b48948581a05454, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 5a28b833e42f54b498a616d95b9040c0, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -80,28 +103,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 4e4a59475a6673a43bf99edecf66b8f5, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: a2b41cc8e11a06e44ba6b6ab93267b46, type: 3}
+  - {fileID: 1682630347, guid: b65bf63413250b744a80c5a15ee7305e, type: 3}
+  - {fileID: 1682630347, guid: 148f6fecc17ea0b47b0477565b06557d, type: 3}
   tutorMoves: []

@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 6
   eggCycles: 20
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 11400000, guid: 665b716bf7560a64388aac45baf661c4, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: "The beautiful flowers on its arms have toxic thorns. Don\u2019t
     even think about picking those flowers."
   ability1: 28
@@ -40,76 +38,82 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: f4837d15c0b9fab43bbbf02863a3eca6, type: 3}
   shinyFront: {fileID: 21300000, guid: 110c981574e560646ada67ee6f9cbb5c, type: 3}
   shinyBack: {fileID: 21300000, guid: 56ed3d9a4468404478a027d4ed48ec41, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions:
+    - evoStone: {fileID: 11400000, guid: 05a8b7ef4375ee04b80a7b9b53d9857d, type: 2}
+      evolution: {fileID: 11400000, guid: 665b716bf7560a64388aac45baf661c4, type: 2}
   boxSprite: {fileID: 21300000, guid: 313b10f6c778a794b9e0f64712a1f5a6, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 3537dc576f68ab740be42f960c8c0838, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: 3b85444acfb107e41ae3c25bbdcf54ea, type: 2}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000000000000000000020000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: c0f3504b2dbacab40ab68d0fcb2d836b, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 7b371951088c6934a92f060e05eb82a8, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: fdf381f8f288be342b570fcdb0cd13e5, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: ab564159b6049cc49886904252249996, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 281e7dec40cabbe4f909e1c26c66fd1a, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 2aaed267b89597245b36a0cbba2c8ef0, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: c6edaf6afde26c041a7c9839bc1c17ea, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 5a5925d1d5ff8e340b547693aed1192e, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: b411734838cdd3844977c89af61ef1b4, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 3dfe7e1c32c040e48829e72c4f594d5a, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: edde9baf11a79fc489f13478b819c1d0, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 2769de940e3f220498aad5bf0da2345b, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 9e0ebb75c1ed9004c94a54ab57161b42, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 1bf0a423bc33e6b44ba43e6c7e5aa1c9, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 9307206694f810c43b75946d8feb0d32, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +158,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 51fa44889b79cc342acb18ca4e8c5fcb, type: 3}
+  - {fileID: 1682630347, guid: 9fbbfca7202e31d4a8449efe1563d5a2, type: 3}
+  - {fileID: 1682630347, guid: 9307206694f810c43b75946d8feb0d32, type: 3}
   tutorMoves: []

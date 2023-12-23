@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: 0b0508cd32d2dc946ab20fc7c5d73b53, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: "Lanturn\u2019s light can shine up from great depths. It is nicknamed
     \u201CThe Deep Sea Star.\u201D"
   ability1: 8
@@ -40,18 +38,25 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 0bfea4c67f04a494faba2e744aa7b327, type: 3}
   shinyFront: {fileID: 21300000, guid: 97e3a8ff78f7a3e4890768f1042e8480, type: 3}
   shinyBack: {fileID: 21300000, guid: f9de3b38e8864ff40837410e57788f03, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 8096fa676fc2d6d4bb414542f492bcf4, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: bc76791e64532074daf24e0ccb88c80c, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 020000000000000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 44d90bc9a61eb9844a3865b705941b7b, type: 3}
+  - {fileID: 1682630347, guid: cd59c55b6c94d494da310d009dce7215, type: 3}
+  - {fileID: 1682630347, guid: 5aa64c8c7da0fcc4e9e4b7e5f885e5a4, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -62,6 +67,25 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: b65bf63413250b744a80c5a15ee7305e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 8b76a176e06125d4e8d5dbea156b7233, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: b30b2044a2d34da4497a2983f8da0110, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 97993475828bb5845aaa3c6585ff440d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -71,6 +95,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 60c6d7df92ff77147b48948581a05454, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 5a28b833e42f54b498a616d95b9040c0, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -80,37 +112,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 4e4a59475a6673a43bf99edecf66b8f5, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: a2b41cc8e11a06e44ba6b6ab93267b46, type: 3}
+  - {fileID: 1682630347, guid: b65bf63413250b744a80c5a15ee7305e, type: 3}
+  - {fileID: 1682630347, guid: 148f6fecc17ea0b47b0477565b06557d, type: 3}
   tutorMoves: []
