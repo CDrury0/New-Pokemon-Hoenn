@@ -15,7 +15,11 @@ public class ItemLogic : MonoBehaviour
     [SerializeField] private List<ItemEffect> onUseOutsideBattle;
 
     public bool GetAllowUse(){
-        return (CombatSystem.BattleActive && onUseDuringBattle.Count > 0) || (!CombatSystem.BattleActive && onUseOutsideBattle.Count > 0);
+        bool hasEffectsToUse = (CombatSystem.BattleActive && onUseDuringBattle.Count > 0) || (!CombatSystem.BattleActive && onUseOutsideBattle.Count > 0);
+        if(usedWithoutTarget){
+            return hasEffectsToUse && CanItemBeUsedOn(null);
+        }
+        return hasEffectsToUse;
     }
 
     public bool CanItemBeUsedOn(Pokemon p){

@@ -37,6 +37,10 @@ public abstract class ItemBall : ItemEffect
         yield return StartCoroutine(messageOutput("Gotcha! " + targetMon.nickName + " was caught!"));
 
         //handle nickname
+        GameObject nicknameObj = Instantiate(CombatLib.Instance.combatSystem.nicknameObjPrefab);
+        HandleNickname handleNickname = nicknameObj.GetComponentInChildren<HandleNickname>(true);
+        yield return StartCoroutine(handleNickname.WaitForClick(targetMon));
+        Destroy(nicknameObj);
 
         //show dex entry?
 

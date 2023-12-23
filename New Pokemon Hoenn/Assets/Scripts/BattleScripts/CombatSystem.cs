@@ -20,6 +20,7 @@ public class CombatSystem : MonoBehaviour
     public CombatScreen combatScreen;
     public MoveFunctions moveFunctions;
     public HandleExperience handleExperience;
+    public GameObject nicknameObjPrefab;
     public GameObject handleEvolutionObj;
     public GameObject struggle;
     public GameObject switchAction;
