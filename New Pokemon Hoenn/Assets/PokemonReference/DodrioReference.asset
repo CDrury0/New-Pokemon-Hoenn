@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: The heads take turns sleeping to remain vigilant at all times.
   ability1: 48
   ability2: 46
@@ -39,18 +37,26 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 1d7126130811cc846ae82449e93654c4, type: 3}
   shinyFront: {fileID: 21300000, guid: 8cd68ff35e0ab9b42b93f9d13fd3cfb8, type: 3}
   shinyBack: {fileID: 21300000, guid: c8758e6c69b5ad04686a8132aaa2760a, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: f92fc77d7e693514dbba50b7bf40c33f, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 786e4c82c8da88d45b8744fef0268410, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 000000000200000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 2890a30aee5336c4b894759812c62aad, type: 3}
+  - {fileID: 1682630347, guid: 37a9e3d8b9a8b9e4f8bbb2070cc07707, type: 3}
+  - {fileID: 1682630347, guid: a7b08c0b0d8444341a0c5a7790fad457, type: 3}
+  - {fileID: 1682630347, guid: 8fd983fd1e63ceb428f67b03822fbac3, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -68,6 +74,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 2731f72b3b7448140893873c4c519bfd, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: e4ffd7371183e6c4ab39324e3a115e31, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -80,6 +91,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: ad8f4e6ed1b8e1d44828edad078ce83e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 114a0a7dddb5a324a8975cda80a52405, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -92,26 +113,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 24e8da65a1215954abeebdb957c6b140, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -153,14 +155,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 6f96212698d131e40ac539d9dbee9d3c, type: 3}
+  - {fileID: 1682630347, guid: 6cdc113472f759e409da8543a506ad75, type: 3}
+  - {fileID: 1682630347, guid: b65bf63413250b744a80c5a15ee7305e, type: 3}
+  - {fileID: 1682630347, guid: 6634e8c1522486e48bd22fb7e94ed5c6, type: 3}
+  - {fileID: 1682630347, guid: ab22b1393fa4ad546ad210018cd5637a, type: 3}
+  - {fileID: 1682630347, guid: cd59c55b6c94d494da310d009dce7215, type: 3}
   tutorMoves: []

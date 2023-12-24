@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 15
   childPokemon: {fileID: 11400000, guid: 2237684bd331c924c884622de85c3fde, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Over the course of evolution, its hind legs turned into wings. By
     alternately resting its front and rear wings, it can fly indefinitely.
   ability1: 37
@@ -40,18 +38,26 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 25d86ca76d8c9d44186822dedd4a51f6, type: 3}
   shinyFront: {fileID: 21300000, guid: 7b958039653ec774a9415267a3d32316, type: 3}
   shinyBack: {fileID: 21300000, guid: 10bb6d109be2994459ef035316b174db, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 77bac0c768b45bd49b756eee54f8efa1, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 759d5ad4fa217224a88dc9ed301d0e10, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 000000000000000000000000000000000000000003000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 7dd3c075b7dff7d43bc89345832eb60f, type: 3}
+  - {fileID: 1682630347, guid: cb02cfa9f478cf14d94b45b7d07f7e59, type: 3}
+  - {fileID: 1682630347, guid: 148f6fecc17ea0b47b0477565b06557d, type: 3}
+  - {fileID: 1682630347, guid: cd59c55b6c94d494da310d009dce7215, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -64,51 +70,47 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: f722428433deb024c9c1859f17492076, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 9dc5d069b0fe4ef4fb2b484b8581f5d1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 97993475828bb5845aaa3c6585ff440d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 6f74997acd488664491d7b400a76c8c1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 64349e5aa018baf45a48b3a20275ac72, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: cb5d07413d360234794696e56d14d25f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 6634e8c1522486e48bd22fb7e94ed5c6, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 6bd5e05ba6a0e65499387560b83218c4, type: 3}
+  - {fileID: 1682630347, guid: 6cdc113472f759e409da8543a506ad75, type: 3}
+  - {fileID: 1682630347, guid: dc04f357efd79a24984e0556045801b3, type: 3}
+  - {fileID: 1682630347, guid: 8fd983fd1e63ceb428f67b03822fbac3, type: 3}
+  - {fileID: 1682630347, guid: ab22b1393fa4ad546ad210018cd5637a, type: 3}
+  - {fileID: 1682630347, guid: a243612a42e05ab4990c9effdb0de9e8, type: 3}
   tutorMoves: []

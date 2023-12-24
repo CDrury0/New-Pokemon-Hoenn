@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 15
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 11400000, guid: f0c21b8304e53994ba0365467d066e32, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: It has no eyes. Instead, it relies on echo location to flit about
     in darkness.
   ability1: 37
@@ -40,65 +38,69 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 79be7238a2e5fcd4aa1be745353f184e, type: 3}
   shinyFront: {fileID: 21300000, guid: 0c6d5af8e5f765f42b2c698072fed281, type: 3}
   shinyBack: {fileID: 21300000, guid: 66a16ec7149c3a14c882a66c0b250305, type: 3}
-  evolutionLevel: 22
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 22
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: f0c21b8304e53994ba0365467d066e32, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 6587a5def5c768d4f9f540d40df5cb6f, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 61322835281988e4595073f436bd2405, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 000000000000000000000000000000000000000001000000
   learnedMoves:
+  - {fileID: 1682630347, guid: cb02cfa9f478cf14d94b45b7d07f7e59, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: cd59c55b6c94d494da310d009dce7215, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 7dd3c075b7dff7d43bc89345832eb60f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: f722428433deb024c9c1859f17492076, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 9dc5d069b0fe4ef4fb2b484b8581f5d1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 97993475828bb5845aaa3c6585ff440d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 6f74997acd488664491d7b400a76c8c1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 64349e5aa018baf45a48b3a20275ac72, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: cb5d07413d360234794696e56d14d25f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 6634e8c1522486e48bd22fb7e94ed5c6, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 6bd5e05ba6a0e65499387560b83218c4, type: 3}
+  - {fileID: 1682630347, guid: 6cdc113472f759e409da8543a506ad75, type: 3}
+  - {fileID: 1682630347, guid: dc04f357efd79a24984e0556045801b3, type: 3}
+  - {fileID: 1682630347, guid: 8fd983fd1e63ceb428f67b03822fbac3, type: 3}
+  - {fileID: 1682630347, guid: ab22b1393fa4ad546ad210018cd5637a, type: 3}
+  - {fileID: 1682630347, guid: a243612a42e05ab4990c9effdb0de9e8, type: 3}
   tutorMoves: []

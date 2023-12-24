@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 8
   eggCycles: 20
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: They live in clusters symbiotically with many piscine species. They
     migrate to warmer waters when the sea gets cold.
   ability1: 53
@@ -40,64 +38,68 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 48a5b91f5b602754cbdeee9ce99d0962, type: 3}
   shinyFront: {fileID: 21300000, guid: 3877401dfd3d94c4ba281e9e2411cbf6, type: 3}
   shinyBack: {fileID: 21300000, guid: a171ca2c367e12745a8c12e84fc1582c, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: e2f852a09e220934f8af91abf80e4a13, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 7298762de9abb7e49a7d353b563ab6dd, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: 3e4c2f13a805715438152a7a42181c22, type: 2}
   lastSeen: {fileID: 0}
   evYield: 000000000000000001000000000000000100000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: b3db69adb2af27746931b682e3455cb1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 5d2cac0f75adb864da8466eb8554729a, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 44d90bc9a61eb9844a3865b705941b7b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: b25c30b469bb12c46835a64380c9d26e, type: 3}
+  - {fileID: 1682630347, guid: 01b37318f041dee4c89a7bc41beebff6, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 1cebb35770445e648ab2ae01a88b7ad8, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: fea981bb0df5130468fbdd9a5d537248, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 87021fb425546a64dba529353d755040, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 94fc64cde1336d848a3f00c48b720e1f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: db22eddd8e3d9d84c8a2f42805797f17, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +156,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: a2b41cc8e11a06e44ba6b6ab93267b46, type: 3}
+  - {fileID: 1682630347, guid: 519a29b43fe78304a9d4a52f6d781e39, type: 3}
+  - {fileID: 1682630347, guid: 97993475828bb5845aaa3c6585ff440d, type: 3}
+  - {fileID: 1682630347, guid: edc717e8f3080774e9a271cff8406bc7, type: 3}
+  - {fileID: 1682630347, guid: edde9baf11a79fc489f13478b819c1d0, type: 3}
+  - {fileID: 1682630347, guid: b1485c6dee719e948b4539ee6f1394e0, type: 3}
+  - {fileID: 1682630347, guid: d7bb52214382cd840a028878cbbca80f, type: 3}
+  - {fileID: 1682630347, guid: 148f6fecc17ea0b47b0477565b06557d, type: 3}
   tutorMoves: []
