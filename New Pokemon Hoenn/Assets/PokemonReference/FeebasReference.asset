@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 1
   eggCycles: 20
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 11400000, guid: 3735444fb1931d04b8ef929676b3dbfc, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: It eats anything, so it can even live in polluted streams and lakes.
     No one pays any attention to it due to its shabby appearance.
   ability1: 31
@@ -40,18 +38,24 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 3498845e7b40af942a4acfe013cd48d5, type: 3}
   shinyFront: {fileID: 21300000, guid: fcfbc27607a365242bcb8a236fbbe24d, type: 3}
   shinyBack: {fileID: 21300000, guid: d4ec8b1de7741104fbc7978e45047f92, type: 3}
-  evolutionLevel: 0
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 11
+    evolvesWithHeldItem: {fileID: 11400000, guid: d996499b93be3784dbf8e05972d6765a, type: 2}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: 3735444fb1931d04b8ef929676b3dbfc, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: ee245472f2246e24fb47ebeee61a8031, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: cf54387ad7282c84382ca756514b11f8, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 000000000000000000000000000000000000000001000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 9b01503c0a77adf449b5020cbca0d24f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -66,6 +70,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: b3db69adb2af27746931b682e3455cb1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -80,9 +85,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: b65bf63413250b744a80c5a15ee7305e, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +157,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 97993475828bb5845aaa3c6585ff440d, type: 3}
+  - {fileID: 1682630347, guid: 6c3eb4dd14d66934197f2fbc541187d7, type: 3}
+  - {fileID: 1682630347, guid: c9b2c67624dc93c4889368eaec3a5f4d, type: 3}
+  - {fileID: 1682630347, guid: 13f7180c5ab20f649a050baa453c73c7, type: 3}
+  - {fileID: 1682630347, guid: 94fc64cde1336d848a3f00c48b720e1f, type: 3}
+  - {fileID: 1682630347, guid: e233732a42dbfae45a385f86989ef4cd, type: 3}
   tutorMoves: []

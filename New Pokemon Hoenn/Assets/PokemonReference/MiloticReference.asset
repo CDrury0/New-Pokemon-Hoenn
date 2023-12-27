@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 1
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: c8639fd9c7c9b6a4dae73e02b4e9d671, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: "It is said to live at the bottom of large lakes. Considered to be
     the most beautiful of all Pok\xE9mon, it has been depicted in paintings and statues."
   ability1: 61
@@ -40,74 +38,79 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: dbd5587feadd36e46ac0778b8076ff65, type: 3}
   shinyFront: {fileID: 21300000, guid: 3278c1110e850984b9f3ebba2e90c018, type: 3}
   shinyBack: {fileID: 21300000, guid: ed0577253e8bc624a94bb3c82c96d2c2, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 67f04d8255e8bc840bd88da9a974b1a3, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: e50557207c4004a4eb18ffbf57c5b4c1, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 000000000000000000000000000000000200000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 8b76a176e06125d4e8d5dbea156b7233, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: c2b0aac67c7a08f47bc838dd6a844293, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: e233732a42dbfae45a385f86989ef4cd, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 01b37318f041dee4c89a7bc41beebff6, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 6eb10d8f43ce4ee4b95218fbf10d13e3, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: d81ba5f5bb7fef8498f8b0ef163a153b, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: b25c30b469bb12c46835a64380c9d26e, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: eb799f8b156024944a3674affb04bb9c, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 5a28b833e42f54b498a616d95b9040c0, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 9ea2151246387be47ab2464008ecef70, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: e058a86e21610a94ab265e4d3380e41a, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 2b70a5360d85530449abb10a658549fa, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +157,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 97993475828bb5845aaa3c6585ff440d, type: 3}
+  - {fileID: 1682630347, guid: 6c3eb4dd14d66934197f2fbc541187d7, type: 3}
+  - {fileID: 1682630347, guid: c9b2c67624dc93c4889368eaec3a5f4d, type: 3}
+  - {fileID: 1682630347, guid: 13f7180c5ab20f649a050baa453c73c7, type: 3}
+  - {fileID: 1682630347, guid: 94fc64cde1336d848a3f00c48b720e1f, type: 3}
+  - {fileID: 1682630347, guid: e233732a42dbfae45a385f86989ef4cd, type: 3}
   tutorMoves: []

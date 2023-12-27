@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 12
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: d765fee4ea44a73408b964e1f039cc7c, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: The flapping of its wings sounds like singing. To prevent detection
     by enemies, it hides itself by flapping up a cloud of desert sand.
   ability1: 24
@@ -40,18 +38,27 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 05ff22644e7c2044aa4ac9ffa3547555, type: 3}
   shinyFront: {fileID: 21300000, guid: 2f583a93b7329ee44bd6426bbfac1ef3, type: 3}
   shinyBack: {fileID: 21300000, guid: 266e10ea9d5406b4a8fe4ddb17ff8ae2, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 207b344db77a76649b28df91615ff1a3, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 96deb84ebe62dd642bd227a9cd456cbc, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000100000000000000000000000000000002000000
   learnedMoves:
+  - {fileID: 1682630347, guid: f722428433deb024c9c1859f17492076, type: 3}
+  - {fileID: 1682630347, guid: 6cdc113472f759e409da8543a506ad75, type: 3}
+  - {fileID: 1682630347, guid: 71cf185fcbbe3a04980decca06f825fa, type: 3}
+  - {fileID: 1682630347, guid: d3afa3cfa40fc6244871a4633ea95464, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -81,12 +88,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: d45ff98d51914a440851a2dcb822ab95, type: 3}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 6c3eb4dd14d66934197f2fbc541187d7, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 148f6fecc17ea0b47b0477565b06557d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -98,6 +108,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 65f5fb47b7e3dff4880ef224a043acc2, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -109,15 +120,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 551f8c0b1a89c19419dae76ba93a8da6, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +157,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 65bb2fa20d2228f42a907cb344ccfc03, type: 3}
+  - {fileID: 1682630347, guid: dc04f357efd79a24984e0556045801b3, type: 3}
+  - {fileID: 1682630347, guid: ab22b1393fa4ad546ad210018cd5637a, type: 3}
   tutorMoves: []

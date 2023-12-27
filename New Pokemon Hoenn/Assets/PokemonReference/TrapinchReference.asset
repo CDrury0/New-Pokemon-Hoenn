@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 12
   eggCycles: 20
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 11400000, guid: aa06a5ed001cade4684376b04fe22869, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Its big jaws crunch through boulders. Because its head is so big,
     it has a hard time getting back upright if it tips over onto its back.
   ability1: 50
@@ -40,18 +38,24 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: a70190bfa94051541ba0320215a5de63, type: 3}
   shinyFront: {fileID: 21300000, guid: 68cd385915b49e8468d5afc5eeed506b, type: 3}
   shinyBack: {fileID: 21300000, guid: e76a2b5a42f7cc040b4a6dd87ef394d7, type: 3}
-  evolutionLevel: 35
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 35
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: aa06a5ed001cade4684376b04fe22869, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: ba97a6bdcf2433741982d3734e18ffc6, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 34c62e2683ef3aa42b380fb6a9f493d2, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: a7cdbdbe394731443812e8b8d7473f6b, type: 2}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000100000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: f722428433deb024c9c1859f17492076, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -60,6 +64,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 71cf185fcbbe3a04980decca06f825fa, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -67,6 +72,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 6cdc113472f759e409da8543a506ad75, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -74,6 +80,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: d3afa3cfa40fc6244871a4633ea95464, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -81,6 +88,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: d45ff98d51914a440851a2dcb822ab95, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -88,6 +96,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: f1d7b819419b67e4b98c9e0970cd991b, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -95,6 +104,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 65f5fb47b7e3dff4880ef224a043acc2, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -102,14 +112,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 551f8c0b1a89c19419dae76ba93a8da6, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +157,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 65bb2fa20d2228f42a907cb344ccfc03, type: 3}
+  - {fileID: 1682630347, guid: dc04f357efd79a24984e0556045801b3, type: 3}
+  - {fileID: 1682630347, guid: ab22b1393fa4ad546ad210018cd5637a, type: 3}
   tutorMoves: []

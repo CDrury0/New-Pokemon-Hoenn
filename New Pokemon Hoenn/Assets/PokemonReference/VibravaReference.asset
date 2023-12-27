@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 12
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: d765fee4ea44a73408b964e1f039cc7c, type: 2}
-  evolvesInto1: {fileID: 11400000, guid: fe7598f7417a62144a0abdf3f8f8d498, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: "It looses ultrasonic waves by rubbing its wings together. Since
     a Vibrava\u2019s wings are still in the process of growing, it can only fly short
     distances."
@@ -41,18 +39,27 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 082b423f044e9ac4aa073f766a5089cc, type: 3}
   shinyFront: {fileID: 21300000, guid: a4b6467a342faff458e76540f670b439, type: 3}
   shinyBack: {fileID: 21300000, guid: 2944014e27e1fca40b4ef38095024179, type: 3}
-  evolutionLevel: 45
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 45
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: fe7598f7417a62144a0abdf3f8f8d498, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 7f3371f96b2c67b4ab8a8a2566581e1c, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 8c1f372a3f2ba7e47aa9d15c52c79d0b, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000100000000000000000000000000000001000000
   learnedMoves:
+  - {fileID: 1682630347, guid: f722428433deb024c9c1859f17492076, type: 3}
+  - {fileID: 1682630347, guid: 6cdc113472f759e409da8543a506ad75, type: 3}
+  - {fileID: 1682630347, guid: 71cf185fcbbe3a04980decca06f825fa, type: 3}
+  - {fileID: 1682630347, guid: d3afa3cfa40fc6244871a4633ea95464, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -82,6 +89,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: d45ff98d51914a440851a2dcb822ab95, type: 3}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 6c3eb4dd14d66934197f2fbc541187d7, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 148f6fecc17ea0b47b0477565b06557d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -89,6 +105,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 65f5fb47b7e3dff4880ef224a043acc2, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -96,21 +113,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 551f8c0b1a89c19419dae76ba93a8da6, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -155,14 +158,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 65bb2fa20d2228f42a907cb344ccfc03, type: 3}
+  - {fileID: 1682630347, guid: dc04f357efd79a24984e0556045801b3, type: 3}
+  - {fileID: 1682630347, guid: ab22b1393fa4ad546ad210018cd5637a, type: 3}
   tutorMoves: []

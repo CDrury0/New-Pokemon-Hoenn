@@ -60,6 +60,7 @@ public class EvoDetails
     [Tooltip("0 will disallow evolution via level-up")]
     public int evolutionLevel;
     public ItemData evolvesWithHeldItem;
+    public ItemData evolvesWithHeldItem2;
     public int evolvesWithFriendship;
     public bool evolvesFromGender;
     public bool evolvesRandom;

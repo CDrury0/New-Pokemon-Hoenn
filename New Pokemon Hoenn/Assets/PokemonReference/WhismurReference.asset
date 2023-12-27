@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 0
   eggCycles: 20
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 11400000, guid: ef1af7a7cc4d58141948611ba1f2aaa7, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: It inhales through its ear canals. Because of this system, it can
     cry continually without having to catch its breath.
   ability1: 41
@@ -40,64 +38,69 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 3108b7292fb4e74429ae4ff7026d53d2, type: 3}
   shinyFront: {fileID: 21300000, guid: 80772193318c47443982e96c642e9264, type: 3}
   shinyBack: {fileID: 21300000, guid: 71a8e00fc4731d94a90623866d396908, type: 3}
-  evolutionLevel: 20
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 20
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: ef1af7a7cc4d58141948611ba1f2aaa7, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: afdb3496e272dd04cac7dd06a3d69ed6, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: a1af413d5a3685d46888191381b12bd4, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: cb96a0e39b95ef442988630806737b1b, type: 2}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 010000000000000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: cde09e92889d0d44da15b2e3fe7fee9f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: ad8f4e6ed1b8e1d44828edad078ce83e, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 7dd3c075b7dff7d43bc89345832eb60f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 9ae6209838f10b94aa2e3ac9f3b6750c, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: cd59c55b6c94d494da310d009dce7215, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: ac15de40915652542a799bd611fa91d1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 148f6fecc17ea0b47b0477565b06557d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 2b4d696d31d24a444870040118fe55b6, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 15ba65bc3e22633478daecf5be691410, type: 3}
+  - {fileID: 6968786551850499149, guid: f88dee2551f332c4480165fe529f717d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 78227184153cf7c4284851492fea808a, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +157,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: d4dc732646beb6149805d5a7c28ef6ae, type: 3}
+  - {fileID: 1682630347, guid: 82c55bd47031c1c4fb3cfcd557ef8eb7, type: 3}
+  - {fileID: 1682630347, guid: 1887268993ff6ee41bc709693646e9dc, type: 3}
+  - {fileID: 1682630347, guid: d0318d60adc4eeb49a5a19457c939e44, type: 3}
+  - {fileID: 1682630347, guid: 60c6d7df92ff77147b48948581a05454, type: 3}
   tutorMoves: []

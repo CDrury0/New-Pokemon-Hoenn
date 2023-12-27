@@ -23,8 +23,8 @@ public class HandleEvolution : MonoBehaviour
         EvoDetails evoDetails = p.pokemonDefault.evoDetails;
         //everstone?
         if(evoDetails.evolutionLevel > 0 && p.level >= evoDetails.evolutionLevel){
-            if(evoDetails.evolvesWithHeldItem != null && p.heldItem == evoDetails.evolvesWithHeldItem){
-                return true;
+            if(evoDetails.evolvesWithHeldItem != null){
+                return p.heldItem == evoDetails.evolvesWithHeldItem || p.heldItem == evoDetails.evolvesWithHeldItem2;
             }
             if(p.Friendship >= evoDetails.evolvesWithFriendship && evoDetails.evolvesWithFriendship != 0){
                 return true;
@@ -52,6 +52,12 @@ public class HandleEvolution : MonoBehaviour
         }
         if(evoDetails.evolvesRandom){
             return (int)p.hiddenPowerType % 2 == 0 ? evoDetails.firstOrMale : evoDetails.secondOrFemale;
+        }
+        if(evoDetails.evolvesWithHeldItem != null && p.heldItem == evoDetails.evolvesWithHeldItem){
+            return evoDetails.firstOrMale;
+        }
+        if(evoDetails.evolvesWithHeldItem2 != null && p.heldItem == evoDetails.evolvesWithHeldItem2){
+            return evoDetails.secondOrFemale;
         }
         return evoDetails.firstOrMale;
     }
