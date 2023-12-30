@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 11400000, guid: 386946db343e8e647b88c4bb066db9b5, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Lighter-than-air gases in its body keep it aloft. The gases not only
     smell, they are also explosive.
   ability1: 24
@@ -40,18 +38,25 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 4994275c09146b24a9098506477ddb21, type: 3}
   shinyFront: {fileID: 21300000, guid: f6dae71e9fd5ee442a8b00fd4121922f, type: 3}
   shinyBack: {fileID: 21300000, guid: 4770503e35d52af47a87cfb118437107, type: 3}
-  evolutionLevel: 35
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 35
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: 386946db343e8e647b88c4bb066db9b5, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: f98f43c8d410d424c9c6069664283693, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: cf654cf6ce536fc4ca26adbcaf8265bc, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: e8d4f114145cf1245b135f28c9b333a5, type: 2}
   lastSeen: {fileID: 0}
   evYield: 000000000000000001000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 3ecdd05ae1e66bb4a8cc2570a0a4c132, type: 3}
+  - {fileID: 1682630347, guid: b3db69adb2af27746931b682e3455cb1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -59,6 +64,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 1652f61edec860f4f8703f3ba0e3c7c2, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -66,6 +72,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 9774674d8176250499400391a8fd0d5c, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 9f341f655b5087343af804475bbde866, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 21ab09082e72ab340b136aeac8fb22ec, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -73,6 +88,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 6634e8c1522486e48bd22fb7e94ed5c6, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -80,28 +96,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: af8913036b726b74095ebe1d980c1979, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: f5fb4e4993dce3f4bbef37daee5f35fa, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 1bb5df3d193214b4f9b5d1b50368f77d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +157,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: f5fb4e4993dce3f4bbef37daee5f35fa, type: 3}
+  - {fileID: 1682630347, guid: 5ec03e74572ca0a49a9ca516c265a55e, type: 3}
+  - {fileID: 1682630347, guid: 7215a5607c1f8b44fac8cc8db496bae6, type: 3}
+  - {fileID: 1682630347, guid: cd47b533bb651c040b692a7f62d6a606, type: 3}
+  - {fileID: 1682630347, guid: 148f6fecc17ea0b47b0477565b06557d, type: 3}
+  - {fileID: 1682630347, guid: 7108fbf46dd7b6f4c9e2b508e8c0c51b, type: 3}
   tutorMoves: []

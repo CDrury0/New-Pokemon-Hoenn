@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: It changes its shading to match its surroundings so it can sneak
     up on prey. Only its belly patterns stay fixed.
   ability1: 14
@@ -40,18 +38,55 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: eec9ac81b2125ab418ae1677983daf4a, type: 3}
   shinyFront: {fileID: 21300000, guid: 9c93e04e8bf37724f919eef9a4d1df04, type: 3}
   shinyBack: {fileID: 21300000, guid: ae74912e9474f3543ac2554ec16aec39, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 4d5fec79116743a46ad51dd9e9d33eb7, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 0bb1b1491c9f2f04f85067502c1e0e2a, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: abeb34105b788474fa342c344de1932f, type: 2}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000000000000000000000000000200000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 7dd3c075b7dff7d43bc89345832eb60f, type: 3}
+  - {fileID: 1682630347, guid: 3248a14c5c260a44f8e9aa1453f769db, type: 3}
+  - {fileID: 1682630347, guid: 47d7bbcd8de79124bb33b56c7189e45e, type: 3}
+  - {fileID: 1682630347, guid: 0ce3ed085f23e1a40ab424f199f76853, type: 3}
+  - {fileID: 5577835600589612960, guid: 47de0ce56b3cf6f478e9c0b39ecb12f6, type: 3}
+  - {fileID: 1682630347, guid: b077d89df904c9d4fb9a374a24da33cf, type: 3}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 6cdc113472f759e409da8543a506ad75, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: b9f40785171e2304dba4cee579c671e9, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 7215a5607c1f8b44fac8cc8db496bae6, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 148f6fecc17ea0b47b0477565b06557d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 19ad0ac334fbe3c47aa80e02a63d0eb4, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -60,6 +95,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: da8f2843e2fa12a4f95ad090c7046942, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -68,40 +104,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: db22eddd8e3d9d84c8a2f42805797f17, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +157,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 1b7666737655cb64cb69c2f9b8f80226, type: 3}
+  - {fileID: 1682630347, guid: 9ac7f7d952a48044fb7778fcb3e331ff, type: 3}
+  - {fileID: 5577835600589612960, guid: cf6f520f7d6afcb47875601bb31db6e3, type: 3}
   tutorMoves: []

@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Girafarig eats grass and tree shoots. While it is eating, its tail
     makes chewing and swallowing motions as if it were also eating.
   ability1: 37
@@ -40,68 +38,73 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: cf88c761e3bc9a74d857b21b2128e56e, type: 3}
   shinyFront: {fileID: 21300000, guid: edc41c4d10eaf6148b4527186ffdbc2c, type: 3}
   shinyBack: {fileID: 21300000, guid: 135e65d5c2227f847a3e75e389a3c94f, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 3614c7ac8c091b643b41a249e47ac290, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 681945f21a5fb40428d4c6a64d45736b, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: 27c1fc22c254b7d4699ec20d6fd3df99, type: 2}
   lastSeen: {fileID: 0}
   evYield: 000000000000000000000000020000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 37a9e3d8b9a8b9e4f8bbb2070cc07707, type: 3}
+  - {fileID: 1682630347, guid: b3db69adb2af27746931b682e3455cb1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 7dd3c075b7dff7d43bc89345832eb60f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 4378f1efb8ece594ab8aa99a181988bc, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: ac15de40915652542a799bd611fa91d1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: b862e3af38fd94a49bd0cadadb344256, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 24e8da65a1215954abeebdb957c6b140, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: e274e2e75d7e5344dab1906249c609ac, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 7215a5607c1f8b44fac8cc8db496bae6, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: d45ff98d51914a440851a2dcb822ab95, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +157,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: a2b41cc8e11a06e44ba6b6ab93267b46, type: 3}
+  - {fileID: 1682630347, guid: af124c8eb3d46f145a6d90ce5ef4df8e, type: 3}
+  - {fileID: 1682630347, guid: bb91893430188d34080949c8eca1c848, type: 3}
+  - {fileID: 1682630347, guid: 75895ab20b8382647ac2d3c7d0bb1518, type: 3}
+  - {fileID: 1682630347, guid: 9ac7f7d952a48044fb7778fcb3e331ff, type: 3}
+  - {fileID: 1682630347, guid: 3a048711a70780e44a9d89f425dee451, type: 3}
+  - {fileID: 1682630347, guid: 60c6d7df92ff77147b48948581a05454, type: 3}
+  - {fileID: 1682630347, guid: 080931e19d28b0344a7fe80899dfafeb, type: 3}
   tutorMoves: []

@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 0
   childPokemon: {fileID: 0}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: "Kyogre is named in mythology as the Pok\xE9mon that expanded the
     sea by covering the land with torrential rains and towering tidal waves. It took
     to sleep after a cataclysmic battle with Groudon."
@@ -41,22 +39,29 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 637b069ac45cd544b90d84d557e3a9ef, type: 3}
   shinyFront: {fileID: 21300000, guid: ecb353f9fe7383248ae21a4e6abf5218, type: 3}
   shinyBack: {fileID: 21300000, guid: 478be65c7a9a0f344adf7e01252dd04f, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: e83892ff089b8b0418b3e9a840008221, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 0cb203d7dcdf3e147b4219bb8496f249, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000000000000000000030000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 6eb10d8f43ce4ee4b95218fbf10d13e3, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 16914bc98e0d91a4492c2d665f7d725f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -66,10 +71,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: db22eddd8e3d9d84c8a2f42805797f17, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 94b62b9c3976cbc43bb67f5541f39ae9, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -79,10 +86,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 9fe705e548e252d489386e6c092d7888, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: a56439eba1e7b6a42bd6ab7a4e53a0c4, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -92,10 +101,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 5a28b833e42f54b498a616d95b9040c0, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 15ba65bc3e22633478daecf5be691410, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -105,10 +116,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 145ec0ca8d56c464cab9ac1d498452ef, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: c78e1d73cebe4f04b8c6e37ebee10173, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -118,6 +131,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 260a8910eafca1d41a563fc0198a21fa, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -143,26 +157,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  eggMoves: []
   tutorMoves: []

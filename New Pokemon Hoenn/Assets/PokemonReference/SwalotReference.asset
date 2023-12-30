@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: c1b16d10240ebdd45a062112a99282e5, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: It is filled with toxic enzymes that dissolve all organic matter
     on contact.
   ability1: 62
@@ -40,18 +38,55 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 5d1bc7e8678435d4a87a8b8c778ff436, type: 3}
   shinyFront: {fileID: 21300000, guid: 090ae1223e05e754382e82b96574c6e6, type: 3}
   shinyBack: {fileID: 21300000, guid: 196858785b29d0545b34b9f3ef442444, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 4cdb2cc996c7c914f9eede9fe6c4e2a0, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 939bab9614a264841967fa051538402f, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 020000000000000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: cde09e92889d0d44da15b2e3fe7fee9f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 8d64b48dcbe43904ba29be5752356034, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 3ecdd05ae1e66bb4a8cc2570a0a4c132, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 9f341f655b5087343af804475bbde866, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: a2b41cc8e11a06e44ba6b6ab93267b46, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: d55fa8b0d6ddc22459954ef5add35996, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 94b62b9c3976cbc43bb67f5541f39ae9, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 2769de940e3f220498aad5bf0da2345b, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -60,47 +95,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 255a1a30654a16344946d31c0720b1af, type: 3}
+  - {fileID: 1682630347, guid: d604dcd2a3b516643bd6507062cbb2f3, type: 3}
+  - {fileID: 1682630347, guid: aae71ad49e486474999ca5706bb14ed7, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 0d4a4340f4bfdee4e88f014561653071, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +157,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: b127feaea1c61104cab362e188ba0131, type: 3}
+  - {fileID: 1682630347, guid: 395be3ada1e5ac940b2bc94b93638511, type: 3}
+  - {fileID: 1682630347, guid: 5ec03e74572ca0a49a9ca516c265a55e, type: 3}
+  - {fileID: 1682630347, guid: 1652f61edec860f4f8703f3ba0e3c7c2, type: 3}
   tutorMoves: []

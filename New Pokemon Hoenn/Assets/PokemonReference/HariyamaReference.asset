@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: 098dd4acfdffd9d449499ab3c346e40b, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: "Hariyama\u2019s thick body may appear fat, but it is actually a
     hunk of solid muscle. If this Pok\xE9mon bears down and tightens all its muscles,
     its body becomes as hard as a rock."
@@ -41,74 +39,79 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 488bc82d4cfa8434aa179bceac6e2436, type: 3}
   shinyFront: {fileID: 21300000, guid: 87f28db1951b2ea49becd2b10a4bf09f, type: 3}
   shinyBack: {fileID: 21300000, guid: 33e9be189e977794fbddee716b928d5d, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: f6a45fa43b976f74da40bcecbb29c864, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 512c766c7a0d79542a3bd8555e1931d6, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: c63bddd7395bc3f439d4bef954a97f64, type: 2}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 020000000000000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 65bb2fa20d2228f42a907cb344ccfc03, type: 3}
+  - {fileID: 1682630347, guid: b3db69adb2af27746931b682e3455cb1, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 71cf185fcbbe3a04980decca06f825fa, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: d3f87cf300ca4044ca3c1c8402f82f3c, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: eed7ae3274bbedc48acf44ae4ecc8d74, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: aa3889bee1fe55f4f9ea488aed951b01, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: a243612a42e05ab4990c9effdb0de9e8, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: fc27c1c3bbdf7ef4e85be9e4e954e5a9, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 82c55bd47031c1c4fb3cfcd557ef8eb7, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 7fdd7bde34c83324a8f9b6422ce3a015, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: c19f6379901e77149af61b18a2fc7f3f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: df953fdc488130a418ade1b26bd4cc06, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 30ef31e6f4d53fa42992abaf4da69072, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -155,14 +158,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: e49ebea53ef374a498526f654ece44b0, type: 3}
+  - {fileID: 1682630347, guid: ed10ac296d0927147b86118916f05b92, type: 3}
+  - {fileID: 1682630347, guid: 42ae7a0a27c4bec49b1b8e547e2ec66f, type: 3}
+  - {fileID: 1682630347, guid: 5563cb78691a8644faa631cf7f94e858, type: 3}
+  - {fileID: 1682630347, guid: 6cdc113472f759e409da8543a506ad75, type: 3}
+  - {fileID: 1682630347, guid: bb91893430188d34080949c8eca1c848, type: 3}
+  - {fileID: 5642945152840528678, guid: 038ef067a029ebe41857b3a26b28a050, type: 3}
+  - {fileID: 1682630347, guid: 6df01a9bcefdffd4cb3500ca74797400, type: 3}
   tutorMoves: []

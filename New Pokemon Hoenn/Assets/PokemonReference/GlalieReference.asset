@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 9
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: de65216d8a62d224197110145579101e, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: A Glalie has the power to instantaneously freeze moisture in the
     atmosphere. A dazzling cloud of diamond-like ice crystals forms around its body.
   ability1: 85
@@ -40,18 +38,64 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: b930aa0ca47241f48ab4b512fbf452d5, type: 3}
   shinyFront: {fileID: 21300000, guid: da56cffec2cedf34c8f0f7ab0effbea3, type: 3}
   shinyBack: {fileID: 21300000, guid: 66a0eafd9e4145d4b803b40d43df26c1, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 5cf71aa9ca4548541ba05a3269e54447, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 5f678648c63e998458f37a2f3f69865c, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 020000000000000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: f722428433deb024c9c1859f17492076, type: 3}
+  - {fileID: 1682630347, guid: 52d61b8bdec9c1040b7bdcd35bb99b1e, type: 3}
+  - {fileID: 1682630347, guid: 826dc11843354af46a6f667dcb3cb72b, type: 3}
+  - {fileID: 1682630347, guid: 7a642509e3b23144f9c4f1a8a53a51f5, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 5d71c889618c3f149aef2cd2c4ffa1e9, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: c826d81b3d1e0ad4495577bf010fbf8b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 94e4163b6e665a04089f81c06a06067c, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: d45ff98d51914a440851a2dcb822ab95, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: a56439eba1e7b6a42bd6ab7a4e53a0c4, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: c0d35d448967af343a0fc5fa54120dca, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -62,6 +106,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 14730df34718d934487881991840a5a1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -69,49 +114,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 145ec0ca8d56c464cab9ac1d498452ef, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +157,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 9fbbfca7202e31d4a8449efe1563d5a2, type: 3}
+  - {fileID: 1682630347, guid: 9a962beb88ef7684c9f793215886ca44, type: 3}
   tutorMoves: []

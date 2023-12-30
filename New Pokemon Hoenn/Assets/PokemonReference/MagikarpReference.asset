@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 11
   eggCycles: 5
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 11400000, guid: 443bd0af7f345f84dbfb641134299533, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: The weakest and most useless creature, its survival is nothing short
     of a mystery.
   ability1: 31
@@ -40,18 +38,24 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: b2f8b55b124c31c41b197538262129a6, type: 3}
   shinyFront: {fileID: 21300000, guid: f97ee2b263cdc3548beef00090eed514, type: 3}
   shinyBack: {fileID: 21300000, guid: a955f8cdb233639468baf5f9faea778f, type: 3}
-  evolutionLevel: 20
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 20
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: 443bd0af7f345f84dbfb641134299533, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 87e2c1d57d876e346b13b74af5e319a1, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 8181416bd12db434eb9def15d6dc1aa1, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000000000000000000000000000000000001000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 9b01503c0a77adf449b5020cbca0d24f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -66,6 +70,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: b3db69adb2af27746931b682e3455cb1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -80,9 +85,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: b65bf63413250b744a80c5a15ee7305e, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +157,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 1160123d7d9f3d84c80abb28ad17a0e1, type: 3}
   tutorMoves: []

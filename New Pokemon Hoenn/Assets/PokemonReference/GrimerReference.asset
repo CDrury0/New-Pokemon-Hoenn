@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 11400000, guid: aa20af687d97b7e43be984ca42d7f8bb, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Appears in filthy areas. It thrives by sucking up polluted sludge
     that is pumped out of factories.
   ability1: 0
@@ -40,18 +38,67 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: bea3563bbe6c9cd439d62dad1adcaf30, type: 3}
   shinyFront: {fileID: 21300000, guid: ac59efbbdf0c9674ab07eb774b292882, type: 3}
   shinyBack: {fileID: 21300000, guid: 6301cfb6936296d40829ef57e9772ea7, type: 3}
-  evolutionLevel: 36
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 38
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: aa20af687d97b7e43be984ca42d7f8bb, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: ef6bb178f43925e4faf07f2f1e9c2c0a, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: f34ea666d060ad140831049bbb73d329, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: 988f805fb4b48ce43ad4f4337d9958c6, type: 2}
   lastSeen: {fileID: 0}
   evYield: 010000000000000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 3ecdd05ae1e66bb4a8cc2570a0a4c132, type: 3}
+  - {fileID: 1682630347, guid: cde09e92889d0d44da15b2e3fe7fee9f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 5d2cac0f75adb864da8466eb8554729a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 1b7666737655cb64cb69c2f9b8f80226, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 9f341f655b5087343af804475bbde866, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 4bbe2ef39c140f94a940f199b7509661, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 148f6fecc17ea0b47b0477565b06557d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: b127feaea1c61104cab362e188ba0131, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 0d4a4340f4bfdee4e88f014561653071, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -61,51 +108,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 1bb5df3d193214b4f9b5d1b50368f77d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +157,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 6bd5e05ba6a0e65499387560b83218c4, type: 3}
+  - {fileID: 1682630347, guid: af8913036b726b74095ebe1d980c1979, type: 3}
+  - {fileID: 1682630347, guid: 6634e8c1522486e48bd22fb7e94ed5c6, type: 3}
+  - {fileID: 6943203085649200578, guid: 05a0248cff683a84794f7391be02e7bd, type: 3}
+  - {fileID: 1682630347, guid: 3248a14c5c260a44f8e9aa1453f769db, type: 3}
+  - {fileID: 1682630347, guid: 64349e5aa018baf45a48b3a20275ac72, type: 3}
+  - {fileID: 1682630347, guid: bd14f41c84ea99f4d915a1b3adc1a3cc, type: 3}
   tutorMoves: []

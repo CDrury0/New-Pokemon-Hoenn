@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: 2ffc8f05f37e5b541aa32f189fa8a3f2, type: 2}
-  evolvesInto1: {fileID: 11400000, guid: 5f8e667bda065bf47b17883bf8bcc2f6, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Its tongue causes slow but eventual death to whomever is licked.
     However, Haunter refuses to leave the shadows, so staying in a well-lit area
     is a viable defense.
@@ -41,62 +39,67 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: af2a577eb4ae29441adeb33f11598599, type: 3}
   shinyFront: {fileID: 21300000, guid: 1a3043813e4695c4f8bff987a3b27c76, type: 3}
   shinyBack: {fileID: 21300000, guid: c85e53b67934bf246aa9c312e0b5ff16, type: 3}
-  evolutionLevel: 45
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 38
+    evolvesWithHeldItem: {fileID: 11400000, guid: 8c9f72546c28ccc468443a1cbbe8c685, type: 2}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: 5f8e667bda065bf47b17883bf8bcc2f6, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 0}
   shinyBoxSprite: {fileID: 0}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000000000000000000020000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: c9b2c67624dc93c4889368eaec3a5f4d, type: 3}
+  - {fileID: 1682630347, guid: 3248a14c5c260a44f8e9aa1453f769db, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: da360b9ba22762940b2a04455f6d81f9, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 64349e5aa018baf45a48b3a20275ac72, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 6bd5e05ba6a0e65499387560b83218c4, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: d5d06de7e65467b448ecc4352080bb4b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: bd14f41c84ea99f4d915a1b3adc1a3cc, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 97993475828bb5845aaa3c6585ff440d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 395be3ada1e5ac940b2bc94b93638511, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: f5fb4e4993dce3f4bbef37daee5f35fa, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -155,14 +158,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 7dd3c075b7dff7d43bc89345832eb60f, type: 3}
+  - {fileID: 1682630347, guid: af8913036b726b74095ebe1d980c1979, type: 3}
+  - {fileID: 1682630347, guid: 7268af46011888a43ac13889d13f7833, type: 3}
+  - {fileID: 1682630347, guid: 6634e8c1522486e48bd22fb7e94ed5c6, type: 3}
+  - {fileID: 1682630347, guid: ce0c5b2ac9835ea4e9fde81769a6330b, type: 3}
+  - {fileID: 1682630347, guid: cd47b533bb651c040b692a7f62d6a606, type: 3}
+  - {fileID: 1682630347, guid: 7108fbf46dd7b6f4c9e2b508e8c0c51b, type: 3}
   tutorMoves: []

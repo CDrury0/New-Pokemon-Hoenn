@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 0
   eggCycles: 20
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 11400000, guid: 9787ba97ea1b63a4091ed7b278784e33, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: It makes its nest in a giant tree in the forest. It ferociously guards
     against anything nearing its territory. It is the protector of the forest.
   ability1: 63
@@ -40,65 +38,70 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: a54f8682de919e644a2bdcd6923c595e, type: 3}
   shinyFront: {fileID: 21300000, guid: 0076590ee4040fc42b4f2f782bdc051d, type: 3}
   shinyBack: {fileID: 21300000, guid: 21a3b6869775c6c40a00120599892047, type: 3}
-  evolutionLevel: 16
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 16
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: 9787ba97ea1b63a4091ed7b278784e33, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 0f7fa2d137c875b4bba6594fe7056e9c, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 568358a3d5574f54aa5949687ba45553, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000000000000000000000000000000000001000000
   learnedMoves:
-  - {fileID: 11400000, guid: b5f255c6face7584690d51a5d7b0b553, type: 2}
-  - {fileID: 11400000, guid: 912c4ff0a7213b64eb63654e3f4225f1, type: 2}
+  - {fileID: 1682630347, guid: 826dc11843354af46a6f667dcb3cb72b, type: 3}
+  - {fileID: 1682630347, guid: cde09e92889d0d44da15b2e3fe7fee9f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: 783765f77bff16f449a94878f74300d6, type: 2}
+  - {fileID: 1682630347, guid: c0f3504b2dbacab40ab68d0fcb2d836b, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: 36e3008b0d3e28a4bba45fd8299be22d, type: 2}
+  - {fileID: 1682630347, guid: ab22b1393fa4ad546ad210018cd5637a, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: ba9a0c7a4df1e6f45b76fca1f57a321b, type: 2}
+  - {fileID: 1682630347, guid: 8fd983fd1e63ceb428f67b03822fbac3, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: 88eb5d1b3431aac498b73bf859ec2941, type: 2}
+  - {fileID: 1682630347, guid: 148f6fecc17ea0b47b0477565b06557d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: 0233a1f825dabf94a8a93cf115f68a27, type: 2}
+  - {fileID: 1682630347, guid: 281e7dec40cabbe4f909e1c26c66fd1a, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: b3ed6dd36952ed64d93ac5b957fb472f, type: 2}
+  - {fileID: 1682630347, guid: 24e8da65a1215954abeebdb957c6b140, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: 540aa9216a95b94459eab3384aa691b5, type: 2}
+  - {fileID: 1682630347, guid: 134ea16404318c64fb8403d27bc67254, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: 1899d93faf2eaeb469b7ea8b626c299e, type: 2}
+  - {fileID: 1682630347, guid: 42ae7a0a27c4bec49b1b8e547e2ec66f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: 239ab48780e51be4c8f30422b522813f, type: 2}
+  - {fileID: 1682630347, guid: b411734838cdd3844977c89af61ef1b4, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,10 +157,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 11400000, guid: 75cfc8ba0cbbbe745b7d8832e6e327f2, type: 2}
-  - {fileID: 11400000, guid: 1640afb386dca7b41855686aa26d091a, type: 2}
-  - {fileID: 11400000, guid: 8e0954517119a0a4cbcdeffaba51ef1a, type: 2}
-  - {fileID: 11400000, guid: ed59d9b599b23214099cb3884736dff2, type: 2}
-  - {fileID: 11400000, guid: f8610ce9e6de0324795f901f46cbf3da, type: 2}
-  - {fileID: 11400000, guid: 0b4b840f94c525e49aa3f175ee5dff8e, type: 2}
+  - {fileID: 1682630347, guid: d45ff98d51914a440851a2dcb822ab95, type: 3}
+  - {fileID: 1682630347, guid: dc8876d6e626a4e41b4917bb2d1b5250, type: 3}
+  - {fileID: 1682630347, guid: 6c3eb4dd14d66934197f2fbc541187d7, type: 3}
+  - {fileID: 1682630347, guid: 6f96212698d131e40ac539d9dbee9d3c, type: 3}
+  - {fileID: 1682630347, guid: 2aaed267b89597245b36a0cbba2c8ef0, type: 3}
   tutorMoves: []

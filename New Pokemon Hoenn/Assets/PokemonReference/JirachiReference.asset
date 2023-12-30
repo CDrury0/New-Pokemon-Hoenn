@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 0
   childPokemon: {fileID: 0}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: "This tiny Pok\xE9mon wakes for just seven days every thousand years.
     During this time, it grants one person their deepest wish. The universe obeys
     Jirachi's motion for the wish under all circumstances."
@@ -41,57 +39,74 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 8da19223a9838cc4abc11bee3cb903e7, type: 3}
   shinyFront: {fileID: 21300000, guid: 0cac36e31e2cbda4f93e16f6a5ac5b7b, type: 3}
   shinyBack: {fileID: 21300000, guid: 30e446aa474cc6646aaecf3a9ed0b068, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: f985ab563687a1a41b7c6afaed31dcd5, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 39c261f0803e97a4d9ee2552e3509514, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 030000000000000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 4378f1efb8ece594ab8aa99a181988bc, type: 3}
+  - {fileID: 1682630347, guid: 080931e19d28b0344a7fe80899dfafeb, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 15ba65bc3e22633478daecf5be691410, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 65c4f9d76ae36f4498f4aa91e7f79211, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 5642945152840528678, guid: 038ef067a029ebe41857b3a26b28a050, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: b5e4bd3c53903d34195350687a527563, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 01b37318f041dee4c89a7bc41beebff6, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 15ba65bc3e22633478daecf5be691410, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: c78e1d73cebe4f04b8c6e37ebee10173, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 75895ab20b8382647ac2d3c7d0bb1518, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 9553b6f338fab0b4dac4308a124df932, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 1f3477bc66ec0d745bca8ab6f69802ca, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -142,27 +157,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  eggMoves: []
   tutorMoves: []

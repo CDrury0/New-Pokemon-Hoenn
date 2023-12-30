@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 0
   childPokemon: {fileID: 0}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: "Groudon has long been described in mythology as the Pok\xE9mon that
     raised lands and expanded continents. This Pok\xE9mon took to sleep after a cataclysmic
     battle with Kyogre."
@@ -41,22 +39,29 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 03f0b0fc8be01bc4fb96d288f2faec80, type: 3}
   shinyFront: {fileID: 21300000, guid: aa49892ed0150ca4194949544424dde0, type: 3}
   shinyBack: {fileID: 21300000, guid: 93f6d2c59f3eb454fa2210499de52d79, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 75c637411400fd4429033eb15b0ea5bf, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: d76bfa33738748d418051bdc4affe896, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000300000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: c78ac5be4a408a7429946816bddce6c8, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 16914bc98e0d91a4492c2d665f7d725f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -66,10 +71,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: db22eddd8e3d9d84c8a2f42805797f17, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 19ad0ac334fbe3c47aa80e02a63d0eb4, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -79,10 +86,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 5ae2b63769e42a04bbcd10658d0ba5c9, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: c0ecc0189ce7abd4bbfbfecbd0247278, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -92,10 +101,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 2c2e8baf143cd96438dd8451975dce65, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 15ba65bc3e22633478daecf5be691410, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -105,10 +116,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: a51bc50866540b643a51ba8f59b15574, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 83fd26603e9f62c4bab55d583f0faa0c, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -118,6 +131,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: c18d1b8ebee4e0345bf5f14ea53ca088, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -143,26 +157,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  eggMoves: []
   tutorMoves: []

@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 7
   eggCycles: 20
   childPokemon: {fileID: 11400000}
-  evolvesInto1: {fileID: 11400000, guid: 940a8cb2b213ba6459a572a863110ebd, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: "It is highly attuned to the emotions of people and Pok\xE9mon. It
     hides if it senses hostility."
   ability1: 26
@@ -40,65 +38,70 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: be4ba41fe725fcc4c918ea1f8ed6956a, type: 3}
   shinyFront: {fileID: 21300000, guid: 288b37fb95f90a04a8748d9fe1b28e27, type: 3}
   shinyBack: {fileID: 21300000, guid: 938df13775bd0ca439cc3962bc7ff90e, type: 3}
-  evolutionLevel: 20
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 20
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: 940a8cb2b213ba6459a572a863110ebd, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: b8ff08ccf7b75e0499147ae862f9e9ab, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 9e693f649e9e8934eae2711c56a8de29, type: 3}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000000000000000000010000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 37a9e3d8b9a8b9e4f8bbb2070cc07707, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 4378f1efb8ece594ab8aa99a181988bc, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 52d61b8bdec9c1040b7bdcd35bb99b1e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 36475b448d2db1a4d97cc083c925365d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: c9113159a0c764742a8e9759897710fb, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 9fe705e548e252d489386e6c092d7888, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: b5e4bd3c53903d34195350687a527563, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 6943203085649200578, guid: 05a0248cff683a84794f7391be02e7bd, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 75895ab20b8382647ac2d3c7d0bb1518, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: c9b2c67624dc93c4889368eaec3a5f4d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 395be3ada1e5ac940b2bc94b93638511, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +157,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: f5fb4e4993dce3f4bbef37daee5f35fa, type: 3}
+  - {fileID: 1682630347, guid: 1b7666737655cb64cb69c2f9b8f80226, type: 3}
+  - {fileID: 1682630347, guid: 64349e5aa018baf45a48b3a20275ac72, type: 3}
+  - {fileID: 1682630347, guid: 1bb5df3d193214b4f9b5d1b50368f77d, type: 3}
+  - {fileID: 1682630347, guid: 7108fbf46dd7b6f4c9e2b508e8c0c51b, type: 3}
   tutorMoves: []

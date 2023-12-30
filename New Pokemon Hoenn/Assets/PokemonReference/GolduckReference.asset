@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 1
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: a72e8b591a546a8419189d771d04abe6, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: A Golduck is an adept swimmer. It sometimes joins competitive swimmers
     in training. It uses psychic powers when its forehead shimmers with light.
   ability1: 5
@@ -40,18 +38,68 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 102a37db54f02c845b72948cfe0b0940, type: 3}
   shinyFront: {fileID: 21300000, guid: 9cfedc808f17cdb4e830a057e3b10a75, type: 3}
   shinyBack: {fileID: 21300000, guid: f4afbb5b21f554d46b66d5d8dd6b6e6e, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 1e36305e86ccff74bab2ad8257594238, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 4413fa0fb87798c4aa01c9f0272a3e5f, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 000000000000000000000000020000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 47d7bbcd8de79124bb33b56c7189e45e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 0ce3ed085f23e1a40ab424f199f76853, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 1b7666737655cb64cb69c2f9b8f80226, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 4378f1efb8ece594ab8aa99a181988bc, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 148f6fecc17ea0b47b0477565b06557d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 3a048711a70780e44a9d89f425dee451, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: b9f40785171e2304dba4cee579c671e9, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -65,52 +113,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 5a28b833e42f54b498a616d95b9040c0, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +157,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: ed10ac296d0927147b86118916f05b92, type: 3}
+  - {fileID: 1682630347, guid: bb91893430188d34080949c8eca1c848, type: 3}
+  - {fileID: 1682630347, guid: 75895ab20b8382647ac2d3c7d0bb1518, type: 3}
+  - {fileID: 1682630347, guid: c9b2c67624dc93c4889368eaec3a5f4d, type: 3}
+  - {fileID: 1682630347, guid: 13f7180c5ab20f649a050baa453c73c7, type: 3}
+  - {fileID: 1682630347, guid: 7215a5607c1f8b44fac8cc8db496bae6, type: 3}
+  - {fileID: 1682630347, guid: b5e4bd3c53903d34195350687a527563, type: 3}
+  - {fileID: 1682630347, guid: 01b37318f041dee4c89a7bc41beebff6, type: 3}
   tutorMoves: []

@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 15
   childPokemon: {fileID: 11400000, guid: ae252f9ace18e7c49bad84542fe6c944, type: 2}
-  evolvesInto1: {fileID: 11400000, guid: fcd615134ae95b54ea1060ee31868f55, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Still a rock.
   ability1: 67
   ability2: 4
@@ -39,18 +37,25 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 921b619dd62379b4088a208dd98fa42a, type: 3}
   shinyFront: {fileID: 21300000, guid: b5a376b6444e4714e8f6e5232ec97669, type: 3}
   shinyBack: {fileID: 21300000, guid: 903a94d1f24b64045908880eb3faf91c, type: 3}
-  evolutionLevel: 40
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 40
+    evolvesWithHeldItem: {fileID: 11400000, guid: 1716f5e36bb678d439d74a870f1d73cd, type: 2}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: fcd615134ae95b54ea1060ee31868f55, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 3de0000114ec1004784193ab6b1fc56b, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: da750e3f9941d1f468311b2544e3b429, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: a8d5a124fe8e86c41867d0527c47a3e1, type: 2}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000000000002000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 6d9c50460d4f2ca448710bc79602d7b9, type: 3}
+  - {fileID: 1682630347, guid: b3db69adb2af27746931b682e3455cb1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -59,6 +64,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 61b2c972c9aafb749ad60f2fa817374d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 47395b3af2cf13941b2e248705ade46e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 9774674d8176250499400391a8fd0d5c, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -66,6 +83,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: e03b80fed2c7b944c86260eff0bcb2fb, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -73,6 +91,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 87021fb425546a64dba529353d755040, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -80,6 +99,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: c0ecc0189ce7abd4bbfbfecbd0247278, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -87,6 +107,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: af8913036b726b74095ebe1d980c1979, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -94,25 +115,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: c78e1d73cebe4f04b8c6e37ebee10173, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -153,14 +156,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 9a962beb88ef7684c9f793215886ca44, type: 3}
+  - {fileID: 1682630347, guid: bb2b6247825189842a73345f47287add, type: 3}
+  - {fileID: 1682630347, guid: d7bb52214382cd840a028878cbbca80f, type: 3}
   tutorMoves: []

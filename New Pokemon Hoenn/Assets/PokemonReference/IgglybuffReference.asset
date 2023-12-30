@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 0
   childPokemon: {fileID: 0}
-  evolvesInto1: {fileID: 11400000, guid: c8f2c93eded3b334cb7afa9ee37b7a6d, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Its soft and pliable body is very bouncy. When it sings continuously
     with all its might, its body steadily turns a deepening pink color.
   ability1: 54
@@ -40,36 +38,41 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: b7a0ae062c6549c4289db9d82f307007, type: 3}
   shinyFront: {fileID: 21300000, guid: 850d6201d9d238d4b8c099748b44a8b6, type: 3}
   shinyBack: {fileID: 21300000, guid: 50b5d4a058bf52741924b02ca55463e6, type: 3}
-  evolutionLevel: 0
   evoDetails:
-    evolvesWithItem: {fileID: 0}
-    evolvesWithFriendship: 0
+    evolutionLevel: 1
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
+    evolvesWithFriendship: 220
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: c8f2c93eded3b334cb7afa9ee37b7a6d, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 7a38c624d14f2764d836aacf9b42afd1, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: a42a1220377ecc0409350e65ee218a5a, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 010000000000000000000000000000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 27c5d698f766581489034012d3d27e5b, type: 3}
+  - {fileID: 1682630347, guid: 76c5a9ae3806d974bb4fbde4158cecab, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 6d9c50460d4f2ca448710bc79602d7b9, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: cde09e92889d0d44da15b2e3fe7fee9f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 70de93e14870dc74ebe7053ab6b3f653, type: 3}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: c9113159a0c764742a8e9759897710fb, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +157,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 6cdc113472f759e409da8543a506ad75, type: 3}
+  - {fileID: 1682630347, guid: 65b233bdb2abc9244af74480a4967878, type: 3}
+  - {fileID: 1682630347, guid: ce0c5b2ac9835ea4e9fde81769a6330b, type: 3}
+  - {fileID: 1682630347, guid: 080931e19d28b0344a7fe80899dfafeb, type: 3}
   tutorMoves: []

@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 1
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: c4fae69429acf3a4f996caef51a7f11c, type: 2}
-  evolvesInto1: {fileID: 11400000, guid: 0a4a873e28875964eb15c06d4948ac5f, type: 2}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: The poisonous barbs all over its body are highly valued as ingredients
     for making traditional herbal medicine. It shows no mercy to anything approaching
     its nest.
@@ -41,18 +39,53 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: be39171689e78404c9938656d642098e, type: 3}
   shinyFront: {fileID: 21300000, guid: 94ae3d2173e464847a33ecadf2e746ee, type: 3}
   shinyBack: {fileID: 21300000, guid: 916aaa62c64d8e048a47578e1ee0a724, type: 3}
-  evolutionLevel: 46
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 1
+    evolvesWithHeldItem: {fileID: 11400000, guid: 15988c3f2a3f2ff45971c1aa1ec3f662, type: 2}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 11400000, guid: 0a4a873e28875964eb15c06d4948ac5f, type: 2}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 5e462ccbc59339d4ea1d056244216712, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: b1b77af16fb26ea4d82f30d81f647f59, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 000000000000000001000000010000000000000000000000
   learnedMoves:
+  - {fileID: 1682630347, guid: 44d90bc9a61eb9844a3865b705941b7b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 21ab09082e72ab340b136aeac8fb22ec, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 826dc11843354af46a6f667dcb3cb72b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 8b76a176e06125d4e8d5dbea156b7233, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: d81ba5f5bb7fef8498f8b0ef163a153b, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -63,6 +96,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 24e8da65a1215954abeebdb957c6b140, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -73,6 +107,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1682630347, guid: 5a28b833e42f54b498a616d95b9040c0, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -83,39 +118,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: ede0b0a1503c214459b726c26e38569d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -155,14 +158,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: 592f0c1aec1784b43a5c9ebee898be6c, type: 3}
+  - {fileID: 1682630347, guid: 1b7666737655cb64cb69c2f9b8f80226, type: 3}
+  - {fileID: 1682630347, guid: 298cc4d2d7721134eba0f407c88e6eee, type: 3}
+  - {fileID: 1682630347, guid: 6c3eb4dd14d66934197f2fbc541187d7, type: 3}
+  - {fileID: 1682630347, guid: b65bf63413250b744a80c5a15ee7305e, type: 3}
+  - {fileID: 1682630347, guid: 9b01503c0a77adf449b5020cbca0d24f, type: 3}
   tutorMoves: []
