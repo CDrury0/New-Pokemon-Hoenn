@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 4
   eggCycles: 10
   childPokemon: {fileID: 11400000, guid: 1e5cb1acbd69ebf4f89975d97da62140, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: If it stores too much electricity, its behavior turns aggressive.
     To avoid this, it occasionally discharges excess energy and calms itself down.
   ability1: 7
@@ -40,22 +38,27 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 67d4df622801b884498d4d5991f2448d, type: 3}
   shinyFront: {fileID: 21300000, guid: f0c1146e3bd75cf4c9040b3093e2c475, type: 3}
   shinyBack: {fileID: 21300000, guid: 77b855e0eaa9218498dc52e784d2da5c, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 4230129c52cefa848b2623c6ec625238, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 8ab12914042317548b6ee81727d01172, type: 3}
   naturallyHeldItem: {fileID: 0}
   lastSeen: {fileID: 0}
   evYield: 000000000000000000000000000000000000000003000000
   learnedMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: ab22b1393fa4ad546ad210018cd5637a, type: 3}
+  - {fileID: 1682630347, guid: 0ce3ed085f23e1a40ab424f199f76853, type: 3}
+  - {fileID: 1682630347, guid: f9c4cfd0086063247a2eec381be07fe8, type: 3}
+  - {fileID: 1682630347, guid: bf5ec353e44f56f4f88c0149fda3adc0, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +157,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: bc2e956fccac2c44681ebe4722aa2919, type: 3}
+  - {fileID: 1682630347, guid: 4e4a59475a6673a43bf99edecf66b8f5, type: 3}
+  - {fileID: 1682630347, guid: 47e18971022866e46af5395e87246613, type: 3}
+  - {fileID: 1682630347, guid: d55fa8b0d6ddc22459954ef5add35996, type: 3}
+  - {fileID: 1682630347, guid: 30ef31e6f4d53fa42992abaf4da69072, type: 3}
+  - {fileID: 1682630347, guid: 080931e19d28b0344a7fe80899dfafeb, type: 3}
   tutorMoves: []

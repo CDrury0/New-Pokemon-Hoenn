@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddebc2b127491440afdcadb53788b72, type: 3}
   m_Name: MedichamReference
   m_EditorClassIdentifier: 
-  baseStats: 3c0000003c0000004b0000003c0000004b00000050000000
+  baseStats: 3c000000780000004b0000003c0000004b00000050000000
   cry: {fileID: 8300000, guid: 28fdc2e6ba0d1d14eb0072b0ef9ab602, type: 3}
   pokemonName: Medicham
   species: Meditate
@@ -30,28 +30,78 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: 40e503ed14bd27c4998081b4f8df6975, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Through rigorous meditation and countless leg days, Medicham has
     developed keen psychokinetic power and huge quadriceps.
-  ability1: 72
-  ability2: 72
+  ability1: 37
+  ability2: 37
   normalFront: {fileID: 21300000, guid: 39d6d55eb4879c44d83704e157ea4767, type: 3}
   normalBack: {fileID: 21300000, guid: 3aa0535a2cb0da94e9680ad0bee272d1, type: 3}
   shinyFront: {fileID: 21300000, guid: f7a7ccf9da188f34494182b0b64b98a4, type: 3}
   shinyBack: {fileID: 21300000, guid: 8ad91799c47b08f49a897d8999a613e0, type: 3}
-  evolutionLevel: 101
   evoDetails:
-    evolvesWithItem: {fileID: 0}
+    evolutionLevel: 0
+    evolvesWithHeldItem: {fileID: 0}
+    evolvesWithHeldItem2: {fileID: 0}
     evolvesWithFriendship: 0
     evolvesFromGender: 0
     evolvesRandom: 0
+    firstOrMale: {fileID: 0}
+    secondOrFemale: {fileID: 0}
+    shedinja: {fileID: 0}
+    stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: b38a2be6b7b7a1a44b4553ce673b6b12, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 6c782a680bdf55f4ab7cc04b15e7ad0f, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: 27c1fc22c254b7d4699ec20d6fd3df99, type: 2}
   lastSeen: {fileID: 0}
   evYield: 000000000000000000000000000000000000000002000000
   learnedMoves:
+  - {fileID: 1682630347, guid: bc2e956fccac2c44681ebe4722aa2919, type: 3}
+  - {fileID: 1682630347, guid: 97b5b8b0e1be68049823bfc2cf4a03da, type: 3}
+  - {fileID: 1682630347, guid: 102a67bdb4db12140a7650460eaccdac, type: 3}
+  - {fileID: 1682630347, guid: 160c550452c642e4f889cdb387f48266, type: 3}
+  - {fileID: 1682630347, guid: e5e230a81789f4140bc06298e6b70ec3, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 4378f1efb8ece594ab8aa99a181988bc, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 42ae7a0a27c4bec49b1b8e547e2ec66f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 4465201430019556376, guid: e0316f4b67aa88c468b33218f6e3d2be, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: bd84f37c3a3aa7d45abbe64de3d18004, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 9fe705e548e252d489386e6c092d7888, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: f668b761a20f06947af05a4d5b160074, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 3a048711a70780e44a9d89f425dee451, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1682630347, guid: 30ef31e6f4d53fa42992abaf4da69072, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -59,54 +109,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: b25c30b469bb12c46835a64380c9d26e, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -154,14 +157,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   eggMoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1682630347, guid: e274e2e75d7e5344dab1906249c609ac, type: 3}
+  - {fileID: 1682630347, guid: 5563cb78691a8644faa631cf7f94e858, type: 3}
+  - {fileID: 1682630347, guid: aa3889bee1fe55f4f9ea488aed951b01, type: 3}
+  - {fileID: 1682630347, guid: 102a67bdb4db12140a7650460eaccdac, type: 3}
+  - {fileID: 1682630347, guid: bb91893430188d34080949c8eca1c848, type: 3}
+  - {fileID: 1682630347, guid: 97b5b8b0e1be68049823bfc2cf4a03da, type: 3}
+  - {fileID: 1682630347, guid: 160c550452c642e4f889cdb387f48266, type: 3}
   tutorMoves: []

@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1682630348}
-  - component: {fileID: -4461109649655514319}
-  - component: {fileID: -3190720578033066576}
-  - component: {fileID: 4331573438669601172}
+  - component: {fileID: -3498147216345390479}
+  - component: {fileID: -4529005247979891339}
+  - component: {fileID: -9092507364025679258}
   m_Layer: 0
-  m_Name: Heat Wave
+  m_Name: Shell Smash
   m_TagString: Move
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4461109649655514319
+--- !u!114 &-3498147216345390479
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,15 +46,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8017aeb4b8f9175468925e2a21b528c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveName: Heat Wave
-  moveDescription: Toasts all foes with intense flame. Good chance to burn the target.
-  moveType: 2
+  moveName: Shell Smash
+  moveDescription: The user breaks its own shell, lowering Defense and Special Defense,
+    but sharply raising Attack, Special Attack, and Speed.
+  moveType: 1
   typeFromWeather: 0
   hiddenPowerType: 0
-  displayPower: 90
-  category: 1
-  targetType: 2
-  maxPP: 10
+  displayPower: 0
+  category: 2
+  targetType: 0
+  maxPP: 15
   priority: 0
   pursuit: 0
   soundBased: 0
@@ -67,13 +68,13 @@ MonoBehaviour:
   ignoresProtect: 0
   cannotBeForgotten: 0
   accuracyData:
-    accuracy: 0.9
+    accuracy: 0
     cannotMissVulnerable: 0
     entryHazard: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
---- !u!114 &-3190720578033066576
+--- !u!114 &-4529005247979891339
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82,30 +83,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1682630347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4718a26df09fa1479726839ba709dfa, type: 3}
+  m_Script: {fileID: 11500000, guid: 09722111948b9ba47831130df6172d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  applyToSelf: 0
+  applyToSelf: 1
   message: 
-  makesContact: 0
-  hitsMaxTimes: 0
-  recoilDamage: 0
-  absorbHealth: 0
-  spitUp: 0
-  facade: 0
-  revenge: 0
-  furyCutter: 0
-  highCritRate: 0
-  bonusFromCurl: 0
-  bonusLikeRollout: 0
-  cannotKO: 0
-  cannotCrit: 0
-  bonusAgainstMinimize: 0
-  bonusAgainstSemiInvulnerable: 0
-  bonusAgainstStatus: 0
-  curesBonusStatus: 0
-  payback: 0
---- !u!114 &4331573438669601172
+  curse: 0
+  stockpileRemoval: 0
+  chance: 1
+  statChanges: 00000000ffffffff00000000ffffffff00000000000000000000000000000000
+--- !u!114 &-9092507364025679258
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,14 +101,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1682630347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c72aeb37c76c26c40bc1d85f5546ef3f, type: 3}
+  m_Script: {fileID: 11500000, guid: 09722111948b9ba47831130df6172d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  applyToSelf: 0
+  applyToSelf: 1
   message: 
-  statusInflicted: 2
-  toxic: 0
-  chance: 0.3
-  powder: 0
-  ignoresExistingCondition: 0
-  triAttack: 0
+  curse: 0
+  stockpileRemoval: 0
+  chance: 1
+  statChanges: 0200000000000000020000000000000002000000000000000000000000000000
