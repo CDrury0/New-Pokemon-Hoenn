@@ -31,9 +31,7 @@ public class ForcesSwitchEffect : MoveEffect, ICheckMoveFail
         if(target.individualBattleModifier.GetEffectInfoOfType<ApplyIngrain>() != null){
             return MoveData.FAIL;
         }
-        int userLevel = user.pokemon.level, targetLevel = target.pokemon.level;
-        float chanceToFail = (int)(targetLevel / 4) / (float)(targetLevel + userLevel);
-        if(Random.Range(0f, 1f) < chanceToFail){
+        if(user.pokemon.level < target.pokemon.level){
             return MoveData.FAIL;
         }
         if(CombatSystem.EnemyTrainer != null && GetRandomAvailablePartyMember(target.teamBattleModifier.isPlayerTeam) == null){

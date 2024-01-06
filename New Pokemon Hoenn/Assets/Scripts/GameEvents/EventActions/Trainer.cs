@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Trainer : EventAction
@@ -43,5 +45,17 @@ public class Trainer : EventAction
         battleInventory = new List<ItemData>(inventoryTemplate);
         yield return StartCoroutine(CombatLib.Instance.combatSystem.StartBattle(this));
         exit = !CombatSystem.PlayerVictory;
-    } 
+    }
+
+    void OnValidate() {
+        foreach(SerializablePokemon sp in trainerPartyTemplate){
+            int total = sp.effortValues.Sum();
+            if(total > Pokemon.MAX_EV_TOTAL){
+                int which = Array.IndexOf(sp.effortValues, sp.effortValues.First(i => i > 0));
+                sp.effortValues[which] -= total - Pokemon.MAX_EV_TOTAL;
+                total = Pokemon.MAX_EV_TOTAL;
+            }
+            sp.evTotal = total;
+        }
+    }
 }

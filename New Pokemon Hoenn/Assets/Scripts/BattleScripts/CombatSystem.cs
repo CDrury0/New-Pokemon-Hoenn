@@ -485,6 +485,21 @@ public class CombatSystem : MonoBehaviour
         }
     }
 
+    public void GiveEVs(Pokemon yieldFrom){
+        List<BattleTarget> presentInBattle = BattleTargets.FindAll(b => b.teamBattleModifier.isPlayerTeam);
+        foreach (BattleTarget b in presentInBattle){
+            Pokemon toGive = b.pokemon;
+            for (int i = 0; i < toGive.effortValues.Length; i++){
+                if (toGive.effortValues.Sum() == Pokemon.MAX_EV_TOTAL){
+                    break;
+                }
+                if (toGive.effortValues[i] < Pokemon.MAX_EV){
+                    toGive.effortValues[i] = Mathf.Min(Pokemon.MAX_EV, toGive.effortValues[i] + yieldFrom.pokemonDefault.evYield[i]);
+                }
+            }
+        }
+    }
+
     public void ForceBattleEnd() {
         BattleEndSignal = true;
     }
@@ -508,6 +523,7 @@ public class CombatSystem : MonoBehaviour
                 yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm(b.GetName() + " fainted"));
                 //do xp here if fainted mon is opponent and trainer battle; xp for wild battles is handled in battle end logic
                 if(!b.teamBattleModifier.isPlayerTeam && EnemyTrainer != null){
+                    GiveEVs(b.pokemon);
                     System.Func<string, IEnumerator> messageOutput = (string message) => combatScreen.battleText.WriteMessageConfirm(message);
                     yield return StartCoroutine(handleExperience.DoBattleExperience(b.pokemon, messageOutput));
                 }
@@ -628,6 +644,7 @@ public class CombatSystem : MonoBehaviour
             }
             else{
                 //wild battle experience is handled after the battle is considered won
+                GiveEVs(enemy1.pokemon);
                 System.Func<string, IEnumerator> messageOutput = (string message) => combatScreen.battleText.WriteMessageConfirm(message);
                 yield return StartCoroutine(handleExperience.DoBattleExperience(enemy1.pokemon, messageOutput));
             }

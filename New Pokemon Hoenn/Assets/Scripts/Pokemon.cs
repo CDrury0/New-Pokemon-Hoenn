@@ -9,7 +9,8 @@ public class Pokemon
 {
     public enum Type {None, Normal, Fire, Water, Electric, Grass, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, Fairy}
     public const int MAX_LEVEL = 100;
-    public const int MAX_EV = 200;
+    public const int MAX_EV = 252;
+    public const int MAX_EV_TOTAL = 512;
     public const int MAX_IV = 31;
     public const int MAX_FRIENDSHIP = 255;
     public PokemonDefault pokemonDefault;

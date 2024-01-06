@@ -570,7 +570,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 85ef28c555c4d4b43ac26d683e54c963, type: 2}
     - target: {fileID: 3838743011661149474, guid: 9585e37a25944084c98b0e26289de345, type: 3}
-      propertyPath: trainerPartyTemplate.Array.data[0].effortValues.Array.data[0]
+      propertyPath: trainerPartyTemplate.Array.data[0].evTotal
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4306619360160489709, guid: 9585e37a25944084c98b0e26289de345, type: 3}

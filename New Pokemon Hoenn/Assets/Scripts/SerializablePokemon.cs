@@ -9,6 +9,7 @@ public class SerializablePokemon
     public StatLib.Ability ability;
     public bool isShiny;
     public ItemData ballUsed;
+    [Tooltip("Automatically calculated based on effortValues below")] public int evTotal;
     [Range(0, Pokemon.MAX_EV)] public int[] effortValues = new int[6];
     [Range(0, Pokemon.MAX_IV)] public int[] individualValues = new int[6];
     public int level;
@@ -22,4 +23,6 @@ public class SerializablePokemon
     [Tooltip("Leaving 0 will make the PP whatever the max is for the move at the corresponding index")]
     public int[] moveMaxPP = new int[4];
     public Nature nature;
+
+
 }
