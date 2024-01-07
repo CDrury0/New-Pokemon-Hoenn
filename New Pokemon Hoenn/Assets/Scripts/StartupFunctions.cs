@@ -10,13 +10,11 @@ public class StartupFunctions : MonoBehaviour
     public AudioClip defaultIntro;
     public AudioClip defaultLoop;
     public int intToSave;
-    private void Start()
-    { 
+    private void Start(){ 
         Application.targetFrameRate = 60;
 
-        for (int i = 0; i < 215; i++)
-        {
-            GlobalGameEvents.globalDexProgress[i] = DexStatus.Caught;
+        for (int i = 0; i < 215; i++){
+            LoadDexInfo.globalDexProgress[i] = DexStatus.Caught;
         }
         AudioManager.Instance.PlayMusic(defaultIntro, defaultLoop, false);
         //LoadSave();

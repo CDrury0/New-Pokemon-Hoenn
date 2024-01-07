@@ -40,8 +40,8 @@ public class LoadDexUI : MonoBehaviour
             PokemonDefault mon = pokemonReferenceLib.pokemonDefaultLib[i];
             dexPlates[pokemonReferenceLib.pokemonDefaultLib[i].IDNumber].representsThisPokemon = mon;
             dexPlates[pokemonReferenceLib.pokemonDefaultLib[i].IDNumber].gameObject.SetActive(true);
-            seen += GlobalGameEvents.globalDexProgress[i] != DexStatus.Unknown ? 1 : 0;
-            caught += GlobalGameEvents.globalDexProgress[i] == DexStatus.Caught ? 1 : 0;
+            seen += LoadDexInfo.globalDexProgress[i] != DexStatus.Unknown ? 1 : 0;
+            caught += LoadDexInfo.globalDexProgress[i] == DexStatus.Caught ? 1 : 0;
         }
 
         seenText.text = "Seen: " + seen;

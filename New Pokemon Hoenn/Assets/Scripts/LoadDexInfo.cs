@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public enum DexStatus { Unknown, Seen, Caught}
 public class LoadDexInfo : MonoBehaviour
 {
+    public static DexStatus[] globalDexProgress = new DexStatus[215];
     public Image type1fill;
     public Image type2fill;
     public Text type1text;
@@ -26,7 +27,7 @@ public class LoadDexInfo : MonoBehaviour
     private DexStatus caughtStatus;
 
     private void OnEnable() {
-        caughtStatus = GlobalGameEvents.globalDexProgress[representsThisPokemon.IDNumber];
+        caughtStatus = globalDexProgress[representsThisPokemon.IDNumber];
         caughtSprite.SetActive(caughtStatus == DexStatus.Caught);
         dexNumber.text = representsThisPokemon.IDNumber.ToString();
         dexButtonName.text = caughtStatus == DexStatus.Unknown ? "???" : representsThisPokemon.pokemonName;
