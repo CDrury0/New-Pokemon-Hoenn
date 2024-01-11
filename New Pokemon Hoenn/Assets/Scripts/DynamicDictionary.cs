@@ -28,8 +28,8 @@ using UnityEngine;
         Initialized = true;
     }
 
-    [System.Serializable] internal struct Entry {
-        [SerializeField] internal T key;
-        [SerializeField] internal Y value;
+    [System.Serializable] public struct Entry {
+        public T key;
+        public Y value;
     }
 }

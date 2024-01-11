@@ -6,7 +6,7 @@ using UnityEngine;
 public class ItemEvolve : ItemEffect
 {
     public override bool CanEffectBeUsed(Pokemon p){
-        return p.pokemonDefault.evoDetails.HasStoneEntry(itemLogic.itemData);
+        return p.pokemonDefault.stoneEvolutions.Exists(e => e.key == itemLogic.itemData);
     }
 
     protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj, Func<string, IEnumerator> messageOutput, int whichMove){

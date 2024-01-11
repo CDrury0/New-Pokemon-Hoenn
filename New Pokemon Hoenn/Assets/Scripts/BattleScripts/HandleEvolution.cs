@@ -20,46 +20,20 @@ public class HandleEvolution : MonoBehaviour
     }
 
     private static bool CanMonEvolve(Pokemon p){
-        EvoDetails evoDetails = p.pokemonDefault.evoDetails;
-        //everstone?
-        if(evoDetails.evolutionLevel > 0 && p.level >= evoDetails.evolutionLevel){
-            if(evoDetails.evolvesWithHeldItem != null){
-                return p.heldItem == evoDetails.evolvesWithHeldItem || p.heldItem == evoDetails.evolvesWithHeldItem2;
-            }
-            if(p.Friendship >= evoDetails.evolvesWithFriendship && evoDetails.evolvesWithFriendship != 0){
-                return true;
-            }
-            //if no special conditions are met, the pokemon evolves exclusively based on level
-            if(evoDetails.evolvesWithHeldItem == null && evoDetails.evolvesWithFriendship == 0){
-                return true;
-            }
-        }
-        return false;
+        return p.pokemonDefault.evolutionData?.GetEvolved(p) != null;
     }
 
     private static PokemonDefault GetMonToEvolveInto(Pokemon p, ItemData usedEvoStone){
-        EvoDetails evoDetails = p.pokemonDefault.evoDetails;
+        int firstSlot = PlayerParty.Instance.playerParty.PartyIsFull();
+        if(p.pokemonDefault.gift != null && firstSlot != -1){
+            PlayerParty.Instance.playerParty.party[firstSlot] = new Pokemon(p.pokemonDefault.gift, p.level) {isShiny = p.isShiny};
+        }
+        
         if(usedEvoStone != null){
-            return evoDetails.GetEvoStoneMatch(usedEvoStone);
+            return p.pokemonDefault.stoneEvolutions.Find(e => e.key == usedEvoStone).value;
         }
 
-        int firstSlot = PlayerParty.Instance.playerParty.PartyIsFull();
-        if(evoDetails.shedinja != null && firstSlot != -1){
-            PlayerParty.Instance.playerParty.party[firstSlot] = new Pokemon(evoDetails.shedinja, p.level) {isShiny = p.isShiny};
-        }
-        if(evoDetails.evolvesFromGender){
-            return p.gender == Gender.Male ? evoDetails.firstOrMale : evoDetails.secondOrFemale;            
-        }
-        if(evoDetails.evolvesRandom){
-            return (int)p.hiddenPowerType % 2 == 0 ? evoDetails.firstOrMale : evoDetails.secondOrFemale;
-        }
-        if(evoDetails.evolvesWithHeldItem != null && p.heldItem == evoDetails.evolvesWithHeldItem){
-            return evoDetails.firstOrMale;
-        }
-        if(evoDetails.evolvesWithHeldItem2 != null && p.heldItem == evoDetails.evolvesWithHeldItem2){
-            return evoDetails.secondOrFemale;
-        }
-        return evoDetails.firstOrMale;
+        return p.pokemonDefault.evolutionData?.GetEvolved(p);
     }
 
     private IEnumerator DoEvolutionScreen(Sprite previousEvo, string previousNickname, Pokemon p){

@@ -32,7 +32,10 @@ public class PokemonDefault : ScriptableObject
     public Sprite normalBack;
     public Sprite shinyFront;
     public Sprite shinyBack;
-    public EvoDetails evoDetails;
+    [SerializeField] private EvoDetails evoDetails;
+    public EvolutionData evolutionData;
+    [Tooltip("Insert shedinja reference to indicate its use; leave null otherwise")] public PokemonDefault gift;
+    public List<DynamicDictionary<ItemData, PokemonDefault>.Entry> stoneEvolutions;
     public Sprite boxSprite;
     public Sprite shinyBoxSprite;
     public ItemData naturallyHeldItem;

@@ -32,17 +32,25 @@ public class Pokemon
     /// <summary>
     /// Update property implementation to account for met location, luxury ball, etc?
     /// </summary>
-    public int Friendship {get { return _friendship; } set{
-        if(value > MAX_FRIENDSHIP){
-            _friendship = MAX_FRIENDSHIP;
+    public int Friendship
+    {
+        get { return _friendship; }
+        set
+        {
+            if (value > MAX_FRIENDSHIP)
+            {
+                _friendship = MAX_FRIENDSHIP;
+            }
+            else if (value < 0)
+            {
+                _friendship = 0;
+            }
+            else
+            {
+                _friendship = value;
+            }
         }
-        else if(value < 0){
-            _friendship = 0;
-        }
-        else{
-            _friendship = value;
-        }
-    }}
+    }
     private int _friendship;
     public int level;
     public int experience;
