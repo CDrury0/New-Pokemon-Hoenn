@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f8476e2e32f79b4aa13c92b5d83279c, type: 3}
+  m_Name: Wurmple
+  m_EditorClassIdentifier: 
+  levelReq: 7
+  entries:
+  - {fileID: 11400000, guid: 48cd6504a823a3f44b15f16c42112820, type: 2}
+  - {fileID: 11400000, guid: 4d2d484700ee0be44b73251464068ed0, type: 2}

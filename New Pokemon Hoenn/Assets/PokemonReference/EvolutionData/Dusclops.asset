@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75cc4308e8ffed4a9c581d35bd7827e, type: 3}
+  m_Name: Dusclops
+  m_EditorClassIdentifier: 
+  levelReq: 0
+  entries:
+  - key: {fileID: 11400000, guid: c28fe6e215778514a85cf01c1c6b8295, type: 2}
+    value: {fileID: 11400000, guid: 61c9dbe4d3d16fc43a52624cd6202f49, type: 2}

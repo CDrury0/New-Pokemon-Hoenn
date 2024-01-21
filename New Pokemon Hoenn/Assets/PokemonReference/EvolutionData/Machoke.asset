@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75cc4308e8ffed4a9c581d35bd7827e, type: 3}
+  m_Name: Machoke
+  m_EditorClassIdentifier: 
+  levelReq: 40
+  entries:
+  - key: {fileID: 11400000, guid: 36b90087da6a1144bb553d4b3f42aea5, type: 2}
+    value: {fileID: 11400000, guid: bed2690b378e94f40b5ec083f4eb682c, type: 2}

@@ -32,9 +32,8 @@ public class PokemonDefault : ScriptableObject
     public Sprite normalBack;
     public Sprite shinyFront;
     public Sprite shinyBack;
-    [SerializeField] private EvoDetails evoDetails;
     public EvolutionData evolutionData;
-    [Tooltip("Insert shedinja reference to indicate its use; leave null otherwise")] public PokemonDefault gift;
+    [Tooltip("Insert reference to indicate its use; leave null otherwise")] public PokemonDefault gift;
     public List<DynamicDictionary<ItemData, PokemonDefault>.Entry> stoneEvolutions;
     public Sprite boxSprite;
     public Sprite shinyBoxSprite;
@@ -54,36 +53,5 @@ public class PokemonDefault : ScriptableObject
             GrowthRate.Slow => (int)(Mathf.Pow(level, 3) * 5 / 4),
             _ => 0,
         };
-    }
-}
-
-[System.Serializable]
-public class EvoDetails
-{
-    [Tooltip("0 will disallow evolution via level-up")]
-    public int evolutionLevel;
-    public ItemData evolvesWithHeldItem;
-    public ItemData evolvesWithHeldItem2;
-    public int evolvesWithFriendship;
-    public bool evolvesFromGender;
-    public bool evolvesRandom;
-    [Tooltip("If evolution is gender-based or randomly determined, fill the relevant slots (fill this if there is only one form to evolve into)")]
-    public PokemonDefault firstOrMale;
-    [Tooltip("If evolution is gender-based or randomly determined, fill the relevant slots")]
-    public PokemonDefault secondOrFemale;
-    [Tooltip("Insert shedinja reference to indicate its use; leave null otherwise")]
-    public PokemonDefault shedinja;
-    [SerializeField] private List<EvoStoneEntry> stoneEvolutions;
-    [System.Serializable] class EvoStoneEntry {
-        public ItemData evoStone;
-        public PokemonDefault evolution;
-    }
-
-    public PokemonDefault GetEvoStoneMatch(ItemData evoStone){
-        return stoneEvolutions.Find(entry => entry.evoStone == evoStone).evolution;
-    }
-
-    public bool HasStoneEntry(ItemData evoStone){
-        return stoneEvolutions.Find(entry => entry.evoStone == evoStone) != null;
     }
 }
