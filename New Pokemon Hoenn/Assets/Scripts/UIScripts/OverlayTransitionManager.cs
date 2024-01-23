@@ -8,56 +8,31 @@ public class OverlayTransitionManager : MonoBehaviour
     public static OverlayTransitionManager Instance { get; private set; }
     [SerializeField] private EventAnimation intro;
     [SerializeField] private EventAnimation outro;
-    private bool _proceed;
-    private bool Proceed {
-        get{
-            if(_proceed){
-                _proceed = false;
-                return true;
-            }
-            return false;
-        }
-        set{
-            _proceed = value;
-        }
+
+    public void DoTransitionWithAction(UnityEvent action, GameObject toInstantiate, UnityEvent onComplete = null){
+        StartCoroutine(TransitionCoroutine(action, toInstantiate, onComplete));
     }
 
-    public void DoTransitionWithAction(UnityEvent action, GameObject toInstantiate){
-        StartCoroutine(TransitionCoroutine(action, toInstantiate));
-    }
-
-    public void DoTransitionWithAction(System.Action action){
-        StartCoroutine(TransitionCoroutine(action));
+    public void DoTransitionWithAction(System.Action action, System.Action onComplete = null){
+        StartCoroutine(TransitionCoroutine(action, onComplete));
     }
 
     //unfortunately this overload is necessary because the Invoke method existing on both types is a coincidence; they have no common base class
-    public IEnumerator TransitionCoroutine(UnityEvent action, GameObject toInstantiate = null) {
+    public IEnumerator TransitionCoroutine(UnityEvent action, GameObject toInstantiate = null, UnityEvent onComplete = null) {
         yield return StartCoroutine(intro.TransitionLogic());
         if(toInstantiate != null){
             Instantiate(toInstantiate);
         }
         action?.Invoke();
         yield return StartCoroutine(outro.TransitionLogic());
+        onComplete?.Invoke();
     }
 
-    public IEnumerator TransitionCoroutine(System.Action action) {
+    public IEnumerator TransitionCoroutine(System.Action action, System.Action onComplete = null) {
         yield return StartCoroutine(intro.TransitionLogic());
         action?.Invoke();
         yield return StartCoroutine(outro.TransitionLogic());
-    }
-
-    private System.Action BuildTransitionAction(System.Action action){
-        return () => {
-            action?.Invoke();
-            Proceed = true;
-        };
-    }
-
-    private System.Action BuildTransitionAction(UnityEvent action){
-        return () => {
-            action?.Invoke();
-            Proceed = true;
-        };
+        onComplete?.Invoke();
     }
 
     void Awake() {

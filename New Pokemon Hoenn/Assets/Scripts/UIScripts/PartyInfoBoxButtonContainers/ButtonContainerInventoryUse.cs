@@ -30,8 +30,11 @@ public class ButtonContainerInventoryUse : PartyInfoBoxButtonContainer
             partyMenu.gameObject.SetActive(false);
             if(CombatSystem.BattleActive){
                 CombatSystem.ActiveTarget.turnAction = CombatLib.Instance.combatSystem.playerUsedItemPlaceholder;
-                CombatSystem.Proceed = true;
+                CombatLib.Instance.combatScreen.battleOptionsLayoutObject.SetActive(false);
             }
+        },
+        () => {
+            CombatSystem.Proceed = true;
         }));
     }
 }

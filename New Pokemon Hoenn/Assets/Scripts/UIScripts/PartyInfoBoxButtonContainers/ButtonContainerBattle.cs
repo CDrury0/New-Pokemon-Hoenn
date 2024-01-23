@@ -18,7 +18,6 @@ public class ButtonContainerBattle : PartyInfoBoxButtonContainer
         int whichPartyMember = GetComponentInParent<PartyInfoBox>().whichPartyMember;
         Pokemon monSwitchingIn = PlayerParty.Instance.playerParty.party[whichPartyMember];
         CombatSystem.ActiveTarget.individualBattleModifier.switchingIn = monSwitchingIn;
-        CombatSystem.Proceed = true;
         GetComponentInParent<PartyMenu>().gameObject.SetActive(false);
     }
 }

@@ -95,7 +95,7 @@ public class InventoryMenu : MonoBehaviour
     }
 
     public void UseItemButtonFunction(){
-        //if the item requires a target, load the part menu
+        //if the item requires a target, load the party menu
         if(!LoadedItemInstance.usedWithoutTarget){
             OverlayTransitionCaller useButtonCaller = useButton.GetComponent<OverlayTransitionCaller>();
             //set the correct type of party menu to instantiate based on whether the item must be used on a specific move
@@ -104,10 +104,13 @@ public class InventoryMenu : MonoBehaviour
             return;
         }
         PlayerInventory.SubtractItem(LoadedItemInstance.itemData);
-        if(CombatSystem.BattleActive){
+        if (CombatSystem.BattleActive) {
             CombatSystem.ActiveTarget.turnAction = Instantiate(LoadedItemInstance.gameObject);
             OverlayTransitionManager.Instance.DoTransitionWithAction(() => {
                 gameObject.SetActive(false);
+                CombatLib.Instance.combatScreen.battleOptionsLayoutObject.SetActive(false);
+            },
+            () => {
                 CombatSystem.Proceed = true;
             });
             return;

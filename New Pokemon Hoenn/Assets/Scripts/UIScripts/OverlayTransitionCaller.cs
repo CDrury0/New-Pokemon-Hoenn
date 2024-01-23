@@ -8,15 +8,16 @@ public class OverlayTransitionCaller : MonoBehaviour
     [Tooltip("If not null, the supplied prefab is instantiated during the transition before the action is invoked")]
     public GameObject toInstantiate;
     public UnityEvent action;
+    public UnityEvent onComplete;
 
     /// <summary>
     /// This method does not wait for the transition. Use the coroutine if you meant to wait.
     /// </summary>
     public void CallTransition() {
-        OverlayTransitionManager.Instance.DoTransitionWithAction(action, toInstantiate);
+        OverlayTransitionManager.Instance.DoTransitionWithAction(action, toInstantiate, onComplete);
     }
 
     public IEnumerator CallTransitionCoroutine() {
-        yield return StartCoroutine(OverlayTransitionManager.Instance.TransitionCoroutine(action, toInstantiate));
+        yield return StartCoroutine(OverlayTransitionManager.Instance.TransitionCoroutine(action, toInstantiate, onComplete));
     }
 }

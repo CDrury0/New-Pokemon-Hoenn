@@ -201,7 +201,7 @@ public class CombatSystem : MonoBehaviour
         if(isSelectables.Where(b => b == false).ToArray().Length == ActiveTarget.pokemon.moves.Capacity){
             ActiveTarget.turnAction = struggle;
             moveFunctions.MustChooseTarget(TargetType.RandomFoe, ActiveTarget);
-            Proceed =  true;
+            Proceed = true;
         }
         else{
             combatScreen.ShowMoveButtons(ActiveTarget.pokemon, isSelectables);
