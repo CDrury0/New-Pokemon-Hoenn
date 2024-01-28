@@ -25,6 +25,7 @@ public class LearnMoveScreen : MonoBehaviour
     [SerializeField] private SummaryMovePlate[] movesKnownDisplays;
     [SerializeField] private TextMeshProUGUI promptText;
     [SerializeField] private TextMeshProUGUI moveDetailsText;
+    [SerializeField] private AudioClip learnMoveSound;
 
     private void SetProceed() {
         Proceed = true;
@@ -69,7 +70,11 @@ public class LearnMoveScreen : MonoBehaviour
         }
 
         if(messageOutput != null){
-            string message = p.nickName + (MoveReplaced < p.moves.Count ? " learned " + moveData.moveName + "!" : " did not learn " + moveData.moveName);
+            bool learnedMove = MoveReplaced < p.moves.Count;
+            string message = p.nickName + (learnedMove ? " learned " + moveData.moveName + "!" : " did not learn " + moveData.moveName);
+            if(learnedMove){
+                AudioManager.Instance.PlaySoundEffect(learnMoveSound, -0.1f);
+            }
             yield return StartCoroutine(messageOutput(message));
         }
     }

@@ -106,6 +106,8 @@ GameObject:
   - component: {fileID: 2456657364947648125}
   - component: {fileID: 2456657364947648124}
   - component: {fileID: 2456657364947648127}
+  - component: {fileID: 4558114771453965038}
+  - component: {fileID: 1096358204007660273}
   m_Layer: 5
   m_Name: XPFill
   m_TagString: Untagged
@@ -199,6 +201,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expBar: {fileID: 2456657364947648125}
+  barFillSound: {fileID: 8300000, guid: 7d9fed832dc56c6438f768d01007945a, type: 3}
+  ding: {fileID: 8300000, guid: 63fe7464823868f4d91c3fd7375db960, type: 3}
+  levelUpSound: {fileID: 8300000, guid: aa0552b856821014c9efcf08ce9003f9, type: 3}
+  levelUpAnim: {fileID: 1096358204007660273}
+--- !u!95 &4558114771453965038
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2456657364947648122}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18be178d70c6084439fc2437f455c3a6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1096358204007660273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2456657364947648122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d101b701ec0174689c462239232b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4558114771453965038}
+  clips:
+  - {fileID: 7400000, guid: 08f44bf2158831245a9e37773790bfb5, type: 2}
+  playOnAwake: 0
 --- !u!1 &2456657365163960744
 GameObject:
   m_ObjectHideFlags: 0

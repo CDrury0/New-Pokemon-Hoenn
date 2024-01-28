@@ -544,13 +544,9 @@ public class CombatSystem : MonoBehaviour
             if(!ActiveTarget.teamBattleModifier.isPlayerTeam){
                 ActiveTarget.individualBattleModifier.switchingIn = enemyAI.SelectNextPokemon(EnemyParty);
             }
-            else{
-                if(playerParty.HasAvailableFighter()){
-                    combatScreen.SetPartyScreen(false, "Who will replace " + ActiveTarget.pokemon.nickName + "?");
-                }
-                else{
-                    Proceed = true;
-                }
+            else if(playerParty.HasAvailableFighter()){
+                combatScreen.battleText.gameObject.SetActive(false);
+                combatScreen.SetPartyScreen(false, "Who will replace " + ActiveTarget.pokemon.nickName + "?");
                 yield return new WaitUntil(() => Proceed);
             }
         }

@@ -572,6 +572,7 @@ MonoBehaviour:
   - {fileID: 868950169670781771}
   promptText: {fileID: 553725236157303056}
   moveDetailsText: {fileID: 553725236453216378}
+  learnMoveSound: {fileID: 8300000, guid: aa0552b856821014c9efcf08ce9003f9, type: 3}
 --- !u!1 &553725236157303058
 GameObject:
   m_ObjectHideFlags: 0

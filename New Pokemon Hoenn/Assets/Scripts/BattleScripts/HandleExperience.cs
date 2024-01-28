@@ -6,6 +6,8 @@ public class HandleExperience : MonoBehaviour
 {
     [SerializeField] private GameObject learnMoveScreenPrefab;
     [SerializeField] private GameObject levelUpScreenPrefab;
+    [SerializeField] private AudioClip levelUpSound;
+
     private Dictionary<Pokemon, List<Pokemon>> expMaps;
 
     private void AddExpRecord(Pokemon enemy) {
@@ -78,6 +80,7 @@ public class HandleExperience : MonoBehaviour
         p.stats.CopyTo(oldStats, 0);
         p.UpdateStats();
         hud?.SetBattleHUD(p);
+        AudioManager.Instance.PlaySoundEffect(levelUpSound, -0.1f);
         yield return StartCoroutine(messageOutput(p.nickName + " grew to level " + p.level + "!"));
         LevelUpScreen levelUp = Instantiate(levelUpScreenPrefab).GetComponent<LevelUpScreen>();
         yield return StartCoroutine(levelUp.DoLevelUpScreen(oldStats, p.stats, p.nickName));
