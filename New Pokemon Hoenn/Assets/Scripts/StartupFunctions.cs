@@ -14,10 +14,6 @@ public class StartupFunctions : MonoBehaviour
     public int intToSave;
     private void Start(){ 
         Application.targetFrameRate = 60;
-
-        for (int i = 0; i < 215; i++){
-            LoadDexInfo.globalDexProgress[i] = DexStatus.Caught;
-        }
         AudioManager.Instance.PlayMusic(defaultIntro, defaultLoop, false);
         //LoadSave();
     }

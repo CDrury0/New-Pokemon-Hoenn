@@ -8,7 +8,6 @@ public enum DexStatus { Unknown, Seen, Caught}
 public class LoadDexInfo : MonoBehaviour
 {
     const int CHART_MAX_STAT = 200;
-    public static DexStatus[] globalDexProgress = new DexStatus[215];
     public Image type1fill;
     public Image type2fill;
     public Text type1text;
@@ -24,12 +23,11 @@ public class LoadDexInfo : MonoBehaviour
     public Text dexEntry;
     public Image dexSprite;
     public LoadDexUI loadDexUI;
-    public ReferenceLib pokemonReferenceLib;
     public PokemonDefault representsThisPokemon;
     private DexStatus caughtStatus;
 
     private void OnEnable() {
-        caughtStatus = globalDexProgress[representsThisPokemon.IDNumber];
+        caughtStatus = ReferenceLib.GlobalDexProgress[representsThisPokemon.IDNumber];
         caughtSprite.SetActive(caughtStatus == DexStatus.Caught);
         dexNumber.text = representsThisPokemon.IDNumber.ToString();
         dexButtonName.text = caughtStatus == DexStatus.Unknown ? "???" : representsThisPokemon.pokemonName;

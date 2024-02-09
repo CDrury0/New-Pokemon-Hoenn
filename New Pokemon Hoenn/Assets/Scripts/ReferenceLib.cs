@@ -6,6 +6,10 @@ using UnityEngine;
 public class ReferenceLib : ScriptableObject
 {
     public static ReferenceLib Instance { get; private set; }
+    /// <summary>
+    /// Lookup index should equal Pokemon ID
+    /// </summary>
+    public static DexStatus[] GlobalDexProgress;
     public List<PokemonDefault> pokemonDefaultLib;
     public List<TypeMatchupList> typeEffectivenessMatchups;
     public AreaData activeArea;
@@ -28,5 +32,12 @@ public class ReferenceLib : ScriptableObject
             return;
         }
         Instance = this;
+        
+        // Load dex progress from save
+        GlobalDexProgress ??= new DexStatus[pokemonDefaultLib.Count + 1];
+        // Give caught status to every mon
+        for (int i = 1; i < GlobalDexProgress.Length; i++){
+            GlobalDexProgress[i] = DexStatus.Caught;
+        }
     }
 }

@@ -23,6 +23,8 @@ public class LoadDexUI : MonoBehaviour
     public Image dexSprite;
     public Sprite mysterySprite;
     public ReferenceLib pokemonReferenceLib;
+    public Transform plateListParent;
+    public GameObject dexPlatePrefab;
     public LoadDexInfo[] dexPlates;
 
     void OnDisable(){
@@ -36,12 +38,20 @@ public class LoadDexUI : MonoBehaviour
 
         int seen = 0;
         int caught = 0;
+        dexPlates = new LoadDexInfo[pokemonReferenceLib.pokemonDefaultLib.Count + 1];
         for (int i = 0; i < pokemonReferenceLib.pokemonDefaultLib.Count; i++){
-            PokemonDefault mon = pokemonReferenceLib.pokemonDefaultLib[i];
-            dexPlates[pokemonReferenceLib.pokemonDefaultLib[i].IDNumber].representsThisPokemon = mon;
-            dexPlates[pokemonReferenceLib.pokemonDefaultLib[i].IDNumber].gameObject.SetActive(true);
-            seen += LoadDexInfo.globalDexProgress[i] != DexStatus.Unknown ? 1 : 0;
-            caught += LoadDexInfo.globalDexProgress[i] == DexStatus.Caught ? 1 : 0;
+            PokemonDefault mon = pokemonReferenceLib.pokemonDefaultLib[i];         
+            LoadDexInfo currentPlate = Instantiate(dexPlatePrefab, plateListParent).GetComponent<LoadDexInfo>();
+            currentPlate.representsThisPokemon = mon;
+            dexPlates[mon.IDNumber] = currentPlate;
+            seen += ReferenceLib.GlobalDexProgress[i] != DexStatus.Unknown ? 1 : 0;
+            caught += ReferenceLib.GlobalDexProgress[i] == DexStatus.Caught ? 1 : 0;
+        }
+
+        // To sort alphabetically, simply set sibling index accordingly
+        foreach(LoadDexInfo d in dexPlates){
+            d?.gameObject.SetActive(true);
+            d?.transform.SetSiblingIndex(d.representsThisPokemon.IDNumber);
         }
 
         seenText.text = "Seen: " + seen;
@@ -50,23 +60,5 @@ public class LoadDexUI : MonoBehaviour
         spriteNameText.text = "???";
         eggGroupText.text = "Undiscovered";
         evYieldText.text = "Unknown";
-    }
-
-    public void DisableDexUI() {
-        heightBox.text = "";
-        weightBox.text = "";
-        speciesBox.text = "";
-        dexEntry.text = "Select a Pokémon to view its details.";
-        dexSprite.sprite = mysterySprite;
-        gameObject.SetActive(false);
-        for (int i = 1; i < dexPlates.Length; i++){
-            dexPlates[i].gameObject.SetActive(false);
-        }
-        type1box.gameObject.SetActive(false);
-        type2box.gameObject.SetActive(false);
-    }
-
-    public void EnableDexUI() {
-        this.gameObject.SetActive(true);
     }
 }
