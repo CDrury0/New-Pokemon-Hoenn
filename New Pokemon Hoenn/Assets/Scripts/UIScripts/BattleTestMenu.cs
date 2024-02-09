@@ -67,7 +67,7 @@ public class BattleTestMenu : MonoBehaviour
     private Party RandomParty(){
         Party newParty = new Party();
         for(int i = 0; i < newParty.party.Length; i++){
-            newParty.party[i] = new Pokemon(ReferenceLib.Instance.pokemonDefaultLib[Random.Range(0, ReferenceLib.Instance.pokemonDefaultLib.Length)], levelValue);
+            newParty.party[i] = new Pokemon(ReferenceLib.Instance.pokemonDefaultLib[Random.Range(0, ReferenceLib.Instance.pokemonDefaultLib.Count)], levelValue);
             newParty.party[i].moves = new List<GameObject>(4);
             List<GameObject> movePool = new List<GameObject>(allMoves);
             for(int j = 0; j < newParty.party[i].moves.Capacity; j++){
@@ -147,7 +147,7 @@ public class BattleTestMenu : MonoBehaviour
     }
 
     private void PopulatePokemonList(){
-        for(int i = 0; i < ReferenceLib.Instance.pokemonDefaultLib.Length; i++){
+        for(int i = 0; i < ReferenceLib.Instance.pokemonDefaultLib.Count; i++){
             GameObject g = Instantiate(layoutElementPrefab, monListParent.transform);
             g.GetComponent<Image>().sprite = ReferenceLib.Instance.pokemonDefaultLib[i].normalFront;
             g.GetComponentInChildren<Text>().text = ReferenceLib.Instance.pokemonDefaultLib[i].pokemonName;

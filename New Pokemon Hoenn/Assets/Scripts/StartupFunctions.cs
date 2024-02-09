@@ -4,9 +4,11 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
+using System;
 
 public class StartupFunctions : MonoBehaviour
 {
+    public ReferenceLib toInitialize;
     public AudioClip defaultIntro;
     public AudioClip defaultLoop;
     public int intToSave;
@@ -23,6 +25,8 @@ public class StartupFunctions : MonoBehaviour
     void Awake(){
         PlayerPrefs.SetFloat("musicVolume", 1f);
         PlayerPrefs.SetFloat("effectVolume", 1f);
+
+        toInitialize.Awake();
     }
 
     /*private void Update()

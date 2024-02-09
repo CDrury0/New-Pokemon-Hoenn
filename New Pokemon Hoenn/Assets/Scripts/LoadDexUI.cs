@@ -36,7 +36,7 @@ public class LoadDexUI : MonoBehaviour
 
         int seen = 0;
         int caught = 0;
-        for (int i = 0; i < pokemonReferenceLib.pokemonDefaultLib.Length; i++){
+        for (int i = 0; i < pokemonReferenceLib.pokemonDefaultLib.Count; i++){
             PokemonDefault mon = pokemonReferenceLib.pokemonDefaultLib[i];
             dexPlates[pokemonReferenceLib.pokemonDefaultLib[i].IDNumber].representsThisPokemon = mon;
             dexPlates[pokemonReferenceLib.pokemonDefaultLib[i].IDNumber].gameObject.SetActive(true);

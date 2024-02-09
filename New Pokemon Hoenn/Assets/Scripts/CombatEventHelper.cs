@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Reference Objects/CombatEventHelper")]
 public class CombatEventHelper : ScriptableObject
 {
     public void Proceed(){

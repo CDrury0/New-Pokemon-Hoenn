@@ -38,17 +38,9 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 80e8183dfe2b59647959740097e8f3fd, type: 3}
   shinyFront: {fileID: 21300000, guid: ba5a5f82523ac284fbabd29fdf3bcc44, type: 3}
   shinyBack: {fileID: 21300000, guid: 6dc9e61c58fe3f0428190ee536f917a2, type: 3}
-  evoDetails:
-    evolutionLevel: 24
-    evolvesWithHeldItem: {fileID: 0}
-    evolvesWithHeldItem2: {fileID: 0}
-    evolvesWithFriendship: 0
-    evolvesFromGender: 0
-    evolvesRandom: 0
-    firstOrMale: {fileID: 11400000, guid: da22d5554b9288e42a9bcf29d9553180, type: 2}
-    secondOrFemale: {fileID: 0}
-    shedinja: {fileID: 0}
-    stoneEvolutions: []
+  evolutionData: {fileID: 11400000, guid: beac5426d7e5c7140879fee1e7a72b48, type: 2}
+  gift: {fileID: 0}
+  stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 5e700b14c59fb96408087a1948ca90b8, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: ca82a6f014188cf40bc6fa40e593398c, type: 3}
   naturallyHeldItem: {fileID: 0}
