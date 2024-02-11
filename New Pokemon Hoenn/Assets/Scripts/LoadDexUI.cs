@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System.Linq;
 
 public class LoadDexUI : MonoBehaviour
 {
@@ -10,16 +12,16 @@ public class LoadDexUI : MonoBehaviour
     public Image[] statBars = new Image[6];
     public GameObject type1box;
     public GameObject type2box;
-    public Text heightBox;
-    public Text weightBox;
-    public Text speciesBox;
-    public Text dexEntry;
-    public Text locationText;
-    public Text spriteNameText;
-    public Text eggGroupText;
-    public Text evYieldText;
-    public Text seenText;
-    public Text caughtText;
+    public TextMeshProUGUI heightBox;
+    public TextMeshProUGUI weightBox;
+    public TextMeshProUGUI speciesBox;
+    public TextMeshProUGUI dexEntry;
+    public TextMeshProUGUI locationText;
+    public TextMeshProUGUI spriteNameText;
+    public TextMeshProUGUI eggGroupText;
+    public TextMeshProUGUI evYieldText;
+    public TextMeshProUGUI seenText;
+    public TextMeshProUGUI caughtText;
     public Image dexSprite;
     public Sprite mysterySprite;
     public ReferenceLib pokemonReferenceLib;
@@ -38,21 +40,18 @@ public class LoadDexUI : MonoBehaviour
 
         int seen = 0;
         int caught = 0;
-        dexPlates = new LoadDexInfo[pokemonReferenceLib.pokemonDefaultLib.Count + 1];
-        for (int i = 0; i < pokemonReferenceLib.pokemonDefaultLib.Count; i++){
+        dexPlates = new LoadDexInfo[pokemonReferenceLib.pokemonDefaultLib.Count];
+        for (int i = 0; i < dexPlates.Length; i++){
             PokemonDefault mon = pokemonReferenceLib.pokemonDefaultLib[i];         
             LoadDexInfo currentPlate = Instantiate(dexPlatePrefab, plateListParent).GetComponent<LoadDexInfo>();
             currentPlate.representsThisPokemon = mon;
-            dexPlates[mon.IDNumber] = currentPlate;
-            seen += ReferenceLib.GlobalDexProgress[i] != DexStatus.Unknown ? 1 : 0;
-            caught += ReferenceLib.GlobalDexProgress[i] == DexStatus.Caught ? 1 : 0;
+            currentPlate.alphaOrder = i + 1;
+            currentPlate.gameObject.SetActive(true);
+            dexPlates[i] = currentPlate;
+            seen += ReferenceLib.GlobalDexProgress[i + 1] != DexStatus.Unknown ? 1 : 0;
+            caught += ReferenceLib.GlobalDexProgress[i + 1] == DexStatus.Caught ? 1 : 0;
         }
-
-        // To sort alphabetically, simply set sibling index accordingly
-        foreach(LoadDexInfo d in dexPlates){
-            d?.gameObject.SetActive(true);
-            d?.transform.SetSiblingIndex(d.representsThisPokemon.IDNumber);
-        }
+        OrderPlatesByID();
 
         seenText.text = "Seen: " + seen;
         caughtText.text = "Caught: " + caught;
@@ -60,5 +59,21 @@ public class LoadDexUI : MonoBehaviour
         spriteNameText.text = "???";
         eggGroupText.text = "Undiscovered";
         evYieldText.text = "Unknown";
+    }
+
+    public void OrderPlatesByID() {
+        dexPlates = dexPlates.OrderBy(item => item.representsThisPokemon.IDNumber).ToArray();
+        ReindexPlates();
+    }
+
+    public void OrderPlatesByName() {
+        dexPlates = dexPlates.OrderBy(item => item.representsThisPokemon.pokemonName).ToArray();
+        ReindexPlates();
+    }
+
+    private void ReindexPlates() {
+        for(int i = 0; i < dexPlates.Length; i++){
+            dexPlates[i].transform.SetSiblingIndex(i);
+        }
     }
 }

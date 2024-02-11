@@ -8,22 +8,13 @@ public enum DexStatus { Unknown, Seen, Caught}
 public class LoadDexInfo : MonoBehaviour
 {
     const int CHART_MAX_STAT = 200;
-    public Image type1fill;
-    public Image type2fill;
-    public Text type1text;
-    public Text type2text;
-    public GameObject type1box;
-    public GameObject type2box;
-    public Text dexButtonName;
-    public Text dexNumber;
+    public TextMeshProUGUI dexButtonName;
+    public TextMeshProUGUI dexNumber;
     public GameObject caughtSprite;
-    public Text heightBox;
-    public Text weightBox;
-    public Text speciesBox;
-    public Text dexEntry;
     public Image dexSprite;
     public LoadDexUI loadDexUI;
     public PokemonDefault representsThisPokemon;
+    public int alphaOrder;
     private DexStatus caughtStatus;
 
     private void OnEnable() {
@@ -35,18 +26,18 @@ public class LoadDexInfo : MonoBehaviour
 
     public void LoadDexDetails() {
         bool isCaught = caughtStatus == DexStatus.Caught;
-        type1box.SetActive(false);
-        type2box.SetActive(false);
+        loadDexUI.type1box.SetActive(false);
+        loadDexUI.type2box.SetActive(false);
         if(isCaught){
             LoadPokemonTypes(representsThisPokemon);
         }
 
-        heightBox.text = isCaught ? "Avg. Height: " + representsThisPokemon.height + " m" : string.Empty;
-        weightBox.text = isCaught ? "Avg. Weight: " + representsThisPokemon.weight + " kg" : string.Empty;
-        speciesBox.text = isCaught ? representsThisPokemon.species + " Pokémon" : string.Empty;
+        loadDexUI.heightBox.text = isCaught ? "Avg. Height: " + representsThisPokemon.height + " m" : string.Empty;
+        loadDexUI.weightBox.text = isCaught ? "Avg. Weight: " + representsThisPokemon.weight + " kg" : string.Empty;
+        loadDexUI.speciesBox.text = isCaught ? representsThisPokemon.species + " Pokémon" : string.Empty;
         dexSprite.sprite = isCaught ? representsThisPokemon.normalFront : loadDexUI.mysterySprite;
 
-        dexEntry.text = caughtStatus switch {
+        loadDexUI.dexEntry.text = caughtStatus switch {
             DexStatus.Caught => representsThisPokemon.pokedexEntry,
             DexStatus.Seen => "Catch this Pokémon to learn more about it.",
             DexStatus.Unknown => "Encounter this Pokémon to learn more about it.",
@@ -63,6 +54,7 @@ public class LoadDexInfo : MonoBehaviour
     public void LoadEVYield(bool load) {
         if(!load){
             loadDexUI.evYieldText.text = "Unknown";
+            return;
         }
         
         loadDexUI.evYieldText.text = string.Empty;
@@ -138,15 +130,16 @@ public class LoadDexInfo : MonoBehaviour
     }
 
     public void LoadPokemonTypes(PokemonDefault representsThis){
-        type1box.gameObject.SetActive(true);
-        type1fill.color = loadDexUI.typeColors.colors[(int)representsThis.type1];
-        type1text.text = representsThis.type1.ToString();
+        loadDexUI.type1box.gameObject.SetActive(true);
+
+        loadDexUI.type1box.GetComponentInChildren<Image>().color = loadDexUI.typeColors.colors[(int)representsThis.type1];
+        loadDexUI.type1box.GetComponentInChildren<TextMeshProUGUI>().text = representsThis.type1.ToString();
 
         bool hasSecond = representsThis.type2 != Pokemon.Type.None;
         if(hasSecond){
-            type2fill.color = loadDexUI.typeColors.colors[(int)representsThis.type2];
-            type2text.text = representsThis.type2.ToString();
+            loadDexUI.type2box.GetComponentInChildren<Image>().color = loadDexUI.typeColors.colors[(int)representsThis.type2];
+            loadDexUI.type2box.GetComponentInChildren<TextMeshProUGUI>().text = representsThis.type2.ToString();
         }
-        type2box.gameObject.SetActive(hasSecond);
+        loadDexUI.type2box.gameObject.SetActive(hasSecond);
     }
 }
