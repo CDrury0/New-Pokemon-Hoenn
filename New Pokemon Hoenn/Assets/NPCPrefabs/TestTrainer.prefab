@@ -167,8 +167,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 728887617
-  m_SortingLayer: 5
+  m_SortingLayerID: -637121509
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -781746410, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -327,6 +327,7 @@ MonoBehaviour:
     ability: 0
     isShiny: 0
     ballUsed: {fileID: 0}
+    evTotal: 0
     effortValues: 000000000000000000000000000000000000000000000000
     individualValues: 000000000000000000000000000000000000000000000000
     level: 0
@@ -342,6 +343,7 @@ MonoBehaviour:
     ability: 0
     isShiny: 0
     ballUsed: {fileID: 0}
+    evTotal: 0
     effortValues: 000000000000000000000000000000000000000000000000
     individualValues: 000000000000000000000000000000000000000000000000
     level: 0
@@ -357,6 +359,7 @@ MonoBehaviour:
     ability: 0
     isShiny: 0
     ballUsed: {fileID: 0}
+    evTotal: 0
     effortValues: 000000000000000000000000000000000000000000000000
     individualValues: 000000000000000000000000000000000000000000000000
     level: 0
@@ -372,6 +375,7 @@ MonoBehaviour:
     ability: 0
     isShiny: 0
     ballUsed: {fileID: 0}
+    evTotal: 0
     effortValues: 000000000000000000000000000000000000000000000000
     individualValues: 000000000000000000000000000000000000000000000000
     level: 0
@@ -387,6 +391,7 @@ MonoBehaviour:
     ability: 0
     isShiny: 0
     ballUsed: {fileID: 0}
+    evTotal: 0
     effortValues: 000000000000000000000000000000000000000000000000
     individualValues: 000000000000000000000000000000000000000000000000
     level: 0
@@ -402,6 +407,7 @@ MonoBehaviour:
     ability: 0
     isShiny: 0
     ballUsed: {fileID: 0}
+    evTotal: 0
     effortValues: 000000000000000000000000000000000000000000000000
     individualValues: 000000000000000000000000000000000000000000000000
     level: 0
