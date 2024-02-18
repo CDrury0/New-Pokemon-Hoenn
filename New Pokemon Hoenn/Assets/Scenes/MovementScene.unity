@@ -633,11 +633,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: LittlerootTown 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1952026934403375189, guid: 9585e37a25944084c98b0e26289de345, type: 3}
-    - {fileID: 5648014450812480962, guid: 9585e37a25944084c98b0e26289de345, type: 3}
-    - {fileID: 462584824720279576, guid: 9585e37a25944084c98b0e26289de345, type: 3}
-    - {fileID: 6188828276629167323, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9585e37a25944084c98b0e26289de345, type: 3}
 --- !u!224 &204699658 stripped
 RectTransform:

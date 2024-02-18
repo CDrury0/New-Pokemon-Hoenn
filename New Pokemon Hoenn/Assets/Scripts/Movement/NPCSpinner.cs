@@ -10,12 +10,13 @@ public class NPCSpinner : NPCMovement
     private Vector3[] directionCycle;
     private const float LOOK_DURATION_SECONDS = 1.5f;
     private int index;
+
     protected override IEnumerator PassiveMoveLogic(){
-        movementAnimation.FaceDirection(directionCycle[index]);
+        AnimateMovement(directionCycle[index], false);
         if (detectionCollider != null){
             SetDetectionArea(detectionCollider, directionCycle[index], detectionRange);
         }
-        //since this is only changing the sprite once, manual waiting is necessary
+        
         yield return new WaitForSeconds(LOOK_DURATION_SECONDS);
         index = index == directionCycle.Length - 1 ? 0 : index + 1;
     }

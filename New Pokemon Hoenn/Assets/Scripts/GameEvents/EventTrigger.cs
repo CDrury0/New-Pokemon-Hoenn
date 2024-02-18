@@ -10,7 +10,7 @@ public class EventTrigger : MonoBehaviour
     [SerializeField] private TriggerMethod triggerMethod;
     [SerializeField] private bool destroyIfAlreadyDone;
     [SerializeField] private EventCondition destroyIfTrue;
-    [Tooltip("Set this field to value -1 to auto-generate a value unique to its Event Container. 0 can be used for triggers outside the Event Container that are not subject to change, like most Area Loaders")]
+    [Tooltip("Set this field to value -1 to auto-generate a value unique to its Event Container. 0 can be used for triggers outside the Event Container that do not need to be tracked, like most Area Loaders")]
     [SerializeField] private int _eventTriggerID;
     public int EventTriggerID {
         get { return _eventTriggerID; }

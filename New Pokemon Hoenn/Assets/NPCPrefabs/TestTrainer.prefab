@@ -102,10 +102,10 @@ GameObject:
   - component: {fileID: 4819224395196761987}
   - component: {fileID: 647040502150291600}
   - component: {fileID: 408516362562542856}
-  - component: {fileID: -7049907172597748719}
   - component: {fileID: -3792440079889342074}
   - component: {fileID: 2736338909741817037}
   - component: {fileID: 1422851680844052151}
+  - component: {fileID: 7467182502675333466}
   m_Layer: 6
   m_Name: TestTrainer
   m_TagString: Untagged
@@ -278,9 +278,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextEvent: {fileID: 7214090465150011467}
   moveToPlayer: 1
+  xFirst: 0
   moveX: 0
   moveY: 0
-  movementAnimation: {fileID: -7049907172597748719}
   movementComponent: {fileID: -3792440079889342074}
 --- !u!114 &7214090465150011467
 MonoBehaviour:
@@ -490,48 +490,6 @@ MonoBehaviour:
   toMarkComplete:
   - {fileID: 6796235339155225970}
   - {fileID: 3320399566483130915}
---- !u!114 &-7049907172597748719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8671835066302808280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f9ccdfcc61f864a9b0f9408b9d97c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 364817839153986707}
-  stillSprites:
-  - {fileID: -781746410, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  - {fileID: -1819363177, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  - {fileID: -789779903, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  - {fileID: 1494018120, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  walkUpSprites:
-  - {fileID: 1102913969, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  - {fileID: -781746410, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  - {fileID: -1797258283, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  - {fileID: -781746410, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  walkRightSprites:
-  - {fileID: 1252005695, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  - {fileID: -1819363177, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  - {fileID: -475466124, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  - {fileID: -1819363177, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  walkDownSprites:
-  - {fileID: -89131834, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  - {fileID: -789779903, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  - {fileID: -1662274975, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  - {fileID: -789779903, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  walkLeftSprites:
-  - {fileID: -223497272, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  - {fileID: 1494018120, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  - {fileID: 668205097, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  - {fileID: 1494018120, guid: 1c126c9c4b4f7a64db3d48039b97cbec, type: 3}
-  runUpSprites: []
-  runRightSprites: []
-  runDownSprites: []
-  runLeftSprites: []
 --- !u!114 &-3792440079889342074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,9 +502,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d9e4e8199ca734dbaf86888bccb8f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  halt: 0
-  moveSpeed: 2
-  movementAnimation: {fileID: -7049907172597748719}
+  Halt: 0
+  moveSpeed: 3
+  animator: {fileID: 7467182502675333466}
   detectionRange: 3
   detectionCollider: {fileID: 1996657776225446619}
   rotateClockwise: 1
@@ -584,3 +542,24 @@ MonoBehaviour:
   transitionObjPrefab: {fileID: 5943331842627113238, guid: 39bdca81c1f9cd845b7ae9a2e6dc12d5, type: 3}
   destroyOwnTransitionAfterWait: 0
   previousTransitionToDestroy: {fileID: 0}
+--- !u!95 &7467182502675333466
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8671835066302808280}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 6c3481999ba42c14ba88ecb1ce95029b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

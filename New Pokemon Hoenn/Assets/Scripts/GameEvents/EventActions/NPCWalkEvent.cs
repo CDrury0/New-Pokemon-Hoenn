@@ -6,11 +6,11 @@ public class NPCWalkEvent : EventAction
 {
     [Tooltip("If true, no x/y coordinates are necessary")]
     [SerializeField] private bool moveToPlayer;
+    [Tooltip("By default, Y movement occurs first")]
+    [SerializeField] private bool xFirst;
     [SerializeField] private int moveX;
     [SerializeField] private int moveY;
-    [SerializeField] private MovementAnimation movementAnimation;
     [SerializeField] private NPCMovement movementComponent;
-    private Vector3 moveToPoint;
 
     protected override IEnumerator EventActionLogic(){
         int diffY;
@@ -20,13 +20,16 @@ public class NPCWalkEvent : EventAction
             diffX = (int)((PlayerInput.playerTransform.position.x - transform.position.x));
             //since the object should be on the tile NEXT TO the player, subtract one from the distance on the final axis traversed
             if(diffY == 0){
-                diffX = (diffX / Mathf.Abs(diffX)) * (Mathf.Abs(diffX) - 1);
+                diffX = GetDiffOffset(diffX);
             }
             else if(diffX == 0){
-                diffY = (diffY / Mathf.Abs(diffY)) * (Mathf.Abs(diffY) - 1);
+                diffY = GetDiffOffset(diffY);
+            }
+            else if(xFirst){
+                diffY = GetDiffOffset(diffY);
             }
             else{
-                diffX = (diffX / Mathf.Abs(diffX)) * (Mathf.Abs(diffX) - 1);
+                diffX = GetDiffOffset(diffX);
             }
         }
         else{
@@ -34,13 +37,23 @@ public class NPCWalkEvent : EventAction
             diffX = moveX;
         }
 
-        Vector3 directionToMoveY = new Vector3(0, diffY > 0 ? 1 : -1, 0);
-        for (int i = 0; i < Mathf.Abs(diffY); i++){
-            yield return StartCoroutine(movementComponent.WalkStep(directionToMoveY, movementComponent.moveSpeed));
+        if(xFirst){
+            yield return StartCoroutine(WalkDirection(new Vector3(diffX, 0, 0).normalized, diffX));
+            yield return StartCoroutine(WalkDirection(new Vector3(0, diffY, 0).normalized, diffY));
+            yield break;
         }
-        Vector3 directionToMoveX = new Vector3(diffX > 0 ? 1 : -1, 0, 0);
-        for (int i = 0; i < Mathf.Abs(diffX); i++){
-            yield return StartCoroutine(movementComponent.WalkStep(directionToMoveX, movementComponent.moveSpeed));
+
+        yield return StartCoroutine(WalkDirection(new Vector3(0, diffY, 0).normalized, diffY));
+        yield return StartCoroutine(WalkDirection(new Vector3(diffX, 0, 0).normalized, diffX));
+    }
+
+    private int GetDiffOffset(int diff){
+        return diff / Mathf.Abs(diff) * (Mathf.Abs(diff) - 1);
+    }
+
+    private IEnumerator WalkDirection(Vector3 direction, int amount){
+        for(int i = 0; i < Mathf.Abs(amount); i++){
+            yield return StartCoroutine(movementComponent.WalkStep(direction));
         }
     }
 

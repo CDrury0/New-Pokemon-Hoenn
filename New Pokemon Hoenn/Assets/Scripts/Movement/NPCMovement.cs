@@ -4,13 +4,9 @@ using UnityEngine;
 
 public abstract class NPCMovement : MonoBehaviour
 {
-    [HideInInspector] public bool Halt {
-        get { return animator.GetBool("Halt"); }
-        set { animator.SetBool("Halt", value); }
-    }
+    [HideInInspector] public bool Halt;
     [Tooltip("If unset, will be set to player walk speed")] public float moveSpeed;
     [SerializeField] private Animator animator;
-    [SerializeField] protected MovementAnimation movementAnimation;
     private Vector3 walkToPoint;
 
     protected abstract IEnumerator PassiveMoveLogic();
@@ -23,9 +19,9 @@ public abstract class NPCMovement : MonoBehaviour
         }
     }
 
-    public IEnumerator WalkStep(Vector3 direction, float moveSpeed){
+    public IEnumerator WalkStep(Vector3 direction){
         walkToPoint = transform.position + direction;
-        StartCoroutine(movementAnimation.AnimateMovement(direction, moveSpeed, true, false));
+        AnimateMovement(direction, true);
         yield return new WaitUntil(() => transform.position == walkToPoint);
     }
 
@@ -33,7 +29,7 @@ public abstract class NPCMovement : MonoBehaviour
         Vector3 toFacePlayer = transform.position - movePoint.position;
         toFacePlayer.Normalize();
         toFacePlayer = GetOppositeDirection(toFacePlayer);
-        movementAnimation.FaceDirection(toFacePlayer);
+        AnimateMovement(toFacePlayer, false);
     }
 
     protected static void SetDetectionArea(BoxCollider2D detectionCollider, Vector3 lookDirection, int detectionRange){
@@ -49,6 +45,15 @@ public abstract class NPCMovement : MonoBehaviour
 
     protected static Vector3 GetOppositeDirection(Vector3 directionToReflect){
         return directionToReflect * -1;
+    }
+
+    protected void AnimateMovement(Vector3 direction, bool isMoving){
+        animator.SetBool("IsMoving", isMoving);
+        if(isMoving){
+            animator.SetBool("WhichStep", !animator.GetBool("WhichStep"));
+        }
+        animator.SetFloat("X", direction.x);
+        animator.SetFloat("Y", direction.y);
     }
 
     public void Start(){
