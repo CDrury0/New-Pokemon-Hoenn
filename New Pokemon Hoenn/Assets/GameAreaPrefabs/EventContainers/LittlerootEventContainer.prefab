@@ -300,6 +300,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5077519446770035166}
     - target: {fileID: 6796235339155225970, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: eventsIfAlreadyDone.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796235339155225970, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: eventsIfAlreadyDone.Array.data[0]
       value: 
       objectReference: {fileID: 0}

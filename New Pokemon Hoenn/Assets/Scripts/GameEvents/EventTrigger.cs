@@ -30,28 +30,31 @@ public class EventTrigger : MonoBehaviour
             movePointTransform = collider.transform;
             return;
         }
-        if(DoesTriggerMatch(collider)){
-            bool markedDone = GetComponentInParent<GameAreaManager>().areaData.eventManifest.Contains(_eventTriggerID);
-            if(markedDone && eventsIfAlreadyDone.Length == 0){
-                return;
-            }
-            //otherwise, SOME EventAction will occur
-            if(movementToStop != null){
-                movementToStop.halt = true;
-            }
-            if(movementToFacePlayer != null){
-                movementToFacePlayer.FacePlayer(movePointTransform);
-            }
-            PlayerInput.AllowMenuToggle = allowInput;
-            if(eventsIfAlreadyDone.Length == 0 || !markedDone){
-                foreach (EventAction e in eventActions){
-                    StartCoroutine(e.DoEventAction());
-                }
-                return;
-            }
-            foreach(EventAction e in eventsIfAlreadyDone){
+        if (!DoesTriggerMatch(collider)) {
+            return;
+        }
+
+        bool markedDone = GetComponentInParent<GameAreaManager>().areaData.eventManifest.Contains(_eventTriggerID);
+        if(markedDone && eventsIfAlreadyDone.Length == 0){
+            return;
+        }
+
+        //otherwise, SOME EventAction will occur
+        if(movementToStop != null){
+            movementToStop.Halt = true;
+        }
+        if(movementToFacePlayer != null){
+            movementToFacePlayer.FacePlayer(movePointTransform);
+        }
+        PlayerInput.AllowMenuToggle = allowInput;
+        if(eventsIfAlreadyDone.Length == 0 || !markedDone){
+            foreach (EventAction e in eventActions){
                 StartCoroutine(e.DoEventAction());
             }
+            return;
+        }
+        foreach(EventAction e in eventsIfAlreadyDone){
+            StartCoroutine(e.DoEventAction());
         }
     }
 

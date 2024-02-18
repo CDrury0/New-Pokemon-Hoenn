@@ -4,8 +4,12 @@ using UnityEngine;
 
 public abstract class NPCMovement : MonoBehaviour
 {
-    [HideInInspector] public bool halt;
-    public float moveSpeed;
+    [HideInInspector] public bool Halt {
+        get { return animator.GetBool("Halt"); }
+        set { animator.SetBool("Halt", value); }
+    }
+    [Tooltip("If unset, will be set to player walk speed")] public float moveSpeed;
+    [SerializeField] private Animator animator;
     [SerializeField] protected MovementAnimation movementAnimation;
     private Vector3 walkToPoint;
 
@@ -14,7 +18,7 @@ public abstract class NPCMovement : MonoBehaviour
     protected IEnumerator MoveLogicWrapper(){
         yield return StartCoroutine(PassiveMoveLogic());
         yield return new WaitUntil(() => PlayerInput.allowMovementInput);
-        if(!halt){
+        if(!Halt){
             StartCoroutine(MoveLogicWrapper());
         }
     }
@@ -44,25 +48,13 @@ public abstract class NPCMovement : MonoBehaviour
     }
 
     protected static Vector3 GetOppositeDirection(Vector3 directionToReflect){
-        if(directionToReflect == Vector3.up){
-            return Vector3.down;
-        }
-        else if(directionToReflect == Vector3.down){
-            return Vector3.up;
-        }
-        else if(directionToReflect == Vector3.right){
-            return Vector3.left;
-        }
-        else if(directionToReflect == Vector3.left){
-            return Vector3.right;
-        }
-        else{
-            Debug.Log("invalid direction");
-            return Vector3.up;
-        }
+        return directionToReflect * -1;
     }
 
     public void Start(){
+        if(moveSpeed == 0f){
+            moveSpeed = PlayerInput.WALKING_SPEED;
+        }
         walkToPoint = transform.position;
         StartCoroutine(MoveLogicWrapper());
     }
