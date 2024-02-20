@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     public static Transform playerTransform;
-    public const float WALKING_SPEED = 3.3f;
-    public const float SPRINT_SPEED = 7.5f;
+    public const float WALKING_SPEED = 3.5f;
+    public const float SPRINT_SPEED = 6.5f;
     /// <summary>
     /// This may be set independently to account for menu toggling
     /// </summary>

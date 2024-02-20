@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 2736338909741817037}
   - component: {fileID: 1422851680844052151}
   - component: {fileID: 7467182502675333466}
+  - component: {fileID: 6312910199327790137}
   m_Layer: 6
   m_Name: TestTrainer
   m_TagString: Untagged
@@ -552,7 +553,7 @@ Animator:
   m_GameObject: {fileID: 8671835066302808280}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 6c3481999ba42c14ba88ecb1ce95029b, type: 2}
+  m_Controller: {fileID: 9100000, guid: aa8d3b242066fa748afdae2abee56a8f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -563,3 +564,30 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6312910199327790137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8671835066302808280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8843794b4ca8bc64282afe435f365b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  spriteRenderer: {fileID: 364817839153986707}
+  sprites:
+  - {fileID: 21300000, guid: 48b45aa290f7fbd46a7be3b335821156, type: 3}
+  - {fileID: 21300000, guid: 25f3511900e58fa42846ee6f69e34f8e, type: 3}
+  - {fileID: 21300000, guid: 15c10ec4a1d1a02439867892af64423a, type: 3}
+  - {fileID: 21300000, guid: a7f6f0a9e6796944daf99875eec0dc2c, type: 3}
+  - {fileID: 21300000, guid: c0f60c52ef143724fb00596433304f9f, type: 3}
+  - {fileID: 21300000, guid: faf00ee09657ae846b50ebc56e987c81, type: 3}
+  - {fileID: 21300000, guid: 9ae6ab63da4c03d4793ddaebbc29df17, type: 3}
+  - {fileID: 21300000, guid: 249ae0da31bfa95419775da350232950, type: 3}
+  - {fileID: 21300000, guid: cc0cfbf6718be0540865ff697b461baa, type: 3}
+  - {fileID: 21300000, guid: ae3000248f2950c439f37062f16a120c, type: 3}
+  - {fileID: 21300000, guid: 2ad44190aa7956d46a4d87164c6db521, type: 3}
+  - {fileID: 21300000, guid: 267bbd8cd74ee9b4ab4082fd3fa95bd0, type: 3}
