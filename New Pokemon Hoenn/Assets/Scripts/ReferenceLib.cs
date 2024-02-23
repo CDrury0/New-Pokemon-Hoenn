@@ -36,8 +36,16 @@ public class ReferenceLib : ScriptableObject
         // Load dex progress from save
         GlobalDexProgress ??= new DexStatus[pokemonDefaultLib.Count + 1];
         // Give caught status to every mon
-        for (int i = 1; i < GlobalDexProgress.Length; i++){
+        /* for (int i = 1; i < GlobalDexProgress.Length; i++){
             GlobalDexProgress[i] = DexStatus.Caught;
+        } */
+    }
+
+    public static void UpdateDexStatus(PokemonDefault mon, DexStatus status) {
+        int index = mon.IDNumber;
+        if((int)status < (int)GlobalDexProgress[index]){
+            return;
         }
+        GlobalDexProgress[index] = status;
     }
 }

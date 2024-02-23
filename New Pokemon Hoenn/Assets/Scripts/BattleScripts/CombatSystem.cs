@@ -98,6 +98,7 @@ public class CombatSystem : MonoBehaviour
         this.enemyAI = enemyAI;
         this.battleMusicPlayer = musicPlayer;
         victoryMusicPlayer = EnemyTrainer != null ? EnemyTrainer.victoryMusic : wildVictoryMusic;
+
         //flushes the list of mons eligible to evolve after the battle
         HandleEvolution.ClearMarkedLevelUps();
 
@@ -120,6 +121,11 @@ public class CombatSystem : MonoBehaviour
         }
         
         BattleTargets = new List<BattleTarget>(referenceBattleTargets.FindAll(b => b.pokemon != null));
+
+        // Update dex status to seen for mons present at the beginning of battle
+        foreach(BattleTarget enemy in BattleTargets.FindAll(b => !b.teamBattleModifier.isPlayerTeam)){
+            ReferenceLib.UpdateDexStatus(enemy.pokemon.pokemonDefault, DexStatus.Seen);
+        }
 
         if(introAnimation != null){
             yield return StartCoroutine(introAnimation.TransitionLogic());
@@ -594,6 +600,11 @@ public class CombatSystem : MonoBehaviour
         replacing.battleHUD.SlideIn();
 
         handleExperience.UpdateParticipantsOnShift(BattleTargets);
+
+        // Update DexStatus to seen for any enemy mon switched in
+        if(!replacing.teamBattleModifier.isPlayerTeam){
+            ReferenceLib.UpdateDexStatus(replacing.pokemon.pokemonDefault, DexStatus.Seen);
+        }
 
         string message = replacing.teamBattleModifier.isPlayerTeam ? "Go " + replacing.pokemon.nickName + "!" : "Enemy sent out " + replacing.pokemon.nickName;
         yield return StartCoroutine(combatScreen.battleText.WriteMessage(message));

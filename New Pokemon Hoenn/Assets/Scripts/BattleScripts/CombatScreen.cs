@@ -93,20 +93,24 @@ public class CombatScreen : MonoBehaviour
         yield return StartCoroutine(EncounterAnimation(wildMon));
         yield return StartCoroutine(WriteOpeningBattleMessage(wildMon.pokemon.pokemonName));
 
-        //remove this when the proper animations are implemented
-        foreach(BattleTarget b in battleTargets){
-            b.battleHUD.SetBattleHUD(b.pokemon);
-            b.monSpriteObject.GetComponent<Image>().sprite = b.teamBattleModifier.isPlayerTeam ? b.pokemon.backSprite : b.pokemon.frontSprite;
-            b.battleHUD.SlideIn();
-            b.monSpriteObject.SetActive(true);
-        }
-
         if(CombatSystem.EnemyTrainer != null){
             enemyTrainerImage.GetComponent<SingleAnimOverride>().PlayAnimation();
-            //enemy send out pokemon animations
-            yield break;
+            List<BattleTarget> enemyMons = battleTargets.FindAll(b => !b.teamBattleModifier.isPlayerTeam);
+            TempSendOutAnimation(enemyMons);
         }
-        //player send out pokemon animations
+
+        List<BattleTarget> playerMons = battleTargets.FindAll(b => b.teamBattleModifier.isPlayerTeam);
+        TempSendOutAnimation(playerMons);
+    }
+
+    private void TempSendOutAnimation(List<BattleTarget> teamMons){
+        foreach(BattleTarget mon in teamMons){
+            //play send out animation, and wait slightly
+            mon.battleHUD.SetBattleHUD(mon.pokemon);
+            mon.monSpriteObject.GetComponent<Image>().sprite = mon.teamBattleModifier.isPlayerTeam ? mon.pokemon.backSprite : mon.pokemon.frontSprite;
+            mon.battleHUD.SlideIn();
+            mon.monSpriteObject.SetActive(true);
+        }
     }
 
     public IEnumerator EndTrainerBattleSequence(Trainer enemyTrainer){
