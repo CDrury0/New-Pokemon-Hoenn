@@ -47,8 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Sheer Cold
   moveDescription: Chills the target down to its core, instantly causing it to faint.
-  moveType: 6
+  moveType: {fileID: 11400000, guid: 1b5d229aad6a30240b6dbc065e9cf3db, type: 2}
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 0
   category: 1
   targetType: 1
@@ -62,22 +63,14 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
+  ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 1
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &286795808161387989
 MonoBehaviour:

@@ -46,9 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveName: Will-O-Wisp
-  moveDescription: An ingis fatuus burns the target.
-  moveType: 2
+  moveDescription: An ignis fatuus burns the target.
+  moveType: {fileID: 11400000, guid: fd68c89d1c321bb408a0eb172c1713d1, type: 2}
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 0
   category: 2
   targetType: 1
@@ -62,22 +63,14 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
+  ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0.85
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &-3244225444278715557
 MonoBehaviour:

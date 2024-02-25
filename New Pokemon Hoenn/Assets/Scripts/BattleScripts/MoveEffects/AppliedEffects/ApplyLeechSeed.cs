@@ -19,7 +19,7 @@ public class ApplyLeechSeed : ApplyIndividualEffect, IApplyEffect
 
     public override bool ImmuneToEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        return target.pokemon.IsThisType(Pokemon.Type.Grass);
+        return target.pokemon.IsThisType(ReferenceLib.GetPokemonType("Grass"));
     }
 
     void Awake(){

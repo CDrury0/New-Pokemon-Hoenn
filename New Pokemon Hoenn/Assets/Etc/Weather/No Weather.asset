@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37441c34c21db164885f4aef8ce11da0, type: 3}
   m_Name: No Weather
   m_EditorClassIdentifier: 
-  typeFromWeather: 1
-  weakensType: 0
+  typeFromWeather: {fileID: 11400000, guid: 3c71eebcee5e3104bbc029ff0f1939d1, type: 2}
+  weakensType: {fileID: 0}
   textOnSet: 
   textOnContinue: 
   textOnStop: 
   damageEveryTurn: 0
   textOnDamage: 
-  immuneTypes: 
+  immuneTypes: []
   healsMore: 0
   healsLess: 0

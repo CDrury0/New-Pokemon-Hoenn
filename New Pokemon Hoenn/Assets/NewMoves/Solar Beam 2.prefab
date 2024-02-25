@@ -49,8 +49,9 @@ MonoBehaviour:
   moveName: Solar Beam
   moveDescription: Absorbs sunlight the first turn, then releases a channeled beam
     the second. Does not need to charge during intense sunlight.
-  moveType: 5
+  moveType: {fileID: 11400000, guid: 50d1ff0e9649ad54b8afcfb91033e7c9, type: 2}
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 120
   category: 1
   targetType: 1
@@ -64,11 +65,14 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
+  ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &-5933396084027220202
 MonoBehaviour:
@@ -84,7 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyToSelf: 0
   message: 
-  skipChargingTurn: 0
+  skipChargingTurn: {fileID: 0}
   useNext: {fileID: 0}
   baseMove: {fileID: 1682630347, guid: 83fd26603e9f62c4bab55d583f0faa0c, type: 3}
   givesSemiInvulnerable: 0
@@ -120,6 +124,7 @@ MonoBehaviour:
   bonusFromCurl: 0
   bonusLikeRollout: 0
   cannotKO: 0
+  cannotCrit: 0
   bonusAgainstMinimize: 0
   bonusAgainstSemiInvulnerable: 0
   bonusAgainstStatus: 0

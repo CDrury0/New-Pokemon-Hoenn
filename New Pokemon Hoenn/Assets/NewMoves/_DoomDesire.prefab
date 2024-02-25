@@ -48,7 +48,7 @@ MonoBehaviour:
   moveName: Doom Desire
   moveDescription: Prophesies the target's doom, dealing heavy damage 2 turns after
     its use.
-  moveType: 17
+  moveType: {fileID: 11400000, guid: ce82cc315b661d845b82f9b10e6a1078, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 120
@@ -65,9 +65,11 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 1
+    entryHazard: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
@@ -97,6 +99,7 @@ MonoBehaviour:
   bonusFromCurl: 0
   bonusLikeRollout: 0
   cannotKO: 0
+  cannotCrit: 0
   bonusAgainstMinimize: 0
   bonusAgainstSemiInvulnerable: 0
   bonusAgainstStatus: 0

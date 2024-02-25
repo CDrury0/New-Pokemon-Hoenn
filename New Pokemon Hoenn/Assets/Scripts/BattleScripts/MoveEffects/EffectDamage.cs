@@ -7,10 +7,11 @@ using UnityEngine.UI;
 public abstract class EffectDamage : MoveEffect, ICheckMoveFail, IFlashImage
 {
     public bool makesContact;
+    protected float matchup;
 
     //account for sturdy, endure here
     protected IEnumerator ApplyDamage(MoveData moveData, BattleTarget user, BattleTarget target, int damage){
-        float matchup = CombatLib.Instance.moveFunctions.GetTypeMatchup(moveData.GetEffectiveMoveType(user.pokemon), target);
+        matchup = moveData.GetEffectiveMoveType(user.pokemon).GetBattleEffectiveness(target);
         SFXLib sfx = SFXLib.Instance;
         AudioClip onHit = matchup < 1f ? sfx.notVeryEffective : matchup == 1f ? sfx.normalEffective : sfx.superEffective;
         AudioManager.Instance.PlaySoundEffect(onHit);
@@ -46,7 +47,7 @@ public abstract class EffectDamage : MoveEffect, ICheckMoveFail, IFlashImage
         if(moveData.focusPunch && (user.individualBattleModifier.specialDamageTakenThisTurn > 0 || user.individualBattleModifier.physicalDamageTakenThisTurn > 0)){
             return user.GetName() + " lost its focus and couldn't move!";
         }
-        if(moveData.category != MoveData.Category.Status && CombatLib.Instance.moveFunctions.GetTypeMatchup(moveData.GetEffectiveMoveType(user.pokemon), target) == 0){
+        if(moveData.category != MoveData.Category.Status && moveData.GetEffectiveMoveType(user.pokemon).GetBattleEffectiveness(target) == 0){
             return "It doesn't affect " + target.GetName() + "...";
         }
         return null;

@@ -47,8 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Confuse Ray
   moveDescription: A sinister light pattern confuses the target.
-  moveType: 14
+  moveType: {fileID: 11400000, guid: bb743c0d66edeea419eec6b05097e122, type: 2}
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 0
   category: 2
   targetType: 1
@@ -62,22 +63,14 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
+  ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &3359662514562973841
 MonoBehaviour:

@@ -68,19 +68,19 @@ public class ApplyPrimaryStatusEffect : MoveEffect, ICheckMoveFail
     }
 
     public static bool ImmuneToStatus(PrimaryStatus status, BattleTarget target, bool powder){
-        if(powder && target.pokemon.IsThisType(Pokemon.Type.Grass)){
+        if(powder && target.pokemon.IsThisType(ReferenceLib.GetPokemonType("Grass"))){
             return true;
         }
         if(target.teamBattleModifier.teamEffects.Find(e => e.effect.durationEffect == TeamDurationEffect.Safeguard) != null){
             return true;
         }
         if(status == PrimaryStatus.Poisoned){
-            if(target.pokemon.IsThisType(Pokemon.Type.Poison) || target.pokemon.IsThisType(Pokemon.Type.Steel)){
+            if(target.pokemon.IsThisType(ReferenceLib.GetPokemonType("Poison")) || target.pokemon.IsThisType(ReferenceLib.GetPokemonType("Steel"))){
                 return true;
             }
         }
         else if(status == PrimaryStatus.Paralyzed){
-            if(target.pokemon.IsThisType(Pokemon.Type.Electric)){
+            if(target.pokemon.IsThisType(ReferenceLib.GetPokemonType("Electric"))){
                 return true;
             }
         }
@@ -88,12 +88,12 @@ public class ApplyPrimaryStatusEffect : MoveEffect, ICheckMoveFail
             //check for vital spirit, insomnia
         }
         else if(status == PrimaryStatus.Burned){
-            if(target.pokemon.IsThisType(Pokemon.Type.Fire)){
+            if(target.pokemon.IsThisType(ReferenceLib.GetPokemonType("Fire"))){
                 return true;
             }
         }
         else if(status == PrimaryStatus.Frozen){
-            if(target.pokemon.IsThisType(Pokemon.Type.Ice)){
+            if(target.pokemon.IsThisType(ReferenceLib.GetPokemonType("Ice"))){
                 return true;
             }
         }

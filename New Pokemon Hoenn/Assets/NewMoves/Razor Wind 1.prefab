@@ -48,8 +48,9 @@ MonoBehaviour:
   moveName: Razor Wind
   moveDescription: A 2-turn attack that builds power the first turn, then unleashes
     it on the second. It has a high critical hit ratio.
-  moveType: 1
+  moveType: {fileID: 11400000, guid: 3c71eebcee5e3104bbc029ff0f1939d1, type: 2}
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 80
   category: 1
   targetType: 2
@@ -63,11 +64,14 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
+  ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0.9
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &3175258687527453831
 MonoBehaviour:
@@ -83,7 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyToSelf: 0
   message: '&userName whipped up a whirlwind!'
-  skipChargingTurn: 0
+  skipChargingTurn: {fileID: 0}
   useNext: {fileID: 1682630347, guid: 879105aaf6f14de41aa355eea11784f2, type: 3}
   baseMove: {fileID: 0}
   givesSemiInvulnerable: 0

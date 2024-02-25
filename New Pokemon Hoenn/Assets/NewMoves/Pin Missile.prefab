@@ -47,8 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Pin Missile
   moveDescription: Sharp quills stick into the target. Can hit 2 to 5 times.
-  moveType: 12
+  moveType: {fileID: 11400000, guid: 5a74ad6be74a9dd4b8e1b8ee1ea74ab2, type: 2}
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 20
   category: 0
   targetType: 1
@@ -63,11 +64,13 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0.95
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &-8974637020239912101
 MonoBehaviour:
@@ -95,6 +98,7 @@ MonoBehaviour:
   bonusFromCurl: 0
   bonusLikeRollout: 0
   cannotKO: 0
+  cannotCrit: 0
   bonusAgainstMinimize: 0
   bonusAgainstSemiInvulnerable: 0
   bonusAgainstStatus: 0

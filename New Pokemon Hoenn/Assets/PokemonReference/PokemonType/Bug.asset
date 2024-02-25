@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea1e2045fa5ca234cbef095ccff25257, type: 3}
+  m_Name: Bug
+  m_EditorClassIdentifier: 
+  typeColor: {r: 0.65882355, g: 0.72156864, b: 0.1254902, a: 1}
+  superEffectiveAgainst:
+  - {fileID: 11400000, guid: 50d1ff0e9649ad54b8afcfb91033e7c9, type: 2}
+  - {fileID: 11400000, guid: 5dcddc6159268cf46b122beb24ebbc70, type: 2}
+  - {fileID: 11400000, guid: d5027fe862900c64f9009c120c28b82a, type: 2}
+  resistedBy:
+  - {fileID: 11400000, guid: fd68c89d1c321bb408a0eb172c1713d1, type: 2}
+  - {fileID: 11400000, guid: ed81a4ca38f438843a079324a7956664, type: 2}
+  - {fileID: 11400000, guid: 377754f6e3ae4cd4880b47717857e7db, type: 2}
+  - {fileID: 11400000, guid: bb743c0d66edeea419eec6b05097e122, type: 2}
+  - {fileID: 11400000, guid: ce82cc315b661d845b82f9b10e6a1078, type: 2}
+  immuneToThis: []

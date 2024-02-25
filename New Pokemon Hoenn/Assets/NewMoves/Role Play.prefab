@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Role Play
   moveDescription: Mimics the target, copying its ability.
-  moveType: 11
+  moveType: {fileID: 11400000, guid: 5dcddc6159268cf46b122beb24ebbc70, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 0

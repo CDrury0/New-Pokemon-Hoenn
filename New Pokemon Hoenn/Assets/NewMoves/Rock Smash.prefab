@@ -49,7 +49,7 @@ MonoBehaviour:
   moveName: Rock Smash
   moveDescription: Breaks a rock against the target's face. High chance to reduce
     target defense.
-  moveType: 7
+  moveType: {fileID: 11400000, guid: 6e641f25cf3bf7641ae8b04a7ec97b51, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 45

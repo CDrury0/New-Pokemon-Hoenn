@@ -10,42 +10,6 @@ public class MoveFunctions : MonoBehaviour
     public GameObject confuseAttack;
     public ApplyConfuse confuseAfterForcedToUse;
     public MoveData confuseAfterForcedToUseData;
-    private const float TYPE_WEAKNESS = 1.75f;
-    private const float TYPE_RESIST = 0.58f;
-
-    public float GetTypeMatchup(Pokemon.Type moveType, BattleTarget defender){
-        if(defender.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyIdentify) != null){
-            return 1f;
-        }
-        float ef1 = GetSingleTypeEffectiveness(moveType, defender.pokemon.type1);
-        float ef2 = GetSingleTypeEffectiveness(moveType, defender.pokemon.type2);
-        if(ef1 == TYPE_WEAKNESS && ef2 == TYPE_RESIST || ef1 == TYPE_RESIST && ef2 == TYPE_WEAKNESS){
-            return 1f;
-        }
-        else{
-            return ef1 * ef2;
-        }
-    }
-
-    private float GetSingleTypeEffectiveness(Pokemon.Type offensiveType, Pokemon.Type defensiveType){
-        if(offensiveType == Pokemon.Type.None){
-            return 1;
-        }
-        ReferenceLib.TypeMatchupList matchupList = ReferenceLib.Instance.typeEffectivenessMatchups.First(type => type.attackingType == offensiveType);
-        ReferenceLib.TypeMatchupValues values = matchupList.matchup.FirstOrDefault(type => type.defendingType == defensiveType);
-        return values != null ? MatchTypeEffectivenessToValue(values.effectiveness) : 1;
-    }
-
-    private float MatchTypeEffectivenessToValue(StatLib.Matchup matchup){
-        switch (matchup){
-            case StatLib.Matchup.Weakness:
-                return TYPE_WEAKNESS;
-            case StatLib.Matchup.Resistance:
-                return TYPE_RESIST;
-            default:
-                return 0;
-        }
-    }
     
     /// <summary>
     /// If manual target selection is not necessary, automatically set the target accordingly using the TargetType argument.
@@ -163,13 +127,10 @@ public class MoveFunctions : MonoBehaviour
         return Random.Range(0f, 0.99f) < critRatio;
     }
 
-    public IEnumerator WriteEffectivenessText(BattleTarget target, Pokemon.Type effectiveMoveType){
-        float matchup = GetTypeMatchup(effectiveMoveType, target);
-        if(matchup > 1){
-            yield return StartCoroutine(combatScreen.battleText.WriteMessage("It's super effective!"));
-        }
-        else if(matchup < 1){
-            yield return StartCoroutine(combatScreen.battleText.WriteMessage("It's not very effective..."));
+    public IEnumerator WriteEffectivenessText(float matchup){
+        string message = PokemonType.GetMatchupMessage(matchup);
+        if(message != string.Empty){
+            yield return StartCoroutine(combatScreen.battleText.WriteMessage(PokemonType.GetMatchupMessage(matchup)));
         }
     }
 
@@ -300,7 +261,7 @@ public class MoveFunctions : MonoBehaviour
             yield break;
         }
 
-        if(moveData.moveName == "Thunder Wave" && target.pokemon.IsThisType(Pokemon.Type.Ground)){
+        if(moveData.moveName == "Thunder Wave" && target.pokemon.IsThisType(ReferenceLib.GetPokemonType("Ground"))){
             yield return StartCoroutine(combatScreen.battleText.WriteMessage("It doesn't affect " + target.GetName() + "..."));
             yield break;
         }
@@ -456,7 +417,7 @@ public class MoveFunctions : MonoBehaviour
             foreach(BattleTarget b in battleTargets){
                 
                 bool takeDamage = true;
-                foreach(Pokemon.Type immuneType in weather.immuneTypes){
+                foreach(PokemonType immuneType in weather.immuneTypes){
                     if(b.pokemon.IsThisType(immuneType)){
                         takeDamage = false;
                     }

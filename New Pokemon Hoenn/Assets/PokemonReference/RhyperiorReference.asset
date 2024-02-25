@@ -19,8 +19,8 @@ MonoBehaviour:
   height: 2.4
   weight: 282.8
   IDNumber: 176
-  type1: 9
-  type2: 13
+  type1: {fileID: 11400000, guid: b6b7a399c4c469245a188eef47ae3cec, type: 2}
+  type2: {fileID: 11400000, guid: c3c5eed97d853c843b4907559a5c1576, type: 2}
   friendship: 50
   baseExperience: 241
   growthRate: 0
@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 0
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: 0f896f7f1e905c24aa257212e4044c80, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: The holes in its palms can shoot rocks at high velocity. Its thick
     carapace can withstand lava.
   ability1: 80
@@ -40,16 +38,13 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: 17135cca5a45d7f4095d50991dcfae2e, type: 3}
   shinyFront: {fileID: 21300000, guid: 45b1875c978956342b1d4bacf6c6d191, type: 3}
   shinyBack: {fileID: 21300000, guid: d882437065e2d3242a42af7c5f66605e, type: 3}
-  evolutionLevel: 101
-  evoDetails:
-    evolvesWithItem: {fileID: 0}
-    evolvesWithFriendship: 0
-    evolvesFromGender: 0
-    evolvesRandom: 0
+  evolutionData: {fileID: 0}
+  gift: {fileID: 0}
+  stoneEvolutions: []
   boxSprite: {fileID: 0}
   shinyBoxSprite: {fileID: 0}
   naturallyHeldItem: {fileID: 0}
-  lastSeen: 0
+  lastSeen: {fileID: 0}
   evYield: 000000000300000000000000000000000000000000000000
   learnedMoves:
   - {fileID: 0}

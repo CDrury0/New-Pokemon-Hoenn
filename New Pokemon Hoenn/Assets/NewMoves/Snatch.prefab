@@ -48,7 +48,7 @@ MonoBehaviour:
   moveName: Snatch
   moveDescription: If another Pokemon uses a status move on itself this turn, the
     user will steal it and use it instead.
-  moveType: 16
+  moveType: {fileID: 11400000, guid: d5027fe862900c64f9009c120c28b82a, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 0
@@ -65,9 +65,11 @@ MonoBehaviour:
   cannotBeSnatched: 1
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0

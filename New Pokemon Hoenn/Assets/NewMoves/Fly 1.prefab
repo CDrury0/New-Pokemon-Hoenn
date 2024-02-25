@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Fly
   moveDescription: The user flies high, then strikes on the next turn.
-  moveType: 10
+  moveType: {fileID: 11400000, guid: 377754f6e3ae4cd4880b47717857e7db, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 90

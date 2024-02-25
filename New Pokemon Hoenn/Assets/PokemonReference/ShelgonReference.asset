@@ -19,8 +19,8 @@ MonoBehaviour:
   height: 1.1
   weight: 110.5
   IDNumber: 200
-  type1: 15
-  type2: 0
+  type1: {fileID: 11400000, guid: 49d6751d8d9c25f47aba638a05ad83cc, type: 2}
+  type2: {fileID: 0}
   friendship: 35
   baseExperience: 150
   growthRate: 0

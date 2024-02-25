@@ -49,8 +49,9 @@ MonoBehaviour:
   moveName: Flamethrower
   moveDescription: Scorches the foe with an intense stream of flame. May burn the
     target.
-  moveType: 2
+  moveType: {fileID: 11400000, guid: fd68c89d1c321bb408a0eb172c1713d1, type: 2}
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 90
   category: 1
   targetType: 1
@@ -65,11 +66,13 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &-3927158885496919354
 MonoBehaviour:
@@ -97,6 +100,7 @@ MonoBehaviour:
   bonusFromCurl: 0
   bonusLikeRollout: 0
   cannotKO: 0
+  cannotCrit: 0
   bonusAgainstMinimize: 0
   bonusAgainstSemiInvulnerable: 0
   bonusAgainstStatus: 0

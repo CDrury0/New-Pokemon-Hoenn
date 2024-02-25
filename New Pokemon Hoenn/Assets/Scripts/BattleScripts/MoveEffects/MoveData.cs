@@ -7,7 +7,7 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
 {
     public string moveName;
     [TextArea(3,3)] public string moveDescription;
-    [SerializeField] private Pokemon.Type moveType;
+    [SerializeField] private PokemonType moveType;
     public bool typeFromWeather;
     public bool hiddenPowerType;
     public int displayPower; //the power value shown in UI
@@ -30,7 +30,7 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
     public MoveAccuracyData accuracyData;
     public const string FAIL = "But it failed!";
 
-    public Pokemon.Type GetEffectiveMoveType(Pokemon user){
+    public PokemonType GetEffectiveMoveType(Pokemon user){
         if(typeFromWeather){
             return CombatSystem.Weather.typeFromWeather;
         }
@@ -41,7 +41,7 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
     }
 
     //this smells terrible...
-    public Pokemon.Type GetEffectiveMoveType() {
+    public PokemonType GetEffectiveMoveType() {
         return moveType;
     }
 

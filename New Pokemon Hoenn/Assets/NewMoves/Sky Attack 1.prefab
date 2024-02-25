@@ -48,7 +48,7 @@ MonoBehaviour:
   moveName: Sky Attack
   moveDescription: Analyzes the target for weak points the first turn, then viciously
     strikes the next. May cause the opponent to flinch. Has a high critical hit ratio.
-  moveType: 10
+  moveType: {fileID: 11400000, guid: 377754f6e3ae4cd4880b47717857e7db, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 140
@@ -65,9 +65,11 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0.9
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0

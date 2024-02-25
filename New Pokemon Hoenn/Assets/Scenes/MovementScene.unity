@@ -1534,11 +1534,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: 
   moveDescription: Confusion from moves like thrash, petal dance, etc.
-  moveType: 0
+  moveType: {fileID: 11400000, guid: 7187fc4c00db9024ca3f86ff6bc03d89, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 0
-  category: 0
+  category: 2
   targetType: 0
   maxPP: 0
   priority: 0
@@ -5294,7 +5294,7 @@ MonoBehaviour:
   moveButtonLayoutObject: {fileID: 1751536373}
   moveBackButton: {fileID: 1962259532}
   targetBackButton: {fileID: 1482789468}
-  typeColors: {fileID: 11400000, guid: 1926c8337e79a51499663875c17a3120, type: 2}
+  emptyColor: {r: 0.42352942, g: 0.42352942, b: 0.42352942, a: 1}
   battleText: {fileID: 2602377372608982650}
   player1Object: {fileID: 423259532}
   enemy1Object: {fileID: 519819222}

@@ -50,8 +50,9 @@ MonoBehaviour:
   moveDescription: Sauces on the target, dealing damage and causing it to flinch.
     Moves before other priority attacks, but fails if the user has already used a
     move since being sent out.
-  moveType: 1
+  moveType: {fileID: 11400000, guid: 3c71eebcee5e3104bbc029ff0f1939d1, type: 2}
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 40
   category: 0
   targetType: 1
@@ -66,11 +67,13 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &-2974194565098940391
 MonoBehaviour:
@@ -98,6 +101,7 @@ MonoBehaviour:
   bonusFromCurl: 0
   bonusLikeRollout: 0
   cannotKO: 0
+  cannotCrit: 0
   bonusAgainstMinimize: 0
   bonusAgainstSemiInvulnerable: 0
   bonusAgainstStatus: 0

@@ -470,7 +470,7 @@ public class CombatSystem : MonoBehaviour
     }
 
     private void PreMoveEffects(BattleTarget user, GameObject moveUsed){
-        if(moveUsed.GetComponent<ApplyCurse>() != null && user.pokemon.IsThisType(Pokemon.Type.Ghost)){
+        if(moveUsed.GetComponent<ApplyCurse>() != null && user.pokemon.IsThisType(ReferenceLib.GetPokemonType("Ghost"))){
             moveFunctions.MustChooseTarget(TargetType.RandomFoe, user);
         }
 

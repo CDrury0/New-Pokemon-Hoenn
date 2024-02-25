@@ -132,13 +132,13 @@ public class LoadDexInfo : MonoBehaviour
     public void LoadPokemonTypes(PokemonDefault representsThis){
         loadDexUI.type1box.gameObject.SetActive(true);
 
-        loadDexUI.type1box.GetComponentInChildren<Image>().color = loadDexUI.typeColors.colors[(int)representsThis.type1];
-        loadDexUI.type1box.GetComponentInChildren<TextMeshProUGUI>().text = representsThis.type1.ToString();
+        loadDexUI.type1box.GetComponentInChildren<Image>().color = representsThis.type1.typeColor;
+        loadDexUI.type1box.GetComponentInChildren<TextMeshProUGUI>().text = representsThis.type1.name;
 
-        bool hasSecond = representsThis.type2 != Pokemon.Type.None;
+        bool hasSecond = representsThis.type2 != null;
         if(hasSecond){
-            loadDexUI.type2box.GetComponentInChildren<Image>().color = loadDexUI.typeColors.colors[(int)representsThis.type2];
-            loadDexUI.type2box.GetComponentInChildren<TextMeshProUGUI>().text = representsThis.type2.ToString();
+            loadDexUI.type2box.GetComponentInChildren<Image>().color = representsThis.type2.typeColor;
+            loadDexUI.type2box.GetComponentInChildren<TextMeshProUGUI>().text = representsThis.type2.name;
         }
         loadDexUI.type2box.gameObject.SetActive(hasSecond);
     }

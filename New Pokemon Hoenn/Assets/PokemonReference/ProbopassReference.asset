@@ -19,8 +19,8 @@ MonoBehaviour:
   height: 1.4
   weight: 340
   IDNumber: 61
-  type1: 13
-  type2: 17
+  type1: {fileID: 11400000, guid: c3c5eed97d853c843b4907559a5c1576, type: 2}
+  type2: {fileID: 11400000, guid: ce82cc315b661d845b82f9b10e6a1078, type: 2}
   friendship: 50
   baseExperience: 184
   growthRate: 2
@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 13
   eggCycles: 20
   childPokemon: {fileID: 11400000, guid: 1c244f56beb358b4399961c0d6def3d6, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: Its beard is actually a collection of metal filings attracted to
     its magnetic nose. It can control its small noses to defend against attack from
     several directions.
@@ -41,12 +39,9 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: e5c784cdbd065eb43809f48ec5a6f94d, type: 3}
   shinyFront: {fileID: 21300000, guid: 0223c0c05125af04283bcba0cd9e71e6, type: 3}
   shinyBack: {fileID: 21300000, guid: 7b3b5f0b0243b764da1d0bb3ae6e9a82, type: 3}
-  evolutionLevel: 101
-  evoDetails:
-    evolvesWithItem: {fileID: 0}
-    evolvesWithFriendship: 0
-    evolvesFromGender: 0
-    evolvesRandom: 0
+  evolutionData: {fileID: 0}
+  gift: {fileID: 0}
+  stoneEvolutions: []
   boxSprite: {fileID: 0}
   shinyBoxSprite: {fileID: 0}
   naturallyHeldItem: {fileID: 0}

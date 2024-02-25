@@ -47,8 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Dig
   moveDescription: Digs underground the first turn, then deals damage the second.
-  moveType: 9
+  moveType: {fileID: 11400000, guid: b6b7a399c4c469245a188eef47ae3cec, type: 2}
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 80
   category: 0
   targetType: 1
@@ -62,11 +63,14 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
+  ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &1673234038468791623
 MonoBehaviour:
@@ -82,7 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyToSelf: 0
   message: '&userName went underground!'
-  skipChargingTurn: 0
+  skipChargingTurn: {fileID: 0}
   useNext: {fileID: 1682630347, guid: 51a24380278cb1647802f3deb3bff54b, type: 3}
   baseMove: {fileID: 0}
   givesSemiInvulnerable: 2

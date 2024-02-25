@@ -47,7 +47,7 @@ MonoBehaviour:
   moveName: 
   moveDescription: Placeholder action to represent that a mon's turn was spent using
     an item on a party member
-  moveType: 0
+  moveType: {fileID: 11400000, guid: 7187fc4c00db9024ca3f86ff6bc03d89, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 0
@@ -64,6 +64,7 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 0

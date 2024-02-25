@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChargeEffect : MoveEffect
 {
-    public Pokemon.Type chargedType;
+    public PokemonType chargedType;
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
         target.individualBattleModifier.chargedType = chargedType;

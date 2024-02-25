@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37441c34c21db164885f4aef8ce11da0, type: 3}
   m_Name: Sandstorm
   m_EditorClassIdentifier: 
-  typeFromWeather: 13
-  weakensType: 0
+  typeFromWeather: {fileID: 11400000, guid: c3c5eed97d853c843b4907559a5c1576, type: 2}
+  weakensType: {fileID: 0}
   textOnSet: A sandstorm brewed!
   textOnContinue: The sandstorm rages
   textOnStop: The sandstorm subsided
   damageEveryTurn: 1
   textOnDamage: is buffeted by the sandstorm!
-  immuneTypes: 0d0000000900000011000000
+  immuneTypes:
+  - {fileID: 11400000, guid: c3c5eed97d853c843b4907559a5c1576, type: 2}
+  - {fileID: 11400000, guid: b6b7a399c4c469245a188eef47ae3cec, type: 2}
+  - {fileID: 11400000, guid: ce82cc315b661d845b82f9b10e6a1078, type: 2}
   healsMore: 0
   healsLess: 1

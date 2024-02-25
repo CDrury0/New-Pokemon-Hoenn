@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Magic Coat
   moveDescription: A psychic barrier reflects status moves back at the user.
-  moveType: 11
+  moveType: {fileID: 11400000, guid: 5dcddc6159268cf46b122beb24ebbc70, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 0
@@ -64,9 +64,11 @@ MonoBehaviour:
   cannotBeSnatched: 1
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0

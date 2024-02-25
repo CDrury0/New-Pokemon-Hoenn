@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37441c34c21db164885f4aef8ce11da0, type: 3}
   m_Name: Hail
   m_EditorClassIdentifier: 
-  typeFromWeather: 6
-  weakensType: 0
+  typeFromWeather: {fileID: 11400000, guid: 1b5d229aad6a30240b6dbc065e9cf3db, type: 2}
+  weakensType: {fileID: 0}
   textOnSet: Hail began falling from the sky!
   textOnContinue: Hail continues to fall
   textOnStop: The hail stopped
   damageEveryTurn: 1
   textOnDamage: is stricken by hail!
-  immuneTypes: 06000000
+  immuneTypes:
+  - {fileID: 11400000, guid: 1b5d229aad6a30240b6dbc065e9cf3db, type: 2}
   healsMore: 0
   healsLess: 1

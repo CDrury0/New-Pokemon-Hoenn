@@ -46,10 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveName: Encore
-  moveDescription: For the next 2 to 4 turns, the target can only select the move
+  moveDescription: For the next 2 to 3 turns, the target can only select the move
     it used last.
-  moveType: 1
+  moveType: {fileID: 11400000, guid: 3c71eebcee5e3104bbc029ff0f1939d1, type: 2}
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 40
   category: 2
   targetType: 1
@@ -63,22 +64,14 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
+  ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &-1046921543262648921
 MonoBehaviour:
@@ -96,4 +89,4 @@ MonoBehaviour:
   message: 
   chance: 1
   timerMin: 2
-  timerMax: 4
+  timerMax: 3

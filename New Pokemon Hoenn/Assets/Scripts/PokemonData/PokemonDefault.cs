@@ -14,8 +14,8 @@ public class PokemonDefault : ScriptableObject
     public float height;
     public float weight;
     public int IDNumber;
-    public Pokemon.Type type1;
-    public Pokemon.Type type2;
+    public PokemonType type1;
+    public PokemonType type2;
     public int friendship;
     public int baseExperience;
     public GrowthRate growthRate;

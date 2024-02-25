@@ -49,7 +49,7 @@ MonoBehaviour:
   moveName: Thrash
   moveDescription: The user rampages uncontrollably for 2 to 3 turns, but becomes
     confused afterward.
-  moveType: 1
+  moveType: {fileID: 11400000, guid: 3c71eebcee5e3104bbc029ff0f1939d1, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 110
@@ -66,6 +66,7 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0.9
     cannotMissVulnerable: 0

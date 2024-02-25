@@ -7,7 +7,6 @@ using System.Linq;
 
 public class LoadDexUI : MonoBehaviour
 {
-    public ColorSO typeColors;
     public Color[] statColors = new Color[6];
     public Image[] statBars = new Image[6];
     public GameObject type1box;

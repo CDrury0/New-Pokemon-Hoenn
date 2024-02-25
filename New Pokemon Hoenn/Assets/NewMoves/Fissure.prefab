@@ -48,8 +48,9 @@ MonoBehaviour:
   moveName: Fissure
   moveDescription: Splits the Earth apart, leaving a fissure that swallows the target.
     Instantly causes almost any foe to faint if it hits.
-  moveType: 9
+  moveType: {fileID: 11400000, guid: b6b7a399c4c469245a188eef47ae3cec, type: 2}
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 0
   category: 0
   targetType: 1
@@ -63,11 +64,14 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
+  ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 1
+    entryHazard: 0
     hitsSemiInvulnerable: 2
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &5767297946405845498
 MonoBehaviour:

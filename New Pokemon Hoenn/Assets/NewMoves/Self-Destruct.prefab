@@ -49,7 +49,7 @@ MonoBehaviour:
   moveName: Self-Destruct
   moveDescription: "Violently explodes causing intense damage to all active Pok\xE9mon,
     but causes the user to faint."
-  moveType: 1
+  moveType: {fileID: 11400000, guid: 3c71eebcee5e3104bbc029ff0f1939d1, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 350
@@ -66,6 +66,7 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0

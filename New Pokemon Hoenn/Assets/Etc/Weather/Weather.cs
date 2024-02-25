@@ -5,14 +5,14 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Weather : ScriptableObject
 {
-    public Pokemon.Type typeFromWeather;
-    public Pokemon.Type weakensType;
+    public PokemonType typeFromWeather;
+    public PokemonType weakensType;
     public string textOnSet;
     public string textOnContinue;
     public string textOnStop;
     public bool damageEveryTurn;
     public string textOnDamage;
-    public Pokemon.Type[] immuneTypes;
+    public PokemonType[] immuneTypes;
     public bool healsMore;
     public bool healsLess;
 }

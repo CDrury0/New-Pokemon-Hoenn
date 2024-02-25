@@ -48,7 +48,7 @@ MonoBehaviour:
   moveName: Spikes
   moveDescription: Lays a set of spikes around the opponent's side, causing foes
     to take damage upon switching in. Can stack up to 3 times.
-  moveType: 9
+  moveType: {fileID: 11400000, guid: b6b7a399c4c469245a188eef47ae3cec, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 0
@@ -65,6 +65,7 @@ MonoBehaviour:
   cannotBeSnatched: 1
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 0

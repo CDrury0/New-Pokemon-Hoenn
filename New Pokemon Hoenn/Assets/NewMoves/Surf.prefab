@@ -48,7 +48,7 @@ MonoBehaviour:
   moveName: Surf
   moveDescription: Creates a huge wave, then crashes it down on all active Pokemon.
     Does more damage to underwater targets.
-  moveType: 3
+  moveType: {fileID: 11400000, guid: 36c2b7534f7ae2642946848dea1ebb07, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 65

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Ominous Wind
   moveDescription: Jets a gust of repulsive wind. May raise all of the user's stats.
-  moveType: 14
+  moveType: {fileID: 11400000, guid: bb743c0d66edeea419eec6b05097e122, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 60
@@ -65,9 +65,11 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
@@ -97,6 +99,7 @@ MonoBehaviour:
   bonusFromCurl: 0
   bonusLikeRollout: 0
   cannotKO: 0
+  cannotCrit: 0
   bonusAgainstMinimize: 0
   bonusAgainstSemiInvulnerable: 0
   bonusAgainstStatus: 0

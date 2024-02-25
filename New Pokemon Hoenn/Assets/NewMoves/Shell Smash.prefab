@@ -49,7 +49,7 @@ MonoBehaviour:
   moveName: Shell Smash
   moveDescription: The user breaks its own shell, lowering Defense and Special Defense,
     but sharply raising Attack, Special Attack, and Speed.
-  moveType: 1
+  moveType: {fileID: 11400000, guid: 3c71eebcee5e3104bbc029ff0f1939d1, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 0

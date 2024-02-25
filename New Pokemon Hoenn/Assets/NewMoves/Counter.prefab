@@ -48,8 +48,9 @@ MonoBehaviour:
   moveName: Counter
   moveDescription: The user returns twice the physical damage taken this turn to
     its attacker.
-  moveType: 7
+  moveType: {fileID: 11400000, guid: 6e641f25cf3bf7641ae8b04a7ec97b51, type: 2}
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 0
   category: 0
   targetType: 0
@@ -63,11 +64,14 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
+  ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 1
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &-2593621604965725330
 MonoBehaviour:

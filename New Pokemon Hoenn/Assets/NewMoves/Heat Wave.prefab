@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Heat Wave
   moveDescription: Toasts all foes with intense flame. Good chance to burn the target.
-  moveType: 2
+  moveType: {fileID: 11400000, guid: fd68c89d1c321bb408a0eb172c1713d1, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 90

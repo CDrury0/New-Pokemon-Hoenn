@@ -48,8 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Fly
   moveDescription: The user flies high, then strikes on the next turn.
-  moveType: 10
+  moveType: {fileID: 11400000, guid: 377754f6e3ae4cd4880b47717857e7db, type: 2}
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 90
   category: 0
   targetType: 1
@@ -63,11 +64,14 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
+  ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0.95
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &-7550476731692082730
 MonoBehaviour:
@@ -83,7 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyToSelf: 0
   message: 
-  skipChargingTurn: 0
+  skipChargingTurn: {fileID: 0}
   useNext: {fileID: 0}
   baseMove: {fileID: 1682630347, guid: a8f99cb802287ec4d852106b762051d2, type: 3}
   givesSemiInvulnerable: 0
@@ -119,6 +123,7 @@ MonoBehaviour:
   bonusFromCurl: 0
   bonusLikeRollout: 0
   cannotKO: 0
+  cannotCrit: 0
   bonusAgainstMinimize: 0
   bonusAgainstSemiInvulnerable: 0
   bonusAgainstStatus: 0

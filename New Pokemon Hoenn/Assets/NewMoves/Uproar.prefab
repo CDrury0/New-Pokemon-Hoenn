@@ -49,9 +49,10 @@ MonoBehaviour:
   moveName: Uproar
   moveDescription: Screams for 3 turns, dealing damage to all foes each time. A sleeping
     foe will take more damage, but wake upon hearing the uproar.
-  moveType: 1
+  moveType: {fileID: 11400000, guid: 3c71eebcee5e3104bbc029ff0f1939d1, type: 2}
   typeFromWeather: 0
-  displayPower: 75
+  hiddenPowerType: 0
+  displayPower: 60
   category: 1
   targetType: 2
   maxPP: 10
@@ -65,11 +66,13 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &-988999106102267532
 MonoBehaviour:
@@ -85,7 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyToSelf: 0
   message: 
-  skipChargingTurn: 0
+  skipChargingTurn: {fileID: 0}
   useNext: {fileID: 0}
   baseMove: {fileID: 0}
   givesSemiInvulnerable: 0
@@ -121,6 +124,7 @@ MonoBehaviour:
   bonusFromCurl: 0
   bonusLikeRollout: 0
   cannotKO: 0
+  cannotCrit: 0
   bonusAgainstMinimize: 0
   bonusAgainstSemiInvulnerable: 0
   bonusAgainstStatus: 4

@@ -7,7 +7,6 @@ public enum Nature {Hardy, Lonely, Brave, Adamant, Naughty, Bold, Docile, Relaxe
 
 public class Pokemon
 {
-    public enum Type {None, Normal, Fire, Water, Electric, Grass, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, Fairy}
     public const int MAX_LEVEL = 100;
     public const int MAX_EV = 252;
     public const int MAX_EV_TOTAL = 512;
@@ -19,10 +18,10 @@ public class Pokemon
     public int[] moveMaxPP = new int[4];
     public int[] effortValues = new int[6];
     public int[] individualValues = new int[6];
-    public Type hiddenPowerType;
+    public PokemonType hiddenPowerType;
     public PrimaryStatus primaryStatus;
-    public Type type1;
-    public Type type2;
+    public PokemonType type1;
+    public PokemonType type2;
     public bool isShiny;
     public Sprite frontSprite;
     public Sprite backSprite;
@@ -114,7 +113,9 @@ public class Pokemon
         WildPokemonLearnMoves(pokemonDefault, level);
     }
 
-    //create a usable copy of an existing pokemon from a trainer party
+    /// <summary>
+    /// Used to create a usable copy of a template from a trainer party, etc.
+    /// </summary>
     public Pokemon(SerializablePokemon p){
         this.pokemonDefault = p.pokemonDefault;
         this.ability = p.ability;
@@ -216,7 +217,7 @@ public class Pokemon
         }
     }
 
-    public bool IsThisType(Pokemon.Type type){
+    public bool IsThisType(PokemonType type){
         return type1 == type || type2 == type;
     }
 
@@ -325,7 +326,7 @@ public class Pokemon
         individualValues = MakeRandomIVS();
         isShiny = Random.Range(0, 1000) == 0;
         FillSprites(this);
-        hiddenPowerType = (Type)Random.Range(1, 18);
+        hiddenPowerType = ReferenceLib.Instance.typeList[Random.Range(0, 18)];
         Friendship = pokemonDefault.friendship;
         experience = pokemonDefault.CalculateExperienceAtLevel(level);
         height = MakeHeight(pokemonDefault);

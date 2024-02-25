@@ -7,7 +7,6 @@ using TMPro;
 public class SummaryMovePlate : MonoBehaviour
 {
     public Button button;
-    [SerializeField] private ColorSO typeColors;
     [SerializeField] private Sprite[] categorySprites;
     [SerializeField] private Image categorySprite;
     [SerializeField] private TextMeshProUGUI moveName;
@@ -23,8 +22,8 @@ public class SummaryMovePlate : MonoBehaviour
         categorySprite.sprite = categorySprites[(int)moveData.category];
         moveName.text = moveData.moveName;
         ppText.text = "PP: " + currentPP + " / " + maxPP;
-        typeSprite.color = typeColors.colors[(int)moveData.GetEffectiveMoveType(p)];
-        typeText.text = moveData.GetEffectiveMoveType(p).ToString();
+        typeSprite.color = moveData.GetEffectiveMoveType(p).typeColor;
+        typeText.text = moveData.GetEffectiveMoveType(p).name;
         powerText.text = "Power: " + (moveData.displayPower == 0 ? "---" : moveData.displayPower.ToString());
         accuracyText.text = "Accuracy: " + (moveData.accuracyData.accuracy == 0 ? "---" : (moveData.accuracyData.accuracy * 100).ToString());
         moveDescription = moveData.moveDescription;

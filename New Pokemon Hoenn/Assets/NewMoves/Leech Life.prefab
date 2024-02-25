@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Leech Life
   moveDescription: A parasitic attack that heals the user for half the damage dealt.
-  moveType: 12
+  moveType: {fileID: 11400000, guid: 5a74ad6be74a9dd4b8e1b8ee1ea74ab2, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 25

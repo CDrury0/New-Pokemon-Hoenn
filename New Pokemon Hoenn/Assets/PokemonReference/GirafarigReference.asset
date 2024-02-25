@@ -19,8 +19,8 @@ MonoBehaviour:
   height: 1.5
   weight: 41.5
   IDNumber: 169
-  type1: 1
-  type2: 11
+  type1: {fileID: 11400000, guid: 3c71eebcee5e3104bbc029ff0f1939d1, type: 2}
+  type2: {fileID: 11400000, guid: 5dcddc6159268cf46b122beb24ebbc70, type: 2}
   friendship: 70
   baseExperience: 150
   growthRate: 2
@@ -38,17 +38,9 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: cf88c761e3bc9a74d857b21b2128e56e, type: 3}
   shinyFront: {fileID: 21300000, guid: edc41c4d10eaf6148b4527186ffdbc2c, type: 3}
   shinyBack: {fileID: 21300000, guid: 135e65d5c2227f847a3e75e389a3c94f, type: 3}
-  evoDetails:
-    evolutionLevel: 0
-    evolvesWithHeldItem: {fileID: 0}
-    evolvesWithHeldItem2: {fileID: 0}
-    evolvesWithFriendship: 0
-    evolvesFromGender: 0
-    evolvesRandom: 0
-    firstOrMale: {fileID: 0}
-    secondOrFemale: {fileID: 0}
-    shedinja: {fileID: 0}
-    stoneEvolutions: []
+  evolutionData: {fileID: 0}
+  gift: {fileID: 0}
+  stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 3614c7ac8c091b643b41a249e47ac290, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 681945f21a5fb40428d4c6a64d45736b, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: 27c1fc22c254b7d4699ec20d6fd3df99, type: 2}

@@ -85,7 +85,7 @@ public class NormalDamage : EffectDamage
         if(hitsMaxTimes != 0){
             yield return StartCoroutine(CombatLib.Instance.combatSystem.combatScreen.battleText.WriteMessage("Hit " + timesHit + " time(s)!"));
         }
-        yield return StartCoroutine(CombatLib.Instance.moveFunctions.WriteEffectivenessText(target, moveData.GetEffectiveMoveType(user.pokemon)));
+        yield return StartCoroutine(CombatLib.Instance.moveFunctions.WriteEffectivenessText(matchup));
 
         if(recoilDamage != 0f){
             yield return StartCoroutine(DoRecoilDamage(user));
@@ -175,17 +175,17 @@ public class NormalDamage : EffectDamage
         workingDamage /= 50;
         workingDamage += 2;
 
-        Pokemon.Type localType = moveData.GetEffectiveMoveType(user.pokemon);
+        PokemonType localType = moveData.GetEffectiveMoveType(user.pokemon);
 
-        modifier *= CombatLib.Instance.moveFunctions.GetTypeMatchup(localType, target);
+        modifier *=  localType.GetBattleEffectiveness(target);
 
         modifier *= user.pokemon.IsThisType(localType) ? 1.4f : 1f;
 
         modifier *= GetWeatherDamageModifier(localType, CombatSystem.Weather);
 
-        if(user.individualBattleModifier.chargedType != Pokemon.Type.None && user.individualBattleModifier.chargedType == localType){
+        if(user.individualBattleModifier.chargedType != null && user.individualBattleModifier.chargedType == localType){
             modifier *= 1.5f;
-            user.individualBattleModifier.chargedType = Pokemon.Type.None;
+            user.individualBattleModifier.chargedType = null;
         }
 
         if(user.individualBattleModifier.targets.Count > 1){
@@ -231,7 +231,7 @@ public class NormalDamage : EffectDamage
         return damage;
     }
 
-    private float GetWeatherDamageModifier(Pokemon.Type moveType, Weather weather){
+    private float GetWeatherDamageModifier(PokemonType moveType, Weather weather){
         const float WEATHER_BONUS = 1.4f;
         const float WEATHER_PENALTY = 0.6f;
         if(weather.typeFromWeather == moveType){

@@ -48,7 +48,7 @@ MonoBehaviour:
   moveName: Whirlwind
   moveDescription: Blows the target away with a powerful whirlwind. Fails if the
     target is a higher level than the user.
-  moveType: 1
+  moveType: {fileID: 11400000, guid: 3c71eebcee5e3104bbc029ff0f1939d1, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 0

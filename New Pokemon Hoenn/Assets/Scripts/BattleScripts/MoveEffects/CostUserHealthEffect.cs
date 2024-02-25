@@ -9,7 +9,7 @@ public class CostUserHealthEffect : MoveEffect, ICheckMoveFail, ICheckMoveEffect
     public float percentHealthCost;
 
     public bool CheckMoveEffectFail(BattleTarget user, BattleTarget target, MoveData moveData){
-        return curse && !user.pokemon.IsThisType(Pokemon.Type.Ghost);
+        return curse && !user.pokemon.IsThisType(ReferenceLib.GetPokemonType("Ghost"));
     }
 
     public string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData){

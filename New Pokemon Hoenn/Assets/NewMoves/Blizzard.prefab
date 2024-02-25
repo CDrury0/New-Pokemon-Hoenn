@@ -49,8 +49,9 @@ MonoBehaviour:
   moveName: Blizzard
   moveDescription: A violent storm of snow and ice ravages all opponents. Good chance
     to freeze the target. Accuracy changes with the weather.
-  moveType: 6
+  moveType: {fileID: 11400000, guid: 1b5d229aad6a30240b6dbc065e9cf3db, type: 2}
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 110
   category: 1
   targetType: 2
@@ -65,9 +66,11 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0.7
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: {fileID: 11400000, guid: fa97af6d20b034d439ba0105df736120, type: 2}
     hurtsIfMiss: 0
@@ -97,6 +100,7 @@ MonoBehaviour:
   bonusFromCurl: 0
   bonusLikeRollout: 0
   cannotKO: 0
+  cannotCrit: 0
   bonusAgainstMinimize: 0
   bonusAgainstSemiInvulnerable: 0
   bonusAgainstStatus: 0

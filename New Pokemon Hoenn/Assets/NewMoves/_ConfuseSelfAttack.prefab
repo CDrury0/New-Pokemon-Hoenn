@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: ConfuseAttack
   moveDescription: Bruh moment
-  moveType: 0
+  moveType: {fileID: 11400000, guid: 7187fc4c00db9024ca3f86ff6bc03d89, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 40
@@ -64,9 +64,11 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 1
+    entryHazard: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0

@@ -48,7 +48,7 @@ MonoBehaviour:
   moveName: Faint Attack
   moveDescription: The user punches from the shadows. Never misses against vulnerable
     targets.
-  moveType: 16
+  moveType: {fileID: 11400000, guid: d5027fe862900c64f9009c120c28b82a, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 60

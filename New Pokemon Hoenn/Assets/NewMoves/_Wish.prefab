@@ -48,7 +48,7 @@ MonoBehaviour:
   moveName: Wish
   moveDescription: A powerful wish is fulfilled at the end of the next turn, healing
     the user for half of its max HP.
-  moveType: 18
+  moveType: {fileID: 11400000, guid: 23303cd3348035a47aea5cebec682df5, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 0
@@ -65,9 +65,11 @@ MonoBehaviour:
   cannotBeSnatched: 1
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0

@@ -17,7 +17,7 @@ public class CombatScreen : MonoBehaviour
     public GameObject moveButtonLayoutObject;
     public GameObject moveBackButton;
     public GameObject targetBackButton;
-    public ColorSO typeColors;
+    public Color emptyColor;
     public WriteText battleText;
     public GameObject player1Object;
     public GameObject enemy1Object;
@@ -133,12 +133,12 @@ public class CombatScreen : MonoBehaviour
         TextMeshProUGUI buttonText = moveButtons[whichMove].GetComponentInChildren<TextMeshProUGUI>();
         if(pokemon.moves[whichMove] == null){
             buttonText.text = "---";
-            buttonImage.color = typeColors.colors[0];
+            buttonImage.color = emptyColor;
         }
         else{
             MoveData moveData = pokemon.moves[whichMove].GetComponent<MoveData>();
             buttonText.text = moveData.moveName + " " + pokemon.movePP[whichMove] + "/" + pokemon.moveMaxPP[whichMove];
-            buttonImage.color = typeColors.colors[(int)moveData.GetEffectiveMoveType(pokemon)];
+            buttonImage.color = moveData.GetEffectiveMoveType(pokemon).typeColor;
         }
         moveButtons[whichMove].interactable = isSelectable;
     }

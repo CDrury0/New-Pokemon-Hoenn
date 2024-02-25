@@ -48,8 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Dive
   moveDescription: Dives underwater the first turn, then strikes the next.
-  moveType: 3
+  moveType: {fileID: 11400000, guid: 36c2b7534f7ae2642946848dea1ebb07, type: 2}
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 80
   category: 0
   targetType: 1
@@ -63,11 +64,14 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
+  ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &-5402745894960571421
 MonoBehaviour:
@@ -83,7 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyToSelf: 0
   message: 
-  skipChargingTurn: 0
+  skipChargingTurn: {fileID: 0}
   useNext: {fileID: 0}
   baseMove: {fileID: 1682630347, guid: c7c1b926c6b350e4a838b9e6e34ba792, type: 3}
   givesSemiInvulnerable: 0
@@ -119,6 +123,7 @@ MonoBehaviour:
   bonusFromCurl: 0
   bonusLikeRollout: 0
   cannotKO: 0
+  cannotCrit: 0
   bonusAgainstMinimize: 0
   bonusAgainstSemiInvulnerable: 0
   bonusAgainstStatus: 0

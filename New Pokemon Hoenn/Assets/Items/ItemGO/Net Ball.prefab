@@ -68,7 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: 
   moveDescription: 
-  moveType: 0
+  moveType: {fileID: 0}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 0
@@ -121,5 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guaranteedCapture: 0
-  types: 030000000c000000
+  types:
+  - {fileID: 11400000, guid: 36c2b7534f7ae2642946848dea1ebb07, type: 2}
+  - {fileID: 11400000, guid: 5a74ad6be74a9dd4b8e1b8ee1ea74ab2, type: 2}
   boostedRate: 3

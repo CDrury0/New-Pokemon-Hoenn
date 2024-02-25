@@ -48,8 +48,9 @@ MonoBehaviour:
   moveName: Water Spout
   moveDescription: Sprays a massive geyser of water at the opponent. The power decreases
     with the user's HP.
-  moveType: 3
+  moveType: {fileID: 11400000, guid: 36c2b7534f7ae2642946848dea1ebb07, type: 2}
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 150
   category: 1
   targetType: 2
@@ -63,22 +64,14 @@ MonoBehaviour:
   worksWhileAsleep: 0
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
-  multiTurnData:
-    specialText: 
-    skipChargingTurn: 0
-    useNext: {fileID: 0}
-    baseMove: {fileID: 0}
-    givesSemiInvulnerable: 0
-    forcedToUseMax: 0
-    alwaysUseMaxTurns: 0
-    bideCharge: 0
-    confuseOnEnd: 0
-    mustRechargeAfter: 0
+  ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
-    bypassOnWeather: 0
+    bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
 --- !u!114 &-6007832811773541004
 MonoBehaviour:
@@ -106,6 +99,7 @@ MonoBehaviour:
   bonusFromCurl: 0
   bonusLikeRollout: 0
   cannotKO: 0
+  cannotCrit: 0
   bonusAgainstMinimize: 0
   bonusAgainstSemiInvulnerable: 0
   bonusAgainstStatus: 0

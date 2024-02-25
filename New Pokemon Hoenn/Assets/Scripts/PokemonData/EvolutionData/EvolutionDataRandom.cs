@@ -8,6 +8,9 @@ public class EvolutionDataRandom : EvolutionData
     [SerializeField] private List<PokemonDefault> entries;
 
     public override PokemonDefault GetEvolved(Pokemon p){
-        return CheckLevel(p) ? entries[(int)p.hiddenPowerType % entries.Count] : null;
+        if(!CheckLevel(p)){
+            return null;
+        }
+        return entries[ReferenceLib.Instance.typeList.IndexOf(p.hiddenPowerType) + 1 % entries.Count];
     }
 }

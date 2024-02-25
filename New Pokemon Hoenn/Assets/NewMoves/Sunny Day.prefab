@@ -48,8 +48,9 @@ MonoBehaviour:
   moveName: Sunny Day
   moveDescription: Calls harsh sunlight down on the battlefield, boosting Fire moves
     and weakening Water.
-  moveType: 2
+  moveType: {fileID: 11400000, guid: fd68c89d1c321bb408a0eb172c1713d1, type: 2}
   typeFromWeather: 0
+  hiddenPowerType: 0
   displayPower: 0
   category: 2
   targetType: 0
@@ -64,9 +65,11 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 0
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0
@@ -87,3 +90,4 @@ MonoBehaviour:
   durationEffect: 0
   weatherSet: {fileID: 11400000, guid: b4559a6b9fbff2142b59a70902477424, type: 2}
   timer: 5
+  endMessage: 

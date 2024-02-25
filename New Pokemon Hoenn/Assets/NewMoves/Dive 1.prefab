@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Dive
   moveDescription: Dives underwater the first turn, then strikes the next.
-  moveType: 3
+  moveType: {fileID: 11400000, guid: 36c2b7534f7ae2642946848dea1ebb07, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 80

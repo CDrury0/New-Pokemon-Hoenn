@@ -11,19 +11,11 @@ public class ReferenceLib : ScriptableObject
     /// </summary>
     public static DexStatus[] GlobalDexProgress;
     public List<PokemonDefault> pokemonDefaultLib;
-    public List<TypeMatchupList> typeEffectivenessMatchups;
+    public List<PokemonType> typeList;
     public AreaData activeArea;
 
-    [System.Serializable]
-    public class TypeMatchupList{
-        public Pokemon.Type attackingType;
-        public List<TypeMatchupValues> matchup;
-    }
-
-    [System.Serializable]
-    public class TypeMatchupValues{
-        public Pokemon.Type defendingType;
-        public StatLib.Matchup effectiveness;
+    public static PokemonType GetPokemonType(string typeName){
+        return Instance.typeList.Find(t => t.name == typeName);
     }
 
     public void Awake() {
@@ -36,9 +28,9 @@ public class ReferenceLib : ScriptableObject
         // Load dex progress from save
         GlobalDexProgress ??= new DexStatus[pokemonDefaultLib.Count + 1];
         // Give caught status to every mon
-        /* for (int i = 1; i < GlobalDexProgress.Length; i++){
+        for (int i = 1; i < GlobalDexProgress.Length; i++){
             GlobalDexProgress[i] = DexStatus.Caught;
-        } */
+        }
     }
 
     public static void UpdateDexStatus(PokemonDefault mon, DexStatus status) {

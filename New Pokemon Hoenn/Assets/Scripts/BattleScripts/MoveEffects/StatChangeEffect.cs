@@ -11,7 +11,7 @@ public class StatChangeEffect : MoveEffect, ICheckMoveEffectFail
 
     public bool CheckMoveEffectFail(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        if(curse && user.pokemon.IsThisType(Pokemon.Type.Ghost)){
+        if(curse && user.pokemon.IsThisType(ReferenceLib.GetPokemonType("Ghost"))){
             return true;
         }
         if(chance == 1f && ImmuneToStatChanges(target) && user != target){

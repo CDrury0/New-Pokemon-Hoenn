@@ -48,7 +48,7 @@ MonoBehaviour:
   moveName: Future Sight
   moveDescription: Sends a psychic attack into the future, damaging the target after
     2 turns.
-  moveType: 11
+  moveType: {fileID: 11400000, guid: 5dcddc6159268cf46b122beb24ebbc70, type: 2}
   typeFromWeather: 0
   hiddenPowerType: 0
   displayPower: 100
@@ -65,9 +65,11 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
+  cannotBeForgotten: 0
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
+    entryHazard: 0
     hitsSemiInvulnerable: 0
     bypassOnWeather: {fileID: 0}
     hurtsIfMiss: 0

@@ -11,6 +11,6 @@ public class WeightBasedDamage : NormalDamage
         BattleTarget whoseWeight = basedOnUserWeight ? user : target;
         int power = damagePairs.GetPower(whoseWeight.pokemon.weight);
         yield return StartCoroutine(NormalDamageMethod(user, target, moveData, power));
-        yield return StartCoroutine(CombatLib.Instance.moveFunctions.WriteEffectivenessText(target, moveData.GetEffectiveMoveType(user.pokemon)));
+        yield return StartCoroutine(CombatLib.Instance.moveFunctions.WriteEffectivenessText(matchup));
     }
 }

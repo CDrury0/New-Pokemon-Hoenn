@@ -19,8 +19,8 @@ MonoBehaviour:
   height: 1.2
   weight: 31.6
   IDNumber: 191
-  type1: 3
-  type2: 0
+  type1: {fileID: 11400000, guid: 36c2b7534f7ae2642946848dea1ebb07, type: 2}
+  type2: {fileID: 0}
   friendship: 50
   baseExperience: 165
   growthRate: 3
@@ -30,8 +30,6 @@ MonoBehaviour:
   eggGroup2: 11
   eggCycles: 40
   childPokemon: {fileID: 11400000, guid: 848583eabf2a84b45b1a79d9f34d04b3, type: 2}
-  evolvesInto1: {fileID: 0}
-  evolvesInto2: {fileID: 0}
   pokedexEntry: "Mucus secreted from its membranes has potent healing power. It happily
     shares its care with any willing Pok\xE9mon."
   ability1: 86
@@ -40,12 +38,9 @@ MonoBehaviour:
   normalBack: {fileID: 21300000, guid: df728d375deb1694a8173c589239b127, type: 3}
   shinyFront: {fileID: 21300000, guid: 3b30fec2747a57649a93c5e5e91a6395, type: 3}
   shinyBack: {fileID: 21300000, guid: 384563841a8c41143b55278c21f551e9, type: 3}
-  evolutionLevel: 101
-  evoDetails:
-    evolvesWithItem: {fileID: 0}
-    evolvesWithFriendship: 0
-    evolvesFromGender: 0
-    evolvesRandom: 0
+  evolutionData: {fileID: 0}
+  gift: {fileID: 0}
+  stoneEvolutions: []
   boxSprite: {fileID: 21300000, guid: 39017d482134e864298f0bfaa3536315, type: 3}
   shinyBoxSprite: {fileID: 21300000, guid: 9af91a530e7dc9e4aab2dc8d044ef25e, type: 3}
   naturallyHeldItem: {fileID: 11400000, guid: 992bc51c02d393e4daa0dbcd178d798d, type: 2}
