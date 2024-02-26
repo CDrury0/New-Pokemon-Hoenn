@@ -87,30 +87,12 @@ public class Pokemon
     public bool toxic;
     public bool inBattle;
 
-    //used in BattleTestMenu
-    public Pokemon(PokemonDefault pokemonDefault, int level)
-    {
-        FillValues(pokemonDefault, level);
-    }
-
-    //used in the real game for wild pokemon (call constructor from spawner)
-    public Pokemon(SpawnInfo[] activeSpawnInfo)
-    {
-        float rand = Random.Range(0f, 1f);
-        float spawnRateCounter = 0f;
-        for (int i = 0; i < activeSpawnInfo.Length; i++)
-        {
-            if (rand <= activeSpawnInfo[i].spawnRate + spawnRateCounter)
-            {
-                pokemonDefault = activeSpawnInfo[i].pokemonDefault;
-                level = Random.Range(activeSpawnInfo[i].levelRange[0], activeSpawnInfo[i].levelRange[1] + 1);
-                break;
-            }
-            spawnRateCounter += activeSpawnInfo[i].spawnRate;
+    //used in the real game for wild pokemon (constructor is called from GenerationValues)
+    public Pokemon(PokemonDefault reference, int level, bool learnMoves = true){
+        FillValues(reference, level);
+        if(learnMoves){
+            WildPokemonLearnMoves(reference, level);
         }
-
-        FillValues(pokemonDefault, level);
-        WildPokemonLearnMoves(pokemonDefault, level);
     }
 
     /// <summary>

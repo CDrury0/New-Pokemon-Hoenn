@@ -2,20 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Generation Values")]
 public class GenerationValues : ScriptableObject
 {
-    public SpawnInfo[] grassSpawnInfo;
-    public SpawnInfo[] surfSpawnInfo;
-    public SpawnInfo[] oldRodSpawnInfo;
-    public SpawnInfo[] goodRodSpawnInfo;
-    public SpawnInfo[] superRodSpawnInfo;
+    public SpawnInfo[] spawnInfo;
+    
+    public Pokemon GeneratePokemon() {
+        float rand = Random.Range(0f, 1f);
+        float spawnRateCounter = 0f;
+        for(int i = 0; i < spawnInfo.Length; i++){
+            SpawnInfo entry = spawnInfo[i];
+            if(rand < entry.spawnRate + spawnRateCounter){
+                return new Pokemon(entry.pokemonDefault, entry.GetLevel());
+            }
+            spawnRateCounter += entry.spawnRate;
+        }
+        // Automatically use the final entry if the random float overflows (astronomically rare, but not impossible)
+        SpawnInfo fallback = spawnInfo[^1];
+        return new Pokemon(fallback.pokemonDefault, fallback.GetLevel());
+    }
 }
 
 [System.Serializable]
-public class SpawnInfo
+public struct SpawnInfo
 {
     public PokemonDefault pokemonDefault;
     public float spawnRate;
-    public int[] levelRange = new int[2];
+    public int levelMin;
+    public int levelMax;
+
+    public int GetLevel() {
+        return Random.Range(levelMin, levelMax + 1);
+    }
 }

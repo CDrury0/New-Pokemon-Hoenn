@@ -10,19 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aa6576e503052d4c94426263fe4781c, type: 3}
-  m_Name: Route103Gen
+  m_Name: Route103Grass
   m_EditorClassIdentifier: 
-  grassSpawnInfo:
+  spawnInfo:
   - pokemonDefault: {fileID: 11400000, guid: ce824753004e7be4ca967646b1570b78, type: 2}
     spawnRate: 0.4
-    levelRange: 0200000004000000
+    levelMin: 2
+    levelMax: 4
   - pokemonDefault: {fileID: 11400000, guid: d6ec78c98fed7be49b7275ec9802124e, type: 2}
     spawnRate: 0.4
-    levelRange: 0200000004000000
+    levelMin: 2
+    levelMax: 4
   - pokemonDefault: {fileID: 11400000, guid: 9bea3b1b104798d4c9d417de062dbb2c, type: 2}
     spawnRate: 0.2
-    levelRange: 0200000004000000
-  surfSpawnInfo: []
-  oldRodSpawnInfo: []
-  goodRodSpawnInfo: []
-  superRodSpawnInfo: []
+    levelMin: 2
+    levelMax: 4

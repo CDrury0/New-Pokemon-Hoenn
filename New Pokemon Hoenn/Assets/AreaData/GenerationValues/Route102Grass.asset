@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa6576e503052d4c94426263fe4781c, type: 3}
+  m_Name: Route102Grass
+  m_EditorClassIdentifier: 
+  spawnInfo:
+  - pokemonDefault: {fileID: 11400000, guid: 9a9ad05f5101898449ab5d9922d6aacd, type: 2}
+    spawnRate: 0.01
+    levelMin: 3
+    levelMax: 3
+  - pokemonDefault: {fileID: 11400000, guid: 5bd40f72fcc68434b8c050be653e69ca, type: 2}
+    spawnRate: 0.03
+    levelMin: 4
+    levelMax: 4
+  - pokemonDefault: {fileID: 11400000, guid: ef6b423a8e3e2a643a7d734d7cfd1900, type: 2}
+    spawnRate: 0.08
+    levelMin: 3
+    levelMax: 4
+  - pokemonDefault: {fileID: 11400000, guid: 21a8d2e5339166d4ba9318e234020777, type: 2}
+    spawnRate: 0.08
+    levelMin: 3
+    levelMax: 4
+  - pokemonDefault: {fileID: 11400000, guid: ce824753004e7be4ca967646b1570b78, type: 2}
+    spawnRate: 0.25
+    levelMin: 3
+    levelMax: 4
+  - pokemonDefault: {fileID: 11400000, guid: d6ec78c98fed7be49b7275ec9802124e, type: 2}
+    spawnRate: 0.25
+    levelMin: 3
+    levelMax: 4
+  - pokemonDefault: {fileID: 11400000, guid: 2cd04ec9ff775a3479d81700b7e987e2, type: 2}
+    spawnRate: 0.3
+    levelMin: 3
+    levelMax: 4

@@ -179,4 +179,3 @@ public class BattleTarget
         return pokemon != null && pokemon.primaryStatus != PrimaryStatus.Fainted;
     }
 }
-
