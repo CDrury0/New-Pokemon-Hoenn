@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,6 +24,8 @@ public class PlayerInput : MonoBehaviour
             _allowMenuToggle = value;
         }
     }
+    public static int StepCount;
+    public static event Action<int> StepEvent;
     public GameObject interactPointPrefab;
     public Transform followPoint;
     public MenuAnimation menuAnimation;
@@ -79,23 +82,26 @@ public class PlayerInput : MonoBehaviour
         }
 
         Vector3 newDirection = horizontal != 0 ? new Vector3(horizontal, 0, 0) : new Vector3(0, vertical, 0);
+        moveSpeed = sprinting ? SPRINT_SPEED : WALKING_SPEED;
 
         // virtual method that contains the following? (override on surf, bike)
-        if(Direction == newDirection){
-            moveSpeed = sprinting ? SPRINT_SPEED : WALKING_SPEED;
-            if(!Physics2D.OverlapCircle(followPoint.position + Direction, 0.3f, stopsMovement)){
-                followPoint.position += Direction;
-                AnimateMovement(Direction, true, sprinting);
+        if(Direction != newDirection){
+            Direction = newDirection;
+            if(!sprinting){
+                StartCoroutine(DelayMovementInput());
             }
             return;
         }
 
-        Direction = newDirection;
-        //AnimateMovement(Direction, false);
-
-        if(!sprinting){
-            StartCoroutine(DelayMovementInput());
+        if(Physics2D.OverlapCircle(followPoint.position + Direction, 0.3f, stopsMovement)){
+            return;
         }
+
+        followPoint.position += Direction;
+        AnimateMovement(Direction, true, sprinting);
+
+        StepCount++;
+        StepEvent?.Invoke(StepCount);
         // end virtual method
     }
 

@@ -22,6 +22,6 @@ MonoBehaviour:
     levelMin: 2
     levelMax: 3
   - pokemonDefault: {fileID: 11400000, guid: 2cd04ec9ff775a3479d81700b7e987e2, type: 2}
-    spawnRate: 0.4
+    spawnRate: 0.3
     levelMin: 2
-    levelMax: 3
+    levelMax: 4

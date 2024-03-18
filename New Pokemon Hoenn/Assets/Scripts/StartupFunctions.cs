@@ -52,7 +52,7 @@ public class StartupFunctions : MonoBehaviour
         stream2.Close();
     }
 
-    public static void LoadSave() //ultimately would update the values of GlobalGameEvents
+    public static void LoadSave()
     {
         string path = Application.persistentDataPath + "/icon.jpg";
         if (!File.Exists(path))

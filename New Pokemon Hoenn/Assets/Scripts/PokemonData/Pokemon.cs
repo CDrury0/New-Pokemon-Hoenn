@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 public enum PrimaryStatus {None, Poisoned, Burned, Paralyzed, Asleep, Frozen, Fainted, Any}
 public enum Gender {None, Male, Female}
-public enum Nature {Hardy, Lonely, Brave, Adamant, Naughty, Bold, Docile, Relaxed, Impish, Lax, Timid, Hasty, Serious, Jolly, Naive, Modest, Mild, Quiet, Rash, Calm, Gentle, Sassy, Careful}
 
 public class Pokemon
 {
@@ -57,7 +56,7 @@ public class Pokemon
     public float weight;
     public string pokemonName;
     public string nickName;
-    public Nature nature;
+    public PokemonNature nature;
     public Gender gender;
     public int abilitySlot;
     public StatLib.Ability ability;
@@ -107,7 +106,7 @@ public class Pokemon
         this.effortValues = p.effortValues;
         this.individualValues = p.individualValues;
         this.level = p.level;
-        this.nature = p.nature;
+        this.nature = p.nature ?? ReferenceLib.GetNatures().Find(n => n.name == "Hardy");
         UpdateStats();
         this.CurrentHealth = stats[0];
         this.Friendship = p.friendship;
@@ -135,16 +134,13 @@ public class Pokemon
         FillValues();
     }
 
-    public void UpdateStats()
-    {
+    public void UpdateStats(){
         int[] newStats = new int[6];
 
-        if(pokemonDefault.baseStats[0] == 1)
-        {
+        if(pokemonDefault.baseStats[0] == 1){
             newStats[0] = 1;
         }
-        else
-        {
+        else{
             float hp = pokemonDefault.baseStats[0] * 2;
             hp += individualValues[0];
             hp += effortValues[0] / 4;
@@ -154,10 +150,9 @@ public class Pokemon
             newStats[0] = (int)hp;
         }
 
-        float[] natureMultiplier = NatureMultiplier();
+        float[] natureMultiplier = nature.GetNatureModifiers();
 
-        for(int i = 1; i < newStats.Length; i++)
-        {
+        for(int i = 1; i < newStats.Length; i++){
             float stat = pokemonDefault.baseStats[i] * 2;
             stat += individualValues[i];
             stat += effortValues[i] / 4;
@@ -170,8 +165,7 @@ public class Pokemon
 
         int oldMaxHp = stats[0];
         stats = newStats;
-        if(primaryStatus != PrimaryStatus.Fainted)
-        {
+        if(primaryStatus != PrimaryStatus.Fainted){
             float hpRatio = CurrentHealth / (float)oldMaxHp;
             CurrentHealth = (int)(hpRatio * stats[0]);
         }
@@ -183,16 +177,13 @@ public class Pokemon
         movePP[whichMove] = move.maxPP;
     }
 
-    private void FillSprites(Pokemon p)
-    {
-        if (p.isShiny)
-        {
+    private void FillSprites(Pokemon p){
+        if (p.isShiny){
             p.frontSprite = p.pokemonDefault.shinyFront;
             p.backSprite = p.pokemonDefault.shinyBack;
             p.boxSprite = p.pokemonDefault.shinyBoxSprite;
         }
-        else
-        {
+        else{
             p.frontSprite = p.pokemonDefault.normalFront;
             p.backSprite = p.pokemonDefault.normalBack;
             p.boxSprite = p.pokemonDefault.boxSprite;
@@ -203,110 +194,17 @@ public class Pokemon
         return type1 == type || type2 == type;
     }
 
-    public float[] NatureMultiplier()
-    {
-        float[] natureMultiplier = new float[6] { 1, 1, 1, 1, 1, 1 };
-
-        switch (nature)
-        {
-            case Nature.Hardy:
-                break;
-            case Nature.Lonely:
-                natureMultiplier[1] = 1.1f;
-                natureMultiplier[2] = 0.9f;
-                break;
-            case Nature.Brave:
-                natureMultiplier[1] = 1.1f;
-                natureMultiplier[5] = 0.9f;
-                break;
-            case Nature.Adamant:
-                natureMultiplier[1] = 1.1f;
-                natureMultiplier[3] = 0.9f;
-                break;
-            case Nature.Naughty:
-                natureMultiplier[1] = 1.1f;
-                natureMultiplier[4] = 0.9f;
-                break;
-            case Nature.Bold:
-                natureMultiplier[2] = 1.1f;
-                natureMultiplier[1] = 0.9f;
-                break;
-            case Nature.Docile:
-                break;
-            case Nature.Relaxed:
-                natureMultiplier[2] = 1.1f;
-                natureMultiplier[5] = 0.9f;
-                break;
-            case Nature.Impish:
-                natureMultiplier[2] = 1.1f;
-                natureMultiplier[3] = 0.9f;
-                break;
-            case Nature.Lax:
-                natureMultiplier[2] = 1.1f;
-                natureMultiplier[4] = 0.9f;
-                break;
-            case Nature.Timid:
-                natureMultiplier[5] = 1.1f;
-                natureMultiplier[1] = 0.9f;
-                break;
-            case Nature.Hasty:
-                natureMultiplier[5] = 1.1f;
-                natureMultiplier[2] = 0.9f;
-                break;
-            case Nature.Serious:
-                break;
-            case Nature.Jolly:
-                natureMultiplier[5] = 1.1f;
-                natureMultiplier[3] = 0.9f;
-                break;
-            case Nature.Naive:
-                natureMultiplier[5] = 1.1f;
-                natureMultiplier[4] = 0.9f;
-                break;
-            case Nature.Modest:
-                natureMultiplier[3] = 1.1f;
-                natureMultiplier[1] = 0.9f;
-                break;
-            case Nature.Mild:
-                natureMultiplier[3] = 1.1f;
-                natureMultiplier[2] = 0.9f;
-                break;
-            case Nature.Quiet:
-                natureMultiplier[3] = 1.1f;
-                natureMultiplier[5] = 0.9f;
-                break;
-            case Nature.Rash:
-                natureMultiplier[3] = 1.1f;
-                natureMultiplier[4] = 0.9f;
-                break;
-            case Nature.Calm:
-                natureMultiplier[4] = 1.1f;
-                natureMultiplier[1] = 0.9f;
-                break;
-            case Nature.Gentle:
-                natureMultiplier[4] = 1.1f;
-                natureMultiplier[2] = 0.9f;
-                break;
-            case Nature.Sassy:
-                natureMultiplier[4] = 1.1f;
-                natureMultiplier[5] = 0.9f;
-                break;
-            case Nature.Careful:
-                natureMultiplier[4] = 1.1f;
-                natureMultiplier[3] = 0.9f;
-                break;
-        }
-
-        return natureMultiplier;
+    public PokemonNature GetRandomNature(){
+        List<PokemonNature> natures = ReferenceLib.GetNatures();
+        return natures[Random.Range(0, natures.Count)];
     }
 
-    private void FillValues(PokemonDefault pokemonDefault, int level)
-    {
+    private void FillValues(PokemonDefault pokemonDefault, int level){
         this.pokemonDefault = pokemonDefault;
         this.level = level;
         effortValues = new int[] { 0, 0, 0, 0, 0, 0 };
         individualValues = MakeRandomIVS();
-        isShiny = Random.Range(0, 1000) == 0;
+        isShiny = Random.Range(0, 1) == 0;
         FillSprites(this);
         hiddenPowerType = ReferenceLib.Instance.typeList[Random.Range(0, 18)];
         Friendship = pokemonDefault.friendship;
@@ -314,7 +212,7 @@ public class Pokemon
         height = MakeHeight(pokemonDefault);
         weight = MakeWeight(pokemonDefault);
         pokemonName = pokemonDefault.pokemonName;
-        nature = (Nature)Random.Range(0, 23);
+        nature = GetRandomNature();
         gender = MakeGender(pokemonDefault.genderRatio);
         abilitySlot = Random.Range(1, 3);
         ability = abilitySlot == 1 ? pokemonDefault.ability1 : pokemonDefault.ability2;
@@ -340,16 +238,12 @@ public class Pokemon
         type2 = pokemonDefault.type2;
     }
 
-    private void WildPokemonLearnMoves(PokemonDefault pokemonDefault, int level)
-    {
-        for(int i = level; i >= 0; i--)
-        {
-            if (!moves.Contains(null))
-            {
+    private void WildPokemonLearnMoves(PokemonDefault pokemonDefault, int level){
+        for(int i = level; i >= 0; i--){
+            if (!moves.Contains(null)){
                 break;
             }
-            if (pokemonDefault.learnedMoves[i] != null)
-            {
+            if (pokemonDefault.learnedMoves[i] != null){
                 int replaced = moves.IndexOf(null);
                 moves[replaced] = pokemonDefault.learnedMoves[i];
                 moveMaxPP[replaced] = pokemonDefault.learnedMoves[i].GetComponent<MoveData>().maxPP;
@@ -358,23 +252,18 @@ public class Pokemon
         }
     }
 
-    private ItemData MakeHeldItem(ItemData heldItem)
-    {
+    private ItemData MakeHeldItem(ItemData heldItem){
         return heldItem != null && Random.Range(0, 10) == 0 ? heldItem : null;
     }
 
-    private Gender MakeGender(float ratio)
-    {
-        if (ratio < 0f)
-        {
+    private Gender MakeGender(float ratio){
+        if (ratio < 0f){
             return Gender.None;
         }
-        else if (Random.Range(0f, 0.999f) < ratio)
-        {
+        else if (Random.Range(0f, 1f) <= ratio){
             return Gender.Male;
         }
-        else
-        {
+        else{
             return Gender.Female;
         }
     }
@@ -399,12 +288,10 @@ public class Pokemon
         return (float)System.Math.Round(weightRatio * pokemonDefault.weight, 2);
     }
 
-    private int[] MakeRandomIVS()
-    {
+    private int[] MakeRandomIVS(){
         int[] ivs = new int[6];
-        for (int i = 0; i < ivs.Length; i++)
-        {
-            ivs[i] = Random.Range(0, 32);
+        for (int i = 0; i < ivs.Length; i++){
+            ivs[i] = Random.Range(0, MAX_IV + 1);
         }
         return ivs;
     }

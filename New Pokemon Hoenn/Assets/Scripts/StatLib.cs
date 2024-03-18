@@ -4,7 +4,6 @@ using UnityEngine;
 
 public static class StatLib
 {
-    public enum Matchup {Immunity, Weakness, Resistance}
     public enum EggGroup { Monster, Amphibious, Bug, Avian, Field, Fairy, Plantoid, Humanoid, Aquatic, Inorganic, Amorphous, Piscine, Dragon, None }
 
     public enum Ability

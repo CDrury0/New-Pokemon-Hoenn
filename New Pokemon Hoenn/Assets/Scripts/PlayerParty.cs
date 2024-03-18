@@ -31,4 +31,9 @@ public class PlayerParty : MonoBehaviour
     }
 
     //include methods to retrieve specific player party info, like leader ability, etc.
+
+    // Get first pokemon that isn't an egg?
+    public static Pokemon GetLeader(){
+        return Instance.playerParty.party[0];
+    }
 }

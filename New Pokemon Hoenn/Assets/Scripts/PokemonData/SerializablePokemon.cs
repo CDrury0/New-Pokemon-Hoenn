@@ -22,7 +22,6 @@ public class SerializablePokemon
     public List<GameObject> moves;
     [Tooltip("Leaving 0 will make the PP whatever the max is for the move at the corresponding index")]
     public int[] moveMaxPP = new int[4];
-    public Nature nature;
-
-
+    [Tooltip("Null reference will result in a neutral nature when Pokemon is generated")]
+    public PokemonNature nature;
 }

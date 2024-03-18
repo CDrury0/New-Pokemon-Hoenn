@@ -16,7 +16,7 @@ public class SummaryScreen : MonoBehaviour
         Pokemon p = PlayerParty.Instance.playerParty.party[whichPokemon];
         for (int i = 0; i < p.stats.Length; i++){
             statTexts[i].text = p.stats[i].ToString();
-            float[] natureMultipliers = p.NatureMultiplier();
+            float[] natureMultipliers = p.nature.GetNatureModifiers();
             if(natureMultipliers[i] > 1f){
                 statTexts[i].color = new Color(0, 0, 255);
             }

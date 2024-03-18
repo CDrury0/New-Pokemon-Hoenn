@@ -12,10 +12,15 @@ public class ReferenceLib : ScriptableObject
     public static DexStatus[] GlobalDexProgress;
     public List<PokemonDefault> pokemonDefaultLib;
     public List<PokemonType> typeList;
+    [SerializeField] private List<PokemonNature> natures;
     public AreaData activeArea;
 
     public static PokemonType GetPokemonType(string typeName){
         return Instance.typeList.Find(t => t.name == typeName);
+    }
+
+    public static List<PokemonNature> GetNatures(){
+        return Instance.natures;
     }
 
     public void Awake() {
