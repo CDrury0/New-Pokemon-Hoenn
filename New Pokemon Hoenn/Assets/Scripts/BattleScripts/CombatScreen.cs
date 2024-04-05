@@ -165,11 +165,12 @@ public class CombatScreen : MonoBehaviour
         actionPromptText.text = "What should " + CombatSystem.ActiveTarget.GetName() + " do?";
     }
 
-    public void SetPartyScreen(bool allowClose = true, string promptMessage = null){
+    public PartyMenu SetPartyScreen(bool allowClose = true, string promptMessage = null){
         PartyMenu partyMenuInstance = Instantiate(battlePartyScreen).GetComponentInChildren<PartyMenu>();
         partyMenuInstance.SetAllowClose(allowClose);
         if(promptMessage != null){
             partyMenuInstance.WriteTextPrompt(promptMessage);
         }
+        return partyMenuInstance;
     }
 }

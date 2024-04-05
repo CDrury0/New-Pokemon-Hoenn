@@ -20,7 +20,7 @@ MonoBehaviour:
   eventObjectPrefab: {fileID: 4625481712394623269, guid: 4f975df7aa0d2074fbbfbed61356f18b, type: 3}
   terrainData: {fileID: 0}
   weather: {fileID: 11400000, guid: 222c990df5561c443920f8582a4dc7d7, type: 2}
-  generationValues: {fileID: 0}
+  defaultGenerationValues: {fileID: 0}
   musicIntro: {fileID: 8300000, guid: e5c815a7b1b3f1442b1fcd2aff8ec136, type: 3}
   musicLoop: {fileID: 8300000, guid: 41a971c741d829742b9744af38a07d6f, type: 3}
   eventManifest: 

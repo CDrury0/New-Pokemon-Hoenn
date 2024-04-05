@@ -543,19 +543,40 @@ public class CombatSystem : MonoBehaviour
     }
 
     public IEnumerator ReplaceFaintedTargets(){
-        List<BattleTarget> targetsToReplace = new List<BattleTarget>(referenceBattleTargets.FindAll(b => !BattleTargets.Contains(b)));
-        foreach(BattleTarget needsReplaced in targetsToReplace){
+        List<BattleTarget> targetsToReplace = new(referenceBattleTargets.FindAll(b => !BattleTargets.Contains(b)));
+        List<BattleTarget> playerToReplace = targetsToReplace.FindAll(b => b.teamBattleModifier.isPlayerTeam);
+        List<BattleTarget> enemyToReplace = targetsToReplace.FindAll(b => !b.teamBattleModifier.isPlayerTeam);
+
+        combatScreen.battleText.gameObject.SetActive(false);
+        foreach(BattleTarget needsReplaced in enemyToReplace){
             ActiveTarget = needsReplaced;
-            ActiveTarget.individualBattleModifier.switchingIn = null; //may be necessary to prevent auto-switching to mon selected before being KO'ed by pursuit
-            if(!ActiveTarget.teamBattleModifier.isPlayerTeam){
-                ActiveTarget.individualBattleModifier.switchingIn = enemyAI.SelectNextPokemon(EnemyParty);
-            }
-            else if(playerParty.HasAvailableFighter()){
-                combatScreen.battleText.gameObject.SetActive(false);
-                combatScreen.SetPartyScreen(false, "Who will replace " + ActiveTarget.pokemon.nickName + "?");
-                yield return new WaitUntil(() => Proceed);
-            }
+            ActiveTarget.individualBattleModifier.switchingIn = enemyAI.SelectNextPokemon(EnemyParty);
         }
+
+        PartyMenu partyMenu = null;
+        foreach(BattleTarget needsReplaced in playerToReplace){
+            ActiveTarget = needsReplaced;
+            ActiveTarget.individualBattleModifier.switchingIn = null;              
+            yield return StartCoroutine(OverlayTransitionManager.Instance.TransitionCoroutine(() => {
+                if(partyMenu != null){
+                    Destroy(partyMenu);
+                }
+                if (!playerParty.HasAvailableFighter()) {
+                    Proceed = true;
+                    return;
+                }
+                partyMenu = combatScreen.SetPartyScreen(false, "Who will replace " + ActiveTarget.pokemon.nickName + "?");
+            }));
+                
+            yield return new WaitUntil(() => Proceed);
+        }
+
+        if(partyMenu != null){
+            yield return StartCoroutine(OverlayTransitionManager.Instance.TransitionCoroutine(() => {
+                Destroy(partyMenu);
+            }));
+        }
+
         foreach(BattleTarget needsReplaced in targetsToReplace){
             if(needsReplaced.individualBattleModifier.switchingIn != null){
                 yield return StartCoroutine(SendOutPokemon(needsReplaced, false));
