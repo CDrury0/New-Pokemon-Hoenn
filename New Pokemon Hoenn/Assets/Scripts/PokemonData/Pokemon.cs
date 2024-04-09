@@ -194,6 +194,15 @@ public class Pokemon
         return type1 == type || type2 == type;
     }
 
+    public bool IsThisType(string typeName){
+        PokemonType type = ReferenceLib.GetPokemonType(typeName);
+        return type1 == type || type2 == type;
+    }
+
+    public int GetPercentMaxHP(float percentage){
+        return (int)(stats[0] * percentage);
+    }
+
     public PokemonNature GetRandomNature(){
         List<PokemonNature> natures = ReferenceLib.GetNatures();
         return natures[Random.Range(0, natures.Count)];

@@ -141,12 +141,20 @@ public class CombatSystem : MonoBehaviour
         //make sure all mons active at the start of the battle are registered for experience
         handleExperience.UpdateParticipantsOnShift(BattleTargets);
 
-        //check tag-in effects like intimidate, trace, etc.
+        //check tag in effects for all participants
 
         StartCoroutine(GetTurnActions());
 
         //waits until the battle is over before releasing control to the originating event chain
         yield return new WaitUntil(() => !BattleActive);
+    }
+
+    private IEnumerator DoTagIn(BattleTarget target){
+        yield return StartCoroutine(moveFunctions.HandleSpikes(target));
+
+        //check tag-in effects like intimidate, trace, etc.
+        
+        yield return StartCoroutine(HandleFaint());
     }
 
     public static BattleTarget GetBattleTarget(Pokemon p){
@@ -470,7 +478,7 @@ public class CombatSystem : MonoBehaviour
     }
 
     private void PreMoveEffects(BattleTarget user, GameObject moveUsed){
-        if(moveUsed.GetComponent<ApplyCurse>() != null && user.pokemon.IsThisType(ReferenceLib.GetPokemonType("Ghost"))){
+        if(moveUsed.GetComponent<ApplyCurse>() != null && user.pokemon.IsThisType("Ghost")){
             moveFunctions.MustChooseTarget(TargetType.RandomFoe, user);
         }
 
@@ -565,7 +573,7 @@ public class CombatSystem : MonoBehaviour
                     Proceed = true;
                     return;
                 }
-                partyMenu = combatScreen.SetPartyScreen(false, "Who will replace " + ActiveTarget.pokemon.nickName + "?");
+                partyMenu = combatScreen.SetPartyScreenFaint(false, "Who will replace " + ActiveTarget.pokemon.nickName + "?");
             }));
                 
             yield return new WaitUntil(() => Proceed);
@@ -629,6 +637,8 @@ public class CombatSystem : MonoBehaviour
 
         string message = replacing.teamBattleModifier.isPlayerTeam ? "Go " + replacing.pokemon.nickName + "!" : "Enemy sent out " + replacing.pokemon.nickName;
         yield return StartCoroutine(combatScreen.battleText.WriteMessage(message));
+
+        yield return StartCoroutine(DoTagIn(replacing));
     }
 
     public bool CanBeSwitchedIn(Pokemon pokemonToSwitchIn){

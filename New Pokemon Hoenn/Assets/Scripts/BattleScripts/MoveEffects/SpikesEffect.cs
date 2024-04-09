@@ -15,4 +15,15 @@ public class SpikesEffect : MoveEffect, ICheckMoveEffectFail
         effectiveTarget.teamBattleModifier.spikesCount++;
         yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(effectiveTarget.teamBattleModifier.teamPossessive + " side was covered in spikes!"));
     }
+
+    /// <returns>Whether or not the provided target is immune to damage from switching into spikes</returns>
+    public static bool IsTargetImmune(BattleTarget target){
+        if(!target.pokemon.IsThisType("Flying")){
+            return false;
+        }
+        if(target.individualBattleModifier.GetEffectInfoOfType<ApplyIngrain>() != null){
+            return false;
+        }
+        return true;
+    }
 }

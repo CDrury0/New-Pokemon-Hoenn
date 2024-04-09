@@ -307,6 +307,21 @@ public class MoveFunctions : MonoBehaviour
         }
     }
 
+    public IEnumerator HandleSpikes(BattleTarget target){
+        if(target.teamBattleModifier.spikesCount == 0 || SpikesEffect.IsTargetImmune(target)){
+            yield break;
+        }
+
+        float spikesPercent = target.teamBattleModifier.spikesCount switch {
+            1 => 0.125f,
+            2 => 0.167f,
+            _ => 0.25f,
+        };
+
+        yield return StartCoroutine(ChangeTargetHealth(target, -target.pokemon.GetPercentMaxHP(spikesPercent)));
+        yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(target.GetName() + " is hurt by spikes!"));
+    }
+
     //TEST END OF TURN EFFECTS
     public IEnumerator EndOfTurnEffects(List<BattleTarget> battleTargets){
         

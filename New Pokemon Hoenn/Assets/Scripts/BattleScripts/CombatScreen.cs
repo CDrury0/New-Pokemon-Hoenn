@@ -13,6 +13,7 @@ public class CombatScreen : MonoBehaviour
     [SerializeField] private Button[] moveButtons;
     [SerializeField] private TextMeshProUGUI actionPromptText;
     [SerializeField] private GameObject battlePartyScreen;
+    [SerializeField] private GameObject battlePartyScreenFaint;
     public GameObject battleOptionsLayoutObject;
     public GameObject moveButtonLayoutObject;
     public GameObject moveBackButton;
@@ -166,7 +167,15 @@ public class CombatScreen : MonoBehaviour
     }
 
     public PartyMenu SetPartyScreen(bool allowClose = true, string promptMessage = null){
-        PartyMenu partyMenuInstance = Instantiate(battlePartyScreen).GetComponentInChildren<PartyMenu>();
+        return SetupPartyMenu(battlePartyScreen, allowClose, promptMessage);
+    }
+
+    public PartyMenu SetPartyScreenFaint(bool allowClose = true, string promptMessage = null){
+        return SetupPartyMenu(battlePartyScreenFaint, allowClose, promptMessage);
+    }
+
+    private PartyMenu SetupPartyMenu(GameObject menuPrefab, bool allowClose, string promptMessage){
+        PartyMenu partyMenuInstance = Instantiate(menuPrefab).GetComponentInChildren<PartyMenu>();
         partyMenuInstance.SetAllowClose(allowClose);
         if(promptMessage != null){
             partyMenuInstance.WriteTextPrompt(promptMessage);

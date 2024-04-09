@@ -5289,7 +5289,8 @@ MonoBehaviour:
   - {fileID: 1133345366}
   - {fileID: 1981563179}
   actionPromptText: {fileID: 242469011}
-  battlePartyScreen: {fileID: 7641340073507485471, guid: 17e70c2a3a46d044496a337e2a155b32, type: 3}
+  battlePartyScreen: {fileID: 7641340073507485471, guid: 5fa1ff1322f8dc34395d0b80056d56ad, type: 3}
+  battlePartyScreenFaint: {fileID: 7641340073507485471, guid: 17e70c2a3a46d044496a337e2a155b32, type: 3}
   battleOptionsLayoutObject: {fileID: 1455697164}
   moveButtonLayoutObject: {fileID: 1751536373}
   moveBackButton: {fileID: 1962259532}
