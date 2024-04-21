@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c72aeb37c76c26c40bc1d85f5546ef3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  applyToSelf: 0
+  applyToSelf: 1
   message: 
   statusInflicted: 4
   toxic: 0

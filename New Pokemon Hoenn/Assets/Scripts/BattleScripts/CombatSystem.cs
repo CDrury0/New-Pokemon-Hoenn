@@ -142,6 +142,9 @@ public class CombatSystem : MonoBehaviour
         handleExperience.UpdateParticipantsOnShift(BattleTargets);
 
         //check tag in effects for all participants
+        foreach(BattleTarget b in BattleTargets){
+            yield return StartCoroutine(DoTagIn(b));
+        }
 
         StartCoroutine(GetTurnActions());
 
@@ -150,9 +153,10 @@ public class CombatSystem : MonoBehaviour
     }
 
     private IEnumerator DoTagIn(BattleTarget target){
-        yield return StartCoroutine(moveFunctions.HandleSpikes(target));
 
         //check tag-in effects like intimidate, trace, etc.
+
+        yield return StartCoroutine(moveFunctions.HandleSpikes(target));
         
         yield return StartCoroutine(HandleFaint());
     }
@@ -176,6 +180,11 @@ public class CombatSystem : MonoBehaviour
 
     private IEnumerator GetTurnActions(){
         combatScreen.battleText.gameObject.SetActive(false);
+
+        if(IsAnyTeamEmpty()){
+            StartCoroutine(BattleTurn());
+            yield break;
+        }
 
         foreach(BattleTarget b in BattleTargets){
             if(BattleEndSignal){
@@ -361,15 +370,39 @@ public class CombatSystem : MonoBehaviour
     }
 
     private IEnumerator BattleTurn(){
-        //increment turn count, reset damage taken this turn, destroy instantiated turnAction gameobjects, other cleanup things
-        TurnCount++;
         foreach(BattleTarget b in BattleTargets){
             b.individualBattleModifier.specialDamageTakenThisTurn = 0;
             b.individualBattleModifier.physicalDamageTakenThisTurn = 0;
         }
 
-        List<BattleTarget> turnOrder = new List<BattleTarget>(moveFunctions.GetTurnOrder(BattleTargets));
+        List<BattleTarget> turnOrder = new();
+        if (!BattleEndSignal && !IsAnyTeamEmpty()){
+            turnOrder = new(moveFunctions.GetTurnOrder(BattleTargets));
+            yield return StartCoroutine(DoTurnActions(turnOrder));
+        }
 
+        
+        if(playerParty.IsEntireTeamFainted() || EnemyParty.IsEntireTeamFainted() || BattleEndSignal){
+            yield return StartCoroutine(EndBattle());
+            yield break;
+        }
+
+        turnOrder.RemoveAll(b => !BattleTargets.Contains(b));
+        yield return StartCoroutine(moveFunctions.EndOfTurnEffects(turnOrder));
+
+        if(playerParty.IsEntireTeamFainted() || EnemyParty.IsEntireTeamFainted()){
+            yield return StartCoroutine(EndBattle());
+            yield break;
+        }
+
+        yield return StartCoroutine(ReplaceFaintedTargets());
+
+        StartCoroutine(GetTurnActions());
+    }
+
+    private IEnumerator DoTurnActions(List<BattleTarget> turnOrder){
+        TurnCount++;
+        
         for(int i = 0; i < turnOrder.Count; i++){
             if(BattleEndSignal){
                 break;
@@ -420,23 +453,6 @@ public class CombatSystem : MonoBehaviour
                 break;
             }
         }
-
-        if(playerParty.IsEntireTeamFainted() || EnemyParty.IsEntireTeamFainted() || BattleEndSignal){
-            yield return StartCoroutine(EndBattle());
-            yield break;
-        }
-
-        turnOrder.RemoveAll(b => !BattleTargets.Contains(b));
-        yield return StartCoroutine(moveFunctions.EndOfTurnEffects(turnOrder));
-
-        if(playerParty.IsEntireTeamFainted() || EnemyParty.IsEntireTeamFainted()){
-            yield return StartCoroutine(EndBattle());
-            yield break;
-        }
-
-        yield return StartCoroutine(ReplaceFaintedTargets());
-
-        StartCoroutine(GetTurnActions());
     }
 
     private IEnumerator CheckOnFaintEffects(BattleTarget user, List<BattleTarget> targets){
@@ -459,7 +475,7 @@ public class CombatSystem : MonoBehaviour
                 return usedSnatch;
             }
         }
-        BattleTarget targetThatUsedMagicCoat = user.individualBattleModifier.targets.Find(b => b.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyMagicCoat) != null);
+        BattleTarget targetThatUsedMagicCoat = user.individualBattleModifier.targets.Find(b => b.individualBattleModifier.GetEffectInfoOfType<ApplyMagicCoat>() != null);
         if(moveData.category == MoveData.Category.Status && targetThatUsedMagicCoat != null && !moveData.notReflectedByMagicCoat){
             targetThatUsedMagicCoat.turnAction = user.turnAction;
             if(moveData.targetType == TargetType.Single){
@@ -592,6 +608,11 @@ public class CombatSystem : MonoBehaviour
             }
         }
         handleExperience.UpdateParticipantsOnShift(BattleTargets);
+
+        //tag-ins are handled after all faint-related switches have occurred
+        foreach(BattleTarget b in targetsToReplace){
+            yield return StartCoroutine(DoTagIn(b));
+        }
     }
 
     public IEnumerator SwitchPokemon(BattleTarget replacing, bool passEffects){
@@ -607,6 +628,9 @@ public class CombatSystem : MonoBehaviour
             }
         }
         yield return StartCoroutine(SendOutPokemon(replacing, passEffects));
+        
+        // tag in is handled immediately on switch turn action
+        yield return StartCoroutine(DoTagIn(replacing));
     }
 
     public IEnumerator SendOutPokemon(BattleTarget replacing, bool passEffects){
@@ -637,8 +661,6 @@ public class CombatSystem : MonoBehaviour
 
         string message = replacing.teamBattleModifier.isPlayerTeam ? "Go " + replacing.pokemon.nickName + "!" : "Enemy sent out " + replacing.pokemon.nickName;
         yield return StartCoroutine(combatScreen.battleText.WriteMessage(message));
-
-        yield return StartCoroutine(DoTagIn(replacing));
     }
 
     public bool CanBeSwitchedIn(Pokemon pokemonToSwitchIn){
