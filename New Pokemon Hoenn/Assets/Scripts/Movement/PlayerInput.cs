@@ -34,6 +34,7 @@ public class PlayerInput : MonoBehaviour
     private float moveSpeed;
     [SerializeField] private float movementInputDelaySeconds;
     public Vector3 Direction { get; private set; }
+    public static Vector3 PlayerHeightOffset => new(0, -0.5f, 0);
 
     void Update() {
         GetPlayerInput();
@@ -93,7 +94,7 @@ public class PlayerInput : MonoBehaviour
             return;
         }
 
-        if(Physics2D.OverlapCircle(followPoint.position + Direction, 0.3f, stopsMovement)){
+        if(Physics2D.OverlapCircle(followPoint.position + PlayerHeightOffset + Direction, 0.4f, stopsMovement)){
             return;
         }
 
@@ -134,5 +135,9 @@ public class PlayerInput : MonoBehaviour
 
     void Awake(){
         playerTransform = transform;
+    }
+
+    void Start(){
+        followPoint.position = transform.position;
     }
 }

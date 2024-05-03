@@ -37,10 +37,10 @@ public abstract class NPCMovement : MonoBehaviour
         float sizeY = Mathf.Max(Mathf.Abs(detectionRange * lookDirection.y), 0.5f);
         detectionCollider.size = new Vector2(sizeX, sizeY);
         bool offsetAxisIsX = detectionCollider.size.x > detectionCollider.size.y;
-        //offsets the collider by size - 1 to cover the intended distance from the NPC
+        //offsets the collider by half the longest side to compensate the intended distance from the NPC
         detectionCollider.offset = offsetAxisIsX
-        ? new Vector2((lookDirection.x == 0 ? 1 : lookDirection.x / Mathf.Abs(lookDirection.x)) * (Mathf.Abs(detectionCollider.size.x) - 1), 0f)
-        : new Vector2(0f, (lookDirection.y == 0 ? 1 : lookDirection.y / Mathf.Abs(lookDirection.y)) * (Mathf.Abs(detectionCollider.size.y) - 1));
+        ? new Vector2((lookDirection.x == 0 ? 1 : lookDirection.x / Mathf.Abs(lookDirection.x)) * (Mathf.Abs(detectionCollider.size.x * 0.5f) + 0.5f), 0f)
+        : new Vector2(0f, (lookDirection.y == 0 ? 1 : lookDirection.y / Mathf.Abs(lookDirection.y)) * (Mathf.Abs(detectionCollider.size.y * 0.5f) + 0.5f));
     }
 
     protected static Vector3 GetOppositeDirection(Vector3 directionToReflect){

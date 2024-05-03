@@ -44,10 +44,6 @@ PrefabInstance:
       propertyPath: detectionRange
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1372461811057861201, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3320399566483130915, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: _eventTriggerID
       value: 4
@@ -62,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3701093892732837810, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3701093892732837810, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: m_LocalPosition.z
@@ -245,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3701093892732837810, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3701093892732837810, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: m_LocalPosition.z

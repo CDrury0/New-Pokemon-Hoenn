@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7535173559683636383}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.25, z: 0}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3701093892732837810}
@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 1422851680844052151}
   - component: {fileID: 7467182502675333466}
   - component: {fileID: 6312910199327790137}
+  - component: {fileID: -8647103234520248257}
   m_Layer: 6
   m_Name: TestTrainer
   m_TagString: Untagged
@@ -123,7 +124,7 @@ Transform:
   m_GameObject: {fileID: 8671835066302808280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 390733831891560162}
@@ -206,7 +207,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.9, y: 0.4}
   m_EdgeRadius: 0
 --- !u!114 &6796235339155225970
 MonoBehaviour:
@@ -339,7 +340,7 @@ MonoBehaviour:
     heldItem: {fileID: 0}
     moves: []
     moveMaxPP: 00000000000000000000000000000000
-    nature: 0
+    nature: {fileID: 0}
   - pokemonDefault: {fileID: 0}
     ability: 0
     isShiny: 0
@@ -355,7 +356,7 @@ MonoBehaviour:
     heldItem: {fileID: 0}
     moves: []
     moveMaxPP: 00000000000000000000000000000000
-    nature: 0
+    nature: {fileID: 0}
   - pokemonDefault: {fileID: 0}
     ability: 0
     isShiny: 0
@@ -371,7 +372,7 @@ MonoBehaviour:
     heldItem: {fileID: 0}
     moves: []
     moveMaxPP: 00000000000000000000000000000000
-    nature: 0
+    nature: {fileID: 0}
   - pokemonDefault: {fileID: 0}
     ability: 0
     isShiny: 0
@@ -387,7 +388,7 @@ MonoBehaviour:
     heldItem: {fileID: 0}
     moves: []
     moveMaxPP: 00000000000000000000000000000000
-    nature: 0
+    nature: {fileID: 0}
   - pokemonDefault: {fileID: 0}
     ability: 0
     isShiny: 0
@@ -403,7 +404,7 @@ MonoBehaviour:
     heldItem: {fileID: 0}
     moves: []
     moveMaxPP: 00000000000000000000000000000000
-    nature: 0
+    nature: {fileID: 0}
   - pokemonDefault: {fileID: 0}
     ability: 0
     isShiny: 0
@@ -419,7 +420,7 @@ MonoBehaviour:
     heldItem: {fileID: 0}
     moves: []
     moveMaxPP: 00000000000000000000000000000000
-    nature: 0
+    nature: {fileID: 0}
   battleInventory: []
   inventoryTemplate: []
 --- !u!114 &3543319353181869969
@@ -591,3 +592,16 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ae3000248f2950c439f37062f16a120c, type: 3}
   - {fileID: 21300000, guid: 2ad44190aa7956d46a4d87164c6db521, type: 3}
   - {fileID: 21300000, guid: 267bbd8cd74ee9b4ab4082fd3fa95bd0, type: 3}
+--- !u!114 &-8647103234520248257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8671835066302808280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86bf6560189a1f443805a441489bb9bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}

@@ -58,6 +58,8 @@ public class NPCWalkEvent : EventAction
     }
 
     void Reset(){
-        Debug.Log("Remember to add an NPCMovement component!");
+        if (GetComponent<NPCMovement>() == null){
+            Debug.Log("Remember to add an NPCMovement component!");
+        }
     }
 }

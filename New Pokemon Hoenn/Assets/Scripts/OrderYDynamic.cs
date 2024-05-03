@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrderYDynamic : MonoBehaviour
+public class OrderYDynamic : OrderYStatic
 {
-    [SerializeField] private SpriteRenderer spriteRenderer;
-    
     void Update() {
-        spriteRenderer.sortingOrder = -(int)transform.position.y;
+        SetOrder();
     }
 }
