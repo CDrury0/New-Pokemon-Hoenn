@@ -121,7 +121,7 @@ public class PlayerInput : MonoBehaviour
     }
 
     private IEnumerator ActivateInteractPoint() {
-        GameObject pointObj = Instantiate(interactPointPrefab, transform.position + Direction, Quaternion.identity, transform);
+        GameObject pointObj = Instantiate(interactPointPrefab, transform.position + PlayerHeightOffset + Direction, Quaternion.identity, transform);
         yield return new WaitForFixedUpdate();
         Destroy(pointObj);
     }
