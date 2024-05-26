@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 public abstract class NPCMovement : MonoBehaviour
 {
     [HideInInspector] public bool Halt;
     [Tooltip("If unset, will be set to player walk speed")] public float moveSpeed;
+    [SerializeField] protected int detectionRange;
+    [SerializeField] protected BoxCollider2D detectionCollider;
     [SerializeField] private Animator animator;
     private Vector3 walkToPoint;
 
@@ -32,7 +35,11 @@ public abstract class NPCMovement : MonoBehaviour
         AnimateMovement(toFacePlayer, false);
     }
 
-    protected static void SetDetectionArea(BoxCollider2D detectionCollider, Vector3 lookDirection, int detectionRange){
+    protected void SetDetectionArea(Vector3 lookDirection, int? detectionRangeOverride = null){
+        if(detectionCollider == null){
+            return;
+        }
+        int detectionRange = detectionRangeOverride ?? this.detectionRange;
         float sizeX = Mathf.Max(Mathf.Abs(detectionRange * lookDirection.x), 0.5f);
         float sizeY = Mathf.Max(Mathf.Abs(detectionRange * lookDirection.y), 0.5f);
         detectionCollider.size = new Vector2(sizeX, sizeY);

@@ -84,7 +84,12 @@ public class EventTrigger : MonoBehaviour
     void OnValidate() {
         if(_eventTriggerID == -1){
             GameObject eventContainer = GetParentWithTag(gameObject, "EventContainer");
-            _eventTriggerID = eventContainer.GetComponentsInChildren<EventTrigger>().Length;
+            EventTrigger[] allTriggers = eventContainer.GetComponentsInChildren<EventTrigger>();
+            int maxID = 0;
+            foreach(EventTrigger e in allTriggers){
+                maxID = Mathf.Max(maxID, e.EventTriggerID);
+            }
+            _eventTriggerID = maxID + 1;
         }
     }
 
@@ -95,7 +100,6 @@ public class EventTrigger : MonoBehaviour
         else if(child.CompareTag(tag)){
             return child;
         }
-        Debug.Log(child.name);
         return GetParentWithTag(child.transform.parent.gameObject, tag);
     }
 }

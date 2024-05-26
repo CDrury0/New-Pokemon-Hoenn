@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class NPCSpinner : NPCMovement
 {
-    [SerializeField] private int detectionRange;
-    [SerializeField] private BoxCollider2D detectionCollider;
     [SerializeField] private bool rotateClockwise;
     private Vector3[] directionCycle;
     private const float LOOK_DURATION_SECONDS = 1.5f;
@@ -13,10 +11,7 @@ public class NPCSpinner : NPCMovement
 
     protected override IEnumerator PassiveMoveLogic(){
         AnimateMovement(directionCycle[index], false);
-        if (detectionCollider != null){
-            SetDetectionArea(detectionCollider, directionCycle[index], detectionRange);
-        }
-        
+        SetDetectionArea(directionCycle[index]);
         yield return new WaitForSeconds(LOOK_DURATION_SECONDS);
         index = index == directionCycle.Length - 1 ? 0 : index + 1;
     }
