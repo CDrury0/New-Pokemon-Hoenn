@@ -14,6 +14,7 @@ public class OrderYStatic : MonoBehaviour
 
     protected void SetOrder() {
         // Set order in layer to the negative world-space position Y component
-        spriteRenderer.sortingOrder = -(int)transform.position.y;
+        // Must be corrected for transform height to be consistent
+        spriteRenderer.sortingOrder = -(int)(transform.position.y + (1 - transform.lossyScale.y));
     }
 }
