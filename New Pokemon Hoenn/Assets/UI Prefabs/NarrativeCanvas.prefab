@@ -108,6 +108,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5485853462281364924}
     m_Modifications:
+    - target: {fileID: 4383713785575285663, guid: 924c581b131ee664da3b5701d4fbdf50, type: 3}
+      propertyPath: m_text
+      value: Player received 2x Potion
+      objectReference: {fileID: 0}
     - target: {fileID: 6821897980064523512, guid: 924c581b131ee664da3b5701d4fbdf50, type: 3}
       propertyPath: m_Name
       value: NarrativeText

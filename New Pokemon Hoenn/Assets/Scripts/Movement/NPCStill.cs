@@ -12,6 +12,7 @@ public class NPCStill : NPCMovement
     }
 
     void Awake() {
+        AnimateMovement(faceDirection, false);
         SetDetectionArea(faceDirection);
     }
 }

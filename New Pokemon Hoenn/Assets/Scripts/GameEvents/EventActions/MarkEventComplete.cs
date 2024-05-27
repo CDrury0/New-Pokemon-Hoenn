@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MarkEventComplete : EventAction
 {
+    [SerializeField] private bool destroySelf;
     [SerializeField] private EventTrigger[] toMarkComplete;
     protected override IEnumerator EventActionLogic() {
         AreaData thisAreaData = GetComponentInParent<GameAreaManager>().areaData;
@@ -11,6 +12,9 @@ public class MarkEventComplete : EventAction
             if (!thisAreaData.eventManifest.Contains(toMarkComplete[i].EventTriggerID)){
                 thisAreaData.eventManifest.Add(toMarkComplete[i].EventTriggerID);
             }
+        }
+        if (destroySelf){
+            Destroy(gameObject);
         }
         yield break;
     }

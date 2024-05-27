@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -10,7 +11,7 @@ public class EventTrigger : MonoBehaviour
     [SerializeField] private TriggerMethod triggerMethod;
     [SerializeField] private bool destroyIfAlreadyDone;
     [SerializeField] private EventCondition destroyIfTrue;
-    [Tooltip("Set this field to value -1 to auto-generate a value unique to its Event Container. 0 can be used for triggers outside the Event Container that do not need to be tracked, like most Area Loaders")]
+    [Tooltip("Set this field to value -1 to auto-generate a value unique to its Event Container. Min auto-value: 0. Auto-generating also gives all Event Triggers that are children of this one a new ID.")]
     [SerializeField] private int _eventTriggerID;
     public int EventTriggerID {
         get { return _eventTriggerID; }
@@ -82,15 +83,23 @@ public class EventTrigger : MonoBehaviour
     }
 
     void OnValidate() {
-        if(_eventTriggerID == -1){
-            GameObject eventContainer = GetParentWithTag(gameObject, "EventContainer");
-            EventTrigger[] allTriggers = eventContainer.GetComponentsInChildren<EventTrigger>();
-            int maxID = 0;
-            foreach(EventTrigger e in allTriggers){
-                maxID = Mathf.Max(maxID, e.EventTriggerID);
-            }
-            _eventTriggerID = maxID + 1;
+        if (_eventTriggerID == -1){
+            AssignUniqueID();
         }
+    }
+
+    private void AssignUniqueID(){
+        GameObject eventContainer = GetParentWithTag(gameObject, "EventContainer");
+        List<EventTrigger> allTriggers = eventContainer.GetComponentsInChildren<EventTrigger>().ToList();
+        int maxID = 0;
+        foreach(EventTrigger e in allTriggers){
+            maxID = Mathf.Max(maxID, e.EventTriggerID);
+        }
+        _eventTriggerID = maxID + 1;
+
+        // If there is a child GameObject with an EventTrigger component, assign that a new unique ID as well (recursive)
+        EventTrigger childTrigger = GetComponentsInChildren<EventTrigger>().ToList().Find(e => e != this);
+        childTrigger?.AssignUniqueID();
     }
 
     public static GameObject GetParentWithTag(GameObject child, string tag){
