@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 6957503796965812536}
   label: Item Pickup Sound
   getClipsFromArea: 0
@@ -183,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b48214c727f0644b9fade22cc500a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 1832409673379767785}
   item: {fileID: 11400000, guid: 85ef28c555c4d4b43ac26d683e54c963, type: 2}
   quantity: 2
@@ -199,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c98315a3eed91c4884e071301fec9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 1
   nextEvent: {fileID: 0}
-  destroySelf: 1
   toMarkComplete:
   - {fileID: 7793148942069659050}

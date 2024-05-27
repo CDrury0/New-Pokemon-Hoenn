@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class EventAction : MonoBehaviour
 {
+    [SerializeField] private bool destroySelfOnComplete;
     [SerializeField] protected EventAction nextEvent;
     /// <summary>
     /// remember to assign the variable under both true and false conditions, 
@@ -22,6 +23,9 @@ public abstract class EventAction : MonoBehaviour
                 PlayerInput.allowMovementInput = true;
                 PlayerInput.AllowMenuToggle = true;
             }
+        }
+        if(destroySelfOnComplete){
+            Destroy(gameObject);
         }
     }
 }

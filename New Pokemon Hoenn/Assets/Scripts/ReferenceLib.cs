@@ -13,6 +13,8 @@ public class ReferenceLib : ScriptableObject
     public List<PokemonDefault> pokemonDefaultLib;
     public List<PokemonType> typeList;
     [SerializeField] private List<PokemonNature> natures;
+    public static ItemData FallbackBall => Instance._fallbackBall;
+    [SerializeField] private ItemData _fallbackBall;
     public AreaData activeArea;
 
     public static PokemonType GetPokemonType(string typeName){

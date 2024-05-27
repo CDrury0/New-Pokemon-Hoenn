@@ -105,6 +105,130 @@ PrefabInstance:
       propertyPath: _eventTriggerID
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7214090465150011467, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: messages.Array.data[0]
+      value: I hope you're ready to lose... in a bit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerName
+      value: Troy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerTitle
+      value: Trainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: victoryMessage
+      value: My feet hurt...
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].level
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].level
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].gender
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].nature
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].gender
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].ability
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].evTotal
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].ability
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].evTotal
+      value: 252
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].pokemonDefault
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a0128c0e29c19a4c97fff845ab499fb, type: 2}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].pokemonDefault
+      value: 
+      objectReference: {fileID: 11400000, guid: caaebd582cc47d9418b2e8e06acd6334, type: 2}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].moves.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].moves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].moves.Array.data[0]
+      value: 
+      objectReference: {fileID: 1682630347, guid: c826d81b3d1e0ad4495577bf010fbf8b, type: 3}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].moves.Array.data[1]
+      value: 
+      objectReference: {fileID: 1682630347, guid: 01b45e86c1cbeb04e9a7d58674952c2d, type: 3}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].moves.Array.data[0]
+      value: 
+      objectReference: {fileID: 1682630347, guid: 8b76a176e06125d4e8d5dbea156b7233, type: 3}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].moves.Array.data[1]
+      value: 
+      objectReference: {fileID: 1682630347, guid: b3db69adb2af27746931b682e3455cb1, type: 3}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].moves.Array.data[2]
+      value: 
+      objectReference: {fileID: 1682630347, guid: 6d9c50460d4f2ca448710bc79602d7b9, type: 3}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].effortValues.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].effortValues.Array.data[1]
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].effortValues.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].effortValues.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].effortValues.Array.data[1]
+      value: 252
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].individualValues.Array.data[0]
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].individualValues.Array.data[4]
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].individualValues.Array.data[3]
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].individualValues.Array.data[5]
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 8671835066302808280, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
       propertyPath: m_Name
       value: IntroSpinner
@@ -178,6 +302,118 @@ PrefabInstance:
     - target: {fileID: 6796235339155225970, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
       propertyPath: _eventTriggerID
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214090465150011467, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: messages.Array.data[0]
+      value: We're back!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerName
+      value: Justin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerTitle
+      value: Gamer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: victoryMessage
+      value: It's so over...
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].level
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].level
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].gender
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].ability
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].evTotal
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].ability
+      value: 89
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].evTotal
+      value: 161
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].pokemonDefault
+      value: 
+      objectReference: {fileID: 11400000, guid: 22ab0f7161d2a814e853663af622ee11, type: 2}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].pokemonDefault
+      value: 
+      objectReference: {fileID: 11400000, guid: df8c36d428eb4f1408195b8fdd4d4f4c, type: 2}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].moves.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].moves.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].moves.Array.data[0]
+      value: 
+      objectReference: {fileID: 1682630347, guid: cd59c55b6c94d494da310d009dce7215, type: 3}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].moves.Array.data[1]
+      value: 
+      objectReference: {fileID: 1682630347, guid: f9c4cfd0086063247a2eec381be07fe8, type: 3}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].moves.Array.data[0]
+      value: 
+      objectReference: {fileID: 1682630347, guid: fdf381f8f288be342b570fcdb0cd13e5, type: 3}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].moves.Array.data[1]
+      value: 
+      objectReference: {fileID: 1682630347, guid: 2aaed267b89597245b36a0cbba2c8ef0, type: 3}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].moves.Array.data[2]
+      value: 
+      objectReference: {fileID: 1682630347, guid: c0f3504b2dbacab40ab68d0fcb2d836b, type: 3}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].moves.Array.data[3]
+      value: 
+      objectReference: {fileID: 1682630347, guid: 7b371951088c6934a92f060e05eb82a8, type: 3}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].effortValues.Array.data[0]
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].effortValues.Array.data[3]
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].effortValues.Array.data[2]
+      value: 82
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].effortValues.Array.data[4]
+      value: 79
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].individualValues.Array.data[2]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[0].individualValues.Array.data[5]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076466987143524744, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
+      propertyPath: trainerPartyTemplate.Array.data[1].individualValues.Array.data[0]
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 8671835066302808280, guid: 5ead8f74d586adf4b897cbe4adeace94, type: 3}
       propertyPath: m_Name

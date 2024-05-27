@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public enum PrimaryStatus {None, Poisoned, Burned, Paralyzed, Asleep, Frozen, Fainted, Any}
 public enum Gender {None, Male, Female}
@@ -102,16 +103,16 @@ public class Pokemon
         this.ability = p.ability;
         this.isShiny = p.isShiny;
         FillSprites(this);
-        this.ballUsed = p.ballUsed;
+        this.ballUsed = p.ballUsed ?? ReferenceLib.FallbackBall;
         this.effortValues = p.effortValues;
         this.individualValues = p.individualValues;
         this.level = p.level;
         this.nature = p.nature ?? ReferenceLib.GetNatures().Find(n => n.name == "Hardy");
         UpdateStats();
         this.CurrentHealth = stats[0];
-        this.Friendship = p.friendship;
+        this.Friendship = p.friendship != 0 ? p.friendship : this.pokemonDefault.friendship;
         this.gender = p.gender;
-        this.height = p.height;
+        this.height = p.height != 0 ? p.height : this.pokemonDefault.height;
         this.heldItem = p.heldItem;
         this.moves = new List<GameObject>(p.moves);
         this.moveMaxPP = new int[] { p.moveMaxPP[0], p.moveMaxPP[1], p.moveMaxPP[2], p.moveMaxPP[3] };
@@ -120,7 +121,7 @@ public class Pokemon
         this.primaryStatus = PrimaryStatus.None;
         this.type1 = this.pokemonDefault.type1;
         this.type2 = this.pokemonDefault.type2;
-        this.weight = p.weight;
+        this.weight = p.weight != 0 ? p.weight : this.pokemonDefault.weight;
     }
 
     public void Evolve(PokemonDefault evolveInto){
