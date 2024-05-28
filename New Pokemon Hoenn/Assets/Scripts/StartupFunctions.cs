@@ -12,10 +12,15 @@ public class StartupFunctions : MonoBehaviour
     public AudioClip defaultIntro;
     public AudioClip defaultLoop;
     public int intToSave;
+    public PokemonDefault starterToGive;
     private void Start(){ 
         Application.targetFrameRate = 60;
         AudioManager.Instance.PlayMusic(defaultIntro, defaultLoop, false);
         //LoadSave();
+
+        if(starterToGive is not null){
+            PlayerParty.Instance.playerParty = new Party(new Pokemon(starterToGive, 11));
+        }
     }
 
     void Awake(){

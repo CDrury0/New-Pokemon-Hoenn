@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 1342640348597609408}
   label: trigger music
   getClipsFromArea: 0
@@ -264,6 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42ac9200debe0749a5e4f2ce2507ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 6206834959908735435}
   alertObject: {fileID: 3254360312741342902, guid: dce51a943d2a54f44a216be821939307, type: 3}
 --- !u!114 &6206834959908735435
@@ -278,6 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8dd5c5b255941a4c92e86190d3cc694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 7214090465150011467}
   moveToPlayer: 1
   xFirst: 0
@@ -296,6 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f313c0a2db61504fb2c0cef1dfefc73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 8076466987143524744}
   outputObject: {fileID: 6395187810024367364, guid: 9c92721c2f421aa43b0c072532c15f70, type: 3}
   confirmationDelaySeconds: 0
@@ -313,6 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9352ab1706b50e747bb79c8550ea6fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 408516362562542856}
   isDoubleBattle: 0
   trainerTitle: Trainer
@@ -320,7 +325,7 @@ MonoBehaviour:
   victoryMessage: It's over
   rewardDollars: 0
   trainerAI: {fileID: 3543319353181869969}
-  trainerSprite: {fileID: 0}
+  trainerSprite: {fileID: 21300000, guid: e512a4c95a2e2e543b97d7881d6bd74d, type: 3}
   battleMusic: {fileID: 4819224395196761987}
   victoryMusic: {fileID: 647040502150291600}
   introAnimation: {fileID: 1422851680844052151}
@@ -448,6 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 0}
   label: battle music
   getClipsFromArea: 0
@@ -468,6 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 0}
   label: victory music
   getClipsFromArea: 0
@@ -488,6 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c98315a3eed91c4884e071301fec9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 0}
   toMarkComplete:
   - {fileID: 6796235339155225970}
@@ -522,6 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f313c0a2db61504fb2c0cef1dfefc73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 0}
   outputObject: {fileID: 6395187810024367364, guid: 9c92721c2f421aa43b0c072532c15f70, type: 3}
   confirmationDelaySeconds: 0
@@ -539,6 +548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5f50b686ac8d74489a244cfd5f1b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 0}
   timeToWait: 1
   transitionObjPrefab: {fileID: 5943331842627113238, guid: 39bdca81c1f9cd845b7ae9a2e6dc12d5, type: 3}

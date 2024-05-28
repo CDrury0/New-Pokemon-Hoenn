@@ -188,6 +188,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTrainer
       objectReference: {fileID: 0}
+    - target: {fileID: 8671835066302808280, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8424404058128101953, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
@@ -307,6 +311,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GivePokemon
       objectReference: {fileID: 0}
+    - target: {fileID: 8671835066302808280, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7214090465150011467, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
     - {fileID: 8076466987143524744, guid: d40f95e1789df2d47884391f09ec1904, type: 3}
@@ -338,6 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb293fb4b6a05554da61be4e23aa039d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 0}
   testMenuPrefab: {fileID: 2497166615336264563, guid: 9c54dc031ce34b0429eccaee33f37ff6, type: 3}
 --- !u!4 &4882333034716311726 stripped

@@ -1408,6 +1408,7 @@ MonoBehaviour:
   defaultIntro: {fileID: 8300000, guid: e5c815a7b1b3f1442b1fcd2aff8ec136, type: 3}
   defaultLoop: {fileID: 8300000, guid: 41a971c741d829742b9744af38a07d6f, type: 3}
   intToSave: 240
+  starterToGive: {fileID: 11400000, guid: d765fee4ea44a73408b964e1f039cc7c, type: 2}
 --- !u!4 &562892384
 Transform:
   m_ObjectHideFlags: 0
@@ -1779,7 +1780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &719514699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2543,63 +2544,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1790053465693428282, guid: 98d60644b4781df40a4023d479c13697, type: 3}
   m_PrefabInstance: {fileID: 1015026252}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1021598322
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1436858179287085352, guid: 6b4c69b044ac44c49be07aeb4c0c7e45, type: 3}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1436858179287085352, guid: 6b4c69b044ac44c49be07aeb4c0c7e45, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1436858179287085352, guid: 6b4c69b044ac44c49be07aeb4c0c7e45, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1436858179287085352, guid: 6b4c69b044ac44c49be07aeb4c0c7e45, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1436858179287085352, guid: 6b4c69b044ac44c49be07aeb4c0c7e45, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1436858179287085352, guid: 6b4c69b044ac44c49be07aeb4c0c7e45, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1436858179287085352, guid: 6b4c69b044ac44c49be07aeb4c0c7e45, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1436858179287085352, guid: 6b4c69b044ac44c49be07aeb4c0c7e45, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1436858179287085352, guid: 6b4c69b044ac44c49be07aeb4c0c7e45, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1436858179287085352, guid: 6b4c69b044ac44c49be07aeb4c0c7e45, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1436858179287085352, guid: 6b4c69b044ac44c49be07aeb4c0c7e45, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1436858179287085354, guid: 6b4c69b044ac44c49be07aeb4c0c7e45, type: 3}
-      propertyPath: m_Name
-      value: Route102 Testing
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6b4c69b044ac44c49be07aeb4c0c7e45, type: 3}
 --- !u!1001 &1033703503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5493,6 +5437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 0}
   label: area music
   getClipsFromArea: 1
@@ -5513,6 +5458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 0}
   label: wild victory music
   getClipsFromArea: 0
@@ -5533,6 +5479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 0}
   label: default wild battle music
   getClipsFromArea: 0
@@ -5553,6 +5500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5f50b686ac8d74489a244cfd5f1b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 0}
   timeToWait: 2
   transitionObjPrefab: {fileID: 5943331842627113238, guid: bc335d0ac59e31947bfe95a8c842720b, type: 3}
@@ -5607,6 +5555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5f50b686ac8d74489a244cfd5f1b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 0}
   timeToWait: 0.6
   transitionObjPrefab: {fileID: 3739998403596976371, guid: 5e0e48f610787504799d3a21e9c426a0, type: 3}
@@ -5624,6 +5573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5f50b686ac8d74489a244cfd5f1b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
   nextEvent: {fileID: 0}
   timeToWait: 0.6
   transitionObjPrefab: {fileID: 6405088420844483613, guid: c0a8283261dfc14458a57dce6f44ce12, type: 3}
@@ -6416,7 +6366,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: eb48e1f24fe69b94793173a9b1745a8e, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0

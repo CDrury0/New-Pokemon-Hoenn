@@ -9,7 +9,7 @@ public class HealPlayerParty : EventAction
             p.CurrentHealth = p.stats[0];
             p.primaryStatus = PrimaryStatus.None;
             for(int i = 0; i < p.moves.Count; i++){
-                p.movePP = p.moveMaxPP;
+                p.movePP[i] = p.moveMaxPP[i];
             }
         }
         yield break;
