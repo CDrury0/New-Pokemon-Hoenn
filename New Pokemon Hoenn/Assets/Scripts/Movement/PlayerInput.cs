@@ -27,13 +27,13 @@ public class PlayerInput : MonoBehaviour
     public static int StepCount;
     public static event Action<int> StepEvent;
     public GameObject interactPointPrefab;
-    public Transform followPoint;
+    public static Transform followPoint;
     public MenuAnimation menuAnimation;
     public LayerMask stopsMovement;
     public Animator animator;
     private float moveSpeed;
     [SerializeField] private float movementInputDelaySeconds;
-    public Vector3 Direction { get; private set; }
+    public static Vector3 Direction { get; set; }
     public static Vector3 PlayerHeightOffset => new(0, -0.5f, 0);
 
     void Update() {
@@ -135,6 +135,7 @@ public class PlayerInput : MonoBehaviour
 
     void Awake(){
         playerTransform = transform;
+        followPoint = GameObject.FindGameObjectWithTag("MovePoint").transform;
     }
 
     void Start(){

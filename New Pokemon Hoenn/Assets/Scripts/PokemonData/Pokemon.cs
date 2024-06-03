@@ -230,7 +230,7 @@ public class Pokemon
         CurrentHealth = stats[0];
         heldItem = MakeHeldItem(pokemonDefault.naturallyHeldItem);
         nickName = pokemonName;
-        metArea = ReferenceLib.Instance.activeArea.areaName;
+        metArea = ReferenceLib.ActiveArea.areaName;
         metLevel = level;
         type1 = pokemonDefault.type1;
         type2 = pokemonDefault.type2;

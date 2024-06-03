@@ -1473,6 +1473,7 @@ MonoBehaviour:
   wildMusic: {fileID: 1901076945}
   wildVictoryMusic: {fileID: 1901076944}
   areaMusic: {fileID: 1901076943}
+  defeatEventHead: {fileID: 1901076949}
 --- !u!4 &598696005
 Transform:
   m_ObjectHideFlags: 0
@@ -3346,7 +3347,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactPointPrefab: {fileID: 9172963892756184426, guid: b5ffb74e53636534e94a690f2c9fee2c, type: 3}
-  followPoint: {fileID: 1811542984}
   menuAnimation: {fileID: 1187341917}
   stopsMovement:
     serializedVersion: 2
@@ -5403,6 +5403,9 @@ GameObject:
   - component: {fileID: 1901076943}
   - component: {fileID: 1901076944}
   - component: {fileID: 1901076948}
+  - component: {fileID: 1901076949}
+  - component: {fileID: 1901076950}
+  - component: {fileID: 1901076951}
   m_Layer: 0
   m_Name: ReferencedCombatScriptContainer
   m_TagString: Untagged
@@ -5506,6 +5509,57 @@ MonoBehaviour:
   transitionObjPrefab: {fileID: 5943331842627113238, guid: bc335d0ac59e31947bfe95a8c842720b, type: 3}
   destroyOwnTransitionAfterWait: 1
   previousTransitionToDestroy: {fileID: 0}
+--- !u!114 &1901076949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901076941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0b4647777027947b510c107e81565c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
+  nextEvent: {fileID: 1901076950}
+  loadLastHealArea: 1
+  loadEscapeArea: 0
+  areaDataOverride: {fileID: 0}
+--- !u!114 &1901076950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901076941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12b47465a4af59e41a840366efbf0c55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
+  nextEvent: {fileID: 1901076951}
+  lastHealPosition: 1
+  escapePosition: 0
+  overridePosition: {x: 0, y: 0, z: 0}
+  overridePositionTransform: {fileID: 0}
+  forcePlayerDirection: {x: 0, y: -1, z: 0}
+--- !u!114 &1901076951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901076941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8dbf6c59c4dee4a976a64b052ef68a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
+  nextEvent: {fileID: 0}
+  setLastHealPosition: 0
 --- !u!1 &1934170126
 GameObject:
   m_ObjectHideFlags: 0

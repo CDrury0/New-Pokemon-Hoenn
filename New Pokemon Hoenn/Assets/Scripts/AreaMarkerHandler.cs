@@ -10,7 +10,7 @@ public class AreaMarkerHandler : MonoBehaviour
     [SerializeField] private AnimationClip inClip;
 
     void Start() {
-        textChild.text = ReferenceLib.Instance.activeArea.areaName;
+        textChild.text = ReferenceLib.ActiveArea.areaName;
         StartCoroutine(HandleAnim());
     }
 

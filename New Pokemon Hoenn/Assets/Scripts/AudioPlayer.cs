@@ -25,7 +25,7 @@ public class AudioPlayer : EventAction
             return;
         }
         else if(getClipsFromArea){
-            AreaData area = ReferenceLib.Instance.activeArea;
+            AreaData area = ReferenceLib.ActiveArea;
             musicIntro = area.musicIntro;
             musicLoop = area.musicLoop;
         }

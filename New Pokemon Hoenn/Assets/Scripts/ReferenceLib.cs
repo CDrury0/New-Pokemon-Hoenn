@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,14 +16,25 @@ public class ReferenceLib : ScriptableObject
     [SerializeField] private List<PokemonNature> natures;
     public static ItemData FallbackBall => Instance._fallbackBall;
     [SerializeField] private ItemData _fallbackBall;
-    public AreaData activeArea;
-
-    public static PokemonType GetPokemonType(string typeName){
-        return Instance.typeList.Find(t => t.name == typeName);
+    public static AreaData ActiveArea {
+        get => Instance._activeArea;
+        set => Instance._activeArea = value;
     }
+    [SerializeField] private AreaData _activeArea;
+    public static DynamicDictionary<AreaData, Vector3>.Entry LastHealPosition => Instance._lastHealPosition;
+    [SerializeField] private DynamicDictionary<AreaData, Vector3>.Entry _lastHealPosition;
+    public static DynamicDictionary<AreaData, Vector3>.Entry EscapePosition {
+        get => Instance._escapePosition;
+        set => Instance._escapePosition = value;
+    }
+    [SerializeField] private DynamicDictionary<AreaData, Vector3>.Entry _escapePosition;
 
-    public static List<PokemonNature> GetNatures(){
-        return Instance.natures;
+    public static PokemonType GetPokemonType(string typeName) => Instance.typeList.Find(t => t.name == typeName);
+    public static List<PokemonNature> GetNatures() => Instance.natures;
+
+    public static void SetLastHealPosition() {
+        Instance._lastHealPosition.key = ActiveArea;
+        Instance._lastHealPosition.value = PlayerInput.playerTransform.position;
     }
 
     public void Awake() {
@@ -32,19 +44,14 @@ public class ReferenceLib : ScriptableObject
         }
         Instance = this;
         
-        // Load dex progress from save
+        // Eventually load from save file
         GlobalDexProgress ??= new DexStatus[pokemonDefaultLib.Count + 1];
-        // Give caught status to every mon
-        for (int i = 1; i < GlobalDexProgress.Length; i++){
-            GlobalDexProgress[i] = DexStatus.Caught;
-        }
     }
 
     public static void UpdateDexStatus(PokemonDefault mon, DexStatus status) {
         int index = mon.IDNumber;
-        if((int)status < (int)GlobalDexProgress[index]){
-            return;
+        if((int)status > (int)GlobalDexProgress[index]){
+            GlobalDexProgress[index] = status;
         }
-        GlobalDexProgress[index] = status;
     }
 }

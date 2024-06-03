@@ -10,7 +10,7 @@ public class GameAreaManager : MonoBehaviour
     public GameObject eventObjectContainer;
 
     public IEnumerator LoadArea() {
-        ReferenceLib.Instance.activeArea = areaData;
+        ReferenceLib.ActiveArea = areaData;
         List<GameAreaManager> activeGameAreas = new List<GameAreaManager>(FindObjectsOfType<GameAreaManager>());
         List<GameObject> prefabsOfActiveAreas = new List<GameObject>(FindObjectsOfType<GameAreaManager>().Select(a => a.areaData.areaObjectPrefab));
 
@@ -22,16 +22,16 @@ public class GameAreaManager : MonoBehaviour
             }
         }
 
-        if(areaData.eventObjectPrefab != null){
-            Destroy(eventObjectContainer);
-            eventObjectContainer = Instantiate(areaData.eventObjectPrefab, transform);
-        }
-
         //instantiate any area found in the adjacency list that does not already exist in the scene
         foreach(GameObject go in areaData.adjacentObjectPrefabs){
             if(!prefabsOfActiveAreas.Contains(go)){
                 Instantiate(go);
             }
+        }
+
+        if(areaData.eventObjectPrefab != null){
+            Destroy(eventObjectContainer);
+            eventObjectContainer = Instantiate(areaData.eventObjectPrefab, transform);
         }
 
         yield break;

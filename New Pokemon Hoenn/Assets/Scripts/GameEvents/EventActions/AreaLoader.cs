@@ -7,10 +7,13 @@ using UnityEngine;
 /// </summary>
 public class AreaLoader : EventAction
 {
-    private GameAreaManager areaEntered;
+    [SerializeField] private bool loadLastHealArea;
+    [SerializeField] private bool loadEscapeArea;
+    [SerializeField] private AreaData areaDataOverride;
 
     protected override IEnumerator EventActionLogic() {
-        if(areaEntered.areaData == ReferenceLib.Instance.activeArea){
+        GameAreaManager areaEntered = GetAreaToLoad();
+        if(areaEntered.areaData == ReferenceLib.ActiveArea){
             exit = true;
             yield break;
         }
@@ -18,7 +21,18 @@ public class AreaLoader : EventAction
         StartCoroutine(areaEntered.LoadArea());
     }
 
-    void Start() {
-        areaEntered = GetComponentInParent<GameAreaManager>();
+    private GameAreaManager GetAreaToLoad() {
+        GameObject prefabToLoad = null;
+        if(loadLastHealArea){
+            prefabToLoad = ReferenceLib.LastHealPosition.key.areaObjectPrefab;
+        }
+        if(loadEscapeArea){
+            prefabToLoad = ReferenceLib.EscapePosition.key.areaObjectPrefab;
+        }
+        if(areaDataOverride != null){
+            prefabToLoad = areaDataOverride.areaObjectPrefab;
+        }
+            
+        return prefabToLoad?.GetComponent<GameAreaManager>() ?? GetComponentInParent<GameAreaManager>();
     }
 }

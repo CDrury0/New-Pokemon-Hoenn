@@ -418,11 +418,11 @@ public class MoveFunctions : MonoBehaviour
         Weather weather = CombatSystem.Weather;
         if(CombatSystem.weatherTimer == 0){
             yield return StartCoroutine(combatScreen.battleText.WriteMessage(weather.textOnStop));
-            CombatSystem.Weather = ReferenceLib.Instance.activeArea.weather;
+            CombatSystem.Weather = ReferenceLib.ActiveArea.weather;
             yield break;
         }
 
-        if(CombatSystem.Weather != ReferenceLib.Instance.activeArea.weather){
+        if(CombatSystem.Weather != ReferenceLib.ActiveArea.weather){
             CombatSystem.weatherTimer--;
         }
         

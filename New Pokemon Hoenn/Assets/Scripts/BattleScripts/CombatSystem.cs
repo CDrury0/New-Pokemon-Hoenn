@@ -35,6 +35,7 @@ public class CombatSystem : MonoBehaviour
     [SerializeField] private AudioPlayer wildMusic;
     [SerializeField] private AudioPlayer wildVictoryMusic;
     [SerializeField] private AudioPlayer areaMusic;
+    [SerializeField] private EventAction defeatEventHead;
     private AudioPlayer battleMusicPlayer;
     private AudioPlayer victoryMusicPlayer;
     public static Trainer EnemyTrainer { get; private set; }
@@ -89,7 +90,7 @@ public class CombatSystem : MonoBehaviour
         BattleActive = true;
         TurnCount = 0;
         escapeAttempts = 0;
-        Weather = ReferenceLib.Instance.activeArea.weather;
+        Weather = ReferenceLib.ActiveArea.weather;
         weatherTimer = 0;
         MoveRecordList = new MoveRecordList();
         playerParty = PlayerParty.Instance.playerParty;
@@ -695,6 +696,7 @@ public class CombatSystem : MonoBehaviour
         PlayerVictory = true;
         if(playerParty.IsEntireTeamFainted()){
             yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("You lose, moron"));
+            StartCoroutine(defeatEventHead.DoEventAction());
             PlayerVictory = false;
         }
         else if(EnemyParty.IsEntireTeamFainted()){
@@ -719,8 +721,6 @@ public class CombatSystem : MonoBehaviour
         else{
             //battle was forcefully ended via e.g. run, whirlwind, pokeball caught wild mon
         }
-        //does this playSound ultimately belong here??
-        areaMusic.PlaySound();
 
         //only play the transition from combatScreen to overworld if evolution screen is not used
         if(!willEvolutionOccur){
@@ -728,6 +728,10 @@ public class CombatSystem : MonoBehaviour
                 combatScreen.gameObject.SetActive(false);
             }));
         }
+
+        //does this playSound ultimately belong here??
+        areaMusic.PlaySound();
+
         CleanUpAfterBattle();
         
         BattleEndSignal = false;
