@@ -11,13 +11,19 @@ public class GameAreaManager : MonoBehaviour
 
     public IEnumerator LoadArea() {
         ReferenceLib.ActiveArea = areaData;
-        List<GameAreaManager> activeGameAreas = new List<GameAreaManager>(FindObjectsOfType<GameAreaManager>());
-        List<GameObject> prefabsOfActiveAreas = new List<GameObject>(FindObjectsOfType<GameAreaManager>().Select(a => a.areaData.areaObjectPrefab));
+
+        List<GameAreaManager> activeManagers = new(FindObjectsOfType<GameAreaManager>());
+        GameAreaManager currentAreaInstance = activeManagers.Find(area => area.areaData == areaData);
+        if(currentAreaInstance == null){
+            currentAreaInstance = Instantiate(areaData.areaObjectPrefab).GetComponent<GameAreaManager>();
+            activeManagers.Add(currentAreaInstance);
+        }
+        List<GameObject> prefabsOfActiveAreas = new(activeManagers.Select(a => a.areaData.areaObjectPrefab));
 
         //destroy all areas that are not in the adjacency list
         foreach(GameObject go in prefabsOfActiveAreas){
-            if(!areaData.adjacentObjectPrefabs.Contains(go)){
-                GameObject toDestroy = activeGameAreas.Find(a => a.areaData.areaObjectPrefab == go).gameObject;
+            if(go != areaData.areaObjectPrefab && !areaData.adjacentObjectPrefabs.Contains(go)){
+                GameObject toDestroy = activeManagers.Find(a => a.areaData.areaObjectPrefab == go).gameObject;
                 Destroy(toDestroy);
             }
         }
@@ -29,9 +35,11 @@ public class GameAreaManager : MonoBehaviour
             }
         }
 
+        //rebuild current area event object container
         if(areaData.eventObjectPrefab != null){
-            Destroy(eventObjectContainer);
-            eventObjectContainer = Instantiate(areaData.eventObjectPrefab, transform);
+            Destroy(currentAreaInstance.eventObjectContainer);
+            //find the instance to use as parent in case the area loaded was not adjacent to the area the load began from
+            currentAreaInstance.eventObjectContainer = Instantiate(areaData.eventObjectPrefab, currentAreaInstance.transform);
         }
 
         yield break;
