@@ -19,7 +19,7 @@ public class StartupFunctions : MonoBehaviour
         //LoadSave();
 
         if(starterToGive is not null){
-            PlayerParty.Instance.playerParty = new Party(new Pokemon(starterToGive, 11));
+            PlayerParty.Instance.playerParty = new Party(new Pokemon(starterToGive, 13));
         }
     }
 

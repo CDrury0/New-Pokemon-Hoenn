@@ -581,19 +581,21 @@ public class CombatSystem : MonoBehaviour
         PartyMenu partyMenu = null;
         foreach(BattleTarget needsReplaced in playerToReplace){
             ActiveTarget = needsReplaced;
-            ActiveTarget.individualBattleModifier.switchingIn = null;              
-            yield return StartCoroutine(OverlayTransitionManager.Instance.TransitionCoroutine(() => {
-                if(partyMenu != null){
-                    Destroy(partyMenu);
-                }
-                if (!playerParty.HasAvailableFighter()) {
-                    Proceed = true;
-                    return;
-                }
-                partyMenu = combatScreen.SetPartyScreenFaint(false, "Who will replace " + ActiveTarget.pokemon.nickName + "?");
-            }));
-                
-            yield return new WaitUntil(() => Proceed);
+            ActiveTarget.individualBattleModifier.switchingIn = null;
+            if(playerParty.HasAvailableFighter()){
+                yield return StartCoroutine(OverlayTransitionManager.Instance.TransitionCoroutine(() => {
+                    if (partyMenu != null){
+                        Destroy(partyMenu);
+                    }
+                    if (!playerParty.HasAvailableFighter()){
+                        Proceed = true;
+                        return;
+                    }
+                    partyMenu = combatScreen.SetPartyScreenFaint(false, "Who will replace " + ActiveTarget.pokemon.nickName + "?");
+                }));
+
+                yield return new WaitUntil(() => Proceed);
+            }
         }
 
         if(partyMenu != null){

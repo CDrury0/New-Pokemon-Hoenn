@@ -48,8 +48,8 @@ public class BattleHUD : MonoBehaviour
             caughtIcon.SetActive(false);
             return;
         }
-        // If p is not on the enemy team, don't show the icon        
-        caughtIcon.SetActive(CombatSystem.BattleTargets.Find(b => b.pokemon == p && !b.teamBattleModifier.isPlayerTeam) != null);
+        // If p is not on the enemy team or it is a trainer battle, don't show the icon        
+        caughtIcon.SetActive(CombatSystem.BattleTargets.Find(b => b.pokemon == p && !b.teamBattleModifier.isPlayerTeam) != null && CombatSystem.EnemyTrainer == null);
     }
 
     private void SetStatusIcon(PrimaryStatus status){

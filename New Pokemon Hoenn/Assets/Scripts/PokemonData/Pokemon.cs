@@ -214,7 +214,7 @@ public class Pokemon
         this.level = level;
         effortValues = new int[] { 0, 0, 0, 0, 0, 0 };
         individualValues = MakeRandomIVS();
-        isShiny = Random.Range(0, 1) == 0;
+        isShiny = Random.Range(0, 2048) == 0;
         FillSprites(this);
         hiddenPowerType = ReferenceLib.Instance.typeList[Random.Range(0, 18)];
         Friendship = pokemonDefault.friendship;

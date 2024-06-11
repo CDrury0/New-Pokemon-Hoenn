@@ -8,12 +8,7 @@ public class PlayerInventory : MonoBehaviour
     public static PlayerInventory Instance;
     [SerializeField] private ItemData giveOnStart;
     [SerializeField] private List<ItemData> dataManifest;
-    [SerializeField] private List<GameObject> itemPrefabManifest;
     private Dictionary<ItemData, int> inventory;
-
-    public static GameObject GetItemPrefab(int itemIndex){
-        return Instance.itemPrefabManifest.Find(g => g.GetComponent<ItemLogic>().itemData == Instance.dataManifest[itemIndex]);
-    }
 
     /// <returns>A copy of the player inventory as a list of key/value pairs</returns>
     public static List<KeyValuePair<ItemData, int>> GetKeyValuePairList(){
@@ -53,9 +48,6 @@ public class PlayerInventory : MonoBehaviour
 
     void Start(){
         inventory = new Dictionary<ItemData, int>();
-        foreach(ItemData i in dataManifest){
-            AddItem(i);
-        }
         AddItem(giveOnStart, 3);
         //load inventory from save file here?
     }

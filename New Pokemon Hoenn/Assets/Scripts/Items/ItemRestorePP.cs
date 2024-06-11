@@ -23,7 +23,6 @@ public class ItemRestorePP : ItemEffect, ICheckMoveItemUse
     protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj, Func<string, IEnumerator> messageOutput, int whichMove) {
         message = "PP was restored";
         if(whichMove != -1){
-            Debug.Log(whichMove);
             p.movePP[whichMove] = GetUpdatedValue(p.movePP[whichMove], p.moveMaxPP[whichMove], amountRestored);
             yield break;
         }

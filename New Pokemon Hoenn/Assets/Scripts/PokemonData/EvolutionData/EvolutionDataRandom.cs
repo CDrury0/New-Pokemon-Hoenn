@@ -11,6 +11,6 @@ public class EvolutionDataRandom : EvolutionData
         if(!CheckLevel(p)){
             return null;
         }
-        return entries[ReferenceLib.Instance.typeList.IndexOf(p.hiddenPowerType) + 1 % entries.Count];
+        return entries[(ReferenceLib.Instance.typeList.IndexOf(p.hiddenPowerType) + 1) % entries.Count];
     }
 }

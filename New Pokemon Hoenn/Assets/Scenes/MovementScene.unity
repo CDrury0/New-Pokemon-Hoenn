@@ -1408,7 +1408,7 @@ MonoBehaviour:
   defaultIntro: {fileID: 8300000, guid: e5c815a7b1b3f1442b1fcd2aff8ec136, type: 3}
   defaultLoop: {fileID: 8300000, guid: 41a971c741d829742b9744af38a07d6f, type: 3}
   intToSave: 240
-  starterToGive: {fileID: 11400000, guid: d765fee4ea44a73408b964e1f039cc7c, type: 2}
+  starterToGive: {fileID: 11400000, guid: 067f31caec5ee5b4e8971912bccb749e, type: 2}
 --- !u!4 &562892384
 Transform:
   m_ObjectHideFlags: 0
@@ -5686,7 +5686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef309186544cf72449873aabef535c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  giveOnStart: {fileID: 11400000, guid: ec773f5a7d2653a40bf6dd47bccff439, type: 2}
+  giveOnStart: {fileID: 11400000, guid: 16e19581d76fcb14f9cc4ea5da2040ac, type: 2}
   dataManifest:
   - {fileID: 11400000, guid: 8e3777f91f0dd44498f80cd9e81e0893, type: 2}
   - {fileID: 11400000, guid: 16699cbd54b553e488bbc11a0e40892c, type: 2}
@@ -5922,7 +5922,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 09cbcd9f13f6569449f7fab33901fd7e, type: 2}
   - {fileID: 11400000, guid: 128d3a6a0d3c30d4498d91e848dcbd67, type: 2}
   - {fileID: 11400000, guid: fdbacaec405622843afcb603da35e947, type: 2}
-  itemPrefabManifest: []
 --- !u!1 &1958697473
 GameObject:
   m_ObjectHideFlags: 0

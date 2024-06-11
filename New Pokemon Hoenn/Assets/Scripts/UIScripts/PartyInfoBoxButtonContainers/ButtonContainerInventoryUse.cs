@@ -25,7 +25,7 @@ public class ButtonContainerInventoryUse : PartyInfoBoxButtonContainer
         yield return StartCoroutine(InventoryMenu.LoadedItemInstance.DoItemEffects(infoBox.pokemonInfo, p, (string message) => modal.ShowModalMessage(message), move));
 
         //if HandleEvolution.EvolveMon finds a party menu to destroy, this function will exit here, effectively skipping the transition
-        yield return StartCoroutine(OverlayTransitionManager.Instance.TransitionCoroutine(() => {
+        OverlayTransitionManager.Instance.DoTransitionWithAction(() => {
             invMenu.gameObject.SetActive(!CombatSystem.BattleActive);
             partyMenu.gameObject.SetActive(false);
             if(CombatSystem.BattleActive){
@@ -35,6 +35,6 @@ public class ButtonContainerInventoryUse : PartyInfoBoxButtonContainer
         },
         () => {
             CombatSystem.Proceed = true;
-        }));
+        });
     }
 }
