@@ -24,6 +24,7 @@ public class CombatScreen : MonoBehaviour
     public GameObject enemy1Object;
     public GameObject player2Object;
     public GameObject enemy2Object;
+    public GameObject enemyTrainerImagePrefab;
     public Image enemyTrainerImage;
     public BattleHUD player1hud;
     public BattleHUD player2hud;
@@ -55,6 +56,9 @@ public class CombatScreen : MonoBehaviour
 
     public void SetStartingGraphics(BattleTarget wildMon){
         battleText.gameObject.SetActive(false);
+        GameObject oldTrainerImage = enemyTrainerImage.gameObject;
+        enemyTrainerImage = Instantiate(enemyTrainerImagePrefab, oldTrainerImage.transform.parent).GetComponent<Image>();
+        Destroy(oldTrainerImage);
         enemyTrainerImage.gameObject.SetActive(CombatSystem.EnemyTrainer?.trainerSprite != null);
         if(CombatSystem.EnemyTrainer?.trainerSprite != null){
             enemyTrainerImage.sprite = CombatSystem.EnemyTrainer.trainerSprite;

@@ -36,6 +36,7 @@ public class SingleAnimOverride : MonoBehaviour
     public IEnumerator PlayAnimationWait(int clipIndex = 0){
         PlayAnimation(clipIndex);
         yield return new WaitForSeconds(ClipLength);
+        yield return StartCoroutine(SetBoolDelayed());
     }
 
     /// <summary>
@@ -44,6 +45,7 @@ public class SingleAnimOverride : MonoBehaviour
     public IEnumerator PlayAnimationWait(AnimationClip clip){
         PlayAnimation(clip);
         yield return new WaitForSeconds(ClipLength);
+        yield return StartCoroutine(SetBoolDelayed());
     }
 
     private void UpdateAnimation(AnimationClip clip){

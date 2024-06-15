@@ -23,6 +23,8 @@ public class ApplyDrowsy : ApplyIndividualEffect, IApplyEffect
         }
     }
 
+    public override bool ImmuneToEffect(BattleTarget user, BattleTarget target, MoveData moveData) => target.pokemon.primaryStatus == PrimaryStatus.Asleep;
+
     void Awake(){
         message = "&targetName became drowsy!";
     }
