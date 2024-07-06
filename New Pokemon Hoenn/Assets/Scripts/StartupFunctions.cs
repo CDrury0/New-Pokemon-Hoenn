@@ -1,22 +1,15 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Security.Cryptography;
-using System;
 
 public class StartupFunctions : MonoBehaviour
 {
-    public ReferenceLib toInitialize;
-    public AudioClip defaultIntro;
-    public AudioClip defaultLoop;
+    public ReferenceLib libToInitialize;
+    public SaveManager saveManagerToInitialize;
     public int intToSave;
     public PokemonDefault starterToGive;
     private void Start(){ 
         Application.targetFrameRate = 60;
-        AudioManager.Instance.PlayMusic(defaultIntro, defaultLoop, false);
-        //LoadSave();
 
         if(starterToGive is not null){
             PlayerParty.Instance.playerParty = new Party(new Pokemon(starterToGive, 13));
@@ -27,19 +20,12 @@ public class StartupFunctions : MonoBehaviour
         PlayerPrefs.SetFloat("musicVolume", 1f);
         PlayerPrefs.SetFloat("effectVolume", 1f);
 
-        toInitialize.Awake();
+        saveManagerToInitialize.Awake();
+        libToInitialize.Awake();
     }
 
-    /*private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            DoSave(intToSave);
-            Debug.Log("saved");
-        }
-    }*/
 
-    public static void DoSave(int myInt)
+    /* public static void DoSave(int myInt)
     {
         //write save data and checksum
         BinaryFormatter formatter = new BinaryFormatter();
@@ -107,5 +93,5 @@ public class StartupFunctions : MonoBehaviour
             }
         }
         return true;
-    }
+    } */
 }

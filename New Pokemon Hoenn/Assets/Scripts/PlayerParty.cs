@@ -13,6 +13,7 @@ public class PlayerParty : MonoBehaviour
             return;
         }
         Instance = this;
+        playerParty = new Party();
     }
 
     /// <returns>Whether the Pokemon was actually put in the player's party (true) or was sent to the box (false)</returns>
@@ -33,7 +34,5 @@ public class PlayerParty : MonoBehaviour
     //include methods to retrieve specific player party info, like leader ability, etc.
 
     // Get first pokemon that isn't an egg?
-    public static Pokemon GetLeader(){
-        return Instance.playerParty.party[0];
-    }
+    public static Pokemon GetLeader() => Instance.playerParty.party[0];
 }

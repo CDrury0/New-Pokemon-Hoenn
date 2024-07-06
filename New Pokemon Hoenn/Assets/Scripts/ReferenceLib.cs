@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Reference Objects/ReferenceLib")]
@@ -12,6 +13,8 @@ public class ReferenceLib : ScriptableObject
     /// </summary>
     public static DexStatus[] GlobalDexProgress;
     public List<PokemonDefault> pokemonDefaultLib;
+    public List<PokemonDefault> pokemonLibByID;
+    public List<GameObject> moveManifest;
     public List<PokemonType> typeList;
     [SerializeField] private List<PokemonNature> natures;
     public static ItemData FallbackBall => Instance._fallbackBall;
@@ -43,9 +46,9 @@ public class ReferenceLib : ScriptableObject
             return;
         }
         Instance = this;
-        
-        // Eventually load from save file
+
         GlobalDexProgress ??= new DexStatus[pokemonDefaultLib.Count + 1];
+        pokemonLibByID = pokemonDefaultLib.OrderBy(p => p.IDNumber).ToList();
     }
 
     public static void UpdateDexStatus(PokemonDefault mon, DexStatus status) {

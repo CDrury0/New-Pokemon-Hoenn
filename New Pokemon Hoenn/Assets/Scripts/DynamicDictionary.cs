@@ -9,7 +9,7 @@ using UnityEngine;
 /// <typeparam name="Y">The type of the dictionary value</typeparam>
 
 [System.Serializable] public class DynamicDictionary<T, Y> {
-    [SerializeField] private List<Entry> entries;
+    public List<Entry> Entries;
     private Dictionary<T, Y> _dictionary;
     public bool Initialized { get; private set; }
 
@@ -20,9 +20,13 @@ using UnityEngine;
         get => Initialized ? new Dictionary<T, Y>(_dictionary) : null;
     }
 
+    public DynamicDictionary(List<Entry> entries){
+        Entries = new(entries);
+    }
+
     public void Initialize() {
-        _dictionary = new Dictionary<T, Y>();
-        foreach(Entry e in entries){
+        _dictionary = new();
+        foreach(Entry e in Entries){
             _dictionary.TryAdd(e.key, e.value);
         }
         Initialized = true;
@@ -31,5 +35,10 @@ using UnityEngine;
     [System.Serializable] public struct Entry {
         public T key;
         public Y value;
+
+        public Entry(T key, Y value){
+            this.key = key;
+            this.value = value;
+        }
     }
 }

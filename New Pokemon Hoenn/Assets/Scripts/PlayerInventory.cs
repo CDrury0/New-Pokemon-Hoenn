@@ -11,13 +11,14 @@ public class PlayerInventory : MonoBehaviour
     private Dictionary<ItemData, int> inventory;
 
     /// <returns>A copy of the player inventory as a list of key/value pairs</returns>
-    public static List<KeyValuePair<ItemData, int>> GetKeyValuePairList(){
-        return new List<KeyValuePair<ItemData,int>>(Instance.inventory);
-    }
+    public static List<KeyValuePair<ItemData, int>> GetKeyValuePairList() => new(Instance.inventory);
 
-    public static ItemData GetItemData(int index){
-        return Instance.dataManifest[index];
-    }
+    public static int GetItemID(ItemData data) => Instance.dataManifest.IndexOf(data);
+
+    public static ItemData GetItemData(int index) => Instance.dataManifest[index];
+
+    /// <returns>A copy of the player inventory as a dictionary</returns>
+    public static Dictionary<ItemData, int> GetInventoryDictionary() => new(Instance.inventory);
 
     public static int GetInventoryQuantity(ItemData itemData){
         return Instance.inventory.ContainsKey(itemData) ? Instance.inventory[itemData] : 0;

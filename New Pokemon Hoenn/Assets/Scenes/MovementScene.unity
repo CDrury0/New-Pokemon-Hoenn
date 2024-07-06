@@ -1404,9 +1404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edc71d50e11b6544b6f258aa9aa2046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toInitialize: {fileID: 11400000, guid: 943792f06f9af1749aad151c80f6fb36, type: 2}
-  defaultIntro: {fileID: 8300000, guid: e5c815a7b1b3f1442b1fcd2aff8ec136, type: 3}
-  defaultLoop: {fileID: 8300000, guid: 41a971c741d829742b9744af38a07d6f, type: 3}
+  libToInitialize: {fileID: 11400000, guid: 943792f06f9af1749aad151c80f6fb36, type: 2}
+  saveManagerToInitialize: {fileID: 11400000, guid: 2b05dc91de3175a46ba4ca1fc815f5c3, type: 2}
   intToSave: 240
   starterToGive: {fileID: 11400000, guid: 067f31caec5ee5b4e8971912bccb749e, type: 2}
 --- !u!4 &562892384
@@ -3599,31 +3598,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 2b05dc91de3175a46ba4ca1fc815f5c3, type: 2}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: OpenPartyNoMessage
+      value: SaveData
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: PartyMenu, Assembly-CSharp
+      value: SaveManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1790053465693428283, guid: 98d60644b4781df40a4023d479c13697, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName

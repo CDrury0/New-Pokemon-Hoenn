@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8217b6b373479e45aac9ed09f82bdce, type: 3}
-  m_Name: TestList
+  m_Script: {fileID: 11500000, guid: 7556642032137d24d9dd47b4b4439df6, type: 3}
+  m_Name: SaveManager
   m_EditorClassIdentifier: 
-  trackedEvents: 

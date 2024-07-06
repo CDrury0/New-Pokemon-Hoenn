@@ -13,6 +13,10 @@ public class Party
         party[0] = p;
     }
 
+    public Party(Pokemon[] p): this() {
+        party = new List<Pokemon>(p).ToArray();
+    }
+
     public Party(SerializablePokemon[] templateToCopy) : this() {
         for(int i = 0; i < templateToCopy.Length; i++){
             if(templateToCopy[i] != null){

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+[System.Serializable] [Tooltip("For use in Unity inspector; see SaveablePokemon for fully System serializable implementation")]
 public class SerializablePokemon
 {
     public PokemonDefault pokemonDefault;
