@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Reference Objects/SaveManager")]
 public class SaveManager : ScriptableObject
 {
+    public bool obfuscateSave;
     public static SaveManager Instance { get; private set; }
+    public static SaveData LoadedSave { get; private set; }
 
     public void LoadData(){
-        string data = File.ReadAllText(Application.persistentDataPath + "/save.json");
-        SaveData saveData = JsonUtility.FromJson<SaveData>(data);
-        Debug.Log(saveData.currentPosition.value);
+        try {
+            string data = File.ReadAllText(Application.persistentDataPath + "/save.json");
+            LoadedSave = JsonUtility.FromJson<SaveData>(data);
+        } catch(System.Exception){
+            LoadedSave = null;
+        }
     }
 
     public void SaveData(){
@@ -33,8 +37,7 @@ public class SaveManager : ScriptableObject
     }
 
     public static List<DynamicDictionary<string, List<int>>.Entry> GetSerializableEventManifest(){
-        List<AreaData> allAreas = Resources.LoadAll<AreaData>("AreaDataObjects/").ToList();
-        Debug.Log(allAreas.Count);
+        List<AreaData> allAreas = Resources.LoadAll<AreaData>(AreaData.RESOURCE_PATH).ToList();
         List<DynamicDictionary<string, List<int>>.Entry> newList = new();
         foreach(AreaData area in allAreas){
             newList.Add(new(area.name, new List<int>(area.eventManifest)));

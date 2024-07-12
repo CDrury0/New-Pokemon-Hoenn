@@ -21,6 +21,7 @@ public class StartupFunctions : MonoBehaviour
         PlayerPrefs.SetFloat("effectVolume", 1f);
 
         saveManagerToInitialize.Awake();
+        saveManagerToInitialize.LoadData();
         libToInitialize.Awake();
     }
 

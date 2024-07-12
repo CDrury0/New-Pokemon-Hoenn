@@ -15,6 +15,6 @@ public class SaveData
     //trainer card data
     //step event modifiers
     public List<DynamicDictionary<string, List<int>>.Entry> gameAreaEventManifests;
-    // event status for each tracked "quest" sequence
-    // -- get all assets from folder, store key of name with val of val    
+    
+    // event status for each tracked "quest" sequence   
 }

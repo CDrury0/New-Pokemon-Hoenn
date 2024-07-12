@@ -39,6 +39,14 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    private static void LoadInventoryFromSave() {
+        if(SaveManager.LoadedSave?.inventory == null)
+            return;
+
+        foreach(var entry in SaveManager.LoadedSave.inventory)
+            AddItem(GetItemData(entry.key), entry.value);
+    }
+
     void Awake(){
         if(Instance != null){
             Debug.Log("PlayerInventory exists");
@@ -49,7 +57,6 @@ public class PlayerInventory : MonoBehaviour
 
     void Start(){
         inventory = new Dictionary<ItemData, int>();
-        AddItem(giveOnStart, 3);
-        //load inventory from save file here?
+        LoadInventoryFromSave();
     }
 }

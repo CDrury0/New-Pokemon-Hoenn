@@ -6,6 +6,7 @@ using UnityEditor;
 [CreateAssetMenu]
 public class AreaData : ScriptableObject
 {
+    public const string RESOURCE_PATH = "AreaDataObjects/";
     public string areaName;
     public GameObject areaObjectPrefab;
     public List<GameObject> adjacentObjectPrefabs;
@@ -17,4 +18,9 @@ public class AreaData : ScriptableObject
     public AudioClip musicIntro;
     public AudioClip musicLoop;
     public List<int> eventManifest;
+
+    /// <summary>
+    /// Must be the ScriptableObject name, not this.areaName
+    /// </summary>
+    public static AreaData GetAreaFromName(string name) => Resources.Load<AreaData>(RESOURCE_PATH + name);
 }

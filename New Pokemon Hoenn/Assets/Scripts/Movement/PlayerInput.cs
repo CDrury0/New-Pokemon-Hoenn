@@ -139,6 +139,9 @@ public class PlayerInput : MonoBehaviour
     }
 
     void Start(){
+        if(SaveManager.LoadedSave?.currentPosition != null){
+            transform.position = SaveManager.LoadedSave.currentPosition.value;
+        }
         followPoint.position = transform.position;
     }
 }

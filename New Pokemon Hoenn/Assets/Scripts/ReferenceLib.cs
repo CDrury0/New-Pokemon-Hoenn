@@ -24,7 +24,10 @@ public class ReferenceLib : ScriptableObject
         set => Instance._activeArea = value;
     }
     [SerializeField] private AreaData _activeArea;
-    public static DynamicDictionary<AreaData, Vector3>.Entry LastHealPosition => Instance._lastHealPosition;
+    public static DynamicDictionary<AreaData, Vector3>.Entry LastHealPosition {
+        get => Instance._lastHealPosition;
+        private set => Instance._lastHealPosition = value;
+    }
     [SerializeField] private DynamicDictionary<AreaData, Vector3>.Entry _lastHealPosition;
     public static DynamicDictionary<AreaData, Vector3>.Entry EscapePosition {
         get => Instance._escapePosition;
@@ -47,8 +50,20 @@ public class ReferenceLib : ScriptableObject
         }
         Instance = this;
 
-        GlobalDexProgress ??= new DexStatus[pokemonDefaultLib.Count + 1];
         pokemonLibByID = pokemonDefaultLib.OrderBy(p => p.IDNumber).ToList();
+
+        GlobalDexProgress = SaveManager.LoadedSave?.dexStatus ?? new DexStatus[pokemonDefaultLib.Count + 1];
+        if(SaveManager.LoadedSave?.currentPosition != null){
+            ActiveArea = AreaData.GetAreaFromName(SaveManager.LoadedSave.currentPosition.key);
+        }
+        if(SaveManager.LoadedSave?.lastHealedPosition != null){
+            AreaData area = AreaData.GetAreaFromName(SaveManager.LoadedSave.lastHealedPosition.key);
+            LastHealPosition = new(area, SaveManager.LoadedSave.lastHealedPosition.value);
+        }
+        if(SaveManager.LoadedSave?.escapePosition != null){
+            AreaData area = AreaData.GetAreaFromName(SaveManager.LoadedSave.escapePosition.key);
+            EscapePosition = new(area, SaveManager.LoadedSave.escapePosition.value);
+        }
     }
 
     public static void UpdateDexStatus(PokemonDefault mon, DexStatus status) {

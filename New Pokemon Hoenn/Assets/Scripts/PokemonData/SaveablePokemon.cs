@@ -18,6 +18,7 @@ public class SaveablePokemon
     public float height;
     public float weight;
     public int heldItemID;
+    public int currentHealth;
     public List<int> moveIDs;
     public List<int> movePP;
     public List<int> moveMaxPP;
@@ -37,6 +38,7 @@ public class SaveablePokemon
             height = p.height,
             weight = p.weight,
             heldItemID = PlayerInventory.GetItemID(p.heldItem),
+            currentHealth = p.CurrentHealth,
             moveIDs = new List<GameObject>(p.moves).Select(m => ReferenceLib.Instance.moveManifest.IndexOf(m)).ToList(),
             movePP = new List<int>(p.movePP),
             moveMaxPP = new List<int>(p.moveMaxPP),
