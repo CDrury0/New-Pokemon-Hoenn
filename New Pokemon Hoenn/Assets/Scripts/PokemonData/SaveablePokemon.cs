@@ -6,7 +6,9 @@ using UnityEngine;
 [System.Serializable]
 public class SaveablePokemon
 {
+    public int numberID;
     public int pokemonDefaultID;
+    public string nickName;
     public int abilityIndex;
     public bool isShiny;
     public int ballUsedID;
@@ -19,14 +21,21 @@ public class SaveablePokemon
     public float weight;
     public int heldItemID;
     public int currentHealth;
+    public PrimaryStatus primaryStatus;
+    public int hiddenPowerType;
+    public int experience;
     public List<int> moveIDs;
     public List<int> movePP;
     public List<int> moveMaxPP;
     public string natureName;
+    public string metArea;
+    public int metLevel;
 
     public static SaveablePokemon GetSaveablePokemon(Pokemon p){
         return new() {
+            numberID = p.numberID,
             pokemonDefaultID = p.pokemonDefault.IDNumber,
+            nickName = p.nickName,
             abilityIndex = p.abilitySlot,
             isShiny = p.isShiny,
             ballUsedID = PlayerInventory.GetItemID(p.ballUsed),
@@ -39,10 +48,15 @@ public class SaveablePokemon
             weight = p.weight,
             heldItemID = PlayerInventory.GetItemID(p.heldItem),
             currentHealth = p.CurrentHealth,
-            moveIDs = new List<GameObject>(p.moves).Select(m => ReferenceLib.Instance.moveManifest.IndexOf(m)).ToList(),
+            primaryStatus = p.primaryStatus,
+            hiddenPowerType = ReferenceLib.Instance.typeList.IndexOf(p.hiddenPowerType),
+            experience = p.experience,
+            moveIDs = new List<GameObject>(p.moves).Select(m => m == null ? -1 : ReferenceLib.Instance.moveManifest.IndexOf(m)).ToList(),
             movePP = new List<int>(p.movePP),
             moveMaxPP = new List<int>(p.moveMaxPP),
             natureName = p.nature.name,
+            metArea = p.metArea,
+            metLevel = p.metLevel
         };
     }
 }

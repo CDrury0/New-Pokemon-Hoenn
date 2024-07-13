@@ -95,11 +95,49 @@ public class Pokemon
         }
     }
 
-    /// <summary>
-    /// Used to create a usable copy of a template from a trainer party, etc.
-    /// </summary>
+    /// <summary> Used to create proper Pokemon objects from save data format </summary>
+    public Pokemon(SaveablePokemon p){        
+        pokemonDefault = ReferenceLib.Instance.pokemonLibByID[p.pokemonDefaultID];
+        level = p.level;
+        effortValues = p.effortValues.ToArray();
+        individualValues = p.individualValues.ToArray();
+        isShiny = p.isShiny;
+        FillSprites(this);
+        hiddenPowerType = ReferenceLib.Instance.typeList[p.hiddenPowerType];
+        Friendship = p.friendship;
+        experience = p.experience;
+        height = p.height;
+        weight = p.weight;
+        pokemonName = pokemonDefault.pokemonName;
+        nature = ReferenceLib.GetNatures().Find(n => n.name == p.natureName);
+        gender = p.gender;
+        abilitySlot = p.abilityIndex;
+        ability = abilitySlot == 1 ? pokemonDefault.ability1 : pokemonDefault.ability2;
+        UpdateStats();
+        CurrentHealth = p.currentHealth;
+        primaryStatus = p.primaryStatus;
+        heldItem = PlayerInventory.GetItemData(p.heldItemID);
+        nickName = p.nickName;
+        metArea = p.metArea;
+        metLevel = p.metLevel;
+        type1 = pokemonDefault.type1;
+        type2 = pokemonDefault.type2;
+        numberID = p.numberID;
+        moves = new List<GameObject>{null, null, null, null};
+        int len = Mathf.Min(moves.Count, p.moveIDs.Count);
+        for(int i = 0; i < len; i++){
+            if(p.moveIDs[i] != -1){
+                moves[i] = ReferenceLib.Instance.moveManifest[p.moveIDs[i]];
+                movePP[i] = p.movePP[i];
+                moveMaxPP[i] = p.moveMaxPP[i];
+            }
+        }
+    }
+
+    /// <summary> Used to create a usable copy of a template from a trainer party, etc. </summary>
     public Pokemon(SerializablePokemon p){
         this.pokemonDefault = p.pokemonDefault;
+        //determine which ability slot to use from ability chosen
         this.ability = p.ability;
         this.isShiny = p.isShiny;
         FillSprites(this);

@@ -7,9 +7,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Reference Objects/SaveManager")]
 public class SaveManager : ScriptableObject
 {
-    public bool obfuscateSave;
     public static SaveManager Instance { get; private set; }
     public static SaveData LoadedSave { get; private set; }
+    public bool obfuscateSave;
 
     public void LoadData(){
         try {

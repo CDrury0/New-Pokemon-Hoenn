@@ -7,13 +7,9 @@ public class StartupFunctions : MonoBehaviour
     public ReferenceLib libToInitialize;
     public SaveManager saveManagerToInitialize;
     public int intToSave;
-    public PokemonDefault starterToGive;
+    
     private void Start(){ 
         Application.targetFrameRate = 60;
-
-        if(starterToGive is not null){
-            PlayerParty.Instance.playerParty = new Party(new Pokemon(starterToGive, 13));
-        }
     }
 
     void Awake(){
