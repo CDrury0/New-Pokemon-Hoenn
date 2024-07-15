@@ -15,7 +15,7 @@ public class PlayerInventory : MonoBehaviour
 
     public static int GetItemID(ItemData data) => Instance.dataManifest.IndexOf(data);
 
-    public static ItemData GetItemData(int index) => Instance.dataManifest[index];
+    public static ItemData GetItemData(int index) => index switch { -1 => null, _ => Instance.dataManifest[index] };
 
     /// <returns>A copy of the player inventory as a dictionary</returns>
     public static Dictionary<ItemData, int> GetInventoryDictionary() => new(Instance.inventory);
@@ -57,6 +57,10 @@ public class PlayerInventory : MonoBehaviour
 
     void Start(){
         inventory = new Dictionary<ItemData, int>();
+        if(giveOnStart != null){
+            AddItem(giveOnStart, 6);
+        }
+
         LoadInventoryFromSave();
     }
 }

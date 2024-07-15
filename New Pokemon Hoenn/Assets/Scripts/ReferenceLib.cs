@@ -64,6 +64,14 @@ public class ReferenceLib : ScriptableObject
             AreaData area = AreaData.GetAreaFromName(SaveManager.LoadedSave.escapePosition.key);
             EscapePosition = new(area, SaveManager.LoadedSave.escapePosition.value);
         }
+        if(SaveManager.LoadedSave?.gameAreaEventManifests != null){
+            foreach(var entry in SaveManager.LoadedSave.gameAreaEventManifests){
+                AreaData area = AreaData.GetAreaFromName(entry.key);
+                if (area?.eventManifest != null){
+                    area.eventManifest = entry.value.ToList();
+                }
+            }
+        }
     }
 
     public static void UpdateDexStatus(PokemonDefault mon, DexStatus status) {

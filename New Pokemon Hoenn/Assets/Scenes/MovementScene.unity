@@ -1407,7 +1407,6 @@ MonoBehaviour:
   libToInitialize: {fileID: 11400000, guid: 943792f06f9af1749aad151c80f6fb36, type: 2}
   saveManagerToInitialize: {fileID: 11400000, guid: 2b05dc91de3175a46ba4ca1fc815f5c3, type: 2}
   intToSave: 240
-  starterToGive: {fileID: 11400000, guid: 067f31caec5ee5b4e8971912bccb749e, type: 2}
 --- !u!4 &562892384
 Transform:
   m_ObjectHideFlags: 0
@@ -5569,6 +5568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1748e47f7ef5bd84e8b3c9cc4dde10aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  starterToGive: {fileID: 11400000, guid: 7a0128c0e29c19a4c97fff845ab499fb, type: 2}
 --- !u!114 &1934170134
 MonoBehaviour:
   m_ObjectHideFlags: 0

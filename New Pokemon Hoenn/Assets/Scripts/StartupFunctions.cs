@@ -10,6 +10,8 @@ public class StartupFunctions : MonoBehaviour
     
     private void Start(){ 
         Application.targetFrameRate = 60;
+
+        GameAreaManager.LoadArea(ReferenceLib.ActiveArea);
     }
 
     void Awake(){
