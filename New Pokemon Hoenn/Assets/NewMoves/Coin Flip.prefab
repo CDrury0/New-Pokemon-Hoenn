@@ -1,0 +1,208 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5322628292312570297
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1782425596178685949}
+  - component: {fileID: 8409005462784527001}
+  - component: {fileID: -3058902623835369906}
+  - component: {fileID: -3179934134106234081}
+  - component: {fileID: 3735743956804648653}
+  - component: {fileID: -7024362814641051670}
+  - component: {fileID: 5354651664330759533}
+  - component: {fileID: -6610399005083384804}
+  - component: {fileID: 6141704776854258150}
+  m_Layer: 0
+  m_Name: Coin Flip
+  m_TagString: Move
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1782425596178685949
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322628292312570297}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8409005462784527001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322628292312570297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8017aeb4b8f9175468925e2a21b528c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Coin Flip
+  moveDescription: Has a 50% chance to apply a variety of effects to the target or
+    to yourself. Every effect's chance is calculated independently. Has a 50% chance
+    to miss, and if it does, the user takes 50% of its max HP as damage.
+  moveType: {fileID: 11400000, guid: 3c71eebcee5e3104bbc029ff0f1939d1, type: 2}
+  typeFromWeather: 0
+  hiddenPowerType: 0
+  displayPower: 0
+  category: 2
+  targetType: 1
+  maxPP: 10
+  priority: 0
+  pursuit: 0
+  soundBased: 0
+  focusPunch: 0
+  onlyUsableFirstTurn: 0
+  worksOnAsleep: 0
+  worksWhileAsleep: 0
+  cannotBeSnatched: 0
+  notReflectedByMagicCoat: 0
+  ignoresProtect: 0
+  cannotBeForgotten: 0
+  accuracyData:
+    accuracy: 0.5
+    cannotMissVulnerable: 0
+    entryHazard: 0
+    hitsSemiInvulnerable: 0
+    bypassOnWeather: {fileID: 0}
+    hurtsIfMiss: 0.5
+--- !u!114 &-3058902623835369906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322628292312570297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72aeb37c76c26c40bc1d85f5546ef3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  statusInflicted: 0
+  toxic: 0
+  chance: 0.5
+  powder: 0
+  ignoresExistingCondition: 0
+  triAttack: 1
+--- !u!114 &-3179934134106234081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322628292312570297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09722111948b9ba47831130df6172d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  curse: 0
+  stockpileRemoval: 0
+  chance: 0.5
+  statChanges: 0200000000000000000000000000000000000000000000000000000000000000
+--- !u!114 &3735743956804648653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322628292312570297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09722111948b9ba47831130df6172d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  curse: 0
+  stockpileRemoval: 0
+  chance: 0.5
+  statChanges: feffffff00000000000000000000000000000000000000000000000000000000
+--- !u!114 &-7024362814641051670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322628292312570297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09722111948b9ba47831130df6172d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 1
+  message: 
+  curse: 0
+  stockpileRemoval: 0
+  chance: 0.5
+  statChanges: 0200000000000000000000000000000000000000000000000000000000000000
+--- !u!114 &5354651664330759533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322628292312570297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09722111948b9ba47831130df6172d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 1
+  message: 
+  curse: 0
+  stockpileRemoval: 0
+  chance: 0.5
+  statChanges: feffffff00000000000000000000000000000000000000000000000000000000
+--- !u!114 &-6610399005083384804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322628292312570297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae311ac6508889349adfce1cba800cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 0
+  message: 
+  chance: 0.5
+  timerMin: 2
+  timerMax: 5
+--- !u!114 &6141704776854258150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322628292312570297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae311ac6508889349adfce1cba800cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToSelf: 1
+  message: 
+  chance: 0.5
+  timerMin: 2
+  timerMax: 5

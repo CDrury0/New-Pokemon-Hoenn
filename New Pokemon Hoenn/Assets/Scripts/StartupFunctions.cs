@@ -6,12 +6,20 @@ public class StartupFunctions : MonoBehaviour
 {
     public ReferenceLib libToInitialize;
     public SaveManager saveManagerToInitialize;
-    public int intToSave;
+    [SerializeField] private EventAction initEventAction;
+    [SerializeField] private SingleAnimOverride initTransition;
+    //public int intToSave;
     
-    private void Start(){ 
+    private IEnumerator Start(){ 
         Application.targetFrameRate = 60;
 
         GameAreaManager.LoadArea(ReferenceLib.ActiveArea);
+        yield return new WaitForSeconds(1f);
+        AudioManager.Instance.PlayMusic(ReferenceLib.ActiveArea.musicIntro, ReferenceLib.ActiveArea.musicLoop, false);
+        StartCoroutine(initEventAction.DoEventAction());
+        initTransition.PlayAnimation();
+        yield return new WaitForSeconds(1f);
+        Destroy(initTransition.transform.parent.gameObject);
     }
 
     void Awake(){

@@ -9,7 +9,7 @@ public class SingleAnimOverride : MonoBehaviour
     [Tooltip("Clip 0 will play on awake")] [SerializeField] private bool playOnAwake = true;
     private AnimationClip currentClip;
     private RuntimeAnimatorController baseController;
-    public float ClipLength { get { return currentClip.length; } }
+    public float ClipLength { get => currentClip.length; }
 
     void Awake() {
         baseController = animator.runtimeAnimatorController;
