@@ -18,7 +18,7 @@ public class AreaLoader : EventAction
             yield break;
         }
         exit = false;
-        StartCoroutine(areaEntered.LoadArea());
+        yield return StartCoroutine(areaEntered.LoadArea());
     }
 
     private GameAreaManager GetAreaToLoad() {

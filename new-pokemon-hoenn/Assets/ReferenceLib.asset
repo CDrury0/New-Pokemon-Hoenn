@@ -228,6 +228,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d6ec78c98fed7be49b7275ec9802124e, type: 2}
   - {fileID: 11400000, guid: 2237684bd331c924c884622de85c3fde, type: 2}
   pokemonLibByID:
+  - {fileID: 0}
   - {fileID: 11400000, guid: e4c1ab769c6974f4bab6c41ca6303643, type: 2}
   - {fileID: 11400000, guid: 9787ba97ea1b63a4091ed7b278784e33, type: 2}
   - {fileID: 11400000, guid: 9e588fb6e2116d646a5b54c35ae664a0, type: 2}
@@ -817,7 +818,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9fd0617eabbe1ba4e9d25c32ad9110b5, type: 2}
   - {fileID: 11400000, guid: 6506c79ecf19f1f449d5605630815549, type: 2}
   _fallbackBall: {fileID: 11400000, guid: ec773f5a7d2653a40bf6dd47bccff439, type: 2}
-  _activeArea: {fileID: 11400000, guid: d8d7693401ead2a4ca5d3139923ab082, type: 2}
+  _activeArea: {fileID: 11400000, guid: e0bd8f54da4414a4c8abe88d1ff82433, type: 2}
   _lastHealPosition:
     key: {fileID: 11400000, guid: e0bd8f54da4414a4c8abe88d1ff82433, type: 2}
     value: {x: -1.5, y: 4, z: 0}

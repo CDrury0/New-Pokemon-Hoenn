@@ -33,7 +33,6 @@ public class SaveManager : ScriptableObject
         
         string data = JsonUtility.ToJson(saveData);
         File.WriteAllText(Application.persistentDataPath + "/save.json", data);
-        Debug.Log("Game data saved");
     }
 
     public static List<DynamicDictionary<string, List<int>>.Entry> GetSerializableEventManifest(){
@@ -63,7 +62,7 @@ public class SaveManager : ScriptableObject
         return newList;
     }
 
-    public void Awake(){
+    public void Init(){
         if(Instance != null){
             Debug.LogWarning("Instance of SaveManager already exists");
             return;

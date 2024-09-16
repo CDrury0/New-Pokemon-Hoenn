@@ -43,7 +43,7 @@ public class ReferenceLib : ScriptableObject
         Instance._lastHealPosition.value = PlayerInput.playerTransform.position;
     }
 
-    public void Awake() {
+    public void Init() {
         if(Instance != null){
             Debug.LogWarning("Multiple ReferenceLib Objects Detected");
             return;
@@ -51,6 +51,7 @@ public class ReferenceLib : ScriptableObject
         Instance = this;
 
         pokemonLibByID = pokemonDefaultLib.OrderBy(p => p.IDNumber).ToList();
+        pokemonLibByID.Insert(0, null);
 
         GlobalDexProgress = SaveManager.LoadedSave?.dexStatus ?? new DexStatus[pokemonDefaultLib.Count + 1];
         if(SaveManager.LoadedSave?.currentPosition != null){

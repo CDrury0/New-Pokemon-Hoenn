@@ -13,7 +13,6 @@ public class StartupFunctions : MonoBehaviour
     private IEnumerator Start(){ 
         Application.targetFrameRate = 60;
 
-        yield return new WaitForSeconds(1f);
         AudioManager.Instance.PlayMusic(ReferenceLib.ActiveArea.musicIntro, ReferenceLib.ActiveArea.musicLoop, false);
         StartCoroutine(initEventAction.DoEventAction());
         initTransition.PlayAnimation();
@@ -25,9 +24,9 @@ public class StartupFunctions : MonoBehaviour
         PlayerPrefs.SetFloat("musicVolume", 1f);
         PlayerPrefs.SetFloat("effectVolume", 1f);
 
-        saveManagerToInitialize.Awake();
+        saveManagerToInitialize.Init();
         saveManagerToInitialize.LoadData();
-        libToInitialize.Awake();
+        libToInitialize.Init();
 
         GameAreaManager.LoadArea(ReferenceLib.ActiveArea);
     }
