@@ -35,6 +35,7 @@ public class ReferenceLib : ScriptableObject
     }
     [SerializeField] private DynamicDictionary<AreaData, Vector3>.Entry _escapePosition;
 
+    public static void SetAllowMenuToggle(bool val) => PlayerInput.AllowMenuToggle = val;
     public static PokemonType GetPokemonType(string typeName) => Instance.typeList.Find(t => t.name == typeName);
     public static List<PokemonNature> GetNatures() => Instance.natures;
 

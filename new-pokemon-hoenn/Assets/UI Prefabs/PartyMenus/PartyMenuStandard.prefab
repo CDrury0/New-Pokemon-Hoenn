@@ -1063,6 +1063,38 @@ PrefabInstance:
       propertyPath: actionButtonContainer
       value: 
       objectReference: {fileID: 2476251063025228623}
+    - target: {fileID: 8423100521003249477, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
+      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423100521003249477, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
+      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423100521003249477, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
+      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 943792f06f9af1749aad151c80f6fb36, type: 2}
+    - target: {fileID: 8423100521003249477, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
+      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423100521003249477, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
+      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetAllowMenuToggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423100521003249477, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
+      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ReferenceLib, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423100521003249477, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
+      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423100521003249477, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
+      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8485507000058849743, guid: f4e218769365da54d9e4ed2992b32fe9, type: 3}
       propertyPath: actionButtonContainer
       value: 
