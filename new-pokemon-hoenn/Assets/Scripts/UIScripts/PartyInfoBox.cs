@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,5 +29,16 @@ public class PartyInfoBox : MonoBehaviour
             battleHUDImage.color = pokemonToDisplay.primaryStatus == PrimaryStatus.Fainted ? faintedColor : normalColor;
             actionButtonContainer.LoadActionButtons(pokemonToDisplay);
         }
+    }
+
+    public void SwitchPlayerPartyMembers(int shift) {
+        var party = PlayerParty.Instance.playerParty.party;
+        int offset = whichPartyMember + shift;
+        if(offset >= 0 && offset <= party.Length - 1 && party[offset] != null){
+            (party[whichPartyMember], party[offset]) = (party[offset], party[whichPartyMember]);
+            List<PartyInfoBox> siblings = transform.parent.gameObject.GetComponentsInChildren<PartyInfoBox>().ToList();
+            siblings.Find((sibling) => sibling.whichPartyMember == offset)?.LoadPokemonDetails();
+        }
+        LoadPokemonDetails();
     }
 }
