@@ -87,6 +87,7 @@ public class CombatSystem : MonoBehaviour
     }
 
     private IEnumerator RealStartBattle(Party enemyParty, bool doubleBattle, EnemyAI enemyAI, AudioPlayer musicPlayer, EventAnimation introAnimation = null){
+        _proceed = false;
         BattleActive = true;
         TurnCount = 0;
         escapeAttempts = 0;
@@ -328,7 +329,7 @@ public class CombatSystem : MonoBehaviour
         //must save value of target count or calling moves like mirror move may activate multiple times during double battles
         int targetCount = user.individualBattleModifier.targets.Count;
         for(int j = 0; j < targetCount; j++){
-            WrappedBool moveFailed = new WrappedBool();
+            WrappedBool moveFailed = new();
             yield return StartCoroutine(moveFunctions.CheckMoveFailedAgainstTarget(moveFailed, move, user, user.individualBattleModifier.targets[j]));
 
             //play move animation only the first time it is successfully used on a target
@@ -344,13 +345,11 @@ public class CombatSystem : MonoBehaviour
                     if(target.pokemon.CurrentHealth == 0){
                         continue;
                     }
-                    
-                    if(effect is ICheckMoveEffectFail){
-                        ICheckMoveEffectFail effectThatMayFail = (ICheckMoveEffectFail)effect;
-                        if(effectThatMayFail.CheckMoveEffectFail(user, target, moveData)){
-                            continue;
-                        }
+
+                    if (effect is ICheckMoveEffectFail effectThatMayFail && effectThatMayFail.CheckMoveEffectFail(user, target, moveData)){
+                        continue;
                     }
+
                     yield return StartCoroutine(effect.DoEffect(user, target, moveData));
                 }
             }

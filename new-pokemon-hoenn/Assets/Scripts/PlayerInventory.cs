@@ -58,7 +58,7 @@ public class PlayerInventory : MonoBehaviour
     void Start(){
         inventory = new Dictionary<ItemData, int>();
         if(giveOnStart != null){
-            AddItem(giveOnStart, 6);
+            AddItem(giveOnStart, 5);
         }
 
         LoadInventoryFromSave();

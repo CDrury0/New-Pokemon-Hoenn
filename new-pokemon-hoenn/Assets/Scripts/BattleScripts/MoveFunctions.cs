@@ -79,8 +79,7 @@ public class MoveFunctions : MonoBehaviour
 
     //account for quick claw later
     public List<BattleTarget> GetTurnOrder(List<BattleTarget> battleTargets){
-        List<int> order = new List<int>(battleTargets.Count);
-        order.Add(0);
+        List<int> order = new(battleTargets.Count){ 0 };
         int[] priorities = new int[battleTargets.Count];
         for(int i = 0; i < battleTargets.Count; i++){
             if(battleTargets[i].turnAction.GetComponent<MoveData>().pursuit && battleTargets[i].individualBattleModifier.targets[0].turnAction.CompareTag("Switch")){
