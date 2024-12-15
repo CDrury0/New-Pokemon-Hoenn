@@ -8,7 +8,11 @@ public class SpawnTile : EventAction
     [Tooltip("If left empty, value is inherited from parent GameAreaManager.areaData.generationValues")]
     [SerializeField] private GenerationValues generationValues;
 
-    protected override IEnumerator EventActionLogic(){
+    public override void DoEventAction(EventState chainState) {
+        StartCoroutine(ChainGang(SpawnTileCoroutine(), () => NextAction(chainState)));
+    }
+
+    protected IEnumerator SpawnTileCoroutine(){
         if(!SpawnerTriggered()){
             yield break;
         }
@@ -21,9 +25,7 @@ public class SpawnTile : EventAction
     }
 
     // Include modifiers from stench, etc
-    public static bool SpawnerTriggered(){
-        return Random.Range(0, 9) == 0;
-    }
+    public static bool SpawnerTriggered() => Random.Range(0, 9) == 0;
 
     void Awake(){
         generationValues ??= GetComponentInParent<GameAreaManager>().areaData.defaultGenerationValues;

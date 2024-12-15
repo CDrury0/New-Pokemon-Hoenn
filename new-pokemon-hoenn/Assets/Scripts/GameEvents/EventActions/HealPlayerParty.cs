@@ -6,22 +6,13 @@ public class HealPlayerParty : EventAction
 {
     [SerializeField] private bool setLastHealPosition;
 
-    protected override IEnumerator EventActionLogic(){
-        foreach (Pokemon p in PlayerParty.Instance.playerParty.party){
-            if(p == null){
-                continue;
-            }
-            p.CurrentHealth = p.stats[0];
-            p.primaryStatus = PrimaryStatus.None;
-            for(int i = 0; i < p.moves.Count; i++){
-                p.movePP[i] = p.moveMaxPP[i];
-            }
-        }
+    public override void DoEventAction(EventState chainState) {
+        foreach (Pokemon p in PlayerParty.Instance.playerParty.party)
+            p?.HealComplete();            
 
-        if(setLastHealPosition){
+        if(setLastHealPosition)
             ReferenceLib.SetLastHealPosition();
-        }
 
-        yield break;
+        NextAction(chainState);
     }
 }

@@ -7,7 +7,11 @@ public class Dialogue : EventAction
     public GameObject outputObject;
     public float confirmationDelaySeconds;
     public string[] messages;
-    protected override IEnumerator EventActionLogic() {
+    public override void DoEventAction(EventState chainState) {
+        StartCoroutine(ChainGang(DialogueCoroutine(), () => NextAction(chainState)));
+    }
+
+    protected IEnumerator DialogueCoroutine() {
         GameObject activeObject = Instantiate(outputObject);
         WriteText textHandler = activeObject.GetComponentInChildren<WriteText>();
         foreach(string s in messages){

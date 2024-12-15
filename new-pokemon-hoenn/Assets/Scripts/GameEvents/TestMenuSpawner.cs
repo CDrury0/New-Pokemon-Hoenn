@@ -6,11 +6,11 @@ public class TestMenuSpawner : EventAction
 {
     public GameObject testMenuPrefab;
     private GameObject testMenu;
-    protected override IEnumerator EventActionLogic() {
+    public override void DoEventAction(EventState chainState) {
         if(testMenu == null){
             testMenu = Instantiate(testMenuPrefab);
         }
         testMenu.SetActive(!testMenu.activeInHierarchy);
-        yield break;
+        NextAction(chainState);
     }
 }

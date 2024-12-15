@@ -162,6 +162,13 @@ public class Pokemon
         this.weight = p.weight != 0 ? p.weight : this.pokemonDefault.weight;
     }
 
+    public void HealComplete() {
+        CurrentHealth = stats[0];
+        primaryStatus = PrimaryStatus.None;
+        for(int i = 0; i < moves.Count; i++)
+            movePP[i] = moveMaxPP[i];
+    }
+
     public void Evolve(PokemonDefault evolveInto){
         if(nickName == pokemonName){
             nickName = evolveInto.pokemonName;

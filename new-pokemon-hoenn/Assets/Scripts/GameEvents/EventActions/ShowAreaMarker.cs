@@ -5,8 +5,9 @@ using UnityEngine;
 public class ShowAreaMarker : EventAction
 {
     [SerializeField] private GameObject areaMarkerPrefab;
-    protected override IEnumerator EventActionLogic() {
+    
+    public override void DoEventAction(EventState chainState) {
         Instantiate(areaMarkerPrefab);
-        yield break;
+        NextAction(chainState);
     }
 }

@@ -14,9 +14,9 @@ public class AudioPlayer : EventAction
     public AudioClip musicIntro;
     public AudioClip musicLoop;
 
-    protected override IEnumerator EventActionLogic() {
+    public override void DoEventAction(EventState chainState) {
         PlaySound();
-        yield break;
+        NextAction(chainState);
     }
 
     public void PlaySound() {

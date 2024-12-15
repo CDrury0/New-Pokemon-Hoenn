@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.VersionControl;
 using UnityEngine;
+using UnityEngine.Events;
 
 [DisallowMultipleComponent]
 public class EventTrigger : MonoBehaviour
@@ -11,13 +13,12 @@ public class EventTrigger : MonoBehaviour
     [SerializeField] private TriggerMethod triggerMethod;
     [SerializeField] private bool destroyIfAlreadyDone;
     [SerializeField] private EventCondition destroyIfTrue;
-    [Tooltip("Set this field to value -1 to auto-generate a value unique to its Event Container. Min auto-value: 0. Auto-generating also gives all Event Triggers that are children of this one a new ID.")]
+    [Tooltip("Set this field to value -1 to auto-generate a value unique to its Event Container. Min auto-value: 0. Auto-generating also gives a child EventTrigger a new ID (recursively).")]
     [SerializeField] private int _eventTriggerID;
-    public int EventTriggerID {
-        get { return _eventTriggerID; }
-    }
-    [SerializeField] private EventAction[] eventActions;
-    [SerializeField] private EventAction[] eventsIfAlreadyDone;
+    public int EventTriggerID { get => _eventTriggerID; }
+    [SerializeField] private UnityEvent<EventState> standardActionEvent;
+    [Tooltip("The event that is fired if this EventTrigger is already flagged as complete")]
+    [SerializeField] private UnityEvent<EventState> completedActionEvent;
     [Tooltip("If not null, will stop further supplied NPCMovement MoveLogic from running when this is triggered even after event chain completes")]
     [SerializeField] private NPCMovement movementToStop;
     [Tooltip("If not null, will cause the NPC whose NPCMovement component is supplied to face the player when this is triggered (useful on trainer interact)")]
@@ -31,12 +32,12 @@ public class EventTrigger : MonoBehaviour
             movePointTransform = collider.transform;
             return;
         }
-        if (!DoesTriggerMatch(collider)) {
+        if(!DoesTriggerMatch(collider)) {
             return;
         }
 
         bool markedDone = GetComponentInParent<GameAreaManager>().areaData.eventManifest.Contains(_eventTriggerID);
-        if(markedDone && eventsIfAlreadyDone.Length == 0){
+        if(markedDone && completedActionEvent.GetPersistentEventCount() == 0){
             return;
         }
 
@@ -44,19 +45,14 @@ public class EventTrigger : MonoBehaviour
         if(movementToStop != null){
             movementToStop.Halt = true;
         }
-        if(movementToFacePlayer != null){
-            movementToFacePlayer.FacePlayer(movePointTransform);
-        }
+        movementToFacePlayer?.FacePlayer(movePointTransform);
+
         PlayerInput.AllowMenuToggle = allowInput;
-        if(eventsIfAlreadyDone.Length == 0 || !markedDone){
-            foreach (EventAction e in eventActions){
-                StartCoroutine(e.DoEventAction());
-            }
+        if(completedActionEvent.GetPersistentEventCount() == 0 || !markedDone){
+            standardActionEvent?.Invoke(ScriptableObject.CreateInstance<EventState>());
             return;
         }
-        foreach(EventAction e in eventsIfAlreadyDone){
-            StartCoroutine(e.DoEventAction());
-        }
+        completedActionEvent?.Invoke(ScriptableObject.CreateInstance<EventState>());
     }
 
     void OnTriggerExit2D(Collider2D collider){

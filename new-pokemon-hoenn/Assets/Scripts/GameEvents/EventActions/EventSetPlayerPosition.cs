@@ -10,14 +10,14 @@ public class EventSetPlayerPosition : EventAction
     [SerializeField] private Transform overridePositionTransform;
     [SerializeField] private Vector3 forcePlayerDirection;
 
-    protected override IEnumerator EventActionLogic() {
+    public override void DoEventAction(EventState chainState) {
         Vector3 newPosition = GetNewPosition();
         PlayerInput.playerTransform.position = newPosition;
         PlayerInput.followPoint.position = newPosition;
         if(forcePlayerDirection != Vector3.zero){
             PlayerInput.Direction = forcePlayerDirection;
         }
-        yield break;
+        NextAction(chainState);
     }
 
     private Vector3 GetNewPosition(){
