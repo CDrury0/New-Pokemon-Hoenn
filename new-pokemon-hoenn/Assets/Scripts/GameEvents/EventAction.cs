@@ -8,11 +8,11 @@ public abstract class EventAction : MonoBehaviour
     [SerializeField] protected bool destroySelfOnComplete;
     //[SerializeField] protected EventAction nextEvent;
     [SerializeField] protected UnityEvent<EventState> nextEvent;
-    protected bool exit;
+    [SerializeField] protected bool exit;
     public abstract void DoEventAction(EventState chainState);
     protected virtual void NextAction(EventState chainState, UnityEvent<EventState> toInvoke = null) {
         toInvoke ??= nextEvent;
-        if(toInvoke.GetPersistentEventCount() == 0 || exit) {
+        if(exit) {
             PlayerInput.allowMovementInput = true;
             PlayerInput.AllowMenuToggle = true;
         }

@@ -165,6 +165,7 @@ public class Pokemon
     public void HealComplete() {
         CurrentHealth = stats[0];
         primaryStatus = PrimaryStatus.None;
+        toxic = false;
         for(int i = 0; i < moves.Count; i++)
             movePP[i] = moveMaxPP[i];
     }

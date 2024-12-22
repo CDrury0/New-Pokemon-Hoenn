@@ -564,6 +564,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1015950912208501921, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+      propertyPath: standardActionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015950912208501921, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+      propertyPath: standardActionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 187402537}
+    - target: {fileID: 1015950912208501921, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+      propertyPath: standardActionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015950912208501921, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+      propertyPath: standardActionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TestMenuSpawner, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2887082224470393099, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3838743011661149474, guid: 9585e37a25944084c98b0e26289de345, type: 3}
       propertyPath: trainerInventory.Array.size
       value: 1
@@ -634,6 +654,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+--- !u!114 &187402537 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1015950912208501921, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+  m_PrefabInstance: {fileID: 187402535}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89de7da6b36b11d4cb1c519b9192487f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &204699658 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2456657366344744946, guid: 4a360ef3b31b6e54ab669f3d29b282e0, type: 3}
@@ -1600,7 +1631,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
-  nextEvent: {fileID: 0}
+  nextEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  exit: 0
   areaMarkerPrefab: {fileID: 852470900647175857, guid: 57bf37c53eb33804e959378fd7dda31a, type: 3}
 --- !u!1 &598696003
 GameObject:
@@ -5561,8 +5595,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroySelfOnComplete: 0
-  nextEvent: {fileID: 0}
   label: area music
   getClipsFromArea: 1
   fadeOutMusic: 1
@@ -5582,8 +5614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroySelfOnComplete: 0
-  nextEvent: {fileID: 0}
   label: wild victory music
   getClipsFromArea: 0
   fadeOutMusic: 0
@@ -5603,8 +5633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b407f14476fd5343b67581841e27937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroySelfOnComplete: 0
-  nextEvent: {fileID: 0}
   label: default wild battle music
   getClipsFromArea: 0
   fadeOutMusic: 0
@@ -5625,7 +5653,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
-  nextEvent: {fileID: 0}
+  nextEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  exit: 1
   timeToWait: 2
   transitionObjPrefab: {fileID: 5943331842627113238, guid: bc335d0ac59e31947bfe95a8c842720b, type: 3}
   destroyOwnTransitionAfterWait: 1
@@ -5643,7 +5674,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
-  nextEvent: {fileID: 1901076950}
+  nextEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1901076950}
+        m_TargetAssemblyTypeName: EventSetPlayerPosition, Assembly-CSharp
+        m_MethodName: DoEventAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1901076951}
+        m_TargetAssemblyTypeName: HealPlayerParty, Assembly-CSharp
+        m_MethodName: DoEventAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1901076943}
+        m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1901076948}
+        m_TargetAssemblyTypeName: EventAnimation, Assembly-CSharp
+        m_MethodName: DoEventAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  exit: 0
   loadLastHealArea: 1
   loadEscapeArea: 0
   areaDataOverride: {fileID: 0}
@@ -5660,7 +5742,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
-  nextEvent: {fileID: 1901076951}
+  nextEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  exit: 0
   lastHealPosition: 1
   escapePosition: 0
   overridePosition: {x: 0, y: 0, z: 0}
@@ -5679,7 +5764,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
-  nextEvent: {fileID: 0}
+  nextEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  exit: 0
   setLastHealPosition: 0
 --- !u!114 &1909832777 stripped
 MonoBehaviour:
@@ -5742,7 +5830,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
-  nextEvent: {fileID: 0}
+  nextEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  exit: 0
   timeToWait: 0.6
   transitionObjPrefab: {fileID: 3739998403596976371, guid: 5e0e48f610787504799d3a21e9c426a0, type: 3}
   destroyOwnTransitionAfterWait: 1
@@ -5760,7 +5851,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
-  nextEvent: {fileID: 0}
+  nextEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  exit: 0
   timeToWait: 0.6
   transitionObjPrefab: {fileID: 6405088420844483613, guid: c0a8283261dfc14458a57dce6f44ce12, type: 3}
   destroyOwnTransitionAfterWait: 0

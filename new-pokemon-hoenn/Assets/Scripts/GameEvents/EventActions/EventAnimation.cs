@@ -13,11 +13,7 @@ public class EventAnimation : EventAction
     private GameObject instantiatedTransitionObj;
 
     public override void DoEventAction(EventState chainState) {
-        StartCoroutine(ChainGang(TransitionCoroutine(), () => NextAction(chainState)));
-    }
-
-    protected IEnumerator TransitionCoroutine() {
-        yield return StartCoroutine(TransitionLogic());
+        StartCoroutine(ChainGang(TransitionLogic(), () => NextAction(chainState)));
     }
 
     /// <summary>
@@ -27,7 +23,7 @@ public class EventAnimation : EventAction
         instantiatedTransitionObj = Instantiate(transitionObjPrefab);
         previousTransitionToDestroy?.DestroyInstantiatedTransition();
         yield return new WaitForSeconds(timeToWait);
-        if (destroyOwnTransitionAfterWait){
+        if(destroyOwnTransitionAfterWait){
             DestroyInstantiatedTransition();
         }
     }
