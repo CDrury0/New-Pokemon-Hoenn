@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioPlayer : MonoBehaviour
+public class AudioPlayer : EventAction
 {
     [SerializeField] private string label;
     [Tooltip("If music is taken from current GameArea, clip references are not necessary")]
@@ -13,6 +13,11 @@ public class AudioPlayer : MonoBehaviour
     public AudioClip soundToPlay;
     public AudioClip musicIntro;
     public AudioClip musicLoop;
+
+    public override void DoEventAction(EventState chainState) {
+        PlaySound();
+        NextAction(chainState);
+    }
 
     public void PlaySound() {
         if(soundToPlay != null){

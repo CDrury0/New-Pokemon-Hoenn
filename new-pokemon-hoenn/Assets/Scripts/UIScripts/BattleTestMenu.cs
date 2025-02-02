@@ -180,8 +180,16 @@ public class BattleTestMenu : MonoBehaviour
     }
 
     private void HealParty(Party party){
-        foreach(Pokemon p in party.party)
-            p?.HealComplete();
+        foreach(Pokemon p in party.party){
+            if(p != null){
+                p.primaryStatus = PrimaryStatus.None;
+                p.toxic = false;
+                p.CurrentHealth = p.stats[0];
+                for(int i = 0; i < p.moves.Count; i++){
+                    p.movePP[i] = p.moveMaxPP[i];
+                }
+            }
+        }
     }
 
     private void UpdateSelectedMoveText(){
