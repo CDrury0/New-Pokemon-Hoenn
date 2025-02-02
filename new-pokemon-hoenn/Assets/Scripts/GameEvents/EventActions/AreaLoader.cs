@@ -11,11 +11,14 @@ public class AreaLoader : EventAction
     [SerializeField] private bool loadEscapeArea;
     [SerializeField] private AreaData areaDataOverride;
 
-    public override void DoEventAction(EventState chainState) {
+    protected override IEnumerator EventActionLogic() {
         GameAreaManager areaEntered = GetAreaToLoad();
-        exit = areaEntered.areaData == ReferenceLib.ActiveArea;
-        if(!exit)
-            StartCoroutine(ChainGang(areaEntered.LoadArea(), () => NextAction(chainState)));
+        if(areaEntered.areaData == ReferenceLib.ActiveArea){
+            exit = true;
+            yield break;
+        }
+        exit = false;
+        yield return StartCoroutine(areaEntered.LoadArea());
     }
 
     private GameAreaManager GetAreaToLoad() {

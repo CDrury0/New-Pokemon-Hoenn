@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class ShowAreaMarker : EventAction
+public class EventUnityAction : EventAction
 {
-    [SerializeField] private GameObject areaMarkerPrefab;
+    [SerializeField] private UnityEvent action;
+
     protected override IEnumerator EventActionLogic() {
-        Instantiate(areaMarkerPrefab);
+        action?.Invoke();
         yield break;
     }
 }

@@ -8,18 +8,13 @@ public class EventGiveItem : EventAction
     [SerializeField] private int quantity = 1;
     [SerializeField] private GameObject textObj;
 
-    public override void DoEventAction(EventState chainState) {
+    protected override IEnumerator EventActionLogic(){
         PlayerInventory.AddItem(item, quantity);
         string qtyMsg = quantity == 1 ? string.Empty : quantity + "x ";
         string message = "Player received " + qtyMsg + item.itemName;
 
         GameObject textObjInstance = Instantiate(textObj);
-        StartCoroutine(ChainGang(
-            textObjInstance.GetComponentInChildren<WriteText>().WriteMessageConfirm(message, 2f),
-            () => {
-                Destroy(textObjInstance);
-                NextAction(chainState);
-            }
-        ));
+        yield return StartCoroutine(textObjInstance.GetComponentInChildren<WriteText>().WriteMessageConfirm(message, 2f));
+        Destroy(textObjInstance);
     }
 }

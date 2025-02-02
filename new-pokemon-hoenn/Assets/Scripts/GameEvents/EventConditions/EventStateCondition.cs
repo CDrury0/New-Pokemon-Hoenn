@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
 
 public class EventStateCondition : EventCondition
@@ -10,16 +9,18 @@ public class EventStateCondition : EventCondition
     [SerializeField] private Operation operation;
     [SerializeField] private int compareTo;
 
-    public override bool IsConditionTrue(){
-        return IsConditionTrue(state);
+    private bool GetCompareSuccess() {
+        switch(operation){
+            case Operation.Greater:
+                return state.value > compareTo;
+            case Operation.Less:
+                return state.value < compareTo;
+            default:
+                return state.value == compareTo;
+        }
     }
 
-    public override bool IsConditionTrue(EventState localState) {
-        return operation switch {
-            Operation.Greater => localState.value > compareTo,
-            Operation.Less => localState.value < compareTo,
-            Operation.Equal => localState.value == compareTo,
-            _ => throw new InvalidEnumArgumentException("Invalid operation enum state"),
-        };
+    public override bool IsConditionTrue(){
+        return GetCompareSuccess();
     }
 }

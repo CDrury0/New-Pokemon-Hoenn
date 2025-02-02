@@ -41,11 +41,7 @@ public class Trainer : EventAction
         }
     }
 
-    public override void DoEventAction(EventState chainState) {
-        StartCoroutine(ChainGang(TrainerCoroutine(), () => NextAction(chainState)));
-    }
-
-    protected IEnumerator TrainerCoroutine() {
+    protected override IEnumerator EventActionLogic() {
         battleInventory = new List<ItemData>(inventoryTemplate);
         yield return StartCoroutine(CombatLib.Instance.combatSystem.StartBattle(this));
         exit = !CombatSystem.PlayerVictory;

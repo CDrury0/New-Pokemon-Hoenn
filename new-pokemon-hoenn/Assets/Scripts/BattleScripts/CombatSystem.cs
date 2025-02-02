@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
@@ -697,7 +697,7 @@ public class CombatSystem : MonoBehaviour
         PlayerVictory = true;
         if(playerParty.IsEntireTeamFainted()){
             yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("You lose, moron"));
-            defeatEventHead.DoEventAction(ScriptableObject.CreateInstance<EventState>());
+            StartCoroutine(defeatEventHead.DoEventAction());
             PlayerVictory = false;
         }
         else if(EnemyParty.IsEntireTeamFainted()){
