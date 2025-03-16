@@ -10,8 +10,12 @@ public class SaveManager : ScriptableObject
     public static SaveManager Instance { get; private set; }
     public static SaveData LoadedSave { get; private set; }
     public bool obfuscateSave;
+    public bool skipSave;
 
     public void LoadData(){
+        if(skipSave)
+            return;
+            
         try {
             string data = File.ReadAllText(Application.persistentDataPath + "/save.json");
             LoadedSave = JsonUtility.FromJson<SaveData>(data);

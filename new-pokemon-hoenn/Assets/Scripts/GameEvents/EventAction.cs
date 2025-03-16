@@ -11,13 +11,30 @@ public abstract class EventAction : MonoBehaviour
     /// since it may be reused before another script instance is created
     /// </summary>
     protected bool exit;
-    protected abstract IEnumerator EventActionLogic();
-    public IEnumerator DoEventAction() {
-        yield return StartCoroutine(EventActionLogic());
+    protected bool _proceed;
+    /// <summary>
+    /// For pausing event action logic until a trigger is invoked elsewhere
+    /// </summary>
+    protected bool Proceed {
+        get {
+            if(_proceed){
+                _proceed = false;
+                return true;
+            }
+            return false;
+        }
+        set {
+            _proceed = value;
+        }
+    }
+
+    protected abstract IEnumerator EventActionLogic(EventState state);
+    public IEnumerator DoEventAction(EventState state) {
+        yield return StartCoroutine(EventActionLogic(state));
         if(!exit){
             //kill me
             if(nextEvent != null && this is not EventSwitch){
-                StartCoroutine(nextEvent.DoEventAction());
+                StartCoroutine(nextEvent.DoEventAction(state));
             }
             else{
                 PlayerInput.allowMovementInput = true;

@@ -8,7 +8,7 @@ public class SpawnTile : EventAction
     [Tooltip("If left empty, value is inherited from parent GameAreaManager.areaData.generationValues")]
     [SerializeField] private GenerationValues generationValues;
 
-    protected override IEnumerator EventActionLogic(){
+    protected override IEnumerator EventActionLogic(EventState state){
         if(!SpawnerTriggered()){
             yield break;
         }

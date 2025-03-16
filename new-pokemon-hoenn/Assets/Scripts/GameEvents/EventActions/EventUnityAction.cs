@@ -7,7 +7,7 @@ public class EventUnityAction : EventAction
 {
     [SerializeField] private UnityEvent action;
 
-    protected override IEnumerator EventActionLogic() {
+    protected override IEnumerator EventActionLogic(EventState state) {
         action?.Invoke();
         yield break;
     }
