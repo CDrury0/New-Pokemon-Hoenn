@@ -7,7 +7,7 @@ public class Dialogue : EventAction
     public GameObject outputObject;
     public float confirmationDelaySeconds;
     public string[] messages;
-    protected override IEnumerator EventActionLogic() {
+    protected override IEnumerator EventActionLogic(EventState state) {
         GameObject activeObject = Instantiate(outputObject);
         WriteText textHandler = activeObject.GetComponentInChildren<WriteText>();
         foreach(string s in messages){

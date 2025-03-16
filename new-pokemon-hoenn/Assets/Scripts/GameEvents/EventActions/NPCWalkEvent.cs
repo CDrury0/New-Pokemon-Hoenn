@@ -12,7 +12,7 @@ public class NPCWalkEvent : EventAction
     [SerializeField] private int moveY;
     [SerializeField] private NPCMovement movementComponent;
 
-    protected override IEnumerator EventActionLogic(){
+    protected override IEnumerator EventActionLogic(EventState state){
         int diffY;
         int diffX;
         if(moveToPlayer){

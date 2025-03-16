@@ -697,7 +697,7 @@ public class CombatSystem : MonoBehaviour
         PlayerVictory = true;
         if(playerParty.IsEntireTeamFainted()){
             yield return StartCoroutine(combatScreen.battleText.WriteMessageConfirm("You lose, moron"));
-            StartCoroutine(defeatEventHead.DoEventAction());
+            StartCoroutine(defeatEventHead.DoEventAction(ScriptableObject.CreateInstance<EventState>()));
             PlayerVictory = false;
         }
         else if(EnemyParty.IsEntireTeamFainted()){

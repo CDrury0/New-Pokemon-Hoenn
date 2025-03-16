@@ -8,11 +8,11 @@ public class EventSwitch : EventAction
     [SerializeField] private EventAction trueEvent;
     [SerializeField] private EventAction falseEvent;
 
-    protected override IEnumerator EventActionLogic() {
+    protected override IEnumerator EventActionLogic(EventState state) {
         if(condition.IsConditionTrue()){
-            StartCoroutine(trueEvent.DoEventAction());
+            StartCoroutine(trueEvent.DoEventAction(state));
             yield break;
         }
-        StartCoroutine(falseEvent.DoEventAction());
+        StartCoroutine(falseEvent.DoEventAction(state));
     }
 }

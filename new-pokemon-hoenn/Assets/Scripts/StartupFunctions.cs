@@ -14,7 +14,7 @@ public class StartupFunctions : MonoBehaviour
         Application.targetFrameRate = 60;
 
         AudioManager.Instance.PlayMusic(ReferenceLib.ActiveArea.musicIntro, ReferenceLib.ActiveArea.musicLoop, false);
-        StartCoroutine(initEventAction.DoEventAction());
+        StartCoroutine(initEventAction.DoEventAction(ScriptableObject.CreateInstance<EventState>()));
         initTransition.PlayAnimation();
         yield return new WaitForSeconds(1f);
         Destroy(initTransition.transform.parent.gameObject);
