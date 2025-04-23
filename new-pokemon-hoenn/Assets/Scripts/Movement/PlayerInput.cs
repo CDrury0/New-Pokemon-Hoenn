@@ -82,7 +82,7 @@ public class PlayerInput : MonoBehaviour
             return;
         }
 
-        Vector3 newDirection = horizontal != 0 ? new Vector3(horizontal, 0, 0) : new Vector3(0, vertical, 0);
+        Vector3 newDirection = horizontal != 0 ? new(horizontal, 0, 0) : new(0, vertical, 0);
         moveSpeed = sprinting ? SPRINT_SPEED : WALKING_SPEED;
 
         // virtual method that contains the following? (override on surf, bike)
@@ -94,11 +94,17 @@ public class PlayerInput : MonoBehaviour
             return;
         }
 
-        if(Physics2D.OverlapCircle(followPoint.position + PlayerHeightOffset + Direction, 0.4f, stopsMovement)){
-            return;
+        Collider2D obstacleCollider = Physics2D.OverlapCircle(followPoint.position + PlayerHeightOffset + Direction, 0.4f, stopsMovement);
+        if(obstacleCollider){
+            IModifyPlayerMovement movementModifier = obstacleCollider.gameObject.GetComponent<IModifyPlayerMovement>();
+            if(movementModifier == null){
+                return;
+            }
+            movementModifier.Apply(this, newDirection);
+        } else {
+            followPoint.position += Direction;
         }
 
-        followPoint.position += Direction;
         AnimateMovement(Direction, true, sprinting);
 
         StepCount++;
