@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -109,6 +109,7 @@ public class PlayerInput : MonoBehaviour
 
         StepCount++;
         StepEvent?.Invoke(StepCount);
+        Debug.Log("step event invoked");
         // end virtual method
     }
 
