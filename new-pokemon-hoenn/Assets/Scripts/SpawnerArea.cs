@@ -6,15 +6,14 @@ public class SpawnerArea : MonoBehaviour
 {
     [Tooltip("If left empty, value is inherited from parent GameAreaManager.areaData.generationValues")]
     [SerializeField] private GenerationValues generationValues;
-    [SerializeField] private EventAnimation encounterIntro;
-    [SerializeField] private EventBattle eventBattle;
+    [SerializeField] private EventTrigger trigger;
+    [SerializeField] private EventWildBattle wildBattle;
 
     void OnTriggerEnter2D(Collider2D collider) {
         if(!collider.gameObject.CompareTag("MovePoint"))
             return;
 
         PlayerInput.StepEvent += SpawnerFunc;
-        Debug.Log("added spawner func to step event");
     }
 
     void OnTriggerExit2D(Collider2D collider) {
@@ -22,7 +21,6 @@ public class SpawnerArea : MonoBehaviour
             return;
 
         PlayerInput.StepEvent -= SpawnerFunc;
-        Debug.Log("removed spawner func from step event");
     }
 
     protected void SpawnerFunc(int stepCount) {
@@ -33,7 +31,8 @@ public class SpawnerArea : MonoBehaviour
         if(generatedMon == null)
             return;
 
-        eventBattle.StartBattle(generatedMon, encounterIntro);
+        wildBattle.generatedMon = generatedMon;
+        trigger.DoTriggerActions();
     }
 
     // Include modifiers from stench, etc

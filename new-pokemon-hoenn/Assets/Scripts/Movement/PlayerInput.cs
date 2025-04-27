@@ -38,6 +38,7 @@ public class PlayerInput : MonoBehaviour
 
     void Update() {
         GetPlayerInput();
+        transform.position = Vector3.MoveTowards(transform.position, followPoint.position, moveSpeed * Time.deltaTime);
     }
 
     private void GetPlayerInput() {
@@ -108,9 +109,13 @@ public class PlayerInput : MonoBehaviour
         AnimateMovement(Direction, true, sprinting);
 
         StepCount++;
-        StepEvent?.Invoke(StepCount);
-        Debug.Log("step event invoked");
+        StartCoroutine(StepEventRoutine());
         // end virtual method
+    }
+
+    IEnumerator StepEventRoutine() {
+        yield return new WaitForFixedUpdate();
+        StepEvent?.Invoke(StepCount);
     }
 
     private void AnimateMovement(Vector3 direction, bool isMoving, bool isSprinting = false) {
@@ -121,10 +126,6 @@ public class PlayerInput : MonoBehaviour
         }
         animator.SetFloat("X", direction.x);
         animator.SetFloat("Y", direction.y);
-    }
-
-    private void FixedUpdate() {
-        transform.position = Vector3.MoveTowards(transform.position, followPoint.position, moveSpeed * Time.deltaTime);
     }
 
     private IEnumerator ActivateInteractPoint() {
