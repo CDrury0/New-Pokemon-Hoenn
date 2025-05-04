@@ -14,7 +14,7 @@ public class EventTrigger : MonoBehaviour
     [Tooltip("Set this field to value -1 to auto-generate a value unique to its Event Container. Min auto-value: 0. Auto-generating also gives all Event Triggers that are children of this one a new ID.")]
     [SerializeField] private int _eventTriggerID;
     public int EventTriggerID {
-        get { return _eventTriggerID; }
+        get => _eventTriggerID;
     }
     [SerializeField] private EventAction[] eventActions;
     [SerializeField] private EventAction[] eventsIfAlreadyDone;
@@ -24,6 +24,7 @@ public class EventTrigger : MonoBehaviour
     [SerializeField] private NPCMovement movementToFacePlayer;
     private bool movePointEligible;
     private Transform movePointTransform;
+    private bool markedDone;
 
     void OnTriggerEnter2D(Collider2D collider) {
         if(collider.CompareTag("MovePoint")){
@@ -31,16 +32,25 @@ public class EventTrigger : MonoBehaviour
             movePointTransform = collider.transform;
             return;
         }
-        if (!DoesTriggerMatch(collider)) {
+        if(!DoesTriggerMatch(collider)) {
             return;
         }
 
-        bool markedDone = GetComponentInParent<GameAreaManager>().areaData.eventManifest.Contains(_eventTriggerID);
+        markedDone = GetComponentInParent<GameAreaManager>().areaData.eventManifest.Contains(_eventTriggerID);
         if(markedDone && eventsIfAlreadyDone.Length == 0){
             return;
         }
 
-        //otherwise, SOME EventAction will occur
+        DoTriggerActions();
+    }
+
+    void OnTriggerExit2D(Collider2D collider){
+        if(collider.CompareTag("MovePoint")){
+            movePointEligible = false;
+        }
+    }
+
+    public void DoTriggerActions() {
         if(movementToStop != null){
             movementToStop.Halt = true;
         }
@@ -56,12 +66,6 @@ public class EventTrigger : MonoBehaviour
         }
         foreach(EventAction e in eventsIfAlreadyDone){
             StartCoroutine(e.DoEventAction(ScriptableObject.CreateInstance<EventState>()));
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D collider){
-        if(collider.CompareTag("MovePoint")){
-            movePointEligible = false;
         }
     }
 
