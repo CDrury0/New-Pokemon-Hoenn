@@ -7971,7 +7971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactPointPrefab: {fileID: 9172963892756184426, guid: b5ffb74e53636534e94a690f2c9fee2c, type: 3}
   menuAnimation: {fileID: 1187341917}
-  stopsMovement:
+  interruptsMovement:
     serializedVersion: 2
     m_Bits: 64
   animator: {fileID: 1204299927}

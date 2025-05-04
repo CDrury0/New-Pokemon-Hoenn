@@ -2,25 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerArea : MonoBehaviour
+public class SpawnerArea : MonoBehaviour, IInterruptPlayerMovement
 {
     [Tooltip("If left empty, value is inherited from parent GameAreaManager.areaData.generationValues")]
     [SerializeField] private GenerationValues generationValues;
     [SerializeField] private EventTrigger trigger;
     [SerializeField] private EventWildBattle wildBattle;
 
-    void OnTriggerEnter2D(Collider2D collider) {
-        if(!collider.gameObject.CompareTag("MovePoint"))
-            return;
-
-        PlayerInput.StepEvent += SpawnerFunc;
-    }
-
-    void OnTriggerExit2D(Collider2D collider) {
-        if(!collider.gameObject.CompareTag("MovePoint"))
-            return;
-
-        PlayerInput.StepEvent -= SpawnerFunc;
+    public void Apply(PlayerInput input, Vector3 direction, out Vector3 movementOffset) {
+        SpawnerFunc(PlayerInput.StepCount);
+        movementOffset = direction;
     }
 
     protected void SpawnerFunc(int stepCount) {

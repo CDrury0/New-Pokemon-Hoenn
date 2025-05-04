@@ -29,12 +29,16 @@ public class PlayerInput : MonoBehaviour
     public GameObject interactPointPrefab;
     public static Transform followPoint;
     public MenuAnimation menuAnimation;
-    public LayerMask stopsMovement;
+    public LayerMask interruptsMovement;
     public Animator animator;
     private float moveSpeed;
     [SerializeField] private float movementInputDelaySeconds;
     public static Vector3 Direction { get; set; }
-    public static Vector3 PlayerHeightOffset => new(0, -0.5f, 0);
+    public static Vector3 PlayerHeightOffset {get => new(0, -0.5f, 0);}
+
+    public Collider2D GetColliderAtNextStep() {
+        return Physics2D.OverlapCircle(followPoint.position + PlayerHeightOffset + Direction, 0.4f, interruptsMovement);
+    }
 
     void Update() {
         GetPlayerInput();
@@ -95,27 +99,20 @@ public class PlayerInput : MonoBehaviour
             return;
         }
 
-        Collider2D obstacleCollider = Physics2D.OverlapCircle(followPoint.position + PlayerHeightOffset + Direction, 0.4f, stopsMovement);
-        if(obstacleCollider){
-            IModifyPlayerMovement movementModifier = obstacleCollider.gameObject.GetComponent<IModifyPlayerMovement>();
-            if(movementModifier == null){
-                return;
-            }
-            movementModifier.Apply(this, newDirection);
-        } else {
-            followPoint.position += Direction;
-        }
+        var collider = GetColliderAtNextStep();
+        var interrupt = collider?.GetComponent<IInterruptPlayerMovement>();
+        if(collider is not null && interrupt is null)
+            return;
 
+        Vector3 moveVector = Direction;
+        interrupt?.Apply(this, Direction, out moveVector);
+
+        followPoint.position += moveVector;
         AnimateMovement(Direction, true, sprinting);
 
         StepCount++;
-        StartCoroutine(StepEventRoutine());
-        // end virtual method
-    }
-
-    IEnumerator StepEventRoutine() {
-        yield return new WaitForFixedUpdate();
         StepEvent?.Invoke(StepCount);
+        // end virtual method
     }
 
     private void AnimateMovement(Vector3 direction, bool isMoving, bool isSprinting = false) {
@@ -151,5 +148,6 @@ public class PlayerInput : MonoBehaviour
             transform.position = SaveManager.LoadedSave.currentPosition.value;
         }
         followPoint.position = transform.position;
+        Direction = Vector3.down;
     }
 }
