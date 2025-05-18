@@ -14,7 +14,6 @@ public class AreaData : ScriptableObject
     public GameObject eventObjectPrefab;
     public TerrainDataSO terrainData;
     public Weather weather;
-    public GenerationValues defaultGenerationValues;
     public AudioClip musicIntro;
     public AudioClip musicLoop;
     public List<int> eventManifest;

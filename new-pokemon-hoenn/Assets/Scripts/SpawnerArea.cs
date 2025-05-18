@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpawnerArea : MonoBehaviour, IInterruptPlayerMovement
 {
-    [Tooltip("If left empty, value is inherited from parent GameAreaManager.areaData.generationValues")]
     [SerializeField] private GenerationValues generationValues;
     [SerializeField] private EventTrigger trigger;
     [SerializeField] private EventWildBattle wildBattle;
@@ -29,9 +28,5 @@ public class SpawnerArea : MonoBehaviour, IInterruptPlayerMovement
     // Include modifiers from stench, etc
     public static bool SpawnerTriggered(){
         return Random.Range(0, 9) == 0;
-    }
-
-    void Awake(){
-        generationValues ??= GetComponentInParent<GameAreaManager>().areaData.defaultGenerationValues;
     }
 }
