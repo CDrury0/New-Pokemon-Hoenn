@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad0e26164433824ab7c54eb6ba4ba74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usedOnSpecificMove: 0
+  usedWithoutTarget: 0
   itemData: {fileID: 11400000, guid: 74af919a6a50fd444a7b5e92ad8eb481, type: 2}
   heldItem: {fileID: 0}
   onUseDuringBattle: []
@@ -65,4 +67,5 @@ MonoBehaviour:
   learnMoveMenuPrefab: {fileID: 553725236065337305, guid: 4c7038fb5fd18d64c9504c33b852abed, type: 3}
   moveToLearn: {fileID: 1682630347, guid: 18d1faf62ddfd744ab79e73018fadf53, type: 3}
   reusable: 1
-  canLearnMove: []
+  canLearnMove:
+  - {fileID: 11400000, guid: e4c1ab769c6974f4bab6c41ca6303643, type: 2}

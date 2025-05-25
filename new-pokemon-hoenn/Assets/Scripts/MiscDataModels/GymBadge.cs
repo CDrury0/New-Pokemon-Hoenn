@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "GymBadge")]
 public class GymBadge : ScriptableObject
 {
     [SerializeField] private string _badgeName;
