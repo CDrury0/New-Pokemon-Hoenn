@@ -16,6 +16,7 @@ public class ReferenceLib : ScriptableObject
     public List<PokemonDefault> pokemonLibByID;
     public List<GameObject> moveManifest;
     public List<PokemonType> typeList;
+    [SerializeField] private List<GymBadge> gymBadgeReference;
     [SerializeField] private List<PokemonNature> natures;
     public static ItemData FallbackBall => Instance._fallbackBall;
     [SerializeField] private ItemData _fallbackBall;
@@ -35,9 +36,16 @@ public class ReferenceLib : ScriptableObject
     }
     [SerializeField] private DynamicDictionary<AreaData, Vector3>.Entry _escapePosition;
 
+    public static List<GymBadge> PlayerBadges {
+        get => Instance._playerBadges;
+        private set => Instance._playerBadges = value;
+    }
+    [SerializeField] private List<GymBadge> _playerBadges;
+
     public static void SetAllowMenuToggle(bool val) => PlayerInput.AllowMenuToggle = val;
     public static PokemonType GetPokemonType(string typeName) => Instance.typeList.Find(t => t.name == typeName);
     public static List<PokemonNature> GetNatures() => Instance.natures;
+    public static GymBadge GetGymBadge(string badgeName) => Instance.gymBadgeReference.Find((badge) => badge.BadgeName == badgeName);
 
     public static void SetLastHealPosition() {
         Instance._lastHealPosition.key = ActiveArea;
@@ -73,6 +81,9 @@ public class ReferenceLib : ScriptableObject
                     area.eventManifest = entry.value.ToList();
                 }
             }
+        }
+        if(SaveManager.LoadedSave?.playerBadges != null){
+            _playerBadges = SaveManager.LoadedSave.playerBadges.Select((badgeName) => GetGymBadge(badgeName)).ToList();
         }
     }
 

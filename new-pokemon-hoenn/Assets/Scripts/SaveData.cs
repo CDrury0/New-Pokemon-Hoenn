@@ -12,7 +12,7 @@ public class SaveData
     //box mons
     public DexStatus[] dexStatus;
     public List<DynamicDictionary<int, int>.Entry> inventory;
-    //trainer card data
+    public List<string> playerBadges;
     //step event modifiers
     public List<DynamicDictionary<string, List<int>>.Entry> gameAreaEventManifests;
     
