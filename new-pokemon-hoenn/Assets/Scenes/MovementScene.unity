@@ -4664,6 +4664,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[1007].second.m_AllTileFlags
       value: 2147483649
       objectReference: {fileID: 0}
+    - target: {fileID: 7953179951203176735, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9585e37a25944084c98b0e26289de345, type: 3}
 --- !u!224 &204699658 stripped

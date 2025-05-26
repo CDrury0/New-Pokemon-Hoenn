@@ -134,7 +134,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -148,7 +148,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.9}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &5776955766741373955
 MonoBehaviour:
@@ -185,9 +185,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
-  nextEvent: {fileID: 0}
+  nextEvent: {fileID: 2931637698065579630}
   condition: {fileID: 11400000, guid: 057bcab7ffcdadd0fb40eecebbbfce19, type: 2}
-  trueEvent: {fileID: 2931637698065579630}
   falseEvent: {fileID: 3248834088512503805}
 --- !u!114 &2931637698065579630
 MonoBehaviour:

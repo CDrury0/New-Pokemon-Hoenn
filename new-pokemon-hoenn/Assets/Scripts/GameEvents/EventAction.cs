@@ -31,17 +31,15 @@ public abstract class EventAction : MonoBehaviour
     protected abstract IEnumerator EventActionLogic(EventState state);
     public IEnumerator DoEventAction(EventState state) {
         yield return StartCoroutine(EventActionLogic(state));
-        if(!exit){
-            //kill me
-            if(nextEvent != null && this is not EventSwitch){
+        if(!exit && this is not EventSwitch){
+            if(nextEvent != null) {
                 StartCoroutine(nextEvent.DoEventAction(state));
-            }
-            else{
+            } else {
                 PlayerInput.allowMovementInput = true;
                 PlayerInput.AllowMenuToggle = true;
             }
         }
-        if(destroySelfOnComplete){
+        if(destroySelfOnComplete) {
             Destroy(gameObject);
         }
     }
