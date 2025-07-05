@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
 public enum PrimaryStatus {None, Poisoned, Burned, Paralyzed, Asleep, Frozen, Fainted, Any}
 public enum Gender {None, Male, Female}
 
-public class Pokemon
+public class Pokemon : IStringReplacer
 {
     public const int MAX_LEVEL = 100;
     public const int MAX_EV = 252;
@@ -81,7 +81,8 @@ public class Pokemon
             else{
                 _currentHealth = value;
             }
-        }}
+        }
+    }
     public int numberID;
     public int sleepCounter = 0;
     public bool toxic;
@@ -350,5 +351,19 @@ public class Pokemon
             ivs[i] = Random.Range(0, MAX_IV + 1);
         }
         return ivs;
+    }
+
+    public string ApplyReplacements(string subject) {
+        var table = GetReplaceTable();
+        foreach(var key in table.Keys){
+            subject = subject.Replace(key, table[key]);
+        }
+        return subject;
+    }
+
+    public Dictionary<string, string> GetReplaceTable() {
+        return new Dictionary<string, string>(){
+            {"&nickName", nickName},
+        };
     }
 }

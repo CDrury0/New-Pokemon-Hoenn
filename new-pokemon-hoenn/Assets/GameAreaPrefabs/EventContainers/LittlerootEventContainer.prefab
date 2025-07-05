@@ -203,9 +203,9 @@ MonoBehaviour:
   destroySelfOnComplete: 1
   nextEvent: {fileID: 0}
   outputObject: {fileID: 6395187810024367364, guid: 9c92721c2f421aa43b0c072532c15f70, type: 3}
-  confirmationDelaySeconds: 0
+  confirmationDelaySeconds: 1
   messages:
-  - A pokemon used cut!
+  - '&nickName used cut!'
 --- !u!114 &3248834088512503805
 MonoBehaviour:
   m_ObjectHideFlags: 0
