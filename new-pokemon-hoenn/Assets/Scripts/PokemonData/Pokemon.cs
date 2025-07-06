@@ -353,14 +353,6 @@ public class Pokemon : IStringReplacer
         return ivs;
     }
 
-    public string ApplyReplacements(string subject) {
-        var table = GetReplaceTable();
-        foreach(var key in table.Keys){
-            subject = subject.Replace(key, table[key]);
-        }
-        return subject;
-    }
-
     public Dictionary<string, string> GetReplaceTable() {
         return new Dictionary<string, string>(){
             {"&nickName", nickName},

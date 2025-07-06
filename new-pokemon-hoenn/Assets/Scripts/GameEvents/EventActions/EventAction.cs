@@ -28,7 +28,6 @@ public abstract class EventAction : MonoBehaviour
         }
     }
 
-    protected abstract IEnumerator EventActionLogic(EventState state);
     public IEnumerator DoEventAction(EventState state) {
         yield return StartCoroutine(EventActionLogic(state));
         if(!exit && this is not EventSwitch){
@@ -43,4 +42,6 @@ public abstract class EventAction : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    protected abstract IEnumerator EventActionLogic(EventState state);
 }
