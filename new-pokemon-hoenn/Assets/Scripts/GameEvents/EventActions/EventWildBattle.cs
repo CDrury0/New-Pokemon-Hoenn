@@ -8,7 +8,7 @@ public class EventWildBattle : EventAction
     public Pokemon generatedMon;
     public EventAnimation encounterIntro;
 
-    protected override IEnumerator EventActionLogic(EventState state) {
+    protected override IEnumerator EventActionLogic() {
         yield return StartCoroutine(CombatLib.Instance.combatSystem.StartBattle(generatedMon, encounterIntro));
         exit = !CombatSystem.PlayerVictory;
     }

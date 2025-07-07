@@ -11,7 +11,7 @@ public class AreaLoader : EventAction
     [SerializeField] private bool loadEscapeArea;
     [SerializeField] private AreaData areaDataOverride;
 
-    protected override IEnumerator EventActionLogic(EventState state) {
+    protected override IEnumerator EventActionLogic() {
         GameAreaManager areaEntered = GetAreaToLoad();
         if(areaEntered.areaData == ReferenceLib.ActiveArea){
             exit = true;

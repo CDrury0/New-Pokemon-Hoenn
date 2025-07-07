@@ -5,7 +5,7 @@ using System.Linq;
 public enum PrimaryStatus {None, Poisoned, Burned, Paralyzed, Asleep, Frozen, Fainted, Any}
 public enum Gender {None, Male, Female}
 
-public class Pokemon : IStringReplacer
+public class Pokemon : IDialogueReplacer
 {
     public const int MAX_LEVEL = 100;
     public const int MAX_EV = 252;
@@ -354,7 +354,7 @@ public class Pokemon : IStringReplacer
     }
 
     public Dictionary<string, string> GetReplaceTable() {
-        return new Dictionary<string, string>(){
+        return new(){
             {"&nickName", nickName},
         };
     }

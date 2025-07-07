@@ -826,4 +826,5 @@ MonoBehaviour:
   _escapePosition:
     key: {fileID: 0}
     value: {x: 0, y: 0, z: 0}
-  _playerBadges: []
+  _playerBadges:
+  - {fileID: 11400000, guid: a51f8e251813fcd37bcd2d7983c3993c, type: 2}

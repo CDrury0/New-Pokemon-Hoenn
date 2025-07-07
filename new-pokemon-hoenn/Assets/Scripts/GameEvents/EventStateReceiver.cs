@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class EventStateReceiver<T> : EventAction
+public abstract class EventStateReceiver<T> : EventAction where T : class
 {
     [SerializeField] protected EventAction stateSender;
 
-    protected IEventStateSender<T> GetStateSender() {
-        return stateSender as IEventStateSender<T>;
+    protected List<T> GetSenderState() {
+        return (stateSender as IEventStateSender)?.GetState<T>();
     }
 }

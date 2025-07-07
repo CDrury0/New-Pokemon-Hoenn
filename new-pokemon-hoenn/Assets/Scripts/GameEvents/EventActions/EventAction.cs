@@ -28,11 +28,11 @@ public abstract class EventAction : MonoBehaviour
         }
     }
 
-    public IEnumerator DoEventAction(EventState state) {
-        yield return StartCoroutine(EventActionLogic(state));
+    public IEnumerator DoEventAction() {
+        yield return StartCoroutine(EventActionLogic());
         if(!exit && this is not EventSwitch){
             if(nextEvent != null) {
-                StartCoroutine(nextEvent.DoEventAction(state));
+                StartCoroutine(nextEvent.DoEventAction());
             } else {
                 PlayerInput.allowMovementInput = true;
                 PlayerInput.AllowMenuToggle = true;
@@ -43,5 +43,5 @@ public abstract class EventAction : MonoBehaviour
         }
     }
 
-    protected abstract IEnumerator EventActionLogic(EventState state);
+    protected abstract IEnumerator EventActionLogic();
 }

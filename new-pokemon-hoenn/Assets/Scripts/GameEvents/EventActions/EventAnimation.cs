@@ -12,7 +12,7 @@ public class EventAnimation : EventAction
     public EventAnimation previousTransitionToDestroy;
     private GameObject instantiatedTransitionObj;
 
-    protected override IEnumerator EventActionLogic(EventState state) {
+    protected override IEnumerator EventActionLogic() {
         yield return StartCoroutine(TransitionLogic());
     }
 

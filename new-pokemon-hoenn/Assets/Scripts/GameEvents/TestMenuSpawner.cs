@@ -6,7 +6,7 @@ public class TestMenuSpawner : EventAction
 {
     public GameObject testMenuPrefab;
     private GameObject testMenu;
-    protected override IEnumerator EventActionLogic(EventState state) {
+    protected override IEnumerator EventActionLogic() {
         if(testMenu == null){
             testMenu = Instantiate(testMenuPrefab);
         }

@@ -202,10 +202,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 1
   nextEvent: {fileID: 0}
+  stateSender: {fileID: 8056414362874615812}
   outputObject: {fileID: 6395187810024367364, guid: 9c92721c2f421aa43b0c072532c15f70, type: 3}
   confirmationDelaySeconds: 1
   messages:
-  - '&nickName used cut!'
+  - '&nickName used &moveName!'
 --- !u!114 &3248834088512503805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
   nextEvent: {fileID: 0}
+  stateSender: {fileID: 0}
   outputObject: {fileID: 6395187810024367364, guid: 9c92721c2f421aa43b0c072532c15f70, type: 3}
   confirmationDelaySeconds: 0
   messages:
