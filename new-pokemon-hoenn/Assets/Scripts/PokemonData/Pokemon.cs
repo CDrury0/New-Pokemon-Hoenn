@@ -5,7 +5,7 @@ using System.Linq;
 public enum PrimaryStatus {None, Poisoned, Burned, Paralyzed, Asleep, Frozen, Fainted, Any}
 public enum Gender {None, Male, Female}
 
-public class Pokemon : IDialogueReplacer
+public class Pokemon : IStateDialogue
 {
     public const int MAX_LEVEL = 100;
     public const int MAX_EV = 252;

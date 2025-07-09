@@ -170,7 +170,7 @@ MonoBehaviour:
   nextEvent: {fileID: -6792533683617358347}
   stateSender: {fileID: 6650019106494036338}
   outputObject: {fileID: 6395187810024367364, guid: 9c92721c2f421aa43b0c072532c15f70, type: 3}
-  confirmationDelaySeconds: 0.5
+  confirmationDelaySeconds: 0
   messages:
   - '&nickName used &moveName!'
 --- !u!114 &-6792533683617358347
@@ -207,6 +207,6 @@ MonoBehaviour:
   nextEvent: {fileID: 0}
   stateSender: {fileID: 0}
   outputObject: {fileID: 6395187810024367364, guid: 9c92721c2f421aa43b0c072532c15f70, type: 3}
-  confirmationDelaySeconds: 0.5
+  confirmationDelaySeconds: 0
   messages:
   - This tree looks like it could be cut down...

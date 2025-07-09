@@ -4,10 +4,10 @@ using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Event/FieldMoveCondition")]
-public class FieldMoveCondition : EventCondition, IDialogueReplacer
+public class FieldMoveCondition : EventCondition, IStateDialogue
 {
     [SerializeField] private GameObject requiredMove;
-    private List<IDialogueReplacer> stringReplacers = new();
+    private List<IStateDialogue> stringReplacers = new();
 
     public Dictionary<string, string> GetReplaceTable() {
         IEnumerable<KeyValuePair<string, string>> temp = new List<KeyValuePair<string, string>>();

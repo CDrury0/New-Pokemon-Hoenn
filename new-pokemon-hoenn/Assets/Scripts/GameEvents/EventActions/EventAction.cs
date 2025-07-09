@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class EventAction : MonoBehaviour
 {
     [SerializeField] private bool destroySelfOnComplete;
+    [SerializeField] float waitSecondsAfter;
     [SerializeField] protected EventAction nextEvent;
     /// <summary>
     /// remember to assign the variable under both true and false conditions, 
@@ -30,6 +31,9 @@ public abstract class EventAction : MonoBehaviour
 
     public IEnumerator DoEventAction() {
         yield return StartCoroutine(EventActionLogic());
+        if(waitSecondsAfter > 0f)
+            yield return new WaitForSeconds(waitSecondsAfter);
+
         if(!exit && this is not EventSwitch){
             if(nextEvent != null) {
                 StartCoroutine(nextEvent.DoEventAction());

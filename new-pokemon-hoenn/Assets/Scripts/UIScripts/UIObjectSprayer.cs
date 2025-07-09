@@ -23,7 +23,8 @@ public class UIObjectSprayer : MonoBehaviour
             Random.Range(sprayParent.rect.height / -2 + 10, sprayParent.rect.height / 2 - 10)
         );
         Vector3 newScale = new(newTransform.localScale.x * Random.Range(0.8f, 1.2f), newTransform.localScale.y);
-        instance.transform.localScale = newScale;
+        newTransform.localScale = newScale;
+        newTransform.SetAsFirstSibling();
         yield return new WaitForSeconds(Random.Range(0.02f, 0.05f));
         StartCoroutine(Spray());
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Dialogue : EventStateReceiver<IDialogueReplacer>
+public class Dialogue : EventStateReceiver<IStateDialogue>
 {
     public GameObject outputObject;
     public float confirmationDelaySeconds;
