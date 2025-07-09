@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
+  waitSecondsAfter: 0
   nextEvent: {fileID: 1957091104101474072}
   condition: {fileID: 11400000, guid: 057bcab7ffcdadd0fb40eecebbbfce19, type: 2}
   falseEvent: {fileID: 2202702679772995211}
@@ -167,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
+  waitSecondsAfter: 0
   nextEvent: {fileID: -6792533683617358347}
   stateSender: {fileID: 6650019106494036338}
   outputObject: {fileID: 6395187810024367364, guid: 9c92721c2f421aa43b0c072532c15f70, type: 3}
@@ -186,8 +188,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 1
+  waitSecondsAfter: 0
   nextEvent: {fileID: 0}
   timeToWait: 2.2
+  stateToPass: {fileID: 6650019106494036338}
   transitionObjPrefab: {fileID: 5943331842627113238, guid: 727083c2a4ba7df6da77aea0af953639, type: 3}
   destroyOwnTransitionAfterWait: 1
   previousTransitionToDestroy: {fileID: 0}
@@ -204,6 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
+  waitSecondsAfter: 0
   nextEvent: {fileID: 0}
   stateSender: {fileID: 0}
   outputObject: {fileID: 6395187810024367364, guid: 9c92721c2f421aa43b0c072532c15f70, type: 3}

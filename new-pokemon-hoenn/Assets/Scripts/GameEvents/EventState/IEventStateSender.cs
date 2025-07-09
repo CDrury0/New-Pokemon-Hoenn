@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IEventStateSender
 {
-    public List<T> GetState<T>() where T : class;
+    public List<T> SendState<T>() where T : class;
 }

@@ -5,7 +5,7 @@ using System.Linq;
 public enum PrimaryStatus {None, Poisoned, Burned, Paralyzed, Asleep, Frozen, Fainted, Any}
 public enum Gender {None, Male, Female}
 
-public class Pokemon : IStateDialogue
+public class Pokemon : IStateDialogue, IStateFeature
 {
     public const int MAX_LEVEL = 100;
     public const int MAX_EV = 252;
@@ -358,4 +358,8 @@ public class Pokemon : IStateDialogue
             {"&nickName", nickName},
         };
     }
+
+    public Sprite GetSprite() => frontSprite;
+
+    public AudioClip GetSound() => pokemonDefault.cry;
 }

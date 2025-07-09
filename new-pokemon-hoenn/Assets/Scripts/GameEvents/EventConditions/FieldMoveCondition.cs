@@ -1,31 +1,35 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Event/FieldMoveCondition")]
-public class FieldMoveCondition : EventCondition, IStateDialogue
+public class FieldMoveCondition : EventCondition, IStateDialogue, IStateFeature
 {
     [SerializeField] private GameObject requiredMove;
-    private List<IStateDialogue> stringReplacers = new();
+    private Tuple<Pokemon, MoveData> members = new(null, null);
 
     public Dictionary<string, string> GetReplaceTable() {
         IEnumerable<KeyValuePair<string, string>> temp = new List<KeyValuePair<string, string>>();
-        foreach(var replacer in stringReplacers)
-            temp = temp.Union(replacer.GetReplaceTable());
-
+        temp = temp.Union(members.Item1.GetReplaceTable());
+        temp = temp.Union(members.Item2.GetReplaceTable());
         return temp.ToDictionary((i) => i.Key, (i) => i.Value);
     }
 
+    public Sprite GetSprite() => members.Item1.GetSprite();
+
+    public AudioClip GetSound() => members.Item1.GetSound();
+
     public override bool IsConditionTrue() {
-        stringReplacers.Add(requiredMove.GetComponent<MoveData>());
+        members = new(members.Item1, requiredMove.GetComponent<MoveData>());
         var fieldMove = requiredMove.GetComponent<FieldMove>();
         if(fieldMove is null || !fieldMove.IsFieldUseEligible())
             return false;
 
         foreach(Pokemon p in PlayerParty.Instance.playerParty.party){
             if(p is not null && p.moves.Contains(requiredMove)){
-                stringReplacers.Add(p);
+                members = new(p, members.Item2);
                 return true;
             }
         }
