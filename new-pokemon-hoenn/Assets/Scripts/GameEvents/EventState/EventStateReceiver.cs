@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class EventStateReceiver<T> : EventAction, IUpdateStateReceiver where T : class
+public abstract class EventStateReceiver<T> : EventAction, IStateReceiverUpdatable where T : class
 {
     [SerializeField] protected EventAction stateSender;
 

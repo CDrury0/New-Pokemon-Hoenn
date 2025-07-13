@@ -28,7 +28,7 @@ public class EventAnimation : EventAction, IEventStateSender
     public IEnumerator TransitionLogic() {
         instantiatedTransitionObj = Instantiate(transitionObjPrefab);
         if(stateToPass is not null){
-            var receiver = instantiatedTransitionObj.GetComponentInChildren<IUpdateStateReceiver>();
+            var receiver = instantiatedTransitionObj.GetComponentInChildren<IStateReceiverUpdatable>();
             receiver?.SetStateSender(this);
             StartCoroutine((receiver as EventAction)?.DoEventAction());
         }

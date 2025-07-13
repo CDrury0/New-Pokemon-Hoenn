@@ -90,6 +90,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree
       objectReference: {fileID: 0}
+    - target: {fileID: 9041036909981705642, guid: e73732e7670159f59ab34af81453a59f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e73732e7670159f59ab34af81453a59f, type: 3}
 --- !u!4 &6890649223868872339 stripped
@@ -411,6 +415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
+  waitSecondsAfter: 0
   nextEvent: {fileID: 0}
   testMenuPrefab: {fileID: 2497166615336264563, guid: 9c54dc031ce34b0429eccaee33f37ff6, type: 3}
 --- !u!4 &4882333034716311726 stripped
