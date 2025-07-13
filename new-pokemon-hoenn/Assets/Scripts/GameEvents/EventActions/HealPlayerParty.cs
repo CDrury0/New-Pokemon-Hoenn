@@ -6,7 +6,7 @@ public class HealPlayerParty : EventAction
 {
     [SerializeField] private bool setLastHealPosition;
 
-    protected override IEnumerator EventActionLogic(EventState state){
+    protected override IEnumerator EventActionLogic(){
         foreach (Pokemon p in PlayerParty.Instance.playerParty.party){
             if(p == null){
                 continue;

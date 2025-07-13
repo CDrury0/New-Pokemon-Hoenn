@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //info common to every move
-public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
+public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable, IStateDialogue
 {
     public string moveName;
     [TextArea(3,3)] public string moveDescription;
@@ -25,7 +25,6 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
     public bool cannotBeSnatched;
     public bool notReflectedByMagicCoat;
     public bool ignoresProtect;
-    public bool cannotBeForgotten;
     public MoveVisualData visualData;
     public MoveAccuracyData accuracyData;
     public const string FAIL = "But it failed!";
@@ -88,6 +87,12 @@ public class MoveData : MonoBehaviour, ICheckMoveFail, ICheckMoveSelectable
             return false;
         }
         return target.individualBattleModifier.appliedEffects.Find(e => e.effect is ApplyProtect) != null;
+    }
+
+    public Dictionary<string, string> GetReplaceTable() {
+        return new(){
+            {"&moveName", moveName},
+        };
     }
 }
 

@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
 public enum PrimaryStatus {None, Poisoned, Burned, Paralyzed, Asleep, Frozen, Fainted, Any}
 public enum Gender {None, Male, Female}
 
-public class Pokemon
+public class Pokemon : IStateDialogue, IStateFeature
 {
     public const int MAX_LEVEL = 100;
     public const int MAX_EV = 252;
@@ -81,7 +81,8 @@ public class Pokemon
             else{
                 _currentHealth = value;
             }
-        }}
+        }
+    }
     public int numberID;
     public int sleepCounter = 0;
     public bool toxic;
@@ -351,4 +352,14 @@ public class Pokemon
         }
         return ivs;
     }
+
+    public Dictionary<string, string> GetReplaceTable() {
+        return new(){
+            {"&nickName", nickName},
+        };
+    }
+
+    public Sprite GetSprite() => frontSprite;
+
+    public AudioClip GetSound() => pokemonDefault.cry;
 }

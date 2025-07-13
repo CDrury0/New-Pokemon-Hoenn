@@ -11,9 +11,21 @@ public class ItemLearnMove : ItemEffect
     private LearnMoveScreen learnMoveScreen;
 
     public override bool CanEffectBeUsed(Pokemon p) {
-        return canLearnMove.Contains(p.pokemonDefault)
-        && !p.moves.Contains(moveToLearn)
-        && p.moves.Find(m => m != null && !m.GetComponent<MoveData>().cannotBeForgotten) != null;
+        if(!canLearnMove.Contains(p.pokemonDefault))
+            return false;
+
+        if(p.moves.Contains(moveToLearn))
+            return false;
+
+        foreach(var move in p.moves){
+            if(move is null)
+                return true;
+
+            var fieldMove = move.GetComponent<FieldMove>();
+            if(fieldMove is null || !fieldMove.CannotBeForgotten)
+                return true;
+        }
+        return false;
     }
 
     protected override IEnumerator ItemEffectImplementation(Pokemon p, BattleHUD hudObj, System.Func<string, IEnumerator> messageOutput, int whichMove) {

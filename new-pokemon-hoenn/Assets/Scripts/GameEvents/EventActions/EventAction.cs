@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class EventAction : MonoBehaviour
 {
     [SerializeField] private bool destroySelfOnComplete;
+    [SerializeField] float waitSecondsAfter;
     [SerializeField] protected EventAction nextEvent;
     /// <summary>
     /// remember to assign the variable under both true and false conditions, 
@@ -28,21 +29,23 @@ public abstract class EventAction : MonoBehaviour
         }
     }
 
-    protected abstract IEnumerator EventActionLogic(EventState state);
-    public IEnumerator DoEventAction(EventState state) {
-        yield return StartCoroutine(EventActionLogic(state));
-        if(!exit){
-            //kill me
-            if(nextEvent != null && this is not EventSwitch){
-                StartCoroutine(nextEvent.DoEventAction(state));
-            }
-            else{
+    public IEnumerator DoEventAction() {
+        yield return StartCoroutine(EventActionLogic());
+        if(waitSecondsAfter > 0f)
+            yield return new WaitForSeconds(waitSecondsAfter);
+
+        if(!exit && this is not EventSwitch){
+            if(nextEvent != null) {
+                StartCoroutine(nextEvent.DoEventAction());
+            } else {
                 PlayerInput.allowMovementInput = true;
                 PlayerInput.AllowMenuToggle = true;
             }
         }
-        if(destroySelfOnComplete){
+        if(destroySelfOnComplete) {
             Destroy(gameObject);
         }
     }
+
+    protected abstract IEnumerator EventActionLogic();
 }

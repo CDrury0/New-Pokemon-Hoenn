@@ -41,7 +41,7 @@ public class Trainer : EventAction
         }
     }
 
-    protected override IEnumerator EventActionLogic(EventState state) {
+    protected override IEnumerator EventActionLogic() {
         battleInventory = new List<ItemData>(inventoryTemplate);
         yield return StartCoroutine(CombatLib.Instance.combatSystem.StartBattle(this));
         exit = !CombatSystem.PlayerVictory;

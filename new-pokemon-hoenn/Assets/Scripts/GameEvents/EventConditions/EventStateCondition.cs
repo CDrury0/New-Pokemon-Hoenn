@@ -10,14 +10,11 @@ public class EventStateCondition : EventCondition
     [SerializeField] private int compareTo;
 
     private bool GetCompareSuccess() {
-        switch(operation){
-            case Operation.Greater:
-                return state.value > compareTo;
-            case Operation.Less:
-                return state.value < compareTo;
-            default:
-                return state.value == compareTo;
-        }
+        return operation switch {
+            Operation.Greater => state.value > compareTo,
+            Operation.Less => state.value < compareTo,
+            _ => state.value == compareTo,
+        };
     }
 
     public override bool IsConditionTrue(){

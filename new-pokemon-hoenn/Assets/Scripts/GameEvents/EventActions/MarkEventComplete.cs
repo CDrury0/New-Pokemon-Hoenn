@@ -5,7 +5,7 @@ using UnityEngine;
 public class MarkEventComplete : EventAction
 {
     [SerializeField] private EventTrigger[] toMarkComplete;
-    protected override IEnumerator EventActionLogic(EventState state) {
+    protected override IEnumerator EventActionLogic() {
         AreaData thisAreaData = GetComponentInParent<GameAreaManager>().areaData;
         for (int i = 0; i < toMarkComplete.Length; i++){
             if (!thisAreaData.eventManifest.Contains(toMarkComplete[i].EventTriggerID)){

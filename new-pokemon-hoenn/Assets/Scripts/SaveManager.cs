@@ -33,6 +33,7 @@ public class SaveManager : ScriptableObject
             dexStatus = ReferenceLib.GlobalDexProgress,
             inventory = GetSerializableInventoryList(PlayerInventory.GetKeyValuePairList()),
             gameAreaEventManifests = GetSerializableEventManifest(),
+            playerBadges = ReferenceLib.PlayerBadges.Select((badge) => badge.BadgeName).ToList(),
         };
         
         string data = JsonUtility.ToJson(saveData);

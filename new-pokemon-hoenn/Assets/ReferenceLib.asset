@@ -793,6 +793,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c3c5eed97d853c843b4907559a5c1576, type: 2}
   - {fileID: 11400000, guid: ce82cc315b661d845b82f9b10e6a1078, type: 2}
   - {fileID: 11400000, guid: 36c2b7534f7ae2642946848dea1ebb07, type: 2}
+  gymBadgeReference: []
   natures:
   - {fileID: 11400000, guid: 1abe8748ec4918349b4a5eadba97ad26, type: 2}
   - {fileID: 11400000, guid: 4094314c85c03124a931c45995ad98f4, type: 2}
@@ -825,3 +826,5 @@ MonoBehaviour:
   _escapePosition:
     key: {fileID: 0}
     value: {x: 0, y: 0, z: 0}
+  _playerBadges:
+  - {fileID: 11400000, guid: a51f8e251813fcd37bcd2d7983c3993c, type: 2}

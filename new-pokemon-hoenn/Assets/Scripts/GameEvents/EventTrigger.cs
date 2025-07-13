@@ -60,12 +60,12 @@ public class EventTrigger : MonoBehaviour
         PlayerInput.AllowMenuToggle = allowInput;
         if(eventsIfAlreadyDone.Length == 0 || !markedDone){
             foreach (EventAction e in eventActions){
-                StartCoroutine(e.DoEventAction(ScriptableObject.CreateInstance<EventState>()));
+                StartCoroutine(e.DoEventAction());
             }
             return;
         }
         foreach(EventAction e in eventsIfAlreadyDone){
-            StartCoroutine(e.DoEventAction(ScriptableObject.CreateInstance<EventState>()));
+            StartCoroutine(e.DoEventAction());
         }
     }
 

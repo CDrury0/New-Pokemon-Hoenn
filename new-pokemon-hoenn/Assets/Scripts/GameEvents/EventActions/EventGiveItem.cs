@@ -8,7 +8,7 @@ public class EventGiveItem : EventAction
     [SerializeField] private int quantity = 1;
     [SerializeField] private GameObject textObj;
 
-    protected override IEnumerator EventActionLogic(EventState state){
+    protected override IEnumerator EventActionLogic(){
         PlayerInventory.AddItem(item, quantity);
         string qtyMsg = quantity == 1 ? string.Empty : quantity + "x ";
         string message = "Player received " + qtyMsg + item.itemName;
