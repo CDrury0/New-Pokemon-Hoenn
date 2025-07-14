@@ -16,7 +16,7 @@ public class ButtonContainerInventoryGive : PartyInfoBoxButtonContainer
 
     private IEnumerator GiveItem(){
         PartyInfoBox boxComponent = GetComponent<PartyInfoBox>();
-        Pokemon monToGiveItem = PlayerParty.Instance.playerParty.party[boxComponent.whichPartyMember];
+        Pokemon monToGiveItem = PlayerParty.Party.members[boxComponent.whichPartyMember];
         monToGiveItem.heldItem = InventoryMenu.LoadedItemInstance.itemData;
         PlayerInventory.SubtractItem(monToGiveItem.heldItem);
         boxComponent.LoadPokemonDetails(false);

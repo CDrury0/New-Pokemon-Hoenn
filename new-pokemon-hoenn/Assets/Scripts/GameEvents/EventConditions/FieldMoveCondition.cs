@@ -27,8 +27,8 @@ public class FieldMoveCondition : EventCondition, IStateDialogue, IStateFeature
         if(fieldMove is null || !fieldMove.IsFieldUseEligible())
             return false;
 
-        foreach(Pokemon p in PlayerParty.Instance.playerParty.party){
-            if(p is not null && p.moves.Contains(requiredMove)){
+        foreach(Pokemon p in PlayerParty.Party.members){
+            if(p.moves.Contains(requiredMove)){
                 members = new(p, members.Item2);
                 return true;
             }

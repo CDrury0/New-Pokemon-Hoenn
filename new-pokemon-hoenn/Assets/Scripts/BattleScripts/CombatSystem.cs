@@ -83,6 +83,7 @@ public class CombatSystem : MonoBehaviour
     //only used by battle test menu
     public void StartBattle(Party enemyParty, bool doubleBattle){
         EnemyTrainer = null;
+        enemyParty.members = new(enemyParty.members.FindAll((entry) => entry is not null));
         StartCoroutine(RealStartBattle(enemyParty, doubleBattle, wildAI, wildMusic));
     }
 
@@ -666,7 +667,7 @@ public class CombatSystem : MonoBehaviour
     }
 
     public bool CanBeSwitchedIn(Pokemon pokemonToSwitchIn){
-        return ActiveTargetCanSwitchOut() && Party.CheckIsAvailableFighter(pokemonToSwitchIn);
+        return ActiveTargetCanSwitchOut() && pokemonToSwitchIn.IsAvailableFighter();
     }
 
     public bool IsRegisteredToSwitchIn(Pokemon switchingIn){
@@ -740,11 +741,8 @@ public class CombatSystem : MonoBehaviour
     }
 
     public void CleanUpAfterBattle(){
-        foreach(Pokemon p in playerParty.party){
-            if(p != null){
-                p.inBattle = false;
-            }
-        }
+        foreach(Pokemon p in playerParty.members)
+            p.inBattle = false;
 
         DestroyAllObjectsWithTag("Move");
         DestroyAllObjectsWithTag("Switch");

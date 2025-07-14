@@ -5636,6 +5636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
+  waitSecondsAfter: 0
   nextEvent: {fileID: 0}
   areaMarkerPrefab: {fileID: 852470900647175857, guid: 57bf37c53eb33804e959378fd7dda31a, type: 3}
 --- !u!1 &598696003
@@ -9965,6 +9966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
+  waitSecondsAfter: 0
   nextEvent: {fileID: 0}
   label: area music
   getClipsFromArea: 1
@@ -9986,6 +9988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
+  waitSecondsAfter: 0
   nextEvent: {fileID: 0}
   label: wild victory music
   getClipsFromArea: 0
@@ -10007,6 +10010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
+  waitSecondsAfter: 0
   nextEvent: {fileID: 0}
   label: default wild battle music
   getClipsFromArea: 0
@@ -10028,8 +10032,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
+  waitSecondsAfter: 0
   nextEvent: {fileID: 0}
   timeToWait: 2
+  stateToPass: {fileID: 0}
   transitionObjPrefab: {fileID: 5943331842627113238, guid: bc335d0ac59e31947bfe95a8c842720b, type: 3}
   destroyOwnTransitionAfterWait: 1
   previousTransitionToDestroy: {fileID: 0}
@@ -10046,6 +10052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
+  waitSecondsAfter: 0
   nextEvent: {fileID: 1901076950}
   loadLastHealArea: 1
   loadEscapeArea: 0
@@ -10063,6 +10070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
+  waitSecondsAfter: 0
   nextEvent: {fileID: 1901076951}
   lastHealPosition: 1
   escapePosition: 0
@@ -10082,6 +10090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
+  waitSecondsAfter: 0
   nextEvent: {fileID: 0}
   setLastHealPosition: 0
 --- !u!114 &1909832777 stripped
@@ -10145,8 +10154,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
+  waitSecondsAfter: 0
   nextEvent: {fileID: 0}
   timeToWait: 0.6
+  stateToPass: {fileID: 0}
   transitionObjPrefab: {fileID: 3739998403596976371, guid: 5e0e48f610787504799d3a21e9c426a0, type: 3}
   destroyOwnTransitionAfterWait: 1
   previousTransitionToDestroy: {fileID: 1934170130}
@@ -10163,8 +10174,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySelfOnComplete: 0
+  waitSecondsAfter: 0
   nextEvent: {fileID: 0}
   timeToWait: 0.6
+  stateToPass: {fileID: 0}
   transitionObjPrefab: {fileID: 6405088420844483613, guid: c0a8283261dfc14458a57dce6f44ce12, type: 3}
   destroyOwnTransitionAfterWait: 0
   previousTransitionToDestroy: {fileID: 0}
@@ -10222,7 +10235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef309186544cf72449873aabef535c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  giveOnStart: {fileID: 11400000, guid: 74af919a6a50fd444a7b5e92ad8eb481, type: 2}
+  giveOnStart: {fileID: 11400000, guid: 29834e4f59967354ab0117b622e9f4a5, type: 2}
   dataManifest:
   - {fileID: 11400000, guid: 8e3777f91f0dd44498f80cd9e81e0893, type: 2}
   - {fileID: 11400000, guid: 16699cbd54b553e488bbc11a0e40892c, type: 2}

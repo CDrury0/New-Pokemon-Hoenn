@@ -163,6 +163,10 @@ public class Pokemon : IStateDialogue, IStateFeature
         this.weight = p.weight != 0 ? p.weight : this.pokemonDefault.weight;
     }
 
+    public bool IsAvailableFighter() => !IsFainted() && !inBattle && !CombatLib.CombatSystem.IsRegisteredToSwitchIn(this);
+
+    public bool IsFainted() => primaryStatus == PrimaryStatus.Fainted;
+
     public void HealComplete() {
         CurrentHealth = stats[0];
         primaryStatus = PrimaryStatus.None;

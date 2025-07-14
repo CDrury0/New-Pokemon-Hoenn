@@ -29,7 +29,7 @@ public class SaveManager : ScriptableObject
             currentPosition = new(ReferenceLib.ActiveArea.name, PlayerInput.playerTransform.position),
             lastHealedPosition = new(ReferenceLib.LastHealPosition.key?.name ?? "null", ReferenceLib.LastHealPosition.value),
             escapePosition = new(ReferenceLib.EscapePosition.key?.name ?? "null", ReferenceLib.EscapePosition.value),
-            currentParty = GetSaveablePokemonList(PlayerParty.Instance.playerParty.party),
+            currentParty = GetSaveablePokemonList(PlayerParty.Party.members),
             dexStatus = ReferenceLib.GlobalDexProgress,
             inventory = GetSerializableInventoryList(PlayerInventory.GetKeyValuePairList()),
             gameAreaEventManifests = GetSerializableEventManifest(),
@@ -49,13 +49,11 @@ public class SaveManager : ScriptableObject
         return newList;
     }
 
-    public static List<SaveablePokemon> GetSaveablePokemonList(Pokemon[] party){
-        List<SaveablePokemon> newList = new(party.Length);
-        foreach(Pokemon p in party){
-            if (p != null){
-                newList.Add(SaveablePokemon.GetSaveablePokemon(p));
-            }
-        }
+    public static List<SaveablePokemon> GetSaveablePokemonList(List<Pokemon> party){
+        List<SaveablePokemon> newList = new(party.Capacity);
+        foreach(var p in party)
+            newList.Add(SaveablePokemon.GetSaveablePokemon(p));
+
         return newList;
     }
 

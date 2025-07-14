@@ -17,7 +17,7 @@ public class PartyInfoBox : MonoBehaviour
     [SerializeField] private Color faintedColor;
     
     public void LoadPokemonDetails(bool showActionButtons = true){
-        Pokemon pokemonToDisplay = PlayerParty.Instance.playerParty.party[whichPartyMember];
+        Pokemon pokemonToDisplay = PlayerParty.Party.members.ElementAtOrDefault(whichPartyMember);
         bool enableInfoBox = pokemonToDisplay != null;
         boxSprite.gameObject.SetActive(enableInfoBox);
         pokemonInfo.gameObject.SetActive(enableInfoBox);
@@ -32,9 +32,9 @@ public class PartyInfoBox : MonoBehaviour
     }
 
     public void SwitchPlayerPartyMembers(int shift) {
-        var party = PlayerParty.Instance.playerParty.party;
+        var party = PlayerParty.Party.members;
         int offset = whichPartyMember + shift;
-        if(offset >= 0 && offset <= party.Length - 1 && party[offset] != null){
+        if(offset >= 0 && offset <= party.Count - 1 && party[offset] != null){
             (party[whichPartyMember], party[offset]) = (party[offset], party[whichPartyMember]);
             List<PartyInfoBox> siblings = transform.parent.gameObject.GetComponentsInChildren<PartyInfoBox>().ToList();
             siblings.Find((sibling) => sibling.whichPartyMember == offset)?.LoadPokemonDetails();

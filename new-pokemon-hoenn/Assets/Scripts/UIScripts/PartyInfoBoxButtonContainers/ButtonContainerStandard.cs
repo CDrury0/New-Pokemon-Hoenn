@@ -11,7 +11,7 @@ public class ButtonContainerStandard : PartyInfoBoxButtonContainer
     }
 
     public void TakeItemButtonFunction(){
-        Pokemon p = PlayerParty.Instance.playerParty.party[GetComponent<PartyInfoBox>().whichPartyMember];
+        Pokemon p = PlayerParty.Party.members[GetComponent<PartyInfoBox>().whichPartyMember];
         StartCoroutine(TakeItem(p));
     }
 

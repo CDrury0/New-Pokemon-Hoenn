@@ -16,14 +16,16 @@ public class ForcesSwitchEffect : MoveEffect, ICheckMoveFail
     }
 
     private Pokemon GetRandomAvailablePartyMember(bool isPlayerParty){
-        List<Pokemon> party = new List<Pokemon>(isPlayerParty ? PlayerParty.Instance.playerParty.party : CombatLib.Instance.combatSystem.EnemyParty.party);
-        List<int> indicesOfAvailableFighters = new List<int>();
-        for (int i = 0; i < party.Count; i++){
-            if(Party.CheckIsAvailableFighter(party[i])){
+        var party = isPlayerParty ? PlayerParty.Party.members : CombatLib.CombatSystem.EnemyParty.members;
+        List<int> indicesOfAvailableFighters = new();
+        for(int i = 0; i < party.Count; i++){
+            if(party[i].IsAvailableFighter())
                 indicesOfAvailableFighters.Add(i);
-            }
         }
-        return indicesOfAvailableFighters.Count > 0 ? party[indicesOfAvailableFighters[Random.Range(0, indicesOfAvailableFighters.Count)]] : null;
+        if(indicesOfAvailableFighters.Count > 0)
+            return party[indicesOfAvailableFighters[Random.Range(0, indicesOfAvailableFighters.Count)]];
+            
+        return null;
     }
 
     //suction cups/ingrain?

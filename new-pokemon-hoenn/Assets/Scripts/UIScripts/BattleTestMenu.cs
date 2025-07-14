@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class BattleTestMenu : MonoBehaviour
 {
@@ -26,13 +27,13 @@ public class BattleTestMenu : MonoBehaviour
         ClearSelectedMoves();
         PopulateMoveList();
         PopulatePokemonList();
-        if(PlayerParty.Instance.playerParty == null){
-            PlayerParty.Instance.playerParty = new Party();
-        }
-        enemyParty = new Party();
-        if(levelValue == 0){
+        PlayerParty.Instance.playerParty ??= new Party();
+        PlayerParty.Party.members = new(){null, null, null, null, null, null};
+        enemyParty = new Party(){
+            members = new(){null, null, null, null, null, null},
+        };
+        if(levelValue == 0)
             levelValue = 50;
-        }
     }
 
     public void ClearPlayerParty(){
@@ -55,26 +56,28 @@ public class BattleTestMenu : MonoBehaviour
 
     private void UpdateButtonSprites(){
         for(int i = 0; i < playerPartyButtons.Length; i++){
-            if(PlayerParty.Instance.playerParty.party[i] != null){
-                playerPartyButtons[i].GetComponent<Image>().sprite = PlayerParty.Instance.playerParty.party[i].frontSprite;
-            }
-            if(enemyParty.party[i] != null){
-                enemyPartyButtons[i].GetComponent<Image>().sprite = enemyParty.party[i].frontSprite;
-            }
+            var ally = PlayerParty.Party.members.ElementAtOrDefault(i);
+            if(ally is not null)
+                playerPartyButtons[i].GetComponent<Image>().sprite = ally.frontSprite;
+
+            var enemy = enemyParty.members.ElementAtOrDefault(i);
+            if(enemy is not null)
+                enemyPartyButtons[i].GetComponent<Image>().sprite = enemy.frontSprite;
         }
     }
 
     private Party RandomParty(){
-        Party newParty = new Party();
-        for(int i = 0; i < newParty.party.Length; i++){
-            newParty.party[i] = new Pokemon(ReferenceLib.Instance.pokemonDefaultLib[Random.Range(0, ReferenceLib.Instance.pokemonDefaultLib.Count)], levelValue, false);
-            newParty.party[i].moves = new List<GameObject>(4);
-            List<GameObject> movePool = new List<GameObject>(allMoves);
-            for(int j = 0; j < newParty.party[i].moves.Capacity; j++){
+        Party newParty = new();
+        for(int i = 0; i < newParty.members.Capacity; i++){
+            var newMon = new Pokemon(ReferenceLib.Instance.pokemonDefaultLib[Random.Range(0, ReferenceLib.Instance.pokemonDefaultLib.Count)], levelValue, false);
+            newParty.members.Add(newMon);
+            newMon.moves = new List<GameObject>(4);
+            List<GameObject> movePool = new(allMoves);
+            for(int j = 0; j < newMon.moves.Capacity; j++){
                 GameObject randomMove = movePool[Random.Range(0,movePool.Count)];
                 movePool.Remove(randomMove);
-                newParty.party[i].moves.Add(randomMove);
-                newParty.party[i].FillPP(j);
+                newMon.moves.Add(randomMove);
+                newMon.FillPP(j);
             }
         }
         return newParty;
@@ -94,14 +97,14 @@ public class BattleTestMenu : MonoBehaviour
     }
 
     public void ChangeLevel(InputField input){
-        levelValue = System.Int32.Parse(input.text);
+        levelValue = int.Parse(input.text);
         Debug.Log(levelValue);
     }
 
     public void ChoosePlayerMon(int which){
         partySlot = which;
         isEnemyParty = false;
-        List<Button> monSlotButtons = new List<Button>(playerPartyButtons);
+        List<Button> monSlotButtons = new(playerPartyButtons);
         monSlotButtons.AddRange(enemyPartyButtons);
         for (int i = 0; i < monSlotButtons.Count; i++){
             monSlotButtons[i].GetComponentInChildren<Text>().color = Color.white;
@@ -114,7 +117,7 @@ public class BattleTestMenu : MonoBehaviour
     public void ChooseEnemyMon(int which){
         partySlot = which;
         isEnemyParty = true;
-        List<Button> monSlotButtons = new List<Button>(playerPartyButtons);
+        List<Button> monSlotButtons = new(playerPartyButtons);
         monSlotButtons.AddRange(enemyPartyButtons);
         for (int i = 0; i < monSlotButtons.Count; i++){
             monSlotButtons[i].GetComponentInChildren<Text>().color = Color.white;
@@ -125,23 +128,31 @@ public class BattleTestMenu : MonoBehaviour
     }
 
     public void ApplyMoves(){
-        if(selectedMoves.Count > 0){
-            Pokemon activeMon = isEnemyParty ? enemyParty.party[partySlot] : PlayerParty.Instance.playerParty.party[partySlot];
-            for(int i = 0; i < selectedMoves.Count; i++){
-                activeMon.moves[i] = selectedMoves[i];
-                activeMon.FillPP(i);
-            }
+        if(selectedMoves.Count <= 0)
+            return;
+
+        var activeList = isEnemyParty ? enemyParty.members : PlayerParty.Party.members;
+        Pokemon activeMon = activeList.ElementAtOrDefault(partySlot);
+        if(activeMon is null)
+            return;
+
+        for(int i = 0; i < selectedMoves.Count; i++){
+            activeMon.moves[i] = selectedMoves[i];
+            activeMon.FillPP(i);
         }
     }
 
     public void CreateMon(int whichMon){
-        Pokemon newMon = new Pokemon(ReferenceLib.Instance.pokemonDefaultLib[whichMon], levelValue, false);
+        Pokemon newMon = new(ReferenceLib.Instance.pokemonDefaultLib[whichMon], levelValue, false);
         if(isEnemyParty){
-            enemyParty.party[partySlot] = newMon;
+            enemyParty.members.RemoveAt(whichMon);
+            enemyParty.members.Insert(whichMon, newMon);
+
+            enemyParty.members[partySlot] = newMon;
             enemyPartyButtons[partySlot].GetComponent<Image>().sprite = newMon.frontSprite;
         }
-        else{
-            PlayerParty.Instance.playerParty.party[partySlot] = newMon;
+        else {
+            PlayerParty.Instance.playerParty.members[partySlot] = newMon;
             playerPartyButtons[partySlot].GetComponent<Image>().sprite = newMon.frontSprite;
         }
     }
@@ -179,17 +190,9 @@ public class BattleTestMenu : MonoBehaviour
         HealParty(enemyParty);
     }
 
-    private void HealParty(Party party){
-        foreach(Pokemon p in party.party){
-            if(p != null){
-                p.primaryStatus = PrimaryStatus.None;
-                p.toxic = false;
-                p.CurrentHealth = p.stats[0];
-                for(int i = 0; i < p.moves.Count; i++){
-                    p.movePP[i] = p.moveMaxPP[i];
-                }
-            }
-        }
+    private void HealParty(Party party) {
+        foreach(Pokemon p in party.members)
+            p.HealComplete();
     }
 
     private void UpdateSelectedMoveText(){
@@ -208,6 +211,6 @@ public class BattleTestMenu : MonoBehaviour
 
     public void StartBattle(){
         gameObject.SetActive(false);
-        CombatLib.Instance.combatSystem.StartBattle(enemyParty, battleTypeDropdown.value == 1);
+        CombatLib.CombatSystem.StartBattle(enemyParty, battleTypeDropdown.value == 1);
     }
 }

@@ -11,12 +11,12 @@ public class ButtonContainerBattle : PartyInfoBoxButtonContainer
     }
 
     private bool EnableSendOut(Pokemon p){
-        return CombatLib.Instance.combatSystem.CanBeSwitchedIn(p);
+        return CombatLib.CombatSystem.CanBeSwitchedIn(p);
     }
 
     public void SendOutButtonFunction(){
         int whichPartyMember = GetComponentInParent<PartyInfoBox>().whichPartyMember;
-        Pokemon monSwitchingIn = PlayerParty.Instance.playerParty.party[whichPartyMember];
+        Pokemon monSwitchingIn = PlayerParty.Party.members[whichPartyMember];
         CombatSystem.ActiveTarget.individualBattleModifier.switchingIn = monSwitchingIn;
     }
 }

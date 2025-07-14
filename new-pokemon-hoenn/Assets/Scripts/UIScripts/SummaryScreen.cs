@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class SummaryScreen : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class SummaryScreen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI abilityName;
 
     public void ShowSummaryScreen(int whichPokemon) {
-        Pokemon p = PlayerParty.Instance.playerParty.party[whichPokemon];
+        Pokemon p = PlayerParty.Party.members.ElementAtOrDefault(whichPokemon);
         for (int i = 0; i < p.stats.Length; i++){
             statTexts[i].text = p.stats[i].ToString();
             float[] natureMultipliers = p.nature.GetNatureModifiers();
