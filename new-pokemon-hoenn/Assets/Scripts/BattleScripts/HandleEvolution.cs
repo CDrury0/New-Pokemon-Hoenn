@@ -24,14 +24,11 @@ public class HandleEvolution : MonoBehaviour
     }
 
     private static PokemonDefault GetMonToEvolveInto(Pokemon p, ItemData usedEvoStone){
-        int firstSlot = PlayerParty.Instance.playerParty.PartyIsFull();
-        if(p.pokemonDefault.gift != null && firstSlot != -1){
-            PlayerParty.Instance.playerParty.party[firstSlot] = new Pokemon(p.pokemonDefault.gift, p.level) {isShiny = p.isShiny};
-        }
+        if(p.pokemonDefault.gift is not null && !PlayerParty.Party.IsFull())
+            PlayerParty.Party.members.Add(new Pokemon(p.pokemonDefault.gift, p.level) {isShiny = p.isShiny});
         
-        if(usedEvoStone != null){
+        if(usedEvoStone is not null)
             return p.pokemonDefault.stoneEvolutions.Find(e => e.key == usedEvoStone).value;
-        }
 
         return p.pokemonDefault.evolutionData?.GetEvolved(p);
     }

@@ -3,80 +3,44 @@ using System.Collections.Generic;
 
 public class Party
 {
-    public Pokemon[] party;
+    public const int PARTY_SIZE = 6;
+    public List<Pokemon> members;
 
     public Party(){
-        party = new Pokemon[6];
+        members = new(PARTY_SIZE);
     }
 
     public Party(Pokemon p) : this() {
-        party[0] = p;
+        members.Add(p);
     }
 
-    public Party(Pokemon[] p): this() {
-        party = new List<Pokemon>(p).ToArray();
+    public Party(IEnumerable<Pokemon> createFrom): this() {
+        members.AddRange(createFrom);
     }
 
     public Party(SerializablePokemon[] templateToCopy) : this() {
-        for(int i = 0; i < templateToCopy.Length; i++){
-            if(templateToCopy[i] != null){
-                party[i] = new Pokemon(templateToCopy[i]);
-            }
-        }
+        foreach(var entry in templateToCopy)
+            if(entry is not null)
+                members.Add(new Pokemon(entry));
     }
 
     //add methods to retrieve info e.g. leader ability
 
-    /// <summary>
-    /// Returns the index of the first empty slot, or -1 if the party is full
-    /// </summary>
-    public int PartyIsFull(){
-        for (int i = 0; i < party.Length; i++){
-            if(party[i] == null){
-                return i;
-            }
-        }
-        return -1;
-    }
+    public bool IsFull() => members.Count == members.Capacity;
 
     public Pokemon GetFirstAvailable(){
-        foreach (Pokemon p in party){
-            if(p != null && p.primaryStatus != PrimaryStatus.Fainted && !p.inBattle){
+        foreach(var p in members)
+            if(!p.IsFainted() && !p.inBattle){
                 p.inBattle = true;
                 return p;
             }
-        }
+
         return null;
     }
 
-    public bool HasAvailableFighter(){
-        foreach(Pokemon p in party){
-            if(CheckIsAvailableFighter(p)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static bool CheckIsAvailableFighter(Pokemon p){
-        return p != null && p.primaryStatus != PrimaryStatus.Fainted && !p.inBattle && !CombatLib.Instance.combatSystem.IsRegisteredToSwitchIn(p);
-    }
+    public bool HasAvailableFighter() => members.Find((p) => p.IsAvailableFighter()) is not null;
 
     public bool IsEntireTeamFainted(){
-        foreach(Pokemon p in party){
-            if(p != null && p.primaryStatus != PrimaryStatus.Fainted){
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public int GetFirstEmpty(){
-        for(int i = 0; i < party.Length; i++){
-            if (party[i] == null){
-                return i;
-            }
-        }
-        return -1;
+        return members.Find((p) => !p.IsFainted()) is null;
     }
 }

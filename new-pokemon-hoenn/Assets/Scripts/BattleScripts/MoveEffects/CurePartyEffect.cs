@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class CurePartyEffect : MoveEffect
 {
-    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
-    {
-        Pokemon[] userParty = CombatLib.Instance.combatSystem.GetTeamParty(user).party;
-        for(int i = 0; i < userParty.Length; i++){
+    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData) {
+        var userParty = CombatLib.CombatSystem.GetTeamParty(user).members;
+        foreach(var member in userParty){
             //check for soundproof on heal bell
-            if(userParty[i] != null && userParty[i].primaryStatus != PrimaryStatus.Fainted){
-                userParty[i].primaryStatus = PrimaryStatus.None;
-            }
+            if(!member.IsFainted())
+                member.primaryStatus = PrimaryStatus.None;
         }
         yield return StartCoroutine(CombatLib.Instance.WriteGlobalMessage(user.GetName() + "'s party was cured of status conditions!"));
         user.battleHUD.SetBattleHUD(user.pokemon);

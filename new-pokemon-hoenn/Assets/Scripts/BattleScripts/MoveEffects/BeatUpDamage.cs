@@ -6,10 +6,10 @@ public class BeatUpDamage : NormalDamage
 {
     public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
     {
-        Pokemon[] userTeam = CombatLib.Instance.combatSystem.GetTeamParty(user).party;
-        for(int i = 0; i < userTeam.Length; i++){
-            if(userTeam[i] != null && userTeam[i].primaryStatus != PrimaryStatus.Fainted){
-                int power = (userTeam[i].stats[1] / 10) + 5;
+        var userTeam = CombatLib.CombatSystem.GetTeamParty(user).members;
+        foreach(var member in userTeam){
+            if(!member.IsFainted()){
+                int power = (member.stats[1] / 10) + 5;
                 yield return StartCoroutine(NormalDamageMethod(user, target, moveData, power));
             }
         }

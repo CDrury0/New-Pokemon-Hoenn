@@ -4,30 +4,27 @@ using UnityEngine;
 
 public class AssistEffect : CallMoveEffect, ICheckMoveFail
 {
-    public string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData)
-    {
-        if(GetUsableMoves(user, CombatLib.Instance.combatSystem.GetTeamParty(user).party).Count > 0){
+    public string CheckMoveFail(BattleTarget user, BattleTarget target, MoveData moveData) {
+        if(GetUsableMoves(user, CombatLib.CombatSystem.GetTeamParty(user).members).Count > 0)
             return null;
-        }
+        
         return MoveData.FAIL;
     }
 
-    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData)
-    {
-        List<GameObject> usableMoves = GetUsableMoves(user, CombatLib.Instance.combatSystem.GetTeamParty(user).party);
+    public override IEnumerator DoEffect(BattleTarget user, BattleTarget target, MoveData moveData) {
+        List<GameObject> usableMoves = GetUsableMoves(user, CombatLib.CombatSystem.GetTeamParty(user).members);
         GameObject selectedMove = Instantiate(usableMoves[Random.Range(0, usableMoves.Count)]);
-        if(CombatLib.Instance.moveFunctions.MustChooseTarget(selectedMove.GetComponent<MoveData>().targetType, user)){
-            CombatLib.Instance.moveFunctions.MustChooseTarget(TargetType.RandomFoe, user);
-        }
-        yield return StartCoroutine(CombatLib.Instance.combatSystem.UseMove(user, selectedMove, true, false));
+        if(CombatLib.MoveFunctions.MustChooseTarget(selectedMove.GetComponent<MoveData>().targetType, user))
+            CombatLib.MoveFunctions.MustChooseTarget(TargetType.RandomFoe, user);
+
+        yield return StartCoroutine(CombatLib.CombatSystem.UseMove(user, selectedMove, true, false));
     }
 
-    private List<GameObject> GetUsableMoves(BattleTarget user, Pokemon[] allies){
-        List<GameObject> usableMoves = new List<GameObject>();
-        for(int i = 0; i < allies.Length; i++){
-            if(allies[i] != null && allies[i] != user.pokemon){
-                usableMoves.AddRange(allies[i].moves);
-            }
+    private List<GameObject> GetUsableMoves(BattleTarget user, List<Pokemon> allies){
+        List<GameObject> usableMoves = new();
+        foreach(var ally in allies){
+            if(ally != user.pokemon)
+                usableMoves.AddRange(ally.moves);
         }
         RemoveIllegalMoves(usableMoves);
         return usableMoves;
