@@ -21,6 +21,8 @@
 
 # Visual Studio cache directory
 .vs/
+.vscode/
+.vsconfig
 
 # Gradle cache directory
 .gradle/
@@ -60,4 +62,4 @@ crashlytics-build.properties
 
 # Annoying Files
 new-pokemon-hoenn/[Uu]ser[Ss]ettings
-new-pokemon-hoenn/.vscode
+
