@@ -154,8 +154,20 @@ public class Pokemon : IStateDialogue, IStateFeature
         this.height = p.height != 0 ? p.height : this.pokemonDefault.height;
         this.heldItem = p.heldItem;
         this.moves = new List<GameObject>(p.moves);
-        this.moveMaxPP = new int[] { p.moveMaxPP[0], p.moveMaxPP[1], p.moveMaxPP[2], p.moveMaxPP[3] };
-        this.movePP = new int[] {this.moveMaxPP[0], this.moveMaxPP[1], this.moveMaxPP[2], this.moveMaxPP[3]};
+        this.moveMaxPP = new int[4];
+        this.movePP = new int[4];
+        for(int i = 0; i < moves.Count; i++){            
+            if(p.moveMaxPP[i] != 0){
+                moveMaxPP[i] = p.moveMaxPP[i];
+            } else if(p.moves[i] != null) {
+                var moveData = p.moves[i].GetComponent<MoveData>();
+                moveMaxPP[i] = moveData?.maxPP ?? 0;
+            } else {
+                moveMaxPP[i] = 0;
+            }
+            movePP[i] = moveMaxPP[i];
+        }
+
         this.nickName = p.pokemonDefault.pokemonName;
         this.primaryStatus = PrimaryStatus.None;
         this.type1 = this.pokemonDefault.type1;
