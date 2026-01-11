@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1682630348}
   - component: {fileID: 880407586799926687}
   - component: {fileID: -1606091969368745301}
+  - component: {fileID: 1689820595861762809}
   m_Layer: 0
   m_Name: Strength
   m_TagString: Move
@@ -65,7 +66,6 @@ MonoBehaviour:
   cannotBeSnatched: 0
   notReflectedByMagicCoat: 0
   ignoresProtect: 0
-  cannotBeForgotten: 1
   accuracyData:
     accuracy: 1
     cannotMissVulnerable: 0
@@ -105,3 +105,17 @@ MonoBehaviour:
   bonusAgainstStatus: 0
   curesBonusStatus: 0
   payback: 0
+--- !u!114 &1689820595861762809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682630347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7b07b6a29e6f9c74ad0ccc0e90bcec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _requiredBadge: {fileID: 11400000, guid: 24f44ee4ba946bbaab4e9d34bb9a0ec8, type: 2}
+  _cannotBeForgotten: 1

@@ -10243,7 +10243,7 @@ MonoBehaviour:
     heldItem: {fileID: 0}
     moves:
     - {fileID: 1682630347, guid: cf7c7ed935ba7a54da1cd337273b739f, type: 3}
-    - {fileID: 0}
+    - {fileID: 1682630347, guid: 149cadc810a224642a1e7f5642d386ea, type: 3}
     - {fileID: 0}
     - {fileID: 0}
     moveMaxPP: 00000000000000000000000000000000
@@ -10260,7 +10260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef309186544cf72449873aabef535c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  giveOnStart: {fileID: 11400000, guid: 29834e4f59967354ab0117b622e9f4a5, type: 2}
+  giveOnStart: {fileID: 11400000, guid: d7c165e26802e8a47996d7b4867f655e, type: 2}
   dataManifest:
   - {fileID: 11400000, guid: 8e3777f91f0dd44498f80cd9e81e0893, type: 2}
   - {fileID: 11400000, guid: 16699cbd54b553e488bbc11a0e40892c, type: 2}

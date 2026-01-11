@@ -23,17 +23,18 @@ public class ItemRepel : ItemEffect
         }
         GenerationValues.spawnInfoModifiers.Add(SpawnModifyLevel);
 
-        // Registers repel effect to be updated every step via PlayerInput.StepEvent
+        // Registers repel effect to be updated every step via PlayerInput
         int stepsTrigger = PlayerInput.StepCount + numSteps;
-        void RepelStepHandler(int steps){
-            if (steps < stepsTrigger){
-                return;
+        bool RepelStepHandler(){
+            if (PlayerInput.StepCount < stepsTrigger){
+                return true;
             }
-            PlayerInput.StepEvent -= RepelStepHandler;
+            PlayerInput.UnregisterAfterStep(RepelStepHandler);
             GenerationValues.spawnFilters.Remove(SpawnFilterByLevel);
             GenerationValues.spawnInfoModifiers.Remove(SpawnModifyLevel);
+            return true;
         }
-        PlayerInput.StepEvent += RepelStepHandler;
+        PlayerInput.RegisterAfterStep(RepelStepHandler, 100);
 
         message = itemLogic.itemData.itemName + " will deter wild Pokémon for " + numSteps + " steps";
         yield break;

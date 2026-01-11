@@ -8,12 +8,14 @@ public class SpawnerArea : MonoBehaviour, IInterruptPlayerMovement
     [SerializeField] private EventTrigger trigger;
     [SerializeField] private EventWildBattle wildBattle;
 
-    public void Apply(PlayerInput input, Vector3 direction, out Vector3 movementOffset) {
-        SpawnerFunc(PlayerInput.StepCount);
+    // This might need to be reworked to trigger on AfterStep rather than before
+    public bool Apply(PlayerInput input, Vector3 direction, out Vector3 movementOffset) {
+        SpawnerFunc();
         movementOffset = direction;
+        return true;
     }
 
-    protected void SpawnerFunc(int stepCount) {
+    protected void SpawnerFunc() {
         if(!SpawnerTriggered())
             return;
 
