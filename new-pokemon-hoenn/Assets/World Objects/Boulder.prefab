@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 130069897
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8174911341427687457, guid: ccff487eeb8cfbb4dbe734cef5e00e12, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0edafb99442d3aa15911edd8ff8e1d9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -194,7 +194,7 @@ MonoBehaviour:
   outputObject: {fileID: 6395187810024367364, guid: 9c92721c2f421aa43b0c072532c15f70, type: 3}
   confirmationDelaySeconds: 0
   messages:
-  - "A strong Pok\xE9mon could probably push this boulder"
+  - This boulder looks like it could be pushed
 --- !u!114 &8048581721868500633
 MonoBehaviour:
   m_ObjectHideFlags: 0
