@@ -25,7 +25,7 @@ public class PlayerInput : MonoBehaviour
         }
     }
     public static int StepCount;
-    public static event Action<int> StepEvent;
+    protected static List<Tuple<int, Func<bool>>> AfterStep;
     public GameObject interactPointPrefab;
     public static Transform followPoint;
     public MenuAnimation menuAnimation;
@@ -105,17 +105,42 @@ public class PlayerInput : MonoBehaviour
             return;
 
         Vector3 moveVector = Direction;
-        interrupt?.Apply(this, Direction, out moveVector);
+        var proceed = interrupt?.Apply(this, Direction, out moveVector) ?? true;
+        if(!proceed)
+            return;
 
         followPoint.position += moveVector;
         AnimateMovement(Direction, true, sprinting);
 
         StepCount++;
-        StepEvent?.Invoke(StepCount);
+
+        DoAfterStep();
         // end virtual method
     }
 
-    private void AnimateMovement(Vector3 direction, bool isMoving, bool isSprinting = false) {
+    public static void RegisterAfterStep(Func<bool> func, int priority) {
+        for(int i = 0; i < AfterStep.Count; i++){
+            if(priority < AfterStep[i].Item1){
+                AfterStep.Insert(i, new(priority, func));
+                return;
+            }
+        }
+
+        AfterStep.Add(new(priority, func));
+    }
+
+    public static void UnregisterAfterStep(Func<bool> func) {
+        AfterStep.Remove(AfterStep.Find((entry) => entry.Item2 == func));
+    }
+
+    private void DoAfterStep() {
+        var temp = new List<Tuple<int, Func<bool>>>(AfterStep);
+        foreach(var val in temp)
+            if(!val.Item2())
+                break;
+    }
+
+    public void AnimateMovement(Vector3 direction, bool isMoving, bool isSprinting = false) {
         animator.SetBool("IsSprinting", isSprinting);
         animator.SetBool("IsMoving", isMoving);
         if(isMoving){
@@ -131,7 +156,7 @@ public class PlayerInput : MonoBehaviour
         Destroy(pointObj);
     }
 
-    private IEnumerator DelayMovementInput() {
+    public IEnumerator DelayMovementInput() {
         AnimateMovement(Direction, false);
         allowMovementInput = false;
         yield return new WaitForSeconds(movementInputDelaySeconds);
@@ -141,6 +166,7 @@ public class PlayerInput : MonoBehaviour
     void Awake(){
         playerTransform = transform;
         followPoint = GameObject.FindGameObjectWithTag("MovePoint").transform;
+        AfterStep = new();
     }
 
     void Start(){

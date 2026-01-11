@@ -4664,6 +4664,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[1007].second.m_AllTileFlags
       value: 2147483649
       objectReference: {fileID: 0}
+    - target: {fileID: 7938325091929238035, guid: 9585e37a25944084c98b0e26289de345, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7953179951203176735, guid: 9585e37a25944084c98b0e26289de345, type: 3}
       propertyPath: m_SortingLayer
       value: 3
@@ -10222,7 +10226,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1748e47f7ef5bd84e8b3c9cc4dde10aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starterToGive: {fileID: 11400000, guid: e4c1ab769c6974f4bab6c41ca6303643, type: 2}
+  startWithParty: 1
+  startingParty:
+  - pokemonDefault: {fileID: 11400000, guid: d6ec78c98fed7be49b7275ec9802124e, type: 2}
+    ability: 51
+    isShiny: 0
+    ballUsed: {fileID: 0}
+    evTotal: 0
+    effortValues: 000000000000000000000000000000000000000000000000
+    individualValues: 000000000000000000000000000000000000000000000000
+    level: 10
+    friendship: 0
+    gender: 1
+    height: 0
+    weight: 0
+    heldItem: {fileID: 0}
+    moves:
+    - {fileID: 1682630347, guid: cf7c7ed935ba7a54da1cd337273b739f, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    moveMaxPP: 00000000000000000000000000000000
+    nature: {fileID: 0}
 --- !u!114 &1934170134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10235,7 +10260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef309186544cf72449873aabef535c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  giveOnStart: {fileID: 11400000, guid: 29834e4f59967354ab0117b622e9f4a5, type: 2}
+  giveOnStart: {fileID: 11400000, guid: d7c165e26802e8a47996d7b4867f655e, type: 2}
   dataManifest:
   - {fileID: 11400000, guid: 8e3777f91f0dd44498f80cd9e81e0893, type: 2}
   - {fileID: 11400000, guid: 16699cbd54b553e488bbc11a0e40892c, type: 2}

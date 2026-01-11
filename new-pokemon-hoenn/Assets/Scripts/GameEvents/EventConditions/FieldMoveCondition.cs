@@ -12,8 +12,8 @@ public class FieldMoveCondition : EventCondition, IStateDialogue, IStateFeature
 
     public Dictionary<string, string> GetReplaceTable() {
         IEnumerable<KeyValuePair<string, string>> temp = new List<KeyValuePair<string, string>>();
-        temp = temp.Union(members.Item1.GetReplaceTable());
-        temp = temp.Union(members.Item2.GetReplaceTable());
+        temp = temp.Union(members?.Item1?.GetReplaceTable() ?? new());
+        temp = temp.Union(members?.Item2?.GetReplaceTable() ?? new());
         return temp.ToDictionary((i) => i.Key, (i) => i.Value);
     }
 

@@ -8,7 +8,8 @@ public class PlayerParty : MonoBehaviour
     public static PlayerParty Instance {get; private set;}
     public static Party Party {get => Instance.playerParty;}
     public Party playerParty;
-    public PokemonDefault starterToGive;
+    public bool startWithParty;
+    public SerializablePokemon[] startingParty;
 
     //include methods to retrieve specific player party info, like leader ability, etc.
 
@@ -39,8 +40,10 @@ public class PlayerParty : MonoBehaviour
     private void Start(){
         playerParty = new Party();
 
-        if(starterToGive is not null)
-            playerParty = new Party(new Pokemon(starterToGive, 13));
+        if(startWithParty){
+            playerParty = new Party(startingParty);
+            return;
+        }
 
         if(SaveManager.LoadedSave?.currentParty != null){
             int len = Mathf.Min(SaveManager.LoadedSave.currentParty.Count, playerParty.members.Capacity);
