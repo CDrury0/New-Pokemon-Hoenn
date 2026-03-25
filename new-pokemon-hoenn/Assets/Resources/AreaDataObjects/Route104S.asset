@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5e90590df6f0841b0e6ca2f9408235, type: 3}
+  m_Name: Route104S
+  m_EditorClassIdentifier: 
+  areaName: Route 104
+  areaObjectPrefab: {fileID: 4055596220012009781, guid: bb4966ee7ee3a40c09b72c567c1d0407, type: 3}
+  adjacentObjectPrefabs:
+  - {fileID: 8111972924190468791, guid: 360cabe8d982fcdb79c2193559dca840, type: 3}
+  eventObjectPrefab: {fileID: 0}
+  terrainData: {fileID: 0}
+  weather: {fileID: 0}
+  musicIntro: {fileID: 0}
+  musicLoop: {fileID: 0}
+  eventManifest: 
