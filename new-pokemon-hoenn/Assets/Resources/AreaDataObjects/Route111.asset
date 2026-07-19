@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc5e90590df6f0841b0e6ca2f9408235, type: 3}
-  m_Name: Mauville
+  m_Name: Route111
   m_EditorClassIdentifier: 
-  areaName: Mauville
-  areaObjectPrefab: {fileID: 8192299100366702133, guid: 89a5fdedccc946aa586c4746481704df, type: 3}
+  areaName: Route 111
+  areaObjectPrefab: {fileID: 5603985898866292187, guid: ec730cce7056896c39f272e978c64828, type: 3}
   adjacentObjectPrefabs:
-  - {fileID: 4766224911034739365, guid: 83f985e0cad1c1152a74340c8eaaaa53, type: 3}
-  - {fileID: 437143750807189782, guid: 770d5d7c06650d1a8b1ef279cb2a14e7, type: 3}
-  - {fileID: 5603985898866292187, guid: ec730cce7056896c39f272e978c64828, type: 3}
+  - {fileID: 8192299100366702133, guid: 89a5fdedccc946aa586c4746481704df, type: 3}
   eventObjectPrefab: {fileID: 0}
   terrainData: {fileID: 0}
   weather: {fileID: 11400000, guid: 222c990df5561c443920f8582a4dc7d7, type: 2}
