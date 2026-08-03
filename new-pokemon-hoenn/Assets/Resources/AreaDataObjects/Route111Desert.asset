@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5e90590df6f0841b0e6ca2f9408235, type: 3}
+  m_Name: Route111Desert
+  m_EditorClassIdentifier: 
+  areaName: Desert
+  areaObjectPrefab: {fileID: 3797548882551954878, guid: 7f63e08f5522fae1cbbf71663a219550, type: 3}
+  adjacentObjectPrefabs:
+  - {fileID: 5603985898866292187, guid: ec730cce7056896c39f272e978c64828, type: 3}
+  eventObjectPrefab: {fileID: 0}
+  terrainData: {fileID: 0}
+  weather: {fileID: 11400000, guid: c7559c91481895b40b228d589acffcf7, type: 2}
+  musicIntro: {fileID: 0}
+  musicLoop: {fileID: 0}
+  eventManifest: 
