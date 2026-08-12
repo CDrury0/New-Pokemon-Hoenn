@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc5e90590df6f0841b0e6ca2f9408235, type: 3}
-  m_Name: Route111
+  m_Name: Route112
   m_EditorClassIdentifier: 
-  areaName: Route 111
-  areaObjectPrefab: {fileID: 5603985898866292187, guid: ec730cce7056896c39f272e978c64828, type: 3}
+  areaName: Route 112
+  areaObjectPrefab: {fileID: 542935763011009702, guid: 1343ae323223fd8d3a85b999ccb08003, type: 3}
   adjacentObjectPrefabs:
-  - {fileID: 8192299100366702133, guid: 89a5fdedccc946aa586c4746481704df, type: 3}
+  - {fileID: 5603985898866292187, guid: ec730cce7056896c39f272e978c64828, type: 3}
   - {fileID: 3797548882551954878, guid: 7f63e08f5522fae1cbbf71663a219550, type: 3}
   eventObjectPrefab: {fileID: 0}
   terrainData: {fileID: 0}
