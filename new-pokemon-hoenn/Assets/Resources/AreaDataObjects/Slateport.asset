@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc5e90590df6f0841b0e6ca2f9408235, type: 3}
-  m_Name: Route104N
+  m_Name: Slateport
   m_EditorClassIdentifier: 
-  areaName: Route 104 North
-  areaObjectPrefab: {fileID: 1649892532281478774, guid: a7b0e8c674c0de324895d69a7baf634a, type: 3}
+  areaName: Slateport
+  areaObjectPrefab: {fileID: 5452957317814970926, guid: 045a56294d698c7e1a653ef1f68ff73f, type: 3}
   adjacentObjectPrefabs:
-  - {fileID: 4055596220012009781, guid: bb4966ee7ee3a40c09b72c567c1d0407, type: 3}
-  - {fileID: 5559968215639941801, guid: 3e1c66228f4a8e09c9850c70dc60b6cc, type: 3}
+  - {fileID: 4766224911034739365, guid: 83f985e0cad1c1152a74340c8eaaaa53, type: 3}
   eventObjectPrefab: {fileID: 0}
   terrainData: {fileID: 0}
   weather: {fileID: 11400000, guid: 222c990df5561c443920f8582a4dc7d7, type: 2}
