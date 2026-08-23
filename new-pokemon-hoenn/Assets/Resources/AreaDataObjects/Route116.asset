@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc5e90590df6f0841b0e6ca2f9408235, type: 3}
-  m_Name: Rustboro
+  m_Name: Route116
   m_EditorClassIdentifier: 
-  areaName: Rustboro
-  areaObjectPrefab: {fileID: 5559968215639941801, guid: 3e1c66228f4a8e09c9850c70dc60b6cc, type: 3}
+  areaName: Route 116
+  areaObjectPrefab: {fileID: 6239376635138614167, guid: 29009d66e9a71116eb2b7309dbf6cbe9, type: 3}
   adjacentObjectPrefabs:
-  - {fileID: 1649892532281478774, guid: a7b0e8c674c0de324895d69a7baf634a, type: 3}
-  - {fileID: 6239376635138614167, guid: 29009d66e9a71116eb2b7309dbf6cbe9, type: 3}
+  - {fileID: 7129567474721453022, guid: 1e4dc423ca4ff18379929dd4dd8181f4, type: 3}
+  - {fileID: 5559968215639941801, guid: 3e1c66228f4a8e09c9850c70dc60b6cc, type: 3}
   eventObjectPrefab: {fileID: 0}
   terrainData: {fileID: 0}
   weather: {fileID: 11400000, guid: 222c990df5561c443920f8582a4dc7d7, type: 2}
