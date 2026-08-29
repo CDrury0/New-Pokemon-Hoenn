@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc5e90590df6f0841b0e6ca2f9408235, type: 3}
-  m_Name: Dewford
+  m_Name: Route107
   m_EditorClassIdentifier: 
-  areaName: Dewford
-  areaObjectPrefab: {fileID: 782090692139823255, guid: 7954d137a76e7043b9d9e087eea171cb, type: 3}
+  areaName: Route 107
+  areaObjectPrefab: {fileID: 9196562760519817473, guid: 0fd8c66f8ad6c57319c85c9c9dd35e10, type: 3}
   adjacentObjectPrefabs:
-  - {fileID: 4082023777065041942, guid: 975aad9c4a4973d01a7ded0496753531, type: 3}
-  - {fileID: 9196562760519817473, guid: 0fd8c66f8ad6c57319c85c9c9dd35e10, type: 3}
+  - {fileID: 782090692139823255, guid: 7954d137a76e7043b9d9e087eea171cb, type: 3}
   eventObjectPrefab: {fileID: 0}
   terrainData: {fileID: 0}
   weather: {fileID: 11400000, guid: 222c990df5561c443920f8582a4dc7d7, type: 2}
