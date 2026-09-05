@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc5e90590df6f0841b0e6ca2f9408235, type: 3}
-  m_Name: Route113
+  m_Name: Fallarbor
   m_EditorClassIdentifier: 
-  areaName: Route 113
-  areaObjectPrefab: {fileID: 1725460688806550774, guid: 5a97ca05769492c1bb17a4eec8d4dfd6, type: 3}
+  areaName: Fallarbor
+  areaObjectPrefab: {fileID: 8988854568098483360, guid: 91e764b3af4730ca4904fe0db27958f5, type: 3}
   adjacentObjectPrefabs:
-  - {fileID: 542935763011009702, guid: 1343ae323223fd8d3a85b999ccb08003, type: 3}
-  - {fileID: 8988854568098483360, guid: 91e764b3af4730ca4904fe0db27958f5, type: 3}
+  - {fileID: 1725460688806550774, guid: 5a97ca05769492c1bb17a4eec8d4dfd6, type: 3}
   eventObjectPrefab: {fileID: 0}
   terrainData: {fileID: 0}
   weather: {fileID: 11400000, guid: 222c990df5561c443920f8582a4dc7d7, type: 2}
