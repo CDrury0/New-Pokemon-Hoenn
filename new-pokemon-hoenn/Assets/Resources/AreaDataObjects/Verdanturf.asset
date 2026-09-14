@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5e90590df6f0841b0e6ca2f9408235, type: 3}
+  m_Name: Verdanturf
+  m_EditorClassIdentifier: 
+  areaName: Verdanturf
+  areaObjectPrefab: {fileID: 7129567474721453022, guid: 1e4dc423ca4ff18379929dd4dd8181f4, type: 3}
+  adjacentObjectPrefabs:
+  - {fileID: 437143750807189782, guid: 770d5d7c06650d1a8b1ef279cb2a14e7, type: 3}
+  eventObjectPrefab: {fileID: 0}
+  terrainData: {fileID: 0}
+  weather: {fileID: 11400000, guid: 222c990df5561c443920f8582a4dc7d7, type: 2}
+  musicIntro: {fileID: 0}
+  musicLoop: {fileID: 0}
+  eventManifest: 
