@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Route106
   m_EditorClassIdentifier: 
   areaName: Route 106
-  areaObjectPrefab: {fileID: 4082023777065041942, guid: 975aad9c4a4973d01a7ded0496753531, type: 3}
+  areaObjectPrefab: {fileID: 9043412684485192404, guid: 975aad9c4a4973d01a7ded0496753531, type: 3}
   adjacentObjectPrefabs:
-  - {fileID: 8165292507346780600, guid: 176dc9cee8325ae42ad6dddbd1a52859, type: 3}
-  - {fileID: 782090692139823255, guid: 7954d137a76e7043b9d9e087eea171cb, type: 3}
+  - {fileID: 4074670706513533671, guid: 176dc9cee8325ae42ad6dddbd1a52859, type: 3}
+  - {fileID: 6020946325321377439, guid: 7954d137a76e7043b9d9e087eea171cb, type: 3}
   eventObjectPrefab: {fileID: 0}
   terrainData: {fileID: 0}
   weather: {fileID: 11400000, guid: 222c990df5561c443920f8582a4dc7d7, type: 2}

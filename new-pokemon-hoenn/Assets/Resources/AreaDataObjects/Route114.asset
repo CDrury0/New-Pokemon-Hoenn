@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Route114
   m_EditorClassIdentifier: 
   areaName: Route 114
-  areaObjectPrefab: {fileID: 4118638797111144795, guid: 26abc97fec0c29a038b41934132b94c9, type: 3}
+  areaObjectPrefab: {fileID: 6352545465556026851, guid: 26abc97fec0c29a038b41934132b94c9, type: 3}
   adjacentObjectPrefabs:
-  - {fileID: 8988854568098483360, guid: 91e764b3af4730ca4904fe0db27958f5, type: 3}
+  - {fileID: 132301767326880968, guid: 91e764b3af4730ca4904fe0db27958f5, type: 3}
+  - {fileID: 3113946405569394993, guid: 7c6a9a6fc74b09273bd18c31d454faa9, type: 3}
   eventObjectPrefab: {fileID: 0}
   terrainData: {fileID: 0}
   weather: {fileID: 11400000, guid: 222c990df5561c443920f8582a4dc7d7, type: 2}
