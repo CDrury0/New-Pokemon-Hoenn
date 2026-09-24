@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Route107
   m_EditorClassIdentifier: 
   areaName: Route 107
-  areaObjectPrefab: {fileID: 9196562760519817473, guid: 0fd8c66f8ad6c57319c85c9c9dd35e10, type: 3}
+  areaObjectPrefab: {fileID: 4376869861720457078, guid: 0fd8c66f8ad6c57319c85c9c9dd35e10, type: 3}
   adjacentObjectPrefabs:
-  - {fileID: 782090692139823255, guid: 7954d137a76e7043b9d9e087eea171cb, type: 3}
-  - {fileID: 2568859766553871441, guid: 0f3286ac332c9841696c938d3d7c3927, type: 3}
+  - {fileID: 6020946325321377439, guid: 7954d137a76e7043b9d9e087eea171cb, type: 3}
+  - {fileID: 1778110337780825140, guid: 0f3286ac332c9841696c938d3d7c3927, type: 3}
   eventObjectPrefab: {fileID: 0}
   terrainData: {fileID: 0}
   weather: {fileID: 11400000, guid: 222c990df5561c443920f8582a4dc7d7, type: 2}

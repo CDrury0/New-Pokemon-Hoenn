@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Route103
   m_EditorClassIdentifier: 
   areaName: Route 103
-  areaObjectPrefab: {fileID: 784543152340269473, guid: 925752a76afb592478b69f373172fc06, type: 3}
+  areaObjectPrefab: {fileID: 6523808853444189027, guid: 925752a76afb592478b69f373172fc06, type: 3}
   adjacentObjectPrefabs:
-  - {fileID: 4060085899828782912, guid: 801bd0a5b1f18f148b9f35942cf8e95c, type: 3}
+  - {fileID: 7411411211734460948, guid: 801bd0a5b1f18f148b9f35942cf8e95c, type: 3}
   - {fileID: 4766224911034739365, guid: 83f985e0cad1c1152a74340c8eaaaa53, type: 3}
   eventObjectPrefab: {fileID: 0}
   terrainData: {fileID: 0}

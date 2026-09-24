@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Slateport
   m_EditorClassIdentifier: 
   areaName: Slateport
-  areaObjectPrefab: {fileID: 5452957317814970926, guid: 045a56294d698c7e1a653ef1f68ff73f, type: 3}
+  areaObjectPrefab: {fileID: 1752150364386060531, guid: 045a56294d698c7e1a653ef1f68ff73f, type: 3}
   adjacentObjectPrefabs:
   - {fileID: 4766224911034739365, guid: 83f985e0cad1c1152a74340c8eaaaa53, type: 3}
-  - {fileID: 5561874579640761617, guid: f1f784d74d11ec443a7ee45ca988ab2f, type: 3}
+  - {fileID: 3121049411503966952, guid: f1f784d74d11ec443a7ee45ca988ab2f, type: 3}
   eventObjectPrefab: {fileID: 0}
   terrainData: {fileID: 0}
   weather: {fileID: 11400000, guid: 222c990df5561c443920f8582a4dc7d7, type: 2}
