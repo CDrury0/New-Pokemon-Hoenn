@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnInfo:
   - pokemonDefault: {fileID: 11400000, guid: ce824753004e7be4ca967646b1570b78, type: 2}
-    spawnRate: 0.4
+    spawnRate: 0.6
     levelMin: 2
     levelMax: 4
   - pokemonDefault: {fileID: 11400000, guid: d6ec78c98fed7be49b7275ec9802124e, type: 2}
-    spawnRate: 0.4
-    levelMin: 2
+    spawnRate: 0.2
+    levelMin: 3
     levelMax: 4
   - pokemonDefault: {fileID: 11400000, guid: 9bea3b1b104798d4c9d417de062dbb2c, type: 2}
     spawnRate: 0.2

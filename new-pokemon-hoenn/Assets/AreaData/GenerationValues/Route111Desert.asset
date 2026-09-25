@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa6576e503052d4c94426263fe4781c, type: 3}
+  m_Name: Route111Desert
+  m_EditorClassIdentifier: 
+  spawnInfo:
+  - pokemonDefault: {fileID: 11400000, guid: 19766f8d1bdaf8246b9e2d87b2619bc9, type: 2}
+    spawnRate: 0.35
+    levelMin: 19
+    levelMax: 21
+  - pokemonDefault: {fileID: 11400000, guid: d765fee4ea44a73408b964e1f039cc7c, type: 2}
+    spawnRate: 0.35
+    levelMin: 19
+    levelMax: 21
+  - pokemonDefault: {fileID: 11400000, guid: df8c36d428eb4f1408195b8fdd4d4f4c, type: 2}
+    spawnRate: 0.06
+    levelMin: 20
+    levelMax: 22
+  - pokemonDefault: {fileID: 11400000, guid: 02552ce481a140a4497679cccfd2cb22, type: 2}
+    spawnRate: 0.24
+    levelMin: 19
+    levelMax: 21

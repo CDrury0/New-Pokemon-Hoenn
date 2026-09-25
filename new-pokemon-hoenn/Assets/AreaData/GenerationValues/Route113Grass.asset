@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa6576e503052d4c94426263fe4781c, type: 3}
+  m_Name: Route113Grass
+  m_EditorClassIdentifier: 
+  spawnInfo:
+  - pokemonDefault: {fileID: 11400000, guid: b18708108015cf74d87418adda282f14, type: 2}
+    spawnRate: 0.25
+    levelMin: 14
+    levelMax: 16
+  - pokemonDefault: {fileID: 11400000, guid: 9958eccfdeaa8ce49a07c542a8b487e7, type: 2}
+    spawnRate: 0.05
+    levelMin: 16
+    levelMax: 16
+  - pokemonDefault: {fileID: 11400000, guid: d1cfa880341b83f4d98f960dd261a82b, type: 2}
+    spawnRate: 0.7
+    levelMin: 14
+    levelMax: 16
