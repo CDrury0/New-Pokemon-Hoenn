@@ -3091,7 +3091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b04c0d157ff8c6091dca4ea4fc5ad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generationValues: {fileID: 0}
+  generationValues: {fileID: 11400000, guid: ff70c576bea8fe33a9e1a9a1476ebf7f, type: 2}
   trigger: {fileID: 8209928442637188037}
   wildBattle: {fileID: 2415422116916774351}
 --- !u!114 &8209928442637188037

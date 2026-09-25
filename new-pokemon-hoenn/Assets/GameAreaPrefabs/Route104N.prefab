@@ -4084,7 +4084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b04c0d157ff8c6091dca4ea4fc5ad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generationValues: {fileID: 0}
+  generationValues: {fileID: 11400000, guid: 9462002edc201c1d091e076c1330f5ec, type: 2}
   trigger: {fileID: 1278039100746541143}
   wildBattle: {fileID: 8608753844163065551}
 --- !u!114 &1278039100746541143

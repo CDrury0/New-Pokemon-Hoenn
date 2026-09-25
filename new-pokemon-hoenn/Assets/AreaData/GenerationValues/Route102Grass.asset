@@ -13,28 +13,24 @@ MonoBehaviour:
   m_Name: Route102Grass
   m_EditorClassIdentifier: 
   spawnInfo:
-  - pokemonDefault: {fileID: 11400000, guid: 9a9ad05f5101898449ab5d9922d6aacd, type: 2}
-    spawnRate: 0.01
-    levelMin: 3
-    levelMax: 3
   - pokemonDefault: {fileID: 11400000, guid: 5bd40f72fcc68434b8c050be653e69ca, type: 2}
-    spawnRate: 0.03
+    spawnRate: 0.04
     levelMin: 4
     levelMax: 4
   - pokemonDefault: {fileID: 11400000, guid: ef6b423a8e3e2a643a7d734d7cfd1900, type: 2}
-    spawnRate: 0.08
+    spawnRate: 0.2
     levelMin: 3
     levelMax: 4
   - pokemonDefault: {fileID: 11400000, guid: 21a8d2e5339166d4ba9318e234020777, type: 2}
-    spawnRate: 0.08
+    spawnRate: 0.01
     levelMin: 3
     levelMax: 4
   - pokemonDefault: {fileID: 11400000, guid: ce824753004e7be4ca967646b1570b78, type: 2}
-    spawnRate: 0.25
+    spawnRate: 0.3
     levelMin: 3
     levelMax: 4
   - pokemonDefault: {fileID: 11400000, guid: d6ec78c98fed7be49b7275ec9802124e, type: 2}
-    spawnRate: 0.25
+    spawnRate: 0.15
     levelMin: 3
     levelMax: 4
   - pokemonDefault: {fileID: 11400000, guid: 2cd04ec9ff775a3479d81700b7e987e2, type: 2}

@@ -4472,7 +4472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b04c0d157ff8c6091dca4ea4fc5ad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generationValues: {fileID: 0}
+  generationValues: {fileID: 11400000, guid: ff2471eecd4474cedb916e897191a6b8, type: 2}
   trigger: {fileID: 6035948677292565312}
   wildBattle: {fileID: 4698168743093910556}
 --- !u!114 &6035948677292565312
