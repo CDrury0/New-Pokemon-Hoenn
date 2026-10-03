@@ -22,4 +22,6 @@ public class AreaData : ScriptableObject
     /// Must be the ScriptableObject name, not this.areaName
     /// </summary>
     public static AreaData GetAreaFromName(string name) => Resources.Load<AreaData>(RESOURCE_PATH + name);
+
+    public GameAreaManager GetGameAreaManager() => areaObjectPrefab?.GetComponent<GameAreaManager>();
 }

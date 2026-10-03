@@ -15,6 +15,7 @@ MonoBehaviour:
   areaName: Route 112
   areaObjectPrefab: {fileID: 4889148474118994254, guid: 1343ae323223fd8d3a85b999ccb08003, type: 3}
   adjacentObjectPrefabs:
+  - {fileID: 537343871100193988, guid: ec730cce7056896c39f272e978c64828, type: 3}
   - {fileID: 844782132563886017, guid: 7f63e08f5522fae1cbbf71663a219550, type: 3}
   - {fileID: 2396216922291455335, guid: 5a97ca05769492c1bb17a4eec8d4dfd6, type: 3}
   eventObjectPrefab: {fileID: 2405624665302461987, guid: 4954060bad01c1f4c92cb15b3bfa14c4, type: 3}
