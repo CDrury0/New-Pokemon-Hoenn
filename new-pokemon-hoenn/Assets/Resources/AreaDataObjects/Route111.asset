@@ -17,8 +17,9 @@ MonoBehaviour:
   adjacentObjectPrefabs:
   - {fileID: 4233108744446919732, guid: 89a5fdedccc946aa586c4746481704df, type: 3}
   - {fileID: 844782132563886017, guid: 7f63e08f5522fae1cbbf71663a219550, type: 3}
+  - {fileID: 4889148474118994254, guid: 1343ae323223fd8d3a85b999ccb08003, type: 3}
   - {fileID: 1218943147350281986, guid: 87a21acb131a1e49aab97bd6eb598e03, type: 3}
-  eventObjectPrefab: {fileID: 0}
+  eventObjectPrefab: {fileID: 2405624665302461987, guid: 5082e16c0e60edc069811634502367e6, type: 3}
   terrainData: {fileID: 0}
   weather: {fileID: 11400000, guid: 222c990df5561c443920f8582a4dc7d7, type: 2}
   musicIntro: {fileID: 0}

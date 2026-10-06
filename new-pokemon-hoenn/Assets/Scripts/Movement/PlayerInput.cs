@@ -36,6 +36,11 @@ public class PlayerInput : MonoBehaviour
     public static Vector3 Direction { get; set; }
     public static Vector3 PlayerHeightOffset {get => new(0, -0.5f, 0);}
 
+    public static void SetPlayerPosition(Vector3 newPosition) {
+        followPoint.position = newPosition - PlayerHeightOffset;
+        playerTransform.position = newPosition - PlayerHeightOffset;
+    }
+
     public Collider2D GetColliderAtNextStep() {
         return Physics2D.OverlapCircle(followPoint.position + PlayerHeightOffset + Direction, 0.4f, interruptsMovement);
     }
