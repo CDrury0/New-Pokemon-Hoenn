@@ -5,7 +5,8 @@ using UnityEngine;
 public class BoulderRoll : MonoBehaviour, IInterruptPlayerMovement {
     [SerializeField] FieldMoveCondition requiredMove;
 
-    public bool Apply(PlayerInput input, Vector3 direction, out Vector3 movementOffset) {
+    public bool Apply(Vector3 direction, out Vector3 movementOffset) {
+        var input = PlayerInput.Instance;
         movementOffset = Vector3.zero;
         if(!requiredMove?.IsConditionTrue() ?? false)
             return false;
@@ -15,7 +16,7 @@ public class BoulderRoll : MonoBehaviour, IInterruptPlayerMovement {
 
         transform.position += direction;
         input.DelayMovementInput();
-        input.movementHandler.AnimateMovement(input, direction);
+        input.movementHandler.AnimateMovement(direction);
         return false;
     }
 }

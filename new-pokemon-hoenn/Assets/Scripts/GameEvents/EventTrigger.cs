@@ -57,7 +57,8 @@ public class EventTrigger : MonoBehaviour
         if(movementToFacePlayer != null){
             movementToFacePlayer.FacePlayer(movePointTransform);
         }
-        PlayerInput.AllowMenuToggle = allowInput;
+        var input = PlayerInput.Instance;
+        input.AllowMenuToggle = allowInput;
         if(eventsIfAlreadyDone.Length == 0 || !markedDone){
             foreach (EventAction e in eventActions){
                 StartCoroutine(e.DoEventAction());

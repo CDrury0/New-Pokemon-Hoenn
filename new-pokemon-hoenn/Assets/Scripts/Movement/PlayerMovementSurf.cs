@@ -9,27 +9,28 @@ public class PlayerMovementSurf : PlayerMovementHandler {
 
     public static PlayerMovementSurf GetObject() => Resources.Load<PlayerMovementSurf>("PlayerMovementHandlers/PlayerMovementSurf");
 
-    public override void AnimateMovement(PlayerInput input, Vector3 direction)
+    public override void AnimateMovement(Vector3 direction)
     {
         
     }
 
-    public override void HandleMovement(PlayerInput input, Vector3 newDirection) {
-        PlayerInput.Direction = newDirection;
+    public override void HandleMovement(Vector3 newDirection) {
+        var input = PlayerInput.Instance;
+        input.Direction = newDirection;
         var collider = input.GetColliderAtNextStep();
         var interrupt = collider?.GetComponent<IInterruptPlayerMovement>();
         if(collider is not null && interrupt is null)
             return;
 
-        Vector3 moveVector = PlayerInput.Direction;
-        var proceed = interrupt?.Apply(input, PlayerInput.Direction, out moveVector) ?? true;
+        Vector3 moveVector = input.Direction;
+        var proceed = interrupt?.Apply(input.Direction, out moveVector) ?? true;
         if(!proceed)
             return;
 
-        PlayerInput.followPoint.position += moveVector;
-        AnimateMovement(input, moveVector);
+        input.followPoint.position += moveVector;
+        AnimateMovement(moveVector);
 
-        PlayerInput.StepCount++;
+        input.StepCount++;
 
         input.DoAfterStep();
     }

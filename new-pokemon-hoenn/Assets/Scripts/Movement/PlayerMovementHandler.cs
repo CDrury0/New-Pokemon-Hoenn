@@ -15,7 +15,7 @@ public abstract class PlayerMovementHandler : ScriptableObject {
         return null;
     }
 
-    public abstract void HandleMovement(PlayerInput input, Vector3 newDirection);
+    public abstract void HandleMovement(Vector3 newDirection);
 
-    public abstract void AnimateMovement(PlayerInput input, Vector3 direction);
+    public abstract void AnimateMovement(Vector3 direction);
 }

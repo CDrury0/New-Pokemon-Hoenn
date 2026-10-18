@@ -12,16 +12,18 @@ public class EventSetPlayerPosition : EventAction
 
     protected override IEnumerator EventActionLogic() {
         Vector3 newPosition = GetNewPosition();
-        PlayerInput.playerTransform.position = newPosition;
-        PlayerInput.followPoint.position = newPosition;
+        var input = PlayerInput.Instance;
+        input.playerTransform.position = newPosition;
+        input.followPoint.position = newPosition;
         if(forcePlayerDirection != Vector3.zero){
-            PlayerInput.Direction = forcePlayerDirection;
+            input.Direction = forcePlayerDirection;
         }
         yield break;
     }
 
     private Vector3 GetNewPosition(){
-        Vector3 newPosition = PlayerInput.playerTransform.position;
+        var input = PlayerInput.Instance;
+        Vector3 newPosition = input.playerTransform.position;
         if(lastHealPosition){
             newPosition = ReferenceLib.LastHealPosition.value;
         }

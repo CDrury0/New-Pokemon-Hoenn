@@ -16,7 +16,7 @@ public abstract class NPCMovement : MonoBehaviour
 
     protected IEnumerator MoveLogicWrapper(){
         yield return StartCoroutine(PassiveMoveLogic());
-        yield return new WaitUntil(() => PlayerInput.allowMovementInput);
+        yield return new WaitUntil(() => PlayerInput.Instance.allowMovementInput);
         if(!Halt){
             StartCoroutine(MoveLogicWrapper());
         }

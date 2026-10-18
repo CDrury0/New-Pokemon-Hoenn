@@ -11,15 +11,16 @@ public class PlayerMovementNormal : PlayerMovementHandler {
 
     public static PlayerMovementNormal GetObject() => Resources.Load<PlayerMovementNormal>("PlayerMovementHandlers/PlayerMovementNormal");
 
-    public override void AnimateMovement(PlayerInput input, Vector3 direction)
+    public override void AnimateMovement(Vector3 direction)
     {
         
     }
 
-    public override void HandleMovement(PlayerInput input, Vector3 newDirection) {
+    public override void HandleMovement(Vector3 newDirection) {
+        var input = PlayerInput.Instance;
         input.CurrentMoveSpeed = input.IsSprinting ? SprintSpeed : BaseSpeed;
-        if(PlayerInput.Direction != newDirection){
-            PlayerInput.Direction = newDirection;
+        if(input.Direction != newDirection){
+            input.Direction = newDirection;
             if(!input.IsSprinting){
                 input.DelayMovementInput();
             }
@@ -31,15 +32,15 @@ public class PlayerMovementNormal : PlayerMovementHandler {
         if(collider is not null && interrupt is null)
             return;
 
-        Vector3 moveVector = PlayerInput.Direction;
-        var proceed = interrupt?.Apply(input, PlayerInput.Direction, out moveVector) ?? true;
+        Vector3 moveVector = input.Direction;
+        var proceed = interrupt?.Apply(input.Direction, out moveVector) ?? true;
         if(!proceed)
             return;
 
-        PlayerInput.followPoint.position += moveVector;
-        AnimateMovement(input, moveVector);
+        input.followPoint.position += moveVector;
+        AnimateMovement(moveVector);
 
-        PlayerInput.StepCount++;
+        input.StepCount++;
 
         input.DoAfterStep();
     }

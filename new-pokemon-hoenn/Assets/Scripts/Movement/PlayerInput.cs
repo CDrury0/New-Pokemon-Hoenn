@@ -5,16 +5,17 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    public static Transform playerTransform;
+    public static PlayerInput Instance { get; private set; }
+    public Transform playerTransform;
     /// <summary>
     /// This may be set independently to account for menu toggling
     /// </summary>
-    public static bool allowMovementInput = true;
-    private static bool _allowMenuToggle = true;
+    [HideInInspector] public bool allowMovementInput = true;
+    private bool _allowMenuToggle = true;
     /// <summary>
     /// Setting this false automatically sets allowMovementInput to false
     /// </summary>
-    public static bool AllowMenuToggle {
+    public bool AllowMenuToggle {
         get { return _allowMenuToggle; }
         set { if(value == false){
                 allowMovementInput = false;
@@ -22,10 +23,10 @@ public class PlayerInput : MonoBehaviour
             _allowMenuToggle = value;
         }
     }
-    public static int StepCount;
-    protected static List<Tuple<int, Func<bool>>> AfterStep;
+    [HideInInspector] public int StepCount;
+    protected List<Tuple<int, Func<bool>>> AfterStep;
     public GameObject interactPointPrefab;
-    public static Transform followPoint;
+    public Transform followPoint;
     public MenuAnimation menuAnimation;
     public LayerMask interruptsMovement;
     public Animator animator;
@@ -33,15 +34,11 @@ public class PlayerInput : MonoBehaviour
     public float CurrentMoveSpeed { get; set; }
     public bool IsSprinting { get; set; }
     [SerializeField] private float movementInputDelaySeconds;
-    public static Vector3 Direction { get; set; }
-    public static Vector3 PlayerHeightOffset {get => new(0, -0.5f, 0);}
-    public static MovementMode MovementMode { get; private set; }
+    public Vector3 Direction { get; set; }
+    public Vector3 PlayerHeightOffset {get => new(0, -0.5f, 0);}
 
-    public static void UpdateMovementMode(MovementMode newMode) {
 
-    }
-
-    public static void SetPlayerPosition(Vector3 newPosition) {
+    public void SetPlayerPosition(Vector3 newPosition) {
         followPoint.position = newPosition - PlayerHeightOffset;
         playerTransform.position = newPosition - PlayerHeightOffset;
     }
@@ -94,14 +91,14 @@ public class PlayerInput : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         if(horizontal == 0 && vertical == 0){
-            movementHandler.AnimateMovement(this, Direction);
+            movementHandler.AnimateMovement(Direction);
             return;
         }
         Vector3 newDirection = horizontal != 0 ? new(horizontal, 0, 0) : new(0, vertical, 0);
-        movementHandler.HandleMovement(this, newDirection);        
+        movementHandler.HandleMovement(newDirection);        
     }
 
-    public static void RegisterAfterStep(Func<bool> func, int priority) {
+    public void RegisterAfterStep(Func<bool> func, int priority) {
         for(int i = 0; i < AfterStep.Count; i++){
             if(priority < AfterStep[i].Item1){
                 AfterStep.Insert(i, new(priority, func));
@@ -112,7 +109,7 @@ public class PlayerInput : MonoBehaviour
         AfterStep.Add(new(priority, func));
     }
 
-    public static void UnregisterAfterStep(Func<bool> func) {
+    public void UnregisterAfterStep(Func<bool> func) {
         AfterStep.Remove(AfterStep.Find((entry) => entry.Item2 == func));
     }
 
@@ -138,13 +135,19 @@ public class PlayerInput : MonoBehaviour
     }
 
     protected IEnumerator DelayMovementInputCoroutine() {
-        movementHandler.AnimateMovement(this, Direction);
+        movementHandler.AnimateMovement(Direction);
         allowMovementInput = false;
         yield return new WaitForSeconds(movementInputDelaySeconds);
         allowMovementInput = true;
     }
 
     void Awake(){
+        if(Instance != null){
+            Debug.Log("PlayerInput already exists!");
+            return;
+        }
+        Instance = this;
+
         playerTransform = transform;
         followPoint = GameObject.FindGameObjectWithTag("MovePoint").transform;
         AfterStep = new();

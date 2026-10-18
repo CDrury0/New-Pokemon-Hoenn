@@ -9,7 +9,7 @@ public class SpawnerArea : MonoBehaviour, IInterruptPlayerMovement
     [SerializeField] private EventWildBattle wildBattle;
 
     // This might need to be reworked to trigger on AfterStep rather than before
-    public bool Apply(PlayerInput input, Vector3 direction, out Vector3 movementOffset) {
+    public bool Apply(Vector3 direction, out Vector3 movementOffset) {
         SpawnerFunc();
         movementOffset = direction;
         return true;
