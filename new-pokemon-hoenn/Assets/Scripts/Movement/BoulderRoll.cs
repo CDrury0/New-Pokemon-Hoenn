@@ -14,8 +14,8 @@ public class BoulderRoll : MonoBehaviour, IInterruptPlayerMovement {
             return false;
 
         transform.position += direction;
-        StartCoroutine(input.DelayMovementInput());
-        input.AnimateMovement(direction, true);
+        input.DelayMovementInput();
+        input.movementHandler.AnimateMovement(input, direction);
         return false;
     }
 }

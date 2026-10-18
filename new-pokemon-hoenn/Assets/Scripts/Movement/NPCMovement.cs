@@ -65,7 +65,7 @@ public abstract class NPCMovement : MonoBehaviour
 
     public void Start(){
         if(moveSpeed == 0f){
-            moveSpeed = PlayerInput.WALKING_SPEED;
+            moveSpeed = PlayerMovementNormal.GetObject().BaseSpeed;
         }
         walkToPoint = transform.position;
         StartCoroutine(MoveLogicWrapper());
