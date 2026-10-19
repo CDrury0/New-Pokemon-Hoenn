@@ -53,16 +53,16 @@ public class PlayerInput : MonoBehaviour
     }
 
     private void GetPlayerInput() {
-        if (Vector3.Distance(transform.position, followPoint.position) != 0){
+        if(Vector3.Distance(transform.position, followPoint.position) != 0){
             return;
         }
-        if (!AllowMenuToggle){
+        if(!AllowMenuToggle){
             return;
         }
-        if (GetMenuInput() || !allowMovementInput) {
+        if(GetMenuInput() || !allowMovementInput) {
             return;
         }
-        if (GetInteractInput()) {
+        if(GetInteractInput()) {
             return;
         }
         IsSprinting = Input.GetKey(KeyCode.LeftShift);
@@ -125,9 +125,11 @@ public class PlayerInput : MonoBehaviour
     }
 
     protected IEnumerator ActivateInteractPointCoroutine() {
+        Debug.Log("Activating interact point");
         GameObject pointObj = Instantiate(interactPointPrefab, transform.position + PlayerHeightOffset + Direction, Quaternion.identity, transform);
         yield return new WaitForFixedUpdate();
         Destroy(pointObj);
+        Debug.Log("Destroyed interact point");
     }
 
     public void DelayMovementInput() {

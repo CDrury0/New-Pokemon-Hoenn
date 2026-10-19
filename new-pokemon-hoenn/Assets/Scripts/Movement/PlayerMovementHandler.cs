@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public abstract class PlayerMovementHandler : ScriptableObject {
@@ -7,15 +8,11 @@ public abstract class PlayerMovementHandler : ScriptableObject {
     public MovementMode MovementMode { get => _movementMode; }
 
     public static PlayerMovementHandler GetByMovementMode(MovementMode mode) {
-        var handlers = Resources.LoadAll<PlayerMovementHandler>("PlayerMovementHandlers");
-        foreach(var handler in handlers)
-            if(handler.MovementMode == mode)
-                return handler;
-
-        return null;
+        IEnumerable<PlayerMovementHandler> handlers = Resources.LoadAll<PlayerMovementHandler>("PlayerMovementHandlers");
+        return handlers.FirstOrDefault((val) => val.MovementMode == mode);
     }
 
     public abstract void HandleMovement(Vector3 newDirection);
 
-    public abstract void AnimateMovement(Vector3 direction);
+    public abstract void AnimateMovement(Vector3 direction, bool showMovement=false);
 }

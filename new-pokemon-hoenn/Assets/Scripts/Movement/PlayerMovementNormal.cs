@@ -11,9 +11,15 @@ public class PlayerMovementNormal : PlayerMovementHandler {
 
     public static PlayerMovementNormal GetObject() => Resources.Load<PlayerMovementNormal>("PlayerMovementHandlers/PlayerMovementNormal");
 
-    public override void AnimateMovement(Vector3 direction)
-    {
-        
+    public override void AnimateMovement(Vector3 direction, bool showMovement=false) {
+        var input = PlayerInput.Instance;
+        input.animator.SetBool("IsSprinting", input.IsSprinting);
+        input.animator.SetBool("IsMoving", showMovement);
+        if(showMovement)
+            input.animator.SetBool("WhichStep", !input.animator.GetBool("WhichStep"));
+
+        input.animator.SetFloat("X", direction.x);
+        input.animator.SetFloat("Y", direction.y);
     }
 
     public override void HandleMovement(Vector3 newDirection) {
@@ -38,7 +44,7 @@ public class PlayerMovementNormal : PlayerMovementHandler {
             return;
 
         input.followPoint.position += moveVector;
-        AnimateMovement(moveVector);
+        AnimateMovement(moveVector, true);
 
         input.StepCount++;
 

@@ -9,8 +9,7 @@ public class PlayerMovementSurf : PlayerMovementHandler {
 
     public static PlayerMovementSurf GetObject() => Resources.Load<PlayerMovementSurf>("PlayerMovementHandlers/PlayerMovementSurf");
 
-    public override void AnimateMovement(Vector3 direction)
-    {
+    public override void AnimateMovement(Vector3 direction, bool showMovement=false) {
         
     }
 
