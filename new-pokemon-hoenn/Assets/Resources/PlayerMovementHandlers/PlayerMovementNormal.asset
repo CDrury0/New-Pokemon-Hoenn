@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: PlayerMovementNormal
   m_EditorClassIdentifier: 
   _movementMode: 0
+  _animatorController: {fileID: 9100000, guid: 713ec0146b81a6241a5eda068fb57982, type: 2}
   _baseSpeed: 3.5
-  _sprintSpeed: 6.5
+  _sprintSpeed: 10.5

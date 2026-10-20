@@ -10,7 +10,9 @@ public class PlayerMovementSurf : PlayerMovementHandler {
     public static PlayerMovementSurf GetObject() => Resources.Load<PlayerMovementSurf>("PlayerMovementHandlers/PlayerMovementSurf");
 
     public override void AnimateMovement(Vector3 direction, bool showMovement=false) {
-        
+        var input = PlayerInput.Instance;
+        input.animator.SetFloat("X", direction.x);
+        input.animator.SetFloat("Y", direction.y);
     }
 
     public override void HandleMovement(Vector3 newDirection) {

@@ -35,8 +35,15 @@ public class PlayerInput : MonoBehaviour
     public bool IsSprinting { get; set; }
     [SerializeField] private float movementInputDelaySeconds;
     public Vector3 Direction { get; set; }
-    public Vector3 PlayerHeightOffset {get => new(0, -0.5f, 0);}
+    public Vector3 PlayerHeightOffset { get => new(0, -0.5f, 0); }
 
+    public void SetMovementMode(MovementMode mode) {
+        movementHandler = PlayerMovementHandler.GetByMovementMode(mode);
+        if(movementHandler.AnimatorController != null)
+            animator.runtimeAnimatorController = movementHandler.AnimatorController;
+        else
+            Debug.LogWarning("Set a PlayerMovementHandler with no Animator Controller");
+    }
 
     public void SetPlayerPosition(Vector3 newPosition) {
         followPoint.position = newPosition - PlayerHeightOffset;
@@ -125,11 +132,9 @@ public class PlayerInput : MonoBehaviour
     }
 
     protected IEnumerator ActivateInteractPointCoroutine() {
-        Debug.Log("Activating interact point");
         GameObject pointObj = Instantiate(interactPointPrefab, transform.position + PlayerHeightOffset + Direction, Quaternion.identity, transform);
         yield return new WaitForFixedUpdate();
         Destroy(pointObj);
-        Debug.Log("Destroyed interact point");
     }
 
     public void DelayMovementInput() {

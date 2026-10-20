@@ -6,6 +6,8 @@ using UnityEngine;
 public abstract class PlayerMovementHandler : ScriptableObject {
     [SerializeField] MovementMode _movementMode;
     public MovementMode MovementMode { get => _movementMode; }
+    [SerializeField] RuntimeAnimatorController _animatorController;
+    public RuntimeAnimatorController AnimatorController { get => _animatorController; }
 
     public static PlayerMovementHandler GetByMovementMode(MovementMode mode) {
         IEnumerable<PlayerMovementHandler> handlers = Resources.LoadAll<PlayerMovementHandler>("PlayerMovementHandlers");
