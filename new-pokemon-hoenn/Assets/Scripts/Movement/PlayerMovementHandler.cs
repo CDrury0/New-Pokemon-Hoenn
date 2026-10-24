@@ -8,6 +8,8 @@ public abstract class PlayerMovementHandler : ScriptableObject {
     public MovementMode MovementMode { get => _movementMode; }
     [SerializeField] RuntimeAnimatorController _animatorController;
     public RuntimeAnimatorController AnimatorController { get => _animatorController; }
+    [SerializeField] LayerMask _interruptsMovement;
+    public LayerMask InterruptsMovement { get => _interruptsMovement; }
 
     public static PlayerMovementHandler GetByMovementMode(MovementMode mode) {
         IEnumerable<PlayerMovementHandler> handlers = Resources.LoadAll<PlayerMovementHandler>("PlayerMovementHandlers");

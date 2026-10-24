@@ -14,4 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementMode: 1
   _animatorController: {fileID: 22100000, guid: f09e3fe0fb9ca9680aa7097c9435120f, type: 2}
+  _interruptsMovement:
+    serializedVersion: 2
+    m_Bits: 64
   _baseSpeed: 6
+  waterMask:
+    serializedVersion: 2
+    m_Bits: 16

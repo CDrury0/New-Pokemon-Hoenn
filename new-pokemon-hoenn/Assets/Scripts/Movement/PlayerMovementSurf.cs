@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovementSurf : PlayerMovementHandler {
     [SerializeField] float _baseSpeed;
     public float BaseSpeed { get => _baseSpeed; }
+    [SerializeField] LayerMask waterMask;
 
     public static PlayerMovementSurf GetObject() => Resources.Load<PlayerMovementSurf>("PlayerMovementHandlers/PlayerMovementSurf");
 
@@ -17,6 +18,7 @@ public class PlayerMovementSurf : PlayerMovementHandler {
 
     public override void HandleMovement(Vector3 newDirection) {
         var input = PlayerInput.Instance;
+        input.CurrentMoveSpeed = BaseSpeed;
         input.Direction = newDirection;
         var collider = input.GetColliderAtNextStep();
         var interrupt = collider?.GetComponent<IInterruptPlayerMovement>();
@@ -27,6 +29,9 @@ public class PlayerMovementSurf : PlayerMovementHandler {
         var proceed = interrupt?.Apply(input.Direction, out moveVector) ?? true;
         if(!proceed)
             return;
+
+        if(!input.GetColliderAtNextStep(waterMask))
+            input.SetMovementMode(MovementMode.NORMAL);
 
         input.followPoint.position += moveVector;
         AnimateMovement(moveVector);

@@ -11,7 +11,7 @@ public class BoulderRoll : MonoBehaviour, IInterruptPlayerMovement {
         if(!requiredMove?.IsConditionTrue() ?? false)
             return false;
 
-        if(Physics2D.OverlapCircle(transform.position + direction, 0.4f, input.interruptsMovement))
+        if(Physics2D.OverlapCircle(transform.position + direction, 0.4f, input.movementHandler.InterruptsMovement))
             return false;
 
         transform.position += direction;

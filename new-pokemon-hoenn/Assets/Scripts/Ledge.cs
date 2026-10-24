@@ -16,7 +16,7 @@ public class Ledge : MonoBehaviour, IInterruptPlayerMovement
         Collider2D collider = Physics2D.OverlapCircle(
             input.followPoint.position + input.PlayerHeightOffset + (2 * HopDirection),
             0.4f,
-            input.interruptsMovement
+            input.movementHandler.InterruptsMovement
         );
         if(collider)
             return false;

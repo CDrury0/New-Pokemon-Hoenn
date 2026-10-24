@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
@@ -28,7 +29,6 @@ public class PlayerInput : MonoBehaviour
     public GameObject interactPointPrefab;
     public Transform followPoint;
     public MenuAnimation menuAnimation;
-    public LayerMask interruptsMovement;
     public Animator animator;
     public PlayerMovementHandler movementHandler;
     public float CurrentMoveSpeed { get; set; }
@@ -42,7 +42,7 @@ public class PlayerInput : MonoBehaviour
         if(movementHandler.AnimatorController != null)
             animator.runtimeAnimatorController = movementHandler.AnimatorController;
         else
-            Debug.LogWarning("Set a PlayerMovementHandler with no Animator Controller");
+            Debug.LogWarning("A PlayerMovementHandler was set without an Animator Controller");
     }
 
     public void SetPlayerPosition(Vector3 newPosition) {
@@ -51,7 +51,11 @@ public class PlayerInput : MonoBehaviour
     }
 
     public Collider2D GetColliderAtNextStep() {
-        return Physics2D.OverlapCircle(followPoint.position + PlayerHeightOffset + Direction, 0.4f, interruptsMovement);
+        return GetColliderAtNextStep(movementHandler.InterruptsMovement);
+    }
+
+    public Collider2D GetColliderAtNextStep(LayerMask targetMask) {
+        return Physics2D.OverlapCircle(followPoint.position + PlayerHeightOffset + Direction, 0.4f, targetMask);
     }
 
     void Update() {
