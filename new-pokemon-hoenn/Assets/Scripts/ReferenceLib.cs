@@ -84,6 +84,8 @@ public class ReferenceLib : ScriptableObject
         }
         if(SaveManager.LoadedSave?.playerBadges != null){
             _playerBadges = SaveManager.LoadedSave.playerBadges.Select((badgeName) => GetGymBadge(badgeName)).ToList();
+        } else {
+            _playerBadges = new List<GymBadge>();
         }
     }
 

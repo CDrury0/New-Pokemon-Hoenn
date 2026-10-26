@@ -178,11 +178,12 @@ public class PlayerInput : MonoBehaviour
     }
 
     void Start(){
-        if(SaveManager.LoadedSave?.currentPosition != null){
+        if(SaveManager.LoadedSave?.currentPosition != null)
             transform.position = SaveManager.LoadedSave.currentPosition.value;
-        }
         
         followPoint.position = transform.position;
         Direction = Vector3.down;
+        if(SaveManager.LoadedSave?.movementMode != null)
+            SetMovementMode((MovementMode)SaveManager.LoadedSave.movementMode);
     }
 }

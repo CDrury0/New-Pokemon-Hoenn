@@ -8,6 +8,7 @@ public class SaveData
     //public static GameObject CurrentAreaEventObjectPrefab { get; private set; }
     public DynamicDictionary<string, Vector3>.Entry lastHealedPosition;
     public DynamicDictionary<string, Vector3>.Entry escapePosition;
+    public int movementMode;
     public List<SaveablePokemon> currentParty;
     //box mons
     public DexStatus[] dexStatus;
