@@ -45,6 +45,19 @@ public class PlayerInput : MonoBehaviour
             Debug.LogWarning("A PlayerMovementHandler was set without an Animator Controller");
     }
 
+    public bool PlayerIsMoving() {
+        return Vector3.Distance(transform.position, followPoint.position) != 0;
+    }
+
+    /// <summary>
+    /// Forces the player to move in the target direction, bypassing the current movement handler's logic
+    /// </summary>
+    public void PlayerTakeStepForced(Vector3 direction) {
+        Direction = direction;
+        followPoint.position += Direction;
+        movementHandler.AnimateMovement(Direction, true);
+    }
+
     public void SetPlayerPosition(Vector3 newPosition) {
         followPoint.position = newPosition - PlayerHeightOffset;
         playerTransform.position = newPosition - PlayerHeightOffset;
@@ -64,7 +77,7 @@ public class PlayerInput : MonoBehaviour
     }
 
     private void GetPlayerInput() {
-        if(Vector3.Distance(transform.position, followPoint.position) != 0){
+        if(PlayerIsMoving()){
             return;
         }
         if(!AllowMenuToggle){
