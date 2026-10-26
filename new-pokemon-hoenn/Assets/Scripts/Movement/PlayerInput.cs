@@ -1,22 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    public static Transform playerTransform;
-    public const float WALKING_SPEED = 3.5f;
-    public const float SPRINT_SPEED = 6.5f;
+    public static PlayerInput Instance { get; private set; }
+    public Transform playerTransform;
     /// <summary>
     /// This may be set independently to account for menu toggling
     /// </summary>
-    public static bool allowMovementInput = true;
-    private static bool _allowMenuToggle = true;
+    [HideInInspector] public bool allowMovementInput = true;
+    private bool _allowMenuToggle = true;
     /// <summary>
     /// Setting this false automatically sets allowMovementInput to false
     /// </summary>
-    public static bool AllowMenuToggle {
+    public bool AllowMenuToggle {
         get { return _allowMenuToggle; }
         set { if(value == false){
                 allowMovementInput = false;
@@ -24,52 +24,79 @@ public class PlayerInput : MonoBehaviour
             _allowMenuToggle = value;
         }
     }
-    public static int StepCount;
-    protected static List<Tuple<int, Func<bool>>> AfterStep;
+    [HideInInspector] public int StepCount;
+    protected List<Tuple<int, Func<bool>>> AfterStep;
     public GameObject interactPointPrefab;
-    public static Transform followPoint;
+    public Transform followPoint;
     public MenuAnimation menuAnimation;
-    public LayerMask interruptsMovement;
     public Animator animator;
-    private float moveSpeed;
+    public PlayerMovementHandler movementHandler;
+    public float CurrentMoveSpeed { get; set; }
+    public bool IsSprinting { get; set; }
     [SerializeField] private float movementInputDelaySeconds;
-    public static Vector3 Direction { get; set; }
-    public static Vector3 PlayerHeightOffset {get => new(0, -0.5f, 0);}
+    public Vector3 Direction { get; set; }
+    public Vector3 PlayerHeightOffset { get => new(0, -0.5f, 0); }
 
-    public static void SetPlayerPosition(Vector3 newPosition) {
+    public void SetMovementMode(MovementMode mode) {
+        movementHandler = PlayerMovementHandler.GetByMovementMode(mode);
+        if(movementHandler.AnimatorController != null)
+            animator.runtimeAnimatorController = movementHandler.AnimatorController;
+        else
+            Debug.LogWarning("A PlayerMovementHandler was set without an Animator Controller");
+    }
+
+    public bool PlayerIsMoving() {
+        return Vector3.Distance(transform.position, followPoint.position) != 0;
+    }
+
+    /// <summary>
+    /// Forces the player to move in the target direction, bypassing the current movement handler's logic
+    /// </summary>
+    public void PlayerTakeStepForced(Vector3 direction) {
+        Direction = direction;
+        followPoint.position += Direction;
+        movementHandler.AnimateMovement(Direction, true);
+    }
+
+    public void SetPlayerPosition(Vector3 newPosition) {
         followPoint.position = newPosition - PlayerHeightOffset;
         playerTransform.position = newPosition - PlayerHeightOffset;
     }
 
     public Collider2D GetColliderAtNextStep() {
-        return Physics2D.OverlapCircle(followPoint.position + PlayerHeightOffset + Direction, 0.4f, interruptsMovement);
+        return GetColliderAtNextStep(movementHandler.InterruptsMovement);
+    }
+
+    public Collider2D GetColliderAtNextStep(LayerMask targetMask) {
+        return Physics2D.OverlapCircle(followPoint.position + PlayerHeightOffset + Direction, 0.4f, targetMask);
     }
 
     void Update() {
         GetPlayerInput();
-        transform.position = Vector3.MoveTowards(transform.position, followPoint.position, moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, followPoint.position, CurrentMoveSpeed * Time.deltaTime);
     }
 
     private void GetPlayerInput() {
-        if (Vector3.Distance(transform.position, followPoint.position) != 0){
+        if(PlayerIsMoving()){
             return;
         }
-        if (!AllowMenuToggle){
+        if(!AllowMenuToggle){
             return;
         }
-        if (GetMenuInput() || !allowMovementInput) {
+        if(GetMenuInput() || !allowMovementInput) {
             return;
         }
-        if (GetInteractInput()) {
+        if(GetInteractInput()) {
             return;
         }
-        GetMovementInput(Input.GetKey(KeyCode.LeftShift));            
+        IsSprinting = Input.GetKey(KeyCode.LeftShift);
+        GetMovementInput();
     }
             
 
     private bool GetInteractInput() {
         if(Input.GetKeyDown(KeyCode.E)){
-            StartCoroutine(ActivateInteractPoint());
+            ActivateInteractPoint();
             return true;
         }
         return false;
@@ -84,46 +111,18 @@ public class PlayerInput : MonoBehaviour
         return false;
     }
 
-    private void GetMovementInput(bool sprinting) {
+    private void GetMovementInput() {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         if(horizontal == 0 && vertical == 0){
-            AnimateMovement(Direction, false);
+            movementHandler.AnimateMovement(Direction);
             return;
         }
-
         Vector3 newDirection = horizontal != 0 ? new(horizontal, 0, 0) : new(0, vertical, 0);
-        moveSpeed = sprinting ? SPRINT_SPEED : WALKING_SPEED;
-
-        // virtual method that contains the following? (override on surf, bike)
-        if(Direction != newDirection){
-            Direction = newDirection;
-            if(!sprinting){
-                StartCoroutine(DelayMovementInput());
-            }
-            return;
-        }
-
-        var collider = GetColliderAtNextStep();
-        var interrupt = collider?.GetComponent<IInterruptPlayerMovement>();
-        if(collider is not null && interrupt is null)
-            return;
-
-        Vector3 moveVector = Direction;
-        var proceed = interrupt?.Apply(this, Direction, out moveVector) ?? true;
-        if(!proceed)
-            return;
-
-        followPoint.position += moveVector;
-        AnimateMovement(Direction, true, sprinting);
-
-        StepCount++;
-
-        DoAfterStep();
-        // end virtual method
+        movementHandler.HandleMovement(newDirection);        
     }
 
-    public static void RegisterAfterStep(Func<bool> func, int priority) {
+    public void RegisterAfterStep(Func<bool> func, int priority) {
         for(int i = 0; i < AfterStep.Count; i++){
             if(priority < AfterStep[i].Item1){
                 AfterStep.Insert(i, new(priority, func));
@@ -134,51 +133,57 @@ public class PlayerInput : MonoBehaviour
         AfterStep.Add(new(priority, func));
     }
 
-    public static void UnregisterAfterStep(Func<bool> func) {
+    public void UnregisterAfterStep(Func<bool> func) {
         AfterStep.Remove(AfterStep.Find((entry) => entry.Item2 == func));
     }
 
-    private void DoAfterStep() {
+    public void DoAfterStep() {
         var temp = new List<Tuple<int, Func<bool>>>(AfterStep);
         foreach(var val in temp)
             if(!val.Item2())
                 break;
     }
 
-    public void AnimateMovement(Vector3 direction, bool isMoving, bool isSprinting = false) {
-        animator.SetBool("IsSprinting", isSprinting);
-        animator.SetBool("IsMoving", isMoving);
-        if(isMoving){
-            animator.SetBool("WhichStep", !animator.GetBool("WhichStep"));
-        }
-        animator.SetFloat("X", direction.x);
-        animator.SetFloat("Y", direction.y);
+    public void ActivateInteractPoint() {
+        StartCoroutine(ActivateInteractPointCoroutine());
     }
 
-    private IEnumerator ActivateInteractPoint() {
+    protected IEnumerator ActivateInteractPointCoroutine() {
         GameObject pointObj = Instantiate(interactPointPrefab, transform.position + PlayerHeightOffset + Direction, Quaternion.identity, transform);
         yield return new WaitForFixedUpdate();
         Destroy(pointObj);
     }
 
-    public IEnumerator DelayMovementInput() {
-        AnimateMovement(Direction, false);
+    public void DelayMovementInput() {
+        StartCoroutine(DelayMovementInputCoroutine());
+    }
+
+    protected IEnumerator DelayMovementInputCoroutine() {
+        movementHandler.AnimateMovement(Direction);
         allowMovementInput = false;
         yield return new WaitForSeconds(movementInputDelaySeconds);
         allowMovementInput = true;
     }
 
     void Awake(){
+        if(Instance != null){
+            Debug.Log("PlayerInput already exists!");
+            return;
+        }
+        Instance = this;
+
         playerTransform = transform;
         followPoint = GameObject.FindGameObjectWithTag("MovePoint").transform;
         AfterStep = new();
     }
 
     void Start(){
-        if(SaveManager.LoadedSave?.currentPosition != null){
+        if(SaveManager.LoadedSave?.currentPosition != null)
             transform.position = SaveManager.LoadedSave.currentPosition.value;
-        }
+        
         followPoint.position = transform.position;
         Direction = Vector3.down;
+        if(SaveManager.LoadedSave?.movementMode != null)
+            SetMovementMode((MovementMode)SaveManager.LoadedSave.movementMode);
     }
 }

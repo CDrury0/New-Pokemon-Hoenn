@@ -9133,6 +9133,8 @@ GameObject:
   - component: {fileID: 4516172747222904937}
   - component: {fileID: 7939927491074808867}
   - component: {fileID: 1473085154431487995}
+  - component: {fileID: 6275154824576209121}
+  - component: {fileID: 8594900900703773462}
   m_Layer: 4
   m_Name: Liquid
   m_TagString: Untagged
@@ -9258,6 +9260,44 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
+--- !u!114 &6275154824576209121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608942587305995726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89de7da6b36b11d4cb1c519b9192487f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allowInput: 0
+  triggerMethod: 0
+  destroyIfAlreadyDone: 0
+  destroyIfTrue: {fileID: 0}
+  _eventTriggerID: 0
+  eventActions:
+  - {fileID: 8594900900703773462}
+  eventsIfAlreadyDone: []
+  movementToStop: {fileID: 0}
+  movementToFacePlayer: {fileID: 0}
+--- !u!114 &8594900900703773462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608942587305995726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9627d836a778df47cbc71cb6ee4986f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroySelfOnComplete: 0
+  waitSecondsAfter: 0
+  nextEvent: {fileID: 0}
+  prefab: {fileID: 4042591727687811820, guid: 9cb78f1ae947a81ad9124b2b24c6c869, type: 3}
 --- !u!1 &6542981883751510920
 GameObject:
   m_ObjectHideFlags: 0

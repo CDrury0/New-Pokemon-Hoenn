@@ -13,11 +13,12 @@ public class NPCWalkEvent : EventAction
     [SerializeField] private NPCMovement movementComponent;
 
     protected override IEnumerator EventActionLogic(){
+        var input = PlayerInput.Instance;
         int diffY;
         int diffX;
         if(moveToPlayer){
-            diffY = (int)((PlayerInput.playerTransform.position.y - transform.position.y));
-            diffX = (int)((PlayerInput.playerTransform.position.x - transform.position.x));
+            diffY = (int)(input.playerTransform.position.y - transform.position.y);
+            diffX = (int)(input.playerTransform.position.x - transform.position.x);
             //since the object should be on the tile NEXT TO the player, subtract one from the distance on the final axis traversed
             if(diffY == 0){
                 diffX = GetDiffOffset(diffX);

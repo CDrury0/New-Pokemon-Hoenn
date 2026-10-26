@@ -16,7 +16,7 @@ public abstract class NPCMovement : MonoBehaviour
 
     protected IEnumerator MoveLogicWrapper(){
         yield return StartCoroutine(PassiveMoveLogic());
-        yield return new WaitUntil(() => PlayerInput.allowMovementInput);
+        yield return new WaitUntil(() => PlayerInput.Instance.allowMovementInput);
         if(!Halt){
             StartCoroutine(MoveLogicWrapper());
         }
@@ -65,7 +65,7 @@ public abstract class NPCMovement : MonoBehaviour
 
     public void Start(){
         if(moveSpeed == 0f){
-            moveSpeed = PlayerInput.WALKING_SPEED;
+            moveSpeed = PlayerMovementNormal.GetObject().BaseSpeed;
         }
         walkToPoint = transform.position;
         StartCoroutine(MoveLogicWrapper());

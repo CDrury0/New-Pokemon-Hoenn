@@ -26,9 +26,10 @@ public class SaveManager : ScriptableObject
 
     public void SaveData(){
         SaveData saveData = new() {
-            currentPosition = new(ReferenceLib.ActiveArea.name, PlayerInput.playerTransform.position),
+            currentPosition = new(ReferenceLib.ActiveArea.name, PlayerInput.Instance.playerTransform.position),
             lastHealedPosition = new(ReferenceLib.LastHealPosition.key?.name ?? "null", ReferenceLib.LastHealPosition.value),
             escapePosition = new(ReferenceLib.EscapePosition.key?.name ?? "null", ReferenceLib.EscapePosition.value),
+            movementMode = (int)PlayerInput.Instance.movementHandler.MovementMode,
             currentParty = GetSaveablePokemonList(PlayerParty.Party.members),
             dexStatus = ReferenceLib.GlobalDexProgress,
             inventory = GetSerializableInventoryList(PlayerInventory.GetKeyValuePairList()),

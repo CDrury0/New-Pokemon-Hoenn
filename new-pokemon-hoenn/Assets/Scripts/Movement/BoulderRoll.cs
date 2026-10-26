@@ -5,17 +5,18 @@ using UnityEngine;
 public class BoulderRoll : MonoBehaviour, IInterruptPlayerMovement {
     [SerializeField] FieldMoveCondition requiredMove;
 
-    public bool Apply(PlayerInput input, Vector3 direction, out Vector3 movementOffset) {
+    public bool Apply(Vector3 direction, out Vector3 movementOffset) {
+        var input = PlayerInput.Instance;
         movementOffset = Vector3.zero;
         if(!requiredMove?.IsConditionTrue() ?? false)
             return false;
 
-        if(Physics2D.OverlapCircle(transform.position + direction, 0.4f, input.interruptsMovement))
+        if(Physics2D.OverlapCircle(transform.position + direction, 0.4f, input.movementHandler.InterruptsMovement))
             return false;
 
         transform.position += direction;
-        StartCoroutine(input.DelayMovementInput());
-        input.AnimateMovement(direction, true);
+        input.DelayMovementInput();
+        input.movementHandler.AnimateMovement(direction);
         return false;
     }
 }

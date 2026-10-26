@@ -42,14 +42,14 @@ public class ReferenceLib : ScriptableObject
     }
     [SerializeField] private List<GymBadge> _playerBadges;
 
-    public static void SetAllowMenuToggle(bool val) => PlayerInput.AllowMenuToggle = val;
+    public static void SetAllowMenuToggle(bool val) => PlayerInput.Instance.AllowMenuToggle = val;
     public static PokemonType GetPokemonType(string typeName) => Instance.typeList.Find(t => t.name == typeName);
     public static List<PokemonNature> GetNatures() => Instance.natures;
     public static GymBadge GetGymBadge(string badgeName) => Instance.gymBadgeReference.Find((badge) => badge.BadgeName == badgeName);
 
     public static void SetLastHealPosition() {
         Instance._lastHealPosition.key = ActiveArea;
-        Instance._lastHealPosition.value = PlayerInput.playerTransform.position;
+        Instance._lastHealPosition.value = PlayerInput.Instance.playerTransform.position;
     }
 
     public void Init() {
@@ -84,6 +84,8 @@ public class ReferenceLib : ScriptableObject
         }
         if(SaveManager.LoadedSave?.playerBadges != null){
             _playerBadges = SaveManager.LoadedSave.playerBadges.Select((badgeName) => GetGymBadge(badgeName)).ToList();
+        } else {
+            _playerBadges = new List<GymBadge>();
         }
     }
 

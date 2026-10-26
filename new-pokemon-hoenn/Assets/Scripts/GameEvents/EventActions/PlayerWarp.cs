@@ -8,6 +8,7 @@ public class PlayerWarp : EventAction
     [SerializeField] AreaData newArea;
 
     protected override IEnumerator EventActionLogic() {
+        var input = PlayerInput.Instance;
         var loaded = false;
         yield return StartCoroutine(OverlayTransitionManager.Instance.TransitionCoroutine(() => {
             var areaToLoad = newArea?.GetGameAreaManager() ?? GetComponentInParent<GameAreaManager>();
@@ -16,7 +17,7 @@ public class PlayerWarp : EventAction
                 loaded = true;
             }
             StartCoroutine(WaitLoadArea());
-            PlayerInput.SetPlayerPosition(warpTo);
+            input.SetPlayerPosition(warpTo);
         }));
         yield return new WaitUntil(() => loaded);
     }

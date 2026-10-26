@@ -38,8 +38,8 @@ public abstract class EventAction : MonoBehaviour
             if(nextEvent != null) {
                 StartCoroutine(nextEvent.DoEventAction());
             } else {
-                PlayerInput.allowMovementInput = true;
-                PlayerInput.AllowMenuToggle = true;
+                PlayerInput.Instance.allowMovementInput = true;
+                PlayerInput.Instance.AllowMenuToggle = true;
             }
         }
         if(destroySelfOnComplete) {

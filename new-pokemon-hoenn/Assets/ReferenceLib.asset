@@ -793,7 +793,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c3c5eed97d853c843b4907559a5c1576, type: 2}
   - {fileID: 11400000, guid: ce82cc315b661d845b82f9b10e6a1078, type: 2}
   - {fileID: 11400000, guid: 36c2b7534f7ae2642946848dea1ebb07, type: 2}
-  gymBadgeReference: []
+  gymBadgeReference:
+  - {fileID: 11400000, guid: a51f8e251813fcd37bcd2d7983c3993c, type: 2}
+  - {fileID: 11400000, guid: 570200ce6a9052f28add7654b8564c75, type: 2}
+  - {fileID: 11400000, guid: 5df5aee9480331200b8d16911d45c884, type: 2}
+  - {fileID: 11400000, guid: 24f44ee4ba946bbaab4e9d34bb9a0ec8, type: 2}
+  - {fileID: 11400000, guid: 3fd972aaf4deafaf69e64d31c926e6ac, type: 2}
+  - {fileID: 11400000, guid: fec9414405471ea5ca284e19f3865b0e, type: 2}
+  - {fileID: 11400000, guid: e35c82338d33da6f887a22818d807f00, type: 2}
+  - {fileID: 11400000, guid: 17216ca3ff9dededa8e59546eefba4ca, type: 2}
   natures:
   - {fileID: 11400000, guid: 1abe8748ec4918349b4a5eadba97ad26, type: 2}
   - {fileID: 11400000, guid: 4094314c85c03124a931c45995ad98f4, type: 2}
@@ -819,19 +827,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9fd0617eabbe1ba4e9d25c32ad9110b5, type: 2}
   - {fileID: 11400000, guid: 6506c79ecf19f1f449d5605630815549, type: 2}
   _fallbackBall: {fileID: 11400000, guid: ec773f5a7d2653a40bf6dd47bccff439, type: 2}
-  _activeArea: {fileID: 11400000, guid: dcd9007875211aa8cb82a010fed85f51, type: 2}
+  _activeArea: {fileID: 11400000, guid: b9fa6ae60f6e812f68e548d25c0eafe5, type: 2}
   _lastHealPosition:
     key: {fileID: 11400000, guid: 86422cb3de7131a3d84197fdb4ed4dc1, type: 2}
     value: {x: 91.5, y: 143, z: 0}
   _escapePosition:
     key: {fileID: 0}
     value: {x: 0, y: 0, z: 0}
-  _playerBadges:
-  - {fileID: 11400000, guid: a51f8e251813fcd37bcd2d7983c3993c, type: 2}
-  - {fileID: 11400000, guid: 570200ce6a9052f28add7654b8564c75, type: 2}
-  - {fileID: 11400000, guid: 5df5aee9480331200b8d16911d45c884, type: 2}
-  - {fileID: 11400000, guid: 24f44ee4ba946bbaab4e9d34bb9a0ec8, type: 2}
-  - {fileID: 11400000, guid: 3fd972aaf4deafaf69e64d31c926e6ac, type: 2}
-  - {fileID: 11400000, guid: fec9414405471ea5ca284e19f3865b0e, type: 2}
-  - {fileID: 11400000, guid: e35c82338d33da6f887a22818d807f00, type: 2}
-  - {fileID: 11400000, guid: 17216ca3ff9dededa8e59546eefba4ca, type: 2}
+  _playerBadges: []
