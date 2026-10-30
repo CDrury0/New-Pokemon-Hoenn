@@ -5,7 +5,6 @@ using UnityEngine;
 public class SaveData
 {
     public DynamicDictionary<string, Vector3>.Entry currentPosition;
-    //public static GameObject CurrentAreaEventObjectPrefab { get; private set; }
     public DynamicDictionary<string, Vector3>.Entry lastHealedPosition;
     public DynamicDictionary<string, Vector3>.Entry escapePosition;
     public int movementMode;

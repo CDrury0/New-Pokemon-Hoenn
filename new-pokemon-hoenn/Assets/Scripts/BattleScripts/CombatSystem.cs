@@ -93,7 +93,7 @@ public class CombatSystem : MonoBehaviour
         TurnCount = 0;
         escapeAttempts = 0;
         Weather = ReferenceLib.ActiveArea.weather;
-        weatherTimer = 0;
+        weatherTimer = (Weather?.name != "No Weather") ? 1000 : 0;
         MoveRecordList = new MoveRecordList();
         playerParty = PlayerParty.Instance.playerParty;
         this.DoubleBattle = doubleBattle;
@@ -748,6 +748,7 @@ public class CombatSystem : MonoBehaviour
         DestroyAllObjectsWithTag("Switch");
         DestroyAllObjectsWithTag("Item");
         DestroyAllObjectsWithTag("Placeholder");
+        DestroyAllObjectsWithTag("Run");
     }
 
     private void DestroyAllObjectsWithTag(string tag){
