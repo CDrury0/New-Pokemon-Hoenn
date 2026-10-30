@@ -7,7 +7,8 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     public static PlayerInput Instance { get; private set; }
-    public Transform playerTransform;
+    [HideInInspector] public Transform playerTransform;
+    [HideInInspector] public Rigidbody2D playerRB;
     /// <summary>
     /// This may be set independently to account for menu toggling
     /// </summary>
@@ -73,7 +74,18 @@ public class PlayerInput : MonoBehaviour
 
     void Update() {
         GetPlayerInput();
-        transform.position = Vector3.MoveTowards(transform.position, followPoint.position, CurrentMoveSpeed * Time.deltaTime);
+    }
+
+    void FixedUpdate(){
+        if(!PlayerIsMoving())
+            return;
+
+        var posVec = Direction * CurrentMoveSpeed * Time.fixedDeltaTime;
+        var distanceDiff = followPoint.position - playerTransform.position;
+        if(posVec.magnitude > distanceDiff.magnitude)
+            posVec = distanceDiff;
+            
+        playerRB.MovePosition(playerTransform.position + posVec);
     }
 
     private void GetPlayerInput() {
@@ -173,6 +185,7 @@ public class PlayerInput : MonoBehaviour
         Instance = this;
 
         playerTransform = transform;
+        playerRB = GetComponent<Rigidbody2D>();
         followPoint = GameObject.FindGameObjectWithTag("MovePoint").transform;
         AfterStep = new();
     }

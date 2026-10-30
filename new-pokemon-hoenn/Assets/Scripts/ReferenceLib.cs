@@ -40,7 +40,7 @@ public class ReferenceLib : ScriptableObject
         get => Instance._playerBadges;
         private set => Instance._playerBadges = value;
     }
-    [SerializeField] private List<GymBadge> _playerBadges;
+    [SerializeField] private List<GymBadge> _playerBadges = new();
 
     public static void SetAllowMenuToggle(bool val) => PlayerInput.Instance.AllowMenuToggle = val;
     public static PokemonType GetPokemonType(string typeName) => Instance.typeList.Find(t => t.name == typeName);
@@ -82,11 +82,8 @@ public class ReferenceLib : ScriptableObject
                 }
             }
         }
-        if(SaveManager.LoadedSave?.playerBadges != null){
+        if(SaveManager.LoadedSave?.playerBadges != null)
             _playerBadges = SaveManager.LoadedSave.playerBadges.Select((badgeName) => GetGymBadge(badgeName)).ToList();
-        } else {
-            _playerBadges = new List<GymBadge>();
-        }
     }
 
     public static void UpdateDexStatus(PokemonDefault mon, DexStatus status) {
