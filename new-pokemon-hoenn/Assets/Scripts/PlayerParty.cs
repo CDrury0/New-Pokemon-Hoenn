@@ -25,7 +25,7 @@ public class PlayerParty : MonoBehaviour
             return true;
         }
 
-        //send pokemon to box
+        ReferenceLib.BoxMons.Add(p);
         return false;
     }
 

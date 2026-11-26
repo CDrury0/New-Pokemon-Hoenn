@@ -41,7 +41,8 @@ public class ReferenceLib : ScriptableObject
         private set => Instance._playerBadges = value;
     }
     [SerializeField] private List<GymBadge> _playerBadges = new();
-
+    public static List<Pokemon> BoxMons { get => Instance._boxMons; private set => Instance._boxMons = value; }
+    private List<Pokemon> _boxMons = new();
     public static void SetAllowMenuToggle(bool val) => PlayerInput.Instance.AllowMenuToggle = val;
     public static PokemonType GetPokemonType(string typeName) => Instance.typeList.Find(t => t.name == typeName);
     public static List<PokemonNature> GetNatures() => Instance.natures;
@@ -84,6 +85,9 @@ public class ReferenceLib : ScriptableObject
         }
         if(SaveManager.LoadedSave?.playerBadges != null)
             _playerBadges = SaveManager.LoadedSave.playerBadges.Select((badgeName) => GetGymBadge(badgeName)).ToList();
+
+        if(SaveManager.LoadedSave?.boxMons != null)
+            _boxMons = SaveManager.LoadedSave.boxMons.Select((mon) => new Pokemon(mon)).ToList();
     }
 
     public static void UpdateDexStatus(PokemonDefault mon, DexStatus status) {
