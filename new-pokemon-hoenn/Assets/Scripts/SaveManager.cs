@@ -31,6 +31,7 @@ public class SaveManager : ScriptableObject
             escapePosition = new(ReferenceLib.EscapePosition.key?.name ?? "null", ReferenceLib.EscapePosition.value),
             movementMode = (int)PlayerInput.Instance.movementHandler.MovementMode,
             currentParty = GetSaveablePokemonList(PlayerParty.Party.members),
+            boxMons = GetSaveablePokemonList(ReferenceLib.BoxMons),
             dexStatus = ReferenceLib.GlobalDexProgress,
             inventory = GetSerializableInventoryList(PlayerInventory.GetKeyValuePairList()),
             gameAreaEventManifests = GetSerializableEventManifest(),

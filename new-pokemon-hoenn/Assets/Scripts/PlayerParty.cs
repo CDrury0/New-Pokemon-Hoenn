@@ -25,8 +25,25 @@ public class PlayerParty : MonoBehaviour
             return true;
         }
 
-        //send pokemon to box
+        ReferenceLib.BoxMons.Add(p);
         return false;
+    }
+
+    /// <returns>Whether the Pokemon can be send to box while leaving a valid party remaining; false if Pokemon is not in the party</returns>
+    public static bool CanSendToBox(Pokemon p) {
+        if(!Party.members.Contains(p))
+            return false;
+
+        var tempParty = new Party(new List<Pokemon>(Party.members));
+        tempParty.members.Remove(p);
+        return !tempParty.IsEntireTeamFainted();
+    }
+
+    public static bool CanSendToParty(Pokemon p) {
+        if(Party.members.Contains(p))
+            return false;
+
+        return !Party.IsFull();
     }
 
     void Awake(){

@@ -13,8 +13,7 @@ public class SummaryScreen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI abilityDescription;
     [SerializeField] private TextMeshProUGUI abilityName;
 
-    public void ShowSummaryScreen(int whichPokemon) {
-        Pokemon p = PlayerParty.Party.members.ElementAtOrDefault(whichPokemon);
+    public void ShowSummaryScreen(Pokemon p) {
         for (int i = 0; i < p.stats.Length; i++){
             statTexts[i].text = p.stats[i].ToString();
             float[] natureMultipliers = p.nature.GetNatureModifiers();
@@ -43,5 +42,11 @@ public class SummaryScreen : MonoBehaviour
         abilityDescription.text = StatLib.GetAbilityDescription(p.ability);
         moveDescription.text = "Select a move to learn more about it.";
         gameObject.SetActive(true);
+    }
+
+    /// <param name="whichPokemon">The index of the party pokemon to show</param>
+    public void ShowSummaryScreen(int whichPokemon) {
+        Pokemon p = PlayerParty.Party.members.ElementAtOrDefault(whichPokemon);
+        ShowSummaryScreen(p);
     }
 }
