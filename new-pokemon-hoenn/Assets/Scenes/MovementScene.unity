@@ -5701,7 +5701,8 @@ MonoBehaviour:
     - {fileID: 0}
     moveMaxPP: 00000000000000000000000000000000
     nature: {fileID: 0}
-  - pokemonDefault: {fileID: 11400000, guid: d6ec78c98fed7be49b7275ec9802124e, type: 2}
+    hiddenPowerType: {fileID: 0}
+  - pokemonDefault: {fileID: 11400000, guid: 067f31caec5ee5b4e8971912bccb749e, type: 2}
     ability: 51
     isShiny: 0
     ballUsed: {fileID: 0}
@@ -5721,7 +5722,8 @@ MonoBehaviour:
     - {fileID: 0}
     moveMaxPP: 00000000000000000000000000000000
     nature: {fileID: 0}
-  - pokemonDefault: {fileID: 11400000, guid: d6ec78c98fed7be49b7275ec9802124e, type: 2}
+    hiddenPowerType: {fileID: 0}
+  - pokemonDefault: {fileID: 11400000, guid: 0f21f9dae7c185a4fbd1c2cb4a76bb09, type: 2}
     ability: 51
     isShiny: 0
     ballUsed: {fileID: 0}
@@ -5741,7 +5743,8 @@ MonoBehaviour:
     - {fileID: 0}
     moveMaxPP: 00000000000000000000000000000000
     nature: {fileID: 0}
-  - pokemonDefault: {fileID: 11400000, guid: d6ec78c98fed7be49b7275ec9802124e, type: 2}
+    hiddenPowerType: {fileID: 0}
+  - pokemonDefault: {fileID: 11400000, guid: c76810937a6240d4e90df734baf3bf49, type: 2}
     ability: 51
     isShiny: 0
     ballUsed: {fileID: 0}
@@ -5761,46 +5764,7 @@ MonoBehaviour:
     - {fileID: 0}
     moveMaxPP: 00000000000000000000000000000000
     nature: {fileID: 0}
-  - pokemonDefault: {fileID: 11400000, guid: d6ec78c98fed7be49b7275ec9802124e, type: 2}
-    ability: 51
-    isShiny: 0
-    ballUsed: {fileID: 0}
-    evTotal: 0
-    effortValues: 000000000000000000000000000000000000000000000000
-    individualValues: 000000000000000000000000000000000000000000000000
-    level: 10
-    friendship: 0
-    gender: 1
-    height: 0
-    weight: 0
-    heldItem: {fileID: 0}
-    moves:
-    - {fileID: 1682630347, guid: cf7c7ed935ba7a54da1cd337273b739f, type: 3}
-    - {fileID: 1682630347, guid: 1847b6b8796c64240a11342072074501, type: 3}
-    - {fileID: 0}
-    - {fileID: 0}
-    moveMaxPP: 00000000000000000000000000000000
-    nature: {fileID: 0}
-  - pokemonDefault: {fileID: 11400000, guid: d6ec78c98fed7be49b7275ec9802124e, type: 2}
-    ability: 51
-    isShiny: 0
-    ballUsed: {fileID: 0}
-    evTotal: 0
-    effortValues: 000000000000000000000000000000000000000000000000
-    individualValues: 000000000000000000000000000000000000000000000000
-    level: 10
-    friendship: 0
-    gender: 1
-    height: 0
-    weight: 0
-    heldItem: {fileID: 0}
-    moves:
-    - {fileID: 1682630347, guid: cf7c7ed935ba7a54da1cd337273b739f, type: 3}
-    - {fileID: 1682630347, guid: 1847b6b8796c64240a11342072074501, type: 3}
-    - {fileID: 0}
-    - {fileID: 0}
-    moveMaxPP: 00000000000000000000000000000000
-    nature: {fileID: 0}
+    hiddenPowerType: {fileID: 0}
 --- !u!114 &1934170134
 MonoBehaviour:
   m_ObjectHideFlags: 0

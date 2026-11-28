@@ -24,4 +24,5 @@ public class SerializablePokemon
     public int[] moveMaxPP = new int[4];
     [Tooltip("Null reference will result in a neutral nature when Pokemon is generated")]
     public PokemonNature nature;
+    public PokemonType hiddenPowerType;
 }

@@ -173,6 +173,7 @@ public class Pokemon : IStateDialogue, IStateFeature
         this.type1 = this.pokemonDefault.type1;
         this.type2 = this.pokemonDefault.type2;
         this.weight = p.weight != 0 ? p.weight : this.pokemonDefault.weight;
+        this.hiddenPowerType = p.hiddenPowerType ?? ReferenceLib.Instance.typeList[Random.Range(0, 18)];
     }
 
     public bool IsAvailableFighter() => !IsFainted() && !inBattle && !CombatLib.CombatSystem.IsRegisteredToSwitchIn(this);
