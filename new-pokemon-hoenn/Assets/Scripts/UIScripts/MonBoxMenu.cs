@@ -80,5 +80,6 @@ public class MonBoxMenu : MonoBehaviour {
     void SendToBox(Pokemon p) {
         ReferenceLib.BoxMons.Add(p);
         PlayerParty.Party.members.Remove(p);
+        p.HealComplete();
     }
 }
